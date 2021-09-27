@@ -1,0 +1,229 @@
+\documentclass[a4paper,10pt,notitlepage]{report}
+% German package
+%\usepackage{ngerman}                            % Sprachpaket
+%\usepackage[latin1]{inputenc}           % Sprachpaket
+%\usepackage[T1]{fontenc}                    % Sprachpaket für Umlaute
+%\usepackage{ae, aecompl}                    % verfeinert die Schriftart
+\usepackage[ngerman]{babel}
+%\usepackage[german]{babel}
+%\usepackage[OT2, T1]{fontenc}
+%\usepackage{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsmath}
+\usepackage{pxfonts}
+\usepackage[colorlinks=true,linkcolor=black]{hyperref}  % verlinkt die Kapitel 
+\usepackage{epstopdf}
+\addto\extrasgerman{\renewcommand{\figurename}{Abb.}}
+\addto\extrasgerman{\renewcommand{\tablename}{Tab.}}
+\addto\extrasgerman{\renewcommand{\bibname}{Literaturverzeichnis}}
+\addto\extrasgerman{\renewcommand{\indexname}{Stichwortverzeichnis}}
+\addto\extrasgerman{\renewcommand{\chaptername}{Kapitel}}
+\pagestyle{headings}
+
+% ##################ifthen um Format und Zusammenfassung zu aendern
+\usepackage{ifthen}
+\newboolean{bRandGross}
+\newboolean{bBook}
+\newboolean{bZusammenfassung}
+\newboolean{bSS}
+\setboolean{bRandGross}{true} % boolvar=true or false
+\setboolean{bBook}{true} % boolvar=true or false
+\setboolean{bZusammenfassung}{false} % boolvar=true or false
+\setboolean{bSS}{true} % boolvar=true or false
+\newcommand{\compileif}[2]{\ifthenelse {\boolean{#1}}
+{#2}{}}
+
+
+%\ifthenelse {\boolean{yourBoolVar}}
+%{if true, go this code} {if false, go this}
+
+% ################ Graphics ######################
+
+%\usepackage[dvips]{graphicx,color}
+\usepackage{graphicx,color}
+%\usepackage{epsfig}
+\usepackage{float}
+
+% ##########  Seitenmasse und -position  ##########
+\ifthenelse {\boolean{bRandGross}}
+{\textwidth11cm}
+{\textwidth16.5cm}
+\textheight26cm
+\oddsidemargin -1mm
+\evensidemargin-1mm
+\topmargin-23mm
+
+% ##########  Zusatzabstand bei Absaetzen  ##########
+\parskip1.5ex plus 0.3ex
+
+% ##########  Keine Einrueckung bei Absaetzen  ##########
+\parindent0cm
+
+% ##########  Zeilenabstand  ##########
+\newcommand{\zeilenabstand}{1.0}
+\renewcommand{\baselinestretch}{\zeilenabstand}
+
+% ##########  Caption package   ######################
+\usepackage[hang,small,bf]{caption}    % gute Darst. von (Bild-)Unterschriften
+
+% ##########  Longtable package   ######################
+\usepackage{longtable}    % Tabellen ueber mehr als eine Seite
+% ##########  Eigene Definitionen  ##########
+\input{mathe.tex}
+%\newcommand{\ZT}[1]{\ensuremath{{\cal Z}\left\{#1\right\}}}        % Z-Trafo
+%\newcommand{\IZT}[1]{\ensuremath{{\cal Z}^{-1}\left\{#1\right\}}}
+\newcommand{\fpf}{\ensuremath{\Rightarrow \ }}    % Folgepfeil
+\newcommand{\kreuz}{\ensuremath{\!\times\!}}      % Kreuz, z.B. fuer Interl.
+\newcommand{\jome}{e^{j\Omega}}
+\newcommand{\jom}{(e^{j\Omega})}
+\newcommand{\om}{(\omega)}
+\newcommand{\cmed}{c_{\mathrm{med}}}
+\newcommand{\Erwart}[1]{\mathrm{E} \left\{ #1 \right\}}
+\newcommand{\si}[1]{\mathrm{si} \left\{ #1 \right \}}
+\newcommand{\tbd}[1]{\fbox{{\parbox{\textwidth}{\rule [-1mm]{0cm}{0.5cm}  #1}}}}
+\newcommand{\tbdb}[1]{\fbox{{\parbox{\textwidth}{\rule [-3cm]{0cm}{2.6cm}  #1}}}}
+\newcommand{\wichtig}[1]{\begin{center}\bf #1 \end{center} }
+\newcommand{\Matlab}[1]{{\tt #1} }
+\newcommand{\Engl}[1]{{\em engl: #1} }
+\newcommand{\ia}{i.~$\!$allg.\ }                  % i.allg.
+\newcommand{\ie}{d.~$\!$h.\ }                     % d.h.
+\newcommand{\zB}{z.~$\!$B.\ }                     % z.B.
+\newcommand{\oBdA}{o.~$\!$B.~$\!$d.~$\!$A.\ }     % o.B.d.A.
+
+\renewcommand{\Re}[1]{\mathrm{Re}\left\{ #1 \right\}}
+\renewcommand{\Im}[1]{\mathrm{Im}\left\{ #1 \right\}}
+\newcommand{\HW}[1]{\mathrm{HW}\left\{ #1 \right\}}
+\newcommand{\SNR}{S\!N\!R}
+\newcommand{\SSNR}{S\!S\!N\!R}
+\newcommand{\SNRE}{S\!N\!R\!E}
+\newcommand{\NR}{N\!R}
+\newcommand{\SD}{S\!D}
+\newcommand{\FNR}{F\!N\!R}
+\newcommand{\FSNRE}{F\!S\!N\!R\!E}
+\newcommand{\LAR}{L\!A\!R}
+\newcommand{\WNG}{W\!N\!G}
+\newcommand{\HinTransV}{\multimapdotbothAvert}
+\newcommand{\RueckTransV}{\multimapdotbothBvert}
+\newcommand{\HinTrans}{\multimapdotbothA}
+\newcommand{\RueckTrans}{\multimapdotbothB}
+\newcommand{\textcyr}[1]{{\fontencoding{OT2}\selectfont #1}}
+\newcommand{\be}{\begin{equation}}
+%\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\acosh}{\,\mbox{arccosh}}
+\newcommand{\asinh}{\,\mbox{arcsinh}}
+\newcommand{\Dirac}[1]{\delta^D \left( #1 \right)}
+
+\newenvironment{quoteaa}
+               {\list{}{\setlength{\rightmargin}{-\leftmargin}}%
+                \item\relax}
+               {\endlist}
+
+\newcounter{ExamCount}[chapter]
+\newenvironment{example}{\stepcounter{ExamCount} \begin{quoteaa}\hrulefill\newline
+{\bf Beispiel \arabic{chapter}.\arabic{ExamCount}: }
+}{\par \hrulefill \end{quoteaa}}
+
+\newenvironment{loesung}{\hspace*{0.1cm}\newline\hspace*{0.1cm}\hrulefill\newline
+{\bf Lösung: }\\}
+{\par }
+
+\newcommand{\engl}[1]{(\includegraphics[height=1.2ex]{flagoftheunitedkingdom} {\em #1})}
+
+
+% ##########  Trennliste   ######################
+\hyphenation{zeit-in-va-ri-ant zeit-in-va-ri-ant-en Sy-stem Sy-stems Sig-nal Sig-nals Sig-nal-mo-dell
+             Im-puls-ant-wort Im-puls-ant-worten
+             Kanal-im-puls-ant-wort  Raum-im-puls-ant-wort
+             Beam-for-mer Beam-for-mern Beam-for-mers
+             er-war-tungs-treue
+             Nutz-sig-nal-quelle Nutz-sig-nal Sen-sor-ab-stand Drei-ecks-sig-nal Recht-eck-sig-nal
+             }
+
+%\includeonly{%
+%  %anfang,        % Titelseiten, Vorwort
+%  DeckBlatt,
+%  EchteEinleitung,
+%  einleitung,       % Kapitel 1
+%  Rauschfeld,
+%  Mehrkanal,
+%  NonAdaptive,
+%  MehrAdap,
+%  MehrAPF,
+%  MehrAPFBeamform,
+%  Simulation,
+%  Zusammenfassung,
+%  App_Mathe,
+%  abksym,
+%}
+
+\setcounter{tocdepth}{4} % Hoehere Gliedrungstiefe im Inhaltsverzeichnis
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+
+\sloppy
+\include{Titelseite}
+\tableofcontents
+\pagestyle{plain}
+\include{Grundlagen}
+\include{Signale}
+\include{Systeme}
+\include{zTrafo}
+\include{Spektren}
+\include{Filter}
+\include{FibonacciExampleAusScript}
+%\include{Stochastik}
+%\include{StochLTI}
+%\include{Analog}
+%\include{Modulation}
+%\include{Informationstheorie} % noch nicht vorhanden
+% Alle folgenden Sachen an Beispielen
+%\include{Uebertragung}
+%\include{Codierung}
+%\include{Uebungen}
+%\include{Loesungen}
+%\include{LoesungNT2}
+%\include{Klausur}
+\begin{appendix}
+\include{Anhang}
+\end{appendix}
+%\include{MatlabEinfuehrung}
+%  \pagenumbering{Roman}
+%  \include{anfang}       % Titelseiten, Vorwort
+%  \include{DeckBlatt}      % Kapitel 1
+%  \input{Vorwort}
+% \tableofcontents        % Inhaltsverzeichnis
+%  \listoffigures
+%  \listoftables
+%  \newpage
+
+%  \pagenumbering{arabic}
+%  \include{DeckBlatt}      % Kapitel 1
+%  \begin{appendix}
+%  \include{App_Mathe}
+%  \end{appendix}
+%  \addcontentsline{toc}{chapter}{Verzeichnis der AbkÃ¼rzungen und Formelzeichen}
+% \include{abksym}
+\addcontentsline{toc}{chapter}{\bibname}
+%  \bibliographystyle{alphaG}
+\bibliographystyle{plain}
+%  {\small
+% Uni
+%\bibliography{e:/users/meyer/MyTex/BibTex/DEF,e:/users/meyer/MyTex/BibTex/SpecSub,e:/users/meyer/MyTex/BibTex/AECandNR,e:/users/meyer/MyTex/BibTex/Sonst,e:/users/meyer/MyTex/BibTex/Wiener,e:/users/meyer/MyTex/BibTex/AEC,e:/users/meyer/MyTex/BibTex/BeamGSC,e:/users/meyer/MyTex/BibTex/Speech,e:/users/meyer/MyTex/BibTex/GSC_Promo}
+%Zu Hause
+%\bibliography{e:/AlterRechner2/users/Uni/Texte/BibTex/DEF,e:/AlterRechner2/users/Uni/Texte/BibTex/SpecSub,e:/AlterRechner2/users/Uni/Texte/BibTex/AECandNR,e:/AlterRechner2/users/Uni/Texte/BibTex/Sonst,e:/AlterRechner2/users/Uni/Texte/BibTex/Wiener,e:/AlterRechner2/users/Uni/Texte/BibTex/AEC,e:/AlterRechner2/users/Uni/Texte/BibTex/BeamGSC,e:/AlterRechner2/users/Uni/Texte/BibTex/Speech,e:/AlterRechner2/users/Uni/Texte/BibTex/GSC_Promo}
+%FH
+%\bibliography{d:/Research/Bibliographien/BibTex/DEF,d:/Research/Bibliographien/BibTex/SpecSub,d:/Research/Bibliographien/BibTex/AECandNR,d:/Research/Bibliographien/BibTex/Sonst,d:/Research/Bibliographien/BibTex/Wiener,d:/Research/Bibliographien/BibTex/AEC,d:/Research/Bibliographien/BibTex/BeamGSC,d:/Research/Bibliographien/BibTex/Speech,d:/Research/Bibliographien/BibTex/GSC_Promo}
+
+\bibliography{BibTex/DEF,BibTex/SpecSub,BibTex/AECandNR,BibTex/Sonst,BibTex/Wiener,BibTex/AEC,BibTex/BeamGSC,BibTex/Speech,BibTex/GSC_Promo}
+
+%  }
+%  \newpage
+
+%  \addcontentsline{toc}{chapter}{\indexname}
+%  \printindex
+%\input{last_page}
+
+\end{document}

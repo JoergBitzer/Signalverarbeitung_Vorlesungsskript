@@ -1,0 +1,1417 @@
+\chapter{Zufallssignale\label{sec:Zufallssignale}}
+In diesem Abschnitt werden die Grundlagen für die
+Signalverarbeitung von eindimensionalen Zufallssignalen gelegt.
+Dabei müssen zunächst einige Grundbegriffe erläutert werden, um
+die Abgrenzung und Klassifikation dieser speziellen Signale zu
+ermöglichen. In den folgenden Unterabschnitten wird die
+Korrelation als wichtiges Hilfsmittel der Analyse von
+Zufallssignalen und deren Fourier-Transformation eingeführt. Diese
+als Leistungsdichtespektrum bekannte Größe wird abschließend
+genauer untersucht und Methoden gefunden, eine Schätzung aus
+realen Signalen zu ermöglichen.
+
+\section{Grundbegriffe der Stochastik}
+Bisher sind wir in den meisten Fällen davon ausgegangen, dass die
+vorliegenden Signale deterministisch beschreibbar sind. Für die
+Nachrichtenübertragung ist diese Signalklasse aber ungeeignet, da
+Information nur durch zufällige Signale übertragen werden kann.
+Weiterhin sind Störsignale meist zufälliger Natur, die häufig
+additiv mit (vielleicht deterministischen) Messsignalen vermischt
+sind. Eine Beschreibung dieser Signalklasse ist deshalb notwendig,
+wobei eben aufgrund der zufälligen Natur keine genaue
+Signalvorhersage sondern nur Kenndaten angegeben werden können,
+die aber häufig eine Aussage für bestimmte Probleme und deren
+Lösungen ermöglichen.
+
+Zur Beschreibung zufälliger Signale geht man zunächst ganz
+allgemein davon aus, dass man eine unendliche Anzahl von
+Rauschquellen zur Verfügung hat. Zur Beschreibung bestimmter
+Eigenschaften dieses sog. Ensembles sind unterschiedliche
+Kenndaten und Begriffe bekannt.
+
+\subsection{stochastischer Prozess}
+Die unendliche Anzahl unterschiedlicher Rauschquellen (oder auch
+Ensemble-Funktionen) wird in ihrer Gesamtheit als stochastischer
+Prozess bezeichnet. Die Bezeichnung erfolgt mittels fettgedruckten
+Grossbuchstaben\footnote{Der Fettdruck dient der Unterscheidung zu
+Spektren, die ja ebenfalls durch Grossbuchstaben gekennzeichnet
+werden}. Wir nehmen an, wir haben einen Zufallsprozess
+$\vek{X}(\xi,t)$, der zum einen durch die Zeit $t$ und durch die
+einzelnen Quellen $\xi$ gegeben ist. Abbildung
+\ref{pic:Rauschprozess} zeigt einen solchen sehr allgemeinen
+Rauschprozess.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/GeneralProcess}
+\caption{\label{pic:Rauschprozess}Allgemeiner Ausschnitt eines
+Rauschprozesses. Es werden aus fünf Musterfunktionen kleine
+Zeitausschnitte gezeigt.}
+\end{center}
+\end{figure}
+
+Durch die Auswahl nur einer Funktion $\xi_k$ wird der Zufall
+reduziert auf eine sog. Musterfunktion des Prozesses.
+\[
+    x(t) = \vek{X}(\xi_k,t)
+\]
+Eine andere Möglichkeit den Prozess zu zerlegen ist, genau einen
+Zeitpunkt festzulegen, aber den Prozess entlang der
+Ensemble-Funktionen zu analysieren. Wir erhalten so eine
+Zufallsvariable
+\[
+    x(\xi) = \vek{X}(\xi,t_k)
+\]
+Legt man beides fest, erhält man einen einzelnen Zufallswert.
+\[
+    x_1 = \vek{X}(\xi_{\ell},t_k)
+\]
+
+\subsection{Verteilungsdichtefunktion}
+Wir haben im Abschnitt \ref{sec:stochastEinfuehrung} für
+Zufallssignale die Amplitudenverteilung als wichtige Kenngröße
+benutzt. Betrachtet man die Werte-Verteilung für eine beliebige
+Zufallsvariable $x(\xi)$ und kürzt diese als $x$ ab, so ergibt
+sich bei der normierten Betrachtung die Verteilungsdichtefunktion
+$p(x)$. Sie gibt an, mit welcher Häufigkeit, bzw. mit welcher
+Wahrscheinlichkeit ein bestimmter Wert der Zufallsvariable $x$
+vorkommt. Eine genauere Betrachtung findet sich im Anhang
+\ref{sec:Wahrdichte}.
+
+\subsection{Erwartungswerte und Momente (Mittelwert und Varianz)}
+Gehen wir von einer Zufallsvarablen $x$ aus und kennen wir
+zusätzlich die Verteilungsdichtefunktion $p(x)$, so können wir den
+Erwartungswert dieser Zufallsvariablen durch
+\begin{equation}\label{eq:Mittelwert}
+    \Erwart{x} = \int\limits_{-\infty}^{\infty} x p(x) dx = \mu
+\end{equation}
+berechnen. Diese Größe wird auch als Mittelwert oder 1.
+statistisches Moment bezeichnet.
+
+\begin{example}
+Ausgehend von einem gleichverteilten Rauschen im Intervall $[0
+\cdots 1]$, ergibt sich der Mittelwert zu
+\begin{equation}\label{eq:Bsp:Mittelwert}
+    \mu = \int\limits_{-\infty}^{\infty} x p(x)dx = \int\limits_{0}^{1}x dx =
+    \left[\frac{x^2}{2}\right]_{0}^{1} = 1/2
+\end{equation}
+\end{example}
+
+
+Für diskrete Zufallsvariablen ergibt sich der Erwartungswert aus
+\begin{equation}\label{eq:Mittelwert:diskret}
+    \Erwart{x} = \sum_{k = 1}^{N} x_k P(x_k) = \mu
+\end{equation}
+
+\begin{example}
+Für einen perfekten Würfel ergäbe sich eine Wahrscheinlichkeit für
+jede Würfelseite von $1/6$. Somit ist der Erwartungswert
+\[
+    \Erwart{W} = 1\frac{1}{6} +2\frac{1}{6} + 3\frac{1}{6} + 4\frac{1}{6}+ 5\frac{1}{6}+
+    6\frac{1}{6}= 3.5
+\]
+\end{example}
+
+Eine weitere wichtige Größe ist die Varianz die diskret durch
+\begin{equation}\label{eq:Varianz}
+   \sigma^2 = \sum_{k = -\infty}^{\infty}\left(x_k-\Erwart{x}
+   \right)^2 P(x_k) dx
+\end{equation}
+
+bzw. in analoger Form durch
+
+\begin{equation}\label{eq:Varianz}
+   \sigma^2 = \int\limits_{-\infty}^{\infty}\left(x-\Erwart{x}
+   \right)^2 p(x) dx
+\end{equation}
+definiert ist.
+
+Für mittelwertfreie Signale $\Erwart{x} = 0$ ergibt
+sich
+\begin{equation}\label{eq:ZweitesStatMoment}
+    \Erwart{x^2} = \int\limits_{-\infty}^{\infty}x^2 p(x) dx
+\end{equation}
+hierfür ist auch die Bezeichnung zweites statistisches Moment
+bekannt. Die Varianz ist besonders wichtig, da sie ein Maß für die
+informationstragende Leistung eines Signals darstellt. Eine
+vereinfachte Berechnung der Varianz ist durch
+\begin{equation}\label{eq:VarianzEinfach}
+    \sigma^2 = \Erwart{x^2} -\left(\Erwart{x}\right)^2
+\end{equation}
+gegeben. Man kann also die Varianz errechnen, indem das Signal
+quadriert wird und davon der Mittelwert berechnet wird und
+abschließend wird das Quadrat des Mittelwertes abgezogen.
+\begin{example}
+    Ausgehend von dem gleichverteilten Rauschen im Intervall $[0 \cdots
+    1$, berechnet sich die Varianz durch
+    \begin{eqnarray}
+        \sigma^2  & = &\Erwart{x^2} -\left(\Erwart{x}\right)^2\\
+        & = & \int\limits_{-\infty}^{\infty}x^2 p(x) dx -
+        \frac{1}{4}\\
+        & = &\int\limits_{0}^{1} x^2 dx -
+        \frac{1}{4}\\
+        & = & \left[ \frac{x^3}{3}\right]^{1}_0-
+        \frac{1}{4}\\
+        & = & \frac{1}{3} - \frac{1}{4} = \frac{1}{12}
+    \end{eqnarray}
+\end{example}
+
+Für speziellere Analyse können auch Statistiken höherer Ordnungen
+interessant sein. So gibt es neben Mittelwert und Varianz auch
+noch die Schiefe \Engl{Skewness} und den Exzess \Engl{Kurtosis}, die hier
+aber nur erwähnt und nicht näher behandelt werden sollen. Eine
+genauere Abhandlung findet man in Standardwerken zur Statistik.
+\tbd{Bernd Rönz, Hans G. Strohe (1994), Lexikon Statistik, Gabler Verlag}
+
+\subsection{Stationarität}
+Eine besondere Klasse der Zufallsprozesse stellen stationäre
+Prozesse dar, die dadurch definiert sind, dass die
+Verteilungsdichtefunktion einer Zufallsvariable und somit alle Momente
+unabhängig von dem
+festgelegten Zeitpunkt ist. Es gilt also
+\begin{equation}\label{eq:Def:Stationaritaet}
+    p(\vek{X}(\xi,t_1) = p(\vek{X}(\xi,t_1+\tau)
+\end{equation}
+Diese Definition wird als strikte Stationarität bezeichnet, da
+gefordert wird, dass alle statistischen Momente zeitlich konstant
+bleiben. Eine etwas weniger strikte Forderung ist die sog.
+Stationarität im weiteren Sinne (Wide-Sense Stationarity (WSS))
+bei der nur die Momente der ersten und zweiten Ordnung zeitlich
+konstant sein müssen (Mittelwerte, Varianzen und die noch einzuführende
+Korrelation).
+
+Abbildung \ref{pic:StationaerProzess} zeigt einen stationären
+Prozess, bei dem zu jedem betrachteten Zeitpunkt $t_k$, der
+Mittelwert und die Varianz gleich ist.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/StationaerProcess}
+\caption{\label{pic:StationaerProzess}Ausschnitt eines stationären
+Rauschprozesses.}
+\end{center}
+\end{figure}
+
+Die Forderung der zeitlichen Konstanz für die statistischen
+Momente führt dazu, dass kein natürlicher Prozess wirklich
+stationär sein kann, da er dazu schon seid Ewigkeiten und in alle
+Ewigkeiten vorhanden sein müsste. Deshalb wird in allen realen
+Fällen immer von einer Kurzzeit-Stationarität ausgegangen.
+
+\subsection{Ergodizität}
+Für stationäre Prozesse gibt es eine weitere spezielle
+Unterklasse, die sog. ergodischen Prozesse. Diese zeichnet sich
+dadurch aus, dass die bisher verwendeten Ensemble-Mittelwerte sich
+durch zeitliche Mittelwerte berechnen lassen, \ie eine
+Musterfunktion beschreibt den Prozess vollständig. Für viele
+Anwendungen und Fragestellungen mit zufälligen Signalen werden
+ergodische Prozesse als Grundlage angenommen, da diese sich durch
+nur eine Musterfunktion beschreiben lassen.
+
+\wichtig{Jeder ergodische Prozess ist auch stationär, aber nicht
+umgekehrt.}
+
+In Abbildung \ref{pic:ErgodicProzess} ist ein typischer
+ergodischer Prozess gezeigt. Eine Musterfunktion reicht aus, alle
+anderen Musterfunktionen zu charakterisieren.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/ErgodicProcess}
+\caption{\label{pic:ErgodicProzess}Ausschnitt eines ergodischen
+Rauschprozesses.}
+\end{center}
+\end{figure}
+
+Für die beiden wichtigen Beschreibungsgrößen Mittelwert und
+Varianz ergeben sich aus der Ergodizität folgende
+Berechnungsmöglichkeiten.
+\begin{equation}\label{eq:Mittelwert:ergodisch:diskret}
+    \Erwart{x} = \mu =   \lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K}x(k)\,
+\end{equation}
+bzw.
+\begin{equation}\label{eq:Mittelwert:ergodisch}
+    \Erwart{x}  =  \lim_{T\rightarrow \infty} \frac{1}{2T} \int\limits_{-T}^{T}x(t)\,
+    dt
+\end{equation}
+
+
+und
+\begin{equation}\label{eq:Varianz:ergodisch:diskret}
+    \Erwart{x}  =  \lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K}x^2(k)
+    - \underbrace{\left(\Erwart{x}\right)^2}_{\mu^2}
+\end{equation}
+bzw.
+
+\begin{equation}\label{eq:Varianz:ergodisch}
+    \sigma^2 = \lim_{T\rightarrow \infty} \frac{1}{2T}
+    \int\limits_{-T}^{T} x^2(t) \, dt - \mu^2
+\end{equation}
+
+Zur Schätzung der beiden Größen können weitere vereinfachte
+Formeln angewandt werden, die insbesondere für diskrete Prozesse
+sehr einfach anzuwenden sind. Es ergeben sich die bereits in
+Kapitel \ref{sec:stochastEinfuehrung} angesprochenen Formeln,
+wobei ab jetzt zur Kennzeichnung von Schätzgrößen immer das Dach
+verwendet wird, also statt $\mu$ wird $\hat{\mu}$ genutzt.
+
+\begin{itemize}
+\item{{\bf Mittelwert:} Die Schätzung des  Mittelwertes ist
+gegeben durch die Summe aller Werte geteilt durch die Anzahl $N$
+der gemittelten Werte
+\begin{equation}
+    \hat{\mu} = \hat{\bar{x}} = \frac{1}{N} \sum_{k = 1}^{N} x(k)
+\end{equation}
+} \item{{\bf Varianz:} Die Varianz ist die mittlere quadratische
+Abweichung aller Werte vom Mittelwert. Die Wurzel aus der Varianz
+wird Standardabweichung $\sigma$ genannt. Deshalb definieren wir
+die Schätzung der Varianz durch $\sigma^2$
+\begin{equation}
+    \hat{\sigma}^2 = \frac{1}{N-1} \sum_{k = 1}^{N} (x(k)-\mu)^2
+\end{equation}
+}
+\end{itemize}
+
+
+\section{Korrelation\label{sec:Korrelation}}
+Die Korrelation ist ein weiteres wichtiges Maß um stochastische
+Prozesse und ihre Ähnlichkeit oder Verwandtschaft zu beschreiben. Es können dabei
+Aussagen über einen Prozess und der Selbstverwandtschaft
+(Autokorrelation) oder die Beziehungen zweier Prozesse beschrieben
+werden (Kreuzkorrelation)
+
+\subsection{Autokorrelationfunktion (AKF)}
+Die Autokorrelation ist allgemein als Erwartungswert des Produktes
+zweier Zufallsvariablen definiert. Sie wird häufig mit dem
+Formelzeichen $r$ und dem Subindizes der beteiligten Prozesse
+dargestellt. Es gilt:
+\begin{equation}\label{eq:Def:Korrelation:Allgemein}
+    r_{XX}(t_1,t_2) = \Erwart{\vek{X}(\xi,t_1) \vek{X}(\xi,t_2)}
+\end{equation}
+
+Für stationäre Prozesse vereinfacht sich die
+Autokorrelationsfunktionberechnung, da nicht mehr die beiden
+Zeitpunkte entscheidend sind, sondern nur die Differenz der beiden
+Zeitpunkte $\tau = t_1-t_2$.
+\begin{equation}\label{eq:Def:AutoKorrelation}
+    r_{XX} (\tau) =\Erwart{\vek{X}(\xi,t_1) \vek{X}(\xi,t_1 - \tau)}
+\end{equation}
+bzw.
+\begin{equation}\label{eq:Def2:AutoKorrelation}
+    r_{XX} (\tau) =\Erwart{\vek{X}(\xi,t_2 + \tau) \vek{X}(\xi,t_2)}
+\end{equation}
+
+
+Nimmt man zusätzlich die Ergodizität an, ergibt sich\footnote{Die
+kleinen $xx$ zeigen an, dass es sich nun um einen Prozess aus nur
+einer Musterfunktion handelt.}
+\begin{equation}\label{eq:Def:Autokorrelationsfunktion:Ergodisch}
+    r_{xx}(\tau) = \lim_{T\rightarrow \infty} \frac{1}{2T}
+    \int\limits_{-T}^{T}x(t) x(t-\tau) dt
+\end{equation}
+bzw. für diskrete Prozesse.
+\begin{equation}\label{eq:Def:Autokorrelation:Diskret}
+    r_{xx}(\kappa) = \lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K} x(k) x(k-\kappa)
+\end{equation}
+bzw.
+\begin{equation}\label{eq:Def:Autokorrelation:Diskret2}
+    r_{xx}(\kappa) = \lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K} x(k+\kappa) x(k)
+\end{equation}
+
+
+Anhand Gleichung \ref{eq:Def:Autokorrelation:Diskret} ist leicht
+zu erkennen, dass die AKF eine Größe ist, die für reale Prozesse
+nicht in dieser Form berechnet werden kann, da die geforderte
+Stationarität nicht gegeben ist.
+
+Aus diesem Grund wird die AKF bei realen Signalen geschätzt. Dabei
+kommen unterschiedliche Schätzformeln zum Einsatz.
+
+Angenommen es liegen $N$ Datenwerte vor, dann kann die AKF durch
+\begin{equation}\label{eq:AKF:Diskret:BiasSchaetzng}
+    \hat{r}_{xx}(\kappa) = \frac{1}{N}\sum_{k = 0}^{N-1} x(k) x(k-\kappa)
+\end{equation}
+geschätzt werden.
+
+Die Ähnlichkeit zur Faltung ist deutlich. Der einzige Unterschied
+ist die Umkehrung der Zeitachse für den zweiten Term. Man kann die
+geschätzte AKF somit auch durch
+\begin{equation}\label{eq}
+    \hat{r}_{xx}(\kappa) = \frac{1}{N} x(k) \ast x(-k)
+\end{equation}
+darstellen.
+
+Die Schätzung führt zu einer Abweichung der Ergebnisse von dem
+theoretischen Wert der AKF. Diese Abweichung ist dadurch gegeben,
+dass immer durch $N$ geteilt wird, obwohl bei größer werdender
+Verschiebung immer weniger Multiplikationen in die
+Korrelationssumme eingehen. Es entsteht ein systematischer Fehler,
+den man allgemein als Bias bezeichnet. Der Bias wird größer je
+mehr sich $\kappa$ von Null unterscheidet und ist maximal für
+$\kappa = N-1$. Es ergibt sich ein dreiecksförmiger Verlauf des
+Bias.
+
+Der systematische Fehler kann vermieden werden, indem nicht immer
+auf $N$ normiert wird, sondern auf die Anzahl der in der
+Korrelationssumme verwendeten Multiplikationen.
+\begin{equation}\label{eq:AKF:Diskret:BiasSchaetzng}
+    \hat{r}_{xx}(\kappa) = \frac{1}{N-|\kappa|}\sum_{k = 0}^{N-1} x(k) x(k-\kappa)
+\end{equation}
+Dieser Ansatz wird als bias-freie Schätzung der AKF bezeichnet.
+Der Nachteil dieser Methode ist die Varianz der Schätzung, die nur
+für $\kappa << N$ zu brauchbaren Ergebnissen führt\footnote{In
+\cite{KK98} wird eine vollständige Herleitung zum Bias und zur
+Varianz der AKF-Schätzung durchgeführt.} Im Extremfall $\kappa =
+N-1$ ist $\hat{r}_{xx}(\kappa)$ nur durch einen Wert gegeben, der
+eine Varianz $\sigma^2$ hat.
+
+Um die Eigenschaften der beiden Schätzmethoden zu verdeutlichen,
+ist in Abbildung \ref{pic:AKFEst} die Schätzung der AKF eines
+Rauschprozesses mit Mittelwert $\mu = 0.5$ und einer Varianz von
+$\sigma^2 = 1$ gezeigt. Das Rauschsignal selbst ist unkorreliert.
+Links ist deutlich der Bias in Dreiecksform zu erkennen, während
+rechts die zu den Rändern ansteigende Varianz deutlich wird.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/AKF_EstBiasdUnbiased}
+\caption{\label{pic:AKFEst}Links: Schätzung der AKF einer
+Rauschfolge mit der biasbehafteten Methode. Rechts mit der
+Unbiased Methode.}
+\end{center}
+\end{figure}
+
+Berechnet man nun die Varianz der Schätzung ergibt sich für
+mittelwertfreie Prozesse
+\begin{equation}\label{eq:VarianzAKFSchaetzung}
+    \Erwart{\hat{r}_{xx}(\kappa)^2} = \sigma^4
+\end{equation}
+
+
+\subsubsection{Eigenschaften der AKF}
+Die AKF\footnote{Damit ist auch immer die Schätzung gemeint} von
+nichtperiodischen Signalen zeichnet sich durch einige sehr
+wichtige Eigenschaften aus.
+\begin{itemize}
+    \item Die AKF hat ihr Maximum immer zum
+    Verschiebungszeitpunkt Null. Dies wird auch deutlich aus der
+    Beziehung zur Faltung. Zum Verschiebungzeitpunkt Null, sind
+    alle Datenpunkte in ihrem Vorzeichen gleich und summieren sich
+    somit konstruktiv auf.
+    \[
+        r_{XX}(0) \geq r_{XX}(\tau) \fuer \tau \neq 0
+    \]
+    \item Die AKF ist symmetrisch bez. des Nullpunktes. Es gilt:
+    \[
+        r_{XX}(\tau) = r_{XX}(-\tau)
+    \]
+    Diese Eigenschaft ist leicht aus den beiden Definitionsgleichungen \ref{eq:Def:AutoKorrelation} und \ref{eq:Def2:AutoKorrelation}
+    zu sehen.
+    \item Die AKF ist gleich dem quadratischen Mittelwert für $\tau \rightarrow \infty$
+    \[
+        r_{XX}(\infty) = (\Erwart{\vek{X}(\xi,t_1)})^2
+    \]
+    \item Die AKF für $\tau = 0$ ist gleich der Varianz des
+    Prozesses plus dem quadratischen Mittelwert.
+    \[
+        r_{XX}(0) = \sigma^2 + r_{XX}(\infty)
+    \]
+    Aufgelöst zur Varianz ergibt sich somit
+    \[
+        \sigma^2 = r_{XX}(0)-r_{XX}(\infty)
+    \]
+\end{itemize}
+
+Untersucht man jetzt zum Beispiel die AKF eines diskreten
+Rauschens, bei dem alle aufeinander folgenden Werte völlig
+unabhängig von der vorherigen sind und im gesamten Wertebereich
+auftreten können, so ergibt sich eine AKF, die nur an der Stelle
+Null einen Wert besitzt und zu allen anderen Zeiten gleich dem
+Mittelwert zum Quadrat ist, da sich alle Werte im Mittel
+kompensieren. Für mittelwertfreie Signale ergibt sich somit eine
+AKF von Null für $\kappa \neq 0$. Die AKF lässt sich also als
+gewichtete Delta-Folge $\delta(k)$ darstellen.
+
+Sind in einem Signal periodische Anteile, so bilden diese Anteile
+auch eine Periodizität in der AKF aus. Für streng periodische
+Signale ist die Periodizität auch daran zu erkennen, dass neben
+dem Maximum  bei $\tau = 0$ weitere gleichhohe Maxima auftreten.
+\begin{equation}\label{eq:AKF:Periodizitaet}
+    r_{XX}(0) = r_{XX}(\tau)
+\end{equation}
+Für reale Signale gilt weder die Stationarität noch die strenge
+Periodizität. Die AKF muss durch eines der beiden Schätzverfahren
+bestimmt werden. Deshalb gilt Gl. \ref{eq:AKF:Periodizitaet} immer
+nur Näherungsweise.
+
+Trotz dieser Einschränkung ist die AKF ein geeignetes Werkzeug um
+Periodizitäten in einem Signal zu erkennen und zu messen. Um dies
+zu veranschaulichen zeigt Abbildung \ref{pic:AKF_SinusInNoise}a
+eine durch Gauß-verteiltes Rauschen gestörte Sinusfunktion. Der
+periodische Verlauf ist noch ansatzweise zu erkennen, aber die
+genaue Frequenz könnte durch eine einfache Nullstellen- oder
+Maximumbestimmung nicht mehr ermittelt werden. Schätzt man nun die
+AKF mit der bias-behafteteten Methode ergibt sich für die positive
+Seite der AKF mit $\kappa \geq 0$ Abbildung
+\ref{pic:AKF_SinusInNoise}b. Man erkennt sehr deutlich die
+dreiecksförmige Gewichtung. Gleichzeitig ist die Periodizität des
+Signals sehr viel deutlicher zu erkennen. Das erste Nebenmaximum
+befindet sich bei dem Index $\kappa = 11$. Dadurch ergibt sich
+eine Frequenz von $f_s/\kappa = 727.27$Hz bei einer Abtastrate von
+$8$kHz. Die tatsächliche Frequenz betrug $700$Hz.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/AKF_SinInNoise}
+\caption{\label{pic:AKF_SinusInNoise}a) Sinusfolge in Rauschen mit
+$f = 700$Hz und $f_s = 8$kHz. b) Schätzung der dazugehörige
+AKF-Funktion ($\kappa \geq 0$) mit der bias-behafteten Methode}
+\end{center}
+\end{figure}
+
+\subsubsection{Verwandte Funktionen}
+Eine eng verwandte Funktion ist die Autokovarianzfunktion, die die
+AKF ohne den Mittelwert des beteiligten Prozess ist. Für
+mittelwertfreie Prozesse ist die Autokovarianzfunktion gleich der
+AKF.
+\begin{equation}\label{eq:Def:Autokovarianzfunktion}
+    c_{XX}(t_1,t_2) = r_{XX}(t_1,t_2) -
+    \Erwart{\vek{X}(\xi,t_1)}\Erwart{\vek{X}(\xi,t_2)}
+\end{equation}
+Für stationäre Prozesse ergibt sich die vereinfachte Form
+\begin{equation}\label{eq:Def:AutoKovarErgodisch}
+    c_{xx}(\tau) = r_{xx}(\tau) - \mu^2
+\end{equation}
+Somit ist die Kovarianzfunktion für
+\begin{equation}
+    \lim_{\tau \rightarrow \infty} c_{xx}(\tau) = 0.
+\end{equation}
+
+Eine weitere wichtige Größe ist die normierte
+Autokovarianzfunktion, die auch als Korrelationskoeffizient
+bezeichnet wird.
+\begin{equation}\label{eq:Def:Korrelationskoeffizient}
+    \tilde{r}_{XX}(t_1,t_2) = \frac{c_{XX}(t_1,t_2)}{\sqrt{c_{XX}(t_1)c_{XX}(t_2)}}
+\end{equation}
+
+Für stationäre Prozesse vereinfacht sich Gleichung
+\ref{eq:Def:Korrelationskoeffizient} zu
+\begin{equation}\label{eq:Def:KorrKoeffStationaer}
+    \tilde{r}_{XX}(\tau) = \frac{c_{XX}(\kappa)}{\sigma^2}
+\end{equation}
+Da der Maximalwert bei $\kappa = 0$ ist und durch $\sigma^2$
+gegeben ist, liegt das Ergebnis der Normierung immer im Bereich
+zwischen $-1 \leq \tilde{r}_{XX}(t_1, t_2) \leq 1$. Diese
+Eigenschaft macht es möglich Korrelationen zwischen Prozessen
+unterschiedlicher Leistung zu vergleichen. Dies ist besonders
+wichtig, wenn Signalformen aber nicht die Amplitudenauslenkung
+analysisiert werden muss.
+
+\subsection{Kreuzkorrelation (KKF)}
+Häufig ist man an der Verwandtschaft zweier unterschiedlicher
+Prozesse interessiert. Das Analysewerkzeug, um eine Aussage
+hierüber zu treffen ist die Kreuzkorrelationsfunktion (KKF). Die
+allgemeinste Definition ergibt sich zu\footnote{Diese Definition
+gilt nur für reellwertige Prozesse, bei komplexwertigen Prozessen
+muss zusätzlich der erste Term konjugiert werden. Es gilt \[
+    r_{XY}(t_1,t_2) = \Erwart{\vek{X}^{\ast}(\xi,t_1) \vek{Y}(\xi,t_2)}
+\]}:
+\begin{equation}\label{eq:KKF:Def:Allgemein}
+    r_{XY}(t_1,t_2) = \Erwart{\vek{X}(\xi,t_1) \vek{Y}(\xi,t_2)}
+\end{equation}
+
+Unter der Annahme der Stationarität ist erneut nur die
+Verschiebung $\tau = t_1 - t_2$ zu betrachten. Die KKF ist dann
+durch
+\begin{equation}\label{eq:Def:KKF:Stationaer}
+    r_{XY} (\tau) =\Erwart{\vek{X}(\xi,t_1) \vek{Y}(\xi,t_1 - \tau)}
+\end{equation}
+
+Schränken wir die Eigenschaften des beteiligten Prozesse weiter
+mit der Annahme der Ergodizität ein, so ergibt sich für die KKF:
+\begin{equation}\label{eq:Def:KKF:ergodisch}
+    r_{xy}(\tau) = \lim_{T\rightarrow \infty} \frac{1}{2T}
+    \int\limits_{-T}^{T}x(t) y(t-\tau) dt
+\end{equation}
+bzw. für diskrete Prozesse.
+\begin{equation}\label{eq:Def:Autokorrelation:Diskret}
+    r_{xy}(\kappa) = \lim_{K \rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K} x(k)
+    y(k-\kappa)
+\end{equation}
+
+Für die Schätzung der KKF ergeben sich die gleichen
+Einschränkungen wie für die AKF. Die bias-behaftete Schätzung
+lautet
+\begin{eqnarray}\label{eq:DEF:KKF:BiasEstimation}
+    \hat{r}_{xy}(\kappa) &=& \frac{1}{N}\sum_{k = 0}^{N-1} x(k)
+    y(k-\kappa)\\
+    & = & \frac{1}{N} x(k) \ast y(-k)
+\end{eqnarray}
+
+\subsubsection{Eigenschaften der KKF}
+Einige wichtige Eigenschaften der KKF für stationäre,
+nichtperiodische Signale sind:
+\begin{itemize}
+    \item Die KKF zwischen zwei Prozessen kann durch $r_{XY}$ und
+    $r_{YX}$ ausgedrückt werden. Es gilt\footnote{Für komplexe Prozesse gilt $r_{XY}(\tau) = r_{YX}^{\ast}(-\tau)$}:
+\begin{equation}
+        r_{XY}(\tau) = r_{YX}(-\tau)
+\end{equation}
+    \item Es gilt die Schwarzsche Ungleichung:
+\begin{equation}
+%        r_{XY}(\tau) \leq r_{XX}(\tau) r_{YY}(\tau)
+        |r_{XY}(\tau)| \leq \sqrt{r_{XX}(0) r_{YY}(0)}
+\end{equation}
+\end{itemize}
+
+Ist die KKF gleich dem Produkt der Mittelwerte der beiden Prozesse
+für alle Verschiebungen $\tau$
+\begin{equation}
+    r_{XY}(\tau) = \Erwart{\vek{X}(\xi,t_1)}\Erwart{\vek{Y}(\xi,t_1)},
+\end{equation}
+
+so spricht man von unkorrelierten Prozessen. Ist die KKF Null für
+alle Verschiebungen
+\[
+    r_{XY}(\tau) = 0
+\]
+werden die Prozesse als orthogonal bezeichnet\footnote{Für den
+Begriff der Orthogonalität sei auch an das Skalarprodukt zweier
+Vektoren erinnert, die ebenfalls als orthogonal bezeichnet werden,
+wenn ihr Skalarprodukt null ist.}.
+
+Für geschätzte Größen wird bei der Berechnung von $r_{xy}(\kappa)$
+nicht Null erreicht, sondern immer ein deutlich größerer Wert, der
+mit zunehmender Schätzlänge $N$ abnimmt.
+
+Um dieses Verhalten zu verdeutlichen zeigt Abbildung
+\ref{pic:KKF:EstimateOrthogonal} die Schätzung der KKF zweier an
+sich orthogonaler Sequenzen unterschiedlicher Länge. Man erkennt,
+dass mit zunehmender Schätzlänge die Werte der KKF abnehmen und
+sich der Null nähern und zusätzlich erkennt man die dreieckige
+Gewichtung durch die bias-behaftete Schätzung.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/KKF_EstimateOrtho}
+\caption{\label{pic:KKF:EstimateOrthogonal}Beispiel einer
+KKF-Schätzung zweier orthogonaler Prozesse mit der bias-behafteten
+Methode}
+\end{center}
+\end{figure}
+
+\begin{example}
+Ausgehend von dem Signalmodell $y(k) = x(k) + n(k)$ und der zusätzlichen Annahme
+das $x(k)$ und $n(k)$ stationär und orthogonal sind, kann die KKF zwischen
+$x(k)$ und $y(k)$, sowie die AKF von $y(k)$ wie folgt berechnet werden.
+
+{\bf KKF}: Es gilt:
+\[
+    r_{XY}(\kappa) = \Erwart{\vek{X}(\xi,k_1) \vek{Y}(\xi,k_1 - \kappa)}
+\]
+Setzt man nun für $\vek{Y}(\xi,t_1 - \kappa)$ das Signalmodell ein, ergibt sich.
+\[
+    r_{XY}(\kappa) = \Erwart{\vek{X}(\xi,k_1) \left(\vek{X}(\xi,k_1 - \kappa) + \vek{N}(\xi,k_1 - \kappa) \right) }
+\]
+Für den Erwartungswertoperator gelten Assoziativ-, Distributiv- und Kommutativgesetz.
+Somit gilt:
+\[
+    r_{XY}(\kappa) = \underbrace{\Erwart{\vek{X}(\xi,k_1) \vek{X}(\xi,k_1 - \kappa)}}_{r_{XX}(\kappa)}
+                     + \underbrace{\Erwart{\vek{X}(\xi,k_1) \vek{N}(\xi,k_1 - \kappa)}}_{r_{XN}(\kappa)}
+\]
+Mit der Orthogonalität von $x(k)$ und $n(k)$  ist $r_{XN}(\kappa) = 0$ und somit gilt
+\[
+    r_{XY}(\kappa) = r_{XX}(\kappa)
+\]
+
+{\bf AKF}: Es gilt:
+\[
+    r_{YY}(\kappa) = \Erwart{\vek{Y}(\xi,k_1) \vek{Y}(\xi,k_1 - \kappa)}
+\]
+Eingesetzt ergibt sich:
+\[
+    r_{YY}(\kappa) = \Erwart{\left(\vek{X}(\xi,k_1) + \vek{N}(\xi,k_1) \right) \left(\vek{X}(\xi,k_1 - \kappa) + \vek{N}(\xi,k_1 - \kappa) \right) }
+\]
+Die Anwendung der Erwartungswertoperators auf die Einzelsummanden und Anwendung
+der Orthogonalität ergibt:
+\begin{eqnarray} \nonumber
+    r_{XY}(\kappa) &=& \underbrace{\Erwart{\vek{X}(\xi,k_1) \vek{X}(\xi,k_1 - \kappa)}}_{r_{XX}(\kappa)}
+                     + \underbrace{\Erwart{\vek{X}(\xi,k_1) \vek{N}(\xi,k_1 - \kappa)}}_{r_{XN}(\kappa) = 0}\\\nonumber
+                   &&  + \underbrace{\Erwart{\vek{N}(\xi,k_1) \vek{X}(\xi,k_1 - \kappa)}}_{r_{NX}(\kappa) = 0}
+                     + \underbrace{\Erwart{\vek{N}(\xi,k_1) \vek{N}(\xi,k_1 - \kappa)}}_{r_{NN}(\kappa)}
+\end{eqnarray}
+
+Somit ergibt sich für die AKF am Ausgang
+\[
+    r_{YY}(\kappa) = r_{XX}(\kappa) + r_{NN}(\kappa)
+\]
+
+\end{example}
+
+\subsection{Verwandte Funktionen}
+Analog zu den verwandten Funktionen der AKF gibt es auch zur KKF
+die Kreuzkovarianzfunktion:
+\begin{equation}\label{eq:Def:Kreuzkovarianz}
+    c_{XY}(t_1,t_2) = r_{XY}(t_1,t_2) -
+    \Erwart{\vek{X}(\xi,t_1)}\Erwart{\vek{Y}(\xi,t_2)}
+\end{equation}
+Für mittelwertfreie Signal sind die KKF und die
+Kreuzkovarianzfunktion identisch.
+
+Die normierte Kreuzkorrelation stellt bei der Analyse von
+Zeitreihen ein sehr nützliches Werkzeug dar.
+\begin{equation}\label{eq:NormKKF}
+        \tilde{r}_{XY}(t_1,t_2) = \frac{c_{XY}(t_1,t_2)}{\sqrt{c_{XX}(t_1,t_1) c_{YY}(t_2,t_2)}}
+\end{equation}
+bzw. unter der Annahme der Ergodizität
+\begin{equation}\label{eq:NormKKF:Ergodisch}
+     \tilde{r}_{XY}(\tau) = \frac{c_{XY}(\tau)}{\sqrt{c_{XX}(0)
+     c_{YY}(0)}}=\frac{c_{XY}(\tau)}{\sigma_x \sigma_y}
+\end{equation}
+
+Der Vorteil der Normierung liegt in dem gleichbleibenden
+Wertebereich unabhängig von der Eingangsleistung. Das Ergebnis ist
+durch die Normierung auf die beiden höchsten AKF Werte immer auf
+\[
+-1 \leq \tilde{r}_{XY}(\tau) \leq 1
+\]
+begrenzt.
+
+Genutzt werden kann die normierte Kreuzkorrelation bei der
+Berechnung von Verzögerungen zwischen zwei ähnlichen
+Eingangssignalen, wie sie zum Beispiel bei Stereoaufnahmen
+vorkommen. Ein weiteres bekanntes Beispiel ist der Test auf
+Monokompatibilität mit einem Korrelationsmesser. Hierbei wird die
+normierte Kreuzkorrelation zwischen linken und rechten Kanal
+ermittelt. Ist der berechnete Wert für $\tau = 0$ größer Null, so
+ist das Signal auch auf einem Monoabspielgerät gut hörbar. Bei
+einer negativen Korrelation kommt es zu Signalauslöschungen und
+die Monokompatibilität ist nicht mehr gewährleistet.
+
+\section{Leistungsdichtespektren}
+Zur Frequenzanalyse periodischer Signale wurde im Abschnitt
+\ref{sec:DFT} über die Fourier-Analyse und die
+Fourier-Transformation eingeführt. Für stochastische Signale kann
+eine solche Analyse nicht direkt durchgeführt werden. Statt dessen
+wird für Rauschsignale ein sog. Leistungsdichtespektrum (LDS) definiert,
+bei dem die Leistung des Signals über der Frequenz aufgetragen
+ist, wobei für die Analyse von ergodischen Prozessen ausgegangen wird.
+Die Berechnung erfolgt mit Hilfe der Korrelationsfunktionen.
+Als Beispiel zeigt Abbildung \ref{pic:ALDS_Examples} auf der linken Seite
+das LDS eines rosa Rauschens. Diese Form des Rauschens hat eine $1/f$-Charakteristik
+und wird oft bei akustischen Messungen verwendet. Rechts ist das LDS einer Kreissäge
+zu sehen. Das LDS hat viele einzelne diskrete Spitzen, die auf einen periodischen Anteil
+hinweisen und einen deutlichen hochfrequenten Anteil, der den unangenehmen Klang mit verursacht.
+
+%Aufgrund der Leistungsdichte
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/ALDS_Examples}
+\caption{\label{pic:ALDS_Examples}Beispiele für Leistungsdichtespektren. Links das
+Leistungsdichtespektrum für rosa Rauschen ($1/f$-Verhalten) und rechts das LDS
+für eine Kreissäge.}
+\end{center}
+\end{figure}
+
+
+\subsection{Autoleistungsdichte}
+Das Auto-Leistungsdichtespektrum (ALDS) eines Prozesses ist durch die
+Fourier-Transformation der AKF definiert. Für analoge Prozesse
+gilt.
+\begin{equation}\label{eq:LDS:Analog}
+    \Phi_{XX}(\omega) = \int_{-\infty}^{\infty} r_{xx}(\tau) e^{-j\omega
+    \tau}d\tau
+\end{equation}
+
+Für diskrete Prozesse wird zur Transformation die DTFT verwendet.
+Es gilt also:
+\begin{equation}\label{eq:ALDS:Diskret}
+    \Phi_{XX} \jom = \sum_{\kappa = -\infty}^{\infty} r_{xx}(\kappa)\,
+    e^{-j\Omega \kappa}
+\end{equation}
+
+Dieser Zusammenhang ist als Wiener-Khintchine Theorem
+bekannt\footnote{Die Schreibweise für Khintchine ist
+unterschiedlich. Man findet auch Khitchine (sehr selten) und
+Kinchine}.
+
+\subsubsection{Eigenschaften des ALDS}
+\begin{itemize}
+    \item Da die AKF eine reelle gerade Funktion ist, ist auch das
+    ALDS eine gerade reell-wertige Funktion. (siehe Symmetrien der Fourier-Transformation)
+    \[
+        \Phi_{XX}(\omega) = \Phi_{XX}(-\omega)
+    \]
+    \item Alle Werte des ALDS sind positiv, da es keine negativen
+    Leistungen geben kann.
+    \item Die mittlere Leistung eines Signals kann im Zeitbereich
+    und im Frequenzbereich bestimmt werden. Es gilt
+    \[
+        \Erwart{\vek{X}^2} = r_{XX}(0) =
+        \frac{1}{2\pi}\int\limits_{-\infty}^{\infty}\Phi_{XX}(\omega)d\omega
+    \]
+\end{itemize}
+
+\wichtig{Das Autoleistungsdichtespektrum ist reell, gerade und
+niemals negativ.}
+
+\subsubsection{weißes Rauschen}
+Der Begriff weißes Rauschen ist direkt aus der Optik adaptiert.
+Licht wird dann als Weiß bezeichnet, wenn es alle Frequenzen im
+gleichen Maße beinhaltet. Für weißes Rauschen soll ebenfalls
+gelten, dass alle Frequenzen im gleichen Maße vorhanden sind. Das
+Leistungsdichtespektrum ist somit eine Konstante über alle
+Frequenzen. Die dazugehörige AKF ist für ein analoge Definition der
+Dirac-Impuls. Eine Aussage über das dazugehörige Zeitsignal ist
+dennoch nicht möglich, da jede Phaseninformation fehlt.
+Abbildung \ref{pic:ExplainWhiteNoise} zeigt drei verschiedene Signale,
+die alle näherungsweise einen Dirac-Impuls als AKF zur Folge haben und
+sich somit ein konstantes ALDS ergibt. Die drei Signale sind
+ein Rauschsignal mit zufälliger Phase, der Dirac-Impuls mit Nullphase und
+ein Sinussweep mit quadratischer Phase.
+Man erkennt daraus auch, dass
+das ALDS als Fourier-Transformierte einer AKF nur eine beschränkte
+Aussage über das zugrunde liegende Signal leisten kann. Die Phaseninformationen sind
+bei der Berechnung der AKF verloren gegangen.
+
+Weißes Rauschen ist
+für kontinuierliche Prozesse eine rein theoretische Hilfsgröße, da
+kein Prozess vollständig weiß sein kann, da er sonst eine unendliche Leistung
+hätte, wie man an der Definition der Dirac-Funktion an der Stelle $\kappa = 0$
+sehen kann.
+\[
+    r_{xx}(\tau) = \Dirac{\tau}
+\]
+Alle natürlichen Rauschprozesse haben Tiefpass-Charakteristik. Bei
+diskreten Prozessen gilt dies nicht, da nicht das gesamte Spektrum
+konstant sein muss, sondern nur der Bereich bis zur
+Abtastfrequenz. Die Wiederholung des Spektrums durch die Abtastung
+führt dann automatisch zu einer konstanten Leistung über alle
+Frequenzen.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/ExplainWhiteNoise}
+\caption{\label{pic:ExplainWhiteNoise}Drei Signale mit näherungsweise gleicher AKF
+und konstantem ALDS. Links: Signal mit zufälliger Phase führt zu einem Rauschsignal,
+Mitte: Die Nullphase führt zu einem Delta-Impuls (Hier digitale Näherung des Dirac-Impulses),
+Rechts: Quadratische Phase führt zu einem Sinus-Sweep.}
+\end{center}
+\end{figure}
+
+\subsection{Kreuzleistungsdichte}
+Das Kreuzleistungsdichtespektrum (KLDS) wird analog als
+Fourier-Transformierte der KKF definiert.
+\begin{equation}\label{eq:KLDS:Analog}
+    \Phi_{XY}(\omega) = \int_{-\infty}^{\infty} r_{XY}(\tau) e^{-j\omega
+    \tau}d\tau
+\end{equation}
+
+Für diskrete Prozesse wird zur Transformation die DTFT verwendet.
+Es gilt also:
+\begin{equation}\label{eq:KLDS:Diskret}
+    \Phi_{XY} \jom = \sum_{\kappa = -\infty}^{\infty} r_{XY}(\kappa)
+    e^{-j\Omega \kappa}
+\end{equation}
+
+\subsubsection{Eigenschaften des KLDS}
+Da die KKF allgemein keine gerade Funktion ist, ist das resultierende KLDS in den
+meisten Fällen eine komplexwertige Funktion.
+
+\subsection{Kohärenz}
+Eine mit der KLDS eng verwandte Funktion ist das normierte KLDS,
+das als Kohärenz bezeichnet wird. Die Kohärenz ist für stationäre
+Prozesse als
+\begin{equation}\label{eq:Def:Koharenz}
+    C_{XY}\jom = \frac{\Phi_{XY}\jom}{\sqrt{\Phi_{XX}\jom \Phi_{YY}\jom}}
+\end{equation}
+definiert.
+
+Häufig wird auch das Betragsquadrat die sog. Magnitude Squared
+Coherence (MSC) genutzt, die insbesondere zur Analyse der
+Linearität von Systemen nützlich ist.
+\begin{equation}\label{eq:Def:MSC}
+    MSC \jom = \left| C_{XY}\jom \right|^2
+\end{equation}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/SimpleMSCModell}
+\caption{\label{pic:SimpleMSC_Modell}Einfaches Signalmodell im Zeitbereich}
+\end{center}
+\end{figure}
+
+Die MSC gibt dabei ein Maß der linearen Abhängigkeit zweier
+Rauschprozesse an. Ausgehend von dem in Abbildung
+\ref{pic:SimpleMSC_Modell} gezeigten Szenario im Zeitbereich, ergibt
+sich für das Ausgangssignal
+\begin{equation}
+  y(k) = x(k) + n(k) \quad .
+\end{equation}
+Es besteht aus zwei mittelwertfreien, stationären, unkorrelierten
+Rauschprozessen $x(k)$ und $n(k)$. Die MSC zwischen den beiden
+Ausgangssignalen kann durch
+\begin{equation} \label{eq:RAU:MSC_Def2}
+  MSC_{XY} \jom  =\frac{ \Phi_{X X} \jom}{ \Phi_{X X} \jom
+  + \Phi_{NN} \jom }
+  = \frac{1}{1+\frac{\Phi_{NN} \jom }{\Phi_{X X} \jom}}
+\end{equation}
+angegeben werden \cite{Dre99}. Gleichung (\ref{eq:RAU:MSC_Def2})
+ermöglicht eine anschauliche Interpretation der MSC-Funktion und
+deren Wertebereich. Die MSC kann direkt aus dem
+frequenz\-abhängigen Signal-Rauschabstand {\em Signal to Noise
+Ratio (SNR)} bestimmt werden:
+\begin{equation} \label{eq:RAU:MSC_ohneH}
+  MSC_{XY} \jom  = \frac{1}{1+\frac{1}{\SNR \jom}} .
+\end{equation}
+
+Bei der Betrachtung ohne Störquelle ($\Phi_{NN} \jom = 0$), ergibt
+sich eine MSC von eins; die Signale  besitzen eine direkte
+lineare Abhängigkeit.
+
+Im anderen Extrem ist die MSC null, wenn die Signalquelle $x(k)=0$
+keinen Beitrag zum Signal $y(k)$ leistet, \ie beide Signale $x(k)$
+und $y(k)$ vollständig unkorreliert sind.
+
+\section{Schätzung von Leistungsdichten}
+Als Näherung und zur Berechnung der DTFT für reelle Signale wurde
+die FFT eingeführt, die aber zwei Einschränkungen mit sich bringt.
+Zum einen muss das Signal zeitlich beschränkt sein, zum
+anderen ergibt sich eine angenommene periodische Wiederholung
+dieses Zeitabschnittes.
+
+Die erste Einschränkung führt dazu, dass zum einen durch die
+Fensterfunktion das LDS mit der Übertragungsfunktion der
+Fenster-Funktion gefaltet wird. Die zweite Folge ist, dass die
+Übergangsbedingung zur Ergodizität verletzt wird, da nicht mehr
+alle Datenwerte in die Berechnung der Momente eingehen. Man
+spricht deshalb nur noch von Schätzungen des LDS.
+Zur Beurteilung der Güte eines Schätzers sind verschiedene
+Kriterien bekannt, die erfüllt sein sollten:
+\begin{itemize}
+    \item Erwartungstreue: Dies bedeutet, dass die Schätzung zu
+    dem wahren Mittelwert konvergiert und nicht mit einem
+    zusätzlichen Fehler (Bias) behaftet ist.
+    \item Konsistenz: Die Konsistenz ist die Bedingung, dass bei
+    einer Grenzwertbetrachtung mit unendlich vielen Schätzwerten
+    die Varianz der Schätzung zu Null wird.
+\end{itemize}
+
+Die unterschiedlichen Schätzvorschriften und ihre Eigenschaften werden in weiteren
+Abschnitten noch genauer betrachtet.
+
+\subsection{Leistungsdichten periodischer Funktionen bzw. LDS via FFT}
+Um eine erste Annäherung für die Schätzung des LDS zu bekommen, sollen zunächst nur
+periodische Signale betrachtet werden, da sich diese besonders gut zur
+Untersuchung mittels DFT eignen.
+Für die DFT bzw.
+Fourier-Transformation bedeutet die periodische Wiederholung, dass die
+Integration nur über eine Periode erfolgen muss. Diese Integration
+konvergiert immer.
+
+Für das LDS eines diskreten und damit bandbegrenzten periodischen
+Signals gilt dann (wobei die vorliegenden Funktion keine Dichten
+mehr sind, sondern nur noch Leistungsspektren):
+\begin{equation}\label{eq:LDS:Periodogramm}
+    \Phi_{XX}(n) = X (n) X (n)^{\ast} = \left|X(n) \right|^2
+\end{equation}
+bzw.
+\begin{equation}\label{eq:KLDS:Periodogramm}
+    \Phi_{XY}(n)= X (n)  Y^{\ast} (n)
+\end{equation}
+Dies ist für das eigentliche stochastische Signal nur eine
+Schätzung. Für ein periodisches Signal ist es das tatsächliche
+LDS. Man bezeichnet deshalb \ref{eq:LDS:Periodogramm} und
+\ref{eq:KLDS:Periodogramm} als Periodogramme.
+
+\subsection{Periodogramm für stochastische Signale}
+Zur Berechnung des LDS für periodische Signale wurde das
+sog. Periodogramm vorgestellt, nun soll gezeigt werden,
+dass dieses auch als erste Schätzung
+des LDS eines nichtperiodischen Signals \zB Rauschens genutzt werden kann.
+
+Betrachtet man jetzt das Periodogramm als Schätzer des LDS eines
+Rauschsignals, so wird deutlich, dass dieser Schätzer zur
+Bestimmung eines LDS nicht bzw. nur bedingt geeignet ist.
+
+Um dies zu zeigen, nutzen wir als Beispiel die Schätzung eines Bandpass-Rauschens.
+Das theoretisch optimale LDS ist in Abbildung \ref{pic:PeriodogrammEst}a) gegeben.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/PeriodogrammEst}
+\caption{\label{pic:PeriodogrammEst} Schätzung des LDS eines Bandpass-Rauschens mittels
+Periodogramm und unterschiedlicher FFT-Länge}
+\end{center}
+\end{figure}
+
+Wird nun das LDS mit einem Periodogramm geschätzt, so ergeben sich
+für die unterschiedlichen FFT-Längen und somit auch für unterschiedliche Datenlängen
+die Bilder in Abbildung \ref{pic:PeriodogrammEst}b-d. Man erkennt, dass bei den Flanken
+der Bandpassrauschens nicht der wahre Verlauf geschätzt wird, statt dessen ist ein langsames
+Ausklingen zu den Seiten zu erkennen. Die Ursache hierfür ist die Begrenzung der Datenmenge,
+die als Fensterung interpretiert werden kann und somit zu einer Faltung des geschätzten LDS
+mit der Übertragungsfunktion des Fensters führt. Bei einer Ensemble-Betrachtung würde sich dieser
+Effekt nicht heraus mitteln, somit entspricht der Erwartungswert des geschätzten LDS nicht
+dem Erwartungswert des wahren LDS. Es liegt demnach ein nicht-erwartungstreuer Schätzer vor.
+Erhöht man jetzt die Datenmenge (FFT-Länge) so wird der Fenstereffekt geringer, das geschätzte LDS
+nähert sich dem wahren LDS an. Bei der Berechnung des Erwartungswerts über das Ensemble würde sich
+das wahre LDS ergeben. Man spricht deshalb von einem asymptotisch erwartungstreuen Schätzer.
+
+Aus den Abbildungen lässt sich aber auch erkennen, das die Varianz
+bei dieser Schätzmethode nicht kleiner wird. Das Periodogramm ist also nicht konsistent.
+Die theoretische Betrachtung zu diesen hier aus der Beobachtung gewonnenen Erkenntnis findet
+sich in \cite{KK98}.
+
+Um beide Eigenschaften noch einmal deutlicher an einem Beispiel zu erläutern, wird in Abbildung
+\ref{pic:BspPeriodogrammEst} gezeigt, welche Kurven sich beim
+Erwartungswert (Mittelwert) und bei der Varianz der Schätzung
+ergeben. Dazu wurde für das vorherige Beispiel die Schätzung des
+LDS 50 mal mit neuen Zufallssignalen wiederholt und die
+Mittelwerte bzw. die Varianz der Schätzungen bei veränderlicher FFT-Größe und somit steigender
+Anzahl der zugrunde liegenden Datenwerte berechnet. Es wird
+deutlich, dass die Schätzung im Mittel gegen das wahre LDS
+konvergiert, sich aber die Varianz nicht verringert.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/ShowErwartPeriodogramm2}
+\caption{\label{pic:PeriodogrammEst} Mittelwert und Varianz der Schätzung des LDS mittels
+Periodogramm bei 50 Mittelungen mit variabler FFT-Länge.}
+\end{center}
+\end{figure}
+
+\subsubsection{Welch-Methode}
+Um nun eine erwartungstreue und konsistente Schätzung zu
+ermöglichen, sind viele unterschiedliche Verfahren bekannt. Ein
+sehr populäres Verfahren ist das sog. Welch-Periodogramm. Die Idee
+dieses Verfahrens ist es, Periodogramme von aufeinander folgenden
+Blöcken zu mitteln (Unter Annahme der Ergodizität.)
+
+Für das geschätzte KLDS ergibt sich dann.
+\begin{equation}\label{eq;Welch:Perisodogramm}
+    \hat{\Phi}_{XY} (n) = \frac{1}{M} \sum_{\ell = 0}^{M-1}
+    X_{\ell}(n) Y_{\ell}^{\ast} (n),
+\end{equation}
+wobei $X_{\ell}(n)$ die FFT des Zeitblockes $x_{\ell}(k)$ ist, der
+wiederum die Daten von $x(k+ (\ell) N)$ bis $x(k+ (\ell +1) N -1)$
+beinhaltet mit $N$ als Beschreibung der FFT-Länge\footnote{Durch den Indexbeginn
+mit 1 müssen die Blockgrenzen in Matlab durch $x(k+ (\ell) N)+1$ und $x(k+ (\ell +1) N)$}
+festgelegt werden.
+
+Beim vollständige Welch-Verfahren werden die Zeitblöcke zusätzlich mit einem geeigneten Fenster
+gewichtet. Da durch die Gewichtung mit den üblichen Fenstern die Daten zum
+Rand eines Datenblocks weniger in die Schätzung eingehen, wurde als kompensierende
+Maßnahme vorgeschlagen, die Analyseblöcke überlappend zu gestalten. Der maximal überlappende
+Bereich sollte unterhalb von 70\% liegen, da bei einer noch größeren Überschneidung
+keine neuen Informationen in die Berechnung eingehen und nur mehr Rechenleistung benötigt wird.
+Häufig wird ein Wert von 50\% genutzt, da dies einen guten Kompromiss aus Rechenleistung
+und Schätzgenauigkeit ist. Die Fensterfunktion ist eine zusätzliche Gewichtung des
+Datenmaterials, um nun zu gewährleisten, dass kein systematischer Bias entsteht,
+muss das Gesamtergebnis noch zusätzlich mit dem Faktor
+\begin{equation}
+    P_w = \frac{1}{\sum_{k = 0}^{N-1} w^2(k)}
+\end{equation}
+wobei $w(k)$ die Fensterfunktion beschreibt. Je nach Definition der DFT kann ein zusätzlicher
+Gewichtungsfaktor in Abhängigkeit der FFT-Länge notwendig sein. Ist die DFT definiert wie in
+Gleichung \ref{eq:DFTHin:Def} ist eine Division durch $N$ notwendig.
+Somit ergibt sich für das geschätzte LDS
+\begin{equation}
+    \Phi_{XY}^{Welch} (n) = \frac{P_w}{NM} \sum_{\ell = 0}^{M-1} X_{\ell}(n) Y_{\ell}^{\ast} (n)
+\end{equation}
+
+Um dies noch einmal zu verdeutlichen, ist das Verfahren in
+Abbildung \ref{pic:WelchVerfahren} gezeigt.
+
+\tbdb{Welch-Verfahren zeigen }
+
+Zur Abschätzung der Güte des Welch-Verfahren wird ein ähnliches Experiment wie
+beim Periodogramm durchgeführt. Die ansteigende Datenmenge führt beim Welch-Verfahren
+nicht dazu, dass die FFT-Länge sich ändert, da diese vorher festgelegt wird, sondern dazu
+dass mehr Blöcke in die Schätzung eingehen.
+Abbildung \ref{pic:WelchPeriodogrammMatlab} zeigt den Mittelwert und die
+Varianz bei 50 Mittelungen, wenn die Anzahl der zugrunde-liegenden Blöcke ansteigt bei
+einer FFT-Länge von $N = 1024$.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/ShowErwartWelch2}
+\caption{\label{pic:WelchPeriodogrammMatlab} Mittelwert und Varianz der Schätzung des LDS mittels
+Welch-Methode (FFT-Länge= 1024, Anzahl der Experimente = 50)
+basierend auf unterschiedlich langen Signalen und somit Blöcken, die in die
+Mittelung eingehen, keine Fesnterung.}
+\end{center}
+\end{figure}
+
+Es ist zu erkennen, dass erneut ein nicht erwartungstreuer Schätzer vorliegt, da an den Rändern
+der Bandgrenzen die Fenstereffekte vorhanden sind und diese auch nicht verschwinden. Somit
+liegt nicht einmal ein asymptotisch erwartungstreuer Schätzer vor, außer man würde
+mit steigende Datenmenge gleichzeitig auch die FFT-Auflösung ansteigen. Die Varianz hingegen
+wird bei steigender Menge kleiner und würde bei einer unendlichen Datenmenge zu Null gehen.
+Es liegt also ein konsistenter Schätzer vor. Um zu verdeutlichen, warum das Welch-Verfahren
+trotzdem als Standard-Verfahren gilt, zeigt Abbildung \ref{pic:WelchPeriodogrammVergleich} den Vergleich der Schätzung
+mit und ohne von-Hann Fenster.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/ShowErwartWelchMitFenster}
+\caption{\label{pic:WelchPeriodogrammVergleich} Mittelwert der Erwartungswerte
+bei Rechteckfensterung (links) und von Hann Fenster (rechts)
+mit der Welch-Methode geschätzt (FFT-Länge= 1024, Anzahl der Experimente = 20, Anzahl
+der Blöcke = 20).}
+\end{center}
+\end{figure}
+
+
+Es wird deutlich, dass durch die Modifikation mit dem Fenster bereits bei kleinen Datenmengen
+ein sehr gute Schätzung vorliegt. Kombiniert mit der Eigenschaft der Konsistenz ergibt sich
+also ein gutes Schätzverfahren.
+
+Eine weiterer negativer Effekt beim Welch Verfahren werden
+ist, dass bei gleicher FFT-Auflösung natürlich
+mehr Daten benötigt wird. Ist die vorhandene Datenmenge beschränkt, kann eine bessere Schätzung
+durch Reduktion der Frequenzauflösung (Verringerung der FFT-Länge) erreicht werden.
+Dieser Kompromiss zwischen vorhandener Datenmenge und Frequenzauflösung gilt immer für
+dieses Verfahren und muss für jede Problemstellung erneut gefunden werden.
+
+
+\subsubsection{Rekursives Welch-Periodogramm}
+Bei vielen Algorithmen zur Echtzeitverarbeitung von Signalen, ist
+eine Schätzung des Leistungsdichten notwendig. Sind die Signale
+zusätzlich nicht-stationär muss diese Schätzung laufend folgen.
+Das Welch-Periodogramm muss also durch einen gleitenden Mittelwert
+über die vergangenen Periodogramme ermittelt werden. Zur Berechnung der einzelnen
+Spektren sollte wie im vorherigen Verfahren ein Fenster eingesetzt werden, üblicherweise
+das von-Hann Fenster.
+
+\begin{equation}\label{eq:LDS:Mittelwert}
+    \hat{\Phi}_{XY}(n,\ell) = \frac{1}{M} \sum_{m = 0}^{M-1}  X(n,\ell-m) Y^{\ast}(n,\ell-m)
+\end{equation}
+bzw. (vergleiche Abschnitt \ref{sec:Rekursion})
+\begin{equation}\label{eq:LDS:MittelwertAlternative}
+    \hat{\Phi}_{XY}(n,\ell) = \hat{\Phi}_{XY}(n,\ell) + X(n,\ell) Y^{\ast}(n,\ell)
+    -  X(n,\ell-M+1) Y^{\ast}(n,\ell-M+1)
+\end{equation}
+Dies beinhaltet auch die vollständige Speicherung aller
+Periodogramme, damit das richtige Spektrum nach $M$ Blöcken
+subtrahiert werden kann.
+
+Um die Rechenleistung zu reduzieren, kann nun die Mittelwertbildung
+durch einen rekursiven Tiefpass erster Ordnung ersetzt werden. Für die
+Schätzung des LDS ergibt sich dann.
+\begin{equation}\label{eq:RekursivenLDS}
+    \hat{\Phi}_{XY}(n,\ell) = \alpha \hat{\Phi}_{XY}(n,\ell-1) +
+    (1-\alpha)  X(n,\ell) Y^{\ast}(n,\ell)
+\end{equation}
+
+Die Schätzung mit Gleichung \ref{eq:RekursivenLDS} entspricht
+dabei einer Mittelung mit einem exponentiell abfallendem Fenster.
+Die Glättungskonstante $\alpha$ gibt dabei an, nach welcher Zeit
+$\tau$ (in Sekunden) das Fenster auf den Wert $0.37$ abgefallen
+ist. Die Umrechnung erfolgt mit der FFT-Größe $N$, der
+Samplingrate $f_s$ und dem Vorschub $V$ in Samples von einem Block
+zum nächsten. Der Vorschub wird häufig auf $50\%$ der FFT-Größe
+festgelegt. Es ergibt sich:
+\begin{equation}\label{eq:AlphaBerechnung}
+    \alpha = \exp \left(-\frac{V}{\tau f_s} \right)
+\end{equation}
+
+Die Zeit $\tau$ sollte an das zeitliche Verhalten des zu untersuchenden Signals
+angepasst werden.
+
+Zur Abschätzung dieses Verfahrens wird das Experiment zur Untersuchung des
+Welch-Periodogramms wiederholt. Es werden 50 Experimente durchgeführt und
+Mittelwert und Varianz bei einer FFT-Größe von 1024 berechnet. In diesem ersten
+Experiment wird $\alpha$ konstant auf $0.8$ gehalten, aber die Anzahl an
+genutzten Blöcken nimmt zu.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/ShowErwartRecWelch}
+\caption{\label{pic:ShowErwartRecursivWelch} Schätzung des Erwartungswertes und der Varianz
+bei veränderlicher Blockanzahl ($\alpha = 0.8$,FFT-Länge= 1024, Anzahl der Experimente = 50).}
+\end{center}
+\end{figure}
+
+Abbildung \ref{pic:ShowErwartRecursivWelch} zeigt, dass auch dieses
+Verfahren nicht erwartungstreu ist und auch
+keine asymptotische erwartungstreue zeigt, da die eingebrachten Fehler durch die
+feste FFT-Größe bei steigender Datenmenge nicht verschwinden. Zusätzlich zeigt sich aber auch,
+dass das Verfahren nicht konsistent ist, da die Varianz zwar sinkt, aber die Erhöhung
+der Anzahl der Datenblöcke von 20 auf 100 keine weitere Reduktion verursacht. Man kann
+zeigen, dass die Restvarianz von der Wahl von $\alpha$ abhängt. Um dies experimentell
+zu zeigen ist in Abbildung \ref{pic:ShowVarianzRecursivWelchAlpha} ein Vergleich
+der Varianzen für unterschiedliche $\alpha$
+gezeigt, wenn 100 Datenblöcke in die Schätzung eingehen.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/ShowErwartRecWelchAlpha}
+\caption{\label{pic:ShowVarianzRecursivWelchAlpha} Schätzung des Erwartungswertes und der Varianz
+bei veränderlichem $\alpha$
+(FFT-Länge= 1024, Anzahl der Experimente = 50, Blockanzahl = 100).}
+\end{center}
+\end{figure}
+
+Die Abbildung zeigt, dass mit größer werdendem $\alpha$ die Varianz abnimmt.
+
+\subsection{Schätzung der Kohärenz}
+
+Die Schätzung der Kohärenz und insbesondere der MSC basiert auf den Schätzung der
+in der Berechnung benötigten Leistungsdichtespektren. Eine einfache Überlegung
+zeigt, dass die einfache Periodogramm-Schätzung ungeeignet ist, eine Aussage zur
+MSC zu treffen.
+\begin{eqnarray}\label{eq:MSC:Est:Perodogram}
+    MSC_{XY}\jom & = & \frac{|\Phi_{XY}\jom|^2}{\Phi_{XX}\jom \Phi_{YY}\jom}\\
+    \Rightarrow \widehat{MSC}_{XY}(n) &= & \frac{|X(n)Y^{\ast}(n)|^2}{|X(n)|^2 |Y(n)|^2}\\
+    & = & \frac{X(n)Y^{\ast}(n)X{\ast}(n)Y(n)}{|X(n)|^2 |Y(n)|^2}\\
+    & = & 1
+\end{eqnarray}
+Das Ergebnis zeigt, dass die auf der Perodogramm-Schätzung basierende MSC
+immer eins ergibt, unabhängig von der wahren Abhängigkeit der beiden genutzten
+Signale.
+Erst die in der Welch-Methode verwendete Mittelung führt zu akzeptablen Ergebnissen, obwohl
+auch hier ein Restfehler bleibt, der nur für unendliche Datenmengen zu Null wird.
+Der verbleibende Fehler kann in Abhängigkeit von der Anzahl der verwendeten Datenblöcke und
+der wahren MSC mit
+\begin{equation}\label{eq:BIAS:MSC:Schaetzung}
+    Bias = \frac{1}{M}(1-MSC)
+\end{equation}
+angegeben werden.
+
+\subsection{Modelbasierte Methoden (nur Matlab Nutzung)}
+Die bisher vorgestellten Algorithmen gehören zu den sog.
+traditionellen Schätzverfahren. Moderne Verfahren basieren hingegen darauf,
+dass bestimmte Modelle für die Rauscherzeugung
+angenommen werden. Ziel dieser Verfahren ist die Bestimmung der
+Paramter des Rauschprozesses und daraus die Berechnung des Spektrums.
+
+\subsubsection{AR-Modell}
+
+Ein oft verwendetes Modell geht davon aus, dass das beobachtbare
+Rauschsignal als eine
+weiße Rauschquelle mit der Varianz $\sigma_n^2$, die durch ein
+rekursives System mit der Übertragungsfunktion $H(z) = 1/A(z)$
+gefiltert wurde, betrachtet werden kann.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 7cm]{psSto/Ar_Modell}
+\caption{\label{pic:Ar_Modell}Modell einer AR-Signalerzeugung}
+\end{center}
+\end{figure}
+
+
+Das Beobachtungssignal bzw. der resultierende Rauschprozess wird als sog.
+AR-Prozess bezeichnet (AR = Auto Regressiv). Ist es nun möglich
+aus diesem gemessenen Signal, die Parameter $\sigma_n^2$ und
+$A(z)$ zu bestimmen, ist das Rauschen und das
+Leistungsdichtespektrum beschreibbar. Als Beispiel ist in
+Abbildung \ref{pic:ArNoise} ein weißes Eingangsrauschen mit $\sigma_n^2  = -6$dB
+gezeigt, dass über ein typisches All-Pol System übertragen wird. Das LDS am Ausgang
+zeigt wie das System das Rauschen verändert.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 14cm]{psSto/ArNoise}
+\caption{\label{pic:ArNoise} Links: geschätztes Weißes Eingangsrauschen mit Leistung von -6dB, Mitte:
+Übertragungsfunktion eines AR-Systems. Rechts: geschätztes Ausgangs-LDS.}
+\end{center}
+\end{figure}
+
+Motiviert wird diese modellbasierte Betrachtungsweise des Problems
+der LDS-Schätzung durch die Beobachtung, dass viele natürliche
+Prozesse durch Filterung eines breitbandigen Signals mit einem
+Resonator enstehen. Beispiele hierfür sind das Sprachsignal und
+viele Musikinstrumente.
+
+\tbd{Eigenschaften Vor- und Nachteile des Verfahrens: +gute Schätzung bei kleiner
+Datenmenge. -Signalmodell muss zu den Daten passen.}
+
+Da die Mathematik dieser Verfahren nicht Ziel dieses Skripts ist,
+sollen hier nur die Matlab-Realisierungen etwas genauer erläutert
+werden. Eine sehr gute Darstellung der Verfahren und eine
+Abschätzung ihrer Leistungsfähigkeit findet sich in \cite{KK98}
+
+\begin{itemize}
+
+\item pyulear: Standardverfahren, basiert auf der Yule-Walker Methode
+zur Schätzung der AR-Paramater. Das zugrunde liegende geschätzte
+AR-System ist immer stabil.
+
+\item pburg: Gibt bei sehr kurzen Signalen bessere Ergebnisse. Basiert auf der
+Burg-AR Methode. Modell ist immer stabil
+
+\item pcovar: Ebenfalls Bias-freie Schätzung, aber das AR-Modell kann
+jede Phasenlage haben und somit auch zu insatbilen Realisierungen führen.
+Eher unübliche Methode.
+\end{itemize}
+
+\subsubsection{eigenwertbasierte High-Resolution Algorithmen (MUSIC)}
+\tbd{Das Signalmodell geht davon aus, dass einzelne Sinosoide im Rauschen vorhanden sind und versucht
+diese einzelnen Töne optimal zu schätzen.
+
+\begin{itemize}
+
+\item pmusic
+
+\item peig
+
+\end{itemize}
+}
+\section{Zufallssignale und Matlab}
+
+\subsection{Generierung von Zufallssignalen}
+
+\subsection{Mittelwert, Varianz und Co.}
+
+\subsection{Korrelation}
+
+\subsection{Leistungsdichtespektren}
+
+\subsubsection{Kohärenz}
+
+
+
+\section{Übungen}
+\subsection{Wiederholung des Stoffes und einfache Rechenaufgaben\label{sec:Statistik:Uebungen}}
+\begin{enumerate}
+    \item Gegeben ist eine ergodische Rauschquelle, die gleichverteiltes Rauschen im Interval $[0 \dots 2]$ erzeugt
+    (Zum Bsp rand in Matlab). Wie gross ist der Mittelwert und die Varianz dieses Prozesses.
+    \item Wir addieren zwei miteinander unkorrelierte Rauschquellen des Typs der Aufgabe 1 .
+    Welche Varianz und welcher Mittelwert ergibt sich dann?
+    \item Bestimmen Sie die Auto-Korrelationsfunktion zu den folgenden Signalen:
+    \begin{itemize}
+        \item $x(k) = 1 \fuer -3 \leq k \leq 3$
+        \item $x(k) = s(k) +  n (k)$. Nehmen Sie an, dass $s(k)$ und $n(k)$ unkorreliert sind.
+    \end{itemize}
+    \item Bestimmen Sie die KKF der folgenden Signale
+    \begin{itemize}
+        \item $x(k) = [1 \; 2 \;2 \;1 \;0]$ und $y(k) = [0\; 1\; 2 \;2 \;1]$. Bestimmen Sie den Index des Maximums. Welche Aussage
+        hat dieses Maximum.
+        \item $x(k) = s(k) +  n_1 (k)$ und $y(k) = s(k) +  n_2 (k)$. Nehmen Sie an alle drei Signale
+        sind jeweils miteinander unkorreliert.
+    \end{itemize}
+    \item \label{Aufg:Statistik1}Geben Sie eine allgemeine Formel an, wie der Mittelwert
+    eines gleichverteilten Rauschens im Interval $[a\cdots b]$
+    berechnet wird.
+
+    \item Sie messen eine Auto-Korrelationsfolge der folgenden Form, wobei nur die positiven
+    Folgenindizes angegeben sind. $r_{XX}(0) = 2$ und $r_{XX}(1) = 1$. Wie sieht das ALDS aus?
+    \item Wie sieht das LDS $\Phi_{ZZ} \jom $ eines gemischten Signals $z(k) = x(k) + y(k)$ aus?
+    Was ändert sich, wenn die Signale unkorreliert sind?
+     \item Zeigen Sie, dass die MSC Definition zu Gleichung \ref{eq:RAU:MSC_Def2} führt, wenn das
+     Signalmodel $y(k) = x(k) + n(k)$ angenommen wird und $x(k)$ und $n(k)$ orthogonal sind.
+    \item
+\end{enumerate}
+
+\subsection{Aufgaben (Auf Klausurniveau)}
+\begin{enumerate}
+\item Welche der folgenden Funktionen könnte a) ein ALDS b) eine
+AKF c.) eine KKF d) ein KLDS e) eine Verteilungsdichtefunktion
+(PDF)  sein. Geben Sie ihre Antworten in der folgende Tabelle.
+Jede falsche Antwort wird mit $-1$ Punkt gewertet. Es sind
+Mehrfachnennungen möglich (12).
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psUeb/KlausurBildNT2}
+\end{center}
+\end{figure}
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|}
+Bild & ALDS & AKF & KKF & KLDS & PDF\\\hline a) & & & & & \\\hline
+b) & & & & & \\\hline c) & & & & & \\\hline d) & & & & & \\\hline
+\end{tabular}
+\end{center}
+
+\item Ein gleichverteilter Rauschprozess im Interval $[0\,\dots \,
+3]$ wird durch eine lineare Abbildung mit den Parametern $b$
+verschoben und $g$ gestreckt.
+%\tbdb{Bild zur Erläuterung}
+Welcher Mittelwert und welche Varianz ergibt sich nach der
+linearen Abbildung (Verschiebung und Streckung) (6)?
+
+\item Gegeben sind die folgenden Ensemble-Funktionen, die
+unterschiedlichen Prozessen entnommen wurden.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 7cm]{psUeb/Aufgabe3ProzessA}
+\includegraphics[width = 7cm]{psUeb/Aufgabe3ProzessB}
+
+\includegraphics[width = 7cm]{psUeb/Aufgabe3ProzessC}
+\includegraphics[width = 7cm]{psUeb/Aufgabe3ProzessD}
+\end{center}
+\end{figure}
+Welcher dieser Ensemble (a-d) könnten aus einem stationären
+und/oder ergodischen Prozess stammen. Begründen Sie für beide
+Eigenschaften ihre Meinung durch kurze Texte oder formal
+mathematisch (8).
+
+\item Gegeben ist eine allgemeine Verteilungsdichte der folgenden
+Form
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psSto/Saegezahnverteilung.eps}
+\end{center}
+\end{figure}
+
+Berechnen Sie in Abhängigkeit der Grenzen (a,b) den Mittelwert und
+die Varianz dieser Verteilungsdichte (10).
+
+\end{enumerate}
+
+\subsection{Matlab-Aufgaben}
+\begin{enumerate}
+    \item Testen Sie ihr Ergebnis der Aufgabe \ref{Aufg:Statistik1}
+    aus dem Abschnitt \ref{sec:Statistik:Uebungen}. Erzeugen Sie
+    dazu gleichverteiltes Rauschen
+    \item Erzeugen Sie zwei Rauschvektoren, die eine Korrelation von 0.5 haben.
+    \item Was passiert mit ihrer Amplitudenstatistik (Ansehen mit Hist-Funktion in Matlab), wenn
+    Sie von gleichverteiltem (rand) Rauschen als Ausgangsgröße ausgehen.
+    \item
+    \item
+\end{enumerate}
+
+\subsection{Transfer-Leistung}
+
+\section{Zusammenfassung}
+Die wichtigen Erkenntnisse aus diesem Kapitel sind:
+\begin{itemize}
+    \item Stochastische Signale lassen sich durch die AKF im
+    Zeitbereich bzw. das ALDS im Frequenzbereich beschreiben
+    \item Der Zusammenhang ist durch das Wiener-Khintchine Theorem
+    gegeben.
+    \item Alle Momente sind durch die Verteilungsdichtefunktion
+    definiert
+    \item Verändern sich die Momente nicht über der Zeit so heißen
+    die Prozesse stationär.
+    \item Lässt sich ein Prozess vollständig durch eine
+    Musterfunktion darstellen, so ist der Prozess ergodisch.
+    \item Die Verwandtschaft zweier Prozesse wird durch die KKF,
+    bzw durch das KLDS angegeben.
+    \item Keine dieser Größen kann für reale Prozesse bestimmt
+    werden, es sind immer Schätzungen notwendig.
+    \item Gute Schätzer sind erwartungstreu und konsistent.
+\end{itemize}
+
+\begin{itemize}
+\item Verteilungsdichten definieren alle Momente (Mittelwert,
+Varianz).
+\item Stationarität: Verteilungsdichten sind unabhängig
+vom Zeitpunkt ($\mu$ und $\sigma^2$ verändern sich nicht über
+die Zeit; $r_{xx}(\kappa)$ = Werte nur von Verschiebung $\kappa$ abhängig)
+\item Ergodizität: Notwendige Bedingung ist Stationarität Eine
+Musterfunktion definiert den Prozess. Somit sind alle Größen über zeitliche Mittelung berechenbar
+\item  Korrelation ist ein Maß für die Ähnlichkeit von
+Funktionen.
+\item LDS ist definiert als
+Fourier-Transformation der Korrelationsfunktion.
+\item Alle Größen müssen geschätzt werden.
+\item Erwartungstreue: der
+Schätzer schätzt im Mittel den wahren Wert ohne Fehler (bias).
+\item Konsistenz: die Varianz der Schätzung muss gegen Null konvergieren
+für unendliche Datenmengen
+\item Ein  wesentlicher Schätzer
+für LDS ist das Welch-Periodogramm.
+\end{itemize}

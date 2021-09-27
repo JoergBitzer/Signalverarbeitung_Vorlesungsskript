@@ -1,0 +1,94 @@
+﻿Das sind die Auflistungen der Abbildungen. 
+Es sind nur die aufgeführt für die es für mich Sinn ergeben hat sie zu programmieren. Da können Sie gerne welche hinzufügen bzw. wegnehmen
+"-" heißt das ist noch nicht fertig oder angefangen. Mit Kommentaren was da noch zu machen ist bzw. was Probeleme sind.
+"?" heißt ich habe gezweifelt ob die überhaupt programmiert werden sollte und sie deswegen noch nicht angefangen
+" " wenn nichts dahinter steht ist für mein verständnis fertig. 
+Die Abbildungen vervollständigen und aufhübschen werde ich noch mit Beschriftungen, etc. das soll erstmal nur inhaltlich richtig sein.
+
+
+2.1 - Pfeile sind schwer machbar, vor allem übersichtlich wenn es wichtig ist kann ich das trotzdem in Angriff nehmen
+2.2
+2.3 
+2.4
+2.6 
+2.7
+2.9
+2.10
+2.11
+2.12-14
+2.15
+2.16
+2.17
+2.18 
+2.19 
+2.20 
+2.21 
+2.22 
+2.23 
+2.24 
+
+3.7 
+3.8 - ?
+tgm moodle kurs sv1 
+
+4.2 
+
+
+
+
+Diese 4 Abbildungen sind im Konzept fertig und interaktiv
+------
+4.5 - ? Sollen Pol-Nst-Pläne mit Python gemacht werden? JB in jedem Fall. Dies sollte interaktiv erfolgen. Also Pol Nullstellen in der oberen HAlbebene verschiebbar
+
+4.6 - 3-D + imag muss ich mich noch reinlesen : JB: Und dann sollte diese Grafik sich direkt ändern durch 4.5. Dies beiden gehören immer zusammen.
+
+4.8  JB: Das interaktiv wäre auch schön. SO dass man sieht, dass mit dem Radius das Auschwingen länger wird und mit dem Polwinkel die Frequenz.
+
+4.9  JB: Hier wäre es toll, wenn man einen Punkt (a1,a2) verschieben könnte und dann sieht man die Impulsantwort in einer zweiten Grafik.
+------
+
+
+
+5.3 
+5.5
+5.6 
+5.7 
+5.8 - in matlab-skripte schauen
+Symmetrie symbolisieren, achse betrag, punkt, phase
+5.9
+
+Interaktion-Idee: Fensterfkt-Vergleich in eine Funktion mit Umschalten? 
+	Oder: a b y verändern können und sehen wie sich Dirichlet verändert?
+
+5.11
+5.12
+5.13
+5.14
+5.15
+5.16+17
+
+
+6.1-6.4
+butterworth in ein bild farblich
+
+
+Könnten Sie mir Tipps für die EQ-Kurven (6.5 - 6.8) geben? soll das ein fiktive Frequenzverlauf sein oder soll der aus einem Filter resultieren?
+6.5
+6.6
+6.7
+6.8
+Die Kurven sollten alles echte EQs sein. Dafür haben wir in Audiotechnik ja die Peak und Kuhschwanz-Filter durchgenommen (Bzw kommen noch). Die Matlab Files habe ich natürlich alle. Hier wäre auch Interaktion (Gain, Q, Cutoff) nützlich.
+
+6.12 
+6.13 
+ShowFestnerEntwurf2
+6.14 
+ShowFestnerRemez
+Die Abbildung/Tabelle ohne Nr. zwischen 6.14 und 6.15 - ?
+6.15 - Code in dem Skript lässt den Filter anders aussehen
+plotMinPhasenFilter
+6.22 - Phase und Betrag sehen alle etwas anders aus als im Skript. Das heißt es muss ein Fehler da sein oder?
+ordnung anpasssen um effekt niedrigerer zu zeigen
+
+A.1
+A.2 ? in 2.24 ausführlicher

@@ -1,0 +1,60 @@
+\begin{titlepage}
+\vfill
+\begin{center}
+{\huge
+%Nachrichtentechnik\\
+
+\vspace*{0.5cm}
+\ifthenelse {\boolean{bSS}}
+{Signalverarbeitung I}
+{Signalverarbeitung II}
+}
+
+\vspace*{2cm}
+\ifthenelse {\boolean{bSS}}
+{{\large Vorlesungsscript WS 2019 / 2020 }}
+{{\large Vorlesungsscript SS 2012}}
+
+\vfill
+%\includegraphics[width = 4cm]{IHA_Logo}
+
+
+{\copyright Autor: Prof. Dr. Jörg Bitzer \\ \today \\ 
+\ifthenelse {\boolean{bSS}}
+{{für SV I Version 0.9552 \\}}{{ für SV II  Version 0.821}}}
+
+Jade Hochschule, Fachbereich Bauwesen und Geoinformation, Abteilung Technik und Gesundheit für Menschen 
+
+\end{center}
+Fehler bzw. Änderungs-Log:
+\begin{itemize}
+	\item Version 0.9542 vom 29.10.2017: Fehler berichtigt Abschnitt Rekursion N ersetzt durch M und N-1 in Formel durch M
+	\item Version 0.9543 vom 12.11.2017: zTrafo: nicht-kausale Folge richtig definiert: ACHTUNG: In der Bildüberschrift noch nicht geändert
+	\item Version 0.9544 vom 20.11.2017: Beim Stabilitätsdreieck die Bedingung auf $a_2^2 <1$ geändert (Quadrat ergänzt).
+	\item Version 0.9545 vom 26.11.2017: Begin Spektren (5.1-5.3) $\Omega$ durch $\Omega_0$ ersetzt, da eine spezifische Frequenz gemeint ist .
+	\item Version 0.9546 vom 14.12.2017: Fensterfunktionen mit $4\pi$ statt $2\pi$.
+	\item Version 0.9547 vom 13.11.2018: Erzeugung Dreieck cos auf sin geändert. Lösung war fehlerhaft.
+	\item Version 0.9548 vom 13.11.2018: Abb 2.22 Werte zu Definitionsbereich geändert und Bsp Linearität klarer dargestellt. Es fehlt noch im oberen Teil des Bildes das xmix.
+	\item Version 0.955 vom 07.12.2018: Phasenberechnung aus PN geändert.
+	\item Version 0.9551 vom 05.09.2019: Girod, Rabenstein als Ideengeber bei Pol-Nullstellendarstellung 
+	\item Version 0.9551 vom 05.09.2019: Fibonacci Beispiel entfernt und Stil geändert in zTrafo Anfang
+\end{itemize}
+
+
+Nützliche Literatur für die Module SV I und SV II und kurze Beschreibung:
+\begin{itemize}
+\item Girod, Rabenstein, Stenger, ''Einführung in die Systemtheorie'', Dieses Buch gibt es
+in mehreren Ausgaben in der Bibliothek und ist eine anschauliche Einführung in die Systemtheorie.
+Das Buch geht über den Stoff der Vorlesung hinaus, ist aber sehr anschaulich.
+\item Kammeyer, Kroschel, ''Digitale Signalverarbeitung'', Eines der Standardwerke in der deutschen
+SV Literatur. Gut geschrieben, Matlab Beispiele, beinhaltet theoretische Hintergründe zu einigen wichtigen Punkten der Vorlesung
+\item Proakis, Manolakis, ''Digital Signal Processing'', Meine Empfehlung, ein hervorragendes Buch, Sie lernen außerdem gleich die englischen Fachbegriffe
+\item Orfanidis, ''Introduction to digital signal processing'', Schönes Einsteigerbuch mit Beispielen aus dem Audiobereich
+\item Martin Meyer, ''Grundlagen der Informationstechnik - Signale, Systeme und Filter'', 1. Auflage, Vieweg-Verlag,
+\item Vary, Heute, Hess, ''Digitale Sprachsignalverarbeitung'', Geht inhaltlich deutlich über die Vorlesung hinaus. Ist für alle interessant, die in diesem Bereich einmal Arbeiten wollen.
+\item Zölzer, ''Digitale Audiosignalverarbeitung'', Spezialbuch für alle Interessierten.
+\end{itemize}
+
+
+\vfill
+\end{titlepage}

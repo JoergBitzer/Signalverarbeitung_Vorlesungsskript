@@ -1,0 +1,14 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+  numbered: true
+- file: grundlagen
+- file: signale
+- file: systeme
+- file: analog
+- file: ztrafo
+- file: spektren
+- file: filter
+- file: mathe
+- file: zbibliography

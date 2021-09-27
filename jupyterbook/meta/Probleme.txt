@@ -1,0 +1,25 @@
+Kürzel:
+\ZT -> Z-Trafo Symbol [x] => \mathcal{Z}
+\HinTrans -> Trafo Knochen => ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\;
+\RueckTrans -> Trafo Knochen => ;\bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\;
+Vertikal schwieriger
+
+\jom => (e^(j \Omega))
+\Dirac => \delta^D
+\vek{x} [x] => \mathbf{x}
+
+
+Tabellen -> dataframe
+formatierung + mit bildern -> als bild
+
+Zitate bzw. Quellenangaben 
+
+Verweise zwischen Dateien
+
+Matlab Code-Beispiele behalten? -> python um
+
+TODOs in rot
+
+Tabs für Signale
+
+Aufgaben nummerieren

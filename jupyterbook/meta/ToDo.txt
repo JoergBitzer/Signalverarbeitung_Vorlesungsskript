@@ -1,0 +1,47 @@
+1. Filter Skripte richtig machen
+2. filter Besispiele im book tabs programmieren
+-> Wenn Probleme mit Filterskripten klar geworden sind (besprochen)
+
+# 3. kreuzreferenzen richtig anzeigen lassen
+
+# 4. Zitate 
+# -> keine Version funktioniert (in Spektren nach "cite" suchen)
+# ---> Die funktionieren, aber
+# * Irgendwo muss eine Bibliographie definiert werden:
+#	```{bibliography}
+#	```
+# * Eine Referenz von den oben erwähnten war falsch geschrieben, cite:p und @ funktionieren tatsächlich nicht. 
+# * Wenn neue Referenzen dazukommen muss komplet neu gebaut werden (jb clean)!? Ansonsten Tauchen die Referenzen nicht in der Bibliography auf. 
+
+
+5. Beispiele richtig nummerieren
+-> Custom Labels -> wie funktionieren die? hab die website nicht gefunden
+
+# 6. To DO admonitions
+# -> wie funktioniert das mit custom symbol? bzw welche vorgefertigte soll ich verwenden?
+# https://sphinx-book-theme.readthedocs.io/en/latest/reference/demo.html#admonitions
+# https://jupyterbook.org/reference/cheatsheet.html?highlight=admonition#admonitions
+
+# 7. Code als python und matlab tabs möglich
+
+8. Signaltypen als "tabs"
+-> Soll das gemacht werden?
+
+# 9. Filter als "Tabs" 
+# -> 7.3.2.2  - .5 als tabs machen? Überschriften stören dabei
+# durch tabbed code nicht gut machbar
+
+# 10. Fenster als Tabs
+10a Customizable Fensterskript (Kapitel_3456/Figure_5_Wins.py)
+-> Nochmal genauer draufschauen
+
+# 11. Bilder Skalieren
+
+12. Manche Bilder aus Skripten werden noch nicht angezeigt, manche schon.
+z.B. Sprektren "DFT_FensterMultiplikation" nicht vs. zTrafo "Stabildreieck" schon
+-> Ich konnte hier keinen Unterschied im aufruf und in dem Skript erkennen...
+
+13. Fußnoten richtig nummerieren
+-> Am Ende wenn Fußnoten klar sind
+
+14. Kommentierung der Skripte

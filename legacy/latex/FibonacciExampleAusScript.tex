@@ -1,0 +1,137 @@
+\section{Bonus: Fibonacci und Z Transformation}
+Ein Beispiel zur Anwendung der z Trafo sind die sog. Fibonacci-Zahlen. Nehmen wir an, wir haben
+ein Kaninchenpärchen, dass pro Monat ein weiteres Pärchen zeugt
+und dieses neue Pärchen ist nach einem weiteren Monat
+geschlechtsreif\footnote{Gendefekte durch Inzucht schließen wir an
+dieser Stelle auch mal aus.} und zeugt ebenfalls wieder neue
+Pärchen. Die Frage lautet nun, wie nimmt die Kaninchenpopulation
+zu, wenn kein Kaninchen stirbt?
+
+Schauen wir uns zunächst die Populationsentwicklung an:
+
+\begin{center}
+\begin{tabular}{l|c|c|c|c|c|c|c|}
+Monat  & 0 & 1 & 2 & 3 & 4 & 5 & 6  \\\hline
+
+Neu    & 0 & 0 & 1 & 1 & 2 & 3 & 5 \\\hline
+
+Gesamt & 1 & 1 & 2 & 3 & 5 & 8 & 13 \\\hline
+\end{tabular}
+\end{center}
+
+Diese Tabelle lässt sich auch durch folgendes rekursives System
+ausdrücken und beschreibt die Fibonacci-Folge.
+\begin{equation}
+    y(k) = y(k-1)+y(k-2) + \delta(k)
+\end{equation}
+
+Für dieses Problem lässt sich nicht so leicht eine direkte
+Formulierung finden. 
+
+
+Die selbe Lösungsstrategie verfolgen wir jetzt für das Problem der
+Fibonacci-Zahlen. Ausgehend von
+\begin{equation}\label{eq:example2:FiboStart}
+y(k) = y(k-1) + y(k-2) + \delta(k),
+\end{equation}
+multiplizieren wie beide Seiten mit der Summe $\sum_{k =
+	-\infty}^{\infty}z^{-k}$ und führen die Abkürzung aus Gleichung
+\ref{eq:Def:zTrafo} ein.
+\begin{eqnarray}\label{eq:example2}
+Y(z) &=& z^{-1}Y(z) + z^{-2}Y(z) + 1 \\
+Y(z)\left(1- z^{-1} -z^{-2} \right) &=& 1
+\end{eqnarray}
+Umgestellt ergibt sich
+\begin{equation}\label{eq:example2:zLoesung1}
+Y(z) = \frac{1}{1-z^{-1} - z^{-2}} = \frac{z^{2}}{z^{2} - z^{1} -1}
+\end{equation}
+
+Um Gl. \ref{eq:Def:geometrischeReihe} anwenden zu können, muss im
+nächsten Schritt die Gleichung mit Hilfe der
+Partialbruchzerlegung in die folgende Form gebracht werden
+\begin{equation}\label{eq:example2:zLoesung2}
+Y(z) = \frac{A}{z-a} + \frac{B}{z-b}
+\end{equation}
+
+Dies ist leider so direkt nicht möglich (siehe
+\ref{sec:An:Partialbruch}), deshalb muss zunächst die Ordnung des
+Zählers verringert werden. Wir führen eine Hilfsgröße
+\begin{equation}\label{eq:example2:yhilf}
+\widetilde{Y}(z) = \frac{Y(z)}{z}
+\end{equation}
+ein und lösen dann
+\begin{equation}\label{eq:example2:PartialZer}
+\widetilde{Y}(z) = \frac{A}{z-a} + \frac{B}{z-b}.
+\end{equation}
+
+Nachdem wir
+die Lösung von $\widetilde{Y}(z)$ kennen, ist die Lösung für $Y(z)
+= z \widetilde{Y}(z)$.
+
+Um die Unbekannten $a,b,A,B$ in Gl. \ref{eq:example2:PartialZer}
+zu bestimmen, ist zunächst die Produktdarstellung für Polynome zu
+bestimmen (Fundamentalsatz der linearen Algebra):
+\begin{equation}\label{eq:example2:Produktloesung}
+\widetilde{Y}(z) = \frac{z}{z^{2} - z^{1} -1}
+=\frac{z}{(z-a)(z-b)}.
+\end{equation}
+Die Bestimmung der Unbekannten $a,b$ erfolgt über die
+Nullstellenberechnung des Polynoms. Dies ist für quadratische und
+kubische Polynome durch Formeln möglich. Für Polynome höherer
+Ordnung ist ein numerisches Verfahren zur Lösung
+notwendig\footnote{In Matlab können die Wurzeln eines Polynoms mit
+	{\tt roots} bestimmt werden.}
+
+Für unser Beispiel ergeben sich die beiden Nullstellen
+\begin{equation}\label{eq:example2:LoesungNullstellen}
+a = \frac{1}{2}+\sqrt{\frac{1}{4}+1} \quad \mbox{und} \quad b = \frac{1}{2}-\sqrt{\frac{1}{4}+1}
+\end{equation}
+
+Um jetzt $A$ zu berechnen müssen wir mit Gl.
+\ref{eq:example2:Produktloesung} folgende Gleichung lösen
+\begin{eqnarray}\label{eq:example2:partialA}
+A &= &(z-a)\widetilde{Y}(z)\big|_{z = a}\\
+& = &\frac{(z-a)z}{(z-a)(z-b)}\big|_{z = a}\\
+& = &\frac{z}{(z-b)}\big|_{z = a}\\
+& = &\frac{a}{(a-b)}\\
+& =
+&\frac{\frac{1}{2}+\sqrt{\frac{5}{4}}}{\left(\frac{1}{2}+\sqrt{\frac{5}{4}}-\left(\frac{1}{2}-\sqrt{\frac{5}{4}}\right)\right)}\\
+& =
+&\frac{\frac{1}{2}+\sqrt{\frac{5}{4}}}{2\sqrt{\frac{5}{4}}}\\
+& = &\frac{\frac{1}{2}+\sqrt{\frac{5}{4}}}{\sqrt{5}}
+\end{eqnarray}
+und für
+\begin{eqnarray}\label{eq:example2:partial1B}
+B &= &(z-b)\widetilde{Y}(z)\big|_{z = b}\\
+& = &\frac{(z-b)z}{(z-a)(z-b)}\big|_{z = b}\\
+& = &\frac{z}{(z-a)}\big|_{z = b}\\
+& = &\frac{b}{(b-a)}\\
+& =
+&\frac{\frac{1}{2}-\sqrt{\frac{5}{4}}}{\left(\frac{1}{2}-\sqrt{\frac{5}{4}}-\left(\frac{1}{2}+\sqrt{\frac{5}{4}}\right)\right)}\\
+& =
+&\frac{\frac{1}{2}-\sqrt{\frac{5}{4}}}{-2\sqrt{\frac{5}{4}}}\\
+&=&\frac{\frac{1}{2}-\sqrt{\frac{5}{4}}}{-\sqrt{5}}
+\end{eqnarray}
+Nachdem wir jetzt alle Konstanten bestimmt haben, können wir nach
+der Multiplikation mit $z$
+\begin{eqnarray}\label{eq:example2:kLoseung1}
+Y(z) &=& \frac{Az}{z-a} + \frac{Bz}{z-b}\\
+& = &A\frac{1}{1-az^{-1}} + B\frac{1}{1-bz^{-1}}
+\end{eqnarray}
+mit der schon bekannten Lösung der geometrischen Reihe folgt also
+\begin{equation}\label{eq:esample2:Loesung1k}
+A\frac{1}{1-az^{-1}} \Rightarrow Aa^k\gamma(k)
+\end{equation}
+und
+\begin{equation}\label{eq:esample2:Loesung2k}
+B\frac{1}{1-bz^{-1}} \Rightarrow Bb^k\gamma(k)
+\end{equation}
+Und somit für die direkte Berechnung der Ausgangsfolge ohne
+Rekursion
+\begin{eqnarray}\label{eq:example2:kLoseungEnde}
+y(k) &=& (Aa^k+Bb^k)\gamma(k)\\\nonumber
+&=&\left(\left(\frac{\frac{1}{2}+\sqrt{\frac{5}{4}}}{\sqrt{5}}\right)\left( \frac{1}{2}+\sqrt{\frac{5}{4}}\right)^k    +
+\left(\frac{\frac{1}{2}-\sqrt{\frac{5}{4}}}{-\sqrt{5}}\right)\left(
+\frac{1}{2}-\sqrt{\frac{5}{4}}\right)^k\right)\gamma(k)
+\end{eqnarray}
+

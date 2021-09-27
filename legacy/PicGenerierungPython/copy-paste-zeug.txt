@@ -1,0 +1,9 @@
+, where='mid', use_line_collection=True
+
+pyplot.tight_layout()
+
+fig, ((ax_1, ax_2), (ax_3, ax_4)) = pyplot.subplots(2, 2)
+
+.set(xlabel='', ylabel='', title='', xlim=[ , ], ylim=[ , ])
+
+matplotlib.pyplot.ion()

@@ -1,0 +1,1028 @@
+\chapter{Stochastische Signale und LTI-Systems}
+
+\section{AKF und LDS bei LTI-Systeme}
+Eine interessante Frage ist nun, welchen Einfluss ein LTI-System auf
+die Korrelation und das LDS hat. Um dies zu untersuchen, gehen wir
+davon aus, dass das LTI-System durch seine Impulsantwort $h(k)$
+vollständig beschrieben ist. Es galt:
+\[
+    y(k) = x(k) \ast h(k)
+\]
+Zur Berechnung der AKF am Ausgang des Systems gehen wir von der
+Definition der AKF aus:
+\begin{equation}\label{eq:AKF:Ausgang:Start}
+    r_{yy}(\kappa) = \lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K} y(k) y(k-\kappa)
+\end{equation}
+Mit der Faltungsverknüpfung gilt für
+%\[ %Analog
+%    y(k) = \int\limits_{-\infty}^{\infty}x(t-\alpha)h(\alpha) d
+%    \alpha
+%\]
+%und
+%\[
+%    y(k+ \kappa) = \int\limits_{-\infty}^{\infty}x(t+\tau-\beta)h(\beta) d
+%    \beta \quad \quad .
+%\]
+\begin{equation}\label{eq:FaltungWdh}
+    y(k) = \sum_{\alpha = -\infty}^{\infty}h(\alpha) x(k-\alpha)
+\end{equation}
+und
+\[
+    y(k - \kappa) =\sum_{\beta = -\infty}^{\infty}h(\beta) x(k-\kappa-\beta)  \quad \quad .
+\]
+
+Setzt man dies nun in Gleichung \ref{eq:AKF:Ausgang:Start} ein, so
+ergibt sich:
+\begin{equation}\label{eq:AKF:Ausgang:Zweite}
+    r_{yy}(\kappa) = \lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K}
+                    \sum_{\alpha = -\infty}^{\infty} \sum_{\beta = -\infty}^{\infty}
+                    x(k-\alpha) x(k-\kappa-\beta) h(\alpha) h(\beta)
+\end{equation}
+
+Durch Vertauschen der Summen und der Limes-Bildung erhält man:
+\begin{equation}
+    r_{yy}(\kappa) =\sum_{\alpha = -\infty}^{\infty} \sum_{\beta = -\infty}^{\infty}
+                    \underbrace{\lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K}
+                    x(k-\alpha) x(k-\kappa-\beta)}_{r_{xx}(\kappa + \beta - \alpha)} h(\alpha) h(\beta)
+\end{equation}
+Mit der Substitution $\lambda = \alpha - \beta$ ist
+\begin{equation}
+    r_{yy}(\kappa) =\sum_{\lambda = -\infty}^{\infty}
+                    r_{xx}(\kappa - \lambda)
+                    \underbrace{\sum_{\beta = -\infty}^{\infty}h(\lambda + \beta)
+                    h(\beta)}_{r_{hh}^E(\lambda)}
+\end{equation}
+wobei das  $^{E}$ in $r_{hh}^E(\lambda)$ andeutet, dass es sich um
+eine Energiesignalkorrelation handelt ohne Limes und
+Normalisierungsterm, da $h(k)$ als Impulssignal ein Energiesignal
+und kein Leistungssignal ist (vgl. Abschnitt
+\ref{sec:EnergUndLeistung}).
+
+Somit ergibt sich für die Korrelation am Ausgang
+\begin{eqnarray}
+r_{yy}(\kappa) &= & \sum_{\lambda = -\infty}^{\infty}
+                    r_{xx}(\kappa - \lambda)
+                    r_{hh}^E(\lambda)\\
+            & = & r_{xx}(\kappa) \ast r_{hh}^E(\kappa)
+\end{eqnarray}
+
+% Analoge Herleitung
+%Intergralgrenzen und den Substitutionen $\beta-\alpha = \lambda$
+%ergibt sich schlussendlich.
+%\begin{eqnarray}
+%r_{yy}(\tau) & = &
+%        \int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty}h(\alpha) h(\beta)
+%        \underbrace{\left(\lim_{T\rightarrow \infty} \frac{1}{2T}\int\limits_{-T}^{T}
+%        x(t-\alpha) x(t+\tau-\beta)dt \right)}_{r_{xx}(\tau +\alpha-\beta)} d\alpha
+%        d\beta\\
+%        & = &\int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty}
+%        h(\alpha) h(\alpha + \lambda)r_{xx}(\tau -\lambda)
+%        d\alpha d\lambda \\
+%        & = &\int\limits_{-\infty}^{\infty}r_{xx}(\tau -\lambda)
+%        \underbrace{\int\limits_{-\infty}^{\infty}h(\alpha) h(\alpha +
+%        \lambda)d\alpha}_{r_{hh}^{E}(\lambda)} d\lambda\\
+%        & = &\int\limits_{-\infty}^{\infty}r_{xx}(\tau -\lambda)r_{hh}^{E}(\lambda) d\lambda\\
+%        & = &r_{xx}(\tau) \ast r_{hh}^{E}(\tau)
+%\end{eqnarray}
+%wobei das $^{E}$ andeutet, dass es sich um eine
+%Energiesignalkorrelation handelt ohne Limes und
+%Normalisierungsterm, da ja $h(k)$ als Impulssignal ein
+%Energiesignal, aber kein Leistungssignal darstellt (vgl. Abschnitt
+%\ref{sec:EnergUndLeistung}).
+
+Dieser Zusammenhang zwischen Korrelation am Eingang und Ausgang
+eines LTI-Systems wird als 1. Wiener-Lee Beziehung im Zeitbereich
+bezeichnet. Berechnet man nun das LDS ergibt sich die Wiener-Lee
+Beziehung im Frequenzbereich.
+\begin{equation}\label{eq:WienerLee:Frequenz}
+    \Phi_{YY} \jom = \Phi_{XX} \jom \left|H\jom \right|^2
+\end{equation}
+Wir erkennen, dass die Phase des LTI Systems keinen Einfluss auf das
+Ausgangssignal hat. Deshalb ist es auch nicht möglich nur aus
+Autoleistungs\-dichten einen Rückschluss auf die Phase eines Systems
+zu bekommen.
+
+\begin{example}
+Ein weißes Rauschen mit der Varianz eins wird mit einem
+Tiefpass-System $y(k) = x(k) + x(k-1)$ gefiltert. Welches Spektrum
+ergibt sich am Ausgang des Systems?
+
+Die AKF des Eingangssignal $x(k)$ ist durch den Delta-Impuls
+gegeben. Die DTFT führt auf ein konstantes Spektrum der Höhe eins.
+
+Das System hat die Übertragungsfunktion:
+\begin{eqnarray}
+H(z)   & = & 1+z^{-1}\\
+H\jom  & = & 1 + e^{-j\Omega} \\
+       & = & e^{-j\Omega/2} \left(e^{j\Omega/2} + e^{-j\Omega/2}
+     \right)\\
+       & = & 2 e^{-j\Omega/2} \cos(\Omega/2)
+\end{eqnarray}
+Somit ergibt sich für
+\begin{equation}
+    |H\jom|^2 = 4 \cos^2(\Omega/2)
+\end{equation}
+und mit der ersten Wiener-Lee Formel im Frequenzbereich, ist dies
+auch das Spektrum des Ausgangssignal.
+\end{example}
+
+Eine weitere wichtige Beziehung zwischen Ein und Ausgang kann durch
+die KKF zwischen Ausgangs- und Eingangssignal eines LTI-Systems
+angegeben werden:
+
+Ausgehend von der KKF
+\begin{equation}\label{eq:KKF:Ausgang:Start}
+    r_{yx}(\kappa) = \lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k = -K}^{K} y(k) x(k-\kappa)
+\end{equation}
+und der in Gleichung \ref{eq:FaltungWdh} genutzten Faltungsbeziehung
+zwischen Ein- und Ausgang ergibt sich
+
+\begin{eqnarray}
+r_{yx}(\kappa) & = & \lim_{K\rightarrow \infty} \frac{1}{2K+1}
+\sum_{k = -K}^{K} \sum_{\alpha = -\infty}^{\infty}h(\alpha)
+x(k-\alpha) x(k-\kappa) \\
+& = & \sum_{\alpha = -\infty}^{\infty}h(\alpha)
+\underbrace{\lim_{K\rightarrow \infty} \frac{1}{2K+1} \sum_{k =
+-K}^{K} x(k-\alpha) x(k-\kappa)}_{r_{xx}(\kappa - \alpha)}\\
+&=&\sum_{\alpha = -\infty}^{\infty}h(\alpha) r_{xx}(\kappa - \alpha)
+\\
+&=& h(\kappa)\ast r_{xx}(\kappa)
+\end{eqnarray}
+
+
+ %   r_{xy}(\tau) & =& \lim_{T\rightarrow \infty} \frac{1}{2T}
+%    \int\limits_{-T}^{T}x(t) \underbrace{y(t+\tau)}_{x(t+\tau) \ast h(t)} dt\\
+%    & = & \lim_{T\rightarrow \infty} \frac{1}{2T}
+%    \int\limits_{-T}^{T} x(t) \int\limits_{-\infty}^{\infty}
+%    x(t+\tau-\lambda)h(\lambda)d\lambda dt\\
+%    & = & \int\limits_{-\infty}^{\infty} \underbrace{\left(\lim_{T\rightarrow \infty} \frac{1}{2T}
+%    \int\limits_{-T}^{T} x(t) x(t+\tau-\lambda)dt\right)}_{r_{xx}(\tau-\lambda)} h(\lambda)
+%    d\lambda\\
+%    & = & \int\limits_{-\infty}^{\infty}
+%    h(\lambda)r_{xx}(\tau-\lambda)d\lambda\\
+%    & = r_{xx}(\tau) \ast h(\tau)
+%\end{eqnarray}
+
+Dieser Zusammenhang wird als zweite Wiener-Lee Beziehung im
+Zeitbereich bezeichnet. Es gilt außerdem
+\begin{equation}\label{eq:ZweiteWienerLeeZeit2}
+    r_{xy}(\kappa) = h(-\kappa) \ast r_{xx} (\kappa)
+\end{equation}
+
+
+Für den Frequenzbereich ergibt sich:
+\begin{equation}\label{eq:ZweiteWienerLee}
+    \Phi_{YX} \jom = \Phi_{XX}\jom H\jom
+\end{equation}
+
+Mit Hilfe der zweiten Wiener-Lee Beziehung ist es also möglich die
+Übertragungsfunktion eines LTI-Systems zu bestimmen, wenn man die
+Autokorrelation des Eingangs und die Kreuzkorrelation bzw. das LDS
+zwischen Ein- und Ausgang kennt. Er ergibt sich:
+\begin{equation}\label{eq:H_Bestimmung}
+    H \jom = \frac{\Phi_{YX} \jom }{\Phi_{XX}\jom}
+\end{equation}
+
+\begin{example}
+
+\end{example}
+
+Ein Hauptproblem der Signalverarbeitung ist nun diese theoretisch
+optimale Lösung möglichst gut zu approximieren. Dazu ist es
+notwendig eine sehr gute Schätzung der LDS zu haben. Zusätzlich
+muss natürlich auch darauf geachtet werden, dass das ALDS
+keinerlei Nullstellen aufweist.
+
+\section{Mittelwert und Varianz bei LTI-Systemen}
+Nachdem bekannt ist, wie sich die AKF bei der Übertragung über ein
+LTI-System ändert, soll nun untersucht werden, wie sich die beiden
+wichtigen Beschreibungsgrößen Mittelwert und Varianz verhalten.
+
+Der Mittelwert am Ausgang ist durch den Erwartungswert $\Erwart{y}$
+gegeben. Dieser wird für ergodische diskrete Prozesse durch
+\begin{equation}\label{eq:Mittelwertergodisch}
+    \Erwart{y} = \lim_{K\rightarrow \infty} \frac{1}{2K+1}
+\sum_{k = -K}^{K} y(k)
+\end{equation}
+berechnet.
+
+Setzt man nun für $y(k)$ das Faltungsprodukt vom Eingang mit dem
+LTI-System an, ergibt sich.
+\begin{eqnarray}
+\Erwart{y(k)} & = & \lim_{K\rightarrow \infty} \frac{1}{2K+1}
+\sum_{k = -K}^{K} \sum_{\alpha = -\infty}^{\infty}h(\alpha)
+x(k-\alpha)\\
+ &=& \sum_{\alpha = -\infty}^{\infty}h(\alpha) \underbrace{\lim_{K\rightarrow \infty} \frac{1}{2K+1}
+\sum_{k = -K}^{K}
+x(k-\alpha)}_{\Erwart{x(k)}}\\\label{{eq:MittelwertZeitdiskret}}
+ &=& \Erwart{x(k)} \sum_{\alpha = -\infty}^{\infty}h(\alpha)
+\end{eqnarray}
+bzw.
+\begin{equation}\label{eq:MittelwertZeitdiskretKausal}
+\Erwart{y(k)} = \Erwart{x(k)} \sum_{\alpha = 0}^{\infty} h(\alpha)
+\end{equation}
+für kausale Systeme.
+
+Zur Berechnung des Mittelwertes am Ausgang muss also nur der
+Mittelwert am Eingang mit der Summe der Werte der Impulsantwort
+multipliziert werden. Für FIR-Systeme ist das eine praktikable
+Lösung, aber für IIR-Systeme ist diese Lösung nicht tauglich. Um
+dieses Problem zu lösen, kann man das Integral so umformulieren,
+dass deutlich wird, dass auch eine Lösung im Frequenzbereich
+möglich ist. Dazu wird zunächst $1 = e^{-j\Omega}$ für $\Omega =
+0$ eingeführt. Dann lässt sich Gleichung
+\ref{eq:MittelwertZeitdiskret} in der Interpretation als DTFT auch
+schreiben als
+\begin{equation}\label{eq:MittelwertFrequenzbereich}
+    \Erwart{y(k)}= \Erwart{x(k)} \sum_{\alpha = -\infty}^{\infty}
+h(\alpha) e^{-\alpha \Omega} \Big|_{\Omega = 0} = \Erwart{x(k)} H(0)
+\end{equation}
+Es ergibt sich also der Mittelwert des Ausgangs durch die
+Multiplikation des Eingangsmittelwertes mit der
+Übertragungsfunktion des Systems an der Frequenz Null.
+
+\begin{example}
+    Gegeben ist ein Rauschen mit dem Mittelwert $\mu_x = 2$.
+    Dieses Rauschen wird über ein FIR-System mit der
+Impulsantwort $h = [ 1 \, \, 1]$ übertragen. Welcher Mittelwert
+ergibt sich am Ausgang?\\
+Zur Lösung sind beide Wege möglich. In diesem Fall ist die Lösung
+im Zeitbereich einfacher. Die Summe der beiden Anteile der
+Impulsantwort ergibt zwei. Daraus folgt der Mittelwert am Ausgang
+ergibt sich zu vier.
+
+Für die Lösung im Frequenzbereich muss zunächst die
+Übertragungsfunktion an der Frequenz $\Omega = 0$ bestimmt werden.
+\begin{eqnarray}
+H\jom \Big|_{\Omega = 0} &=& DTFT (\delta(k) + \delta(k-1))\\
+ & = & 1 + e^{-j\Omega} \Big|_{\Omega = 0}\\
+ & = & 2
+\end{eqnarray}
+Somit ergibt sich am Ausgang mit dem Eingangsmittelwert zwei ein
+Mittelwert von vier.
+\end{example}
+
+Um die Varianz in Abhängigkeit vom LTI-System zu berechnen, ist eine
+einfache Möglichkeit die Definition über die AKF an der Verschiebung
+$\kappa = 0$ zu nutzen. Daraus folgt, es gibt zwei Möglichkeiten die
+Varianz zu berechnen. Im Zeitbereich muss mit der ersten Wiener-Lee
+Beziehung die AKF am Ausgang des Systems bestimmt werden. Die AKF
+bei $\kappa = 0$ ist dann die gesuchte Varianz. Eine Methode, die
+ausschließlich die Varianz berechnet ergibt sich aus der
+Frequenzbereichsbetrachtung. Aus der ersten Wiener-Lee Beziehung im
+Frequenzbereich (Gl. \ref{eq:WienerLee:Frequenz}) kann das LDS am
+Ausgang berechnet werden. Durch das Parsevalsche Theorem (Gleichung
+\ref{eq:ParsevalDTFT}) kann jetzt direkt die Varianz angegeben
+werden.  Die gleiche Lösung bei anderer Interpretation ergibt sich,
+wenn vom Wiener-Khintchine Theorem ausgegangen wird. Man berechnet
+die inverse zeitdiskrete Fourier-Transformation (IDTFT) für die
+Stelle $\kappa = 0$. Mit $e^{j\Omega\kappa}|_{\kappa=0} = 1$ ergibt
+sich
+\begin{equation}\label{eq:VarianzAusgang}
+    \sigma_y^2 = r_{yy}(0) - \mu_y^2= \frac{1}{2\pi}
+    \int\limits_{-\pi}^{\pi} \Phi_{XX}\jom \left|H\jom
+    \right|^2 d\Omega - \mu_y^2
+\end{equation}
+
+\begin{example}
+Gegeben ist ein mittelwertfreies weißes Rauschen der Leistung
+$\sigma_x^2 = 2$. Dieses Rauschen wird über ein FIR-System mit der
+Impulsantwort $h = [ 1 \, \, 1]$ übertragen. Welche Varianz ergibt
+sich am Ausgang?\\
+Die Betragsquadrat der Übertragungsfunktion $|H\jom|^2$ kann durch
+die DTFT der Energie-AKF $r_{hh}^E$ berechnet werden. Es ergibt
+sich:
+\begin{eqnarray}\label{eq:bsp:rhh}
+    r_{hh}^E(\kappa) &=& \delta(k+1) + 2\delta(k) + \delta(k-1)\\
+    \HinTransV & = & \HinTransV \\
+    \left|H\jom \right|^2 & = & e^{j\Omega} + 2 + e^{-j\Omega} \\
+    & = & 2 + 2\cos(\Omega)
+\end{eqnarray}
+Mit der Eingangsleistung $\sigma_x^2 = 2$ ergibt sich für das LDS
+am Ausgang
+\begin{equation}
+    \Phi_{YY} \jom = 4 + 4 \cos(\Omega)
+\end{equation}
+Löst man jetzt das Integral ergibt sich
+\begin{eqnarray}
+r_{yy} (0) & = &  \frac{1}{2\pi}
+    \int\limits_{-\pi}^{\pi} 4 + 4 \cos(\Omega) d\Omega\\
+    & = & \frac{4}{2\pi} \left[\Omega - \sin(\Omega)
+    \right]_{-\pi}^{\pi}\\
+    & = & \frac{2}{\pi} \left(\pi - 0 -(-\pi -0)\right)\\
+    & = & \frac{2}{\pi} 2\pi\\
+    & = & 4
+\end{eqnarray}
+
+Natürlich wäre es in diesem Fall einfacher gewesen, die erste
+Wiener-Lee Beziehung im Zeitbereich zu nutzen, da sich dann durch
+die Eigenschaften der Delta-Funktion sofort
+\begin{eqnarray}
+r_{yy} (\kappa)  & = &  r_{xx} (\kappa) \ast r_{hh}^E(\kappa)\\
+& = & 2 \delta(k) \ast r_{hh}^E(\kappa)\\
+& = & 2 r_{hh}^E(\kappa)\\
+\Rightarrow r_{yy} (\kappa)\Big|_{\kappa = 0} &=& 4
+\end{eqnarray}
+ergeben hätte.
+\end{example}
+
+\section{LTI-Systeme und die Kohärenz}
+Eine interessante Frage ist, welchen Einfluss ein LTI-System auf
+die Kohärenz bzw. auf die MSC hat.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psStLTI/MSC_Modell}
+\caption{\label{pic:MSC_Modell}Modell zur Berechnung der Kohärenz
+bei vorhandenem LTI-System.}
+\end{center}
+\end{figure}
+
+\tbd{Anderes Bild mit dem üblichen Signalmodell}
+
+Ausgehend von dem in Abbildung \ref{pic:MSC_Modell} gezeigten
+Szenario im Zeitbereich, ergibt sich für das Ausgangssignal
+\begin{equation}
+  y(k) = x(k) \ast h(k) + n(k) \quad .
+\end{equation}
+Es besteht aus einem LTI-System $h(k)$ und zwei mittelwertfreien,
+stationären, unkorrelierten Rauschprozessen $x(k)$ und $n(k)$. Die
+MSC zwischen den beiden Ausgangssignalen kann durch
+\begin{equation} \label{eq:RAU:MSC_Def2}
+  MSC \jom  =\frac{\left| H\jom \right|^2 \Phi_{X X} \jom}{\left| H\jom \right|^2 \Phi_{X X} \jom + \Phi_{NN} \jom }
+  = \frac{1}{1+\frac{1}{|H\jom|^2}\frac{\Phi_{NN} \jom }{\Phi_{X X} \jom}}
+\end{equation}
+angegeben werden \cite{Dre99}. Gleichung (\ref{eq:RAU:MSC_Def2})
+ermöglicht eine anschauliche Interpretation der MSC-Funktion und
+deren Wertebereich\index{MSC!Wertebereich}. Ohne LTI-System
+%, oder falls das LTI-System auf beide Quellen gleich wirkt,
+kann die MSC direkt aus dem frequenz\-abhängigen
+Signal-Rauschabstand  bestimmt werden:
+\begin{equation} \label{eq:RAU:MSC_ohneH}
+  MSC \jom  = \frac{1}{1+\frac{1}{\SNR \jom}} .
+\end{equation}
+
+Mit einem LTI-System, aber ohne Störquelle ($\Phi_{NN} \jom = 0$),
+ergibt sich
+\begin{eqnarray}\label{eq:RAU:MSC_1}
+    MSC \jom  &= & \frac{\left| H\jom \right|^2 \Phi_{X X} \jom}{\left| H\jom \right|^2 \Phi_{X X}
+    \jom}\\ \nonumber
+     & = & 1.
+\end{eqnarray}
+Die MSC wird also im rauschfreien Fall durch ein LTI-System nicht
+verändert. Im Falle einer aktiven Rauschquelle verändert das
+LTI-System den Signal"=Rauschabstand, da eine Verstärkung der
+Quelle zu einem besseren Signal"=Rauschabstand führt, während
+absenkende Übertragungsfunktionen ihn verschlechtern.
+
+Im anderen Extrem ist die MSC null, wenn die Signalquelle $x(k)$
+keinen Beitrag zum Signal $y(k)$ leistet, \ie beide Signale $x(k)$
+und $y(k)$ vollständig unkorreliert sind.
+
+Dies zeigt, warum die Messung der Kohärenz ein wichtiges Werkzeug
+ist, um Messungen der Übertragungsfunktion zu beurteilen. Nur bei
+einer MSC nahe eins kann davon ausgegangen werden, dass die Messung
+auch gut genug ist, um eine hohe Aussagekraft zu besitzen.
+
+
+\section{Messung von Übertragungsfunktionen}
+
+\tbd{$H_1$ und $H_2$ Schätzer erläutern }
+
+\tbdb{Zunächst Signaldiagramm mit Störquellen}
+
+In Gleichung \ref{eq:H_Bestimmung} ist angegeben, wie die
+Übertragungsfunktion bestimmt werden kann. Für eine Messung stehen
+nur geschätzte Größen zur Verfügung. Es gilt also
+\begin{equation}\label{eq:H_Bestimmung2}
+    \hat{H} (n) = \frac{\hat{\Phi}_{YX} (n) }{\hat{\Phi}_{XX}(n)}
+\end{equation}
+
+Um eine möglichst genaue und einfache Berechnung zu gewährleisten,
+bietet es sich an, den Nenner der Berechnungsvorschrift möglichst
+konstant zu wählen, wobei eine Konstante mit dem Wert eins
+besonders vorteilhaft wäre. Ein solches ALDS ergibt sich immer,
+wenn die AKF-Funktion einem Delta-Impuls $\delta(k)$ entspricht.
+Aus Abschnitt \ref{sec:Korrelation} sind zwei Signale bekannt, die
+zu einer solchen AKF führen. So führt der Delta-Impuls selbst zu
+einem Delta-Impuls in der AKF. Die Übertragungsfunktion lässt sich
+also mit einem Delta-Impuls besonders leicht bestimmen. Dies
+Eigenschaft ist auch schon aus dem Abschnitt
+\ref{sec:Systemfunktion} bekannt. Für reale Messungen sollte
+dieses Verfahren trotzdem nicht eingesetzt werden, da immer auch
+eine zusätzliches Störsignal anliegt. Aus der Betrachtung mit der
+MSC ist aber deutlich geworden, dass ein möglichst hoher
+Signal-Rauschabstand erreicht werden sollte, um eine Messung der
+linearen Übertragungsfunktion zu gewährleisten. Der Delta-Impuls
+erfüllt genau diese Eigenschaft nicht, da er eine nur sehr geringe
+Energie mitbringt und somit das Rauschen sehr leicht dominant
+werden könnte. Als Maß für die Güte eines Testsignals im Hinblick
+auf die in das System einzubringende Leistung hat sich der sog.
+Crest-Faktor bewährt. Dieser gibt an in welchem Verhältnis der
+maximale Absolutwert eines Signals der Länge $N$ zu seinem
+Effektivwert (engl:{\em Root Mean Square (RMS)}) steht
+\begin{equation}\label{eq:CrestFaktor}
+    cf(k) = \frac{max\{|x(k)|\}}{\sqrt{\frac{1}{N} \sum_{0}^{N} |x(k)|^2}}
+\end{equation}
+Angestrebt wird der Wert eins. Der Delta-Impuls ist dagegen das
+Signal mit dem schlechtesten Crest-Faktor.
+
+Das zweite Signal mit einem Delta-Impuls als AKF war weißes
+Rauschen der Leistung eins. Somit ist eine Möglichkeit eine
+Übertragungsfunktion zu messen, weißes Rauschen durch ein System
+zu schicken und das KLDS zwischen Eingang- und Ausgang zu
+bestimmen. Hierfür eignet sich insbesondere das Welch-Verfahren.
+Kann die Leistung nicht exakt auf eins gesetzt werden, so ist noch
+abschließend die gemessene Übertragungsfunktion auf die Leistung
+des Eingangsrauschens zu normieren. Problematisch an diesem
+Testsignal ist, dass für eine annähernd korrekte Messung die
+Signaldauer sehr lang gewählt werden muss, um eine möglichst
+kleine Varianz der Schätzung zu erhalten. Unter praktischen
+Gesichtspunkten ist aber eine kurze Messdauer wünschenswert.
+Zusätzlich hat weder weißes normalverteiltes noch gleichverteiltes
+Rauschen einen guten Crest-Faktor.
+
+In der Messtechnik haben sich deshalb andere Verfahren
+durchgesetzt. üblicherweise werden als Anregungssignale bestimmte
+determinierte und zeitlich begrenzte Signale verwendet, die als
+Energie-AKF ebenfalls annähernd einen Delta-Impuls haben.
+
+\subsection{Maximalfolgen und deren Erzeugung}
+Um kurze Messzeiten und einen guten Crest-Faktor zu erhalten können
+sog. Pseudo-Zufallsfolgen aus den Signalwerten $-1$ und $1$ erzeugt
+werden. Zufällig sind also nicht die Signalwerte selbst, sondern nur
+ihre Reihenfolge, und auch diese Reihenfolge ist wiederum durch eine
+spezielle Rechenvorschrift definiert. Bezeichnet werden diese
+Messsignale als Maximalfolgen {\em Maximum Length Sequences (MLS)}.
+
+Die Erzeugung von Maximalfolgen erfolgt über rückgekoppelte
+Schieberegister. Ein Schieberegister ist ein Speicherelement, dass
+jeweils für einen Takt einen Wert hält und im nächsten Takt diesen
+Wert weiter gibt. Dies entspricht den Zustandsspeichern in einem
+FIR-Filter. Das besondere an den Schieberegistern zur Erzeugung
+von MLS-Folgen ist nun, dass Sie keinen Eingang besitzen, sondern
+nur einen bestimmten Anfangszustand, der von Null verschieden sein
+muss und dass als Speicherzustand nur jeweils ein Bit verwendet
+wird. Zusätzlich werden bestimmte Speicherzustände ausgelesen und
+durch eine Modulo-Addition verknüpft und wieder als neuen
+Eingangswert verwendet. Zur Erläuterung siehe Abbildung
+\ref{pic:Schieberegister}
+
+\tbdb{Schieberegister}
+
+Die Anzahl der Speicherelemente und die Position der Abgriffe zur
+Erzeugung des neuen Eingangswertes entscheiden über die
+Wiederholungsrate der Ausgangssequenz. Die maximale
+Wiederholungrate ist dabei durch $M = 2^{Bit} -1 $ gegeben. Die
+$-1$ ergibt sich aus dem Problem, dass die Nullfolge sich immer
+selbst reproduzieren würde und deshalb nicht zugelassen ist. Um
+die optimale Länge zu erzielen ist immer der Abgriff am Ausgang
+notwendig bei der Rekursion und mindestens ein weiterer Abgriff.
+Welcher weitere Wert genutzt werden sollte ist experimentell
+bestimmt worden und kann in der folgenden Tabelle nachgelesen
+werden
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Bits & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\ \hline
+  Abgriff & 1,3& 1,4 & 2,5 & 1,6 & 1,7 & 2,3,4,8 & 4,9 & 3,10 & 2,11 & 1,4,6,12 & 1,3,4,13  \\
+  \hline
+%\end{tabular}
+%\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Bits & 14 &  15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 \\
+  \hline
+  Abgriff & 1,3,5,14 & 1,15 & 2,3,5,16 & 3,17 & 7,18 & 1,2,5,19 & 3,20 & 2,21 & 1,22 & 5,23 & 1,3,4,24 \\
+  \hline
+\end{tabular}
+
+Das Ausgagngssignal des Schieberegisters sind ausschlißelich Nullen und Einsen, diese werden in einem weiteren Schritt auf die beiden gewünschten Ausgangssignale $-1$ und $1$ abgebildet, wobei üblicherweise die $0$ auf $1$ abgebildet werden und die $1$ als $-1$.
+Betrachtet man beim erzeugten Testsignal den resultierende
+Crest-Faktor so ist dieser bei einer rein digitalen Betrachtung
+optimal eins. Wird das Signal dagegen analog verwendet, gilt dies
+nicht mehr, da die Bandbegrenzung bei der Digital Analog-Umsetzung
+zu deutlichen Überschwingern führt (siehe Abbildung
+\ref{pic:MLS_Analog}).
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psStLTI/MLS_Analog.eps}
+\caption{\label{pic:MLS_Analog}Ausschnitt eines MLS Signals und
+des dazugehörenden Analogsignals (Simulation).}
+\end{center}
+\end{figure}
+
+\subsection{Erzeugung von Multisinussignalen}
+Eine weitere Klasse an determinierten Signalen sind sog.
+Multisinussignale. Es werden also Sinusschwingungen mit
+unterschiedlicher Frequenz gemischt und als Anregungssignal
+verwendet. Durch die Wahl der Phasen für die einzelnen
+Sinusschwingungen entstehen dabei sehr unterschiedliche Signale.
+
+Bei der Erzeugung von Multisinussignalen sind verschiedene
+Verfahren möglich. Ein besonders effizientes Verfahren basiert auf
+dem Entwurf des Signals im Frequenzbereich und einer
+abschließenden IFFT.
+
+Ist das Entwurfsziel eine gleichmäßige Leistung über alle
+Frequenzen können zwei sehr einfache Verfahren zur Anwendung
+kommen. Bei beiden ist das Amplitudenspektrum konstant. Wird nun
+die Phase auf Null für alle Frequenzen gesetzt, ergibt sich in der
+Rücktransformation der Delta-Impuls. Dieser ist also ein
+spezielles aber wie oben erwähnt eher ungeeignetes
+Multisinussignal. Eine zeitlich verschobene Version des
+Delta-Impulses ergibt sich durch eine lineare Phase.
+
+Eine rein zufällige Phase im Bereich $-\pi$ bis $\pi$ führt zu
+einem Rauschsignal mit den schon erwähnten Nachteilen
+
+Durch eine andere Wahl der Phase lassen sich Signale erzeugen mit
+einem deutlich besseren Crest-Faktor. Ist das Ziel alle Frequenzen
+in der gleichen Zeit zu durchlaufen, also
+\begin{equation}\label{eq:KonstantSweep}
+    const = \frac{f_2 -f_1 }{t_2 - t_1}
+\end{equation}
+so ergibt sich ein sog. lineares Sweep-Signal. Die Phase muss
+dabei so gewählt werden, dass sich eine linear ansteigende
+Gruppenlaufzeit ergibt. Da die Gruppenlaufzeit als Ableitung der
+Phase zur Frequenz definiert ist, ergibt sich also eine
+quadratische Phasenfunktion für die einzelnen FFT-Bins, wobei nur
+die Phasen bis $n = N/2+1$ berechnet werden und anschließend die
+konjugiert symmetrische Ergänzung erfolgen muss, um ein reelles
+Signal zu erhalten.
+
+\begin{equation}\label{eq:QuadratischePhase}
+    \varphi_n = 2\frac{\pi n^2}{N}
+\end{equation}
+
+Es ist zusätzlich darauf zu achten, dass bei $n = 0$ und $n =
+N/2+1$ nur reelle Anteile im ansonsten komplexen Spektrum
+vorliegen.
+
+Häufig ist die Festlegung auf ein weißes Spektrum nicht günstig im
+Hinblick auf die Messaufgabe. Die meisten Lautsprecher können
+tiefe Frequenzen nicht mit derselben Lesitung reproduzieren wie
+höhere Frequenzen. In diesen Fällen sollten diese Frequenzen
+stärker im Messsignal betont werden, um über alle Frequenzen eine
+gleichmäßig guten SNR zu erhalten.
+
+Ein angepasste Phase wurde von Schröder vorgeschlagen und
+errechnet sich durch
+\begin{equation}\label{eq:SchroederPhase}
+    \varphi_n = \varphi_0 - 2\pi \sum_{m = 0}^{n-1}(n-m) \frac{|A_n|^2}{\sum_{k =
+    0}^{N/2+1}|A_k|^2},
+\end{equation}
+wobei $A_k$ den gewünschten Amplitudenwert am Frequenzbin $k$
+darstellt.
+
+Das Ziel einer weiteren an akustische Randbedingungen besser
+angepasste Methode ist, die Leistung pro Oktave konstant zu
+halten. Dies führt dazu, dass der Sweep nicht mehr mit linearer
+sondern mit logarithmischer Zeit durch alle Frequenzen laufen
+muss. Dies bedeutet, mehr Zeit bei tiefen und geringere Zeiten bei
+hohen Frequenzen.
+\begin{equation}\label{eq:LogKonstantSweep}
+    const = \frac{\log f_2/f_1}{t_2-t_1}
+\end{equation}
+
+Zur Berechnung der Phase wird zunächst eine Startfrequenz
+$f_{\mbox{Start}}$ bzw. der Startbin $f_{\mbox{SB}}$ festgelegt. Mit
+den Hilfsgrößen
+\[
+    B = \frac{N - f_{\mbox{SB}}}{\log_2 (M / f_{\mbox{SB}} )}
+\]
+und
+\[
+    A = N-f_{\mbox{SB}} - B \log_2 (f_{\mbox{SB}})
+\]
+
+ergibt sich
+\begin{equation}\label{eq:LogPhase}
+    \varphi_n = \frac{\pi}{N} \left( An + \frac{B}{\ln(2)} \left(n \ln(n+1) - n \right) \right)
+\end{equation}
+
+Für genauere Informationen siehe \cite{MM01,Pot02}.
+
+\subsection{Vollständiger Messaufbau}
+
+
+%\subsection{}
+
+\tbd{Vergleich der Messung eines Bandpasses mit Störrauschen}
+
+
+\section{Signale und Rauschen}
+Häufig wird bei einer Signalübertragung das Nutzssignal durch
+Störungen verändert. Diese Störungen sollen im weiteren durch ein
+additives zum Nutzssignal unkorreliertes Rauschen simuliert
+werden\footnote{Diese Annahme ist für viele Anwendugnen gültig,
+aber nicht immer. Ein Gegenbeispiel sind nicht-lineare Systeme,
+die ein Störsignal verursachen, dass direkt zum Nutzsignal
+korreliert ist.}
+
+Ziel ist nun am Empfänger aus diesem Signal wieder die
+Ursprungsinformation zu gewinnen. Dabei werden zwei
+Hauptanwendungen verfolgt. Zum einen möchte man detektieren, ob
+und wann ein gewünschtes Signal auftritt (Signaldetektion), zum
+anderen ist das Ziel, das Signal selbst zu rekonstruieren
+(Signalschätzung). Beide Aufgaben sollen durch eine LTI-System
+gelöst werden.
+
+Im weiteren werden wir auf diese beiden Punkte eingehen, und die
+jeweilige Optimallösung herleiten.
+
+\subsection{Wiener-Lösung zur Signal-Schätzung\label{sec:WienerFilter}}
+Ziel dieses Abschnitts ist es aus einem gestörten Signal,
+bestehend aus der Addition eines ungestörten Nutzignals $s(k)$ und
+einer additiven Störung $n(k)$
+\begin{equation}\label{eq:WienerHerSignalmodell}
+    x(k) = s(k) + n(k)
+\end{equation}
+eine möglichst gute Approximation des reinen Nutzsignals
+$\hat{s}(k)$ zu erhalten, wobei das gestörte Signal nur durch ein
+LTI-System gefiltert werden darf. Es soll also gelten:
+\begin{equation}\label{eq:WienerHer:Signalmodell2}
+    \hat{s(k)} = x(k) \ast h(k)
+\end{equation}
+
+Zur Berechnung der Lösung soll angenommen werden, dass das
+Originalsignal als Referenz vorliegt und wir so einen Fehler
+\begin{equation}\label{eq:WienerHer:FehlerDef}
+    e(k) =  \hat{s}(k) - s(k)
+\end{equation}
+zwischen der Approximation und dem Original berechnen können
+(siehe Abbildung \ref{pic:SignalModelWienerFilter} ).
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psStLTI/Wiener_Modell}
+\caption{\label{pic:SignalModelWienerFilter}Modell zur Berechnung
+des Wiener-Filters.}
+\end{center}
+\end{figure}
+
+Das Optimierungskriterium ist nun, den mittleren quadratischen
+Fehler zu minimieren. Man spricht deshalb auch von der
+Optimallösung im Sinne des kleinsten mittleren Fehlerquadrats
+({\em Minimum Mean Squared Error (MMSE)}). Ziel ist also die
+Berechnung der Filterkoeffizienten $h(k)$ die zur Minimierung
+\begin{equation}\label{eq:WienerHer:Aufgabe}
+    \Erwart{e^2(k)} \stackrel{!}{=} \mbox{Min}
+\end{equation}
+führen.
+
+Als Lösung ergibt sich im Zeitbereich die folgende Gleichung
+\begin{equation}\label{eq:Wiener-Filte:Zeitbereich}
+    r_{xx}(\kappa)\ast h(\kappa) =  r_{xs}(\kappa)
+\end{equation}
+Somit kann eine Lösung für die Übertragungsfunktion gefunden
+werden. Es gilt
+\begin{equation}\label{eq:Wiener:Frequenzbereich}
+    H\jom = \frac{\Phi_{XS}\jom}{\Phi_{XX}\jom}
+\end{equation}
+Durch die Annahme der Unkorreliertheit vereinfacht sich Gleichung
+\ref{eq:Wiener:Frequenzbereich} zu
+\begin{eqnarray}\label{eq:WeinerFrequenzbereichUnkorr}
+    H\jom  & = & \frac{\Phi_{SS}\jom + \Phi_{NS}\jom}{\Phi_{SS}\jom +
+    \Phi_{NS}\jom +\Phi_{SN}\jom +\Phi_{NN}\jom }\\
+    & = & \frac{\Phi_{SS}\jom}{\Phi_{SS}\jom + \Phi_{NN}\jom}
+\end{eqnarray}
+
+Die Gleichungen \ref{eq:Wiener:Frequenzbereich} und
+\ref{eq:WeinerFrequenzbereichUnkorr} werden als einkanalige
+Wiener-Filter bezeichnet.
+
+\tbd{Herleitung ist noch nicht vollständig:\\
+Die Berechnung eines Extremwertes kann durch Ableitung und
+Nullsetzen der zu minimierenden Funktion erfolgen.
+\begin{eqnarray}
+   \Erwart{e^2(k)}  & = & \Erwart{(\hat{s}(k) - s(k)) (\hat{s}(k) -
+   s(k))}\\
+   & = & \Erwart{\hat{s}(k)\hat{s}(k)} - 2 \Erwart{s(k)\hat{s}(k)}
+   + \Erwart{s(k) s(k)}\\
+\end{eqnarray}
+\begin{eqnarray}
+\Erwart{e^2(k)} & = & \Erwart{((s(k) + n(k))\ast h(k) - s(k))((s(k) + n(k))\ast h(k) - s(k))}\\
+                & = & \Erwart{   }
+\frac{\delta \Erwart{e^2(k)}}{\delta h(k)} =
+\end{eqnarray}
+}
+
+Um die Wirkungsweise des Wiener-Filters zu verdeutlichen, kann
+Gleichung \ref{eq:WeinerFrequenzbereichUnkorr} noch so umgeformt
+werden, dass eine Abhängigkeit vom SNR deutlich wird.
+\begin{equation}\label{eq:WienerFrequenzSNR}
+    H\jom = \frac{SNR\jom}{1 + SNR\jom}
+\end{equation}
+Das Wiener-Filter nähert sich also für die Frequenzen der
+ungestörten Übertragung ($H\jom = 1$) an, in denen der SNR sehr
+gut ist, also dass Signal sehr viel mehr Leistung hat, als das
+Störsignal. Ist die Nutzleistung dagegen klein gegenüber der
+Störleistung wird das Wiener-Filter klein und im Extremfall zu
+Null. Auffällig ist noch, dass das Wiener-Filter rein reellwertig
+ist und keine Veränderung der Phase vornimmt.
+
+\tbd{Beschreibung der Abbildung mit dem Wiener Beispiel}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 16cm]{psStLTI/WienerExample}
+\caption{\label{pic:WienerExample}Beispiel für die Wirkungsweise
+eines Wiener-Filters. a) ungestörtes Sprachsignal und LDS, b)
+Störung und LDS, c) gemischtes Signal und LDS, d) Wiener-Filter
+Übertragungsfunktion, e) gefiltertes Ausgangssignal und LDS}
+\end{center}
+\end{figure}
+
+Problematisch an der Wiener-Lösung ist, dass das LDS des Nutz- und
+des Störsignals bekannt sein muss. Dies ist im allgemeinen nicht
+der Fall. Im Abschnitt \ref{sec:SpecSub} wird deshalb auf eine
+realisierbare Lösung für Sprachsignale eingegeangen.
+
+%\subsection{Wiener-Lösung zur Detektion}
+
+%\tbd{siehe Martin Meyer, bzw. Skippen}
+
+\subsection{Umsetzung eines Rauschreduktionssystems für Sprache
+basierend auf dem Wiener-Filter\label{sec:SpecSub}}
+
+Aus dem Abschnitt \ref{sec:WienerFilter} ist die MMSE-Lösung zur
+Berechnung eines Filters unter stationären Bedingungen bekannt,
+wenn zusätzlich die LDS des Nutz- und Störsignals a-priori bekannt
+sind. Um diese beiden Einschränkungen zu umgehen soll im folgenden
+ein Verfahren vorgestellt werden, dass für Sprachsignale eine
+Rauschreduktion ermöglicht.
+
+Ein wesentliches Problem zur Realisierung stellt die
+Nicht-Stationarität des Sprachsignals dar. Wenn sich das LDS
+zeitlich ändern, muss sich auch die Wiener-Lösung zeitlich ändern.
+Bisher sind aber nur ausschließlich zeitinvariante Systeme
+betrachtet worden. Es muss also zunächst geklärt werden, wie eine
+zeitvariante Filterung durchgeführt werden kann. Um eine besonders
+effiziente Lösung zu garantieren, soll das Overlap-Add Verfahren
+zur Filterung im Frequenzbereich für eine zeitvariante Filterung
+erweitert werden. Es ergibt sich das sogenannte weighted
+overlap-add Verfahren (WOLA).
+
+Die Grundidee ist, das Eingangssignal in sich überlappende Blöcke
+zu zerlegen die zusammengesetzt wieder das Originalsignal ergeben.
+Um dies zu erreichen, werden die einzelnen Blöcke mit einem
+Fenster gewichtet, dass in der Summe immer eins ergibt. Hierzu
+eignet sich das von-Hann Fenster, dass bei einer 50prozentigen
+Überlappung stets die Bedingung erfüllt\footnote{Entscheidend ist
+hierbei, dass nur ein Mittenkoeffizient vorhanden ist.}. Zur
+Vermeidung der zirkularen Faltung werden zusätzlich an jedem Block
+Nullen angefügt (Zero-Padding). Diese Maßnahme reicht aber noch
+nicht aus, da die Übertragungsfunktion des Wiener-Filters als
+Division zweier LDS angeben ist. Dies lässt sich auch als System
+mit Polen und Nullstellen interpretieren. Pole führen aber auf
+eine unendliche Impulsantwort, die somit nicht in der Zeit des
+einfachen Zero-Paddings abklingt. Um nun an den Blockgrenzen bei
+der Synthese des Zeitsignals Sprungstellen zu vermeiden, wird auch
+bei der Synthese ein Fenster aufmultipliziert. Da gleichzeitig die
+Forderung einer unverzerrten Übertragung vorhanden ist, wenn keine
+Filterung statt findet, muss die Kombination aus Analyse und
+Synthese-Fenster mit der Überlappung eine eins ergeben. Dies ist
+der Fall, wenn für beide Fenster, die Wurzel des von-Hann Fensters
+verwendet wird.
+
+Abbildung \ref{pic:WOLASystem} zeigt die vollständige
+Bearbeitungskette um eine zeitvariante Filterung im
+Frequenzbereich durchzuführen.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 16cm]{psStLTI/ZeitVarFaltung}
+\caption{\label{pic:WOLASystem}Aufbau eines Systems zur
+zeitvarianten schnellen Faltung (Weighted Overlap-Add). Der
+Schritt des Zero-Paddings ist nicht zwingend notwendig.}
+\end{center}
+\end{figure}
+
+Das zweite Problem ergibt sich durch die Definition des
+Wiener-Filters aus nicht messbaren Größen. Deshalb wird zunächst
+unter der Annahme der Unkorreliertheit zwischen Nutz- und
+Störsignal das Wiener-Filter umformuliert. Die einzige Größe die
+direkt zugänglich ist und somit eine Schätzung direkt ermöglicht
+ist das gestörte Signal $x(k)$. Somit kann $\Phi_{XX}\jom$
+bestimmt werden. Es gilt
+\begin{equation}\label{eq:PhiXXDefi}
+    \Phi_{XX}\jom = \Phi_{SS}\jom + \Phi_{NN}\jom
+\end{equation}
+Aber wenn das gilt kann man das Wiener-Filter auch in der Form
+\begin{equation}\label{eq:Wiener:Subtraktionsformel}
+    H \jom = \frac{\Phi_{XX}\jom -\Phi_{NN}\jom }{\Phi_{XX}\jom }
+\end{equation}
+formulieren. Der Vorteil dieser Formulierung ist, dass nur noch
+eine Größe, die nicht direkt zugänglich ist geschätzt werden muss.
+Um $\Phi_{NN}\jom$ zu schätzen, muss nun zusätzlich eine
+Eigenschaft des Sprachsignals verwendet werden. Sprache ist ein
+instationäres Signal, dass immer auch durch Sprachpausen
+unterbrochen ist. Nimmt man nun an, dass das Störgeräusch eher
+stationär ist, kann die Störung in den Sprachpausen geschätzt
+werden. Es ist nur notwendig diese Pausen zu kennen. Um die
+Mittelung über mehrere Zeitblöcke zu kennzeichnen wird
+$\bar{\Phi}_{NN}(n)$ geschrieben.
+
+Weitergehende Algorithmen benötigen nicht einmal die Sprachpausen,
+sondern suchen in dem zeitlich veränderlichen $\hat{\Phi}_{XX}$
+nach den Minima in den einzelnen Frequenzbändern der FFT
+\cite{Mar94}.
+
+Nachdem nun eine Schätzung des Rauschens bekannt ist, kann durch
+Nutzung des rekursiven Welch-Peridogramms
+\begin{equation}
+    \hat{\Phi}_{XX}(n,\ell) = \alpha \hat{\Phi}_{XX}(n,\ell-1) +
+    (1-\alpha) \left| X(n,\ell) \right|^2
+\end{equation}
+das eigentliche gestörte Signal zeitvariant geschätzt werden. Dazu
+wird die Rekursionskonstante $\alpha$ so bestimmt, dass die
+Kurzzeitstationarität von Sprache ($\tau = 20-40$ms) ungefähr
+eingehalten wird. Die Umrechnung der Zeitkonstanten $\tau$
+(angegeben in Sekunden) in $\alpha$ erfolgt durch
+\begin{equation}\label{eq:TauToAlpha}
+    \alpha = \exp\left(\frac{- N_{vor}}{\tau_{s} f_s} \right)
+\end{equation}
+wobei $N_{vor}$ den Vorschub bei der Blockverarbeitung bezeichnet.
+Üblicherweise liegt $N_{vor}$ bei der halben Fenster-Länge.
+
+Die Übertragungsfunktion des zeitvarianten Filters wird nun durch
+\begin{equation}\label{eq:SpecSub}
+    H(n,\ell) = \frac{\hat{\Phi}_{XX}(n,\ell) - \bar{\Phi}_{NN}(n)}{\hat{\Phi}_{XX}(n,\ell)}
+\end{equation}
+berechnet. Problematisch dabei ist, dass die Berechnung auf
+Schätzungen basiert und sich somit durch die Varianz der
+Schätzungen auch Fehler ergeben, die zu einem negativen Zähler
+führen können. Um dies zu verhindern muss zusätzlich die
+Übertragungsfunktion auf Werte größer Null beschränkt werden. Dies
+geschieht durch einen sog, Halbwellengleichrichter ({\em Half Wave
+Rectifier})
+\begin{equation}\label{eq:HalbwellenGleichrichter}
+    P(x) = \Bigg\{\begin{array}{c}
+      x \quad \fuer \quad x \geq 0 \\
+      0 \quad \quad \mbox{sonst}  \\
+    \end{array}
+\end{equation}
+
+Um nun das geräuschreduzierte Ausgangssignal zu berechnen wird
+jeder Datenblock mit dem jeweiligen Filter multipliziert
+\begin{equation}\label{eq:Output}
+    Y(n,\ell) = X(n,\ell) P\left(H(n,\ell)\right)
+\end{equation}
+
+und das Ausgangsspektrum mit Hilfe der WOLA-Methode zurück in den
+Zeitbereich transformiert. Problematisch an dieser Methode ist,
+das das Ausgangssignal zwar eine Geräuschreduktion erfährt, aber
+das Restrauschen extrem unnatürlich klingt und als sehr störend
+wahrgenommen wird. Zur Vermeidung dieser Nachteile sind deshalb in
+den letzten 25 Jahren eine Vielzahl von Verbesserungen und
+Erweiterungen vorgestellt worden \cite{VHH98}.
+
+\tbd{Kurze Erläuterung: Spektrale Subtraktion, vielleicht
+Spektrogramme erwähnen, Hinweis auf EM Algorithmus.}
+
+
+\section{Matlab, stochastische Signal und LTI-Systeme}
+
+\section{Übungen}
+\subsection{Wiederholung des Stoffes und einfache Rechenaufgaben\label{sec:Statistik:Uebungen}}
+\begin{enumerate}
+\item Ein Rauschprozess sei mittelwertfrei. Welcher Mittelwert
+ergibt sich am Ausgang eines beliebigen LTI-Systems $h(k)$
+
+\item Der Ausgang eines Systems sei gegeben durch $y(k) = x(k) +
+C$, wobei $C$ eine beliebige Konstante ist. Das Eingangssignal
+$x(k)$ ist mittelwertfreies weißes Rauschen mit einer Varianz von
+eins. Welcher Mittelwert und welche Varianz ergibt sich am Ausgang
+des Filters. Wie sieht die KKF zwischen Ein- und Ausgang aus.
+
+\item Gegeben ist ein weißes Rauschen mit Mittelwert $\mu = 1$.
+Welcher Mittelwert ergibt sich am Ausgang der folgenden Systeme:
+\begin{enumerate}
+    \item $y(k) = \sum_{\ell = 0}^{4} x(k-\ell)$
+    \item $y(k) = -0.7 y(k-1) +x(k) $
+\end{enumerate}
+
+\item Zeigen Sie, dass Gleichung \ref{eq:ZweiteWienerLeeZeit2} gilt.
+
+\item Gegeben ist das System $y(k) = y(k-1)  + x(k) - x(k-8)$.
+Angeregt wird dieses System mit einem mittelwertfreien Rauschen
+der Varianz eins. Skizzieren Sie die AKF am Ausgang. Wie groß ist
+die Varianz des Ausgangssignals $y(k)$? (Hinweis: Z-Trafo
+berechnen und durchführen einer Polynomdivision. Sie werden so den
+rekursiven Anteil los.)
+    \item
+    \item
+\end{enumerate}
+
+\subsection{Aufgaben (Auf Klausurniveau)}
+\begin{enumerate}
+ \item Gegeben ist ein farbiges Rauschen mit der AKF $r_{xx}(-1) = 0.5$, $r_{xx}(0) = 1$ und $r_{xx}(1) = 0.5$.
+Dieses Rauschen wird über ein System $y(k) = 0.5 x(k) - 0.5
+x(k-1)$ übertragen. Bestimmen Sie:
+\begin{enumerate}
+\item Mittelwert und Varianz von $x(k)$ (2).
+
+\item Mittelwert und Varianz von $y(k)$ (2). \item die AKF von
+$y(k)$ (4).
+\end{enumerate}
+Welches Auto-LDS ergibt sich für $y(k)$ rechnerisch (6).
+Skizzieren Sie das ALDS im Bereich $-f_s \dots f_s$ (Hinweis, dies
+ist auch möglich, wenn Sie die rechnerische Lösung nicht
+hinbekommen.) (4).
+
+\item Sie messen mit einer gefärbten Rauschsequenz ein System
+durch und erhalten als Ausgangs AKF $r_{yy}(\kappa) =
+0.5\delta(\kappa)$. Die Eingangs-AKF ist $r_{xx}(0) = 0.625 =
+10/16$ und $r_{xx}(1) = 0.1875 = 3/16$ (Es sind nur die positive
+Werte von $\kappa$ angegeben). Die Eingangs-AKF ist für alle
+sonstigen $\kappa$  = 0.
+\begin{enumerate}
+    \item Wie sieht das Übertragungsverhalten $\left|H\jom\right|$ des gemessenen Systems aus? (Qualitativ (Skizze) und Quantitativ)(8)
+    \item Können Sie das System vollständig angeben. Begründen Sie ihre Meinung! (2)
+    \item Sie nutzen für eine zweite Messung ein Rauschen mit einem Mittelwert $\mu = 2$. Ansonsten
+    ist das Rauschen weiß. Leider haben Sie nur Zugriff auf eine Serienschaltung zweier Systeme (Beide
+    einzelnen Systeme entsprechen den in Aufgabenteil a) gemessenen Systemen).
+    Wie sieht das Leistungsdichtespektrum (qualitativ (Skizze) und quantitativ) am Ausgang aus und wie
+    groß ist der Mittelwert? (6)
+    (Falls Sie Aufgabenteil a) nicht lösen konnten, nehmen sie an, dass gilt:
+    \[
+    \left|H\jom\right| = \frac{2/5}{\sqrt{4/5  + 1/5 \cos(\Omega)}}
+    \]
+    \item Entwerfen Sie ein kausales FIR-Filter 1. Ordnung, so dass bei Anregung mit weißem
+    Rauschen der Varianz 1, am Ausgang die oben genannte AKF $r_{xx}$ zu messen wäre.(8)
+\end{enumerate}
+
+\item Gegeben ist eine allgemeine Verteilungsdichte der folgenden
+Form
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psStLTI/Saegezahnverteilung.eps}
+\end{center}
+\end{figure}
+
+Berechnen Sie in Abhängigkeit der Grenzen (a,b) den Mittelwert und
+die Varianz dieser Verteilungsdichte (10).
+
+Das Rauschen wird mit $a = -1$ und $b = 1$ analog erzeugt. Das
+Signal wird anschließend mit 9 Bit quantisiert. Welcher SNR (in
+dB) ergibt sich am Ausgang des Quantisierers (6)?
+
+\item Gegeben ist ein Nutzsignal mit der AKF $r_{xx}(0) = 2$ und
+$r_{xx}(1) = -1$. Dieses Signal wird über einen Kanal übertragen,
+der leider eine zusätzliche mittelwertfreie weiße Störung mit der
+Varianz $\sigma_n^2 = 0.5$ einbringt. Berechnen Sie das Wiener
+Optimalfilter, um das Nutzsignal möglichst gut zu rekonstruieren
+(8). Skizzieren Sie die Betragsquadratsübertragungsfunktion (4).
+
+
+\item Ein weißes Signal mit der folgenden Verteilungsdichte wird
+über ein FIR-Filter 2. Ordnung mit den Koeffizienten $h = [ 1/10
+\,\, 0 \,\, -9/10]$ übertragen.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6cm]{psStLTI/Verteilungsdichte}
+\end{center}
+\end{figure}
+
+\begin{enumerate}
+    \item Wie groß ist der Mittelwert und die Varianz am Eingang
+    des Systems?
+    \item Wie sieht das Leistungsdichtespektrum aus, dass sich am
+    Ausgang ergibt? (Berechnung und Zeichnung!). Nehmen Sie für
+    die Zeichnung an, dass $a = 3$ und $b= 6$ ist.
+    \item Wie groß ist der Mittelwert und die Varianz am Ausgang
+    des Systems?
+    \item Nehmen wir an das Eingangssignal hätte einen Mittelwert
+    von $\mu_x = 0.5$. Wie groß wäre der Mittelwert am Ausgang.
+    \item (Zusatzaufgabe, nur lösen, wenn am Ende noch Zeit ist, nicht trivial, auch Ideen zählen hier)
+    Entwerfen Sie ein nachgeschaltetes Filter, so dass sich am
+Ausgang wieder ein weißes Signal ergibt, dass die halbe Leistung
+des Eingangssignal besitzt.
+\end{enumerate}
+
+\end{enumerate}
+
+\subsection{Matlab-Aufgaben}
+\begin{enumerate}
+    \item
+    \item
+\end{enumerate}
+
+\subsection{Transfer-Leistung}
+
+%\section{Zusammenfassung}
+%Die wichtigen Erkenntnisse aus diesem Kapitel sind:
+%\begin{itemize}
+%    \item Ein- und Ausgäne eines LTI-Systems hängen durch die
+%    Wiener-Lee Beziehungen voneinander ab.
+%    \item Das Wiener-Filter ist das optimale Filter, im Sinne des
+%    kleinsten mittleren quadratischen Fehlers.
+%    \item Die exakte Bestimmung ist meist nicht möglich, da das
+%    LDS des Nutzsignals nicht bekannt ist.
+%    \item Zur Messung von Übertragungsfunktioen sollten speziell
+%    entworfende Messsignale verwendet werden.
+%    \item
+%    \item
+%\end{itemize}

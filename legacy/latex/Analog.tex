@@ -1,0 +1,1279 @@
+\chapter{Analoge Signalverarbeitung\label{sec:Analog}}
+Einige Bereiche der digitalen Signalverarbeitung basieren auf
+analogen Grundlagen. Insbesondere der Übergang von natürlichen,
+analogen Signalen in die digitale Welt und zurück stellt hierbei
+eines der wichitgsten zu erklärenden Problemfelder dar. Weiterhin
+sind bestimmte Aspekte des Filter-Design mit analogen Vorbildern
+verknüpft.
+
+\section{Abtastung: Eine erneute Betrachtung}
+Die Abtastung wurde bereits im Abschnitt \ref{sec:Abtastung}
+eingeführt, aber nur anhand einfacher Beispiele erläutert. Nachdem
+in den vorherigen Abschnitten die nötigen theoretischen Grundlagen
+gelegt wurden, soll nun noch einmal die Abtastung und die
+Rekonstruktion auf theoretischer Ebene erläutert werden. Dazu ist
+zunächst notwendig einige weitere Aspekte zu erläutern, um danach
+eine einfache Erklärung zur Abtastung herleiten zu können.
+
+\subsection{Kurze Wiederholung und Erweiterung des Dirac-Impuls}
+Aus der digitalen Ebene kennen wir bereits den Delta-Impuls. Das
+analoge Äquivalent ist der sogenannte Dirac-Impuls $\delta (t)$,
+der nicht direkt als Funktion definiert werden kann. Statt dessen
+erfolgt die Definition über das Integral
+\begin{equation}\label{eq:Def:Dirac-Impulse}
+   \int\limits_{-\infty}^{\infty}f(t)\Dirac{t} dt = f(0),
+\end{equation}
+wobei $f(t)$ eine beliebige stetige und differenzierbare Funktion
+ist. Die Aussage der Gleichung ist, dass der Dirac-Impulse aus
+einem Signal nur und ausschließlich den Wert des Signals zum
+Zeitpunkt Null herausfiltert. Dies wird auch als Sieb-Eigenschaft
+bezeichnet und entspricht der besonderen Eigenschaft des
+Delta-Impulses für diskrete Signale. Da keine direkte Definition
+möglich ist, spricht man beim Dirac-Impulse von einer
+verallgemeinerten Funktion. Diese besondere Klasse ist auch unter
+dem Begriff Distributionen bekannt.
+
+Weitere Eigenschaften des Dirac-Impulses sind:
+\begin{equation}\label{eq:Eigenschaft1:Dirac}
+    \Dirac{t} = 0 \fuer t \neq 0
+\end{equation}
+Außerdem gilt
+\begin{equation}\label{eq:Eigenschaft2:Dirac}
+     \int\limits_{-\infty}^{\infty}\Dirac{t} dt = 1
+\end{equation}
+Aus der Definition und den beiden Eigenschaften können weitere
+wichtige Eigenschaften abgeleitet werden. So gilt für den zeitlich
+verschobenen Dirac-Impuls:
+\begin{equation}\label{eq:Eigenschaft3:Dirac}
+    x(t)\Dirac{t-t_0} = x(t_0)\Dirac{t-t_0}
+\end{equation}
+und
+\begin{equation}\label{eq:Eigenschaft4:Dirac}
+   \int\limits_{-\infty}^{\infty}x(t)\Dirac{t-t_0} dt = x(t_0),
+\end{equation}
+Weiterhin stellt der Dirac-Impuls dass Neutralelement der analogen
+Faltung dar.
+\begin{equation}\label{eq:EigenschaftFaltung:Dirac}
+   \int\limits_{-\infty}^{\infty}x(\tau)\Dirac{t-\tau} dt = x(t),
+\end{equation}
+Für einen zeitlich skalierten Dirac-Impuls gilt:
+\begin{equation}\label{eq:EigenschaftSkalierung:Dirac}
+    \Dirac{\alpha t} = \frac{1}{|\alpha|}\Dirac{t} \quad
+    \mbox{bzw.}\quad \int\limits_{-\infty}^{\infty}\Dirac{\alpha t} dt =
+    \frac{1}{|\alpha|}
+\end{equation}
+
+Setzt man für die Funktion $f(t)$ in Gleichung
+\ref{eq:Def:Dirac-Impulse} die Funktion $e^{-j\omega t}$ ein, so
+erhält man das Spektrum des Dirac-Impulses.
+\begin{equation}\label{eq:EigenschaftSpektrum:Dirac}
+    X(\omega) = \int\limits_{-\infty}^{\infty}\Dirac{t}e^{-j\omega t} dt = e^{-j\omega 0} = 1,
+\end{equation}
+Das Spektrum ist also konstant Eins für alle Frequenzen. Dies
+lässt sich auch anschaulich aus der Neutraleigenschaft der Faltung
+erklären. Wenn sich der Dirac-Impulse im Zeitbereich neutral
+verhält und das Signal nicht verändert, muss diese Eigenschaft
+auch im Frequenzbereich gelten. Da die Faltung im Frequenzbereich
+zur Multiplikation übergeht, ist das neutrale Spektrum eins für
+alle Frequenzen.
+
+Dargestellt wird der Dirac-Impulse durch einen Pfeil in Richtung
+der y-Achse, um deutlich zu machen, dass die Höhe nicht beschränkt
+ist.
+
+\subsection{Die Dirac-Impulsfolge (\textcyr{Sh}-Funktion (Scha))}
+Bei der Abtastung ist nun nicht ein einziger Dirac-Impulse
+vorhanden, sondern eine Folge von Dirac-Impulsen im Abstand $T =
+1/f_s$, wobei $f_s$ die Abtastfrequenz (Sampling frequency)
+symbolisiert.
+\begin{equation}\label{eq:Def:Impulskamm}
+    \mbox{\textcyr{Sh}}(t) =\sum_{k = -\infty}^{\infty} \Dirac{t-kT}
+\end{equation}
+Diese neue verallgemeinerte Funktion wird wegen der Ähnlichkeit
+zum kyrillischen Buchstaben (\textcyr{Sh}) als Scha bezeichnet.
+Eine weitere häufig verwendete Bezeichnung ist Impulskamm.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psAnalog/Impulskamm}
+\caption{\label{pic:Impulskamm}Darstellung der
+\textcyr{Sh}-Funktion}
+\end{center}
+\end{figure}
+
+Zur weiteren Herleitung ist es notwendig das Spektrum des
+Impulskamms zu kennen. Da die Funktion periodisch ist, können wir
+mit das Signal mit Hilfe der Fourier-Reihe darstellen. Es gilt:
+\begin{equation}\label{eq:Cha:FourierReiheStart}
+    \sum_{k = -\infty}^{\infty} \Dirac{t-kT}=
+    \sum_{\ell = -\infty}^{\infty}a_{\ell} e^{j\ell 2 \pi t /T}
+\end{equation}
+
+Die Berechnung der Fourier-Koeffizienten erfolgt über
+\begin{equation}\label{eq:Cha:FourierKoeffs}
+    a_{\ell} = \frac{1}{T} \int\limits_{-T/2}^{T/2}
+    \left(\sum_{k = -\infty}^{\infty} \Dirac{t-kT} \right) e^{-j\ell 2 \pi t
+    /T} dt
+\end{equation}
+Da das Integral keinerlei Abhängigkeit vom Folgenindex $k$ hat,
+lassen sich Integral und Summe vertauschen. Zusätzlich ist
+das Integral nur definiert, wenn $k = 0$ gilt. Nimmt man zusätzlich im letzten Schritt
+die Siebeigenschaft des Dirac-Impulses hinzu ergibt sich
+\begin{eqnarray}
+a_{\ell} &=& \frac{1}{T}
+    \left(\sum_{k = -\infty}^{\infty} \int\limits_{-T/2}^{T/2} \Dirac{t-kT} \right) e^{-j 2\pi \ell t
+    /T} dt\\
+    & = & \frac{1}{T} \int\limits_{-T/2}^{T/2} \Dirac{t-kT} e^{-j 2 \pi \ell t
+    /T} dt\\
+    & = & \frac{1}{T}
+\end{eqnarray}
+Für das Spektrum ergibt sich somit
+\begin{equation}\label{eq:Def:Spektrum}
+    \sum_{k = -\infty}^{\infty}  \Dirac{t-kT} =
+    \frac{1}{T}\sum_{\ell = -\infty}^{\infty} e^{j 2 \pi \ell t /T}
+\end{equation}
+
+Mit dem Modulationssatz der Fourier-Transformation
+\begin{equation}\label{eq:Def:FourierModulkationssatz}
+%    e^{j\ell 2 \pi t /T} \HinTrans 2\pi \sum_{\ell = -\infty}^{\infty}  \Dirac{\omega-\ell\frac{2\pi}{T}}
+    e^{j\ell 2 \pi t /T} \HinTrans 2\pi \Dirac{\omega-\ell\frac{2\pi}{T}}
+\end{equation}
+ergibt sich somit für das Spektrum des Impulskamms
+\begin{equation}\label{eq:Def:Spektrum}
+    \sum_{k = -\infty}^{\infty}  \Dirac{t-kT} \HinTrans
+    \frac{2\pi}{T} \sum_{\ell = -\infty}^{\infty}  \Dirac{\omega-\ell\frac{2\pi}{T}}
+\end{equation}
+Das heißt also, der Impulskamm ist im Frequenzbereich wieder ein
+Impulskamm, der zeitlich reziprok zum Abtastinterval skaliert und
+gestreckt ist.
+
+\subsection{Abtasttheorem mittels Spektrum eines abgetasteten Signals}
+Betrachtet man nun ein analoges Signal $x(t)$ mit dem
+dazugehörigen Spektrum $X(\omega)$, so kann die Abstastung dieses
+Signals als eine Multiplikation mit dem Impulskamm interpretiert
+werden. Diese Multiplikation im Zeitbereich führt im
+Freqenzbereich zu einer Faltung der beiden Spektren. Es ergibt
+sich also.
+\begin{eqnarray}\label{eq:AbtastungFaltungDirac}
+    X(\omega)\big|_{\mbox{Abtastung}} &=& \frac{1}{2\pi} X(\omega)
+    \ast \frac{2\pi}{T} \sum_{\ell = -\infty}^{\infty}
+     \Dirac{\omega-\ell\frac{2\pi}{T}}\\
+    & = & \frac{1}{T} \sum_{\ell = -\infty}^{\infty} X(j(\omega-\ell\frac{2\pi}{T}))
+\end{eqnarray}
+Das Originalspektrum des Signals wird also durch die Abtastung bei
+den Frequenzen $1/T$ periodisch wiederholt. Dieser Sachverhalt
+wird in Abbildung \ref{pic:Abtastungsbeispiel} verdeutlicht. In
+Abbildung a ist das Originalspektrum und das Spektrum des
+Abtastkamms gezeigt. Abbildung b. zeigt das Faltungsprodukt. In
+Abbildung c. ist eine andere Abtastfrequenz gewählt. Das
+Falstungsprodukt ist in d gezeigt.
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psAnalog/Abtasttheorem}
+\caption{\label{pic:Abtastungsbeispiel}Veranschaulichung des
+Abtasttheorems durch Faltung der Spektren.}
+\end{center}
+\end{figure}
+Es ergeben sich, damit das Spektrum des abgetasteten Signals mit
+dem des Originalsignals zumindest in einem Bereich um den
+Nullpunkt identisch ist, zwei Voraussetzungen:
+\begin{enumerate}
+    \item Das Eingangssignal muss bandbegrenzt sein, \ie die
+    Leistung des Spektrums für Frequenzen größer einer bestimmten
+    Grenzfrequenz müssen Null sein. \[X(\omega) = 0 \fuer \omega > \omega_{max}\]
+    \item Die Abtastrate muss mindestens doppelt so groß wie die
+    maximale Frequenz im Signal gewählt werden \[\omega_s > 2\omega_{max}\]
+\end{enumerate}
+Anders formuliert ergibt sich damit das Abtasttheorem.
+
+\wichtig{Zur vollständigen Beschreibung eines analogen
+bandbgrenzten Signals mit der maximalen Frequenz $f_{max}$ ist
+eine Abtastrate von $f_s \geq 2 f_{max}$ notwendig}
+
+\subsection{Rekonstruktion eines abgetasteten Signals}
+Das Abtasttheorem kann aber auch aus einer anderen Sichtweise
+erläutert werden, die ebenfalls wichtig ist. Es wurde bisher
+nämlich noch nicht die Frage beantwortet, wie ein Signal aus
+seinen Abtastwerten vollständig rekonstruiert werden kann, wenn
+das Abtasttheorem erfüllt ist.
+
+Um dies zu zeigen, nehmen wir an das Spektrum eines abgetasteten
+Signals $X(\omega)$ liegt vor und das Abtasttheorem wurde bei der
+Abtastung eingehalten. Dann gilt, dass das Spektrum im Bereich um
+den Nullpunkt vom analogen Originalsignal dem Spektrum des
+abgetasteten Signals entspricht.
+\[
+    X(\omega) = X(\omega)\big|_{\mbox{Abtastung}} \fuer \omega < \omega
+    \big|_{\mbox{Abtastung}}
+\]
+
+\tbdb{Hier Bild mit Spektrum und optimalen Filter}
+
+Um nun vom abgetasteten Spektrum mit der periodischen Wiederholung
+des Spektrums zum Originalspektrum zu kommen, ist eine Filterung
+mit einem idealen Tiefpass notwendig, der als Grenzfrequenz genau
+die halbe Abastfrequenz hat. Für das Spektrum ergibt sich
+\[
+    X(\omega) = X(\omega)\big|_{\mbox{Abtastung}} H_{TP} (\omega)
+\]
+Im Zeitbereich bedeutet dies, dass das analoge Signal zu allen
+Zeitpunkten bestimmt werden kann, wenn die Abtastwerte mit der
+Impulsantwort des idealen Tiefpasses gefaltet werden. Diese
+Impulsantwort ist bereits im Abschnitt \ref{sec:TiefpassEntwurf}
+berechnet worden und ist durch die $\sin x / x$ Funktion gegeben.
+Das analoge rekonstruierte Signal ergibt sich also an der Stelle
+$t$ durch eine unendliche Summe von gewichteten si-Funktionen (siehe
+Beispiel in Abbildung \ref{pic:SiRekonstruktion}).
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psAnalog/siInterpolation}
+\caption{\label{pic:SiRekonstruktion}Darstellung der
+Rekonstruktion eines Sinusschwingung durch mit den Abtastwerten gewichtete
+si-Funktionen.}
+\end{center}
+\end{figure}
+
+\tbd{Erklärung muss noch besser werden}
+
+\section{Quantisierung}
+Im Abschnitt \ref{sec:Quantisierung} wurde gezeigt, wie eine
+Quantisierungskennlinie aussieht und welche Folgen die Quantisierung
+für das Signal hat. Nun soll gezeigt werden, wie man die benötigte Anzahl
+an Bits bestimmt, wenn ein genügend kleiner Fehler entstehen soll.
+
+Zunächst muss dazu geklärt werden,, was genügend klein bedeutet.
+Die Dimensionierung des Quantisierers hängt immer direkt mit dem
+Empfänger zusammen. Kann der Empfänger nur ja oder nein verstehen, reicht ein
+1Bit Quantisierer. Für Audiotechnik ist der Empfänger das menschliche Ohr mit einer
+Dynamik zwischen Ruhehörschwelle und Gefährdungspegel von ca. 120dB. Sprache und
+Musik verläuft in einem sehr viel stärker eingeschränkten Bereich, der üblicherweise
+als Hörfläche bezeichnet wird und in Abbildung \ref{pic:Hoerflaeche} zu sehen ist.
+\tbdb{Hörflächenbild ohne copyrights.}
+
+Es muss also überlegt werden, wie viel Bits notwendig sind, um die Dynamik der Hörfläche bei Musik
+wiedergeben zu können. Dazu ist zunächst notwendig ein lineares Ersatzmodell für die Quantisierung
+einzuführen. Es wird dazu angenommen, dass das Nutzsignal eine Amplitude hat, die groß im Vergleich
+der Quantisierungstufe $Q$ ist. Unter dieser Annahme kann der Quantisierungsfehler zwischen
+dem Originalsignal $x(k)$ und dem quantisierten Signal $x_Q(k)$
+\begin{equation}\label{eq:Def:QuantFehler}
+    e(k) = x_Q(k) -x(k)
+\end{equation}
+als ein weißes, mittelwertfreies, gleichverteiltes Rauschen mit der Maximalamplitude $Q/2$
+modelliert werden. Das lineare Ersatzmodell des nicht-linearen Quantisierers
+ist in Abbildung \ref{pic:QuantisierErsatzmodell}
+gezeigt, wobei zusätzlich die Verteilungsdichtefunktion des Rauschen eingezeichnet ist.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 10cm]{psAnalog/QuantisiererBlockschaltbild}
+\caption{\label{pic:QuantisierErsatzmodell}Lineares Ersatzmodell und Fehlerverteilungsdichtefunktion
+bei einem Quantisierer.}
+\end{center}
+\end{figure}
+
+Interessant ist nun die Leistung des Fehlersignals zu berechnen. Mit Gleichung
+\ref{eq:ZweitesStatMoment} gilt:
+\begin{eqnarray} \label{eq:LeistungQuant}
+\sigma_e^2 & = & \frac{1}{Q} \int\limits_{-\frac{Q}{2}}^{\frac{Q}{2}} x^2 dx\\
+& = & \frac{1}{Q} \left[x^3/3\right]_{-\frac{Q}{2}}^{\frac{Q}{2}}\\
+& = & \frac{1}{Q} \left(\frac{Q^3}{24} + \frac{Q^3}{24} \right)\\
+& = & \frac{Q^2}{12}
+\end{eqnarray}
+
+Diese Leistung stellt die untere Grenze der Dynamik dar. Die obere Grenze wird durch
+den Signalpegel definiert. Nimmt man eine normierte Darstellung an, mit einem
+Maximalpegel von 0dBFS (Full Scale) so ergibt sich bei einem Sinussignal eine
+Signalleistung von $\sigma_s^2= 1/2$. Die Dynamik entspricht dem
+Signal-Rauschverhältnis
+\begin{equation}\label{eq:SNRQuant}
+    \SNR = \frac{12}{2 Q^2} = \frac{6}{Q^2}
+\end{equation}
+Setzt man nun für die Quantiseirungsstufe
+\begin{equation}\label{eq:Quantstufe}
+    Q = \frac{1}{2^{Bit-1}}
+\end{equation}
+ergibt sich
+\begin{eqnarray}
+    \SNR &=& \frac{6}{\left(\frac{1}{2^{Bit-1}}\right)^2}\\
+    & = & 6 \;\;2^{2(Bit-1)}\\
+    & = & \frac{6}{4} 2^{2Bit}
+\end{eqnarray}
+in einer logarithmischen Darstellung ergibt das schlussendlich
+\begin{eqnarray}\label{eq:SNR_log}
+    \SNR_{dB} &=& 1.77 + 2 Bit\; 10\log_{10}(2) \\
+    & = & 1.77 + 6 Bit
+\end{eqnarray}
+Also erhöht jedes Bit die Dynamik um 6dB.
+Geht man nun von einer benötigten Dynamik von $100$dB aus, ergibt sich
+die benötigte Bitzahl von $16.37$ Bit.
+
+\section{Technische Realisierung der AD / DA Wandlung}
+Aus dem Abtasttheorem ergeben sich einige Konsequenzen für die
+technische Realisierung einer Abtastschaltung.
+\subsubsection{AD-Wandlung}
+Aus der Forderung des Abtasttheorems nach einer Bandbegrenzung des
+Eingangssignals ergibt sich bei der technischen Realisierung eines
+Analog/Digital-Wandlers die Notwendigkeit ein Tiefpass-Filter vor
+der eigentlichen Umsetzung zu schalten. Dieses Tiefpass-Filter
+muss dabei so entworfen sein, dass es eine möglichst steile Flanke
+bei der halben Abtastrate hat und bei niedrigeren Frequenzen
+möglichst das Signal nicht dämpft.
+
+Das Tiefpass-gefilterte Signal wird in einem zweiten Schritt in
+einer sog. Sample and Hold-Schaltung gehalten, um genügend Zeit zu
+haben, die eigentliche digitale Repräsentation in binärer
+Darstellung zu finden. Hierfür sind unterschiedliche Verfahren
+bekannt, die alle bestimmte Stärken und Schwächen haben.
+
+\tbd{AD-Wandler Techniken erwähnen}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psAnalog/NyquistAbtastung}
+\caption{\label{pic:NyquistAD}Darstellung der
+AD-Wandlung mittels Nyquist-Verfahren.}
+\end{center}
+\end{figure}
+
+Das teuerste Element der AD-Wandlung, dass gleichzeitig einen sehr
+hohen Einfluss auf die Qualität der Wandlung hat, ist das
+Anti-Aliasing Tiefpass-Filter. Um die Anforderungen zu reduzieren
+wurde deshalb das Oversampling-Verfahren entwickelt. Dabei wird
+das Signal nicht mit der Abtastrate abgetastet, die am Ende für
+die weitere Verarbeitung benötigt wird, sondern mit einer höheren
+Rate. Typischerweise wurde mit 4-8facher Überabtastung gearbeitet.
+Somit konnte das analoge Filter so designed werden, dass die
+Sperrdämpfung von 100dB erst bei der neuen halben Abtastrate
+erreicht wird (Bsp statt steilen Übergang von 20kHz auf 22kHz viel
+flacheren von 20kHz auf 88kHz). Der Übergangsbereich ist sehr groß
+und somit können Filter geringerer Ordnung genutzt werden. Um
+trotzdem auf die gewüschte Abtastrate zu kommen, ist nach der
+Abtastung eine jetzt digitale Abtastratenwandlung notwendig. Dazu
+muss das Signal wieder bandbegenzt werden, um Aliasing zu
+vermeiden. Aber das verwendete Filter ist jetzt digital und es
+erfordert nur eine gewisse Rechenleistung für diese Operation.
+Abschließend kann dann durch eine Unterabtastung, die gewünschte
+Ausgangsrate erzeugt werden. Bei Unterabtastung mit ganzzahliger
+Vielfachen besteht das Verfahren nur darin jedes n-te Sample zu
+verwenden und alle anderen Datenwerte zu ignorieren.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{psAnalog/OversamplingAbtastung}
+\caption{\label{pic:OversamplingAD}Darstellung der
+AD-Wandlung beim Überabtastverfahren (L = Überabtastfaktor):}
+\end{center}
+\end{figure}
+
+Die Wandlertechnik, die sich letztendlich durchgesetzt hat und
+heute im Audiobereich hauptsächlich noch zu finden ist basiert auf einer
+etwas anderen Technik und hat den Vorteil, dass sie zum einen eine
+höhere Qualität bietet, aber gleichzeitig auch noch preiswerter in
+der Herstellung ist, da auf weiter analoge Bauteile verzichtet
+werden kann.
+
+Die neue Technik basiert auf der Idee der sehr hohen Überabtastung
+(64x), wobei aber gleichzeitig die Bittiefe auf ein Bit reduziert
+wird. Um das Verfahren zu erläutern, soll zunächst eine historisch
+vorher liegende Technik eingeführt werden, die sog.
+Delta-Modulation.
+
+Bei diesem Verfahren werden nur Informationen darüber gespeichert,
+ob die anliegende Spannung größer (1) oder kleiner (-1) als der
+aktuelle Wert im AD-Wandler ist . Dadurch wird der tatsächliche
+Wert Schritt für Schritt approximiert. Geschieht diese Anpassung
+mit einem sehr hohem Takt wird die eigentliche Form des Signals
+erreicht. Um das Signal zu demodulieren und auf die gewünschte
+Abtastrate zu bringen ist nur ein einfacher Intergrator mit
+anschließender Tiefpass-Filterung notwendig.
+
+\tbdb{Blockschaltbild Delta-Modulator, Delta-Modulationssignal}
+
+Dieser zusätzliche Integrator kann nun auch vor die Abtastung
+gezogen werden. Damit liegt nun ein Integrator im
+Rückführungszweig und einer davor, so dass sich dieser hinter dem
+Summationspunkt verschieben lässt. Es wird eine aufwandsreduzierte
+Lösung erreicht. Als weiterer positiver Nebeneffekt wird das durch
+die Quantisierung eingebrachte Rauschen reduziert (siehe auch
+kommenden Abschnitt Rauschsignale und Quantisierung)
+
+Das integrierte Signal wird in einem Quantisierer mit w- Bit
+digitalisiert. Wobei die Bittiefe w theoretisch eins sein kann,
+aber in der praktischen Anwendung meist 4Bit ist. Um nun auf die
+gewünschte Abtastrate mit der gewünschten Bittiefe $w_d$ zu
+kommen, ist nur ein abschließende Multiplikation mit einem
+Tiefpass-Filter und einer Unterabtastung notwendig. Die Bittiefe
+wird durch einen weiteren jetzt hochauflösenden Quantisierer
+sicher gestellt.
+
+\tbdb{Delta-Sigma Wandler Blockschaltbild und Signale}
+
+\subsubsection{DA-Wandlung}
+Bei der DA-Wandlung werden jeweils ähnliche Verfahren eingesetzt.
+Das Standardverfahren ist die Nyquist-Abtastung, bei der versucht
+wird die Rekonstruktionsvorschrift möglichst direkt umzusetzen.
+Dazu wird der Abtastwert über eine geeignete Schaltung in eine
+analoge Spannung umgewandelt, die zunächst auf einen konstanten
+Wert gehalten wird. Dies entspricht einer Faltung mit einem
+Rechteck-Fenster der Länge des Abtastintervalls im Zeitbereich.
+Die Folge ist eine Filterung des Spektrums mit einer si-Funktion.
+Dieses Filter hat seine erste Nullstelle bei der Abtastrate. Aber
+bereits in dem interessanten Bereich zur halben Abtastrate findet
+eine leichte Dämpfung der hohen Frequenzen statt. Da die Signale
+analog und damit nicht mehr direkt bandbegrenzt sind, liegen auch
+alle Spiegelspektren (engl: Image Spectra) vor. Diese Spektren
+müssen abschließend durch ein analoges steilflankiges
+Tiefpass-Filter mit einer Grenzfrequenz bei der halben Abtastrate
+herausgefiltert werden (Anti-Imaging Filter). Um die Dämpfung
+durch das Halteglied auzugleichen wird das Filter so
+dimensioniert, dass vor dem Sperrbeeich eine leichte Verstärkung
+vorgenommen wird.
+
+\tbdb{Spektren zeigen}
+
+Um erneut die Anforderungen des analogen Filters zu senken, ist es
+möglich durch eine vorherige digitale Überabtastung und einem
+digitalen Anti-Imaging-Filter die Grenzfrequenzen um den
+Überabtastfaktor zu verschieben. Die Dämpfung durch die
+si-Funktion kann bei entsprechend hoher Überabtastung auch
+vernachlässigt werden. Zur Veranschaulichung sind die Spektren zu
+den unterschiedlichen Zeiten in Abbildung
+\ref{pic:DA:Oversampling} gezeigt.
+
+\tbdb{Bild Oversampling}
+
+Wie für die AD-Abtaster ist auch für die DA-Wandlung eine
+Delta-Sigma Wandler Lösung bekannt. In diesem Fall wird das Signal
+digital sehr hoch überabgetastet und abschließend mit einer
+geringen Bittiefe ins analoge gewandelt. Dieses hochtaktikte
+Signal kann nun durch einen relativ flachen analogen Tiefpass in
+das Audiosignal
+
+\tbdb{Delta Sigma Wandler Spektren und Blockschaltbild}
+
+
+
+\section{Analoger Filterentwurf}
+Im Abschnitt Filter haben wir bereits einige
+Filterentwurfsverfahren kennen gelernt und benutzt um IIR- Filter
+zu entwerfen. Ziel dieses Abschnitts ist nun kurz die
+Entwurfsroutinen zu erläutern und den Übergang von der analogen
+Realisierung zur digitalen Realisierung zu veranschaulichen.
+
+%\subsection{Laplace-Transformation}
+Auch analoge Filter werden, wie ihre digitalen Gegenstücke durch
+Gleichungen und Pol-Nullstellendiagramme dargestellt. Dabei sind
+die Gleichungen Differentialgleichungen und der Übergang zur
+Pol-Nullstellendarstellung erfolgt mit Hilfe der
+Laplace-Transformation, die das analoge Gegenstück zur
+z-Transformation darstellt. Die Defintion erfolgt über die
+komplexe Variable $s = \sigma + j\omega$. Es gilt
+
+\begin{equation}\label{eq:Def:LaPlaceTrans}
+    X(s) = \int\limits_{-\infty}^{\infty} x(t) e^{-st} dt
+\end{equation}
+
+Bei der Laplace-Transformation ist die Konvergenz und die
+Stabilität der Systeme aber nicht durch einen Kreisring gegeben,
+sondern durch die linke Halbebene. Die $j\omega$-Achse ist somit
+eine ähnliche Grenze wie der Einheitskreis in der z-Ebene.
+
+\subsection{Bilineare Transformation}
+Die Frage, die sich nun stellt ist, wie kann ich aus der analogen
+s-Repräsentation eine z-Repräsentation formen. Dazu sind
+verschiedene Transformationen bekannt, aber im allg. wird meist
+die sog. Billeneare-Transformation benutzt, die ein kausales und
+stabiles System in der s-Ebene in ein ebensolches System in der
+z-Ebene überführt. Die Transformationgleichung ist gegeben durch
+\begin{equation}\label{eq:Def:BiLineareTrans}
+    s = \frac{2}{T}\frac{1-z^{-1}}{1+z^{-1}} = \frac{2}{T}\frac{z-1}{z+1}
+\end{equation}
+mit $T$ als Abtastinterval, wobei der Faktor $2/T$ auch
+weggelassen werden kann, da er an der Form der Transformation
+nichts ändert. Für den Frequenzgang des Filters ergibt sich durch
+einsetzen von $z = e^{j\Omega}$
+\begin{equation}\label{eq:BilineareVorverzerung}
+    \omega = \frac{e^{j\Omega}-1}{e^{j\Omega}+1} = \tan\left(
+    \frac{\Omega}{2}\right)
+\end{equation}
+Aus diesen beiden Gleichungen lassen sich einige wichtige
+Erkenntnisse ziehen:
+\begin{itemize}
+    \item Die linke s-Halbebene wird in das innere des
+    Einheitskreises in der z-Ebene transformiert.
+    \item Die analoge Frequenz $\infty$ entspricht der halben
+    Abtastrate.
+    \item Es liegt eine nicht-lineare Verzerrung des
+    Frequenzganges vor.
+    \item Es kommt aber nicht zu einer Verzerrung des
+    Betragsübertragungsverhaltens.
+    \item Stabile, kausale Systeme werden wieder stabile, kausale
+    Systeme
+    \item Rationale Funktionen der Form $H(s) = Q(s)/R(s)$ bilden
+    wieder gebrochen rationale Funktionen der Form $H(z) =
+    B(z)/A(z)$.
+\end{itemize}
+
+Aus diesen Erkenntnissen ist nun die Vorgehensweise beim Entwurf
+eines IIR-Filters mit Hilfe der analogen Vorbilder vorgegeben.
+\begin{enumerate}
+    \item Definition der Entwurfsparameter in der digitalen Ebene.
+    \item Vorverzerrungen aller Frequenzparameter mit
+    Gleichung \ref{eq:BilineareVorverzerung}
+    \item Entwurf des Filters in der s-Ebene.
+    \item Rücktransformation mit Hilfe der bilinearen
+    Transformation \ref{eq:Def:BiLineareTrans}
+\end{enumerate}
+
+Das verbleibende Problem ist der Entwurf des analogen
+Prototyp-Filters. Hierzu sind verschiedene Methoden bekannt. Zum
+einen gibt es Tabellenbücher, wo normierte Filterkoeffizienten
+angegeben sind, die durch eine Entnormierung verwendet werden
+können. Dies ist in den meisten Fällen ausreichend.
+
+Um zu zeigen, wie diese Koeffizienten entstanden sind, sollen zwei
+analoge Entwurfsverfahren etwas genauer erläutert werden, wobei
+aber zunächst noch einmal vom jetzt analogen
+Entwurfsschema ausgegangen wird. (Frequenzvariable ist $j\omega$)
+
+{\bf Der folgende Abschnitt entstammt dem Versuch analoge Filter
+aus dem Arbeitsbereich Nachrichtentechnik, weitere Autoren sind
+Jan Rademacher, Gerrit Helmers (ehemalige Studis in Bremen)}
+
+\tbd{Dieser Abschnitt muss irgendwann mal neu gemacht werden, um ihn stilistisch und
+inhaltlich besser anzupassen.}
+
+\subsection{Filtertypen Wiederholung}
+
+Beim klassischen Filterdesign kann man von vier Grundtypen
+ausgehen:
+\begin{itemize}
+\item{Tiefpass: Tiefe Frequenzen werden durchgelassen, hohe
+Frequenzen unterdrückt.}
+\item{Hochpass: Hohe Frequenzen passieren
+das Filter, tiefe Frequenzen werden unterdrückt.}
+\item{Bandpass:
+Frequenzen außerhalb eines bestimmten Frequenzbereichs werden
+unterdrückt.}
+\item{Bandsperre: Frequenzen innerhalb eines
+definierten Frequenzbereichs werden unterdrückt.}
+\end{itemize}
+%
+\begin{figure}[H]
+\includegraphics[width = 10cm]{psAnalog/filttyp}
+\caption{\label{filttyp}Die vier Standardfiltertypen}
+\end{figure}
+%
+Die Beschreibung des Filters erfolgt im Frequenzbereich anhand des
+Amplitudengangs $|H (j\omega)|$. Das Filter kann durch
+\begin{equation}
+    |H(j\omega)| = \left\{\begin{array}{l}1 \quad
+    |\omega| \hspace{2mm}\epsilon \hspace{2mm} \{\mbox{Durchlassfrequenzbereich}\}\\
+    0 \quad \mbox{sonst (Sperrbereich)}
+    \end{array} \right.
+\end{equation}
+beschrieben werden. Da dieses ideale Filter nicht realisierbar
+ist, werden Näherungslösungen innerhalb eines {\em
+Toleranzschemas} (siehe Abb. \ref{filttyp}) gesucht.
+
+Die Beschreibungsparameter für den Tief- und Hochpass sind:
+%
+\begin{itemize}
+\item{$\delta_D$: Abweichung im Durchlassbereich vom Idealfall
+$|H(j\omega)| = 1$}
+\item{$\delta_S$: Maximal zulässige Abweichung
+von null}
+\item{$\omega_D$: Durchlassfrequenz}
+\item{$\omega_S$: Sperrfrequenz}
+\end{itemize}
+%
+Für den Bandpass und die Bandsperre müssen zusätzlich noch die
+Grenzfrequenzen $\omega_{-D}$ und $\omega_{-S}$ spezifiziert
+werden, bei denen die Toleranzgrenzen $\delta_D$ und $\delta_S$
+ebenfalls eingehalten werden.
+
+Der Phasengang der zu bestimmenden Filter wird nicht
+berücksichtigt, da er bei vielen technischen Problemstellungen von
+untergeordneter Bedeutung ist.
+
+\subsection{\label{freqtrans}Frequenztransformationen}
+
+Durch eine geeignete Frequenztransformation lassen sich die vorgestellten Filtertypen in
+einen {\em normierten Tiefpass} umsetzen [KK98], für den es
+Standardapproximatiosverfahren gibt. Der normierte Tiefpass zeichnet sich durch die
+Durchlasskreisfrequenz eins aus. Notwendig ist diese Transformation, da nur normierte Tiefpässe
+in tabellierter Form vorliegen. Ein weiterer Vorteil ist, dass alle anderen Filtertypen nach
+der Lösung des Entwurfsproblems durch einfache Rücktransformationen gewonnen werden können.
+%
+
+\begin{itemize}
+\item{Tiefpass--Tiefpass Transformation:\\
+\begin{equation}\label{tt-trafo}
+    \omega\mbox{'} = \frac{\omega}{\omega_D} % \quad \mbox{bzw.} \quad s\mbox{'}= \frac{s}{\omega_D}
+\end{equation}
+}
+%Mit dieser Transformation wird also $\omega_D \Rightarrow 1$ und $\omega_S \Rightarrow \omega_S\mbox{'}$.}
+\item {Hochpass--Tiefpass Transformation:\\
+\begin{equation}
+    \omega\mbox{'} = \frac{\omega_D}{\omega} %\quad \mbox{bzw.} \quad s\mbox{'}= -\frac{\omega_D}{s}
+\end{equation}
+}
+\item{Bandpass--Tiefpass Transformation:\\
+Unter der Voraussetzung eines symmetrischen Bandpasses mit
+\begin{equation}\label{SymEntwurf}
+    \omega_D\omega_{-D} = \omega_S\omega_{-S}
+\end{equation}
+ergibt sich:
+\begin{equation}
+\label{BandTiefTrans}
+    \omega\mbox{'} = \frac{\omega^2+\omega_D\omega_{-D}}{(\omega_D-\omega_{-D})\omega}% \quad \mbox{bzw.} \quad s\mbox{'}= \frac{s^2+\omega_D\omega_{-D}}{(\omega_D-\omega_{-D})s}
+\end{equation}
+}
+\item{Bandsperre--Tiefpass Transformation:\\
+Mit den gleichen Voraussetzungen, wie bei der Bandpass--Tiefpass Transformation gilt:
+\begin{equation}\label{bs-trafo}
+    \omega\mbox{'} = \frac{(\omega_D-\omega_{-D})\omega}{\omega^2+\omega_D\omega_{-D}}% \quad \mbox{bzw.} \quad s\mbox{'}= \frac{(\omega_D-\omega_{-D})s}{s^2+\omega_D\omega_{-D}}
+\end{equation}
+}
+\end{itemize}
+\begin{figure}[H]
+\includegraphics[width = 10cm]{psAnalog/normtp}
+\caption{\label{normtp}Normierter Tiefpaß}
+\end{figure}
+
+\begin{quote}
+{\Large Beispiel:}\\
+\small
+Es ist ein Bandpass zu entwerfen, der eine untere Sperrfrequenz von $\omega_{-S}=196$ Hz und
+eine obere Sperrfrequenz von $\omega_S = 6116$ Hz hat. Der Durchlassbereich liege im
+Intervall $\omega_{-D} = 300$ Hz $\leq \omega \leq \omega_D = 4$ kHz.
+
+\begin{enumerate}
+\item{Test, ob der Entwurf symmetrisch ist (Gleichung (\ref{SymEntwurf})).
+\[
+  196\,\mbox{Hz}\cdot6116\,\mbox{Hz} \approx 1200000\,\mbox{Hz}^2 \quad \mbox{und} \quad 300\,\mbox{Hz}\cdot4000\,\mbox{Hz} = 1200000\,\mbox{Hz}^2
+\]
+}
+\item{Transformation vom Bandpass in den normierten Tiefpass nach Gleichung (\ref{BandTiefTrans})
+\[
+    \omega_S\mbox{'} = \frac{6116^2\mbox{Hz}^2-300\cdot4000\,\mbox{Hz}^2}{(4000\,\mbox{Hz}-300\,\mbox{Hz})\cdot6116\,\mbox{Hz}} \approx 1.6
+\]
+}
+\end{enumerate}
+\end{quote}
+\normalsize
+\subsection{Standardapproximation}
+Für einen normierten Tiefpass, wie er in Abbildung \ref{normtp} dargestellt ist, dessen
+Übertragungs\-funk\-tion {\em m} Nullstellen und {\em n} Polstellen beinhaltet, können wir
+den Betrag der Übertragungsfunktion $|H(j\omega\mbox{'})|$ durch eine Hilfsfunktion
+$|K(j\omega\mbox{'})|$ und eine Konstante C beschreiben. Die Approximationsverfahren
+beruhen auf folgendem Ansatz:
+\begin{equation}
+    \label{toltrans}
+    \left|H(j\omega\mbox{'})\right|^2 = \frac{1}{1+\mbox{C}^2 \left|K (j\omega\mbox{'})\right|^2} \quad
+\end{equation}
+\begin{figure}[H]
+\includegraphics[width = 10cm]{psAnalog/normckf}{0.5}
+\caption{\label{ctolshema}Toleranzschema für $\mbox{C}|K(j\omega\mbox{'})|$}
+\end{figure}
+
+Aus dem Toleranzschema für $|H(j\omega\mbox{'})|$ folgt aus Gleichung (\ref{toltrans}) ein
+neues Schema für $\mbox{C}|K(j\omega\mbox{'})|$, das in Abbildung \ref{ctolshema}
+dargestellt ist. Aus den Toleranzparametern $\delta_D$ und $\delta_S$ werden die Parameter
+$\Delta_1$ und $\Delta_2$ wie folgt ermittelt [KK98]:\\
+
+Für die Frequenz
+$\omega\mbox{'}=1$ ergibt sich (vergleiche Abb.\ref{normtp}):
+\begin{eqnarray}
+    \label{deltaher1}
+    |H(j\omega\mbox{'})|=1-\delta_D
+\end{eqnarray}
+\vspace{3mm}
+
+Für $C|K(j\omega\mbox{'})|$ ergibt sich (vergleiche Abb.\ref{ctolshema}):
+\begin{equation}
+    \label{deltaher2}
+    C|K(j\omega\mbox{'})|=\Delta_1
+\end{equation}
+\vspace{3mm}
+
+Setzt man nun (\ref{deltaher1}) und (\ref{deltaher2}) für $\omega\mbox{'}=1$
+in (\ref{toltrans}) ein, so erhält man:
+\begin{equation}
+    \label{deltaher3}
+    |1-\delta_D|^2=\frac{1}{1+|\Delta_1|^2}\\
+\end{equation}
+\begin{equation}
+    \Rightarrow \underbrace{\frac{1}{|1-\delta_D|^2}}_{(1-\delta_D)^2=real}=1+\Delta_1^2\\
+\end{equation}
+\begin{equation}
+    \Rightarrow \Delta_1^2=\frac{1-(1-\delta_D)^2}{(1-\delta_D)^2}\\
+\end{equation}
+\begin{equation}
+    \label{Delta1ref}
+    \Rightarrow \Delta_1=\sqrt{\frac{(1-1+2\delta_D-\delta_D^2)}{(1-\delta_D)^2}}=\frac{\sqrt{2\delta_D-\delta_D^2}}{1-\delta_D}\\
+\end{equation}
+\begin{eqnarray}
+    \label{Delta1Referenz}
+    \Delta_1 &=& \frac{\sqrt{2\delta_D-\delta_D^2}}{1-\delta_D}
+                    \geq \mbox{C}|K(j\omega\mbox{'})| \quad 0 \leq \omega\mbox{'}\leq 1 \\\nonumber
+\end{eqnarray}
+    analog wird $\Delta_2$ bestimmt zu:
+\begin{eqnarray}
+    \label{Delta2Referenz}
+    \Delta_2 &=& \frac{\sqrt{1-\delta_S^2}}{\delta_S}
+                    \leq \mbox{C}|K(j\omega\mbox{'})| \quad \omega_S\mbox{'} \leq \omega\mbox{'}\leq \infty
+\end{eqnarray}
+Zur eigentlichen Filtersynthese werden die Entwurfsverfahren durch Anwendung der
+Laplace--Transformation auf die positive komplexe Halbebene beschränkt. Es gilt allgemein:
+\begin{equation}
+\label{jomegazus}
+\centering{|F(j\omega)|^2=F(j\omega)F^*(j\omega),}
+\end{equation}
+
+Setzt man für die zu erzeugende Funktion $F(s)$ voraus, dass die Variable $s$ und das durch
+sie erzeugte $F(s)$ beide reell sind, so würde man, wenn man $s$ durch $j\omega$ ersetzt,
+eine reelle Variable durch eine rein Imaginäre ersetzen. Bildet man unter diesen
+Voraussetzungen nun die konjugiert Komplexe der rein imaginären Variable, so ergibt sich
+definitionsgemäß
+\begin{equation}
+j\omega^*\Rightarrow-j\omega
+\end{equation}
+Ersetzt man nun in $F(j\omega)$ die Variable $j\omega$ durch $-j\omega$, so ändert sich das
+Vorzeichen von $\Im(F(j\omega))$, das von $\Re(F(j\omega))$ bleibt aber gleich, da der
+Realteil nur durch $(j\omega)^n$, wobei $n$ gerade ist, entstehen kann. Somit entspricht
+\begin{equation}
+F(-j\omega)=F^*(j\omega)
+\end{equation}
+So ergibt sich (\ref{jomegazus}) zu
+\begin{equation}
+\label{jomegazus2}
+\centering{|F(j\omega)|^2=F(j\omega)F(-j\omega)}
+\end{equation}
+Wird die Betrachtung nur auf die positive komplexe Halbebene beschränkt, ersetzt man also
+$j\omega$ durch $s$ in (\ref{jomegazus2}), so ergibt sich
+\begin{equation}
+\label{jomegazus3}
+\centering{|F(j\omega)|_{j\omega=s}^2=F(s)F(-s)}
+\end{equation}
+\vspace{3mm}\\Berücksichtigt man, dass ein
+Ersetzen von $j\omega\mbox{'}$ durch $s\mbox{'}$ bei einer
+geraden Funktion von $\omega\mbox{'}$ äquivalent zu der
+Ersetzung von $\omega\mbox{'}^2$ durch $-s\mbox{'}^2$ ist, so
+ergibt sich (\ref{toltrans}) zu
+\begin{equation}
+\label{toltrans_s}
+\centering{H(s\mbox{'})H(-s\mbox{'}) = \frac{1}{1+C^2 K(s\mbox{'}) K(-s\mbox{'})}}
+\end{equation}
+\vspace{3mm}\\Setzt man für K(s\mbox{'}) den Ansatz
+\begin{equation}
+    \label{PolynomAnsatz}
+    K(s\mbox{'}) = \frac{R(s\mbox{'})}{P(s\mbox{'})}
+\end{equation}
+ein, wobei $R(s\mbox{'})$ und $P(s\mbox{'})$ Polynome in $s\mbox{'}$ darstellen, so erhält
+man für die Sys\-temfunktion den Ausdruck:
+\begin{equation}
+    \label{SysFuncPolynom}
+    H(s\mbox{'})H(-s\mbox{'}) =
+    \frac{P(s\mbox{'})P(-s\mbox{'})}{P(s\mbox{'})P(-s\mbox{'})+\mbox{C}^2 R(s\mbox{'})R(-s\mbox{'})} \quad
+\end{equation}
+
+$H(s\mbox{'})H(-s\mbox{'})$ besitzt spiegelbildlich zur imaginären Achse in der
+s\mbox{'}--Ebene gelegene Polstellen. Da als notwendige Bedingung für die {\em Stabilität}
+eines analogen Systems alle Polstellen in der linken s\mbox{'}--Ebene liegen müssen, werden nur
+solche Polstellen als Pole von $H(s\mbox{'})$ verwendet.
+\begin{equation}
+%falls es einen Fehler gibt, dann muß hier ein Label hin.
+\centering{H(s\mbox{'})H(-s\mbox{'})=\frac{P(s\mbox{'})P(-s\mbox{'})}{(s\mbox{'}+a_1)(s\mbox{'}+a_2)\ldots(s\mbox{'}+a_n)(s\mbox{'}-a_1)(s\mbox{'}-a_2)\ldots(s\mbox{'}-a_n)}}
+\end{equation}
+\begin{equation}
+\centering{\Rightarrow H(s\mbox{'})=\frac{L(s\mbox{'})}{(s\mbox{'}+a_1)(s\mbox{'}+a_2)\ldots(s\mbox{'}+a_n)}}
+\end{equation}
+\begin{equation}
+\centering{H(-s\mbox{'})=\frac{M(s\mbox{'})}{(s\mbox{'}-a_1)(s\mbox{'}-a_2)\ldots(s\mbox{'}-a_n)}}
+\end{equation}
+\begin{quote}
+Hierbei sei $a_q$ jeweils eine Polstelle der Form $a_q=o+jp$ mit $o<0$ und $0\leq q\leq n$,
+so dass alle Pole von $H(s\mbox{'})$ in der linken s-Halbebene und alle Pole von
+$H(-s\mbox{'})$ in der rechten s-Halbebene liegen.\\
+\end{quote}
+\vspace{1mm}
+Liegt das Nennerpolynom von Gleichung (\ref{SysFuncPolynom}) vor, so lässt sich immer eine
+Zuordnung finden, die dies erfüllt. Durch die Einführung der Hilfsfunktion
+$\mbox{C}K(s\mbox{'})$  ist es nun möglich, einfache mathematische Funktionen beim
+Standardentwurf zu verwenden. Die Entwurfsverfahren bestehen aus der geeigneten Wahl von
+K(s\mbox{'}).
+
+\subsection{\label{sec:Butterworth}Butterworth-Synthese}
+Beim Butterworth-Filterentwurf wählt man die Hilfsfunktion $|K(j\omega)|$ 
+zu:
+\begin{equation}
+    \label{PotenzFunktion}
+    |K(j\omega\mbox{'})| = \omega\mbox{'}^n \quad \mbox{d.h. mit (\ref{PolynomAnsatz}) folgt:} \quad P(s)=1
+\end{equation}
+Ziel der Approximation ist es, die Konstante $\mbox{C}$ und die Ordnung $n$ des Filters so
+zu bestimmen, dass das vorgegebene Toleranzschema noch erfüllt wird. Aus den vorgegebenen
+Toleranzschranken folgt mit der normierten Durchlass-- und Sperrfrequenz:
+\begin{eqnarray}
+\label{Delta1_Butter}
+    \Delta_1 &\geq&  \mbox{C}|K(j\omega\mbox{'})|\Big|_{\omega\mbox{'}=\omega_D\mbox{'}=1} = C\\
+\label{Delta2_Butter}
+    \Delta_2 &\leq& \mbox{C}|K(j\omega\mbox{'})|\Big|_{\omega\mbox{'}= \omega_S\mbox{'}}
+        = C\,\omega_S\mbox{'}^n
+\end{eqnarray}
+
+Die benötigte Ordnung $n$ lässt sich zum Beispiel bestimmen, indem man das Toleranzschema im
+Durchlassbereich voll ausnutzt. Mit Gleichung (\ref{PotenzFunktion}) folgt aus Gleichung
+(\ref{Delta1_Butter})
+\begin{equation}
+    \Delta_1 = \mbox{C}\cdot(\omega_D)^n = \mbox{C}\cdot(1)^n = \mbox{C}
+\end{equation}
+Danach ergibt sich aus Gleichung (\ref{Delta2_Butter})
+\begin{eqnarray}
+\nonumber
+     \omega_S\mbox{'}^n  & \geq & \frac{\Delta_2}{\Delta_1}  \\\nonumber
+    \Rightarrow \quad \lg \omega_S\mbox{'}^n &\geq& \lg \frac{\Delta_2}{\Delta_1}  \\
+\label{ButterOrdnung}
+   \Rightarrow \quad  n &\geq&  \frac{\lg\frac{\Delta_2}{\Delta_1}}{\lg\omega_S\mbox{'}}
+\end{eqnarray}
+Da $n$ nur ganzzahlig sein kann, wird das Toleranzschema immer übererfüllt.
+Mit $\mbox{C}$ und $n$ kann jetzt die Systemfunktion $H(s\mbox{'})$ aufgestellt werden.
+Dabei ist mit den Gleichungen (\ref{SysFuncPolynom}) und (\ref{PotenzFunktion}) $P(s\mbox{'}) = 1$ und somit
+\begin{eqnarray}
+\nonumber
+   H(s\mbox{'})H(-s\mbox{'}) &=& \frac{1}{1+\mbox{C}s\mbox{'}^n \mbox{C} (-s)\mbox{'}^n } \\
+\label{ButterSystem}
+         &=& \frac{1}{1+\mbox{C}^2 (-1)^n s \mbox{'}^{2n}}
+\end{eqnarray}
+Man berechnet die Pole von Gleichung (\ref{ButterSystem}):
+\begin{eqnarray}
+\nonumber  s \mbox{'}^{2n}_{\infty} &=& -\mbox{C}^{-2}(-1)^n   \\\nonumber
+        &=& \frac{1}{\mbox{C}^{2}}(-1)^{n-1}\quad \quad \Leftarrow -1 = e^{j\pi} \\ \nonumber
+        &=& \frac{1}{\mbox{C}^{2}}\left(e^{j\pi}\right)^{n-1}  \\  \nonumber
+        &=& \frac{1}{\mbox{C}^{2}}\left(e^{j\pi}\right)^{n-1} \left(e^{j\pi 2k}\right) \quad , k = 1,2,3,\ldots \\\nonumber
+        &=& \frac{1}{\mbox{C}^{2}}\left(e^{(j\pi)(n-1 +2k)}\right)  \\\nonumber
+        &&\\\nonumber
+\Rightarrow \quad   s \mbox{'}_{\infty k } &=& \mbox{C}^{-\frac{1}{n}} e^{\frac{(j\pi)(n-1 +2k)}{2n}}\\
+\label{WurzelButter}
+  &=& \mbox{C}^{-\frac{1}{n}} \exp \left(j\left(\frac{\pi}{2}+\pi \frac{2k-1}{2n}\right)\right)\quad, k = 1,2,3,\ldots
+\end{eqnarray}
+Das heißt, die Pole liegen gleichverteilt auf einem {\em Kreis in der komplexen Ebene}.
+Der Radius des Kreises beträgt $\mbox{C}^{-\frac{1}{n}}$.
+Durch Zuordnen der Pole in der linken Halbebene zu $H(s\mbox{'})$ und der Pole in der rechten
+Halbebene zu $H(-s\mbox{'})$ erhalten wir eine stabile Systemfunktion $H(s\mbox{'})$.
+\\
+\begin{quote}
+{\large Beispiel:}\\
+\small
+Es soll ein normierter Tiefpaß mit der Butterworthmethode entworfen werden, der die
+folgenden Eigenschaften aufweist:
+\[
+\omega_S\mbox{'} = 1.6 \quad a_D = 3\mbox{dB} \quad a_S = 20 \mbox{dB}
+\]
+wobei $a_D$ und $a_S$ Dämpfungen beschreiben.
+\[
+    a(\omega) = -20 \lg |H(j\omega)|
+\]
+Nach der Umrechnung in die Toleranzparameter $\delta_D$ und $\delta_S$ folgt mit Hilfe der
+Gleichungen (\ref{Delta1ref}) und (\ref{Delta2Referenz}) die Spezifikation für
+$K(j\omega\mbox{'})$
+\bea
+\nonumber
+\delta_D \approx 0.3 \quad \delta_S \approx 0.1\\\nonumber
+\\ \Delta_1 \approx 1 = \mbox{C}\nonumber\quad \Delta_2 \approx 9.9 \\\nonumber
+\\ n\ge\frac{\lg 9.9}{\lg 1.6} \approx 4.88 \nonumber\quad \Rightarrow n = 5 \\\nonumber
+\eea
+Für die Systemübertragungsfunktion folgt:
+\[
+    H(s\mbox{'})H(-s\mbox{'}) = \frac{1}{1-s\mbox{'}^{10}}
+\]
+Die Wurzeln des Nenners ergeben nach (\ref{WurzelButter}) oder mittels numerischer
+Lösungsverfahren (\textsc{MatLab} \texttt{roots} Befehl) konjugiert komplexe Polpaare:
+\[
+\begin{array}{ll}
+    s_1\mbox{'} =  -0.3090 + j0.9511 & s_2\mbox{'} =  -0.8090 + j0.578\\
+    s_3\mbox{'} =  -1 & s_4\mbox{'} =  -0.8090 - j0.578\\
+    s_5\mbox{'} =  -0.3090 - j0.9511 &  s_6\mbox{'} =  +0.3090 - j0.9511 \\
+    s_7\mbox{'} =  0.8090 - j0.578 &  s_8\mbox{'} =  1 \\
+    s_9\mbox{'} =  0.8090 + j0.578 &  s_{10}\mbox{'} =  +0.3090 + j0.9511
+ \end{array}
+\]
+Zum Aufbau der stabilen Systemübertragungsfunktion werden jetzt alle Pole mit negativem
+Realteil gewählt und ausmultipliziert (\textsc{MatLab} \texttt{poly} Befehl). Die
+errechneten Pole und die Systemübertragungsfunktion sind in Abb (\ref{butt5pnp}) zu sehen.
+\[
+    H(s\mbox{'}) =  \frac{1}{ s\mbox{'}^5  +  3.24s\mbox{'}^4 +   5.24s\mbox{'}^3 +   5.24s\mbox{'}^2  +  3.24s\mbox{'}+1}
+\]
+\begin{figure}[H]
+\includegraphics[width = 8cm]{psAnalog/buttpnp}{0.8}
+\caption{\label{butt5pnp}Butterworth--Filter 5. Ordnung}
+\end{figure}
+\end{quote}
+\normalsize
+
+
+\subsection{\label{sec:TschebyscheffSynthese}Tschebyscheff-Synthese};
+Das {\em Äqui-Ripple-Kriterium} kann nun angewendet werden, um ein
+All-Pol-Tiefpass\-filter zu bestimmen, das eine {\em Äqui-Ripple-}Charakteristik im
+Durchlassbereich aufweist. Ein solches Filter wird Tschebyscheff--Filter genannt. Die
+Systemfunktion eines Tschebyscheff-Filters basiert auf den Tschebyscheff- Polynomen; für
+eine detailliertere Behandlung der Tscheby\-scheff--Polynome sei auf [TOM91]
+verwiesen.
+
+Das Tschebyscheff-Polynom der Ordnung $n$ kann über die folgenden Formeln berechnet werden:
+\begin{equation}
+    T_n(z) = \left\{\begin{array}{l} \cos (n \arccos(z))\qquad
+                             |z| \leq 1 \\
+                            \cosh (n \acosh(z))\quad
+                             |z| \geq 1
+    \end{array}\right.
+\end{equation}
+
+\begin{center}
+wobei z ein Element der reellen Zahlen ist.
+\end{center}
+
+
+Die Definition mittels transzendenter Funktionen kann durch eine Polynomdarstellung
+umgangen werden. Mit $T_0(z) = 1$ und $T_1(z) = z$ lassen sich die Tschebyscheff-Polynome
+rekursiv berechnen:
+
+\begin{equation}
+    T_{n+1}(z) = 2zT_n(z) - T_{n-1}(z) \quad .
+\end{equation}
+
+\[
+    \begin{array}{c|c}
+        n & T_n(z) \\\hline
+        0 & 1\\
+        1 & z\\
+        2 & 2z^2-1\\
+        3 & 4z^3 -3z\\
+        4 & 8z^4 -8z^2+1\\
+        5 & 16z^5 -20z^3+5z
+    \end{array}
+\]
+Betrachtet man nun die Funktion $[T_n(z)]^2$, so kann gezeigt werden, dass für $-1 \leq z
+\leq 1$ die Funktion ein Äqui-Ripple-Verhalten zwischen den Grenzen 0 und 1
+aufweist und sich für \mbox{$z\to\pm\infty$}  $[T_n(z)]^2\to\infty$ ergibt.
+Eine weitere wichtige Eigenschaft kann aus vorhergehender Tabelle entnommen werden:
+\begin{quote}
+\begin{itemize}
+\item Für gerade $n$ ist $T_n$ gerade
+\item Für ungerade $n$ ist $T_n$ ungerade
+\end{itemize}
+\end{quote}
+Aus diesem Grunde ist $[T_n(z)]^2$ für alle $n$ eine gerade Funktion.
+
+Hieraus kann nun
+$G(\omega\mbox{'}^2)$ gebildet werden, die eine gerade rationale Funktion ist und deren
+Funktionswerte positiv für alle $\omega\mbox{'}$ sind. Somit kann $G(\omega\mbox{'}^2)$ als
+Betragsübertragungsfunktion angesehen werden:
+\begin{equation}
+\centering{|G(\omega\mbox{'}^2)|=\frac{1}{1+\varepsilon^2[T_n(\omega\mbox{'})]^2}}
+\end{equation}
+
+Der Koeffizientenvergleich mit (\ref{toltrans}) liefert hier:
+\begin{equation}
+\label{Tschebfkt}
+\centering{|K(j\omega\mbox{'})|=T_n(\omega\mbox{'})\qquad C^2=\varepsilon^2}
+\end{equation}
+
+Den benötigten Grad $n$ und die Konstante $C$ erhält man wieder aus den Toleranzschranken.
+
+\begin{eqnarray}
+\label{Delta1_Tscheb1}
+    \Delta_1 &\geq& C|K(j\omega\mbox{'})|\Big|_{\omega\mbox{'}= \omega_D\mbox{'}=1} = C\\
+\label{Delta2_Tscheb1}
+    \Delta_2 &\leq& C|K(j\omega\mbox{'})|\Big|_{\omega\mbox{'}= \omega_S\mbox{'}}
+        = C T_n(\omega_S\mbox{'})
+\end{eqnarray}
+Für den Filtergrad $n$ ergibt sich bei voller Ausnutzung des Toleranzschemas im
+Durchlassbereich mit Gleichung (\ref{Delta1_Tscheb1}) und Gleichung (\ref{Tschebfkt})
+\begin{equation}
+    \Delta_1 = C\,T_n(\omega_D\mbox{'}) = C\,T_n(1) = C
+\end{equation}
+und damit
+\begin{eqnarray}
+    \Delta_2 \leq \Delta_1 \cosh (n \acosh(\omega_S\mbox{'}))\\ \nonumber
+    \\ \Rightarrow \quad    \acosh\left(\frac{\Delta_2}{\Delta_1}\right) \leq n\acosh(\omega_S\mbox{'})\\ \vspace{1mm}
+\label{TschebbyOrdnung}
+\Rightarrow \quad n \geq \frac{\acosh\left(\frac{\Delta_2}{\Delta_1}\right)}{\acosh(\omega_S\mbox{'})}\\ \nonumber
+\end{eqnarray}
+Mit $C$ und $n$ kann jetzt die Systemfunktion bestimmt werden:
+\begin{equation}
+\label{HSPolyTscheb}
+      H(s\mbox{'})H(-s\mbox{'}) = \frac{1}{1+C^2 T_n (s\mbox{'}) T_n(-s\mbox{'}) }
+\end{equation}
+Die Pole dieser Gleichung lassen sich analytisch bestimmen:% (siehe \cite{Fliege}).
+\begin{equation}
+\label{TschebLoesung}
+   s_{\infty k} \mbox{'} = \sigma_k + j \omega_k
+\end{equation}
+mit
+\begin{eqnarray}
+\nonumber
+    \sigma_k &=& - \sin \left(\frac{\pi}{2n}\left(2k-1\right)\right)\sinh \left(\frac{1}{n} \asinh\frac{1}{C}\right) \\\nonumber
+    \omega_k &=& \cos \left(\frac{\pi}{2n}\left(2k-1\right)\right)\cosh\left( \frac{1}{n} \asinh\frac{1}{C}\right)\\ \nonumber
+    \\k &=& 1,2,3\ldots \nonumber
+\end{eqnarray}
+Zum Aufbau von $H(s\mbox{'})$ werden die Pole mit negativem Realteil verwendet (Stabilität).
+Bis auf eine noch zu bestimmende lineare Konstante $K_N$ ist
+\begin{equation}
+\label{HSProdTscheb}
+H(s\mbox{'}) = \frac{\displaystyle 1}{\displaystyle K_N \prod^n_{k=1}
+\left(s\mbox{'}-s_{\infty k}\mbox{'}\right)} \quad
+\end{equation}
+Durch Koeffizientenvergleich von Gleichung (\ref{HSProdTscheb}) und
+(\ref{HSPolyTscheb}) wird $K_N$ gewonnen. Nach der Bildung des Betragsquadrats ergeben die Nenner:
+\begin{equation}
+    1+C^2 T_n^2(s\mbox{'}) = K_N^2 \left(s\mbox{'}^n+c_n s\mbox{'}^{n-1}\ldots \right)^2
+\end{equation}
+Zur Bestimmung von $K_N$ vergleicht man die höchsten Potenzglieder beider Gleichungen. Für
+$T_n(s\mbox{'})$ ergibt sich :
+\[
+    2^{n-1}s\mbox{'}^n \quad
+\]
+Es folgt also
+\begin{eqnarray}
+    C^2(2^{n-1}s\mbox{'}^n)^2 &=& K_N^2 s\mbox{'}^{2n}\\ \nonumber
+    \\K_N &=& C2^{n-1} \quad
+\end{eqnarray}
+\begin{figure}[htb]
+\includegraphics[width = 10cm]{psAnalog/tschuup}
+\caption{\label{tschuup}Tschebyscheff--Filter 3. Ordnung}
+\end{figure}
+
+
+\begin{quote}
+\small
+{\Large Beispiel:}\\ Es soll ein normierter Tiefpaß mit der ,,Tschebyscheff-Methode''
+entworfen werden, der die folgenden Eigenschaften aufweist (man beachte dabei, daß
+$\delta_D$ beim Tschebyscheff Entwurf die Höhe des oszilierenden Verlaufes im
+Durchlassbereich (Ripple) angibt):
+\[
+\omega_S\mbox{'} = 1.6 \quad a_D = 3\mbox{dB} \quad a_S = 20 \mbox{dB}
+\]
+Nach der Umrechnung in die Toleranzgrößen $\delta_D$ und $\delta_S$ folgt die Spezifikation
+für $K(j\omega)$
+\bea
+\nonumber
+\delta_D \approx 0.3 \quad \delta_S \approx 0.1\\ \nonumber
+\\ \Delta_1 \approx 1 = C \nonumber \quad \Delta_2 \approx 9.9 \\ \nonumber
+\\ n\ge\frac{\cosh^{-1} 9.9}{\cosh^{-1} 1.6} \approx 2.84 \quad \Rightarrow n = 3 \nonumber
+\eea
+(Bei gleicher Spezifikation ist der Filtergrad {\em immer} kleiner als bei der
+Butterworthapproximation.)\\ Somit ist
+\[
+    K_N = C\, 2^{n-1} = 4
+\]
+und
+\[
+     H(s\mbox{'})H(-s\mbox{'}) = \frac{1}{1-(16s\mbox{'}^6 + 24s\mbox{'}^4 +9s\mbox{'}^2)}
+\]
+Die Pole in der linken Halbebene sind nach Gl. (\ref{TschebLoesung})
+\[
+    s_1\mbox{'} = -0.15 + j0.9 \quad  s_2\mbox{'} = -0.3 \quad  s_3\mbox{'} -0.15 - j0.9
+\]
+Damit ergibt sich die Systemübertragungsfunktion zu (siehe Abb. (\ref{tschuup})):
+\[
+    H(s\mbox{'}) = \frac{1}{4(s\mbox{'}^3+0.6s\mbox{'}^2+0.93s\mbox{'}+0.25)}
+\]
+\end{quote}
+\normalsize
+
+
+%\subsection{\label{sec:Butterworth}Cauer-Synthese};
+
+\subsection{Rück-Transformationen}
+Um den Entwurf abzuschließen ist jetzt eine Entnormierung bez. der Frequenz
+und des Filtertyps notwendig, dazu werden die Gleichungen \ref{tt-trafo} bis \ref{bs-trafo}
+nur umgestellt. Durch Einsetzen der Umkehrfunktionen in $H(s\mbox{'})$ ergibt sich
+die Übertragungsfunktion für $H(s)$, die abschließend mit der bilinearen Transformation
+in den z-Bereich transformiert wird.
+
+Um die Vorgehensweise noch einmal zu verdeutlichen ist ein vollständiges Beispiel hilfreich.
+
+\begin{itemize}
+\item Filterspezifikation: Bandpass. $f_{-D} = 600$ Hz, $f_{-S} = 300$ Hz, $\delta_{S_{log}} = 20$dB,
+$\delta_{D_{log}} = 0.2$dB,$ f_{D} = 1200$ Hz, $f_{S} = 2025$ Hz. Die Abtastrate sei $8$ kHz.
+
+\item Umrechnen aller Werte und Normierung im z-Bereich:
+    \begin{itemize}
+        \item $f_{-D} = 600 Hz \, \rightarrow \, \Omega_{-D} = 2\pi \frac{f_{-D}}{f_s} = 0.471$
+        \item $f_{-S} = 300 Hz \, \rightarrow \, \Omega_{-S} = 2\pi \frac{f_{-S}}{f_s} = 0.246$
+        \item $f_{D} = 1200 Hz \, \rightarrow \, \Omega_{D} = 2\pi \frac{f_{D}}{f_s} = 0.943$
+        \item $f_{S} = 2025 Hz \, \rightarrow \, \Omega_{S} = 2\pi \frac{f_{S}}{f_s} = 1.59$
+        \item $\delta_{S_{log}} = 20 dB \, \rightarrow \, \delta_{S} = 10^{-\delta_{S_{log}}/20} = 0.1$
+        \item $\delta_{D_{log}} = 0.2 dB \, \rightarrow \, \delta_{D} = 1 - 10^{-\delta_{S_{log}}/20} = 0.0228$
+    \end{itemize}
+\item Pre-Warp für analoge Frequenzen
+    \begin{itemize}
+        \item $\Omega_{-D} = 0.471 \, \rightarrow \, \omega_{-D} = \tan \frac{\Omega_{-D}}{2} = 0.24$
+        \item $\Omega_{-S} = 0.246 \, \rightarrow \, \omega_{-S} = \tan \frac{\Omega_{-S}}{2} = 0.124$
+        \item $\Omega_{D} = 0.943 \, \rightarrow \, \omega_{D} = \tan \frac{\Omega_{D}}{2} = 0.51$
+        \item $\Omega_{S} = 1.59 \, \rightarrow \, \omega_{S} = \tan \frac{\Omega_{S}}{2} = 1.02$
+    \end{itemize}
+\item Test auf Symmetrie:\\
+    $\omega_D\omega_{-D} = \omega_S\omega_{-S} \, \rightarrow \, 0.1224 \approx 0.1265 $
+\item Normierung auf Tiefpass mit Grenzfrequenz 1:\\
+    $\omega_{S}\mbox{'} = \frac{\omega_{S}^2-\omega_D\omega_{-D}}{(\omega_D-\omega_{-D})\omega_{S}} = 3.468$
+\item Umrechnen der Dämpfungen in das $C K(s)$-Schema mit $\Delta_1$ und $\Delta_2$.
+    \begin{itemize}
+        \item $\Delta_1 = \frac{\sqrt{2\delta_D-\delta_D^2}}{1-\delta_D} = 0.2173$
+        \item $\Delta_2 = \frac{\sqrt{1-\delta_S^2}}{\delta_S} = 9.95$
+    \end{itemize}
+\item Bestimmung der Ordnung und $C$ für Butterworth-Sythese:
+    \begin{itemize}
+        \item $C = \Delta_1 = 0.2173$
+        \item $n \geq  \frac{\lg\frac{\Delta_2}{\Delta_1}}{\lg\omega_S\mbox{'}} = 3.075 \, \Rightarrow \, n = 4$
+    \end{itemize}
+\item Aufstellen der s-Systemfunktion H(s):
+    \begin{itemize}
+        \item Zunächst:
+            \[
+                 H(s\mbox{'})H(-s\mbox{'}) = \frac{1}{1+\mbox{C}^2 (-1)^n s \mbox{'}^{2n}} = \frac{1}{1 + 0.2173^2 s \mbox{'}^{8}}
+            \]
+        \item Pole ausrechnen mit \ref{WurzelButter}:
+            \[
+            \begin{array}{ll}
+                s_1\mbox{'} =   -0.561 + 1.353i& s_2\mbox{'} = -0.561 - 1.353i\\
+                s_3\mbox{'} =  -1.353 + 0.561i & s_4\mbox{'} = -1.353 - 0.561i\\
+                s_5\mbox{'} =   +0.561 + 1.353i&  s_6\mbox{'} = +0.561 - 1.353i   \\
+                s_7\mbox{'} =  +1.353 + 0.561i &  s_8\mbox{'} = +1.353 - 0.561i
+            \end{array}
+            \]
+        \item Auswahl der Pole auf der linken Halbebene (negativer Realteil)
+            ($s_1\mbox{'} -- s_4\mbox{'}$) und ausmultiplizieren (poly-Befehl) um H(s\mbox{'}) zu erhalten:
+            \[
+                H(s\mbox{'}) = \frac{1}{1 +  3.828s\mbox{'} +  7.328s^2\mbox{'} +  8.216s^3\mbox{'} + 4.606s^4\mbox{'}}
+            \]
+        \item Rücktransformation zur Bandpassdarstellung mit
+        \[
+            s \mbox{'} = \frac{s^2-\omega_{-D}\omega_{D}}{(\omega_{D}-\omega_{-D})s}
+        \]
+        führt zu (am besten mit Matlab \verb+lp2bp+-Befehl mit $B_w = \omega_{D}- \omega_{-D}$ und $\omega_0 = \sqrt{ \omega_{D} \omega_{-D}}$)
+        (Achtung, das Ergebnis für den Zähler muss zusätzlich durch $C$ geteilt werden, um einen ungedämpften
+        Durchlassbereich zu erhalten)
+        \[
+            H(s) = \frac{0.0243 s^4}{1s^8 +  1.032s^7 +  1.021 s^6 + 0.539 s^5 +  0.244s^4  +
+             0.066s^3+ 0.015s^2 +  0.0019 s  + 0.0002}
+        \]
+        \item Rücktransformation in den z-Bereich mit der bilinearen Transformation (matlab: \verb+bilinear+)
+        \[
+            H(z)  = \frac{ 0.0062 -0.025z^{-2} + 0.037 z^{-4}   -0.025 z^{-6} + 0.0062 z^{-8}}
+            {1  -4.88z^{-1} + 11.34 z^{-2} -16.21 z^{-3}
+            15.59z^{-4} -10.30z^{-5}  +  4.57z^{-6}
+            -1.25 z^{-7} +  0.16 z^{-8}}
+        \]
+    \end{itemize}
+\end{itemize}
+
+%\subsection{Peak-Equalizerentwurf}
+
+\section{Matlab und analoge Signalverarbeitung}
+Eigentlich ein Widerspruch, trotzdem kann Matlab helfen, das Verständnis zu verbessern.
+
+\section{Übungen}
+\subsection{Wiederholung des Stoffes und einfache Rechenaufgaben}
+\begin{enumerate}
+    \item Erklären Sie in eigenen Worten das Abtasttheorem.
+    \item
+    \item
+\end{enumerate}
+\subsection{Aufgaben (Auf Klausurniveau)}
+\begin{enumerate}
+\item Entwerfen Sie ein analoges Butterworth-Hochpass Filter mit den folgenden Eigenschaften. Es soll eine
+Durchlassdämpfung von 3dB bei 4000Hz erreicht werden. Die Sperrdämpfung beträgt 10dB bei 1000Hz.
+\begin{enumerate}
+\item Welches ist die kleinste Ordnung des Filters, die die Spezifikation erfüllt (8)?
+\item Bestimmen Sie $H(s)$ des stabilen Filters (6).
+\item Skizzieren Sie die Betragsübertragungsfunktion (4).
+\end{enumerate}
+
+\item Gegeben ist die folgende Übertragungsfunktion:
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=9cm]{psUeb/UebertragButter}
+\end{center}
+\end{figure}
+\begin{enumerate}
+    \item Berechnen Sie die s-Übertragungsfunktion für ein analoges Butterworth-Filter, dass
+            diese Übertragungsfunktion besitzt (10). (Hinweis: Suchen Sie zwei Designpunkte aus. Es gibt
+            gut gewählte und weniger gut gewählte Punkte. Danach können sie das Standarddesignverfahren
+            durchrechnen.)
+\end{enumerate}
+\item Sie wollen ein analoges Butterworth Hochpass-Filter
+    entwerfen, das zwingend erster Ordnung sein muss. Die
+    Grenzfrequenz soll $f_g = 1$kHz betragen und bis zu dieser
+    Frequenz soll die Durchlassdämpfung nicht größer sein als 0.92dB .
+    Welche maximale Dämpfung kann bei 100Hz erreicht werden? Wie sieht
+    die stabile Übetragungsfunktion $H(s)$ aus. Zusatzfrage: Wie
+    groß ist die natürliche Frequenz dieses Butterworth - Filters?
+
+
+\item Gegeben ist ein analoges Rauschsignal mit der
+dreiecksförmigen Verteilungsdichtefunktion im Interval -0.5....
+0.5. Wie viele Bits werden benötigt, wenn nach der Quantisierung
+ein Signal-Rauschabstand von mindestens 70dB erreicht werden soll?
+
+%\item Nimmt man an, dass a nie kleiner wird als -1 und b
+%nicht größer als eins, wie sieht dann der allgemeine SNR (in dB)
+%in Abhängigkeit von a und b aus, wenn angenommen wird, dass der
+%Wertebereich von -1 bis 1 mit 8Bit quantisiert werden soll.
+
+\end{enumerate}
+
+\subsection{Matlab-Aufgaben}
+\begin{enumerate}
+    \item
+    \item
+    \item
+\end{enumerate}
+
+\subsection{Transfer-Leistung}
+
+%\section{Zusammenfassung}
+%Die wichtigen Erkenntnisse aus diesem Kapitel sind:
+%\begin{itemize}
+%    \item
+%    \item
+%    \item
+%    \item
+%    \item
+%    \item
+%\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{Direktes Design im Digitalbereich}
+
+
+%\section{Fourier-Trans}
+%, die für kontinuierliche Signale mit der Eulerschen Formel durch
+%\begin{equation}\label{eq:Def:Euler}
+%    e^{j\omega t} = \sin(\omega t)+j\cos(\omega t)
+%\end{equation}
+%gegeben ist. Berechnen wir jetzt die Systemantwort mit Hilfe der
+%Faltung auf dieses Eingangssignal erhalten wir
+%%
+%
+%\begin{equation}\label{eq:F-Trans:Analog}
+%    H(j\omega) = \int_{-\infty}^{\infty}h(t)e^{j\omega t} dt
+%\end{equation}
+%bzw. bei der Analyse von Signalen ist es durch
+%\ref{eq:F-Trans:Analog} möglich zu untersuchen, welche Frequenzen
+%in dem Signal vorhanden sind. Die Gleichung
+%\ref{eq:F-Trans:Analog} ist bekannt unter dem Namen
+%Fourier-Transformation.

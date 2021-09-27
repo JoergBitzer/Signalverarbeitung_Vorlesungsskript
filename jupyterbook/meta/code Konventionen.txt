@@ -1,0 +1,72 @@
+Figures:
+
+Definition
+```{figure} ../ps/File-name.png
+---
+height: 150px
+name: fig:File-name
+---
+Subtitle
+```
+
+Code-Figures:
+
+in code:
+glue("fig-name", fig, display=False)
+
+Definition:
+```{glue:figure} fig-name
+:figwidth: 75%
+:name: "fig:fig-name"
+---
+Subtitle
+```
+
+Figure Reference:
+{numref}`Abbildung %s <fig:PlotQuantisierung>` 
+
+
+Formeln:
+
+Definition:
+$$
+equation
+$$ (equation-label) -> label mit eq:label formatiert
+
+Referenz:
+{eq}`equation-label`
+
+Text: \text{}
+
+Englische Begriffe mit Hinweis: **Boink**
+
+Abschnitte:
+
+Definition:
+(sec:SectionName)=
+##Section Name
+
+Referenz:
+{numref}`Abschnitt %s <sec:Aufgaben>`
+
+
+Footnotes:
+[^label]
+
+ganz unten definiert:
+
+[^label]: footnote text
+
+Admonitions: 
+
+```{admonition} Beispiel
+:class: hint
+
+```{admonition} Wichtig
+:class: attention
+
+```{admonition} ToDo
+:class: error
+
+```{admonition} Hinweis
+:class: tip
