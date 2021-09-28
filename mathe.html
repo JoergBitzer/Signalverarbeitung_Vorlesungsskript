@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Mathematische Methoden &#8212; Signalverarbeitung 1</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Literaturverzeichnis" href="zbibliography.html" />
+    <link rel="prev" title="7. Filter" href="filter.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Signalverarbeitung 1
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="grundlagen.html">
+   1. Einführung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="signale.html">
+   2. Signale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="systeme.html">
+   3. Systeme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="analog.html">
+   4. Analoge Signalverarbeitung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ztrafo.html">
+   5. z-Transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   6. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   7. Filter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Mathematische Methoden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zbibliography.html">
+   9. Literaturverzeichnis
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/mathe.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://gitlab.gwdg.de/joerg.bitzer/scriptsv/-/tree/master"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://gitlab.gwdg.de/joerg.bitzer/scriptsv/-/tree/master/issues/new?title=Issue%20on%20page%20%2Fmathe.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#partialbruchzerlegung">
+   8.1. Partialbruchzerlegung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#komplexe-zahlen">
+   8.2. Komplexe Zahlen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zahlendarstellung">
+     8.2.1. Zahlendarstellung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#konjugation">
+     8.2.2. Konjugation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rechenregeln">
+     8.2.3. Rechenregeln
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#einige-nutzliche-eigenschaften-und-zusammenhange">
+     8.2.4. Einige nützliche Eigenschaften und Zusammenhänge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eulersche-formel">
+     8.2.5. Eulersche Formel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signale-und-ihre-vektorielle-schreibweise-besonders-nutzlich-fur-matlab">
+   8.3. Signale und ihre vektorielle Schreibweise (Besonders nützlich für Matlab)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vektordarstellung">
+     8.3.1. Vektordarstellung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vektorielle-ableitung">
+     8.3.2. Vektorielle Ableitung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#einige-spezielle-matrixdarstellungen">
+     8.3.3. Einige spezielle Matrixdarstellungen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#faltung">
+       8.3.3.1. Faltung
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#korrelation">
+       8.3.3.2. Korrelation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dft">
+       8.3.3.3. DFT
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#least-squares-losung-in-matrixform">
+     8.3.4. Least-Squares-Lösung in Matrixform
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grundlagen-der-stochastik">
+   8.4. Grundlagen der Stochastik
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wahrscheinlichkeit">
+     8.4.1. Wahrscheinlichkeit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wahrscheinlichkeitsdichte">
+     8.4.2. Wahrscheinlichkeitsdichte
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rechnen-mit-wahrscheinlichkeiten">
+     8.4.3. Rechnen mit Wahrscheinlichkeiten
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bedingte-wahrscheinlichkeit-und-regel-von-bayes">
+       8.4.3.1. Bedingte Wahrscheinlichkeit und Regel von Bayes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="mathematische-methoden">
+<h1><span class="section-number">8. </span>Mathematische Methoden<a class="headerlink" href="#mathematische-methoden" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="partialbruchzerlegung">
+<span id="sec-partialbruchzerlegung"></span><h2><span class="section-number">8.1. </span>Partialbruchzerlegung<a class="headerlink" href="#partialbruchzerlegung" title="Permalink to this headline">¶</a></h2>
+<p>Eine Funktion der Form</p>
+<div class="math notranslate nohighlight" id="equation-eq-anhang-defpolynom">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-eq-anhang-defpolynom" title="Permalink to this equation">¶</a></span>\[
+    N(z) = b_0 + b_1z + b_2z^2+ \cdots b_M z^M = \sum_{i=0}^M b_i
+    z^i
+\]</div>
+<p>bezeichnen wir als Polynom M-ten Grades. Eine andere
+Darstellungsform ergibt sich in der Produktdarstellung</p>
+<div class="math notranslate nohighlight" id="equation-eq-anhangdefpolynomprodukt">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-eq-anhangdefpolynomprodukt" title="Permalink to this equation">¶</a></span>\[
+    N(z) = b_M (z-r_0)(z-r_1)(z-r_2)\cdots(z-r_{M-1})=b_M
+    \prod_{i=0}^{M-1}(z-r_i)
+\]</div>
+<p>Dividiert man zwei Polynome so erhält man
+eine gebrochen rationale Funktion<a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
+<div class="math notranslate nohighlight" id="equation-eq-anhang-gebrochenrational">
+<span class="eqno">(8.3)<a class="headerlink" href="#equation-eq-anhang-gebrochenrational" title="Permalink to this equation">¶</a></span>\[
+    P(z) = \frac{N(z)}{D(z)}
+\]</div>
+<p>Nehmen wir an, wir kennen die Produktform
+der jeweiligen Polynome, so können wir unter der Bedingung, dass der
+Grad des Zählers kleiner ist als der Grad des Nenners, die gebrochen
+rationale Funktion auch als</p>
+<div class="math notranslate nohighlight" id="equation-eq-anhang-partialzer">
+<span class="eqno">(8.4)<a class="headerlink" href="#equation-eq-anhang-partialzer" title="Permalink to this equation">¶</a></span>\[
+    P(z) = \frac{A_0}{z-r_0} + \frac{A_1}{z-r_1}+ \cdots \frac{A_L}{z-r_0}
+\]</div>
+<p>angeben, wobei <span class="math notranslate nohighlight">\(L\)</span> die Ordnung des Nenners ist. Dies wird als
+Partialbruchzerlegung bezeichnet. Für diese einfache Form muss noch
+zusätzlich vorausgesetzt werden, dass alle Nullstellen der
+Nenner-Polynoms nur einfach vorkommen. Bei Mehrfach-Nullstellen ergibt
+sich eine etwas modifizierte Form der Partialbruchzerlegung.</p>
+<p>Die Koeffizienten der Partialbruchzerlegung können bestimmt werden,
+indem der Anteil mit dem zu bestimmenden <span class="math notranslate nohighlight">\(A_i\)</span> gekürzt wird und die
+restliche Gleichung an genau <span class="math notranslate nohighlight">\(z = r_i\)</span> berechnet wird.</p>
+<div class="math notranslate nohighlight" id="equation-eq-anhang-koeffspartial">
+<span class="eqno">(8.5)<a class="headerlink" href="#equation-eq-anhang-koeffspartial" title="Permalink to this equation">¶</a></span>\[
+    A_i = (z-r_i)P(z)\big|_{z=r_i}
+\]</div>
+<p>Falls eine gebrochen rationale Funktion vorliegt, wo der Zahlergrad
+höher ist als der Nennergrad, kann durch Polynomdivision eine Form
+gefunden werden, die aus einer einfachen Polynomfunktion mit einem
+zusätzlichen gebrochen rationalen Term besteht.</p>
+<div class="error admonition">
+<p class="admonition-title">To Do</p>
+<p>Polynomdivision, neue Form erklaeren
+<a class="reference external" href="https://de.wikipedia.org/wiki/Horner-Schema">z.B. Horner-Schema</a></p>
+</div>
+<p>Ist der Zahler- und Nennergrad gleich, wird eine Hilfsgröße eingeführt.
+$<span class="math notranslate nohighlight">\(
+    \widehat{P}(z) = \frac{P(z)}{z}
+\)</span>$ (eq:Anhang:PolyHild)</p>
+</div>
+<div class="section" id="komplexe-zahlen">
+<h2><span class="section-number">8.2. </span>Komplexe Zahlen<a class="headerlink" href="#komplexe-zahlen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zahlendarstellung">
+<h3><span class="section-number">8.2.1. </span>Zahlendarstellung<a class="headerlink" href="#zahlendarstellung" title="Permalink to this headline">¶</a></h3>
+<p>Komplexe Zahlen können durch zwei unterschiedliche Beschreibungsformen
+dargestellt werden. Die als Rectangular bezeichnete Form besteht aus
+einem Real und einem Imaginärteil, der durch ein vor- oder
+nachgestelltes <span class="math notranslate nohighlight">\(i= \sqrt{-1}\)</span> oder <span class="math notranslate nohighlight">\(j\)</span> (ingenieursschreibweise)
+gekennzeichnet wird.</p>
+<div class="math notranslate nohighlight" id="equation-eq-komplexdef">
+<span class="eqno">(8.6)<a class="headerlink" href="#equation-eq-komplexdef" title="Permalink to this equation">¶</a></span>\[
+    z = x + jy
+\]</div>
+<p>Die komplexe Zahl spannt dabei eine zweidimensionale
+komplexe Ebene auf. In einer Ebene lässt sich jeder Punkt aber auch
+durch Polarkoordinaten darstellen. Es ist deshalb möglich komplexe
+Zahlen auch in einer Polardarstellung zu verwenden.</p>
+<div class="math notranslate nohighlight" id="equation-eq-komplexezahlenpolardarstellung">
+<span class="eqno">(8.7)<a class="headerlink" href="#equation-eq-komplexezahlenpolardarstellung" title="Permalink to this equation">¶</a></span>\[
+    z = r e^{j\phi}
+\]</div>
+<p>mit <span class="math notranslate nohighlight">\(e\)</span> als Eulersche Zahl. Die Umrechnung erfolgt
+durch</p>
+<div class="math notranslate nohighlight" id="equation-eq-umrechnungpolarrect">
+<span class="eqno">(8.8)<a class="headerlink" href="#equation-eq-umrechnungpolarrect" title="Permalink to this equation">¶</a></span>\[\begin{split}
+\begin{aligned}
+    r &amp;=&amp; \sqrt{x^2 + y^2} \\
+    \phi &amp;=&amp; \arctan \left(\frac{y}{x} \right)\\
+    x &amp;=&amp; r \cos (\phi)\\
+    y &amp;=&amp; r \sin (\phi)\\\end{aligned}
+\end{split}\]</div>
+</div>
+<div class="section" id="konjugation">
+<h3><span class="section-number">8.2.2. </span>Konjugation<a class="headerlink" href="#konjugation" title="Permalink to this headline">¶</a></h3>
+<p>Als konjugierte Zahl zu einer komplexen Zahl <span class="math notranslate nohighlight">\(z\)</span> wird bezeichnet, wenn
+sich der Imaginärteil nur durch das Vorzeichen unterscheidet. Als Symbol
+für den Operator zur Durchführung der Konjugation wird <span class="math notranslate nohighlight">\(^{\ast}\)</span>
+verwendet. Es gilt
+$<span class="math notranslate nohighlight">\(
+    (x+jy)^{\ast} = x-jy
+\)</span>$ (eq:Def:Konjugation)</p>
+</div>
+<div class="section" id="rechenregeln">
+<h3><span class="section-number">8.2.3. </span>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">¶</a></h3>
+<p>Für die Grundrechenarten gilt:</p>
+<ul>
+<li><p><strong>Addition:</strong> Zur Addition von komplexen Zahlen werden die Real- und
+Imaginärteile separat addiert.</p>
+<div class="math notranslate nohighlight" id="equation-eq-addition">
+<span class="eqno">(8.9)<a class="headerlink" href="#equation-eq-addition" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+        z_3 &amp;=&amp; z_1 + z_2\\
+         &amp; = &amp; (x_1 + x_2) + j (y_1 + y_2)
+        \end{aligned}
+    \end{split}\]</div>
+</li>
+<li><p><strong>Subtraktion:</strong> Zur Subtraktion werden die Real- und Imaginärteile
+separat subtrahiert.</p>
+<div class="math notranslate nohighlight" id="equation-eq-subtraktion">
+<span class="eqno">(8.10)<a class="headerlink" href="#equation-eq-subtraktion" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+        z_3 &amp;=&amp; z_1 - z_2\\
+         &amp; = &amp; (x_1 - x_2) + j (y_1 - y_2)
+        \end{aligned}
+    \end{split}\]</div>
+</li>
+<li><p><strong>Multiplikation:</strong> Zur Multiplikation sind zwei unterschiedliche
+Möglichkeiten vorhanden. In der Darstellung mit Real- und
+Imaginärteil ergibt sich.</p>
+<div class="math notranslate nohighlight" id="equation-eq-multiplikation">
+<span class="eqno">(8.11)<a class="headerlink" href="#equation-eq-multiplikation" title="Permalink to this equation">¶</a></span>\[\begin{split}
+    \begin{aligned}
+        z_3 &amp;=&amp; z_1 \cdot z_2\\
+         &amp; = &amp; (x_1 + j y_1) (x_2 + j y_2)\\
+         &amp; = &amp; x_1 x_2 - y_1 y_2 + j(y_1x_2 + x_1 y_2)
+        \end{aligned}
+    \end{split}\]</div>
+<p>In der Polardarstellung ergibt sich</p>
+<div class="math notranslate nohighlight" id="equation-eq-multiplikation-polar">
+<span class="eqno">(8.12)<a class="headerlink" href="#equation-eq-multiplikation-polar" title="Permalink to this equation">¶</a></span>\[\begin{split}
+    \begin{aligned}
+        z_3 &amp;=&amp; r_1 e^{j\phi_1} r_2e^{j\phi_2}\\
+         &amp; = &amp; r_1 r_2 e^{j(\phi_1+\phi_2)}
+        \end{aligned}
+    \end{split}\]</div>
+</li>
+<li><p><strong>Division:</strong> Zur Division ist die Polardarstellung besonders gut
+geeignet. Es ergibt sich:</p>
+<div class="math notranslate nohighlight" id="equation-eq-division-polar">
+<span class="eqno">(8.13)<a class="headerlink" href="#equation-eq-division-polar" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+        z_3 &amp;=&amp; \frac{r_1 e^{j\phi_1}} {r_2e^{j\phi_2}}\\
+         &amp; = &amp; \frac{r_1} {r_2} e^{j(\phi_1-\phi_2)}
+        \end{aligned}
+    \end{split}\]</div>
+<p>Um eine Division in der Normalformdurchzuführen, muss zunächst eine Eweiterung mit dem konjugiert komplexen Zähler erfolgen. Es ergibt sich die 3. binomische Formel, die zu einem rein reellwertigen Nenner führt. Eine Aufspaltung des ählers in Real- und Imaginärteil ermöglicht abschließend die Brechnung der einzelnen Teile.</p>
+<div class="math notranslate nohighlight" id="equation-eq-division">
+<span class="eqno">(8.14)<a class="headerlink" href="#equation-eq-division" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+        z_3 &amp;=&amp; \frac{z_1}{z_2}\\
+         &amp; = &amp; \frac{z_1z_2^{\ast}}{z_2 z_2^{\ast}}\\
+         &amp; = &amp; \frac{(x_1 + j y_1)(x_2 - j y_2)}{(x_2 + j y_2)(x_2 - j
+         y_2)}\\
+         &amp; = &amp; \frac{x_1x_2 + y_1y_2}{x_2^2 +
+         y_2^2} + j \frac{(y_1 x_2 - x_1 y_2)}{x_2^2 +
+         y_2^2}
+        \end{aligned}
+    \end{split}\]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="einige-nutzliche-eigenschaften-und-zusammenhange">
+<h3><span class="section-number">8.2.4. </span>Einige nützliche Eigenschaften und Zusammenhänge<a class="headerlink" href="#einige-nutzliche-eigenschaften-und-zusammenhange" title="Permalink to this headline">¶</a></h3>
+<p>Aus des Grundrechenregeln und der Eigenschaft der Konjugation, lassen
+sich einige nützliche Beziehungen herleiten.</p>
+<div class="math notranslate nohighlight" id="equation-eq-komplexnuetzlich">
+<span class="eqno">(8.15)<a class="headerlink" href="#equation-eq-komplexnuetzlich" title="Permalink to this equation">¶</a></span>\[\begin{split}
+    (z_1 z_2)^{\ast} &amp; = &amp;  z_1^{\ast} z_2^{\ast}\\
+    (z_1^{\ast} z_2)^{\ast} &amp; = &amp; z_1 z_2^{\ast} \\
+    (z_1 + z_2)^{\ast} &amp; = &amp;  z_1^{\ast} + z_2^{\ast}\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-anhang-realvonkomplex">
+<span class="eqno">(8.16)<a class="headerlink" href="#equation-eq-anhang-realvonkomplex" title="Permalink to this equation">¶</a></span>\[\begin{split}
+    z_1 + z_1^{\ast} &amp; = &amp; 2 \Re{z_1}\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-anhang-imagvonkomplex">
+<span class="eqno">(8.17)<a class="headerlink" href="#equation-eq-anhang-imagvonkomplex" title="Permalink to this equation">¶</a></span>\[\begin{split}
+    z_1 - z_1^{\ast} &amp; = &amp; 2j \Im{z_1}\\
+\end{split}\]</div>
+</div>
+<div class="section" id="eulersche-formel">
+<h3><span class="section-number">8.2.5. </span>Eulersche Formel<a class="headerlink" href="#eulersche-formel" title="Permalink to this headline">¶</a></h3>
+<p>Eine wichtige komplexe Formel ist die Eulersche Formel:</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-euler">
+<span class="eqno">(8.18)<a class="headerlink" href="#equation-eq-def-euler" title="Permalink to this equation">¶</a></span>\[
+    e^{j \omega}  = \cos(\omega) + j \sin (\omega)
+\]</div>
+<p>Daraus folgen mit
+<a class="reference internal" href="#equation-eq-anhang-realvonkomplex">(8.16)</a> und
+<a class="reference internal" href="#equation-eq-anhang-imagvonkomplex">(8.17)</a> zwei nützliche Äquivalenzen:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \cos (\omega) &amp;=&amp; \frac{e^{j \omega} + e^{-j \omega}}{2}\\
+    \sin(\omega) &amp;=&amp; \frac{e^{j \omega} -  e^{-j \omega}}{2j}\end{aligned}
+\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="signale-und-ihre-vektorielle-schreibweise-besonders-nutzlich-fur-matlab">
+<h2><span class="section-number">8.3. </span>Signale und ihre vektorielle Schreibweise (Besonders nützlich für Matlab)<a class="headerlink" href="#signale-und-ihre-vektorielle-schreibweise-besonders-nutzlich-fur-matlab" title="Permalink to this headline">¶</a></h2>
+<p>Die vektorielle Schreibweise von Signalen un Impulsantworten ermöglicht
+es, viele Probleme der digitalen Signalverarbeitung durch einfache
+lineare Algebra darzustellen und so die Lösungsansätze bzw.
+mathematischen Methoden direkt anwenden zu können. Dies führt in vielen
+Fällen zu einer vereinfachten Interpretation der Ergebnisse.</p>
+<div class="section" id="vektordarstellung">
+<h3><span class="section-number">8.3.1. </span>Vektordarstellung<a class="headerlink" href="#vektordarstellung" title="Permalink to this headline">¶</a></h3>
+<p>Ein Zeitsignal <span class="math notranslate nohighlight">\(x(k)\)</span> lässt sich als Spaltenvektor</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{x}(k) = \left(
+  \begin{array}{c}
+    x(k) \\
+    x(k-1) \\
+    x(k-2) \\
+    \vdots \\
+    x(k-(N-1)) \\
+  \end{array}
+\right)
+\end{split}\]</div>
+<p>darstellen. Häufig werden die diese Signalvektoren auch als
+transponierte Zeilenvektoren eingeführt.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x}(k) = [x(k) \,\, x(k-1) \,\, x(k-2) \,\, \cdots
+\,\,x(k-(N-1)) ]^T
+\]</div>
+<p>Führt man dies auch für die Impulsantwort der Länge <span class="math notranslate nohighlight">\(N\)</span> ein:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{h} = [h_0 \,\, h_1 \,\, h_2 \,\, \cdots
+\,\,h_{N-1} ]^T
+\]</div>
+<p>so kann ein einzelner Ausgangswert dieses Systems
+durch das Skalarprodukt berechnet werden. Es gilt</p>
+<div class="math notranslate nohighlight">
+\[
+y(k) = \mathbf{x}^T(k)\mathbf{h}
+\]</div>
+</div>
+<div class="section" id="vektorielle-ableitung">
+<h3><span class="section-number">8.3.2. </span>Vektorielle Ableitung<a class="headerlink" href="#vektorielle-ableitung" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="einige-spezielle-matrixdarstellungen">
+<h3><span class="section-number">8.3.3. </span>Einige spezielle Matrixdarstellungen<a class="headerlink" href="#einige-spezielle-matrixdarstellungen" title="Permalink to this headline">¶</a></h3>
+<p>Bestimmte Operatoren der digitalen Signalverarbeitung lassen sich durch
+Matrix-Multiplikationen darstellen. Dies ermöglicht Eigenschaften und
+Methoden der linearen Algebra direkt auf Probleme der Signalverarbeitung
+anzuwenden.</p>
+<div class="section" id="faltung">
+<h4><span class="section-number">8.3.3.1. </span>Faltung<a class="headerlink" href="#faltung" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="korrelation">
+<h4><span class="section-number">8.3.3.2. </span>Korrelation<a class="headerlink" href="#korrelation" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="dft">
+<h4><span class="section-number">8.3.3.3. </span>DFT<a class="headerlink" href="#dft" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="least-squares-losung-in-matrixform">
+<h3><span class="section-number">8.3.4. </span>Least-Squares-Lösung in Matrixform<a class="headerlink" href="#least-squares-losung-in-matrixform" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="grundlagen-der-stochastik">
+<span id="sec-grundlagenderstochastik"></span><h2><span class="section-number">8.4. </span>Grundlagen der Stochastik<a class="headerlink" href="#grundlagen-der-stochastik" title="Permalink to this headline">¶</a></h2>
+<p>Um die Grundlagen der stochastischen Signalverarbeitung zu erläutern,
+sind allgemeine Kenntnisse der Stochastik und der Statistik notwendig.</p>
+<div class="section" id="wahrscheinlichkeit">
+<h3><span class="section-number">8.4.1. </span>Wahrscheinlichkeit<a class="headerlink" href="#wahrscheinlichkeit" title="Permalink to this headline">¶</a></h3>
+<p>Angenommen ein durchzuführendes Experiment hat einen nicht
+vorhersagbaren zufälligen Ausgang, so spricht man von einem
+Zufallsexperiment. Häufig sind die Möglichkeiten des Ausgangs des
+Experiments abzählbar. Alle möglichen Ausgänge bilden zusammen den
+Ereignisraum <span class="math notranslate nohighlight">\(\lambda\)</span> eines Experiments. So gibt es für einen Münzwurf
+zwei mögliche Ausgänge; der Ereignisraum hat die beiden Elemente <em>Kopf</em>
+oder <em>Zahl</em>. Beim Standard-Würfel sind sechs Ergebnisse möglich; der
+Ereignisraum ist</p>
+<div class="math notranslate nohighlight" id="equation-eq-bsp-ereignisraume-wuerfel">
+<span class="eqno">(8.19)<a class="headerlink" href="#equation-eq-bsp-ereignisraume-wuerfel" title="Permalink to this equation">¶</a></span>\[
+    \lambda = \{1,2,3,4,5,6 \}
+\]</div>
+<p>Allgemein kann bei abzählbaren Ergebnissen der Ereignisraum durch</p>
+<div class="math notranslate nohighlight" id="equation-eq-bsp-ereignisraumallg">
+<span class="eqno">(8.20)<a class="headerlink" href="#equation-eq-bsp-ereignisraumallg" title="Permalink to this equation">¶</a></span>\[
+\lambda = \{ \lambda_1, \lambda_2,\cdots,\lambda_N \}
+\]</div>
+<p>beschrieben werden. Interessant ist nun die Frage wie hoch ist die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(P(\lambda_k)\)</span> der einzelnen Elementarereignisse
+<span class="math notranslate nohighlight">\(\lambda_k\)</span>. Eine häufig genutzte Definition erfolgt über die
+Grenzwertbetrachtung eines empirischen Experiments. Man zählt wie oft
+<span class="math notranslate nohighlight">\(M_k\)</span> ein bestimmtes Elementarereignis <span class="math notranslate nohighlight">\(\lambda_k\)</span> auftritt und teilt
+diese Anzahl durch die Anzahl der insgesamt durchgeführten Experimente
+<span class="math notranslate nohighlight">\(M\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-wahrscheinlichkeit">
+<span class="eqno">(8.21)<a class="headerlink" href="#equation-eq-def-wahrscheinlichkeit" title="Permalink to this equation">¶</a></span>\[
+    P(\lambda_k) = \lim_{M\rightarrow \infty} \frac{M_k}{M}
+\]</div>
+<p>Für den Würfel ergibt sich so das erwartetete Ergebnis, dass jede Augenzahl
+genau mit der Wahrscheinlichkeit <span class="math notranslate nohighlight">\(1/6\)</span> auftritt. Beim Münzwurf würde
+sich die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(1/2\)</span> ergeben. Entscheidend ist, die Summe
+über alle Wahrscheinlichkeiten aller Elementarereignisse ergibt immer
+eins, da ja jedes Ergebnis des Zufallsexperiments einem
+Elementarereignis zugeordnet wird.</p>
+<p>Es gilt also:</p>
+<div class="math notranslate nohighlight" id="equation-eq-totalewahrscheinlichkeit">
+<span class="eqno">(8.22)<a class="headerlink" href="#equation-eq-totalewahrscheinlichkeit" title="Permalink to this equation">¶</a></span>\[
+    \sum_{k = 1}^{N} P(\lambda_k) = 1 \quad .
+\]</div>
+<p>Die Definition der Wahrscheinlichkeit nach Gl.
+<a class="reference internal" href="#equation-eq-def-wahrscheinlichkeit">(8.21)</a> ist für kontinuierliche
+Ereignisräume<a class="footnote-reference brackets" href="#id4" id="id2">2</a> ungeeignet, da sich für jeden konkreten Wert der
+Ereignisraumes eine Wahrscheinlichkeit von Null ergeben würde. Statt
+dessen wird die Wahrscheinlichkeitsfunktion <span class="math notranslate nohighlight">\(F(x)\)</span> eingeführt, die
+angibt wie viele Werte kleiner als eine bestimmte Schwelle <span class="math notranslate nohighlight">\(x\)</span> sind. Man
+schreibt als Abkürzung:</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-wahrscheinlichkeitsfunktion">
+<span class="eqno">(8.23)<a class="headerlink" href="#equation-eq-def-wahrscheinlichkeitsfunktion" title="Permalink to this equation">¶</a></span>\[
+    F(x) = F(\lambda|\lambda&lt;x)
+\]</div>
+<p>Für <span class="math notranslate nohighlight">\(x\rightarrow \infty\)</span> geht diese Funktion gegen 1, da alle Werte
+kleiner sind als <span class="math notranslate nohighlight">\(x = \infty\)</span> und für <span class="math notranslate nohighlight">\(x \rightarrow
+-\infty\)</span> ist die Funktion null. Es gilt also</p>
+<div class="math notranslate nohighlight" id="equation-eq-wertebereichwahrfkt">
+<span class="eqno">(8.24)<a class="headerlink" href="#equation-eq-wertebereichwahrfkt" title="Permalink to this equation">¶</a></span>\[
+    0 \leq F(x)\leq 1
+\]</div>
+<p>Auch für die abzählbaren Ereignisräume lässt sich die
+Wahrscheinlichkeitsfunktion definieren. Es ergeben sich dann Verläufe
+mit Treppenstufen. <a class="reference internal" href="#fig-fahrfunkwuerfel"><span class="std std-numref">Abbildung 8.1</span></a> zeigt für das Beispiel des Würfels die
+Funktion <span class="math notranslate nohighlight">\(F(x)\)</span>.</p>
+<div class="figure align-default" id="fig-fahrfunkwuerfel">
+<a class="reference internal image-reference" href="_images/FahrFunkWuerfel.png"><img alt="_images/FahrFunkWuerfel.png" src="_images/FahrFunkWuerfel.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Wahrscheinlichkeitsfunktion <span class="math notranslate nohighlight">\(F(x)\)</span> am Beispiel eines Standard-Würfels.</span><a class="headerlink" href="#fig-fahrfunkwuerfel" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="wahrscheinlichkeitsdichte">
+<span id="sec-wahrscheinlichkeitsdichte"></span><h3><span class="section-number">8.4.2. </span>Wahrscheinlichkeitsdichte<a class="headerlink" href="#wahrscheinlichkeitsdichte" title="Permalink to this headline">¶</a></h3>
+<p>Ein Äquivalent zu der Wahrscheinlichkeit bei diskreten Ereignissen
+stellt die Wahrscheinlichkeitsdichtefunktion <span class="math notranslate nohighlight">\(p(x)\)</span> für kontinuierliche
+Zufallsvariablen dar. Sie ist definiert als die Ableitung der
+Wahrscheinlichkeitsfunktion <span class="math notranslate nohighlight">\(F(x)\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-wahrscheinlichkeitsdichte">
+<span class="eqno">(8.25)<a class="headerlink" href="#equation-eq-def-wahrscheinlichkeitsdichte" title="Permalink to this equation">¶</a></span>\[
+    p(x) = \frac{\delta F(x)}{\delta x}
+\]</div>
+<p>Auch für die
+Wahrscheinlichkeitsdichte gilt das Gesetz der totalen
+Wahrscheinlichkeit.</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-totalewahrscheinlichkeit">
+<span class="eqno">(8.26)<a class="headerlink" href="#equation-eq-def-totalewahrscheinlichkeit" title="Permalink to this equation">¶</a></span>\[
+    \int_{-\infty}^{\infty} p(x) dx = 1
+\]</div>
+<p>Die Wahrscheinlichkeitsdichte
+ist außerdem nie negativ. Es gilt</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-positiv">
+<span class="eqno">(8.27)<a class="headerlink" href="#equation-eq-def-positiv" title="Permalink to this equation">¶</a></span>\[
+    p(x) \geq 0
+\]</div>
+<p>Einige geläufige Beispiele für solche Wahrscheinlichkeitsdichten oder
+auch Verteilungsdichten genannte Funktionen sind gleichverteilte
+Zufallsgrößen in einem Interval <span class="math notranslate nohighlight">\([a \cdots b]\)</span> (siehe <a class="reference internal" href="#fig-verteilgleichgauss"><span class="std std-numref">Abbildung 8.2</span></a> links) und die Gauss-Verteilung
+((siehe <a class="reference internal" href="#fig-verteilgleichgauss"><span class="std std-numref">Abbildung 8.2</span></a> rechts)), gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[
+p(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x(k)-\mu)^2}{2\sigma^2}}
+\]</div>
+<p>Definition</p>
+<div class="figure align-default" id="fig-verteilgleichgauss">
+<a class="reference internal image-reference" href="_images/VerteilGleichGauss.png"><img alt="_images/VerteilGleichGauss.png" src="_images/VerteilGleichGauss.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Verteilungsdichtefuntionen. Links:
+Gleichverteilte Zufallsgröße im Interval <span class="math notranslate nohighlight">\([-1 \cdots 4]\)</span> Rechts:
+Gauss-verteilte Zufallsgröße mit <span class="math notranslate nohighlight">\(\mu = 1\)</span> und <span class="math notranslate nohighlight">\(\sigma =
+1.6\)</span>.</span><a class="headerlink" href="#fig-verteilgleichgauss" title="Permalink to this image">¶</a></p>
+</div>
+<p>Zusätzlich gibt es noch weitere Verteilungsdichtefunktionen, die bei
+bestimmten Anwendungen die Zufallsvariable beschreiben. Die wichtigsten
+sind, die Poisson-Verteilung, die log-Normal Verteilung, die
+Gamma-Verteilung, die Rayleigh-Verteilung und die La-Place-Verteilung.</p>
+<p>Interessant ist noch die Frage, was passiert mit den
+Wahrscheinlichkeitsdichte, wenn die zugrunde liegende Rauschprozesse
+addiert werden. Betrachtet man zwei gleichverteile Zufallsgrößen mit
+gleichen Randparametern und addiert diese, so erhält man eine
+dreiecksverteilte Größe. Eine Verknüpfung die aus zwei rechteckigen
+Größen eine dreieckige Größe macht ist die Faltung. Wir erkennen also
+(hier ohne Beweis), dass eine Addition der Zufallsgrößen zu einer
+Faltung der Wahrscheinlichkeitsdichten führt.</p>
+<div class="math notranslate nohighlight" id="equation-eq-defzusammenhangaddundfaltung">
+<span class="eqno">(8.28)<a class="headerlink" href="#equation-eq-defzusammenhangaddundfaltung" title="Permalink to this equation">¶</a></span>\[
+    y(t) = x_1(t) + x_2(t) \quad \Rightarrow \quad p(y) = p(x_1)
+    \ast p(x_2)
+\]</div>
+</div>
+<div class="section" id="rechnen-mit-wahrscheinlichkeiten">
+<h3><span class="section-number">8.4.3. </span>Rechnen mit Wahrscheinlichkeiten<a class="headerlink" href="#rechnen-mit-wahrscheinlichkeiten" title="Permalink to this headline">¶</a></h3>
+<p>Für abzählbare Ereignisräume gibt es einfach nachzuvollziehende
+Rechenregeln, die sich aus der Mengenlehre ableiten.</p>
+<p>Die Addition zweier Ereignisse ist definiert als die Vereinigungsmenge
+der Einzelereignisse</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-addwahrscheinlichkeiten">
+<span class="eqno">(8.29)<a class="headerlink" href="#equation-eq-def-addwahrscheinlichkeiten" title="Permalink to this equation">¶</a></span>\[
+    C = A + B = A \cup B = A \vee B
+\]</div>
+<p>Die Multiplikation als Schnittmenge</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-multwahrscheinlichkeiten">
+<span class="eqno">(8.30)<a class="headerlink" href="#equation-eq-def-multwahrscheinlichkeiten" title="Permalink to this equation">¶</a></span>\[
+    C = A B = A \cap B = A \wedge B
+\]</div>
+<p>Das Kompliment <span class="math notranslate nohighlight">\(\bar{A}\)</span> des Ereignises <span class="math notranslate nohighlight">\(A\)</span> beinhaltet alle Elemente eines Ereignisses, die im vollständigen Ereignisraum <span class="math notranslate nohighlight">\(\lambda\)</span> vorhanden sind, aber nicht im
+Ereignis <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Weiterhin kann es nützlich sein, die Differenz im Sinne der Mengenlehre
+zu definieren. Die Differenz zweier Ereignisse beinhaltet nur die
+Elementarereignisse, die ausschließlich in der ersten Menge vorkommen.
+Es gilt</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-diffwahrscheinlichkeit">
+<span class="eqno">(8.31)<a class="headerlink" href="#equation-eq-def-diffwahrscheinlichkeit" title="Permalink to this equation">¶</a></span>\[
+    A-B = A\bar{B}
+\]</div>
+<p>als die Elemente, die ausschließlich in</p>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Als Beispiel wird gerne der Würfel verwendet. Der Ereignisraum
+<span class="math notranslate nohighlight">\(\lambda = \{1,2,3,4,5,6\}\)</span>. Folgende Ereignisse sollen vorliegen
+können. Ereignis <span class="math notranslate nohighlight">\(A\)</span>, es ist eine gerade Zahl, also <span class="math notranslate nohighlight">\(A =
+\{2,4,6\}\)</span>, und <span class="math notranslate nohighlight">\(B\)</span> die Zahl ist kleiner oder gleich als vier, also
+<span class="math notranslate nohighlight">\(B = \{1,2,3,4\}\)</span>. Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+A+B &amp;=&amp; \{1,2,3,4,6 \}\\
+A\cap B &amp; = &amp; \{2,4\}\\
+\bar{A} &amp;= &amp; \{1,3,5\}\\
+A-B &amp; = &amp; \{6 \}\end{aligned}
+\end{split}\]</div>
+</div>
+<div class="section" id="bedingte-wahrscheinlichkeit-und-regel-von-bayes">
+<h4><span class="section-number">8.4.3.1. </span>Bedingte Wahrscheinlichkeit und Regel von Bayes<a class="headerlink" href="#bedingte-wahrscheinlichkeit-und-regel-von-bayes" title="Permalink to this headline">¶</a></h4>
+<p>Eine sehr wichtige Aussage ist die Wahrscheinlichkeit eines Ereignisses
+unter der Bedingung, dass vorher ein anderes Ereignis eingetreten ist.
+Dies wird bedingte Wahrscheinlichkeit genannt und durch</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-namebedingtewahr">
+<span class="eqno">(8.32)<a class="headerlink" href="#equation-eq-def-namebedingtewahr" title="Permalink to this equation">¶</a></span>\[
+    P(A|B)
+\]</div>
+<p>ausgedrückt. Gelesen als die Wahrscheinlichkeit des
+Ereignisses <span class="math notranslate nohighlight">\(A\)</span> unter der Bedingung (Voraussetzung) des Ereignisses <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>Berechnet werden kann diese Wahrscheinlichkeit durch</p>
+<div class="math notranslate nohighlight" id="equation-eg-def-bedingtewahr">
+<span class="eqno">(8.33)<a class="headerlink" href="#equation-eg-def-bedingtewahr" title="Permalink to this equation">¶</a></span>\[
+    P(A|B) = \frac{P(A B)}{P(B)}
+\]</div>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Es soll aus den aus den letzten Beispiel bekannten Ereignissen <span class="math notranslate nohighlight">\(A\)</span> und
+<span class="math notranslate nohighlight">\(B\)</span> die bedingte Wahrscheinlichkeit berechnet werden. Es soll also
+berechnet werden, mit welcher Wahrscheinlichkeit fällt eine gerade
+Augenzahl, wenn die Zahl kleiner ar vier ist.</p>
+<div class="math notranslate nohighlight">
+\[
+P(A|B) = \frac{P(AB)}{P(B)} = \frac{2/6}{4/6} = 1/2
+\]</div>
+<p>Dieses Ergebnis lässt sich auch anschaulich erklären. Durch die Nebenbedingung, dass nur
+Zahlen kleiner als fünf berücksichtigt werden sollen, stehen nur noch
+vier Zahlen als Ereignisraum zur Verfügung und davon sind zwei gerade.
+Somit ist die Wahrscheinlichkeit dass eine gerade Zahl vorliegt <span class="math notranslate nohighlight">\(1/2\)</span>.</p>
+</div>
+<p>Allgemein gilt nicht, dass <span class="math notranslate nohighlight">\(P(A|B) = P(B|A)\)</span> ist. Für das eben erwähnte
+Beispiel würde sich eine Wahrscheinlichkeit von <span class="math notranslate nohighlight">\(2/3\)</span> ergeben, da unter
+den drei geraden Zahlen (Voraussetzung A), zwei kleiner als fünf sind
+(Ereignis B).</p>
+<p>Es gilt aber durch die Kommutativität der Multiplikation</p>
+<div class="math notranslate nohighlight" id="equation-eq-zweitebedingtewahr">
+<span class="eqno">(8.34)<a class="headerlink" href="#equation-eq-zweitebedingtewahr" title="Permalink to this equation">¶</a></span>\[
+    P(B|A) = \frac{P(AB)}{P(A)}
+\]</div>
+<p>Durch Umstellung und Einsetzen der Gleichung
+<a class="reference internal" href="#equation-eq-zweitebedingtewahr">(8.34)</a> in Gleichung
+<a class="reference internal" href="#equation-eg-def-bedingtewahr">(8.33)</a> ergibt sich der Satz von Bayes.</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-satzvonbayse">
+<span class="eqno">(8.35)<a class="headerlink" href="#equation-eq-def-satzvonbayse" title="Permalink to this equation">¶</a></span>\[
+    P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+\]</div>
+<p>Diese Umrechnung ermöglicht es
+jetzt bedingte Wahrscheinlichkeiten zu berechnen, wenn nur die bedingte
+Wahrscheinlichkeit in der anderen Richtung bekannt ist, was häufig vorkommt.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><span class="math notranslate nohighlight">\(N\)</span> und <span class="math notranslate nohighlight">\(D\)</span> wurden als Bezeichner für nominator und denominator
+verwendet.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Zufallsvariablen, wie Sie im Abschnitt
+<a class="reference external" href="#sec:Zufallssignale">[sec:Zufallssignale]</a>{reference-type=”ref”
+reference=”sec:Zufallssignale”} definiert wurden, gehören zu dieser Klasse</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="filter.html" title="previous page"><span class="section-number">7. </span>Filter</a>
+    <a class='right-next' id="next-link" href="zbibliography.html" title="next page"><span class="section-number">9. </span>Literaturverzeichnis</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Joerg Bitzer<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1580 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. z-Transformation &#8212; Signalverarbeitung 1</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Spektren" href="spektren.html" />
+    <link rel="prev" title="4. Analoge Signalverarbeitung" href="analog.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Signalverarbeitung 1
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="grundlagen.html">
+   1. Einführung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="signale.html">
+   2. Signale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="systeme.html">
+   3. Systeme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="analog.html">
+   4. Analoge Signalverarbeitung
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. z-Transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   6. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   7. Filter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mathe.html">
+   8. Mathematische Methoden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zbibliography.html">
+   9. Literaturverzeichnis
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ztrafo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://gitlab.gwdg.de/joerg.bitzer/scriptsv/-/tree/master"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://gitlab.gwdg.de/joerg.bitzer/scriptsv/-/tree/master/issues/new?title=Issue%20on%20page%20%2Fztrafo.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#einfuhrung">
+   5.1. Einführung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   5.2. Definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rechenregeln">
+   5.3. Rechenregeln
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearitat">
+     5.3.1. Linearität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verschiebung">
+     5.3.2. Verschiebung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ruck-transformation">
+   5.4. Rück-Transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#korrespondenztabelle">
+     5.4.1. Korrespondenztabelle
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systemfunktion">
+   5.5. Systemfunktion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pol-nullstellenplan">
+   5.6. Pol-Nullstellenplan
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stabilitat">
+   5.7. Stabilität
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stabilitat-eines-systems-2-ordnung">
+     5.7.1. Stabilität eines Systems 2. Ordnung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matlab-und-z-transformation">
+   5.8. Matlab und z-Transformation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubungen">
+   5.9. Übungen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
+     5.9.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
+     5.9.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matlab-aufgaben">
+     5.9.3. Matlab-Aufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transfer-leistung">
+     5.9.4. Transfer-Leistung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zusammenfassung">
+   5.10. Zusammenfassung
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="z-transformation">
+<h1><span class="section-number">5. </span>z-Transformation<a class="headerlink" href="#z-transformation" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Abschnitt werden wir die z-Transformation als ein wichtiges
+Werkzeug zur Analyse und zum Verständnis von LTI-Systemen und ihrer
+Eigenschaften einführen. Es werden durch die z-Übertragungsfunktion und
+dem Pol-Nullstellenplot neue Beschreibungsformen für LTI-Systeme
+aufgezeigt. Insbesondere wird eine Möglichkeit angegeben, um die
+Stabilität rekursiver LTI-Systeme zu testen.</p>
+<div class="error admonition">
+<p class="admonition-title">To Do</p>
+<p>Beispiel bringen mit Programm (Minihost, Asio4All, pcx) zur Motivation</p>
+</div>
+<div class="section" id="einfuhrung">
+<h2><span class="section-number">5.1. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this headline">¶</a></h2>
+<p>Um die Nützlichlkeit dieses Werkzeuges zu untermalen, wollen wir
+zunächst von einfachen Beispielen ausgehen.</p>
+<p>Angenommen auf ein Sparbuch wird ein bestimmter Geldbetrag <span class="math notranslate nohighlight">\(S\)</span>
+eingezahlt und dieser Betrag wird jährlich mit einem Zins <span class="math notranslate nohighlight">\(p\)</span> verzinst.
+Eine mathematische Darstellung dieses Sachverhalts ergibt sich durch
+Nutzung des Delta-Impulses gewichtet mit dem Geldbetrag und einer
+einfachen Rekursion, wobei ein leeres Konto als Startwert vorliegt. Es
+gilt also <span class="math notranslate nohighlight">\(y(k-1) = 0\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-zinsrekursion">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-zinsrekursion" title="Permalink to this equation">¶</a></span>\[
+y(k) = (1+p) y(k-1) + S \delta(k)
+\]</div>
+<p>Dies ist eine andere Darstellung der Zinseszinsrechenregel. Diese lautet</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{Geld} = S (1+p)^{\mbox{Jahre}}
+\]</div>
+<p>Die Anzahl der Jahre ist in Formel
+<a class="reference internal" href="#equation-eq-zinsrekursion">(5.1)</a> in der Anzahl der Rekursionen versteckt.
+Die zweite Form ist eine direkte Berechnung.</p>
+<p>Nun lassen sich aber nicht für alle Rekursionssysteme solche einfachen
+direkten Rechenvorschriften angeben. Aber wie ist der mathematische
+Zusammenhang zwischen den beiden möglichen Lösungen?</p>
+<p>In der Rekursionsformel:</p>
+<div class="math notranslate nohighlight" id="equation-eq-zinsrekursionwiederholung">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-zinsrekursionwiederholung" title="Permalink to this equation">¶</a></span>\[
+    y(k) = (1+p) y(k-1) + S \delta(k)
+\]</div>
+<p>ergibt sich durch Variablensubstitution <span class="math notranslate nohighlight">\(c = 1+p\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-zinsrekursionmitc">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-zinsrekursionmitc" title="Permalink to this equation">¶</a></span>\[
+y(k) = c y(k-1) + S \delta(k)
+\]</div>
+<p>Diese Form wird jetzt auf beiden
+Seiten mit der Summe <span class="math notranslate nohighlight">\(\sum_{k =
+-\infty}^{\infty}z^{-k}\)</span> multipliziert. Ein Schritt der mathematisch
+erlaubt ist, da er auf beiden Seiten des Gleichungssystems durchgeführt
+wird.</p>
+<div class="math notranslate nohighlight" id="equation-eq-zinsrekursionz">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-zinsrekursionz" title="Permalink to this equation">¶</a></span>\[
+\sum_{k = -\infty}^{\infty} y(k) z^{-k} = \underbrace{c \sum_{k =
+-\infty}^{\infty} y(k-1) z^{-k}}_{\mbox{1. Summand}} +
+\underbrace{S \sum_{k = -\infty}^{\infty} \delta(k)
+z^{-k}}_{\mbox{2. Summand}}
+\]</div>
+<p>Mit Hilfe der abkürzenden Schreibweise</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-ztrafo">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
+Y(z) = \sum_{k = -\infty}^{\infty} y(k) z^{-k} .
+\]</div>
+<p>ergibt sich bei dem 2. Summanden nur ein Element der Summe den Wert <span class="math notranslate nohighlight">\(S\)</span>, da die <span class="math notranslate nohighlight">\(\delta\)</span>-Folge nur bei <span class="math notranslate nohighlight">\(k = 0\)</span> einen Wert ungleich Null hat.</p>
+<p>Zusätzlich kann der 1. Summand durch eine Variablensubstitution
+<span class="math notranslate nohighlight">\(k' = k-1\)</span> umgeformt werden.</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1subst">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-ztrafo-example1subst" title="Permalink to this equation">¶</a></span>\[
+    c \sum_{k =
+-\infty}^{\infty} y(k-1) z^{-k} = c \sum_{k' = -\infty}^{\infty}
+y(k') z^{-k'-1} =c z^{-1}\sum_{k' = -\infty}^{\infty} y(k')
+z^{-k'}=c z^{-1} Y(z)
+\]</div>
+<p>Somit ergibt sich</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-eq-ztrafo-example1" title="Permalink to this equation">¶</a></span>\[
+    Y(z) = c z^{-1} Y(z) + S .
+\]</div>
+<p>Umgestellt folgt</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-zloesung">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-eq-ztrafo-example1-zloesung" title="Permalink to this equation">¶</a></span>\[
+    Y(z) = \frac{S}{1-c z^{-1}} .
+\]</div>
+<p>Um zur Lösung für das Ausgangssignal zu kommen, wird die Summenformel
+für eine geometrische Reihe eingeführt.</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-geometrischereihe">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-eq-def-geometrischereihe" title="Permalink to this equation">¶</a></span>\[
+\sum_{k = 0}^{\infty} q^k = \frac{1}{1-q}  \quad \mbox{wenn} \quad |q|&lt;1
+\]</div>
+<p>Für Gleichung
+<a class="reference internal" href="#equation-eq-ztrafo-example1-zloesung">(5.8)</a> ergibt sich also</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-kloesung1">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung1" title="Permalink to this equation">¶</a></span>\[
+\frac{S}{1-c z^{-1}} = S \sum_{k = 0}^{\infty} (c z^{-1})^k = S \sum_{k = 0}^{\infty} c^k z^{-k}
+\]</div>
+<p>Vergleicht man diese Lösung mit
+<a class="reference internal" href="#equation-eq-def-ztrafo">(5.12)</a> ergibt sich</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-kloesung2">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung2" title="Permalink to this equation">¶</a></span>\[\begin{split}
+    y(k) = \bigg\{ \begin{array}{lcc}
+      S c^k &amp; &amp; k \geq 0\\
+        0  &amp; &amp; k&lt;0
+    \end{array} = S(1+p)^k \gamma(k)
+\end{split}\]</div>
+<p>mit <span class="math notranslate nohighlight">\(\gamma(k)\)</span> als Sprungfolge (siehe Gleichung
+<code class="xref eq docutils literal notranslate"><span class="pre">eq:Def:Sprungfolge</span></code>).</p>
+<p>Dies entspricht der vorher bekannten Lösung für die Zinseszinsformel.</p>
+</div>
+<div class="section" id="definition">
+<h2><span class="section-number">5.2. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<p>Für eine verkürzte Schreibweise wird für die z-Transformation folgendes
+Symbol eingeführt</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-ztrafo">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
+\mathcal{Z}\{ \cdot \}= \sum_{k = -\infty}^{\infty} (\cdot) z^{-k} mit~z \in \mathbb{C}
+\]</div>
+<p>Es gilt also</p>
+<div class="math notranslate nohighlight" id="equation-eq-yexample">
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-eq-yexample" title="Permalink to this equation">¶</a></span>\[
+    Y(z) =\mathcal{Z}\{y(k)\}
+\]</div>
+<p>Die Rechenvorschrift führt dazu, dass die diskrete
+Eingangsfolge <span class="math notranslate nohighlight">\(y(k)\)</span> abgebildet wird auf eine komplexe Ebene. Man
+spricht deshalb auch von Zeitbereichsdarstellung und
+Bildbereichdarstellung. Um die Korrespondenz zu symbolisieren wird
+häufig der sog. “Transformationsknochen” verwendet.</p>
+<ul class="simple">
+<li><p>Hintransformation: <span class="math notranslate nohighlight">\(y(k) \circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; Y(z)\)</span> oder bei Gleichungsabfolgen vertikal</p></li>
+<li><p>Rücktransformation: <span class="math notranslate nohighlight">\(Y(z) \bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; y(k)\)</span></p></li>
+</ul>
+<p>Damit eine z-Transformation gültig ist, muss zusätzlich gelten, dass die
+Summe in Gl. <a class="reference internal" href="#equation-eq-def-ztrafo">(5.12)</a> kleiner unendlich ist. Dies ist für alle
+endlichen Folgen gegeben, wenn keiner der Folgenwerte unendlich ist. Bei
+unendlichen Folgen ist dies nicht immer gewährleistet.und hängt auch
+direkt von der Wahl des <span class="math notranslate nohighlight">\(z\)</span> ab. Deshalb gehört zu einer vollständigen
+Beschreibung der z-Transformation auch immer die Bereichsangabe von <span class="math notranslate nohighlight">\(z\)</span>
+in der die Summe konvergiert. Man spricht deshalb vom sogenannten
+Konvergenzgebiet <em>Region of Convergence</em>. Zur Beschreibung des
+Konvergenzgebietes reichen die Angaben der Radien <span class="math notranslate nohighlight">\(r = |z|\)</span> der
+komplexen Zahlen aus. Für das Konvergenzgebiet ergibt sich entweder das
+Gebiet inner- oder außerhalb einer Kreisfläche oder das Gebiet hat die
+Form eines Kreisringes in der z-Ebene.</p>
+<div class="figure align-default" id="fig-roc-kausal">
+<a class="reference internal image-reference" href="_images/ROC_Kausal.png"><img alt="_images/ROC_Kausal.png" src="_images/ROC_Kausal.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei der z-Transformation. In
+diesem Beispiel für eine kausale Folge (ROC
+außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+
+<span class="n">index_kausal</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">amplitude_kausal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">index_kausal</span><span class="p">)</span>
+<span class="n">mid_kausal</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">index_kausal</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">index_kausal</span><span class="p">)</span><span class="o">-</span><span class="n">mid_kausal</span><span class="p">):</span>
+    <span class="n">amplitude_kausal</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="n">mid_kausal</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">**</span><span class="n">idx</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_kausal</span><span class="p">,</span> <span class="n">ax_nkausal</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax_kausal</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">index_kausal</span><span class="p">,</span> <span class="n">amplitude_kausal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_kausal</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x(k)&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;kaulase Folge 0.5**(k)*gamma(k)&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="n">index_nkausal</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">amplitude_nkausal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">index_nkausal</span><span class="p">)</span>
+<span class="n">mid_nkausal</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">index_nkausal</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">index_nkausal</span><span class="p">)</span><span class="o">-</span><span class="n">mid_nkausal</span><span class="p">):</span>
+    <span class="n">amplitude_nkausal</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="mf">0.5</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">+</span><span class="n">idx</span><span class="p">)</span>
+
+<span class="n">ax_nkausal</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">index_nkausal</span><span class="p">,</span> <span class="n">amplitude_nkausal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_nkausal</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x(k)&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;nicht kausale Folge -0.5**(-k)*gamma(-k)&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;zFolgenPic&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Betrachtet man die kausale Folge (siehe <a class="reference internal" href="#fig-zfolgenpic"><span class="std std-numref">Abbildung 5.2</span></a>
+a) (Sie entspricht dem Sparbuchbeispiel mit einem Startkapital von 0.5 und
+50% Kontokosten (Also einer ziemlich schlechten Geldanlage).)</p>
+<div class="math notranslate nohighlight" id="equation-eq-bspkausalefolge">
+<span class="eqno">(5.14)<a class="headerlink" href="#equation-eq-bspkausalefolge" title="Permalink to this equation">¶</a></span>\[\begin{split}
+\begin{aligned}
+    x(k) &amp;=&amp; [0.5 \:\: 0.5^2 \:\: 0.5^3 \:\: \cdots \:\: 0.5^k]\\
+         &amp; = &amp; 0.5^k \gamma(k) \qquad~für~k \geq 0 ,\end{aligned}
+\end{split}\]</div>
+<p>soergibt sich die z-Transformierte als</p>
+<div class="math notranslate nohighlight">
+\[
+X(z) = \sum_{k = -\infty}^{\infty} 0.5^k \gamma(k)z^{-k}
+    = \sum_{k = 0}^{\infty} 0.5^k z^{-k} =
+    \sum_{k = 0}^{\infty} (0.5z^{-1})^{k}
+\]</div>
+<p>bzw. mit der Umformung durch die geometrische Reihe</p>
+<div class="math notranslate nohighlight">
+\[
+X(z) = \frac{1}{1-0.5z^{-1}} = \frac{z}{z-0.5},
+\]</div>
+<p>wobei das Konvergenzkriterium der geometrischen Reihe zusätzlich</p>
+<div class="math notranslate nohighlight">
+\[
+\nonumber
+    |0.5z^{-1}| = \frac{0.5}{z} &lt; 1 \qquad \Rightarrow \qquad |z| &gt; 0.5
+\]</div>
+<p>fordert.</p>
+<p>Definition:</p>
+<div class="figure align-default" id="fig-zfolgenpic" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/ztrafo_2_0.png" src="_images/ztrafo_2_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">a) kausale
+Folge <span class="math notranslate nohighlight">\(0.5^k \gamma(k)\)</span> für <span class="math notranslate nohighlight">\(k \geq 0\)</span> und b) nicht-kausale Folge
+<span class="math notranslate nohighlight">\(-0.5^k \gamma(-k-1)\)</span> für <span class="math notranslate nohighlight">\(k &lt; 0\)</span>.</span><a class="headerlink" href="#fig-zfolgenpic" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>Im folgenden soll nun eine sehr ähnlichen Folge, nämlich dem
+nicht-kausalen, negativen äquivalent zu
+<a class="reference internal" href="#equation-eq-bspkausalefolge">(5.14)</a></p>
+<div class="math notranslate nohighlight">
+\[
+\nonumber
+    x(k) = -0.5^k \gamma(-k-1) \qquad für k &lt; 0
+\]</div>
+<p>betrachtet werden (siehe <a class="reference internal" href="#fig-zfolgenpic"><span class="std std-numref">Abbildung 5.2</span></a> b). Berechnet man die z-Transformierte ergibt sich mit einer Variablensubstitution <span class="math notranslate nohighlight">\(k = -m\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\nonumber
+    X(z) &amp;=&amp; - \sum_{k = -\infty}^{-1} 0.5^k z^{-k} \\
+    &amp; = &amp;- \sum_{k = -\infty}^{-1} (0.5^{-1}z)^{-k} \\
+    &amp; = &amp;- \sum_{m = 1}^{\infty} (0.5^{-1}z)^{m}\end{aligned}
+\end{split}\]</div>
+<p>Nutzt man jetzt eine alternative Formulierung der unendlichen geometrischen
+Reihe</p>
+<div class="math notranslate nohighlight">
+\[\nonumber
+    \sum_{m = 1}^{\infty} x^m = \frac{x}{1-x}
+\]</div>
+<p>so ergibt sich</p>
+<div class="math notranslate nohighlight">
+\[
+\nonumber
+    X(z) = - \frac{0.5^{-1}z}{1-0.5^{-1}z} = \frac{z}{z-0.5}
+\]</div>
+<p>Wir erhalten also die gleiche z-Transformation für unterschiedliche Folgen,
+wobei aber die Konvergenz der geometrischen Reihe für die anti-kausale
+Folge ein Konverzgebiet</p>
+<div class="math notranslate nohighlight">
+\[\nonumber
+    |z| &lt; 0.5
+\]</div>
+<p>fordert. <a class="reference internal" href="#fig-roc-antikausal"><span class="std std-numref">Abbildung 5.3</span></a>  zeigt das dazugehörige Konvergenzgebiet in der z-Ebene. Man erkennt somit, warum eine Angabe des ROC bei der z-Transformation notwendig ist, um eine eindeutige Berechnung und Zuordnung zu gewährleisten.</p>
+<div class="figure align-default" id="fig-roc-antikausal">
+<a class="reference internal image-reference" href="_images/ROC_AntiKausal.png"><img alt="_images/ROC_AntiKausal.png" src="_images/ROC_AntiKausal.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei
+der z-Transformation. In diesem Beispiel für eine anti-kausale Folge
+(ROC innerhalb) mit
+<span class="math notranslate nohighlight">\(|z| &lt; 0.5\)</span>.</span><a class="headerlink" href="#fig-roc-antikausal" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="rechenregeln">
+<h2><span class="section-number">5.3. </span>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">¶</a></h2>
+<p>Die z-Transformation erleichtert das Rechnen von Differenzengleichungen.
+Wir werden deshalb im weiteren einige häufig verwendete Rechenregeln und
+Korrespondenzen einführen.</p>
+<div class="section" id="linearitat">
+<h3><span class="section-number">5.3.1. </span>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">¶</a></h3>
+<p>Die z-Transformation ist eine lineare Transformation. Es gilt:</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-linearitaet">
+<span class="eqno">(5.15)<a class="headerlink" href="#equation-eq-ztrafo-linearitaet" title="Permalink to this equation">¶</a></span>\[
+  a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(z) + a_2 X_2(z)
+\]</div>
+</div>
+<div class="section" id="verschiebung">
+<h3><span class="section-number">5.3.2. </span>Verschiebung<a class="headerlink" href="#verschiebung" title="Permalink to this headline">¶</a></h3>
+<p>Die zeitliche Verschiebung der diskreten Folge haben wir bereits in den
+Beispielen ausgiebig verwendet. Es gilt:</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-verschiebungssatz">
+<span class="eqno">(5.16)<a class="headerlink" href="#equation-eq-ztrafo-verschiebungssatz" title="Permalink to this equation">¶</a></span>\[
+    \mathcal{Z}\{y(k-k_0)\} = z^{-k_0} Y(z)
+\]</div>
+</div>
+</div>
+<div class="section" id="ruck-transformation">
+<h2><span class="section-number">5.4. </span>Rück-Transformation<a class="headerlink" href="#ruck-transformation" title="Permalink to this headline">¶</a></h2>
+<p>Wir haben gesehen, dass die z-Transformation eine diskrete Folge in eine
+kontinuierliche komplexe Ebene transformiert. In den Beispielen hatten
+wir es für die Rücktransformation in den Zeitbereich stets mit einfachen
+gebrochen rationalen Funktionen zu tun, die direkt auf eine bestimmte
+Folge führten. Dies ist nicht immer möglich. Die allgemeinste Version
+der z-Rücktransformation ist durch das Umlaufintegral</p>
+<div class="math notranslate nohighlight" id="equation-eq-zruek-def">
+<span class="eqno">(5.17)<a class="headerlink" href="#equation-eq-zruek-def" title="Permalink to this equation">¶</a></span>\[
+    x(k) = \oint_C X(z) z^{k-1} dz
+\]</div>
+<p>gegeben. Dies bedeutet wir umlaufen
+die komplexe Ebene auf dem Kreis C im mathematisch positiven Sinn
+(Gegenuhrzeigersinn) und integrieren die eingeschlossene Fläche. Dies
+ist nicht immer möglich. Ob die Möglichkeit besteht hängt direkt davon
+ab, wie das Konvergenzgebiet definiert ist. Auf die explizite Behandlung
+der Thematik wird hier nicht eingegangen, statt dessen wird auf <span id="id1">[<a class="reference internal" href="zbibliography.html#id186"><span>OS99</span></a>]</span>
+verwiesen, die Stichworte, die man sich im Zusammenhang mit der
+Rücktransformation merken sollte sind: Cauchy-Integral, Laurent-Reihe,
+Residuensatz.</p>
+<p>In vielen Fällen kann auf die Lösung des Integrals verzichtet werden.
+Statt dessen sind häufig Lösungen über Partialbruchzerlegung (siehe
+Beispiele) und/oder Korrespondenztabellen möglich</p>
+<div class="section" id="korrespondenztabelle">
+<h3><span class="section-number">5.4.1. </span>Korrespondenztabelle<a class="headerlink" href="#korrespondenztabelle" title="Permalink to this headline">¶</a></h3>
+<p>Viele Systeme und Signale lassen sich auf einfache Grundformen
+zurückführen. Für diese Grundformen kann für die Hin- und
+Rücktransformation folgende Tabelle verwendet werden.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Zeitbereich <span class="math notranslate nohighlight">\(y(k)\)</span></p></th>
+<th class="head"><p>Bildbereich <span class="math notranslate nohighlight">\(Y(z) = \mathcal{Z}\{y(k)\}\)</span></p></th>
+<th class="head"><p>Konvergenzgebiet</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\delta(k)\)</span></p></td>
+<td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(\forall z\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\gamma{k}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{z}{z-1} = \frac{1}{1-z^{-1}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\text{abs(z)}&gt;1\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k \gamma(k)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{z}{(z-1)^2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\text{abs(z)}&gt;1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(e^{-\alpha k}\gamma (k)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{z}{z-e^{-\alpha}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\text{abs(z)}&gt;e^{-\alpha}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\alpha^k \gamma (k)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{z}{z-\alpha}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\text{abs(z)} &gt; \alpha\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\cos(\omega_0 k)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1-z^{-1} \cos(\omega_0)}{1-z^{-1} 2\cos(\omega_0)+z^{-2}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\text{abs(z)}&gt;1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Zeitbereich 𝑦(𝑘)&#39;</span><span class="p">:[</span><span class="s2">&quot;δ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;γk&quot;</span><span class="p">,</span> <span class="s2">&quot;kγ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;e−αkγ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;αkγ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;cos(ω0k)&quot;</span><span class="p">],</span> 
+                              <span class="s1">&#39;x(k)&#39;</span><span class="p">:[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;(z/z-1) = 1/1-z−1 &quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span>
+                              <span class="s1">&#39;x(k-1)&#39;</span><span class="p">:[</span><span class="s2">&quot;∀z)&quot;</span><span class="p">,</span> <span class="s2">&quot; |z| &gt; 1&quot;</span><span class="p">,</span> <span class="s2">&quot; |z| &gt; 1&quot;</span><span class="p">,</span> <span class="s2">&quot; |z| &gt; e−α&quot;</span><span class="p">,</span> <span class="s2">&quot;|z| &gt; α&quot;</span><span class="p">,</span> <span class="s2">&quot;|z| &gt; 1&quot;</span><span class="p">]})</span>
+<span class="c1">#df = df.set_index(&#39;k&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine Beschreibung von LTI-Systemen kann wie im letzten Abschnitt gezeigt
+über Differenzengleichungen erfolgen. Die z-Transformation und
+Rücktransformation solcher Systeme sind besonders gut über die
+Korrespondenztabellen zu lösen:</p>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<p>LTI-Systeme<br />
+Wie lautet die z-Transformierte für die folgende Differenzengleichung</p>
+<div class="math notranslate nohighlight">
+\[
+y(k) = 0.2y(k-1) - y(k-3) + x(k) + 1.2x(k-1) - 3.2 x(k-2)
+\]</div>
+<p>Entscheidend ist, dass nur einfache Verzögerungen <span class="math notranslate nohighlight">\(k_0\)</span> auftreten, die
+in der z-Ebene durch <span class="math notranslate nohighlight">\(z^{-k_0}\)</span> dargestellt werden. Es ergibt sich mit
+der Eigenschaft der Linearität:</p>
+<div class="math notranslate nohighlight">
+\[
+Y(z) = 0.2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}
+\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="systemfunktion">
+<span id="sec-systemfunktion"></span><h2><span class="section-number">5.5. </span>Systemfunktion<a class="headerlink" href="#systemfunktion" title="Permalink to this headline">¶</a></h2>
+<p>Bei den zur Einführung verwendeten Beispielen wurden sehr einfache
+Eingangsfolgen für <span class="math notranslate nohighlight">\(x(k)\)</span> verwendet. Man könnte das Sparbuch-Beispiel
+aber auch erweitern und annehmen, dass pro Jahr eine nicht näher
+definierte Summe zusätzlich aufs Konto eingezahlt wird. Die rekursive
+Formulierung für den Ausgang sehe dann wie folgt aus</p>
+<div class="math notranslate nohighlight" id="equation-eq-example3-eingang">
+<span class="eqno">(5.18)<a class="headerlink" href="#equation-eq-example3-eingang" title="Permalink to this equation">¶</a></span>\[
+    y(k) = (1+p) y(k-1) + x(k)
+\]</div>
+<p>Wenn wir diese Gleichung mit der
+Definition <a class="reference internal" href="#equation-eq-def-ztrafo">(5.12)</a> in den z-Bereich transformieren erhalten wir</p>
+<div class="math notranslate nohighlight" id="equation-eq-eaxample3-zloesung">
+<span class="eqno">(5.19)<a class="headerlink" href="#equation-eq-eaxample3-zloesung" title="Permalink to this equation">¶</a></span>\[
+    Y(z) = (1+p)z^{-1} Y(z) + X(z)
+\]</div>
+<p>Dies ergibt umgeformt</p>
+<div class="math notranslate nohighlight" id="equation-eq-eaxample3-zloesung2">
+<span class="eqno">(5.20)<a class="headerlink" href="#equation-eq-eaxample3-zloesung2" title="Permalink to this equation">¶</a></span>\[
+    Y(z) = \frac{X(z)}{1-(1+p)z^{-1}}
+\]</div>
+<p>Teilen wir diese Lösung durch <span class="math notranslate nohighlight">\(X(z)\)</span> erhalten wir auf der rechten Seite
+der Gleichung den Anteil, der unabhängig vom Eingangssignal ist und nur
+das System repräsentiert. Wir kürzen zusätzlich den Bruch <span class="math notranslate nohighlight">\(Y(z)/X(z)\)</span>
+mit <span class="math notranslate nohighlight">\(H(z)\)</span> ab.</p>
+<div class="math notranslate nohighlight" id="equation-eq-example3-systemfunktion">
+<span class="eqno">(5.21)<a class="headerlink" href="#equation-eq-example3-systemfunktion" title="Permalink to this equation">¶</a></span>\[
+    H(z) = \frac{Y(z)}{X(z)} = \frac{1}{1-(1+p)z^{-1}}
+\]</div>
+<p>Die Funktion <span class="math notranslate nohighlight">\(H(z)\)</span> wird z-Übertragungsfunktion genannt und beschreibt ein LTI-System vollständig. Eine andere vollständige Beschreibung eines LTI-Systems unabhängig vom Eingangssignal war die Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> eines
+Systems. Beide Darstellungsarten sind durch die z-Transformation
+miteinander verbunden. Es gilt:</p>
+<div class="math notranslate nohighlight" id="equation-eq-def-ubertragfunktion">
+<span class="eqno">(5.22)<a class="headerlink" href="#equation-eq-def-ubertragfunktion" title="Permalink to this equation">¶</a></span>\[
+    \mathcal{Z}\{h(k)\} = H(z)
+\]</div>
+<p><strong>Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z)</strong></p>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<p>z-Übertragungsfunktion<br />
+Die z-Transformierte aus dem vorherigen Beispiel war gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[
+Y(z) = 0.2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}
+\]</div>
+<p>die z-Übertragungsfunktion ergibt sich durch wenige Umformungsschritte</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\nonumber
+    Y(z)- 0.2Y(z) z^{-1} + Y(z) z^{-3} &amp; = &amp;  X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}\\\nonumber
+    Y(z) \left(1-0.2z^{-1} + z^{-3} \right) &amp;=&amp; X(z) \left(1 +1.2z^{-1} - 3.2 z^{-2} \right)\\
+    H(z) = \frac{Y(z)}{X(z)} &amp;= &amp; \frac{1 +1.2z^{-1} - 3.2 z^{-2}}{1-0.2z^{-1} + z^{-3}}\end{aligned}
+\end{split}\]</div>
+</div>
+<p>Die Verknüpfung von <span class="math notranslate nohighlight">\(h(k)\)</span> und dem Eingangssignal <span class="math notranslate nohighlight">\(x(k)\)</span> zum
+Ausgangssignal <span class="math notranslate nohighlight">\(y(k)\)</span> erfolgte im Zeitbereich über die Faltung. Bei der
+z-Übertragungsfunktion ist die Verknüpfung von Eingang und Ausgang durch
+die Multiplikation gegeben. Es gilt also</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-faltungmulti">
+<span class="eqno">(5.23)<a class="headerlink" href="#equation-eq-ztrafo-faltungmulti" title="Permalink to this equation">¶</a></span>\[
+    \mathcal{Z}\{a(k)\ast b(k)\} = A(z) B(z)
+\]</div>
+<p>Damit haben wir eine Möglichkeit
+gefunden die eher aufwendige Faltungsumme mit Hilfe der z-Transformation
+in eine einfache Multiplikation im z-Bereich zu überführen. Das
+Ausgangssignal erhält man abschließend durch die inverse
+z-Transformation des Ausgangssignals <span class="math notranslate nohighlight">\(Y(z)\)</span>. Dieser Lösungsweg ist in
+<a class="reference internal" href="#fig-schematischezloesungfaltung"><span class="std std-numref">Abbildung 5.4</span></a>  zur Verdeutlichung schematisch
+gezeigt.</p>
+<div class="figure align-default" id="fig-schematischezloesungfaltung">
+<a class="reference internal image-reference" href="_images/SchematischezLoesungFaltung.png"><img alt="_images/SchematischezLoesungFaltung.png" src="_images/SchematischezLoesungFaltung.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Schematische Darstellung zur
+Berechnung der Faltungssumme mit Hilfe der
+z-Transformation.</span><a class="headerlink" href="#fig-schematischezloesungfaltung" title="Permalink to this image">¶</a></p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Das System ist durch</p>
+<div class="math notranslate nohighlight">
+\[
+y(k) = x(k) -2x(k-1) + x(k-2)
+\]</div>
+<p>gegeben. Die
+z-Transformation führt auf eine z-Übertragungsfunktion</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = 1-2z^{-1} + z^{-2}
+\]</div>
+<p>Für die Eingangsfolge:</p>
+<div class="math notranslate nohighlight">
+\[
+x(k) = \delta(k) + 2\delta(k-1)  + 3\delta(k-2)  + 4\delta(k-3)  + 5\delta(k-4)
+\]</div>
+<p>ergibt sich die z-Transformierte zu</p>
+<div class="math notranslate nohighlight">
+\[
+X(z) = 1 + 2z^{-1} + 3z^{-2}+ 4z^{-3}+ 5z^{-4}
+\]</div>
+<p>Eine Polynommultiplikation führt zu der Ausgangs-z-Funktion</p>
+<div class="math notranslate nohighlight">
+\[
+Y(z) = X(z)H(z) = 1 -6 z^{-5} + 5 z^{-6}
+\]</div>
+<p>Damit ergibt sich für die
+Ausgangsfolge</p>
+<div class="math notranslate nohighlight">
+\[
+y(k) = [1 \:\: 0 \:\: 0 \:\: 0 \:\: 0 \:\: -6 \:\: 5]
+\]</div>
+<p>bzw.
+$<span class="math notranslate nohighlight">\(
+y(k) = \delta(k) - 6 \delta(k-5) + 5 \delta(k-6)
+\)</span>$</p>
+</div>
+<p><strong>Die Faltung wird in der z-Ebene zu einer Multiplikation</strong></p>
+</div>
+<div class="section" id="pol-nullstellenplan">
+<h2><span class="section-number">5.6. </span>Pol-Nullstellenplan<a class="headerlink" href="#pol-nullstellenplan" title="Permalink to this headline">¶</a></h2>
+<p>Nachdem die Äquivalenz der Impulsantwort mit der z-Übertragungsfunktion
+<span class="math notranslate nohighlight">\(H(z)\)</span> bekannt ist, ist es möglich, Systeme besser zu analysieren. Dazu
+schauen wir uns zunächst die typische Übertragungsfunktion an.</p>
+<div class="math notranslate nohighlight" id="equation-eq-uebertragungsfunktion">
+<span class="eqno">(5.24)<a class="headerlink" href="#equation-eq-uebertragungsfunktion" title="Permalink to this equation">¶</a></span>\[
+ H(z) = \frac{b_0 + b_1z^{-1} + b_2z^{-2}+ \cdots b_M z^{-M}
+    }{1 + a_1z^{-1} + a_2z^{-2}+ \cdots a_N z^{-N}}
+    = \frac{\displaystyle \sum_{i=0}^M b_iz^{-i}}
+    {\displaystyle \sum_{i=0}^N a_i z^{-i}}~mit~a_0 = 1
+\]</div>
+<p>Wir nehmen an, dass der Zählergrad <span class="math notranslate nohighlight">\(M\)</span> kleiner oder gleich dem Nennergrad <span class="math notranslate nohighlight">\(N\)</span> ist. Dies ist gleichbedeutend mit der Annahme, dass es sich um ein kausales System handelt<a class="footnote-reference brackets" href="#id4" id="id2">1</a>. Die Ordnung des Systems wird unter dieser Annahme durch <span class="math notranslate nohighlight">\(N\)</span> angegeben. Im allgemeinen Fall definiert das Maximum von <span class="math notranslate nohighlight">\(N\)</span> und <span class="math notranslate nohighlight">\(M\)</span> die Ordnung des Systems.</p>
+<p>Die gebrochen rationale Funktion können wir auch in der äquivalenten
+Produktform schreiben, wenn uns alle Nullstellen, des Zähler- und
+Nennerpolynoms bekannt sind. Wir werden für die Nullstellen des Nenners
+ab jetzt den Begriff Polstellen bzw. Pol verwenden, da an diesen
+Punkten, die Übertragungsfunktion unendlich wird.</p>
+<div class="math notranslate nohighlight" id="equation-eq-uebertragungsfunktion-produktdarstellung">
+<span class="eqno">(5.25)<a class="headerlink" href="#equation-eq-uebertragungsfunktion-produktdarstellung" title="Permalink to this equation">¶</a></span>\[\begin{split}
+\begin{aligned}
+ H(z)
+ &amp; = &amp; b_0 \frac{(z-n_0)(z-n_1)\cdots(z-n_{M-1})}{(z-p_0)(z-p_1)\cdots(z-p_{N-1})}\\
+ &amp; = &amp; b_0 \frac{\displaystyle \prod_{i = 0}^{M-1}(z-n_i)}
+ {\displaystyle \prod_{i = 0}^{N-1}(z-p_i)}
+ \end{aligned}
+\end{split}\]</div>
+<p>Für reelle Koeffizienten <span class="math notranslate nohighlight">\(b_i\)</span> und <span class="math notranslate nohighlight">\(a_i\)</span> ergeben sich dabei immer nur
+reelle Nullstellen oder konjugiert komplexe Paare.</p>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\nonumber
+    H(z) &amp; = &amp; \frac{3+6z^{-1}+3z^{-2}}{1.0000   -1.7119 z^{-1} +   0.8100
+    z^{-2}}\\\nonumber
+    &amp;=&amp; 3\frac{(z+1)(z+1)}{(z-0.8560 - 0.2781j)(z-0.8560 +
+    0.2781j)}\\\nonumber
+    &amp;=&amp; 3\frac{(z+1)^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}\end{aligned}
+\end{split}\]</div>
+</div>
+<p>Um bestimmte Eigenschaften zu verdeutlichen ist es oft sinnvoll, die
+Pole und Nullstellen in der komplexen Ebene einzuzeichnen. Dabei werden
+Nullstellen durch ein o und Pole durch ein x markiert. Für das Beispiel
+ergibt sich der folgende Pol-Nullstellenplan, wobei ein eventuell
+vorhandener Skalierungsfaktor <span class="math notranslate nohighlight">\(b_0\)</span> nicht berücksichtige wird. Der Pol-
+Nullstellenplan ist deshalb keine vollständige Beschreibung eines
+LTI-Systems.</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># based on https://matplotlib.org/3.1.0/gallery/mplot3d/surface3d_radial.html </span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Dem Polnullstellenplan kann per Rechtsklick eine Nullstelle, und per Linksklick eine Pollstelle hinzugefügt werden. Um eine Pol- / Nullstelle zu löschen muss man während man auf sie klickt &#39;Strg&#39; halten. Es werden automatisch die konjugierten Pol- / Nullstellen hinzugefügt und gelöscht</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="k">def</span> <span class="nf">H_from_pole_zero</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="n">zaehler</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">nenner</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zeros</span><span class="p">)):</span>
+        <span class="n">null</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">C</span> <span class="o">-</span> <span class="n">zeros</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">C</span> <span class="o">-</span> <span class="n">zeros_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+        <span class="n">zaehler</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">zaehler</span><span class="p">,</span> <span class="n">null</span><span class="p">)</span>
+        
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poles</span><span class="p">)):</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">C</span> <span class="o">-</span> <span class="n">poles</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">C</span> <span class="o">-</span> <span class="n">poles_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+        <span class="n">nenner</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">nenner</span><span class="p">,</span> <span class="n">pole</span><span class="p">)</span>
+
+    <span class="n">H</span> <span class="o">=</span> <span class="n">zaehler</span><span class="o">/</span><span class="n">nenner</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Z</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create the mesh in polar coordinates and compute corresponding Z.</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">circle</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="n">j</span><span class="p">,</span> <span class="mf">1.5</span><span class="n">j</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">poles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="n">j</span><span class="p">]</span>
+<span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="n">j</span><span class="p">]</span>
+<span class="n">poles_conj</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">zeros_conj</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax_pz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+
+<span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+<span class="n">ax_pz</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Realteil&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Imaginärteil&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Pol-Nullstellen-Plan&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+
+
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poles</span><span class="p">)):</span>
+    <span class="n">poles_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">poles</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+    <span class="n">zeros_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+    <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">poles</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">poles_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">],</span> <span class="p">[</span><span class="n">poles</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">poles_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">zeros</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">zeros_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">],</span> <span class="p">[</span><span class="n">zeros</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">zeros_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">poles</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poles_conj</span><span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
+
+<span class="n">Z</span> <span class="o">=</span> <span class="n">H_from_pole_zero</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">imag</span>
+
+<span class="n">ax_3d</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax_3d</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax_3d</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">X_c</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">real</span>
+<span class="n">Y_c</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span>
+<span class="n">Z_c</span> <span class="o">=</span> <span class="n">H_from_pole_zero</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+
+<span class="n">ax_3d</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_c</span><span class="p">,</span> <span class="n">Y_c</span><span class="p">,</span> <span class="n">Z_c</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax_3d</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">zlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="n">ax_3d</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\phi_\mathrm</span><span class="si">{real}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax_3d</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\phi_\mathrm</span><span class="si">{im}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax_3d</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$H in dB$&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">check_distance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">loc</span><span class="p">):</span>
+    <span class="n">del_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">points_distance</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">points</span> <span class="o">-</span> <span class="n">loc</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">points_distance</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points_distance</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">points_distance</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.05</span><span class="p">):</span>
+            <span class="n">del_idx</span> <span class="o">=</span> <span class="n">idx</span>
+    <span class="k">return</span> <span class="n">del_idx</span>
+
+<span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">poles</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">poles_conj</span><span class="p">,</span> <span class="n">zeros_conj</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">key</span><span class="o">==</span><span class="s2">&quot;control&quot;</span><span class="p">):</span> <span class="c1"># Delete if doubleclicked</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span>
+        <span class="c1"># check if some pole is near it</span>
+        <span class="n">del_idx</span> <span class="o">=</span> <span class="n">check_distance</span><span class="p">(</span><span class="n">poles</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">del_idx</span><span class="p">)</span>
+        
+        <span class="n">del_idx_conj</span> <span class="o">=</span> <span class="n">check_distance</span><span class="p">(</span><span class="n">poles_conj</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">del_idx_conj</span><span class="p">)</span>
+
+        <span class="n">del_idx</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">del_idx</span><span class="p">,</span> <span class="n">del_idx_conj</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">del_idx</span><span class="o">!=-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">del</span> <span class="n">poles</span><span class="p">[</span><span class="n">del_idx</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">poles_conj</span><span class="p">[</span><span class="n">del_idx</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># check if some zero is near it</span>
+            <span class="n">del_idx</span> <span class="o">=</span> <span class="n">check_distance</span><span class="p">(</span><span class="n">zeros</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
+            <span class="n">del_idx_conj</span> <span class="o">=</span> <span class="n">check_distance</span><span class="p">(</span><span class="n">zeros_conj</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
+            <span class="n">del_idx</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">del_idx</span><span class="p">,</span> <span class="n">del_idx_conj</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">del_idx</span><span class="o">!=-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">del</span> <span class="n">zeros</span><span class="p">[</span><span class="n">del_idx</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">zeros_conj</span><span class="p">[</span><span class="n">del_idx</span><span class="p">]</span>
+                
+    <span class="k">elif</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># setze Polstelle mit einfachem Linksklick</span>
+        <span class="n">poles</span> <span class="o">=</span> <span class="n">poles</span> <span class="o">+</span> <span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">]</span>
+        <span class="n">poles_conj</span> <span class="o">=</span> <span class="n">poles_conj</span> <span class="o">+</span> <span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">==</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># setze Nullstelle mit einfachem Rechtsklick</span>
+        <span class="n">zeros</span> <span class="o">=</span> <span class="n">zeros</span> <span class="o">+</span> <span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">]</span>
+        <span class="n">zeros_conj</span> <span class="o">=</span> <span class="n">zeros_conj</span> <span class="o">+</span> <span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">]</span>
+        
+    <span class="n">ax_pz</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>    
+    <span class="n">ax_pz</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Realteil&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Imaginärteil&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Pol-Nullstellen-Plan&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poles</span><span class="p">)):</span>
+        <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">poles</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">poles</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poles_conj</span><span class="p">)):</span>
+        <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">poles_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">poles_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zeros</span><span class="p">)):</span>
+        <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">zeros</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">zeros</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zeros_conj</span><span class="p">)):</span>
+        <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">zeros_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">zeros_conj</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">H_from_pole_zero</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">Z_c</span> <span class="o">=</span> <span class="n">H_from_pole_zero</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+    
+    <span class="n">ax_3d</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="n">ax_3d</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">ax_3d</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_c</span><span class="p">,</span> <span class="n">Y_c</span><span class="p">,</span> <span class="n">Z_c</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">ax_3d</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">zlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+    
+<span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;PolNullstellenplan&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="fig-polnullstellenplan" style="width: 75%">
+<p class="caption"><span class="caption-number">Fig. 5.5 </span><span class="caption-text">Pole und Nullstellen in der komplexen
+Ebene.</span><a class="headerlink" href="#fig-polnullstellenplan" title="Permalink to this image">¶</a></p>
+</div>
+<p>Mehrfachnullstellen (oder auch Pole) werden durch eine zusätzliche Zahl
+gekennzeichnet, hier die zwei für die doppelte Nullstelle bei <span class="math notranslate nohighlight">\(z = -1\)</span>.
+Weiterhin ist der sog. Einheitskreis zu sehen, der den Radius eins
+markiert und eine besondere Bedeutung hat, auf die wir noch zu sprechen
+kommen.</p>
+<p>Zur Verdeutlichung der Auswirkungen von Polen und Nullstellen in der
+komplexen Ebene ist in <a class="reference internal" href="#fig-polnullstellenhz"><span class="std std-numref">Abbildung 5.6</span></a> der Betrag der Übertragungsfunktion in Abhängigkeit vom Real und Imaginärteil für das eben verwendete Beispiel gezeigt (Die Darstellung erfolgt
+logarithmisch.). Zur Orientierung ist zusätzlich der Einheitskreis
+eingezeichnet.</p>
+<div class="figure align-default" id="fig-polnullstellenhz">
+<a class="reference internal image-reference" href="_images/PolNullstellenHz.png"><img alt="_images/PolNullstellenHz.png" src="_images/PolNullstellenHz.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Übertragungsfunktion in der
+komplexenEbene.</span><a class="headerlink" href="#fig-polnullstellenhz" title="Permalink to this image">¶</a></p>
+</div>
+<p>Der Einfluss der beide Extremstellen auf den Betrag der
+Übertragungsfunktion ist auf der ganzen z-Ebene sichtbar. Man erkennt
+sehr deutlich, wie die Pole zu einem unendlichen Betrag führen, während
+die doppelte Nullstelle den Betrag zu Null werden lässt.</p>
+<p>Welche Auswirkungen haben nun Polstellen auf die Systemeigenschaften und
+insbesondere auf das Verhalten im Zeitbereich. Grundsätzlich lassen sich
+die komplexen Pole immer auch in der Polarschreibweise (Radius und
+Phase) angeben.</p>
+<p>Betrachten wir jetzt ein System mit nur einem Pol (komplexwertiges
+System)</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-erklaerungpollage">
+<span class="eqno">(5.26)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollage" title="Permalink to this equation">¶</a></span>\[
+    H(z) = \frac{1}{1-re^{j\varphi}z^{-1}}
+\]</div>
+<p>Zurücktransfomiert in den
+Zeitbereich ergibt sich mit Hilfe der Korrespondenztabelle</p>
+<div class="math notranslate nohighlight" id="equation-eq-ztrafo-erklaerungpollagezeitbereich">
+<span class="eqno">(5.27)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich" title="Permalink to this equation">¶</a></span>\[
+    h(k) = \gamma(k) r^k e^{j\varphi k}
+\]</div>
+<p>Interpretiert man Gleichung <a class="reference internal" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich">(5.27)</a> so ist zu erkennen, dass die Impulsantwort aus einer komplexen Schwingung (<span class="math notranslate nohighlight">\(e^{j\varphi k}\)</span>) und einem Faktor besteht, der die Amplitude ändert. Dieser Amplitudenfaktor wird als Einhüllende der komplexen Schwingung
+bezeichnet. Die Frequenz der Schwingung ist durch den Polwinkel
+<span class="math notranslate nohighlight">\(\varphi\)</span> definiert und die Form der Einhüllenden durch den Radius <span class="math notranslate nohighlight">\(r\)</span>.
+Für <span class="math notranslate nohighlight">\(r&lt;1\)</span> ergibt sich eine gedämpfte Exponentialfunktion. Bei <span class="math notranslate nohighlight">\(r=1\)</span> ist
+die komplexe Schwingung ungedämpft und bei <span class="math notranslate nohighlight">\(r&gt;1\)</span> handelt es sich um eine
+aufklingende, also mit der Zeit stärker werdende Schwingung.</p>
+<p>Dies ist in der <a class="reference internal" href="#fig-pollagen"><span class="std std-numref">Abbildung 5.7</span></a> nochmals verdeutlicht. Die Pollage a) ist
+ein Pol auf der reellen Ache mit einem Radius von <span class="math notranslate nohighlight">\(r = 0.96\)</span> (Die eingezeichneten Pollagen sind zur Verdeutlichung skaliert). Die
+dazugehörige Schwingung ist eine abklingende Exponentialfunktion ohne
+Schwingungsanteil. Ist der Radius größer eins (b) <span class="math notranslate nohighlight">\(r= 1.01\)</span>) ergibt sich
+eine aufklingende Exponentialfunktion. Verschiebt man den Pol auf dem
+Radius <span class="math notranslate nohighlight">\(r=
+0.96\)</span> auf einen Polwinkel <span class="math notranslate nohighlight">\(\varphi = \pi/10\)</span>, so ergibt sich eine
+exponentiell abklingende Schwingung (siehe c)). Bei einem Radius größer
+eins, eine aufklingende Schwingung (d). Die Drehung ist bei
+<span class="math notranslate nohighlight">\(\varphi = 3\pi / 4\)</span> kaum noch zu erkennen (e), während die Frequenz
+<span class="math notranslate nohighlight">\(\varphi = \pi\)</span> erneut zu einer reellen Folge führt mit wechselndem
+Vorzeichen. Der Radius entscheidet über das Abklingverhalten (g,f). Die
+Drehrichtung wird durch die Pollage in der oberen oder unteren Halbebene
+angegeben.</p>
+<div class="figure align-default" id="fig-pollagen">
+<a class="reference internal image-reference" href="_images/PolLagen.png"><img alt="_images/PolLagen.png" src="_images/PolLagen.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an <span id="id3">[<a class="reference internal" href="zbibliography.html#id190"><span>GRS13</span></a>]</span>).</span><a class="headerlink" href="#fig-pollagen" title="Permalink to this image">¶</a></p>
+</div>
+<p>Bei konjugiert komplexen Polpaaren heben sich durch die gegensinnigen
+Drehrichtungen die Imaginäranteile auf und die Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> ist
+rein reellwertig. Die ausgebildeten Schwingungen entsprechen gedämpften
+oder aufklingenden Cosinusfunktionen der Frequenz <span class="math notranslate nohighlight">\(\varphi\)</span>.</p>
+<p>Es gilt für konjugiert (<span class="math notranslate nohighlight">\(^{\ast}\)</span>) komplexe Polpaare:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{Az}{z-a} + \frac{A^{\ast}z}{z-a^{\ast}} ;\bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; 2|A||a|^k\cos(arg\{a\}k + arg\{A\})\gamma(k)
+\]</div>
+<p><span class="math notranslate nohighlight">\(arg\{x\}\)</span> ist das Argument (Winkel) von der komplexen Zahl <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">impulse</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">pole</span><span class="p">):</span>
+    <span class="n">r_pole</span> <span class="o">=</span> <span class="p">(</span><span class="n">pole</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pole</span><span class="o">.</span><span class="n">imag</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span> 
+    <span class="n">phi_pole</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span> <span class="c1"># in rad/s</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">phi_pole</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_pole</span><span class="p">))</span>
+    <span class="n">r_A</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">phi_A</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_samples</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">r_A</span> <span class="o">*</span> <span class="n">r_pole</span><span class="o">**</span><span class="n">idx</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_pole</span><span class="o">*</span><span class="n">idx</span> <span class="o">+</span> <span class="n">phi_A</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">ax_pz</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+    <span class="n">ax_imp</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+
+    <span class="n">pole</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">impulse</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">pole</span><span class="p">)</span>
+    
+    <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">pole</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">pole</span><span class="o">.</span><span class="n">real</span><span class="p">],</span> <span class="p">[</span><span class="n">pole</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="o">-</span><span class="n">pole</span><span class="o">.</span><span class="n">imag</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">ax_imp</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax_imp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Impulsantwort des Systems&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+
+
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">circle</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="mf">0.8</span><span class="o">+</span><span class="mf">0.2</span><span class="n">j</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Pole-Zero Plot</span>
+<span class="n">ax_pz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax_pz</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Realteil&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Imaginärteil&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Pol-Nullstellen-Plan&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+<span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+<span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">pole</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">pole</span><span class="o">.</span><span class="n">real</span><span class="p">],</span> <span class="p">[</span><span class="n">pole</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="o">-</span><span class="n">pole</span><span class="o">.</span><span class="n">imag</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">impulse</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">pole</span><span class="p">)</span>
+
+
+<span class="c1"># Impulse Plot</span>
+<span class="n">ax_imp</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax_imp</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_imp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Impulsantwort des Systems&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;BspKonjKomplexPole&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Ausgehend von dem System</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = \frac{z^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}
+\]</div>
+<p>ergibt sich für die Aufspaltung</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = \frac{Az}{z-0.9e^{j\frac{\pi}{10}}} + \frac{A^{\ast}z}{z-0.9e^{-j\frac{\pi}{10}}}
+\]</div>
+<p>mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+A &amp;=&amp; (z-0.9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
+    &amp; = &amp; \frac{z}{z-0.9e^{-j\frac{\pi}{10}}}\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
+    &amp; = &amp; \frac{0.9e^{j\frac{\pi}{10}}}{0.9e^{j\frac{\pi}{10}}-0.9e^{-j\frac{\pi}{10}}}\\
+    &amp; = &amp; -j\frac{e^{j\frac{\pi}{10}}}{2\sin \frac{\pi}{10}}\end{aligned}
+\end{split}\]</div>
+<p>Die Impulsantwort ist also durch</p>
+<div class="math notranslate nohighlight">
+\[
+h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\right)\gamma(k)
+\]</div>
+<p>gegeben und wird in <a class="reference internal" href="#fig-bspkonjkomplexpole"><span class="std std-numref">Abbildung 5.8</span></a> bis <span class="math notranslate nohighlight">\(k = 49\)</span> gezeigt.</p>
+<div class="figure align-default" id="fig-bspkonjkomplexpole" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/ztrafo_18_0.png" src="_images/ztrafo_18_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.8 </span><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="stabilitat">
+<h2><span class="section-number">5.7. </span>Stabilität<a class="headerlink" href="#stabilitat" title="Permalink to this headline">¶</a></h2>
+<p>Mit den Erklärungen für <a class="reference internal" href="#fig-pollagen"><span class="std std-numref">Abbildung 5.7</span></a> ist die Frage nach einem Stabilitätstest für kausale LTI-Systeme recht einfach zu beantworten. Da alle Systeme mit Polradien größer eins aufklingende Schwingungen erzeugen sind die dazugehörigen Impulsantworten nicht endlich. Auf einen endlichen Impuls reagiert das System mit einer unendlichen Ausgangsgröße. Damit ist die BIBO-Bedingung nicht mehr erfüllt.</p>
+<p><strong>Stabile, kausale Systeme haben nur Pole innerhalb des
+Einheitkreises.</strong></p>
+<p><strong>Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis</strong></p>
+<p>Allgemein lässt sich sagen, dass Systeme deren z-Konvergenzgebiet den
+Einheitskreis mit einschließen stabil sind. Betrachtet man noch einmal
+die Beispiele für z-Transformation und des dazugehörigen
+Konvergenzgebietes auf Seite , so wird deutlich, dass die kausale Folge
+ein stabiles System darstellt, während die nicht-kausale Folge instabil
+ist. Man kann dies auch daran erkennen, dass die Folge mit wachsendem
+<span class="math notranslate nohighlight">\(k\)</span> größer wird.</p>
+<p>Für LTI-Systeme ergibt sich als Kriterium für die BIBO-Stabilität.</p>
+<div class="math notranslate nohighlight" id="equation-eq-bibo-integral">
+<span class="eqno">(5.28)<a class="headerlink" href="#equation-eq-bibo-integral" title="Permalink to this equation">¶</a></span>\[
+    \int_{-\infty}^{\infty} |h(t)|^2 dt &lt; \infty
+\]</div>
+<p>bzw. für diskrete Systeme gilt</p>
+<div class="math notranslate nohighlight" id="equation-eq-bibo-diskret">
+<span class="eqno">(5.29)<a class="headerlink" href="#equation-eq-bibo-diskret" title="Permalink to this equation">¶</a></span>\[
+    \sum_{k = -\infty}^{\infty}|h(k)|^2 &lt; \infty
+\]</div>
+<div class="section" id="stabilitat-eines-systems-2-ordnung">
+<h3><span class="section-number">5.7.1. </span>Stabilität eines Systems 2. Ordnung<a class="headerlink" href="#stabilitat-eines-systems-2-ordnung" title="Permalink to this headline">¶</a></h3>
+<p>Systeme zweiter Ordnung sind in der digitalen Signalverarbeitung ein
+wichtiger Grundbaustein. Es ist deshalb interessant allgemein die
+Stabilitätsbedingungen zu berechnen. Das System ist durch</p>
+<div class="math notranslate nohighlight">
+\[
+H(z)=\frac{1}{1+a_{1}z^{-1}+a_{2}z^{-2}}
+\]</div>
+<p>gegeben. Um die Polstellen
+des Polynoms zu berechnen, muss</p>
+<div class="math notranslate nohighlight">
+\[
+z^{2}+a_{1}z+a_{2}=0
+\]</div>
+<p>mit der
+bekannten pq-Formel</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    z_{1}&amp; = &amp;-\frac{a_{1}}{2}+\sqrt{\frac{a_{1}^{2}}{4}-a_{2}}\\
+    z_{2}&amp; = &amp;-\frac{a_{1}}{2}-\sqrt{\frac{a_{1}^{2}}{4}-a_{2}}\end{aligned}
+    \end{split}\]</div>
+<p>berechnet werden.</p>
+<p>Die Stabilität ist immer für einen Betrag von <span class="math notranslate nohighlight">\(\left|z\right|&lt;1\)</span>
+gesichert. Welche Bedingungen müssen für die Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und
+<span class="math notranslate nohighlight">\(a_2\)</span> gelten?</p>
+<p>Zur Lösung nehmen wir zunächst eine Fallunterscheidung vor:</p>
+<ol class="simple">
+<li><p>Für die komplexwertige Lösung <span class="math notranslate nohighlight">\(a_{2}&gt;\frac{a_{1}^{2}}{4}\)</span> ergibt
+sich durch die Nebenbedingung, dass man <span class="math notranslate nohighlight">\(\sqrt{-1} = j\)</span> vor die
+Wurzel ziehen kann und sich somit die Vorzeichen umdrehen.
+<span class="math notranslate nohighlight">\(z=-\frac{a_{1}}{2} \pm j \sqrt{a_{2}-\frac{a_{1}^{2}}{4}}\)</span></p></li>
+</ol>
+<p>Berechnet man den Betrag ergibt sich</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+        \left|z\right| &amp; = &amp; \sqrt{\frac{a_{1}^{2}}{4}+a_{2}-\frac{a_{1}^{2}}{4}}\\
+        &amp; = &amp; \sqrt{a_{2}}
+        \end{aligned}
+\end{split}\]</div>
+<p>Da für ein stabiles System <span class="math notranslate nohighlight">\(\left|z\right|&lt;1\)</span>
+gelten muss, gilt als erste Bedingung, dass auch <span class="math notranslate nohighlight">\(a^2_{2}&lt;1\)</span> sein
+muss</p>
+<ol>
+<li><p>Für die reelwertige Lösung gilt <span class="math notranslate nohighlight">\(a_{2}&lt;\frac{a_{1}^{2}}{4}\)</span>:<br />
+Es ergibt sich damit die folgende Ungleichung.</p>
+<div class="math notranslate nohighlight">
+\[
+    -1 &lt; -\frac{a_{1}}{2} \pm \underbrace{\sqrt{\frac{a_{1}^{2}}{4}-a_{2}}}_{&gt;0} &lt; 1
+    \]</div>
+<p>Löst man diese Ungleichung zunächst für das erste
+Ungleichheitszeichen und nutzt die negative Lösung, da diese ja
+immer kleiner ist als die positive Lösung</p>
+<div class="math notranslate nohighlight">
+\[
+    -1&lt;-\frac{a_{1}}{2} - \sqrt{\frac{a_{1}^{2}}{4}-a_{2}}
+    \]</div>
+<p>ergibt
+sich (zunächst Multiplikation mit -1, danach quadrieren und
+ausrechnen)
+$<span class="math notranslate nohighlight">\(
+\begin{aligned}
+        -1+\frac{a_{1}}{2} &amp; &lt; &amp; - \sqrt{\frac{a_{1}^{2}}{4}-a_{2}}\\
+        \left(1-\frac{a_{1}}{2}\right)^{2}&amp; &gt; &amp; \frac{a_{1}^{2}}{4}-a_{2}\\
+        1-2\frac{a_{1}}{2}+\frac{a_{1}^{2}}{4}&amp; &gt; &amp; \frac{a_{1}^{2}}{4}-a_{2}\\
+        1-a_1 &amp;  &gt;  &amp; -a_2 \\
+        a_{1} &amp; &lt;  &amp; a_{2}+1
+    \end{aligned}
+\)</span>$
+Für das zweite Ungleichheitszeichen gilt
+entsprechendes. Die zweite Bedingung lautet</p>
+<div class="math notranslate nohighlight" id="equation-eq-sos-ungleichung2">
+<span class="eqno">(5.30)<a class="headerlink" href="#equation-eq-sos-ungleichung2" title="Permalink to this equation">¶</a></span>\[
+        a_1 &gt; -a_2 -1
+    \]</div>
+</li>
+</ol>
+<p>Fasst man diese Bedingungen zusammen, ergibt sich für <span class="math notranslate nohighlight">\(a_2\)</span> eine untere
+Grenze von <span class="math notranslate nohighlight">\(a_2&gt;-1\)</span>. Alles zusammen beschreibt ein Dreieck, dass als
+Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
+<a class="reference internal" href="#fig-stabildreieck"><span class="std std-numref">Abbildung 5.9</span></a>).</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This script creates an interactive graphic, where the user can set a1 and a2 coeffitients by clicking a point in left graph. The right graph will show the corresponding impulse response of the defined system</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> 
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">impulse</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a1</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;calculates the impulse response of length num_samles for the two recursive factors a1, and a2&#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_samples</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-</span> <span class="n">a1</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a2</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">y</span>
+    
+<span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;on click the mark is set in the stability triangle and the resulting impulse response is calculated and displayed&#39;&#39;&#39;</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">ydata</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span>
+    <span class="n">ax_stab</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">impulse</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
+    <span class="n">ax_impuls</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="n">ax_impuls</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax_impuls</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Impulsantwort des Systems y[k] = x[k] - </span><span class="si">{</span><span class="n">a1</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">*y[k-1] - </span><span class="si">{</span><span class="n">a2</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">*y[k-2]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+
+<span class="c1"># creates triangle</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">triangle</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">edges</span><span class="p">[:],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+
+<span class="c1"># coefficient values</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="mf">0.9</span>
+
+<span class="c1"># subplot figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_stab</span><span class="p">,</span> <span class="n">ax_impuls</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Stability Plot</span>
+<span class="n">ax_stab</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+<span class="n">ax_stab</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;a2&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;a1&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;stabilitätsdreieck&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax_stab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
+
+<span class="c1"># Impulse Plot</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">impulse</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+<span class="n">ax_impuls</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_impuls</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Impulsantwort des Systems y[k] = x[k] - </span><span class="si">{</span><span class="n">a1</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">*y[k-1] - </span><span class="si">{</span><span class="n">a2</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">*y[k-2]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Execute onclick when button is pressed</span>
+<span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;Stabildreieck&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="fig-stabildreieck" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/ztrafo_21_0.png" src="_images/ztrafo_21_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
+Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="matlab-und-z-transformation">
+<h2><span class="section-number">5.8. </span>Matlab und z-Transformation<a class="headerlink" href="#matlab-und-z-transformation" title="Permalink to this headline">¶</a></h2>
+<div class="error admonition">
+<p class="admonition-title">To Do</p>
+<p>poly roots Anwendung erklaren</p>
+<p>zplane als Anzeige Tool</p>
+</div>
+</div>
+<div class="section" id="ubungen">
+<h2><span class="section-number">5.9. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
+<h3><span class="section-number">5.9.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Welche Bedingungen müssen gelten, damit ein LTI-System stabil ist?</p></li>
+<li><p>Welche Beschreibungen eines LTI-Systems kennen Sie?</p></li>
+<li><p>Warum ist die Angabe der z-Transformationsfunktion nicht
+ausreichend?</p></li>
+<li><p>[[Aufg:zTrafo:Stabilitaet]]{#Aufg:zTrafo:Stabilitaet
+label=”Aufg:zTrafo:Stabilitaet”}Testen Sie die folgenden LTI -
+Systeme auf Stabilität:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = -2 y(k-1) + 1.5 x(k) - 2x(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) =  2.5 x(k-1) + 1.83 y(k-1)  - 0.99y(k-2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) =  0.3 x(k) + 07 x(k-1) + 1.9812 y(k-1)   - 1.0201 y(k-2)\)</span></p></li>
+</ol>
+</li>
+<li><p>Zeigen Sie, dass die Ungleichung <a class="reference internal" href="#equation-eq-sos-ungleichung2">(5.30)</a> gilt.</p></li>
+</ol>
+</div>
+<div class="section" id="aufgaben-auf-klausurniveau">
+<span id="sec-aufgaben"></span><h3><span class="section-number">5.9.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Zeigen Sie, dass die z-Transformation eine lineare Transformation
+ist, indem Sie den Linearitätstest durchführen.</p></li>
+<li><p>Welchen Wert hat das folgende System nach
+50 Schritten. Geben Sie die direkte Berechnungsmethode an. Ist das
+System BIBO-stabil?<br />
+<span class="math notranslate nohighlight">\(y(k) = \sqrt(2) y(k-1) -  y(k-2) + 0.5 \delta(k)\)</span></p></li>
+<li><p>Sind die folgenden Systeme kausal, stabil, linear und zeitinvariant?
+Begründen Sie ihre Antwort (auch wenn Sie keine Aussage machen
+können) mathematisch oder textuell (16)!</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = 0.5 y(k-1) - 0.3 y(k-2) k + 0.4 x(k) - 0.5
+        x(k-1)x(k-2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k+1) = 1.1 y(k-1) - 0.5 x(k+1) + 0.3 x(k) - 0.5
+        x(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k+1) = 2x(2k-k) - y(k+1) + 4 x(k-2) + 1.8 y(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = 0.3 x(k) + 0.6x(k-1) - 0.7 x(k-2)y(k-2) + x(2k-2)\)</span></p></li>
+</ol>
+</li>
+<li><p>Ist das folgende Systeme kausal, stabil, linear und zeitinvariant?
+Begründen Sie ihre Antwort mathematisch oder textuell! Falls Sie
+keine Aussage treffen können, begründen Sie auch dies!
+<span class="math notranslate nohighlight">\(y(k+1) - 2y(k+2) + \alpha x(k+2) + x(k+1) =  1.99 y(k)\)</span><br />
+Nehmen Sie an <span class="math notranslate nohighlight">\(\alpha = 2\)</span> (8 Punkte). Für welche Bereiche von
+<span class="math notranslate nohighlight">\(\alpha\)</span> (rein reell) ist das System stabil (Begründung)? (2 Punkte)</p></li>
+<li><p>Sind die beiden folgenden Systeme kausal, stabil, linear und
+zeitinvariant? Begründen Sie ihre Antwort mathematisch oder
+textuell! Falls Sie keine Aussage treffen können, begründen Sie auch
+dies!</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) + \beta^2 y(k-2) + x(k-2) = 2 x(k) - 2x(k-2) - 1.9
+    y(k-1)\)</span>.<br />
+Zur Beantwortung der Frage nehmen Sie an <span class="math notranslate nohighlight">\(\beta = \sqrt{0.5}\)</span> (8
+Punkte).<br />
+Für welche Bereiche von <span class="math notranslate nohighlight">\(\beta\)</span> ist das System stabil bzw.
+instabil (4 Punkte).</p></li>
+<li><p><span class="math notranslate nohighlight">\(2y(k) - 3.7x(-k-2)k -0.3y(k-3) = 10x(k-10)\)</span>. (8 Punkte)</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="matlab-aufgaben">
+<h3><span class="section-number">5.9.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Lösen Sie die Aufgabe
+<a class="reference external" href="#Aufg:zTrafo:Klausurniveau">[Aufg:zTrafo:Klausurniveau]</a>{reference-type=”ref”
+reference=”Aufg:zTrafo:Klausurniveau”}.<a class="reference external" href="#Aufg:zTrafo:zTrafo">[Aufg:zTrafo:zTrafo]</a>{reference-type=”ref”
+reference=”Aufg:zTrafo:zTrafo”} durch den Aufbau des Systems und
+Iteration.</p></li>
+<li><p>Programmieren Sie eine Funktion, die einen Pol-Nullstellenplan
+zeichnet und zusätzlich im Titel den <span class="math notranslate nohighlight">\(b_0\)</span>-Koeffizienten ausgibt.
+Nutzen Sie als Anhaltspunkt die <code class="docutils literal notranslate"><span class="pre">zplane</span></code> Funktion von Matlab.
+Hinweis: Sie benötigen den <code class="docutils literal notranslate"><span class="pre">axis</span></code> Befehl um eine quadratische Grafik
+aufzubauen (siehe help). Sie sollten die <code class="docutils literal notranslate"><span class="pre">mpoles</span></code> Funktion nutzen,
+um Mehrfach Null- bzw. Polstellen herauszufinden.</p></li>
+<li><p>Schreiben Sie eine Funktion, die es ermöglicht Systeme durch eine
+grafische Eingabe mit der Maus zu definieren. Zeichnen Sie dazu den
+Einheitskreis in eine figure. Hinweis: Sie benötigen den <code class="docutils literal notranslate"><span class="pre">ginput</span></code>
+Befehl für die Maus-Eingabe und <code class="docutils literal notranslate"><span class="pre">axis</span></code>, um eine quadratische Grafik
+zu erzeugen.</p></li>
+</ol>
+</div>
+<div class="section" id="transfer-leistung">
+<h3><span class="section-number">5.9.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Wie sieht das Konvergenzgebiet für endliche Folgen aus?</p></li>
+<li></li>
+<li></li>
+</ol>
+</div>
+</div>
+<div class="section" id="zusammenfassung">
+<h2><span class="section-number">5.10. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<p>Die wichtigen Erkenntnisse aus diesem Kapitel sind:</p>
+<ul class="simple">
+<li><p>Die Systemfunktion ist eine vollständige Beschreibung eines
+LTI-Systems</p></li>
+<li><p>Die Systemfunktion ist die z-Transformierte der Impulsantwort</p></li>
+<li><p>Die Angabe der z-Transformation ist nur mit ROC vollständig.</p></li>
+<li><p>Das Pol-Nullstellendiagramm ist bis auf die Grundverstärkung <span class="math notranslate nohighlight">\(b_0\)</span>
+eine vollständige Beschreibung eines LTI-Systems</p></li>
+<li><p>Die Stabilität eines kausalen LTI-Systems lässt sich in der z-Ebene
+durch die Berechnung der Polradien einfach testen. Es muss gelten,
+dass alle Radien kleiner eins sind. Für strikt nicht-kausale Systeme
+müssen alle Radien größer eins sein, um ein stabiles System
+darzustellen.</p></li>
+<li><p>Bei Systemen zweiter Ordnung müssen um stabile kausale Systeme zu
+realisieren, die rekursiven Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span> im
+Stabilitätsdreieck liegen.</p></li>
+<li><p>Pol- bzw. Nullstellen reeller Systeme sind entweder reellwertig oder
+treten als konjugiert komplexe Polpaare auf.</p></li>
+</ul>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>Würde gelten <span class="math notranslate nohighlight">\(M&gt;N\)</span> könnte man durch Polynomdivision eine
+Übertragungsfunktion erhalten, die aus einem simplen Polynom und
+einer gebrochen rationalen Funktion mit <span class="math notranslate nohighlight">\(M\leq N\)</span> besteht, wobei das
+Polynom ein Polynom in <span class="math notranslate nohighlight">\(z\)</span> und nicht in <span class="math notranslate nohighlight">\(z^{-1}\)</span> wäre und somit bei
+einer z-Rücktransformation auf einen nicht-kausalen Anteil führen
+würde.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="analog.html" title="previous page"><span class="section-number">4. </span>Analoge Signalverarbeitung</a>
+    <a class='right-next' id="next-link" href="spektren.html" title="next page"><span class="section-number">6. </span>Spektren</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Joerg Bitzer<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

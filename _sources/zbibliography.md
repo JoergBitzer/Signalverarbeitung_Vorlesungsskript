@@ -1,0 +1,5 @@
+(sec:bibliography)=
+# Literaturverzeichnis
+
+```{bibliography}
+```
