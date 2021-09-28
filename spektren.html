@@ -194,11 +194,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://gitlab.gwdg.de/joerg.bitzer/scriptsv/-/tree/master"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://gitlab.gwdg.de/joerg.bitzer/scriptsv/-/tree/master/issues/new?title=Issue%20on%20page%20%2Fspektren.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fspektren.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -213,6 +213,23 @@
                         class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/spektren.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -897,15 +914,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_s/2\)</
 besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte sind in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="49eb875a-43cd-47d0-9f3c-7277c29af5a8" name="8bda020f-8b02-4c40-aba2-03b89ec90cdf" type="radio">
-</input><label class="tabbed-label" for="49eb875a-43cd-47d0-9f3c-7277c29af5a8">
+<input checked="checked" id="666b750e-6f32-44f6-a7f4-a75a6f12fe0b" name="5649b5db-0ed3-43cc-a4f9-0fd04eba551d" type="radio">
+</input><label class="tabbed-label" for="666b750e-6f32-44f6-a7f4-a75a6f12fe0b">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_voll</span> <span class="p">=</span> <span class="p">[</span><span class="n">H_halb</span> <span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span>
 </pre></div>
 </div>
 </div>
-<input id="e8015894-6a28-4bc1-b81d-482bb839a630" name="8bda020f-8b02-4c40-aba2-03b89ec90cdf" type="radio">
-</input><label class="tabbed-label" for="e8015894-6a28-4bc1-b81d-482bb839a630">
+<input id="071a64ca-5250-415d-ad6d-b148b9e54a8d" name="5649b5db-0ed3-43cc-a4f9-0fd04eba551d" type="radio">
+</input><label class="tabbed-label" for="071a64ca-5250-415d-ad6d-b148b9e54a8d">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -1458,8 +1475,8 @@ Eigenschaften.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="f667190d-cba9-40fc-84f2-6365d42acd3c" name="6bd6eb77-80cd-4044-b37a-fc3c8e18fbb3" type="radio">
-</input><label class="tabbed-label" for="f667190d-cba9-40fc-84f2-6365d42acd3c">
+<input checked="checked" id="a17c7dfa-54ad-45ab-879b-49ea3ba60611" name="2395b33b-57ce-43d2-ada8-85ac717cde99" type="radio">
+</input><label class="tabbed-label" for="a17c7dfa-54ad-45ab-879b-49ea3ba60611">
 von Hann</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann- Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1472,8 +1489,8 @@ stärker bedämpft.</p></li>
 <p class="caption"><span class="caption-number">Fig. 6.16 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="2ffe2474-4ca1-4110-b66b-6c6c9f7cbabd" name="6bd6eb77-80cd-4044-b37a-fc3c8e18fbb3" type="radio">
-</input><label class="tabbed-label" for="2ffe2474-4ca1-4110-b66b-6c6c9f7cbabd">
+<input id="95da59fd-f689-4581-88e0-8ef8ad592581" name="2395b33b-57ce-43d2-ada8-85ac717cde99" type="radio">
+</input><label class="tabbed-label" for="95da59fd-f689-4581-88e0-8ef8ad592581">
 Hamming</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1487,8 +1504,8 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></
 <p class="caption"><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="5735ef82-3c0e-41fc-8127-09648a02405b" name="6bd6eb77-80cd-4044-b37a-fc3c8e18fbb3" type="radio">
-</input><label class="tabbed-label" for="5735ef82-3c0e-41fc-8127-09648a02405b">
+<input id="839ebae6-b15f-4f6e-91b3-24e6f5a4fdc4" name="2395b33b-57ce-43d2-ada8-85ac717cde99" type="radio">
+</input><label class="tabbed-label" for="839ebae6-b15f-4f6e-91b3-24e6f5a4fdc4">
 Blackman</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1501,8 +1518,8 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 Blackman-Fensters</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="4c00292d-9e5a-4f0d-bd0e-335a24459af1" name="6bd6eb77-80cd-4044-b37a-fc3c8e18fbb3" type="radio">
-</input><label class="tabbed-label" for="4c00292d-9e5a-4f0d-bd0e-335a24459af1">
+<input id="dece29ef-2cc4-4dfb-a1ad-87d88a1c4761" name="2395b33b-57ce-43d2-ada8-85ac717cde99" type="radio">
+</input><label class="tabbed-label" for="dece29ef-2cc4-4dfb-a1ad-87d88a1c4761">
 Dolph-Chebbyscheff</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Chebbyscheff Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -1517,8 +1534,8 @@ für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="d78baec6-a59d-4f2c-91be-5c4e6aeace10" name="6bd6eb77-80cd-4044-b37a-fc3c8e18fbb3" type="radio">
-</input><label class="tabbed-label" for="d78baec6-a59d-4f2c-91be-5c4e6aeace10">
+<input id="61fec793-188e-4672-93b6-d6f646b6f638" name="2395b33b-57ce-43d2-ada8-85ac717cde99" type="radio">
+</input><label class="tabbed-label" for="61fec793-188e-4672-93b6-d6f646b6f638">
 Kaiser-Fester</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser Fenster:</strong> Auch das Kaiser Fenster ist mit Hilfe des
