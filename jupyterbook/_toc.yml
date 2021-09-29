@@ -6,7 +6,7 @@
 - file: grundlagen
 - file: signale
 - file: systeme
-- file: analog
+# - file: analog
 - file: ztrafo
 - file: spektren
 - file: filter
