@@ -36,7 +36,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://gitlab.gwdg.de/joerg.bitzer/scriptsv/-/tree/master  # Online location of your book
+  url: https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/  # Online location of your book
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
