@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Filter &#8212; Signalverarbeitung 1</title>
+    <title>6. Filter &#8212; Signalverarbeitung 1</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="8. Mathematische Methoden" href="mathe.html" />
-    <link rel="prev" title="6. Spektren" href="spektren.html" />
+    <link rel="next" title="7. Mathematische Methoden" href="mathe.html" />
+    <link rel="prev" title="5. Spektren" href="spektren.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -109,33 +109,28 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="analog.html">
-   4. Analoge Signalverarbeitung
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="ztrafo.html">
-   5. z-Transformation
+   4. z-Transformation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="spektren.html">
-   6. Spektren
+   5. Spektren
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Filter
+   6. Filter
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="mathe.html">
-   8. Mathematische Methoden
+   7. Mathematische Methoden
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   9. Literaturverzeichnis
+   8. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -243,88 +238,88 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#filtertypen">
-   7.1. Filtertypen
+   6.1. Filtertypen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#realisierungsformen">
-   7.2. Realisierungsformen
+   6.2. Realisierungsformen
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fir-filter">
-     7.2.1. FIR-Filter
+     6.2.1. FIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#beschreibung-als-blockdiagramm">
-       7.2.1.1. Beschreibung als Blockdiagramm
+       6.2.1.1. Beschreibung als Blockdiagramm
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fir-filter-design">
-     7.2.2. FIR-Filter Design
+     6.2.2. FIR-Filter Design
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#fenster-methode">
-       7.2.2.1. Fenster-Methode
+       6.2.2.1. Fenster-Methode
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#parks-mcclellan">
-       7.2.2.2. Parks-McClellan
+       6.2.2.2. Parks-McClellan
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#linearphasige-filter">
-       7.2.2.3. Linearphasige Filter
+       6.2.2.3. Linearphasige Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#minimalphasige-fir-filter">
-       7.2.2.4. Minimalphasige FIR-Filter
+       6.2.2.4. Minimalphasige FIR-Filter
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#iir-filter">
-     7.2.3. IIR-Filter
+     6.2.3. IIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id10">
-       7.2.3.1. Beschreibung als Blockdiagramm
+       6.2.3.1. Beschreibung als Blockdiagramm
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#filterstrukturen-fur-sos">
-       7.2.3.2. Filterstrukturen für SOS
+       6.2.3.2. Filterstrukturen für SOS
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#vom-blockdiagramm-zur-ubertragungsfunktion">
-       7.2.3.3. Vom Blockdiagramm zur Übertragungsfunktion
+       6.2.3.3. Vom Blockdiagramm zur Übertragungsfunktion
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#iir-filterdesign">
-     7.2.4. IIR-Filterdesign
+     6.2.4. IIR-Filterdesign
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#notch-filter">
-       7.2.4.1. Notch-Filter
+       6.2.4.1. Notch-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#allpasse">
-       7.2.4.2. Allpässe
+       6.2.4.2. Allpässe
       </a>
      </li>
     </ul>
@@ -333,69 +328,69 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implementierungsaspekte">
-   7.3. Implementierungsaspekte
+   6.3. Implementierungsaspekte
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id11">
-     7.3.1. FIR-Filter
+     6.3.1. FIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#schnelle-faltung-ola">
-       7.3.1.1. Schnelle Faltung OLA
+       6.3.1.1. Schnelle Faltung OLA
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#c-c">
-       7.3.1.2. C/C++
+       6.3.1.2. C/C++
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#vektorielle-schreibweise-und-implementierung-matlab">
-       7.3.1.3. Vektorielle Schreibweise und Implementierung (Matlab)
+       6.3.1.3. Vektorielle Schreibweise und Implementierung (Matlab)
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id13">
-     7.3.2. IIR-Filter
+     6.3.2. IIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#sec-iir-filterdesign">
-       7.3.2.1. IIR-Filterdesign
+       6.3.2.1. IIR-Filterdesign
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#butterworth-filter">
-       7.3.2.2. Butterworth-Filter
+       6.3.2.2. Butterworth-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tschebyscheff-i-filter">
-       7.3.2.3. Tschebyscheff-I-Filter
+       6.3.2.3. Tschebyscheff-I-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tschebyscheff-ii-filter">
-       7.3.2.4. Tschebyscheff-II-Filter
+       6.3.2.4. Tschebyscheff-II-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#cauer-filter">
-       7.3.2.5. Cauer-Filter
+       6.3.2.5. Cauer-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren">
-       7.3.2.6. Vor- und Nachteile der unterschiedlichen Entwurfsverfahren
+       6.3.2.6. Vor- und Nachteile der unterschiedlichen Entwurfsverfahren
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#entwurf-von-hochpass-bandpass-und-bandsperr-filter">
-       7.3.2.7. Entwurf von Hochpass, Bandpass und Bandsperr-Filter
+       6.3.2.7. Entwurf von Hochpass, Bandpass und Bandsperr-Filter
       </a>
      </li>
     </ul>
@@ -404,34 +399,34 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ubungen">
-   7.4. Übungen
+   6.4. Übungen
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-     7.4.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+     6.4.1. Wiederholung des Stoffes und einfache Rechenaufgaben
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
-     7.4.2. Aufgaben (Auf Klausurniveau)
+     6.4.2. Aufgaben (Auf Klausurniveau)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#matlab-aufgaben">
-     7.4.3. Matlab-Aufgaben
+     6.4.3. Matlab-Aufgaben
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transfer-leistung">
-     7.4.4. Transfer-Leistung
+     6.4.4. Transfer-Leistung
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#zusammenfassung">
-   7.5. Zusammenfassung
+   6.5. Zusammenfassung
   </a>
  </li>
 </ul>
@@ -447,7 +442,7 @@
               <div>
                 
   <div class="section" id="filter">
-<h1><span class="section-number">7. </span>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h1>
 <p>Filter sind spezielle Systeme, die in diesem Abschnitt grundsätzlich als
 LTI-Systeme angenommen werden (Filter wie z.B. der Median Filter sind aber nicht-linear). Die Aufgabe von Filtern ist bestimmte
 Anteile aus dem Signal zu entfernen oder abzuschwächen. Dies kann durch
@@ -466,14 +461,14 @@ nicht-rekursive und rekursive Implementierung kennen lernen.
 Abschließend werden in einer sehr kompakten Form einige bekannte
 Entwurfsverfahren für die beiden Realisierungsformen vorgestellt.</p>
 <div class="section" id="filtertypen">
-<h2><span class="section-number">7.1. </span>Filtertypen<a class="headerlink" href="#filtertypen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Filtertypen<a class="headerlink" href="#filtertypen" title="Permalink to this headline">¶</a></h2>
 <p>Bei der Typisierung von Filtern schauen wir uns zunächst die sogenannten
 Sperrfilter an. Ihr Entwurfsziel ist, möglichst einen bestimmten
 Frequenzbereich vollständig aus dem Spektrum zu entfernen. Dabei wird
 zwischen vier Grundtypen unterschieden:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="38846422-95c7-4790-add3-14317e92488d" name="4e2aca6d-8cf7-4e3d-8c0e-c1903debf196" type="radio">
-</input><label class="tabbed-label" for="38846422-95c7-4790-add3-14317e92488d">
+<input checked="checked" id="b05b8fba-d7c1-4d00-96ff-37f5203dba72" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
+</input><label class="tabbed-label" for="b05b8fba-d7c1-4d00-96ff-37f5203dba72">
 Tiefpass</label><div class="tabbed-content docutils">
 <p><strong>Tiefpass:</strong> Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
 einer zu definierenden Grenzfrequenz <span class="math notranslate nohighlight">\(f_g\)</span> aus dem Spektrum zu
@@ -484,13 +479,13 @@ praktische Realisierung hat deshalb immer bestimmte Grenz- und
 Übergangsbereiche.</p>
 <div class="figure align-default" id="fig-designtp">
 <a class="reference internal image-reference" href="_images/DesignTP.png"><img alt="_images/DesignTP.png" src="_images/DesignTP.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Optimaler
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Optimaler
 Entwurf eines Tiefpasses (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz = <span class="math notranslate nohighlight">\(f_g\)</span> =
-1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 7.3.2.2</span></a></span><a class="headerlink" href="#fig-designtp" title="Permalink to this image">¶</a></p>
+1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a></span><a class="headerlink" href="#fig-designtp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="0e1d2f97-cef8-4623-b2e3-4c86e422ed60" name="4e2aca6d-8cf7-4e3d-8c0e-c1903debf196" type="radio">
-</input><label class="tabbed-label" for="0e1d2f97-cef8-4623-b2e3-4c86e422ed60">
+<input id="b09a2f48-8b2a-4075-add9-073110104141" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
+</input><label class="tabbed-label" for="b09a2f48-8b2a-4075-add9-073110104141">
 Hochpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hochpass:</strong> Das inverse Designziel zum Tiefpass liegt dem
@@ -500,13 +495,13 @@ beim Tiefpass erwähnten Einschränkungen.</p></li>
 </ul>
 <div class="figure align-default" id="fig-designhp">
 <a class="reference internal image-reference" href="_images/DesignHP.png"><img alt="_images/DesignHP.png" src="_images/DesignHP.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Optimaler
+<p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Optimaler
 Entwurf eines Hochpasses (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz = <span class="math notranslate nohighlight">\(f_g\)</span> =
-1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 7.3.2.2</span></a></span><a class="headerlink" href="#fig-designhp" title="Permalink to this image">¶</a></p>
+1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a></span><a class="headerlink" href="#fig-designhp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="2f9df193-a62b-49da-b7ff-e52581fc47ba" name="4e2aca6d-8cf7-4e3d-8c0e-c1903debf196" type="radio">
-</input><label class="tabbed-label" for="2f9df193-a62b-49da-b7ff-e52581fc47ba">
+<input id="f57efb6d-1d41-4913-b859-7caa9d3b8d9e" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
+</input><label class="tabbed-label" for="f57efb6d-1d41-4913-b859-7caa9d3b8d9e">
 Bandpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandpass:</strong> Im Gegensatz zu den vorher erwähnten Typen, hat das
@@ -519,14 +514,14 @@ Bandbreite genannt <span class="math notranslate nohighlight">\(B = f_2 -
 </ul>
 <div class="figure align-default" id="fig-designbp">
 <a class="reference internal image-reference" href="_images/DesignBP.png"><img alt="_images/DesignBP.png" src="_images/DesignBP.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Optimaler
+<p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Optimaler
 Entwurf eines Bandpasses (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz <span class="math notranslate nohighlight">\(f_1\)</span> = 1
 kHz und <span class="math notranslate nohighlight">\(f_2 =\)</span> 3 kHz) und Realisierung durch Butterworth-Filter 6.
-Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 7.3.2.2</span></a></span><a class="headerlink" href="#fig-designbp" title="Permalink to this image">¶</a></p>
+Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a></span><a class="headerlink" href="#fig-designbp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="433fdd14-8728-47b6-bf4b-e075e48ecdb5" name="4e2aca6d-8cf7-4e3d-8c0e-c1903debf196" type="radio">
-</input><label class="tabbed-label" for="433fdd14-8728-47b6-bf4b-e075e48ecdb5">
+<input id="f584b96e-42de-408e-aa54-9251e327ef9f" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
+</input><label class="tabbed-label" for="f584b96e-42de-408e-aa54-9251e327ef9f">
 Bandsperre</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandsperre:</strong> Die Bandsperre stellt die inverse Funktion zum
@@ -535,10 +530,10 @@ Bereich zwischen <span class="math notranslate nohighlight">\(f_1\)</span> und <
 </ul>
 <div class="figure align-default" id="fig-designbs">
 <a class="reference internal image-reference" href="_images/DesignBS.png"><img alt="_images/DesignBS.png" src="_images/DesignBS.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.4 </span><span class="caption-text">Optimaler
+<p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Optimaler
 Entwurf einer Bandsperre (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz <span class="math notranslate nohighlight">\(f_1\)</span> = 1
 kHz und <span class="math notranslate nohighlight">\(f_2 =\)</span> 3 kHz) und Realisierung durch Butterworth-Filter 6.
-Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 7.3.2.2</span></a></span><a class="headerlink" href="#fig-designbs" title="Permalink to this image">¶</a></p>
+Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a></span><a class="headerlink" href="#fig-designbs" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -657,7 +652,7 @@ die Güte <span class="math notranslate nohighlight">\(Q\)</span> als Verhältni
 <div class="cell_output docutils container">
 <img alt="_images/filter_5_0.png" src="_images/filter_5_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7.5 </span><span class="caption-text">Equalizerübertragungskurve bei Veränderung der
+<p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Equalizerübertragungskurve bei Veränderung der
 Güte</span><a class="headerlink" href="#fig-eq-gainparam" title="Permalink to this image">¶</a></p>
 </div>
 <p>Es gibt auch noch spezielle Filter für den Hoch- und Tiefpassbereich,
@@ -666,13 +661,13 @@ stehen nur die zwei Parameter Frequenz und Verstärkung bzw. Abschwächung
 zur Verfügung.</p>
 <div class="figure align-default" id="fig-eq-gainshelvparam">
 <a class="reference internal image-reference" href="_images/EQ_GainShelvParam.png"><img alt="_images/EQ_GainShelvParam.png" src="_images/EQ_GainShelvParam.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.6 </span><span class="caption-text">Equalizerübertragungskurve für einen
+<p class="caption"><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Equalizerübertragungskurve für einen
 Hoch- und Tiefpasskuhschwanzfilter bei Veränderung der Verstärkung (a)
 und der Frequenz (b)</span><a class="headerlink" href="#fig-eq-gainshelvparam" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-eq-freqshelvparam">
 <a class="reference internal image-reference" href="_images/EQ_FreqShelvParam.png"><img alt="_images/EQ_FreqShelvParam.png" src="_images/EQ_FreqShelvParam.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.7 </span><span class="caption-text">Equalizerübertragungskurve für einen
+<p class="caption"><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Equalizerübertragungskurve für einen
 Hoch- und Tiefpasskuhschwanzfilter bei Veränderung der Verstärkung (a)
 und der Frequenz (b)</span><a class="headerlink" href="#fig-eq-freqshelvparam" title="Permalink to this image">¶</a></p>
 </div>
@@ -959,7 +954,7 @@ diesem Fall von sog. Resonanzfrequenzen, da bestimmte Signalanteile im
 Filter eine starke Resonanz finden.</p>
 </div>
 <div class="section" id="realisierungsformen">
-<h2><span class="section-number">7.2. </span>Realisierungsformen<a class="headerlink" href="#realisierungsformen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Realisierungsformen<a class="headerlink" href="#realisierungsformen" title="Permalink to this headline">¶</a></h2>
 <p>Wir haben gesehen, dass es eine Vielzahl von unterschiedlichen
 Filtereinsatzmöglichkeiten gibt. Bisher wurde aber keinerlei Hinweis auf
 die Realsierungsformen gegeben. Aus der Beschreibung von Systemen kennen
@@ -969,7 +964,7 @@ Impulse Response (IIR) und Finite Impulse Response (FIR) Systeme. Und
 genau diese Bezeichnungen kennzeichnen auch die beiden grundsätzlichen
 Realisierungsformen von Filtern.</p>
 <div class="section" id="fir-filter">
-<h3><span class="section-number">7.2.1. </span>FIR-Filter<a class="headerlink" href="#fir-filter" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.1. </span>FIR-Filter<a class="headerlink" href="#fir-filter" title="Permalink to this headline">¶</a></h3>
 <p>Die Anwendung von FIR-Filtern ist ausschließlich durch digitale
 Signalverarbeitung möglich, da eine Realisierung in Analogtechnk mit
 elektrischen Bauelementen nicht möglich ist. FIR-Filter zeichnen sich
@@ -981,7 +976,7 @@ Verzögerung des Signals bewirken. Die zeitliche Verzögerung macht sich
 in der Übertragungsfunktion durch eine lineare Phase deutlich. Diese
 Filter werden deshalb linearphasig genannt.</p>
 <div class="section" id="beschreibung-als-blockdiagramm">
-<h4><span class="section-number">7.2.1.1. </span>Beschreibung als Blockdiagramm<a class="headerlink" href="#beschreibung-als-blockdiagramm" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.1.1. </span>Beschreibung als Blockdiagramm<a class="headerlink" href="#beschreibung-als-blockdiagramm" title="Permalink to this headline">¶</a></h4>
 <p>Bisher haben wir FIR-Systeme nur als Differenzengleichung oder als
 z-Übertragungsfunktion kennen gelernt. Um die noch folgende
 Implementierung zu ermöglichen ist eine andere Darstellung aber
@@ -993,10 +988,10 @@ genauer an. So erkennt man, dass man 3 verschiedene Bauteile braucht.</p>
 <li><p>Einen Verzogerungseinheit, die das Signal um genau einen Sample <span class="math notranslate nohighlight">\(T\)</span>
 verzögert. Dies kann durch ein einfaches Speicherelement geschehen.</p></li>
 </ul>
-<p>Diese 3 Elemente werden im folgenden durch die in <a class="reference internal" href="#fig-blockdiagrammsymbole"><span class="std std-numref">Abbildung 7.8</span></a> gezeigten Symbole beschrieben.</p>
+<p>Diese 3 Elemente werden im folgenden durch die in <a class="reference internal" href="#fig-blockdiagrammsymbole"><span class="std std-numref">Abbildung 6.8</span></a> gezeigten Symbole beschrieben.</p>
 <div class="figure align-default" id="fig-blockdiagrammsymbole">
 <a class="reference internal image-reference" href="_images/BlockdiagrammSymbole.png"><img alt="_images/BlockdiagrammSymbole.png" src="_images/BlockdiagrammSymbole.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.8 </span><span class="caption-text">Symbole um Zeichnen von Filter
+<p class="caption"><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Symbole um Zeichnen von Filter
 Strukturen als
 Blockdiagramm</span><a class="headerlink" href="#fig-blockdiagrammsymbole" title="Permalink to this image">¶</a></p>
 </div>
@@ -1005,32 +1000,32 @@ Blockdiagramm</span><a class="headerlink" href="#fig-blockdiagrammsymbole" title
 Blockschaltbild.</p>
 <div class="figure align-default" id="fig-firersterordnung">
 <a class="reference internal image-reference" href="_images/FIRErsterOrdnung.png"><img alt="_images/FIRErsterOrdnung.png" src="_images/FIRErsterOrdnung.png" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.9 </span><span class="caption-text">Blockdiagramm eines FIR-Filters 1.
+<p class="caption"><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Blockdiagramm eines FIR-Filters 1.
 Ordnung</span><a class="headerlink" href="#fig-firersterordnung" title="Permalink to this image">¶</a></p>
 </div>
 <p>Zur Realisierung eines allgemeinen FIR-Filters muss das allgemeine
-Blockschaltbild genauer betrachtet werden (siehe <a class="reference internal" href="#fig-fir-allgemeinblock"><span class="std std-numref">Abbildung 7.10</span></a>).</p>
+Blockschaltbild genauer betrachtet werden (siehe <a class="reference internal" href="#fig-fir-allgemeinblock"><span class="std std-numref">Abbildung 6.10</span></a>).</p>
 <div class="figure align-default" id="fig-fir-allgemeinblock">
 <a class="reference internal image-reference" href="_images/FIR_allgemeinBlock.png"><img alt="_images/FIR_allgemeinBlock.png" src="_images/FIR_allgemeinBlock.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.10 </span><span class="caption-text">Allgemeine FIR-Filter
+<p class="caption"><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Allgemeine FIR-Filter
 Struktur.</span><a class="headerlink" href="#fig-fir-allgemeinblock" title="Permalink to this image">¶</a></p>
 </div>
 <p>Es wird deutlich, dass wir bei <span class="math notranslate nohighlight">\(N\)</span>-Koeffizienten <span class="math notranslate nohighlight">\(N-1\)</span> Speicherelemente
 benötigen, die die jeweilige Vergangenheit von <span class="math notranslate nohighlight">\(x(k)\)</span> speichern.</p>
 <p>Um einen Ausgangswert <span class="math notranslate nohighlight">\(y(k)\)</span> zu berechnen, muss die Summe</p>
 <div class="math notranslate nohighlight" id="equation-eq-fir-filter">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-eq-fir-filter" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-fir-filter" title="Permalink to this equation">¶</a></span>\[
     y(k) = \sum_{i = 0}^{N-1} b_i x(k-i)
 \]</div>
 <p>berechnet werden.
 Abschließend wird der Speicher um eine Stelle weiter geschoben.
-Gleichung <a class="reference internal" href="#equation-eq-fir-filter">(7.1)</a> ist bereits von der Faltung bekannt. Somit
+Gleichung <a class="reference internal" href="#equation-eq-fir-filter">(6.1)</a> ist bereits von der Faltung bekannt. Somit
 ist ein FIR-Filter also eine andere Bezeichnung für ein System zur
 Faltung.</p>
 </div>
 </div>
 <div class="section" id="fir-filter-design">
-<h3><span class="section-number">7.2.2. </span>FIR-Filter Design<a class="headerlink" href="#fir-filter-design" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.2. </span>FIR-Filter Design<a class="headerlink" href="#fir-filter-design" title="Permalink to this headline">¶</a></h3>
 <p>Nachdem die Strukturen zur Realisierung von Filtern bekannt sind, fehlt
 noch die Bestimmung der einzelnen Filterkoeffizienten. Es muss also
 überlegt werden, wie aus einem bestimmten Entwurf des Filters im
@@ -1039,13 +1034,13 @@ können. Dazu betrachten wir zunächst nur die FIR-Filter. Es sind
 verschiedene Verfahren bekannt. Die beiden am häufigsten Methoden sollen
 im weiteren genauer erläutert werden.</p>
 <div class="section" id="fenster-methode">
-<h4><span class="section-number">7.2.2.1. </span>Fenster-Methode<a class="headerlink" href="#fenster-methode" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.1. </span>Fenster-Methode<a class="headerlink" href="#fenster-methode" title="Permalink to this headline">¶</a></h4>
 <p>Aus dem Abschnitt über Spektren ist uns bekannt, dass wir zu einer
 Zeitfolge mit Hilfe der DTFT ein Spektrum berechnen können, dass in
 <span class="math notranslate nohighlight">\(2\pi\)</span> periodisch ist. Zu dieser Hintransformation gibt es auch die
 korrespondierende Rücktransformation die als</p>
 <div class="math notranslate nohighlight" id="equation-fir-idtft-def">
-<span class="eqno">(7.2)<a class="headerlink" href="#equation-fir-idtft-def" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-fir-idtft-def" title="Permalink to this equation">¶</a></span>\[
     x(k) = \frac{1}{2\pi}\int_{-\pi}^{\pi} X(e^(j \Omega)) e^{j\Omega k} d\Omega
 \]</div>
 <p>definiert ist. Somit ist es natürlich auch möglich zu einem bestimmten
@@ -1054,7 +1049,7 @@ beispielsweise an, wir suchen die Koeffizienten, um ein ideales
 Tiefpassfilter mit der Grenzfrequenz <span class="math notranslate nohighlight">\(\Omega_g\)</span> zu realisieren. Die
 Definition der Übertragungsfunktion ist somit</p>
 <div class="math notranslate nohighlight" id="equation-fir-bsp-tiefpass">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-fir-bsp-tiefpass" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-fir-bsp-tiefpass" title="Permalink to this equation">¶</a></span>\[\begin{split}
     H(e^(j \Omega)) = \Bigg\{ \begin{array}{lcc}
 1 &amp; für &amp; -\Omega_g \leq \Omega \leq  \Omega_g\\
 0 &amp; &amp; \Omega_g &lt; |\Omega| \leq \pi
@@ -1062,7 +1057,7 @@ Definition der Übertragungsfunktion ist somit</p>
 \end{split}\]</div>
 <p>Für die gesuchten Filterkoeffizienten ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-fir-tp-ideal">
-<span class="eqno">(7.4)<a class="headerlink" href="#equation-fir-tp-ideal" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-fir-tp-ideal" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
     h(k) &amp; = &amp;\frac{1}{2\pi}\int_{-\pi}^{\pi} H(e^(j \Omega)) e^{j\Omega k} d\Omega\\
          &amp; = &amp;\frac{1}{2\pi}\int_{-\Omega_g}^{\Omega_g}e^{j\Omega k} d\Omega\\
@@ -1085,7 +1080,7 @@ enstehen an der Übergangsstelle Überschwinger. Vergrößert man nun die
 Länge des Ausschnitts, so wird der Übergangsbereich schmaller, und die
 Überschwinger konzentrieren sich an der Übergangsstelle, aber die Höhe
 der Überschwinger bleiben gleich (siehe
-<a class="reference internal" href="#fig-gippspheanomen"><span class="std std-numref">Abbildung 7.11</span></a> ). Dies wird als Gippsches Phänomen
+<a class="reference internal" href="#fig-gippspheanomen"><span class="std std-numref">Abbildung 6.11</span></a> ). Dies wird als Gippsches Phänomen
 bezeichnet.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1147,7 +1142,7 @@ bezeichnet.</p>
 <div class="cell_output docutils container">
 <img alt="_images/filter_19_0.png" src="_images/filter_19_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7.11 </span><span class="caption-text">Beispiel zur Veranschaulichung des
+<p class="caption"><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Beispiel zur Veranschaulichung des
 Gipps-Phänomens</span><a class="headerlink" href="#fig-gippspheanomen" title="Permalink to this image">¶</a></p>
 </div>
 <p>Die Ursache hierfür ist in der Übertragungsfunktion des Rechteckfensters
@@ -1246,13 +1241,13 @@ erkennen sind.</p>
 <div class="cell_output docutils container">
 <img alt="_images/filter_22_0.png" src="_images/filter_22_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7.12 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
+<p class="caption"><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
 Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#fig-bspfensterentwurf" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="parks-mcclellan">
-<h4><span class="section-number">7.2.2.2. </span>Parks-McClellan<a class="headerlink" href="#parks-mcclellan" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.2. </span>Parks-McClellan<a class="headerlink" href="#parks-mcclellan" title="Permalink to this headline">¶</a></h4>
 <p>Im letzten Abschnitt wurde eine optimale Lösung vorgestellt, die den
 mittleren Fehler über das Gesamtspektrum minimiert. Dabei hat sich aber
 der Fehler an der Übergangsstelle konzentriert. Eine weitere optimale
@@ -1264,7 +1259,7 @@ Lösung konvergiert. Der Restfehler ist dabei minimal für alle
 Frequenzen. Diese Minimierung des maximalen Fehlers wird auch als
 Tschebyscheff-Lösung bezeichnet.</p>
 <p>Um die Lösung zu verdeutlichen und die Unterschiede zur Fenster-Methode
-heraus zu arbeiten, ist in <a class="reference internal" href="#fig-bspfensterremez"><span class="std std-numref">Abbildung 7.14</span></a>  ein Entwurf eines Tiefpass-Filters
+heraus zu arbeiten, ist in <a class="reference internal" href="#fig-bspfensterremez"><span class="std std-numref">Abbildung 6.14</span></a>  ein Entwurf eines Tiefpass-Filters
 mittels Remez-Entwurfsverfahren und mittels Fenster-Entwurfs mit
 Hann-Fenster gegenüber gestellt. Wir erkennen, dass bei gleicher Ordnung
 das Remez-Verfahren eine insgesamt bessere Sperrdämpfung zur Verfügung
@@ -1344,28 +1339,28 @@ bedeutet dies eine deutliche Aufwandsreduktion.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="dbbd4ba8-d432-4463-be85-b630ddc18188" name="6583d603-56af-4880-b955-edb5cd6d0c3b" type="radio">
-</input><label class="tabbed-label" for="dbbd4ba8-d432-4463-be85-b630ddc18188">
+<input checked="checked" id="d5a4f5b4-45ff-439f-94df-2d74d6befdcc" name="7ef02b5b-84b4-4887-a1a0-740ee47fc862" type="radio">
+</input><label class="tabbed-label" for="d5a4f5b4-45ff-439f-94df-2d74d6befdcc">
 Entwurf</label><div class="tabbed-content docutils">
 <p>Fenster Entwurf</p>
 <div class="figure align-default" id="id1" style="width: 75%">
 <div class="cell_output docutils container">
 <img alt="_images/filter_22_0.png" src="_images/filter_22_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7.13 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
+<p class="caption"><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
 Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="3524e696-8442-4bc2-a024-d337f0072f5e" name="6583d603-56af-4880-b955-edb5cd6d0c3b" type="radio">
-</input><label class="tabbed-label" for="3524e696-8442-4bc2-a024-d337f0072f5e">
+<input id="25a044e9-4dac-44e3-bdd7-f613d9dcf138" name="7ef02b5b-84b4-4887-a1a0-740ee47fc862" type="radio">
+</input><label class="tabbed-label" for="25a044e9-4dac-44e3-bdd7-f613d9dcf138">
 Remez</label><div class="tabbed-content docutils">
 <p>Remez Fenster</p>
 <div class="figure align-default" id="fig-bspfensterremez" style="width: 75%">
 <div class="cell_output docutils container">
 <img alt="_images/filter_25_0.png" src="_images/filter_25_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7.14 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit dem
+<p class="caption"><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit dem
 Remez-Algorithmus und der Fenster-Methode unterschiedlicher Länge.
 Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#fig-bspfensterremez" title="Permalink to this image">¶</a></p>
@@ -1378,7 +1373,7 @@ Grenzfrequenz =
 </div>
 </div>
 <div class="section" id="linearphasige-filter">
-<h4><span class="section-number">7.2.2.3. </span>Linearphasige Filter<a class="headerlink" href="#linearphasige-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.3. </span>Linearphasige Filter<a class="headerlink" href="#linearphasige-filter" title="Permalink to this headline">¶</a></h4>
 <p>Linearphasigkeit ist eine interessante Eigenschaft in der
 Nachrichtentechnik, da mit Ihrer Hilfe ein Signal gefiltert werden kann,
 ohne weitere Phasenverzerrungen einzuführen. Weiterhin führt die
@@ -1387,7 +1382,7 @@ konstanten Betrag verzögert werden. Diese Verzögerung wird als
 Gruppenlaufzeit bezeichnet und ist als Ableitung der Phase zur Frequenz
 definiert</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-gruppenlaufzeit">
-<span class="eqno">(7.5)<a class="headerlink" href="#equation-eq-def-gruppenlaufzeit" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-eq-def-gruppenlaufzeit" title="Permalink to this equation">¶</a></span>\[
     \tau_g(e^(j \Omega)) = - \frac{\delta arg\{H(e^(j \Omega))\}}{\delta \Omega}
 \]</div>
 <p>Wir haben bereits für das einfache Filter mit der Impulsantwort
@@ -1486,7 +1481,7 @@ darauf achten, ob das gewünschte Filterverhalten, auch mit dem
 Entwurfsvorgaben zusammen passen.</p>
 </div>
 <div class="section" id="minimalphasige-fir-filter">
-<h4><span class="section-number">7.2.2.4. </span>Minimalphasige FIR-Filter<a class="headerlink" href="#minimalphasige-fir-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.4. </span>Minimalphasige FIR-Filter<a class="headerlink" href="#minimalphasige-fir-filter" title="Permalink to this headline">¶</a></h4>
 <p>Eine weitere besondere Klasse an FIR-Filtern sind sogenannte
 minimalphasige Filter. Das heisst, dieses Filter realisiert eine
 bestimmte Betragsübertragungsfunktion mit der minimalen Phase. Es zeigt
@@ -1518,7 +1513,7 @@ der FFT erneut in den Frequenzbereich transformiert. Um die
 Logarithmierung rückgängig zu machen wird für jeden Frequenzpunkt die
 Exponenten-Funktion angewendet. Eine erneute IFFT der resultierenden
 Funktion führt auf die Filterkoeffizienten, die das minimalphasige
-Filter repräsentieren. <a class="reference internal" href="#fig-minphasenbsp"><span class="std std-numref">Abbildung 7.15</span></a>  zeigt die Ergebnisse für einen
+Filter repräsentieren. <a class="reference internal" href="#fig-minphasenbsp"><span class="std std-numref">Abbildung 6.15</span></a>  zeigt die Ergebnisse für einen
 einfaches Filter achter Ordnung bei vorgegebenem
 Betragsübertragungsverhalten.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -1566,15 +1561,15 @@ Betragsübertragungsverhalten.</p>
 <div class="cell_output docutils container">
 <img alt="_images/filter_33_1.png" src="_images/filter_33_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7.15 </span><span class="caption-text">Entwurf eines Filters mit gegebener
+<p class="caption"><span class="caption-number">Fig. 6.15 </span><span class="caption-text">Entwurf eines Filters mit gegebener
 Betragsübertragungsfunktion. a) als linearphasiges Filter und b) als
 minimalphasiges
 Filter.</span><a class="headerlink" href="#fig-minphasenbsp" title="Permalink to this image">¶</a></p>
 </div>
 <p>Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ee63d39c-6939-4aed-959f-7b62ace85fb7" name="26570a4a-f7b5-47bf-a23c-fcc736bae60a" type="radio">
-</input><label class="tabbed-label" for="ee63d39c-6939-4aed-959f-7b62ace85fb7">
+<input checked="checked" id="a0d1ea08-3266-425a-a1ec-ba4c38bcee25" name="c8c0ae23-148f-4564-8c51-12dbd059d5c9" type="radio">
+</input><label class="tabbed-label" for="a0d1ea08-3266-425a-a1ec-ba4c38bcee25">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="c">%v_H contains the magnitude vector of the desired filter</span>
     <span class="n">log_H</span> <span class="p">=</span> <span class="nb">log</span><span class="p">(</span><span class="n">v_H</span><span class="o">+</span><span class="nb">eps</span><span class="p">);</span> <span class="c">% eps is the smallest positive number in matlab</span>
@@ -1588,8 +1583,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="af26436b-0a49-4259-ad5e-cd1683fd6c5e" name="26570a4a-f7b5-47bf-a23c-fcc736bae60a" type="radio">
-</input><label class="tabbed-label" for="af26436b-0a49-4259-ad5e-cd1683fd6c5e">
+<input id="1c3aa04c-506d-4fb8-84ee-c0853db559c0" name="c8c0ae23-148f-4564-8c51-12dbd059d5c9" type="radio">
+</input><label class="tabbed-label" for="1c3aa04c-506d-4fb8-84ee-c0853db559c0">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1">#v_H contains the magnitude vector of the desired filter</span>
@@ -1609,17 +1604,17 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="iir-filter">
-<h3><span class="section-number">7.2.3. </span>IIR-Filter<a class="headerlink" href="#iir-filter" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.3. </span>IIR-Filter<a class="headerlink" href="#iir-filter" title="Permalink to this headline">¶</a></h3>
 <p>Im Gegensatz zu den FIR-Filtern haben IIR-Filter auch rekursive Anteile.
 Die Implementierung ist durch das Stabilitätsproblem sehr viel
 schwieriger. Gleichzeitig können sehr unterschiedliche Strukturen
 verwendet werden, die alle unterschiedliche Eigenschaften haben.</p>
 <div class="section" id="id10">
-<h4><span class="section-number">7.2.3.1. </span>Beschreibung als Blockdiagramm<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<p>Die Grundform des Blockdiagramms eines IIR-Filters ist in <a class="reference internal" href="#fig-iir-allgemeinblock"><span class="std std-numref">Abbildung 7.16</span></a>  gezeigt.</p>
+<h4><span class="section-number">6.2.3.1. </span>Beschreibung als Blockdiagramm<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>Die Grundform des Blockdiagramms eines IIR-Filters ist in <a class="reference internal" href="#fig-iir-allgemeinblock"><span class="std std-numref">Abbildung 6.16</span></a>  gezeigt.</p>
 <div class="figure align-default" id="fig-iir-allgemeinblock">
 <a class="reference internal image-reference" href="_images/IIR_allgemeinBlock.png"><img alt="_images/IIR_allgemeinBlock.png" src="_images/IIR_allgemeinBlock.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.16 </span><span class="caption-text">IIR-Filter Struktur in Direkt Form I.</span><a class="headerlink" href="#fig-iir-allgemeinblock" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.16 </span><span class="caption-text">IIR-Filter Struktur in Direkt Form I.</span><a class="headerlink" href="#fig-iir-allgemeinblock" title="Permalink to this image">¶</a></p>
 </div>
 <p>Diese sehr grundlegende Struktur, die die Differenzengleichung
 geradlinig umsetzt wird als Direkt Form I bezeichnet. Sie ist einfach in
@@ -1632,15 +1627,15 @@ Datenformat repräsentiert werden können.</p>
 höherer Ordnung in Filter 2. Ordnung vorgenommen. Diese werden dann
 <em>Second Order Sections</em> oder <em>Biquads</em> genannt. Eine kaskadierte
 Schaltung führt dann abschließend wieder zum Originaldesign, ohne die
-numerischen Schwierigkeiten zu beinhalten (siehe <a class="reference internal" href="#fig-iir-sos-zrlegung"><span class="std std-numref">Abbildung 7.17</span></a> ).</p>
+numerischen Schwierigkeiten zu beinhalten (siehe <a class="reference internal" href="#fig-iir-sos-zrlegung"><span class="std std-numref">Abbildung 6.17</span></a> ).</p>
 <div class="figure align-default" id="fig-iir-sos-zrlegung">
 <a class="reference internal image-reference" href="_images/IIR_SOS_Zrlegung.png"><img alt="_images/IIR_SOS_Zrlegung.png" src="_images/IIR_SOS_Zrlegung.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.17 </span><span class="caption-text">Beispiel einer SOS-Zerlegung eines IIR-Filters
+<p class="caption"><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Beispiel einer SOS-Zerlegung eines IIR-Filters
 6.Ordnung.</span><a class="headerlink" href="#fig-iir-sos-zrlegung" title="Permalink to this image">¶</a></p>
 </div>
 <p>Mathematisch lässt sich die Zerlegung folgendermaßen darstellen.</p>
 <div class="math notranslate nohighlight" id="equation-eq-sos-zerlegung">
-<span class="eqno">(7.6)<a class="headerlink" href="#equation-eq-sos-zerlegung" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-eq-sos-zerlegung" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
     H(z) &amp;=&amp; \frac{b_0 + b_1 z^{-1} +  b_2 z^{-2} + \cdots +  b_{N-1} z^{-(N-1)}}
                   {1 + a_1 z^{-1} +  a_2 z^{-2} + \cdots +  a_{N-1} z^{-(N-1)}} \\
@@ -1650,16 +1645,16 @@ numerischen Schwierigkeiten zu beinhalten (siehe <a class="reference internal" h
 \end{split}\]</div>
 <p>Die Zusammenführung zweier Pole und Nullstellen sollte dabei immer so
 erfolgen, dass die Pole und Nullstellen möglichst dicht beieinander
-liegen (siehe <a class="reference internal" href="#fig-zp2sos"><span class="std std-numref">Abbildung 7.18</span></a> ).</p>
+liegen (siehe <a class="reference internal" href="#fig-zp2sos"><span class="std std-numref">Abbildung 6.18</span></a> ).</p>
 <div class="figure align-default" id="fig-zp2sos">
 <a class="reference internal image-reference" href="_images/Zp2sos.png"><img alt="_images/Zp2sos.png" src="_images/Zp2sos.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.18 </span><span class="caption-text">Pol-Nullstellenzuordnung eines Filters
+<p class="caption"><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Pol-Nullstellenzuordnung eines Filters
 6.Ordnung zu drei Second Order
 Sections.</span><a class="headerlink" href="#fig-zp2sos" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="filterstrukturen-fur-sos">
-<h4><span class="section-number">7.2.3.2. </span>Filterstrukturen für SOS<a class="headerlink" href="#filterstrukturen-fur-sos" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.3.2. </span>Filterstrukturen für SOS<a class="headerlink" href="#filterstrukturen-fur-sos" title="Permalink to this headline">¶</a></h4>
 <p>Die Direkt Form I ist nicht die einzige Möglichkeit ein IIR-Filter zu
 realisieren. Um die anderen Strukturen zu verdeutlichen, konzentrieren
 wir uns auf die wichtigen SOS-Filter. Eine wichtige Anforderung an
@@ -1670,7 +1665,7 @@ letzten Punkt werden wir zunächst nicht behandeln.</p>
 <p>Eine Analyse der DF1 zeigt, dass wir fünf Multiplikationen und vier
 Speicherplätze benötigen. Durch Umstellen des Blockdiagramms lässt sich
 erkennen, dass es möglich ist die Speicher für den Transversal- und für
-den Rückführungszweig zusammen zu legen (siehe <a class="reference internal" href="#fig-df1-to-df2"><span class="std std-numref">Abbildung 7.19</span></a> ). Diese Umstellung ist erlaubt, da wir
+den Rückführungszweig zusammen zu legen (siehe <a class="reference internal" href="#fig-df1-to-df2"><span class="std std-numref">Abbildung 6.19</span></a> ). Diese Umstellung ist erlaubt, da wir
 zum einen den Transversal- und den Rückführungszweig als zwei getrennte
 Systeme auffassen können, zum anderen da beide Einzelsysteme LTI-Systeme
 sind und somit das Vertauschen keinen Einfluss auf das
@@ -1681,14 +1676,14 @@ zwei Speicherelementen. Strukturen mit minimaler Anzahl an
 Speicherelementen werden kanonisch genannt.</p>
 <div class="figure align-default" id="fig-df1-to-df2">
 <a class="reference internal image-reference" href="_images/DF1_to_DF2.png"><img alt="_images/DF1_to_DF2.png" src="_images/DF1_to_DF2.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.19 </span><span class="caption-text">Umwandlung einer DF1 Struktur in die
+<p class="caption"><span class="caption-number">Fig. 6.19 </span><span class="caption-text">Umwandlung einer DF1 Struktur in die
 kanonische DF2 Struktur. Die grau hinterlegten Verzögerungselemente
 können zu einem Element zusammen gefasst werden, da sie jeweils dasselbe
 Signal als Eingang haben.</span><a class="headerlink" href="#fig-df1-to-df2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="vom-blockdiagramm-zur-ubertragungsfunktion">
-<h4><span class="section-number">7.2.3.3. </span>Vom Blockdiagramm zur Übertragungsfunktion<a class="headerlink" href="#vom-blockdiagramm-zur-ubertragungsfunktion" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.3.3. </span>Vom Blockdiagramm zur Übertragungsfunktion<a class="headerlink" href="#vom-blockdiagramm-zur-ubertragungsfunktion" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-to-do admonition">
 <p class="admonition-title">To Do</p>
 <p>Analyse des Block-Diagramms mit z-Trafo daraus folgend die Übertragungsfunktion , ??Wie geht es anders herum??</p>
@@ -1696,23 +1691,23 @@ Signal als Eingang haben.</span><a class="headerlink" href="#fig-df1-to-df2" tit
 </div>
 </div>
 <div class="section" id="iir-filterdesign">
-<h3><span class="section-number">7.2.4. </span>IIR-Filterdesign<a class="headerlink" href="#iir-filterdesign" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.4. </span>IIR-Filterdesign<a class="headerlink" href="#iir-filterdesign" title="Permalink to this headline">¶</a></h3>
 <p>Um die Theorie des Entwurfs traditioneller IIR-Filter genauer zu
 erläutern fehlen an dieser Stelle noch einige theoretische Konzepte. Der
 noch folgende
-<a class="reference internal" href="analog.html#sec-analog"><span class="std std-numref">Abschnitt 4</span></a> zeigt die notwendigen Entwurfsverfahren. Ein
-erster Einblick, um bereits mit IIR-Filtern arbeiten zu können, wird in <a class="reference internal" href="#sec-iir-filterdesign"><span class="std std-numref">Abschnitt 7.3.2.1</span></a> auf Basis von Matlab gegeben.</p>
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code> zeigt die notwendigen Entwurfsverfahren. Ein
+erster Einblick, um bereits mit IIR-Filtern arbeiten zu können, wird in <a class="reference internal" href="#sec-iir-filterdesign"><span class="std std-numref">Abschnitt 6.3.2.1</span></a> auf Basis von Matlab gegeben.</p>
 <p>Mit den bisherigen Erkenntnissen sind aber schon Lösungen für einige
 spezielle Filter möglich.</p>
 <div class="section" id="notch-filter">
-<h4><span class="section-number">7.2.4.1. </span>Notch-Filter<a class="headerlink" href="#notch-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.4.1. </span>Notch-Filter<a class="headerlink" href="#notch-filter" title="Permalink to this headline">¶</a></h4>
 <div class="error admonition">
 <p class="admonition-title">To Do</p>
 <p>Entwurf in z-Ebene durch Nullstellen auf dem Einheitskreis und Polstellen mit verringertem Radius und gleichem Winkel, Anwendungen bzw. Design Bsp.: DC Filter, Netzbrummﬁlter</p>
 </div>
 </div>
 <div class="section" id="allpasse">
-<h4><span class="section-number">7.2.4.2. </span>Allpässe<a class="headerlink" href="#allpasse" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.4.2. </span>Allpässe<a class="headerlink" href="#allpasse" title="Permalink to this headline">¶</a></h4>
 <div class="error admonition">
 <p class="admonition-title">To Do</p>
 <p>Wiederholung spezielles Pol-Nullstellendiagramm, Überlegungen zum Entwurf im z-Bereich, Anwendungen: Spezielle Filter</p>
@@ -1721,18 +1716,18 @@ spezielle Filter möglich.</p>
 </div>
 </div>
 <div class="section" id="implementierungsaspekte">
-<h2><span class="section-number">7.3. </span>Implementierungsaspekte<a class="headerlink" href="#implementierungsaspekte" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Implementierungsaspekte<a class="headerlink" href="#implementierungsaspekte" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id11">
-<h3><span class="section-number">7.3.1. </span>FIR-Filter<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>FIR-Filter<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="schnelle-faltung-ola">
-<h4><span class="section-number">7.3.1.1. </span>Schnelle Faltung OLA<a class="headerlink" href="#schnelle-faltung-ola" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.1.1. </span>Schnelle Faltung OLA<a class="headerlink" href="#schnelle-faltung-ola" title="Permalink to this headline">¶</a></h4>
 <p>Das Hauptproblem der FIR-Filter ist das beim Entwurf meist sehr hohe
 Filterordnungen mit mehr als 100 Koeffizienten herauskommen. Dies führt
 zu einer sehr hohen Rechenleistung, wenn man versucht solche Filter
 direkt durch die Faltungssumme zu realisieren. Statt dessen kann eine
 FFT basierte schnelle Faltung aufgebaut werden, die eine sehr viel
 recheneffizientere Version ermöglicht.</p>
-<p>Wir hatten im Abschnitt <a class="reference internal" href="spektren.html#sec-dft-faltung"><span class="std std-numref">Abschnitt 6.3.3.2</span></a> gesehen, dass bei der Faltung mit Hilfe
+<p>Wir hatten im Abschnitt <a class="reference internal" href="spektren.html#sec-dft-faltung"><span class="std std-numref">Abschnitt 5.3.3.2</span></a> gesehen, dass bei der Faltung mit Hilfe
 der FFT unbedingt genügend Nullen angefügt werden müssen, um die
 zirkulare Faltung zu verhindern. Für den Fall, dass die beiden Folgen
 eine sehr unterschiedliche Länge haben und dies ist der Normalfall
@@ -1761,10 +1756,10 @@ direkten Faltung zu erhalten, muss nun das Ausgangssignal des nächsten
 Blockes zu den <span class="math notranslate nohighlight">\(M\)</span> überhängenden Ausgangswerten hinzu addiert werden. Da
 es sich hierbei um eine Überlappung handelt, wird dieses Verfahren als
 <em>Overlap-Add</em> (OLA) bezeichnet. Zur Verdeutlichung ist der gesamte
-Aufbau auch noch in <a class="reference internal" href="#fig-ola-erklaerung"><span class="std std-numref">Abbildung 7.20</span></a> gezeigt.</p>
+Aufbau auch noch in <a class="reference internal" href="#fig-ola-erklaerung"><span class="std std-numref">Abbildung 6.20</span></a> gezeigt.</p>
 <div class="figure align-default" id="fig-ola-erklaerung">
 <a class="reference internal image-reference" href="_images/OLA_Erklaerung.png"><img alt="_images/OLA_Erklaerung.png" src="_images/OLA_Erklaerung.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.20 </span><span class="caption-text">Overlap-Add Verfahren am Beispiel mit <span class="math notranslate nohighlight">\(M = 3\)</span>
+<p class="caption"><span class="caption-number">Fig. 6.20 </span><span class="caption-text">Overlap-Add Verfahren am Beispiel mit <span class="math notranslate nohighlight">\(M = 3\)</span>
 und <span class="math notranslate nohighlight">\(L = 13\)</span>.</span><a class="headerlink" href="#fig-ola-erklaerung" title="Permalink to this image">¶</a></p>
 </div>
 <p>Dieses Prinzip kann zusätzlich auch für sehr lange Impulsantworten, wie
@@ -1777,7 +1772,7 @@ Block Partitionierte OLA genannt und ist insbesondere zur Realisierung
 von Faltungshallalgorithmen in kommerziellen Produkten erhältlich.</p>
 </div>
 <div class="section" id="c-c">
-<h4><span class="section-number">7.3.1.2. </span>C/C++<a class="headerlink" href="#c-c" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.1.2. </span>C/C++<a class="headerlink" href="#c-c" title="Permalink to this headline">¶</a></h4>
 <p>Um die Umsetzung auf programmierbaren Systemen zu erläutern, werden im
 weiteren Verlauf hauptsächlich Beispiele in C/C++ bzw. Matlab verwendet.</p>
 <p>Eine direkte C-Implementierung der Hauptroutine des FIR-Filters ist
@@ -1817,12 +1812,12 @@ aber möglich eine Simulation dieses Speichers aufzubauen, um so eine
 effizientere Implementierung zu ermöglichen.</p>
 <p>Das Konzept des Ringspeichers geht davon aus, dass Speicher nicht linear
 sondern zirkular aufgebaut ist. Dies wird in DSPs durch eine spezielle
-Modulo-Adressierung erreicht. <a class="reference internal" href="#fig-ringspeichermemeory"><span class="std std-numref">Abbildung 7.21</span></a> zeigt, wie man sich diesem Speicher
+Modulo-Adressierung erreicht. <a class="reference internal" href="#fig-ringspeichermemeory"><span class="std std-numref">Abbildung 6.21</span></a> zeigt, wie man sich diesem Speicher
 vorstellen kann. Ein neuer Datenwert wird immer an die Adresse
 geschrieben, auf die der rotierende Zeiger zeigt.</p>
 <div class="figure align-default" id="fig-ringspeichermemeory">
 <a class="reference internal image-reference" href="_images/RingspeicherMemeory.png"><img alt="_images/RingspeicherMemeory.png" src="_images/RingspeicherMemeory.png" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.21 </span><span class="caption-text">Schematische Darstellung eines
+<p class="caption"><span class="caption-number">Fig. 6.21 </span><span class="caption-text">Schematische Darstellung eines
 Ringspeichers mit rotierndem
 Adresszeiger</span><a class="headerlink" href="#fig-ringspeichermemeory" title="Permalink to this image">¶</a></p>
 </div>
@@ -1900,7 +1895,7 @@ beim Entwickeln von zeitkritischen Routinen immer nur der wirkliche
 Benchmark-Test unter realistischen Bedingungen.</p>
 </div>
 <div class="section" id="vektorielle-schreibweise-und-implementierung-matlab">
-<h4><span class="section-number">7.3.1.3. </span>Vektorielle Schreibweise und Implementierung (Matlab)<a class="headerlink" href="#vektorielle-schreibweise-und-implementierung-matlab" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.1.3. </span>Vektorielle Schreibweise und Implementierung (Matlab)<a class="headerlink" href="#vektorielle-schreibweise-und-implementierung-matlab" title="Permalink to this headline">¶</a></h4>
 <p>Häufig ist es nützlich, Signale als Vektoren aufzufassen, da durch die
 Vektor und Matrix-Schreibweise bestimmte Rechenregeln und Eigenschaften
 der linearen Algebra direkt für Signale nutzbar sind. Als Schreibweise
@@ -1908,7 +1903,7 @@ werden meist fettgedruckte Buchstaben verwendet. Typischerweise werden
 Zeitsignale als Spaltenvektoren eingeführt.</p>
 <p>Beispiel eines Vektors mit vier vergangenen Zeitwerten</p>
 <div class="math notranslate nohighlight" id="equation-eq-defspaltenvektor">
-<span class="eqno">(7.7)<a class="headerlink" href="#equation-eq-defspaltenvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-eq-defspaltenvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
     \mathbf{x}(k) = \left(%
 \begin{array}{c}
   x(k) \\
@@ -1920,7 +1915,7 @@ Zeitsignale als Spaltenvektoren eingeführt.</p>
 \end{split}\]</div>
 <p>Führen wir nun in der selben Art einen Vektor für die Koeffizienten ein</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-koeffvektor">
-<span class="eqno">(7.8)<a class="headerlink" href="#equation-eq-def-koeffvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-eq-def-koeffvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
     \mathbf{b} = \left(%
 \begin{array}{c}
   b_0 \\
@@ -1933,7 +1928,7 @@ Zeitsignale als Spaltenvektoren eingeführt.</p>
 <p>so kann der Ausgang <span class="math notranslate nohighlight">\(y(k)\)</span> durch das Skalarprodukt dieser
 beiden Vektoren ausgedrückt werden.</p>
 <div class="math notranslate nohighlight" id="equation-eq-fir-vek">
-<span class="eqno">(7.9)<a class="headerlink" href="#equation-eq-fir-vek" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.9)<a class="headerlink" href="#equation-eq-fir-vek" title="Permalink to this equation">¶</a></span>\[
     y(k) = \mathbf{x}^T(k) \mathbf{(b)},
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(^T\)</span>, die Transponierung
@@ -1944,8 +1939,8 @@ bekannt ist.</p>
 effizient implementieren, wenn man nicht auf die internen
 Filter-Routinen zurückgreifen möchte.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="78904e69-c653-468c-af6e-64964cb0285d" name="eb404888-d3e1-4d94-843f-e08158fd59fd" type="radio">
-</input><label class="tabbed-label" for="78904e69-c653-468c-af6e-64964cb0285d">
+<input checked="checked" id="761542b9-14bf-40ca-a5c2-fce09ae50262" name="99ea6ed3-e1c2-4a11-80fb-d2a633887481" type="radio">
+</input><label class="tabbed-label" for="761542b9-14bf-40ca-a5c2-fce09ae50262">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">v_states</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">LengthOfFilter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 
@@ -1957,8 +1952,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="5abf6847-9c42-48ee-95e4-d3f4d6e088fe" name="eb404888-d3e1-4d94-843f-e08158fd59fd" type="radio">
-</input><label class="tabbed-label" for="5abf6847-9c42-48ee-95e4-d3f4d6e088fe">
+<input id="1fd8d907-265b-47ff-a9a5-255762cb39fe" name="99ea6ed3-e1c2-4a11-80fb-d2a633887481" type="radio">
+</input><label class="tabbed-label" for="1fd8d907-265b-47ff-a9a5-255762cb39fe">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1"># Example values</span>
@@ -1980,9 +1975,9 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="id13">
-<h3><span class="section-number">7.3.2. </span>IIR-Filter<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>IIR-Filter<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="sec-iir-filterdesign">
-<span id="id14"></span><h4><span class="section-number">7.3.2.1. </span>IIR-Filterdesign<a class="headerlink" href="#sec-iir-filterdesign" title="Permalink to this headline">¶</a></h4>
+<span id="id14"></span><h4><span class="section-number">6.3.2.1. </span>IIR-Filterdesign<a class="headerlink" href="#sec-iir-filterdesign" title="Permalink to this headline">¶</a></h4>
 <p>Der Entwurf von IIR-Filtern erfolgt historisch bedingt etwas anders.
 Rekursive Filter sind sehr viel enger mit analogen Filtern verwandt.
 Eine Möglichkeit des IIR-Filterentwurfs besteht deshalb darin, einen
@@ -1992,7 +1987,7 @@ wurden, soll an dieser Stelle nur Beispielhaft typische Lösungen und
 ihre Stärken und Schwächen gezeigt werden.</p>
 </div>
 <div class="section" id="butterworth-filter">
-<span id="sec-butterworth-filter"></span><h4><span class="section-number">7.3.2.2. </span>Butterworth-Filter<a class="headerlink" href="#butterworth-filter" title="Permalink to this headline">¶</a></h4>
+<span id="sec-butterworth-filter"></span><h4><span class="section-number">6.3.2.2. </span>Butterworth-Filter<a class="headerlink" href="#butterworth-filter" title="Permalink to this headline">¶</a></h4>
 <p>Ziel des Butterworth-Entwurfs ist einen möglichst flachen
 Durchlassbereich zu erhalten. Dies wird im analogen Entwurf durch
 Nutzung einer Potenzfunktion gewährleistet (siehe Abschnitt
@@ -2012,8 +2007,8 @@ Durchlassbereich bis <span class="math notranslate nohighlight">\(0.1\pi\)</span
 Sperrbereich ab <span class="math notranslate nohighlight">\(02\pi\)</span> und minimale Dämpfung von <span class="math notranslate nohighlight">\(30dB\)</span>.<br />
 Der dazugehörige Code sieht dann wie folgt aus:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="91518ea0-3b66-472a-80f7-9e42d2b1dcfa" name="c4262e29-e5f5-4f69-9afa-fda2c1384d6a" type="radio">
-</input><label class="tabbed-label" for="91518ea0-3b66-472a-80f7-9e42d2b1dcfa">
+<input checked="checked" id="a80bb693-dd7a-4de8-b40f-b4f07aee80aa" name="a45daec0-f00a-4b5f-b648-5d70c0908402" type="radio">
+</input><label class="tabbed-label" for="a80bb693-dd7a-4de8-b40f-b4f07aee80aa">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
     <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
@@ -2026,8 +2021,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="56c225a4-c8a9-430d-a0f9-9286e1cb9ea7" name="c4262e29-e5f5-4f69-9afa-fda2c1384d6a" type="radio">
-</input><label class="tabbed-label" for="56c225a4-c8a9-430d-a0f9-9286e1cb9ea7">
+<input id="54716f17-5889-4ffb-8ba9-c4a36445b5e7" name="a45daec0-f00a-4b5f-b648-5d70c0908402" type="radio">
+</input><label class="tabbed-label" for="54716f17-5889-4ffb-8ba9-c4a36445b5e7">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2043,7 +2038,7 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="tschebyscheff-i-filter">
-<h4><span class="section-number">7.3.2.3. </span>Tschebyscheff-I-Filter<a class="headerlink" href="#tschebyscheff-i-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.3. </span>Tschebyscheff-I-Filter<a class="headerlink" href="#tschebyscheff-i-filter" title="Permalink to this headline">¶</a></h4>
 <p>Im Gegensatz zum Butterworth-Filter ist das Ziel des Tschebyscheff-I
 Filters im Durchlassbereich die maximal zulässige Durchlassdämpfung
 nicht zu überschreiten. Gleichzeitig wird aber erlaubt, diesen Bereich
@@ -2053,8 +2048,8 @@ auch als Equiripple-Design bezeichnet. Dies führt zu einem Entwurf mit
 geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten <code class="docutils literal notranslate"><span class="pre">cheb1ord</span></code> und
 <code class="docutils literal notranslate"><span class="pre">cheby1</span></code>. Für das Design-Beispiel ergibt sich der folgende Code.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="3451b707-deb6-4625-89f0-8b240a44c37e" name="2810669a-be13-4e7d-9284-afd0223f8693" type="radio">
-</input><label class="tabbed-label" for="3451b707-deb6-4625-89f0-8b240a44c37e">
+<input checked="checked" id="bd814b9f-bf2a-4443-a821-52544a1b605a" name="ae1e6741-a08e-4a86-b5a7-1f8b36f94c26" type="radio">
+</input><label class="tabbed-label" for="bd814b9f-bf2a-4443-a821-52544a1b605a">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
     <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
@@ -2067,8 +2062,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="32c4f59d-433f-465f-a528-32cd99d3774f" name="2810669a-be13-4e7d-9284-afd0223f8693" type="radio">
-</input><label class="tabbed-label" for="32c4f59d-433f-465f-a528-32cd99d3774f">
+<input id="92af03dd-2652-4130-975a-332378504c75" name="ae1e6741-a08e-4a86-b5a7-1f8b36f94c26" type="radio">
+</input><label class="tabbed-label" for="92af03dd-2652-4130-975a-332378504c75">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2083,13 +2078,13 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="tschebyscheff-ii-filter">
-<h4><span class="section-number">7.3.2.4. </span>Tschebyscheff-II-Filter<a class="headerlink" href="#tschebyscheff-ii-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.4. </span>Tschebyscheff-II-Filter<a class="headerlink" href="#tschebyscheff-ii-filter" title="Permalink to this headline">¶</a></h4>
 <p>Das Tschebyscheff-II-Filter ist der Inverse Entwurf zum Typ I. Das Ziel
 ist also ein flacher Durchlassbereich und ein oszilierender
 Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0c80abaa-a55d-4976-9644-aba1be74d5ba" name="dbf92f60-47e7-4950-8e1c-8861d98cb2b1" type="radio">
-</input><label class="tabbed-label" for="0c80abaa-a55d-4976-9644-aba1be74d5ba">
+<input checked="checked" id="a11bc8bd-61bd-4a39-8e39-1355c649e3e1" name="4f76ea85-7db7-4c4b-af5e-75470366ec6d" type="radio">
+</input><label class="tabbed-label" for="a11bc8bd-61bd-4a39-8e39-1355c649e3e1">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
     <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
@@ -2102,8 +2097,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="d7749aeb-129a-4782-b27b-4e05a2f62cf6" name="dbf92f60-47e7-4950-8e1c-8861d98cb2b1" type="radio">
-</input><label class="tabbed-label" for="d7749aeb-129a-4782-b27b-4e05a2f62cf6">
+<input id="27350cf3-0e19-45a1-8788-d7e6d852e4b7" name="4f76ea85-7db7-4c4b-af5e-75470366ec6d" type="radio">
+</input><label class="tabbed-label" for="27350cf3-0e19-45a1-8788-d7e6d852e4b7">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2118,14 +2113,14 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="cauer-filter">
-<h4><span class="section-number">7.3.2.5. </span>Cauer-Filter<a class="headerlink" href="#cauer-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.5. </span>Cauer-Filter<a class="headerlink" href="#cauer-filter" title="Permalink to this headline">¶</a></h4>
 <p>Das Cauer-Filter auch als Ellpitisches-Filter bezeichnet, definiert
 einen Equiripple-Entwurf im Durchlass- und Sperrbereich. Dies führt zu
 einer weiteren Reduzierung der Ordnung. Der Entwurf sieht wie
 folgt aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d7149d29-39e0-49c4-955f-c81c3a25bb34" name="3875297a-c52c-4e6c-9a1d-f5199e87f33d" type="radio">
-</input><label class="tabbed-label" for="d7149d29-39e0-49c4-955f-c81c3a25bb34">
+<input checked="checked" id="2f1cb566-3edb-4f64-9c53-5e1a6f3c26dc" name="2de9591a-fb56-4f05-831b-cf9d28e63275" type="radio">
+</input><label class="tabbed-label" for="2f1cb566-3edb-4f64-9c53-5e1a6f3c26dc">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
     <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
@@ -2138,8 +2133,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="1149e164-756a-4ace-9222-229e899d5f14" name="3875297a-c52c-4e6c-9a1d-f5199e87f33d" type="radio">
-</input><label class="tabbed-label" for="1149e164-756a-4ace-9222-229e899d5f14">
+<input id="a67f2e93-399d-4cca-9e7a-c62563cea573" name="2de9591a-fb56-4f05-831b-cf9d28e63275" type="radio">
+</input><label class="tabbed-label" for="a67f2e93-399d-4cca-9e7a-c62563cea573">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2154,7 +2149,7 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren">
-<h4><span class="section-number">7.3.2.6. </span>Vor- und Nachteile der unterschiedlichen Entwurfsverfahren<a class="headerlink" href="#vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.6. </span>Vor- und Nachteile der unterschiedlichen Entwurfsverfahren<a class="headerlink" href="#vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren" title="Permalink to this headline">¶</a></h4>
 <p>Die Wahl der Entwurfsmethode beruht im großen Maße auf den gegebenen
 Randparamtern. Um eine geeignete Wahl zu treffen ist es aber notwendig
 die Stärken und Schwächen der einzelnen Verfahren zu beleuchten. Aus den
@@ -2165,7 +2160,7 @@ Ordnung, während das Cauer-Filter immer mit der geringsten Ordnung
 auskommt. Gleichzeitig sind die resultierenden Koeffizienten auch für
 eine SOS-Lösung numerisch am fragilsten und benötigen eine hohe
 Quantisierung.</p>
-<p>Um die weiteren Vor- und Nachteile zu verdeutlichen sind in <a class="reference internal" href="#fig-iirdesign"><span class="std std-numref">Abbildung 7.22</span></a>  die verschiedenen Entwurfsverfahren am
+<p>Um die weiteren Vor- und Nachteile zu verdeutlichen sind in <a class="reference internal" href="#fig-iirdesign"><span class="std std-numref">Abbildung 6.22</span></a>  die verschiedenen Entwurfsverfahren am
 oben verwendeten Beispiel gezeigt.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -2244,7 +2239,7 @@ oben verwendeten Beispiel gezeigt.</p>
 <div class="cell_output docutils container">
 <img alt="_images/filter_48_0.png" src="_images/filter_48_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7.22 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes für verschiedene Entwurfsverfahren.</span><a class="headerlink" href="#fig-iirdesign" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.22 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes für verschiedene Entwurfsverfahren.</span><a class="headerlink" href="#fig-iirdesign" title="Permalink to this image">¶</a></p>
 </div>
 <p>Das Butterworth-Filter hat im Durchlassbereich den erwarteten positiven
 flachen Verlauf, der im Sperrbereich zu einer monoton fallenden Dämpfung
@@ -2266,7 +2261,7 @@ am ehesten der meistens gewünschten linearen Phase entspricht.</p>
 </div>
 </div>
 <div class="section" id="entwurf-von-hochpass-bandpass-und-bandsperr-filter">
-<h4><span class="section-number">7.3.2.7. </span>Entwurf von Hochpass, Bandpass und Bandsperr-Filter<a class="headerlink" href="#entwurf-von-hochpass-bandpass-und-bandsperr-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.7. </span>Entwurf von Hochpass, Bandpass und Bandsperr-Filter<a class="headerlink" href="#entwurf-von-hochpass-bandpass-und-bandsperr-filter" title="Permalink to this headline">¶</a></h4>
 <p>Bisher wurden nur Tiefpass-Entwürfe betrachtet. Alle anderen Filter
 lassen sich ebenfalls errechnen, wobei die dazu verwendeten
 Frequenz-Transformationen (nicht zu verwechseln mit der Fourier-Transformation) erst bei der Betrachtung der analogen
@@ -2280,8 +2275,8 @@ Berechnung der Ordnung reicht es die Grenzfrequenzen zu vertauschen, um
 einen Hochpass anzuzeigen.</p>
 <p>Beispiel:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="3a724124-e792-42b2-b5a9-4c2bdac71f75" name="7b9862fc-1bac-438a-9592-08f9f67cfe47" type="radio">
-</input><label class="tabbed-label" for="3a724124-e792-42b2-b5a9-4c2bdac71f75">
+<input checked="checked" id="0a1171c6-db53-48f4-9415-b8601d60cbc9" name="6d14d18d-0100-4411-8bfa-e5ecf5f84895" type="radio">
+</input><label class="tabbed-label" for="0a1171c6-db53-48f4-9415-b8601d60cbc9">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="c">% Highpass-Design</span>
     <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
@@ -2315,8 +2310,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a230107d-535e-49d6-8f06-227243d796a5" name="7b9862fc-1bac-438a-9592-08f9f67cfe47" type="radio">
-</input><label class="tabbed-label" for="a230107d-535e-49d6-8f06-227243d796a5">
+<input id="4e37df3d-2750-4802-84b4-ce983a3d7fe8" name="6d14d18d-0100-4411-8bfa-e5ecf5f84895" type="radio">
+</input><label class="tabbed-label" for="4e37df3d-2750-4802-84b4-ce983a3d7fe8">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Highpass Design</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.2</span>
@@ -2353,9 +2348,9 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="ubungen">
-<h2><span class="section-number">7.4. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-<h3><span class="section-number">7.4.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Nennen Sie jeweils eine mögliche Anwendung (am besten aus dem
 Bereich der Audiotechnik, Hörtechnik, Audiologie) für die
@@ -2365,7 +2360,7 @@ Entwurfsparamter aussehen könnten (Grenzfrequenz, Ordnung)</p></li>
 </ol>
 <div class="figure align-default" id="fig-iir-2terordnung">
 <a class="reference internal image-reference" href="_images/IIr_2terOrdnung.png"><img alt="_images/IIr_2terOrdnung.png" src="_images/IIr_2terOrdnung.png" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.23 </span><span class="caption-text">Blockschaltbild eines Systems</span><a class="headerlink" href="#fig-iir-2terordnung" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.23 </span><span class="caption-text">Blockschaltbild eines Systems</span><a class="headerlink" href="#fig-iir-2terordnung" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="simple">
 <li><p>Welche Vor- und Nachteile ergeben sich durch das Overlap-Add
@@ -2380,7 +2375,7 @@ Blockschaltbild</p>
 </ol>
 </div>
 <div class="section" id="aufgaben-auf-klausurniveau">
-<h3><span class="section-number">7.4.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Berechnen Sie die Übertragungsfunktion der Impulsantwort
 <span class="math notranslate nohighlight">\(h(k) = [-1 \;\; 1]\)</span>! Skizzieren Sie den Betrags- und Phasengang! Um
@@ -2415,7 +2410,7 @@ betragen <span class="math notranslate nohighlight">\(0.9\)</span> bzw <span cla
 </ol>
 <div class="figure align-default" id="fig-pz-18-25-28">
 <a class="reference internal image-reference" href="_images/PZ_18_25_28.png"><img alt="_images/PZ_18_25_28.png" src="_images/PZ_18_25_28.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.24 </span><span class="caption-text">Subtitle</span><a class="headerlink" href="#fig-pz-18-25-28" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.24 </span><span class="caption-text">Subtitle</span><a class="headerlink" href="#fig-pz-18-25-28" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="simple">
 <li><p>Wie lautet die Differenzengleichung und die Übertragungsfunktion des
@@ -2428,7 +2423,7 @@ und Realisierungsform)</p></li>
 </div>
 </div>
 <div class="section" id="matlab-aufgaben">
-<h3><span class="section-number">7.4.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Realisieren Sie eine Funktion, die die Koeffizienten eines mit der
 Fenstermethode entworfenen Tiefpasses zurückgibt. Als
@@ -2442,7 +2437,7 @@ Betragsübertragungsfunktion exakt erhalten bleiben soll. Die
 </ol>
 </div>
 <div class="section" id="transfer-leistung">
-<h3><span class="section-number">7.4.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Überlegen Sie eine weitere kanonische Struktur für SOS-Filter.</p></li>
 <li><p>Nehmen wir an beim OLA-Verfahren wechselt die Übertragungsfunktion
@@ -2453,7 +2448,7 @@ sich vorstellen, wie man die auftretenden Probleme lösen kann?</p></li>
 </div>
 </div>
 <div class="section" id="zusammenfassung">
-<h2><span class="section-number">7.5. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
 <p>Die wichtigen Erkenntnisse aus diesem Kapitel sind:</p>
 <ul class="simple">
 <li><p>LTI-Systeme ergeben für alle nicht-trivialen Fälle eine Filterung
@@ -2520,8 +2515,8 @@ Faltung ergibt dann <span class="math notranslate nohighlight">\(L+M+1-1\)</span
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="spektren.html" title="previous page"><span class="section-number">6. </span>Spektren</a>
-    <a class='right-next' id="next-link" href="mathe.html" title="next page"><span class="section-number">8. </span>Mathematische Methoden</a>
+    <a class='left-prev' id="prev-link" href="spektren.html" title="previous page"><span class="section-number">5. </span>Spektren</a>
+    <a class='right-next' id="next-link" href="mathe.html" title="next page"><span class="section-number">7. </span>Mathematische Methoden</a>
 
         </div>
         
