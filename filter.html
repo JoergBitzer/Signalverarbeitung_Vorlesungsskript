@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6. Filter &#8212; Signalverarbeitung 1</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,28 +41,28 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Mathematische Methoden" href="mathe.html" />
     <link rel="prev" title="5. Spektren" href="spektren.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,25 +71,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Signalverarbeitung 1
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -135,6 +133,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -200,12 +199,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -231,11 +230,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#filtertypen">
    6.1. Filtertypen
@@ -397,42 +396,9 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubungen">
-   6.4. Übungen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-     6.4.1. Wiederholung des Stoffes und einfache Rechenaufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
-     6.4.2. Aufgaben (Auf Klausurniveau)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matlab-aufgaben">
-     6.4.3. Matlab-Aufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transfer-leistung">
-     6.4.4. Transfer-Leistung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zusammenfassung">
-   6.5. Zusammenfassung
-  </a>
- </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -467,8 +433,8 @@ Sperrfilter an. Ihr Entwurfsziel ist, möglichst einen bestimmten
 Frequenzbereich vollständig aus dem Spektrum zu entfernen. Dabei wird
 zwischen vier Grundtypen unterschieden:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="b05b8fba-d7c1-4d00-96ff-37f5203dba72" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
-</input><label class="tabbed-label" for="b05b8fba-d7c1-4d00-96ff-37f5203dba72">
+<input checked="checked" id="8e5c8252-f417-4581-8b5c-33336ffec1d7" name="7f5d88dc-908e-4435-b1bf-767ddd43614f" type="radio">
+</input><label class="tabbed-label" for="8e5c8252-f417-4581-8b5c-33336ffec1d7">
 Tiefpass</label><div class="tabbed-content docutils">
 <p><strong>Tiefpass:</strong> Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
 einer zu definierenden Grenzfrequenz <span class="math notranslate nohighlight">\(f_g\)</span> aus dem Spektrum zu
@@ -484,8 +450,8 @@ Entwurf eines Tiefpasses (<span class="math notranslate nohighlight">\(f_s\)</sp
 1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a></span><a class="headerlink" href="#fig-designtp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="b09a2f48-8b2a-4075-add9-073110104141" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
-</input><label class="tabbed-label" for="b09a2f48-8b2a-4075-add9-073110104141">
+<input id="6bfef573-a0fb-4669-b171-feba97a40eeb" name="7f5d88dc-908e-4435-b1bf-767ddd43614f" type="radio">
+</input><label class="tabbed-label" for="6bfef573-a0fb-4669-b171-feba97a40eeb">
 Hochpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hochpass:</strong> Das inverse Designziel zum Tiefpass liegt dem
@@ -500,8 +466,8 @@ Entwurf eines Hochpasses (<span class="math notranslate nohighlight">\(f_s\)</sp
 1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a></span><a class="headerlink" href="#fig-designhp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="f57efb6d-1d41-4913-b859-7caa9d3b8d9e" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
-</input><label class="tabbed-label" for="f57efb6d-1d41-4913-b859-7caa9d3b8d9e">
+<input id="7d95f17a-3747-4e91-a17a-0fc0eff12ce4" name="7f5d88dc-908e-4435-b1bf-767ddd43614f" type="radio">
+</input><label class="tabbed-label" for="7d95f17a-3747-4e91-a17a-0fc0eff12ce4">
 Bandpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandpass:</strong> Im Gegensatz zu den vorher erwähnten Typen, hat das
@@ -520,8 +486,8 @@ kHz und <span class="math notranslate nohighlight">\(f_2 =\)</span> 3 kHz) und R
 Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a></span><a class="headerlink" href="#fig-designbp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="f584b96e-42de-408e-aa54-9251e327ef9f" name="296b837c-305a-4070-bfa4-60e51895aea1" type="radio">
-</input><label class="tabbed-label" for="f584b96e-42de-408e-aa54-9251e327ef9f">
+<input id="6444e3bc-88cd-47dd-b3b6-71ce2f977969" name="7f5d88dc-908e-4435-b1bf-767ddd43614f" type="radio">
+</input><label class="tabbed-label" for="6444e3bc-88cd-47dd-b3b6-71ce2f977969">
 Bandsperre</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandsperre:</strong> Die Bandsperre stellt die inverse Funktion zum
@@ -1339,8 +1305,8 @@ bedeutet dies eine deutliche Aufwandsreduktion.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d5a4f5b4-45ff-439f-94df-2d74d6befdcc" name="7ef02b5b-84b4-4887-a1a0-740ee47fc862" type="radio">
-</input><label class="tabbed-label" for="d5a4f5b4-45ff-439f-94df-2d74d6befdcc">
+<input checked="checked" id="998c6890-9528-43d1-a701-e914008288bc" name="61abf0a4-7c94-48a9-be30-cda6b8854c43" type="radio">
+</input><label class="tabbed-label" for="998c6890-9528-43d1-a701-e914008288bc">
 Entwurf</label><div class="tabbed-content docutils">
 <p>Fenster Entwurf</p>
 <div class="figure align-default" id="id1" style="width: 75%">
@@ -1352,8 +1318,8 @@ Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="25a044e9-4dac-44e3-bdd7-f613d9dcf138" name="7ef02b5b-84b4-4887-a1a0-740ee47fc862" type="radio">
-</input><label class="tabbed-label" for="25a044e9-4dac-44e3-bdd7-f613d9dcf138">
+<input id="dd09395b-be38-4e50-b88e-fa3d94b310fd" name="61abf0a4-7c94-48a9-be30-cda6b8854c43" type="radio">
+</input><label class="tabbed-label" for="dd09395b-be38-4e50-b88e-fa3d94b310fd">
 Remez</label><div class="tabbed-content docutils">
 <p>Remez Fenster</p>
 <div class="figure align-default" id="fig-bspfensterremez" style="width: 75%">
@@ -1568,23 +1534,23 @@ Filter.</span><a class="headerlink" href="#fig-minphasenbsp" title="Permalink to
 </div>
 <p>Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a0d1ea08-3266-425a-a1ec-ba4c38bcee25" name="c8c0ae23-148f-4564-8c51-12dbd059d5c9" type="radio">
-</input><label class="tabbed-label" for="a0d1ea08-3266-425a-a1ec-ba4c38bcee25">
+<input checked="checked" id="ae9f5d9d-41d2-4da9-abf5-dd61999241e3" name="5a07a159-cfdb-4c78-9091-28513a573806" type="radio">
+</input><label class="tabbed-label" for="ae9f5d9d-41d2-4da9-abf5-dd61999241e3">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="c">%v_H contains the magnitude vector of the desired filter</span>
-    <span class="n">log_H</span> <span class="p">=</span> <span class="nb">log</span><span class="p">(</span><span class="n">v_H</span><span class="o">+</span><span class="nb">eps</span><span class="p">);</span> <span class="c">% eps is the smallest positive number in matlab</span>
-                          <span class="c">% prevents log of zero</span>
-    <span class="n">h_ceps</span> <span class="p">=</span> <span class="nb">real</span><span class="p">(</span><span class="n">ifft</span><span class="p">(</span><span class="n">log_H</span><span class="p">));</span> <span class="c">% real for removing quantization error</span>
-    <span class="n">h_ceps</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">h_ceps</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n">h_ceps</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c">% Setting to zero</span>
-    <span class="n">H_min_log</span> <span class="p">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">);</span>
-    <span class="n">H_min</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">H_min_log</span><span class="p">);</span>
-    <span class="n">v_h</span> <span class="p">=</span> <span class="nb">real</span><span class="p">(</span><span class="n">ifft</span><span class="p">(</span><span class="n">H_min</span><span class="p">));</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">%v_H contains the magnitude vector of the desired filter</span><span class="w"></span>
+<span class="w">    </span><span class="n">log_H</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="n">v_H</span><span class="o">+</span><span class="nb">eps</span><span class="p">);</span><span class="w"> </span><span class="c">% eps is the smallest positive number in matlab</span><span class="w"></span>
+<span class="w">                          </span><span class="c">% prevents log of zero</span><span class="w"></span>
+<span class="w">    </span><span class="n">h_ceps</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">real</span><span class="p">(</span><span class="nb">ifft</span><span class="p">(</span><span class="n">log_H</span><span class="p">));</span><span class="w"> </span><span class="c">% real for removing quantization error</span><span class="w"></span>
+<span class="w">    </span><span class="n">h_ceps</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">h_ceps</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">h_ceps</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c">% Setting to zero</span><span class="w"></span>
+<span class="w">    </span><span class="n">H_min_log</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fft</span><span class="p">(</span><span class="n">h_ceps</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">H_min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">exp</span><span class="p">(</span><span class="n">H_min_log</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">v_h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">real</span><span class="p">(</span><span class="nb">ifft</span><span class="p">(</span><span class="n">H_min</span><span class="p">));</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="1c3aa04c-506d-4fb8-84ee-c0853db559c0" name="c8c0ae23-148f-4564-8c51-12dbd059d5c9" type="radio">
-</input><label class="tabbed-label" for="1c3aa04c-506d-4fb8-84ee-c0853db559c0">
+<input id="351b608e-7c12-4dc2-b1df-b0ae9a1d7462" name="5a07a159-cfdb-4c78-9091-28513a573806" type="radio">
+</input><label class="tabbed-label" for="351b608e-7c12-4dc2-b1df-b0ae9a1d7462">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1">#v_H contains the magnitude vector of the desired filter</span>
@@ -1780,28 +1746,28 @@ durch den folgendes Programm gegeben. Wir gehen davon aus, dass der
 Speicher für die vergangenen Werte und die Koeffizienten ordnungsgemäß
 allokiert wurden. Als Eingangssignal wird ein Block von Samples
 angenommen, der in In gespeichert ist.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>    <span class="k">for</span><span class="p">(</span><span class="n">kk</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">kk</span> <span class="o">&lt;</span> <span class="n">LenOfInput</span> <span class="p">;</span> <span class="n">kk</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Zuweisung des Aktuellen Samples</span>
-        <span class="n">bStates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">kk</span><span class="p">];</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LenOfInput</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Zuweisung des Aktuellen Samples</span>
+<span class="w">        </span><span class="n">bStates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">In</span><span class="p">[</span><span class="n">kk</span><span class="p">];</span><span class="w"></span>
 
-        <span class="c1">// Berechnung der Summe (Zum besseren Vergleich</span>
-        <span class="c1">// mit zweiter Methode, erster Koeffizient separat)</span>
-        <span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">=</span> <span class="n">bCoeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">bStates</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">        </span><span class="c1">// Berechnung der Summe (Zum besseren Vergleich</span>
+<span class="w">        </span><span class="c1">// mit zweiter Methode, erster Koeffizient separat)</span>
+<span class="w">        </span><span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bCoeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bStates</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
 
-        <span class="kt">int</span> <span class="n">nn</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">nn</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nn</span> <span class="o">&lt;</span> <span class="n">LenOfFilter</span> <span class="p">;</span> <span class="n">nn</span><span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">+=</span> <span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span> <span class="o">*</span> <span class="n">bStates</span><span class="p">[</span><span class="n">nn</span><span class="p">];</span>
-        <span class="p">}</span>
-        <span class="c1">// Verschieben der States</span>
-        <span class="c1">// muss von hinten nach vorne erfolgen, damit der Speicher</span>
-        <span class="c1">// nicht ueberschrieben wird</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">nn</span> <span class="o">=</span> <span class="n">LenOfFilter</span><span class="o">-</span><span class="mi">1</span> <span class="p">;</span> <span class="n">nn</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">nn</span><span class="o">--</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">bStates</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span> <span class="o">=</span> <span class="n">bStates</span><span class="p">[</span><span class="n">nn</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">nn</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">nn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LenOfFilter</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bStates</span><span class="p">[</span><span class="n">nn</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Verschieben der States</span>
+<span class="w">        </span><span class="c1">// muss von hinten nach vorne erfolgen, damit der Speicher</span>
+<span class="w">        </span><span class="c1">// nicht ueberschrieben wird</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">nn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LenOfFilter</span><span class="mi">-1</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="o">--</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">bStates</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bStates</span><span class="p">[</span><span class="n">nn</span><span class="mi">-1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Diese Version kann durch eine sehr viel schnellere Lösung ersetzt
@@ -1825,24 +1791,24 @@ Adresszeiger</span><a class="headerlink" href="#fig-ringspeichermemeory" title="
 <span class="math notranslate nohighlight">\(x(0)\)</span> durch eine if-Abfrage lösen. Diese Art der Implementierung
 ermöglicht es ein FIR-Filter aufzubauen, dass ohne Speicherverschiebung
 auskommt.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="n">ActPosStates</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">nn</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="n">kk</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">kk</span> <span class="o">&lt;</span> <span class="n">LenOfInput</span> <span class="p">;</span> <span class="n">kk</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Zuweisung des Aktuellen Samples</span>
-        <span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">kk</span><span class="p">];</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ActPosStates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nn</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LenOfInput</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Zuweisung des Aktuellen Samples</span>
+<span class="w">        </span><span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">In</span><span class="p">[</span><span class="n">kk</span><span class="p">];</span><span class="w"></span>
 
-        <span class="c1">// Zuweisung des ersten Coeffs</span>
-        <span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">=</span> <span class="n">bCoeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span>
+<span class="w">        </span><span class="c1">// Zuweisung des ersten Coeffs</span>
+<span class="w">        </span><span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bCoeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">nn</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nn</span> <span class="o">&lt;</span> <span class="n">LenOfFilter</span> <span class="p">;</span> <span class="n">nn</span><span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">ActPosStates</span><span class="o">--</span><span class="p">;</span> <span class="c1">// States zaehlen runter</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">ActPosStates</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// Falls Grenze erreicht</span>
-                <span class="n">ActPosStates</span><span class="o">+=</span><span class="n">LenOfFilter</span><span class="p">;</span>  <span class="c1">// Sprung ans Ende</span>
-            <span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">+=</span> <span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span> <span class="o">*</span> <span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span> <span class="c1">// Summe</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">nn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LenOfFilter</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">ActPosStates</span><span class="o">--</span><span class="p">;</span><span class="w"> </span><span class="c1">// States zaehlen runter</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ActPosStates</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// Falls Grenze erreicht</span>
+<span class="w">                </span><span class="n">ActPosStates</span><span class="o">+=</span><span class="n">LenOfFilter</span><span class="p">;</span><span class="w">  </span><span class="c1">// Sprung ans Ende</span>
+<span class="w">            </span><span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span><span class="w"> </span><span class="c1">// Summe</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Diese Lösung kann noch weiter optimiert werden, in dem der Sprung des
@@ -1851,42 +1817,42 @@ der Schleife entfernt werden. Zusätzlich ist es noch nützlich
 pre-increment zu verwenden, da dies schneller abgearbeitet werden kann
 (Bartning-Script).</p>
 <p>Der optimierte Code eines FIR-Filters lautet also.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="n">ActPosStates</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">nn</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">Jump</span><span class="p">;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ActPosStates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nn</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Jump</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">for</span><span class="p">(</span><span class="n">kk</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">kk</span> <span class="o">&lt;</span> <span class="n">LenOfInput</span> <span class="p">;</span> <span class="o">++</span><span class="n">kk</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Zuweisung des Aktuellen Samples</span>
-        <span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">kk</span><span class="p">];</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LenOfInput</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">kk</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Zuweisung des Aktuellen Samples</span>
+<span class="w">        </span><span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">In</span><span class="p">[</span><span class="n">kk</span><span class="p">];</span><span class="w"></span>
 
-        <span class="c1">// Zuweisung des ersten Coeffs</span>
-        <span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// Zuweisung des ersten Coeffs</span>
+<span class="w">        </span><span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-        <span class="n">Jump</span> <span class="o">=</span> <span class="n">ActPosStates</span><span class="p">;</span> <span class="c1">// Jump Point</span>
+<span class="w">        </span><span class="n">Jump</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ActPosStates</span><span class="p">;</span><span class="w"> </span><span class="c1">// Jump Point</span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">nn</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">nn</span> <span class="o">&lt;=</span> <span class="n">Jump</span> <span class="p">;</span> <span class="o">++</span><span class="n">nn</span><span class="p">)</span> <span class="c1">//preincrement is faster</span>
-        <span class="p">{</span>
-            <span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">+=</span> <span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span> <span class="o">*</span> <span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span> <span class="c1">// Summe</span>
-            <span class="o">--</span><span class="n">ActPosStates</span><span class="p">;</span> <span class="c1">// States zaehlen runter</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">nn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">Jump</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">nn</span><span class="p">)</span><span class="w"> </span><span class="c1">//preincrement is faster</span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span><span class="w"> </span><span class="c1">// Summe</span>
+<span class="w">            </span><span class="o">--</span><span class="n">ActPosStates</span><span class="p">;</span><span class="w"> </span><span class="c1">// States zaehlen runter</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="n">ActPosStates</span><span class="o">+=</span><span class="n">LenOfFilter</span><span class="p">;</span>  <span class="c1">// Sprung ans Ende</span>
+<span class="w">        </span><span class="n">ActPosStates</span><span class="o">+=</span><span class="n">LenOfFilter</span><span class="p">;</span><span class="w">  </span><span class="c1">// Sprung ans Ende</span>
 
-        <span class="n">Jump</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Jump</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">nn</span> <span class="o">=</span> <span class="n">Jump</span> <span class="p">;</span> <span class="n">nn</span> <span class="o">&lt;</span> <span class="n">LenOfFilter</span> <span class="p">;</span> <span class="o">++</span><span class="n">nn</span><span class="p">)</span> <span class="c1">//preincrement is faster</span>
-        <span class="p">{</span>
-            <span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">+=</span> <span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span> <span class="o">*</span> <span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span> <span class="c1">// Summe</span>
-            <span class="o">--</span><span class="n">ActPosStates</span><span class="p">;</span> <span class="c1">// States zaehlen runter</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">nn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jump</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LenOfFilter</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">nn</span><span class="p">)</span><span class="w"> </span><span class="c1">//preincrement is faster</span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Out</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bCoeffs</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bStates</span><span class="p">[</span><span class="n">ActPosStates</span><span class="p">];</span><span class="w"> </span><span class="c1">// Summe</span>
+<span class="w">            </span><span class="o">--</span><span class="n">ActPosStates</span><span class="p">;</span><span class="w"> </span><span class="c1">// States zaehlen runter</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="n">ActPosStates</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ActPosStates</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">ActPosStates</span><span class="o">==</span><span class="n">LenOfFilter</span><span class="p">)</span>
-            <span class="n">ActPosStates</span> <span class="o">-=</span> <span class="n">LenOfFilter</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ActPosStates</span><span class="o">==</span><span class="n">LenOfFilter</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">ActPosStates</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">LenOfFilter</span><span class="p">;</span><span class="w"></span>
 
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Welche der beiden letzten Versionen schneller ist, hängt vom
@@ -1939,21 +1905,21 @@ bekannt ist.</p>
 effizient implementieren, wenn man nicht auf die internen
 Filter-Routinen zurückgreifen möchte.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="761542b9-14bf-40ca-a5c2-fce09ae50262" name="99ea6ed3-e1c2-4a11-80fb-d2a633887481" type="radio">
-</input><label class="tabbed-label" for="761542b9-14bf-40ca-a5c2-fce09ae50262">
+<input checked="checked" id="8bb9935c-9fdb-424d-b161-9015e6f6882e" name="4fd5cb7d-9105-415b-9131-e595787ee95f" type="radio">
+</input><label class="tabbed-label" for="8bb9935c-9fdb-424d-b161-9015e6f6882e">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">v_states</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">LengthOfFilter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">v_states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">LengthOfFilter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">for</span> <span class="s">kk</span> <span class="s">=</span> <span class="s">1:length(InputVektor)</span>         <span class="s">%</span> <span class="s">Annahme</span> <span class="s">Daten</span> <span class="s">stehen</span> <span class="s">in</span> <span class="s">InputVektor</span>
-      <span class="n">v_states</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">InputVektor</span><span class="p">(</span><span class="n">kk</span><span class="p">);</span>       <span class="c">% Neuen Datenwert in State speichern</span>
-      <span class="n">out</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span> <span class="p">=</span> <span class="n">v_Coeffs</span><span class="p">.</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">v_states</span><span class="p">;</span>     <span class="c">% Skalarprodukt berechnen</span>
-      <span class="n">v_states</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="n">v_states</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c">% State Vector verschieben</span>
-    <span class="n">end</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">InputVektor</span><span class="p">)</span><span class="w">         </span><span class="c">% Annahme Daten stehen in InputVektor</span><span class="w"></span>
+<span class="w">      </span><span class="n">v_states</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">InputVektor</span><span class="p">(</span><span class="n">kk</span><span class="p">);</span><span class="w">       </span><span class="c">% Neuen Datenwert in State speichern</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v_Coeffs</span><span class="p">.</span><span class="o">&#39;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v_states</span><span class="p">;</span><span class="w">     </span><span class="c">% Skalarprodukt berechnen</span><span class="w"></span>
+<span class="w">      </span><span class="n">v_states</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v_states</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% State Vector verschieben</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="1fd8d907-265b-47ff-a9a5-255762cb39fe" name="99ea6ed3-e1c2-4a11-80fb-d2a633887481" type="radio">
-</input><label class="tabbed-label" for="1fd8d907-265b-47ff-a9a5-255762cb39fe">
+<input id="ab4696fa-f029-445e-bd35-c44be55a9e7f" name="4fd5cb7d-9105-415b-9131-e595787ee95f" type="radio">
+</input><label class="tabbed-label" for="ab4696fa-f029-445e-bd35-c44be55a9e7f">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1"># Example values</span>
@@ -2007,22 +1973,22 @@ Durchlassbereich bis <span class="math notranslate nohighlight">\(0.1\pi\)</span
 Sperrbereich ab <span class="math notranslate nohighlight">\(02\pi\)</span> und minimale Dämpfung von <span class="math notranslate nohighlight">\(30dB\)</span>.<br />
 Der dazugehörige Code sieht dann wie folgt aus:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a80bb693-dd7a-4de8-b40f-b4f07aee80aa" name="a45daec0-f00a-4b5f-b648-5d70c0908402" type="radio">
-</input><label class="tabbed-label" for="a80bb693-dd7a-4de8-b40f-b4f07aee80aa">
+<input checked="checked" id="9cd05c71-330f-4b81-8c29-46a8c99864f1" name="76dcb5ec-a8b8-4a7b-83ee-70d8c1b1d2e0" type="radio">
+</input><label class="tabbed-label" for="9cd05c71-330f-4b81-8c29-46a8c99864f1">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freq</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_dB</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
 
-    <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span> <span class="p">=</span> <span class="n">buttord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span>
-    <span class="c">% Result is 7th Order and f_g = 0.1247</span>
-    <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="p">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span>
+<span class="w">    </span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buttord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Result is 7th Order and f_g = 0.1247</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="54716f17-5889-4ffb-8ba9-c4a36445b5e7" name="a45daec0-f00a-4b5f-b648-5d70c0908402" type="radio">
-</input><label class="tabbed-label" for="54716f17-5889-4ffb-8ba9-c4a36445b5e7">
+<input id="45250642-0c7d-4c61-85e2-18dafed571d6" name="76dcb5ec-a8b8-4a7b-83ee-70d8c1b1d2e0" type="radio">
+</input><label class="tabbed-label" for="45250642-0c7d-4c61-85e2-18dafed571d6">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2048,22 +2014,22 @@ auch als Equiripple-Design bezeichnet. Dies führt zu einem Entwurf mit
 geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten <code class="docutils literal notranslate"><span class="pre">cheb1ord</span></code> und
 <code class="docutils literal notranslate"><span class="pre">cheby1</span></code>. Für das Design-Beispiel ergibt sich der folgende Code.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="bd814b9f-bf2a-4443-a821-52544a1b605a" name="ae1e6741-a08e-4a86-b5a7-1f8b36f94c26" type="radio">
-</input><label class="tabbed-label" for="bd814b9f-bf2a-4443-a821-52544a1b605a">
+<input checked="checked" id="9e196ea6-b09b-4862-9b83-4fbb981ca0d4" name="b9031fc8-b54e-4070-b61a-f9764a9a09f9" type="radio">
+</input><label class="tabbed-label" for="9e196ea6-b09b-4862-9b83-4fbb981ca0d4">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freq</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_dB</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
 
-    <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span> <span class="p">=</span> <span class="n">cheb1ord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span>
-    <span class="c">% Results in a 5th Order filter with f_g = 0.1</span>
-    <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="p">=</span> <span class="n">cheby1</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span>
+<span class="w">    </span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">cheb1ord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Results in a 5th Order filter with f_g = 0.1</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">cheby1</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="92af03dd-2652-4130-975a-332378504c75" name="ae1e6741-a08e-4a86-b5a7-1f8b36f94c26" type="radio">
-</input><label class="tabbed-label" for="92af03dd-2652-4130-975a-332378504c75">
+<input id="75a3c036-5726-4f69-8ed4-999a352ae399" name="b9031fc8-b54e-4070-b61a-f9764a9a09f9" type="radio">
+</input><label class="tabbed-label" for="75a3c036-5726-4f69-8ed4-999a352ae399">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2083,22 +2049,22 @@ Python</label><div class="tabbed-content docutils">
 ist also ein flacher Durchlassbereich und ein oszilierender
 Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a11bc8bd-61bd-4a39-8e39-1355c649e3e1" name="4f76ea85-7db7-4c4b-af5e-75470366ec6d" type="radio">
-</input><label class="tabbed-label" for="a11bc8bd-61bd-4a39-8e39-1355c649e3e1">
+<input checked="checked" id="c53d9c51-cff7-4846-8cc2-dc046fc8536b" name="0e33477e-4cd0-4630-8873-badf15b68845" type="radio">
+</input><label class="tabbed-label" for="c53d9c51-cff7-4846-8cc2-dc046fc8536b">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freq</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_dB</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
 
-    <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span> <span class="p">=</span> <span class="n">cheb2ord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span>
-    <span class="c">% Results in a 5th Order filter with f_g = 0.2</span>
-    <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="p">=</span> <span class="n">cheby2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span>
+<span class="w">    </span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">cheb2ord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Results in a 5th Order filter with f_g = 0.2</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">cheby2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="27350cf3-0e19-45a1-8788-d7e6d852e4b7" name="4f76ea85-7db7-4c4b-af5e-75470366ec6d" type="radio">
-</input><label class="tabbed-label" for="27350cf3-0e19-45a1-8788-d7e6d852e4b7">
+<input id="d2591dc3-f8ad-40ff-990a-bf46a93e9961" name="0e33477e-4cd0-4630-8873-badf15b68845" type="radio">
+</input><label class="tabbed-label" for="d2591dc3-f8ad-40ff-990a-bf46a93e9961">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2119,22 +2085,22 @@ einen Equiripple-Entwurf im Durchlass- und Sperrbereich. Dies führt zu
 einer weiteren Reduzierung der Ordnung. Der Entwurf sieht wie
 folgt aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2f1cb566-3edb-4f64-9c53-5e1a6f3c26dc" name="2de9591a-fb56-4f05-831b-cf9d28e63275" type="radio">
-</input><label class="tabbed-label" for="2f1cb566-3edb-4f64-9c53-5e1a6f3c26dc">
+<input checked="checked" id="e0619acf-4784-417e-93df-465e0f4d5a88" name="af6093e1-f0c6-472f-98b0-b561597d6123" type="radio">
+</input><label class="tabbed-label" for="e0619acf-4784-417e-93df-465e0f4d5a88">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freq</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_dB</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
 
-    <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span> <span class="p">=</span> <span class="n">ellipord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span>
-    <span class="c">% Results in a 4th Order filter with f_g = 0.1</span>
-    <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="p">=</span> <span class="n">ellip</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span>
+<span class="w">    </span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ellipord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Results in a 4th Order filter with f_g = 0.1</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ellip</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="a67f2e93-399d-4cca-9e7a-c62563cea573" name="2de9591a-fb56-4f05-831b-cf9d28e63275" type="radio">
-</input><label class="tabbed-label" for="a67f2e93-399d-4cca-9e7a-c62563cea573">
+<input id="dd28dd1d-0617-481f-aeb6-2b5417dd957c" name="af6093e1-f0c6-472f-98b0-b561597d6123" type="radio">
+</input><label class="tabbed-label" for="dd28dd1d-0617-481f-aeb6-2b5417dd957c">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2275,43 +2241,43 @@ Berechnung der Ordnung reicht es die Grenzfrequenzen zu vertauschen, um
 einen Hochpass anzuzeigen.</p>
 <p>Beispiel:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0a1171c6-db53-48f4-9415-b8601d60cbc9" name="6d14d18d-0100-4411-8bfa-e5ecf5f84895" type="radio">
-</input><label class="tabbed-label" for="0a1171c6-db53-48f4-9415-b8601d60cbc9">
+<input checked="checked" id="c95b8ee0-ecf0-4d1c-96ce-0cad076b11fa" name="4633f3e1-eca7-4936-90ad-8cea3efe6f79" type="radio">
+</input><label class="tabbed-label" for="c95b8ee0-ecf0-4d1c-96ce-0cad076b11fa">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="c">% Highpass-Design</span>
-    <span class="n">Pass_freq</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freq</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-    <span class="n">Stop_dB</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">% Highpass-Design</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
 
-    <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span> <span class="p">=</span> <span class="n">buttord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span>
-    <span class="c">% Result is 7th Order and f_g = 0.1247</span>
-    <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="p">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">,</span><span class="s">&#39;high&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buttord</span><span class="p">(</span><span class="n">Pass_freq</span><span class="p">,</span><span class="n">Stop_freq</span><span class="p">,</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Result is 7th Order and f_g = 0.1247</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">,</span><span class="s">&#39;high&#39;</span><span class="p">);</span><span class="w"></span>
 
-    <span class="c">%Bandpass Design</span>
-    <span class="n">Pass_freqLow</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_freqHigh</span> <span class="p">=</span> <span class="mf">0.3</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freqLow</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-    <span class="n">Stop_freqHigh</span> <span class="p">=</span> <span class="mf">0.4</span><span class="p">;</span>
-    <span class="n">Stop_dB</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span> <span class="p">=</span> <span class="n">buttord</span><span class="p">([</span><span class="n">Pass_freqLow</span> <span class="n">Pass_freqHigh</span><span class="p">],[</span><span class="n">Stop_freqLow</span> <span class="n">Stop_freqHigh</span><span class="p">],</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span>
-    <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="p">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span>
+<span class="w">    </span><span class="c">%Bandpass Design</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_freqLow</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_freqHigh</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freqLow</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freqHigh</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.4</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buttord</span><span class="p">([</span><span class="n">Pass_freqLow</span><span class="w"> </span><span class="n">Pass_freqHigh</span><span class="p">],[</span><span class="n">Stop_freqLow</span><span class="w"> </span><span class="n">Stop_freqHigh</span><span class="p">],</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">);</span><span class="w"></span>
 
-    <span class="c">% Bandstop Design</span>
-    <span class="n">Pass_freqLow</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_freqHigh</span> <span class="p">=</span> <span class="mf">0.4</span><span class="p">;</span> <span class="c">% Matlab uses normalized frequencies from 0..2</span>
-    <span class="n">Pass_dB</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freqLow</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-    <span class="n">Stop_freqHigh</span> <span class="p">=</span> <span class="mf">0.3</span><span class="p">;</span>
-    <span class="n">Stop_dB</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span> <span class="p">=</span> <span class="n">buttord</span><span class="p">([</span><span class="n">Pass_freqLow</span> <span class="n">Pass_freqHigh</span><span class="p">],[</span><span class="n">Stop_freqLow</span> <span class="n">Stop_freqHigh</span><span class="p">],</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span>
-    <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="p">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">,</span><span class="s">&#39;stop&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="c">% Bandstop Design</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_freqLow</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_freqHigh</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.4</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
+<span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freqLow</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_freqHigh</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stop_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buttord</span><span class="p">([</span><span class="n">Pass_freqLow</span><span class="w"> </span><span class="n">Pass_freqHigh</span><span class="p">],[</span><span class="n">Stop_freqLow</span><span class="w"> </span><span class="n">Stop_freqHigh</span><span class="p">],</span><span class="n">Pass_dB</span><span class="p">,</span><span class="n">Stop_dB</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">f_g</span><span class="p">,</span><span class="s">&#39;stop&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="4e37df3d-2750-4802-84b4-ce983a3d7fe8" name="6d14d18d-0100-4411-8bfa-e5ecf5f84895" type="radio">
-</input><label class="tabbed-label" for="4e37df3d-2750-4802-84b4-ce983a3d7fe8">
+<input id="d915292a-81bf-44fd-bfdf-6094295b4e88" name="4633f3e1-eca7-4936-90ad-8cea3efe6f79" type="radio">
+</input><label class="tabbed-label" for="d915292a-81bf-44fd-bfdf-6094295b4e88">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Highpass Design</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.2</span>
@@ -2344,142 +2310,6 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="ubungen">
-<h2><span class="section-number">6.4. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-<h3><span class="section-number">6.4.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Nennen Sie jeweils eine mögliche Anwendung (am besten aus dem
-Bereich der Audiotechnik, Hörtechnik, Audiologie) für die
-verschiedenen Grundcharakteristika und überlegen sich, wie die
-Entwurfsparamter aussehen könnten (Grenzfrequenz, Ordnung)</p></li>
-<li><p>Geben Sie zu folgendem Blockschaltbild die Differenzengleichung an.</p></li>
-</ol>
-<div class="figure align-default" id="fig-iir-2terordnung">
-<a class="reference internal image-reference" href="_images/IIr_2terOrdnung.png"><img alt="_images/IIr_2terOrdnung.png" src="_images/IIr_2terOrdnung.png" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.23 </span><span class="caption-text">Blockschaltbild eines Systems</span><a class="headerlink" href="#fig-iir-2terordnung" title="Permalink to this image">¶</a></p>
-</div>
-<ol class="simple">
-<li><p>Welche Vor- und Nachteile ergeben sich durch das Overlap-Add
-Verfahren zur schnellen Faltung?</p></li>
-<li><p>Zeichnen Sie zu den folgenden Systemen eine Realisierung als
-Blockschaltbild</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) - \alpha y(k-1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) =  0.3 x(k) + 07 x(k-1) + 1.9812 y(k-1)   - 1.0201 y(k-2)\)</span></p></li>
-</ol>
-</li>
-</ol>
-</div>
-<div class="section" id="aufgaben-auf-klausurniveau">
-<h3><span class="section-number">6.4.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Berechnen Sie die Übertragungsfunktion der Impulsantwort
-<span class="math notranslate nohighlight">\(h(k) = [-1 \;\; 1]\)</span>! Skizzieren Sie den Betrags- und Phasengang! Um
-was für einen Filtertyp handelt es sich (Realisierungsform und
-Filtercharakteristik)?</p></li>
-<li><p>Sie sehen die folgende Impulsantwort. Um was für ein Filter handelt
-es sich (Realisierung und Filtercharakteristik)? Berechnen Sie die
-Übertragungsfunktion und skizzieren Sie den Betrags- und
-Phasenverlauf! Was ist besonders an diesem Filter und könnte es
-realisiert werden?</p></li>
-</ol>
-<div class="figure align-default" id="fig-klausurws2003-2ir">
-<a class="reference internal image-reference" href="_images/KlausurWS2003_2IR.png"><img alt="_images/KlausurWS2003_2IR.png" src="_images/KlausurWS2003_2IR.png" style="width: 20%;" /></a>
-</div>
-<ol>
-<li><p>Gegeben ist das folgende System</p>
-<div class="math notranslate nohighlight">
-\[
-    y(k) = 2x(k) + 2x(k-1) - 2x(k-3) - 2x(k-4)
-    \]</div>
-<p>Berechnen Sie die
-Übertragungsfunktion nach Betrag und Phase! Skizzieren Sie den
-Betrags- und Phasenverlauf zwischen 0 und <span class="math notranslate nohighlight">\(\pi\)</span>! Um was für einen
-Typ Filter handelt es sich? Zeichnen Sie eine möglichst effiziente
-Realisierung als Blockschaltbild!</p>
-</li>
-<li><p>Skizzieren Sie den Betragsverlauf zu dem hier vorliegenden
-Pol-Nullstellenplan! Welche besonderen Eigenschaften hat dieses
-System? Geben Sie die Übertragungsfunktion <span class="math notranslate nohighlight">\(H(z)\)</span> als Funktion von
-Biquads an. Nehmen Sie an, die Radien für die Pole und Nullstellen
-betragen <span class="math notranslate nohighlight">\(0.9\)</span> bzw <span class="math notranslate nohighlight">\(1.1\)</span> und <span class="math notranslate nohighlight">\(b_0 = 1\)</span>.</p></li>
-</ol>
-<div class="figure align-default" id="fig-pz-18-25-28">
-<a class="reference internal image-reference" href="_images/PZ_18_25_28.png"><img alt="_images/PZ_18_25_28.png" src="_images/PZ_18_25_28.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.24 </span><span class="caption-text">Subtitle</span><a class="headerlink" href="#fig-pz-18-25-28" title="Permalink to this image">¶</a></p>
-</div>
-<ol class="simple">
-<li><p>Wie lautet die Differenzengleichung und die Übertragungsfunktion des
-folgenden Systems nach Betrag und Phase? Zeichnen Sie den Betrags-
-und Phasenverlauf! Um was für eine Art Filter handelt es sich? (Typ
-und Realisierungsform)</p></li>
-</ol>
-<div class="figure align-default" id="fig-fir-zweiterordnung">
-<a class="reference internal image-reference" href="_images/FIR_zweiterOrdnung.png"><img alt="_images/FIR_zweiterOrdnung.png" src="_images/FIR_zweiterOrdnung.png" style="width: 50%;" /></a>
-</div>
-</div>
-<div class="section" id="matlab-aufgaben">
-<h3><span class="section-number">6.4.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Realisieren Sie eine Funktion, die die Koeffizienten eines mit der
-Fenstermethode entworfenen Tiefpasses zurückgibt. Als
-Übergabeparameter sollten die Grenzfrequenz, die Ordnung und das zu
-verwendende Fenster zur Verfügung stehen. Als Standard-Fenster soll
-das Rechteck-Fenster verwendet werden.</p></li>
-<li><p>Schreiben Sie eine Funktion, die aus einem beliebigen FIR-Filter
-eine minimalphasige Realisierung macht, wobei die
-Betragsübertragungsfunktion exakt erhalten bleiben soll. Die
-Übergabeparameter sind nur die bisher verwendeten FIR-Koeffizienten.</p></li>
-</ol>
-</div>
-<div class="section" id="transfer-leistung">
-<h3><span class="section-number">6.4.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Überlegen Sie eine weitere kanonische Struktur für SOS-Filter.</p></li>
-<li><p>Nehmen wir an beim OLA-Verfahren wechselt die Übertragungsfunktion
-während der Datenvektor noch nicht vollständig bearbeitet wurde
-(Zeitvariantes Verhalten). Was glauben Sie ist die Folge? Können Sie
-sich vorstellen, wie man die auftretenden Probleme lösen kann?</p></li>
-</ol>
-</div>
-</div>
-<div class="section" id="zusammenfassung">
-<h2><span class="section-number">6.5. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
-<p>Die wichtigen Erkenntnisse aus diesem Kapitel sind:</p>
-<ul class="simple">
-<li><p>LTI-Systeme ergeben für alle nicht-trivialen Fälle eine Filterung
-des Signals. Die Filterwirkung kann, muss aber nicht Ziel der
-Signalverarbeitung sein. Beispiel: gleitender Mittelwert. Ziel ist
-Mittelung, Nebenwirkung ist Filterung.</p></li>
-<li><p>Das ideale Tiefpass-Filter ist nicht realisierbar. Die Impulsantwort
-ist durch die si-Funktion gegeben und deshalb nicht-kausal und
-unendlich ausgedehnt.</p></li>
-<li><p>Man unterscheidet FIR (Finite Impulse Response) und IIR (Infinite
-Impulse Response)-Filter.</p></li>
-<li><p>FIR-Filter können durch Abschneiden und Verschieben der idealen
-Imulsantwort approximiert werden. Es ergeben sich durch diesen
-Entwurf immer linearphasige Filter.</p></li>
-<li><p>Es gibt 4 unterschiedliche linearphasige Filter, die sich durch die
-Symmetrie der Filterkoeffizienten unterscheiden.</p></li>
-<li><p>Nur mit dem Typ I Filter lassen sich alle Filtercharakteristike
-realisieren.</p></li>
-<li><p>Minimalphasige Filter können aus dem linearphasigen Entwurf
-berechnet werden.</p></li>
-<li><p>IIR-Filter werden zur Realisierung in Systeme 2ter Ordnung (Second
-Order Sections (SOS)) zerlegt.</p></li>
-<li><p>Die konkrete Realisierung eines Filters kann als Blockschaltbild
-dargestellt werden</p></li>
-<li><p>Für IIR Filter gibt es unterschiedliche Strukturen mit gleicher
-Filterwirkung. Strukturen mit einer minimalen Anzahl an
-Speicherplätzen werden kanonisch genannt.</p></li>
-<li><p>Die geschickteste Realisierung zur FIR-Filterung langer Signale und
-hoher Filterordnungen erfolgt mit der Overlap Add Methode.</p></li>
-<li><p>Matlab bietet viele Hilfsmittel für den Entwurf von IIR-Filtern.</p></li>
-</ul>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id12">3</a></span></dt>
@@ -2487,6 +2317,8 @@ hoher Filterordnungen erfolgt mit der Overlap Add Methode.</p></li>
 Faltung ergibt dann <span class="math notranslate nohighlight">\(L+M+1-1\)</span> Ausgangswerte.</p>
 </dd>
 </dl>
+</div>
+</div>
 </div>
 </div>
 
@@ -2513,22 +2345,42 @@ Faltung ergibt dann <span class="math notranslate nohighlight">\(L+M+1-1\)</span
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="spektren.html" title="previous page"><span class="section-number">5. </span>Spektren</a>
-    <a class='right-next' id="next-link" href="mathe.html" title="next page"><span class="section-number">7. </span>Mathematische Methoden</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="spektren.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Spektren</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="mathe.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>Mathematische Methoden</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Joerg Bitzer<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -2537,11 +2389,9 @@ Faltung ergibt dann <span class="math notranslate nohighlight">\(L+M+1-1\)</span
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

@@ -1,0 +1,116 @@
+Traceback (most recent call last):
+  File "/home/bitzer/SoftDev/Python/ScienceEnv/SE/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/bitzer/SoftDev/Python/ScienceEnv/SE/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/bitzer/SoftDev/Python/ScienceEnv/SE/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/bitzer/SoftDev/Python/ScienceEnv/SE/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/home/bitzer/SoftDev/Python/ScienceEnv/SE/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+    await self.async_execute_cell(
+  File "/home/bitzer/SoftDev/Python/ScienceEnv/SE/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/bitzer/SoftDev/Python/ScienceEnv/SE/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import matplotlib
+import numpy
+from scipy import signal
+from matplotlib import pyplot
+from matplotlib.widgets import Slider
+from myst_nb import glue
+
+matplotlib.style.use('sv.mplstyle')
+
+
+def get_peak_EQ(f_0, gain_dB, Q, f_s):
+    K = numpy.tan(2*numpy.pi*f_0/(f_s*2))
+    a = [0]*3
+    b = [0]*3
+    den = 1
+    if (gain_dB > 0):
+        V0 = 10**(gain_dB/20)
+        den = (1 + K/Q + K*K)
+        b[0] = (1 + V0*K/Q + K*K)
+        b[1] = 2 * (K*K - 1)
+        b[2] = (1 - V0*K/Q + K*K)
+        a[0] = 1
+        a[1] = 2 * (K*K - 1)
+        a[2] = (1 - K/Q + K*K)
+    else:
+        V0 = 10**(-gain_dB/20)
+        den = (1 + V0*K/Q + K*K)
+        b[0] = (1 + K/Q + K*K)
+        b[1] = 2 * (K*K - 1)
+        b[2] = (1 - K/Q + K*K)
+        a[0] = 1
+        a[1] = 2 * (K*K - 1)
+        a[2] = (1 - V0*K/Q + K*K)
+    
+    b /= den
+    a[1:] /= den
+    
+    return b, a
+    
+f_s = 48000
+freq = 2000
+gain = 5
+Q = 1
+
+#fig2, ((ax_gain, ax_fm), (ax_q, ax_void))= pyplot.subplots(2, 2)
+
+fig, ax_EQ = pyplot.subplots()
+fig.subplots_adjust(left=0.35)
+
+# adds a slider for frequency, amplitude and phase of the sinus each
+axcolor = 'lightgoldenrodyellow'
+ax_freq = pyplot.axes([0.05, 0.15, 0.03, 0.65], facecolor=axcolor)
+ax_gain = pyplot.axes([0.15, 0.15, 0.03, 0.63], facecolor=axcolor)
+ax_Q = pyplot.axes([0.25, 0.15, 0.03, 0.65], facecolor=axcolor)
+
+slider_freq = Slider(ax_freq, 'Frequency', 0, f_s/2, valinit=freq, valstep=100, orientation='vertical')
+slider_gain = Slider(ax_gain, 'Gain', -12, 12, valinit=gain, valstep=1, orientation='vertical')
+slider_Q = Slider(ax_Q, 'Q', 0, 8, valinit=Q, valstep=0.1, orientation='vertical')
+
+b, a = get_peak_EQ(freq, gain, Q, f_s) 
+w, h = signal.freqz(b, a, fs=f_s)
+h_db = 20*numpy.log10(numpy.abs(h))
+ax_EQ.plot(w, h_db)
+
+# updates the graph once a value has been changed
+def update(val):
+    global gain, freq, Q
+    gain = slider_gain.val
+    freq = slider_freq.val
+    Q = slider_Q.val
+    b, a = get_peak_EQ(freq, gain, Q, f_s) 
+    w, h = signal.freqz(b, a, fs=f_s)
+    h_db = 20*numpy.log10(numpy.abs(h))
+    ax_EQ.lines[0].remove()
+    ax_EQ.plot(w, h_db)
+    fig.canvas.draw_idle()
+
+slider_freq.on_changed(update)
+slider_gain.on_changed(update)
+slider_Q.on_changed(update)
+
+glue("EQ_GainParam", fig, display=False)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/tmp/ipykernel_150716/3880229221.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mmatplotlib[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0msignal[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mpyplot[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mwidgets[0m [0;32mimport[0m [0mSlider[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'matplotlib'
+ModuleNotFoundError: No module named 'matplotlib'
+

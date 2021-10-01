@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5. Spektren &#8212; Signalverarbeitung 1</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,28 +41,28 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. Filter" href="filter.html" />
     <link rel="prev" title="4. z-Transformation" href="ztrafo.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,25 +71,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Signalverarbeitung 1
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -135,6 +133,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -200,12 +199,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -231,11 +230,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#einfluss-der-pole-und-nullstellen-auf-die-ubertragungsfunktion">
    5.1. Einfluss der Pole und Nullstellen auf die Übertragungsfunktion
@@ -325,64 +324,9 @@
    5.5. Weitere Fensterfunktionen und deren Eigenschaften
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matlab-und-spektren">
-   5.6. Matlab und Spektren
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fenster-funktionen">
-     5.6.1. Fenster-Funktionen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fft">
-     5.6.2. FFT
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#signalanalyse">
-     5.6.3. Signalanalyse
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubungen">
-   5.7. Übungen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-     5.7.1. Wiederholung des Stoffes und einfache Rechenaufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
-     5.7.2. Aufgaben (Auf Klausurniveau)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matlab-aufgaben">
-     5.7.3. Matlab-Aufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transfer-leistung">
-     5.7.4. Transfer-Leistung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zusammenfassung">
-   5.8. Zusammenfassung
-  </a>
- </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -541,7 +485,7 @@ Systeme ebenfalls reell ist, kann der Term <span class="math notranslate nohighl
 weggelassen werden, bzw. führt bei negativem <span class="math notranslate nohighlight">\(b_0\)</span> zu einer
 Phasendrehung von <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
 <p>Für allgemeine Systeme mit einem Zählergrad <span class="math notranslate nohighlight">\(M\)</span> und einem Nennergrad <span class="math notranslate nohighlight">\(N\)</span>
-ergibt sich [<span id="id1">[<span>&#64;KK98</span>]</span>].</p>
+ergibt sich [<span id="id1">[]</span>].</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumbetragallg">
 <span class="eqno">(5.9)<a class="headerlink" href="#equation-eq-spektrumbetragallg" title="Permalink to this equation">¶</a></span>\[
     \left|H(e^(j \Omega))\right| = |b_0| \frac{\displaystyle \prod_{i = 0}^{M-1} \sqrt{1-2|n_i|\cos(\Omega-\arg\{n_i\})+|n_i|^2}}
@@ -909,15 +853,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_s/2\)</
 besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte sind in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5cdd4ef7-b4bb-407e-8947-08e836f41e2f" name="6a9656df-2aad-456a-ba71-a638b4f3ed98" type="radio">
-</input><label class="tabbed-label" for="5cdd4ef7-b4bb-407e-8947-08e836f41e2f">
+<input checked="checked" id="d20bcd59-c0b4-4c9b-a48d-d3f60eac1aef" name="0e4dff55-9a24-4710-961c-6e5e4e1b0730" type="radio">
+</input><label class="tabbed-label" for="d20bcd59-c0b4-4c9b-a48d-d3f60eac1aef">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_voll</span> <span class="p">=</span> <span class="p">[</span><span class="n">H_halb</span> <span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">H_voll</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">H_halb</span><span class="w"> </span><span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="e38d574b-9c31-41d9-913c-269473d7d7e6" name="6a9656df-2aad-456a-ba71-a638b4f3ed98" type="radio">
-</input><label class="tabbed-label" for="e38d574b-9c31-41d9-913c-269473d7d7e6">
+<input id="07cc1b1e-83bc-45e1-b9bf-65ad606f994d" name="0e4dff55-9a24-4710-961c-6e5e4e1b0730" type="radio">
+</input><label class="tabbed-label" for="07cc1b1e-83bc-45e1-b9bf-65ad606f994d">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -1074,7 +1018,7 @@ effizient berechnen. Um dies zu verdeutlichen, soll das sog. <em>Decimation
 in Time</em>-Verfahren zur drastischen Reduktion der benötigten
 Rechenleistung, genauer gezeigt werden. Andere Verfahren können in der
 sehr umfangreichen Literatur zur Entwicklung der sog. Fast Fourier
-Transform (FFT) gefunden werden <span id="id4">[<a class="reference internal" href="zbibliography.html#id187"><span>Coo90</span></a>,<a class="reference internal" href="zbibliography.html#id150"><span>KK98</span></a>,<a class="reference internal" href="zbibliography.html#id186"><span>OS99</span></a>]</span>.</p>
+Transform (FFT) gefunden werden <span id="id4">[<a class="reference internal" href="zbibliography.html#id187">Coo90</a>, <a class="reference internal" href="zbibliography.html#id150">KK98</a>, <a class="reference internal" href="zbibliography.html#id186">OS99</a>]</span>.</p>
 <p>Um eine effiziente Realisierung zu finden, legen wir die Länge der FFT
 so fest, dass sie eine 2er Potenz darstellt. Besonders häufig in der
 Audio und Sprachsignalverarbeitung genutzte FFT-Längen sind 256 , 512,
@@ -1470,8 +1414,8 @@ Eigenschaften.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e485682d-1a17-44cf-80ef-7d76dfa40408" name="6ac36ea7-3b4f-458d-8d13-74da5787ec32" type="radio">
-</input><label class="tabbed-label" for="e485682d-1a17-44cf-80ef-7d76dfa40408">
+<input checked="checked" id="7025dda7-5997-4d1b-a2e1-2ca5d0d4f1c3" name="d16dfccd-c233-4ca8-81a2-1f9cc0a467f8" type="radio">
+</input><label class="tabbed-label" for="7025dda7-5997-4d1b-a2e1-2ca5d0d4f1c3">
 von Hann</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann- Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1484,8 +1428,8 @@ stärker bedämpft.</p></li>
 <p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="5e928154-a55a-4fe8-ac6c-77c3619719e5" name="6ac36ea7-3b4f-458d-8d13-74da5787ec32" type="radio">
-</input><label class="tabbed-label" for="5e928154-a55a-4fe8-ac6c-77c3619719e5">
+<input id="34f1283b-6962-4cd9-a7d1-de6fba5ce7dd" name="d16dfccd-c233-4ca8-81a2-1f9cc0a467f8" type="radio">
+</input><label class="tabbed-label" for="34f1283b-6962-4cd9-a7d1-de6fba5ce7dd">
 Hamming</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1499,8 +1443,8 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></
 <p class="caption"><span class="caption-number">Fig. 5.17 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="c7ff90cb-c3ae-4fe9-8aba-3ddefb5fe93b" name="6ac36ea7-3b4f-458d-8d13-74da5787ec32" type="radio">
-</input><label class="tabbed-label" for="c7ff90cb-c3ae-4fe9-8aba-3ddefb5fe93b">
+<input id="6d8e6a67-2931-4c97-bebc-5765621821f5" name="d16dfccd-c233-4ca8-81a2-1f9cc0a467f8" type="radio">
+</input><label class="tabbed-label" for="6d8e6a67-2931-4c97-bebc-5765621821f5">
 Blackman</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1513,8 +1457,8 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 Blackman-Fensters</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="b0f652c7-adcf-4aab-9891-b945835fc956" name="6ac36ea7-3b4f-458d-8d13-74da5787ec32" type="radio">
-</input><label class="tabbed-label" for="b0f652c7-adcf-4aab-9891-b945835fc956">
+<input id="d81c991d-f1ac-4377-ba1e-4d5e420b6a4d" name="d16dfccd-c233-4ca8-81a2-1f9cc0a467f8" type="radio">
+</input><label class="tabbed-label" for="d81c991d-f1ac-4377-ba1e-4d5e420b6a4d">
 Dolph-Chebbyscheff</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Chebbyscheff Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -1529,8 +1473,8 @@ für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="1a22451a-fd5d-4429-8e9f-29ac5d830558" name="6ac36ea7-3b4f-458d-8d13-74da5787ec32" type="radio">
-</input><label class="tabbed-label" for="1a22451a-fd5d-4429-8e9f-29ac5d830558">
+<input id="3326af58-7aec-40a3-89fc-ee6646501c59" name="d16dfccd-c233-4ca8-81a2-1f9cc0a467f8" type="radio">
+</input><label class="tabbed-label" for="3326af58-7aec-40a3-89fc-ee6646501c59">
 Kaiser-Fester</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser Fenster:</strong> Auch das Kaiser Fenster ist mit Hilfe des
@@ -1564,135 +1508,6 @@ Kaiser-Fensters mit
 Kaiser-Fensters mit
 <span class="math notranslate nohighlight">\(\alpha = 2\)</span>.</span><a class="headerlink" href="#fig-kaiserwindow2" title="Permalink to this image">¶</a></p>
 </div>
-<div class="error admonition">
-<p class="admonition-title">To Do</p>
-<p>Vergleichstabelle der Fensterfunktionen, Hinweise für Applikationen</p>
-</div>
-</div>
-<div class="section" id="matlab-und-spektren">
-<h2><span class="section-number">5.6. </span>Matlab und Spektren<a class="headerlink" href="#matlab-und-spektren" title="Permalink to this headline">¶</a></h2>
-<p>siehe Matlab Versuch drei.</p>
-<div class="section" id="fenster-funktionen">
-<h3><span class="section-number">5.6.1. </span>Fenster-Funktionen<a class="headerlink" href="#fenster-funktionen" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="fft">
-<h3><span class="section-number">5.6.2. </span>FFT<a class="headerlink" href="#fft" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="signalanalyse">
-<h3><span class="section-number">5.6.3. </span>Signalanalyse<a class="headerlink" href="#signalanalyse" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="ubungen">
-<h2><span class="section-number">5.7. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-<h3><span class="section-number">5.7.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Bei einer Abtastrate von 44100 Hz und einer DFT Auflösung von <span class="math notranslate nohighlight">\(1024\)</span>
-soll ein Sinus erzeugt werden, der keinerlei Leck-Effekt zur Folge
-hat. Welche Frequenzen sind mögliche Kandidaten.</p></li>
-<li><p>Wozu werden Fensterfunktionen benötigt?</p></li>
-<li><p>Nach welchem Prinzip kann die Rechenleistung der DFT reduziert
-werden?</p></li>
-<li><p>Welchen Einfluss haben Pole auf das Übertragungsverhalten und
-welchen Einfluss Nullstellen?</p></li>
-<li><p>Wodurch entsteht ein Allpass-System?</p></li>
-<li><p>Erklären Sie, die Folgen des Übergangs von der DTFT zur DFT!</p></li>
-<li><p>Um zu zeigen, dass nicht-lineare Systeme neue Frequenzen erzeugen,
-sollten Sie das System <span class="math notranslate nohighlight">\(y(k) = x^2(k)\)</span> mit der Exponentialschwingung
-anregen und sich das Ergebnis anschauen</p></li>
-<li><p>Ein mit 200Hz abgetastetes reelles Signal wird mit einer 8 Punkte
-DFT spektral analysiert. Welche Frequenzbereiche sind in den 8
-Spektralwerten enthalten? Welche dieser Werte (Indize) haben den
-gleichen Betrag?</p></li>
-<li><p>Zeichnen Sie qualitativ die Betragsübertragungsfunktion für die
-folgenden durch einen Pol-Nullstellenplan gegebenen Systeme:</p></li>
-<li><p>Berechnen Sie das Spektrum einer Cosinus-Schwingung der Frequenz
-2000 Hz bei einer Abtastrate von 6000 Hz, wenn Sie eine 6 Punkte DFT
-verwenden.</p></li>
-</ol>
-</div>
-<div class="section" id="aufgaben-auf-klausurniveau">
-<h3><span class="section-number">5.7.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Welche Pol-Nullstellenlage würde die folgende
-Betragsübertragungsfunktion mit dazugehöriger Phase bei einem
-reellwertigen, stabilen System zur Folge haben (fs = 8000 Hz)?
-(Genauere qualitative Skizze (Grosser Kreis bitte!) und kurze
-stichpunktartige Begründung für die relevanten Punkte)(8)</p></li>
-<li><p>Berechnen Sie die Übertragungsfunktion zur Impulsantwort
-<span class="math notranslate nohighlight">\(h(k) = [1\;\; 0\;\; 1]\)</span></p></li>
-<li><p>Berechnen Sie die Übertragungsfunktion zu den folgenden Filtern.
-Skizzieren Sie die Funktion für <span class="math notranslate nohighlight">\(\alpha = 0.9\)</span> und <span class="math notranslate nohighlight">\(\alpha = -0.9\)</span></p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) - \alpha y(k-1)\)</span></p></li>
-</ol>
-</li>
-<li><p>Ordnen Sie die folgenden Pol-Nullstellenpläne (a-d) den
-verschiedenen Übertragungsfunktionen (1-8) zu (2 Punkte für jede
-richtige Zuordnung, -1 Punkt für jede falsche).</p></li>
-<li></li>
-</ol>
-</div>
-<div class="section" id="matlab-aufgaben">
-<h3><span class="section-number">5.7.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Bestimmen Sie die Übertragungsfunktion der folgenden Systeme.</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) - \alpha y(k-1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) =  0.3 x(k) + 07 x(k-1) + 1.9812 y(k-1)   - 1.0201 y(k-2)\)</span></p></li>
-</ol>
-</li>
-<li></li>
-<li></li>
-</ol>
-</div>
-<div class="section" id="transfer-leistung">
-<h3><span class="section-number">5.7.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Bei der Berechnung des Faltungsprodukts muss bei der DFT/FFT auf die
-Zirkularität geachtet werden. Welche Probleme können auftreten, wenn
-das Ausgansspektrum nicht durch Multiplikation <span class="math notranslate nohighlight">\(Y(n) = X(n)H(n)\)</span>,
-sondern durch eine Division <span class="math notranslate nohighlight">\(Y(n) = X(n)/H(n)\)</span> entsteht (sog.
-Deconvolutionproblem)</p></li>
-<li><p>Welche Folge hat das Decimation in Time Prinzip der FFT für den
-Zusammenhang der Eingangsfolge zum berechneten Spektrum. Anders
-ausgedrückt, was ist notwendig, damit das Prinzip funktioniert.</p></li>
-<li></li>
-</ol>
-</div>
-</div>
-<div class="section" id="zusammenfassung">
-<h2><span class="section-number">5.8. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
-<p>Die wichtigen Erkenntnisse aus diesem Kapitel sind:</p>
-<ul class="simple">
-<li><p>LTI-Systeme erzeugen keine neuen Frequenzen.</p></li>
-<li><p>LTI-Systeme verändern nur den Betrag und Phase eines Signals. Die
-Betragsänderung über der Frequenz aufgetragen bezeichnet den
-Betragsfrequenzgang. Die Darstellung der Phase den Phasengang.</p></li>
-<li><p>Der Einfluss der Pole und Nullstellen lässt sich direkt am
-Einheitskreis ablesen.</p></li>
-<li><p>Stabile, kausale Systeme haben alle Pole innerhalb des
-Einheitskreises.</p></li>
-<li><p>Minimalphasige Systeme haben alle Nullstellen innerhalb des
-Einheitskreises.</p></li>
-<li><p>Die DTFT ist die z-Transformation für <span class="math notranslate nohighlight">\(z= e^{j\Omega}\)</span>.</p></li>
-<li><p>Die DFT ist eine zeitlich begrenzte DTFT, bei der das
-kontinuierliche Spektrum abgetastet wird. Sie ist deshalb maschinell
-berechenbar.</p></li>
-<li><p>Durch die Nutzung der DFT wird das Spektrum verändert.</p>
-<ul>
-<li><p>Das Zeitsignal wird als periodisch wiederholt angenommen</p></li>
-<li><p>Das Spektrum wird mit der Übertragungsfunktion des Fensters
-gefaltet. Es kommt zum sogenannten Leakage-Effekt.</p></li>
-</ul>
-</li>
-<li><p>Die Faltung lässt sich mit der DFT nur durch Zero-Padding
-realisieren.</p></li>
-<li><p>Reelle Signale haben ein konjugiert gerades Spektrum. Die Symmetrie
-ermöglicht eine Reduktion der Rechenleistung.</p></li>
-<li><p>Die Nutzung und Wahl der Fensterfunktionen zur Signalanalyse hängt
-im hohen Maße vom betrachteten Problem ab.</p></li>
-</ul>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
@@ -1740,22 +1555,42 @@ ergibt.</p>
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="ztrafo.html" title="previous page"><span class="section-number">4. </span>z-Transformation</a>
-    <a class='right-next' id="next-link" href="filter.html" title="next page"><span class="section-number">6. </span>Filter</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="ztrafo.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>z-Transformation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="filter.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Filter</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Joerg Bitzer<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1764,11 +1599,9 @@ ergibt.</p>
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

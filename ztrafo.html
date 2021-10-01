@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4. z-Transformation &#8212; Signalverarbeitung 1</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,28 +41,28 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. Spektren" href="spektren.html" />
     <link rel="prev" title="3. Systeme" href="systeme.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,25 +71,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Signalverarbeitung 1
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -135,6 +133,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -200,12 +199,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -231,11 +230,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#einfuhrung">
    4.1. Einführung
@@ -297,47 +296,9 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matlab-und-z-transformation">
-   4.8. Matlab und z-Transformation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubungen">
-   4.9. Übungen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-     4.9.1. Wiederholung des Stoffes und einfache Rechenaufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
-     4.9.2. Aufgaben (Auf Klausurniveau)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matlab-aufgaben">
-     4.9.3. Matlab-Aufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transfer-leistung">
-     4.9.4. Transfer-Leistung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zusammenfassung">
-   4.10. Zusammenfassung
-  </a>
- </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -653,7 +614,7 @@ die komplexe Ebene auf dem Kreis C im mathematisch positiven Sinn
 (Gegenuhrzeigersinn) und integrieren die eingeschlossene Fläche. Dies
 ist nicht immer möglich. Ob die Möglichkeit besteht hängt direkt davon
 ab, wie das Konvergenzgebiet definiert ist. Auf die explizite Behandlung
-der Thematik wird hier nicht eingegangen, statt dessen wird auf <span id="id1">[<a class="reference internal" href="zbibliography.html#id186"><span>OS99</span></a>]</span>
+der Thematik wird hier nicht eingegangen, statt dessen wird auf <span id="id1">[<a class="reference internal" href="zbibliography.html#id186">OS99</a>]</span>
 verwiesen, die Stichworte, die man sich im Zusammenhang mit der
 Rücktransformation merken sollte sind: Cauchy-Integral, Laurent-Reihe,
 Residuensatz.</p>
@@ -1111,7 +1072,7 @@ Drehrichtung wird durch die Pollage in der oberen oder unteren Halbebene
 angegeben.</p>
 <div class="figure align-default" id="fig-pollagen">
 <a class="reference internal image-reference" href="_images/PolLagen.png"><img alt="_images/PolLagen.png" src="_images/PolLagen.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an <span id="id3">[<a class="reference internal" href="zbibliography.html#id190"><span>GRS13</span></a>]</span>).</span><a class="headerlink" href="#fig-pollagen" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an <span id="id3">[<a class="reference internal" href="zbibliography.html#id190">GRS13</a>]</span>).</span><a class="headerlink" href="#fig-pollagen" title="Permalink to this image">¶</a></p>
 </div>
 <p>Bei konjugiert komplexen Polpaaren heben sich durch die gegensinnigen
 Drehrichtungen die Imaginäranteile auf und die Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> ist
@@ -1396,131 +1357,6 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 <p class="caption"><span class="caption-number">Fig. 4.9 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
 Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">¶</a></p>
 </div>
-</div>
-</div>
-<div class="section" id="matlab-und-z-transformation">
-<h2><span class="section-number">4.8. </span>Matlab und z-Transformation<a class="headerlink" href="#matlab-und-z-transformation" title="Permalink to this headline">¶</a></h2>
-<div class="error admonition">
-<p class="admonition-title">To Do</p>
-<p>poly roots Anwendung erklaren</p>
-<p>zplane als Anzeige Tool</p>
-</div>
-</div>
-<div class="section" id="ubungen">
-<h2><span class="section-number">4.9. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-<h3><span class="section-number">4.9.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Welche Bedingungen müssen gelten, damit ein LTI-System stabil ist?</p></li>
-<li><p>Welche Beschreibungen eines LTI-Systems kennen Sie?</p></li>
-<li><p>Warum ist die Angabe der z-Transformationsfunktion nicht
-ausreichend?</p></li>
-<li><p>[[Aufg:zTrafo:Stabilitaet]]{#Aufg:zTrafo:Stabilitaet
-label=”Aufg:zTrafo:Stabilitaet”}Testen Sie die folgenden LTI -
-Systeme auf Stabilität:</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = -2 y(k-1) + 1.5 x(k) - 2x(k-1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) =  2.5 x(k-1) + 1.83 y(k-1)  - 0.99y(k-2)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) =  0.3 x(k) + 07 x(k-1) + 1.9812 y(k-1)   - 1.0201 y(k-2)\)</span></p></li>
-</ol>
-</li>
-<li><p>Zeigen Sie, dass die Ungleichung <a class="reference internal" href="#equation-eq-sos-ungleichung2">(4.30)</a> gilt.</p></li>
-</ol>
-</div>
-<div class="section" id="aufgaben-auf-klausurniveau">
-<span id="sec-aufgaben"></span><h3><span class="section-number">4.9.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Zeigen Sie, dass die z-Transformation eine lineare Transformation
-ist, indem Sie den Linearitätstest durchführen.</p></li>
-<li><p>Welchen Wert hat das folgende System nach
-50 Schritten. Geben Sie die direkte Berechnungsmethode an. Ist das
-System BIBO-stabil?<br />
-<span class="math notranslate nohighlight">\(y(k) = \sqrt(2) y(k-1) -  y(k-2) + 0.5 \delta(k)\)</span></p></li>
-<li><p>Sind die folgenden Systeme kausal, stabil, linear und zeitinvariant?
-Begründen Sie ihre Antwort (auch wenn Sie keine Aussage machen
-können) mathematisch oder textuell (16)!</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = 0.5 y(k-1) - 0.3 y(k-2) k + 0.4 x(k) - 0.5
-        x(k-1)x(k-2)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k+1) = 1.1 y(k-1) - 0.5 x(k+1) + 0.3 x(k) - 0.5
-        x(k-1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k+1) = 2x(2k-k) - y(k+1) + 4 x(k-2) + 1.8 y(k-1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = 0.3 x(k) + 0.6x(k-1) - 0.7 x(k-2)y(k-2) + x(2k-2)\)</span></p></li>
-</ol>
-</li>
-<li><p>Ist das folgende Systeme kausal, stabil, linear und zeitinvariant?
-Begründen Sie ihre Antwort mathematisch oder textuell! Falls Sie
-keine Aussage treffen können, begründen Sie auch dies!
-<span class="math notranslate nohighlight">\(y(k+1) - 2y(k+2) + \alpha x(k+2) + x(k+1) =  1.99 y(k)\)</span><br />
-Nehmen Sie an <span class="math notranslate nohighlight">\(\alpha = 2\)</span> (8 Punkte). Für welche Bereiche von
-<span class="math notranslate nohighlight">\(\alpha\)</span> (rein reell) ist das System stabil (Begründung)? (2 Punkte)</p></li>
-<li><p>Sind die beiden folgenden Systeme kausal, stabil, linear und
-zeitinvariant? Begründen Sie ihre Antwort mathematisch oder
-textuell! Falls Sie keine Aussage treffen können, begründen Sie auch
-dies!</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) + \beta^2 y(k-2) + x(k-2) = 2 x(k) - 2x(k-2) - 1.9
-    y(k-1)\)</span>.<br />
-Zur Beantwortung der Frage nehmen Sie an <span class="math notranslate nohighlight">\(\beta = \sqrt{0.5}\)</span> (8
-Punkte).<br />
-Für welche Bereiche von <span class="math notranslate nohighlight">\(\beta\)</span> ist das System stabil bzw.
-instabil (4 Punkte).</p></li>
-<li><p><span class="math notranslate nohighlight">\(2y(k) - 3.7x(-k-2)k -0.3y(k-3) = 10x(k-10)\)</span>. (8 Punkte)</p></li>
-</ol>
-</li>
-</ol>
-</div>
-<div class="section" id="matlab-aufgaben">
-<h3><span class="section-number">4.9.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Lösen Sie die Aufgabe
-<a class="reference external" href="#Aufg:zTrafo:Klausurniveau">[Aufg:zTrafo:Klausurniveau]</a>{reference-type=”ref”
-reference=”Aufg:zTrafo:Klausurniveau”}.<a class="reference external" href="#Aufg:zTrafo:zTrafo">[Aufg:zTrafo:zTrafo]</a>{reference-type=”ref”
-reference=”Aufg:zTrafo:zTrafo”} durch den Aufbau des Systems und
-Iteration.</p></li>
-<li><p>Programmieren Sie eine Funktion, die einen Pol-Nullstellenplan
-zeichnet und zusätzlich im Titel den <span class="math notranslate nohighlight">\(b_0\)</span>-Koeffizienten ausgibt.
-Nutzen Sie als Anhaltspunkt die <code class="docutils literal notranslate"><span class="pre">zplane</span></code> Funktion von Matlab.
-Hinweis: Sie benötigen den <code class="docutils literal notranslate"><span class="pre">axis</span></code> Befehl um eine quadratische Grafik
-aufzubauen (siehe help). Sie sollten die <code class="docutils literal notranslate"><span class="pre">mpoles</span></code> Funktion nutzen,
-um Mehrfach Null- bzw. Polstellen herauszufinden.</p></li>
-<li><p>Schreiben Sie eine Funktion, die es ermöglicht Systeme durch eine
-grafische Eingabe mit der Maus zu definieren. Zeichnen Sie dazu den
-Einheitskreis in eine figure. Hinweis: Sie benötigen den <code class="docutils literal notranslate"><span class="pre">ginput</span></code>
-Befehl für die Maus-Eingabe und <code class="docutils literal notranslate"><span class="pre">axis</span></code>, um eine quadratische Grafik
-zu erzeugen.</p></li>
-</ol>
-</div>
-<div class="section" id="transfer-leistung">
-<h3><span class="section-number">4.9.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Wie sieht das Konvergenzgebiet für endliche Folgen aus?</p></li>
-<li></li>
-<li></li>
-</ol>
-</div>
-</div>
-<div class="section" id="zusammenfassung">
-<h2><span class="section-number">4.10. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
-<p>Die wichtigen Erkenntnisse aus diesem Kapitel sind:</p>
-<ul class="simple">
-<li><p>Die Systemfunktion ist eine vollständige Beschreibung eines
-LTI-Systems</p></li>
-<li><p>Die Systemfunktion ist die z-Transformierte der Impulsantwort</p></li>
-<li><p>Die Angabe der z-Transformation ist nur mit ROC vollständig.</p></li>
-<li><p>Das Pol-Nullstellendiagramm ist bis auf die Grundverstärkung <span class="math notranslate nohighlight">\(b_0\)</span>
-eine vollständige Beschreibung eines LTI-Systems</p></li>
-<li><p>Die Stabilität eines kausalen LTI-Systems lässt sich in der z-Ebene
-durch die Berechnung der Polradien einfach testen. Es muss gelten,
-dass alle Radien kleiner eins sind. Für strikt nicht-kausale Systeme
-müssen alle Radien größer eins sein, um ein stabiles System
-darzustellen.</p></li>
-<li><p>Bei Systemen zweiter Ordnung müssen um stabile kausale Systeme zu
-realisieren, die rekursiven Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span> im
-Stabilitätsdreieck liegen.</p></li>
-<li><p>Pol- bzw. Nullstellen reeller Systeme sind entweder reellwertig oder
-treten als konjugiert komplexe Polpaare auf.</p></li>
-</ul>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
@@ -1532,6 +1368,7 @@ einer z-Rücktransformation auf einen nicht-kausalen Anteil führen
 würde.</p>
 </dd>
 </dl>
+</div>
 </div>
 </div>
 
@@ -1558,22 +1395,42 @@ würde.</p>
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="systeme.html" title="previous page"><span class="section-number">3. </span>Systeme</a>
-    <a class='right-next' id="next-link" href="spektren.html" title="next page"><span class="section-number">5. </span>Spektren</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="systeme.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">3. </span>Systeme</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="spektren.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Spektren</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Joerg Bitzer<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1582,11 +1439,9 @@ würde.</p>
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

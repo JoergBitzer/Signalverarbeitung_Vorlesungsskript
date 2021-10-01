@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3. Systeme &#8212; Signalverarbeitung 1</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,28 +41,28 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. z-Transformation" href="ztrafo.html" />
     <link rel="prev" title="2. Signale" href="signale.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,25 +71,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Signalverarbeitung 1
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -135,6 +133,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -200,12 +199,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -231,11 +230,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eigenschaften-und-klassifikation-von-systemen">
    3.1. Eigenschaften und Klassifikation von Systemen
@@ -324,59 +323,9 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systeme-und-matlab">
-   3.3. Systeme und Matlab
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#test-auf-nicht-linearitat-und-zeitvarianz">
-     3.3.1. Test auf Nicht-Linearität und Zeitvarianz
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#faltung">
-     3.3.2. Faltung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubungen">
-   3.4. Übungen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-     3.4.1. Wiederholung des Stoffes und einfache Rechenaufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgaben-einige-auf-klausurniveau">
-     3.4.2. Aufgaben (Einige auf Klausurniveau)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matlab-aufgaben">
-     3.4.3. Matlab-Aufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transfer-leistung">
-     3.4.4. Transfer-Leistung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zusammenfassung">
-   3.5. Zusammenfassung
-  </a>
- </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -1016,119 +965,6 @@ miteinander multiplizierten Einzelimpulse der beiden Folgen.</p>
 <a class="reference internal image-reference" href="../images/psSys/FaltungsErklaerungCorel.png"><img alt="../images/psSys/FaltungsErklaerungCorel.png" src="../images/psSys/FaltungsErklaerungCorel.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Erklärung der grafischen Faltung.</span><a class="headerlink" href="#fig-faltungserklaerungcorel" title="Permalink to this image">¶</a></p>
 </div>
-<p>Die Länge der Ausgangsfolge ergibt sich aus der Addition der Länge der
-Eingangsfolge <span class="math notranslate nohighlight">\(M\)</span> und der Länge der Impulsantwort <span class="math notranslate nohighlight">\(K\)</span> zu</p>
-<div class="math notranslate nohighlight">
-\[
-N = M + K - 1.
-\]</div>
-<p>Dies ist auch anhand der beiden grafischen Beispiele
-leicht zu sehen.</p>
-</div>
-</div>
-</div>
-<div class="section" id="systeme-und-matlab">
-<h2><span class="section-number">3.3. </span>Systeme und Matlab<a class="headerlink" href="#systeme-und-matlab" title="Permalink to this headline">¶</a></h2>
-<p>Auch hier gilt, siehe Script.</p>
-<div class="section" id="test-auf-nicht-linearitat-und-zeitvarianz">
-<h3><span class="section-number">3.3.1. </span>Test auf Nicht-Linearität und Zeitvarianz<a class="headerlink" href="#test-auf-nicht-linearitat-und-zeitvarianz" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="faltung">
-<h3><span class="section-number">3.3.2. </span>Faltung<a class="headerlink" href="#faltung" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="ubungen">
-<h2><span class="section-number">3.4. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-<h3><span class="section-number">3.4.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Ist ein Quantisierer ein lineares System, da ja von linearer
-Quantisierung gesprochen wird? Begründen Sie ihr Antwort.</p></li>
-<li><p>Sind die folgenden Systeme zeitinvariant, kausal und linear?
-Begründen Sie ihre Antwort.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) + 2d\)</span> mit <span class="math notranslate nohighlight">\(d\neq 0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = a_1 x(k-2) + a_2 x(k-3)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = k x(k-1) + x(k-2)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = log_{10}( x(k-2)) + 3 x(k-1)\)</span></p></li>
-</ul>
-</li>
-<li><p>Falten Sie die folgenden vier Signale jeweils grafisch mit sich
-selbst und mit allen anderen Signalen.</p></li>
-</ol>
-<div class="figure align-default" id="fig-graphikfaltung">
-<a class="reference internal image-reference" href="_images/GraphikFaltung.png"><img alt="_images/GraphikFaltung.png" src="_images/GraphikFaltung.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Testsignale zum Üben der grafischen Faltung</span><a class="headerlink" href="#fig-graphikfaltung" title="Permalink to this image">¶</a></p>
-</div>
-<ol class="simple">
-<li><p>Zeigen Sie, dass das Kommutativgesetz der Faltung allgemein gilt.</p></li>
-</ol>
-</div>
-<div class="section" id="aufgaben-einige-auf-klausurniveau">
-<span id="sec-aufgaben"></span><h3><span class="section-number">3.4.2. </span>Aufgaben (Einige auf Klausurniveau)<a class="headerlink" href="#aufgaben-einige-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Geben sie die Impulsantwort für die
-folgenden Differenzengleichungen an. Brechen Sie bei unendlichen
-Folgen nach <span class="math notranslate nohighlight">\(k=10\)</span> ab. Nehmen sie an, dass sich das System zum
-Zeitpunkt <span class="math notranslate nohighlight">\(k=0\)</span> in Ruhe befand.</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = 0.5x(k-1)+ 0.3x(k-2)+ 0.4x(k-3) - 0.4 x(k-4)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = y(k-1)+0.5x(k)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = 0.25 x(k-1)+0.75 y(k-1) - 0.75y(k-3)\)</span></p></li>
-</ol>
-</li>
-<li><p>Gegeben ist das System <span class="math notranslate nohighlight">\(0 = \frac{1}{k} x(k) + 2x(k-2) - 0.5y(k-1)\)</span>.
-Begründen Sie Linearität und Zeit-Invarianz bitte mathematisch
-formal!</p></li>
-<li></li>
-</ol>
-</div>
-<div class="section" id="matlab-aufgaben">
-<h3><span class="section-number">3.4.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Testen Sie folgende Systeme auf Zeitinvarianz und Linearität durch
-Rauschfolgen als Eingangssignale. Haben Sie im Hinterkopf, dass Sie
-mit Zahlentests nichts beweisen können. Eine Aussage ist nur für
-Nicht-Linearität und Zeitvarianz möglich. Dies ergibt sich, wenn der
-Test fehl schlägt, da <em>ein</em> Gegenbeispiel ausreicht um Linearität
-oder Zeitinvarianz auszuschließen.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) + y(k-1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = 3 y(k-1) + 2 x(k-1) + x(k)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = k x(k-1) + x(k-2)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y(k) = log_{10} x(k-2) + 3 y(k-1)\)</span></p></li>
-</ul>
-</li>
-<li><p>Erzeugen Sie eine Funktion die eine Delta-Impulsfolge mit
-vordefinierter Länge zurück gibt.</p></li>
-<li><p>Nutzen Sie diese Funktion, um ihre Ergebnisse aus <a class="reference internal" href="ztrafo.html#sec-aufgaben"><span class="std std-numref">Abschnitt 4.9.2</span></a> Aufgabe 1 zu überprüfen.</p></li>
-<li><p>Erzeugen Sie kurze Sequenzen mit <span class="math notranslate nohighlight">\(T = 12\)</span> Werten um die oben
-gezeigten Signale zu approximieren. Überprüfen Sie Ihre Ergebnisse
-mit dem <code class="docutils literal notranslate"><span class="pre">conv</span></code>-Befehl.</p></li>
-</ol>
-</div>
-<div class="section" id="transfer-leistung">
-<h3><span class="section-number">3.4.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li></li>
-<li></li>
-<li></li>
-</ol>
-</div>
-</div>
-<div class="section" id="zusammenfassung">
-<h2><span class="section-number">3.5. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
-<p>Die wichtigen Erkenntnisse aus diesem Kapitel sind:</p>
-<ul class="simple">
-<li><p>Lineare zeitinvariante (LTI)-Systeme stellen eine wichitge Klasse
-der Systeme dar.</p></li>
-<li><p>LTI-Systeme lassen sich vollständig durch Differenzengleichungen
-beschreiben.</p></li>
-<li><p>Die Faltung verknüpft LTI-Systeme und Signale</p></li>
-<li><p>Die Impulsantwort ist das Ausgangssignal eines Systems, wenn die
-Delta-Folge als Eingang gewählt wurde. Sie beschreibt ein LTI-System
-ebenfalls vollständig.</p></li>
-</ul>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -1138,6 +974,8 @@ ebenfalls vollständig.</p></li>
 <dd><p>Die Impulsantwort wird hier in einer Vektorschreibweise eingeführt.</p>
 </dd>
 </dl>
+</div>
+</div>
 </div>
 </div>
 
@@ -1164,22 +1002,42 @@ ebenfalls vollständig.</p></li>
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="signale.html" title="previous page"><span class="section-number">2. </span>Signale</a>
-    <a class='right-next' id="next-link" href="ztrafo.html" title="next page"><span class="section-number">4. </span>z-Transformation</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="signale.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>Signale</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="ztrafo.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>z-Transformation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Joerg Bitzer<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1188,11 +1046,9 @@ ebenfalls vollständig.</p></li>
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

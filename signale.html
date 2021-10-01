@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2. Signale &#8212; Signalverarbeitung 1</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,28 +41,28 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Systeme" href="systeme.html" />
     <link rel="prev" title="1. Einführung" href="grundlagen.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,25 +71,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Signalverarbeitung 1
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -135,6 +133,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -200,12 +199,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -231,11 +230,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#klassifikation">
    2.1. Klassifikation
@@ -346,37 +345,9 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubungen">
-   2.7. Übungen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-     2.7.1. Wiederholung des Stoffes und einfache Rechenaufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
-     2.7.2. Aufgaben (Auf Klausurniveau)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matlab-aufgaben">
-     2.7.3. Matlab-Aufgaben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transfer-leistung">
-     2.7.4. Transfer-Leistung
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -647,6 +618,7 @@ Wertebereich und Definitionsbereich ergeben.</p>
 <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">len_cont</span><span class="p">)</span> <span class="c1"># &#39;continuously&#39; sampled</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">len_disc</span><span class="p">)</span> <span class="c1"># discretely sampled</span>
 <span class="n">v</span> <span class="o">=</span> <span class="mf">0.05</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># example cubic function values</span>
+
 <span class="n">dv</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">v</span><span class="p">[:])</span> <span class="c1"># discrete values of function rounded to integers</span>
 <span class="n">v_dt</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">len_cont</span><span class="o">+</span><span class="n">steps</span><span class="p">)</span> <span class="p">:</span> <span class="n">steps</span><span class="p">]</span> <span class="c1"># discretely sampled, non discrete values </span>
 <span class="n">dv_dt</span> <span class="o">=</span> <span class="n">dv</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">len_cont</span><span class="o">+</span><span class="n">steps</span><span class="p">)</span> <span class="p">:</span> <span class="n">steps</span><span class="p">]</span> <span class="c1"># discretely sampled, discrete values</span>
@@ -1402,7 +1374,7 @@ der signum-Funktion, die jeweils das Vorzeichen angibt.</p>
 <p>bzw. in diskreter Form durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-easyrechteckdiskret">
 <span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-easyrechteckdiskret" title="Permalink to this equation">¶</a></span>\[
-    x(k) = \text{sign}(\sin\left(2\pi k \frac{f_0}{f_s}\right));
+    x(k) = \text{sign}\left(\sin\left(2\pi k \frac{f_0}{f_s}\right)\right);
     \]</div>
 </li>
 </ul>
@@ -2031,52 +2003,6 @@ speziellen Fällen benötigt. Das Stichwort hierzu lautet {\em Fractional Delay 
 </div>
 </div>
 </div>
-<div class="section" id="ubungen">
-<h2><span class="section-number">2.7. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
-<h3><span class="section-number">2.7.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Klassifizieren Sie folgende Signale anhand der im Skript angegeben Merkmale:</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(\text{si}(t)\)</span></p></li>
-<li><p>Das digitale (SP-DIF) und analoge Signal eines CD-Players</p></li>
-<li><p>Ein DVD Film</p></li>
-<li><p>Vielleicht ihr Beispiel</p></li>
-</ol>
-</li>
-<li><p>Was ist die Grundvoraussetzung für eine erfolgreiche Digitalisierung?</p></li>
-<li><p>Warum verliert man Informationen bei der Digitalisierung?</p></li>
-<li><p>Warum lassen sich Funktionen mit Knickstellen (Bsp: Dreieck) nicht wirklich digitalisieren?</p></li>
-<li><p>Welches ist die höchste Harmonische einer aliasingfreien Dreieckschwingung mit der Grundfrequenz
-<span class="math notranslate nohighlight">\(f = 440~\text{Hz}\)</span>, bei einer Abtastrate von <span class="math notranslate nohighlight">\(f_\text{s} = 48000~\text{Hz}\)</span>?</p></li>
-<li><p>Zeigen Sie, dass <span class="math notranslate nohighlight">\(\text{si}(0) = 1\)</span> ist!</p></li>
-<li><p>Zeichnen Sie <span class="math notranslate nohighlight">\(x(k) = 2\delta(k+2) - 0.5\delta(k-1) + 3\delta(k-2)\)</span>!</p></li>
-</ol>
-</div>
-<div class="section" id="aufgaben-auf-klausurniveau">
-<h3><span class="section-number">2.7.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Wie hoch ist die Leistung eines mittelwertfreien Dreieckssignals mit der Amplitude A?</p></li>
-<li></li>
-<li></li>
-</ol>
-</div>
-<div class="section" id="matlab-aufgaben">
-<h3><span class="section-number">2.7.3. </span>Matlab-Aufgaben<a class="headerlink" href="#matlab-aufgaben" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Programmieren Sie eine Funktion, die einen Mid-Tread Quantisierer mit einer Auflösung von 4 Bit realisiert. Versuchen Sie so allgemein zu programmieren, dass Sie jederzeit die Auflösung ändern können.</p></li>
-<li><p>Programmieren Sie einen Rechtecksignal-Generator in Matlab, mit und ohne Aliasing.</p></li>
-<li><p>Erzeugen Sie eine Funktion die eine Delta-Impulsfolge mit vordefinierter Länge (Angabe in Sekunden und <span class="math notranslate nohighlight">\(f_\text{s}\)</span>) zurück gibt.</p></li>
-</ol>
-</div>
-<div class="section" id="transfer-leistung">
-<h3><span class="section-number">2.7.4. </span>Transfer-Leistung<a class="headerlink" href="#transfer-leistung" title="Permalink to this headline">¶</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Fraglich ob hier möglich</p>
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -2102,22 +2028,42 @@ speziellen Fällen benötigt. Das Stichwort hierzu lautet {\em Fractional Delay 
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="grundlagen.html" title="previous page"><span class="section-number">1. </span>Einführung</a>
-    <a class='right-next' id="next-link" href="systeme.html" title="next page"><span class="section-number">3. </span>Systeme</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="grundlagen.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Einführung</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="systeme.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">3. </span>Systeme</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Joerg Bitzer<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -2126,11 +2072,9 @@ speziellen Fällen benötigt. Das Stichwort hierzu lautet {\em Fractional Delay 
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
