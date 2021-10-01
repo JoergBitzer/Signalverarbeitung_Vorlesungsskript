@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. z-Transformation &#8212; Signalverarbeitung 1</title>
+    <title>z-Transformation &#8212; Signalverarbeitung 1</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Spektren" href="spektren.html" />
-    <link rel="prev" title="3. Systeme" href="systeme.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,7 +88,7 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -106,29 +104,9 @@
    3. Systeme
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. z-Transformation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="spektren.html">
-   5. Spektren
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filter.html">
-   6. Filter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mathe.html">
-   7. Mathematische Methoden
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   8. Literaturverzeichnis
+   4. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -237,61 +215,61 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#einfuhrung">
-   4.1. Einführung
+   Einführung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition">
-   4.2. Definition
+   Definition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rechenregeln">
-   4.3. Rechenregeln
+   Rechenregeln
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#linearitat">
-     4.3.1. Linearität
+     Linearität
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#verschiebung">
-     4.3.2. Verschiebung
+     Verschiebung
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ruck-transformation">
-   4.4. Rück-Transformation
+   Rück-Transformation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#korrespondenztabelle">
-     4.4.1. Korrespondenztabelle
+     Korrespondenztabelle
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#systemfunktion">
-   4.5. Systemfunktion
+   Systemfunktion
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pol-nullstellenplan">
-   4.6. Pol-Nullstellenplan
+   Pol-Nullstellenplan
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stabilitat">
-   4.7. Stabilität
+   Stabilität
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#stabilitat-eines-systems-2-ordnung">
-     4.7.1. Stabilität eines Systems 2. Ordnung
+     Stabilität eines Systems 2. Ordnung
     </a>
    </li>
   </ul>
@@ -308,7 +286,7 @@
               <div>
                 
   <div class="section" id="z-transformation">
-<h1><span class="section-number">4. </span>z-Transformation<a class="headerlink" href="#z-transformation" title="Permalink to this headline">¶</a></h1>
+<h1>z-Transformation<a class="headerlink" href="#z-transformation" title="Permalink to this headline">¶</a></h1>
 <p>In diesem Abschnitt werden wir die z-Transformation als ein wichtiges
 Werkzeug zur Analyse und zum Verständnis von LTI-Systemen und ihrer
 Eigenschaften einführen. Es werden durch die z-Übertragungsfunktion und
@@ -320,7 +298,7 @@ Stabilität rekursiver LTI-Systeme zu testen.</p>
 <p>Beispiel bringen mit Programm (Minihost, Asio4All, pcx) zur Motivation</p>
 </div>
 <div class="section" id="einfuhrung">
-<h2><span class="section-number">4.1. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this headline">¶</a></h2>
+<h2>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this headline">¶</a></h2>
 <p>Um die Nützlichlkeit dieses Werkzeuges zu untermalen, wollen wir
 zunächst von einfachen Beispielen ausgehen.</p>
 <p>Angenommen auf ein Sparbuch wird ein bestimmter Geldbetrag <span class="math notranslate nohighlight">\(S\)</span>
@@ -330,7 +308,7 @@ Nutzung des Delta-Impulses gewichtet mit dem Geldbetrag und einer
 einfachen Rekursion, wobei ein leeres Konto als Startwert vorliegt. Es
 gilt also <span class="math notranslate nohighlight">\(y(k-1) = 0\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursion">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-eq-zinsrekursion" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-zinsrekursion" title="Permalink to this equation">¶</a></span>\[
 y(k) = (1+p) y(k-1) + S \delta(k)
 \]</div>
 <p>Dies ist eine andere Darstellung der Zinseszinsrechenregel. Diese lautet</p>
@@ -339,19 +317,19 @@ y(k) = (1+p) y(k-1) + S \delta(k)
 \mbox{Geld} = S (1+p)^{\mbox{Jahre}}
 \]</div>
 <p>Die Anzahl der Jahre ist in Formel
-<a class="reference internal" href="#equation-eq-zinsrekursion">(4.1)</a> in der Anzahl der Rekursionen versteckt.
+<a class="reference internal" href="#equation-eq-zinsrekursion">()</a> in der Anzahl der Rekursionen versteckt.
 Die zweite Form ist eine direkte Berechnung.</p>
 <p>Nun lassen sich aber nicht für alle Rekursionssysteme solche einfachen
 direkten Rechenvorschriften angeben. Aber wie ist der mathematische
 Zusammenhang zwischen den beiden möglichen Lösungen?</p>
 <p>In der Rekursionsformel:</p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursionwiederholung">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-zinsrekursionwiederholung" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-zinsrekursionwiederholung" title="Permalink to this equation">¶</a></span>\[
     y(k) = (1+p) y(k-1) + S \delta(k)
 \]</div>
 <p>ergibt sich durch Variablensubstitution <span class="math notranslate nohighlight">\(c = 1+p\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursionmitc">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-zinsrekursionmitc" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-zinsrekursionmitc" title="Permalink to this equation">¶</a></span>\[
 y(k) = c y(k-1) + S \delta(k)
 \]</div>
 <p>Diese Form wird jetzt auf beiden
@@ -360,7 +338,7 @@ Seiten mit der Summe <span class="math notranslate nohighlight">\(\sum_{k =
 erlaubt ist, da er auf beiden Seiten des Gleichungssystems durchgeführt
 wird.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursionz">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-zinsrekursionz" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-zinsrekursionz" title="Permalink to this equation">¶</a></span>\[
 \sum_{k = -\infty}^{\infty} y(k) z^{-k} = \underbrace{c \sum_{k =
 -\infty}^{\infty} y(k-1) z^{-k}}_{\mbox{1. Summand}} +
 \underbrace{S \sum_{k = -\infty}^{\infty} \delta(k)
@@ -368,14 +346,14 @@ z^{-k}}_{\mbox{2. Summand}}
 \]</div>
 <p>Mit Hilfe der abkürzenden Schreibweise</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-ztrafo">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
 Y(z) = \sum_{k = -\infty}^{\infty} y(k) z^{-k} .
 \]</div>
 <p>ergibt sich bei dem 2. Summanden nur ein Element der Summe den Wert <span class="math notranslate nohighlight">\(S\)</span>, da die <span class="math notranslate nohighlight">\(\delta\)</span>-Folge nur bei <span class="math notranslate nohighlight">\(k = 0\)</span> einen Wert ungleich Null hat.</p>
 <p>Zusätzlich kann der 1. Summand durch eine Variablensubstitution
 <span class="math notranslate nohighlight">\(k' = k-1\)</span> umgeformt werden.</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1subst">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-ztrafo-example1subst" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-example1subst" title="Permalink to this equation">¶</a></span>\[
     c \sum_{k =
 -\infty}^{\infty} y(k-1) z^{-k} = c \sum_{k' = -\infty}^{\infty}
 y(k') z^{-k'-1} =c z^{-1}\sum_{k' = -\infty}^{\infty} y(k')
@@ -383,30 +361,30 @@ z^{-k'}=c z^{-1} Y(z)
 \]</div>
 <p>Somit ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-eq-ztrafo-example1" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-example1" title="Permalink to this equation">¶</a></span>\[
     Y(z) = c z^{-1} Y(z) + S .
 \]</div>
 <p>Umgestellt folgt</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-zloesung">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-eq-ztrafo-example1-zloesung" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-example1-zloesung" title="Permalink to this equation">¶</a></span>\[
     Y(z) = \frac{S}{1-c z^{-1}} .
 \]</div>
 <p>Um zur Lösung für das Ausgangssignal zu kommen, wird die Summenformel
 für eine geometrische Reihe eingeführt.</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-geometrischereihe">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-eq-def-geometrischereihe" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-def-geometrischereihe" title="Permalink to this equation">¶</a></span>\[
 \sum_{k = 0}^{\infty} q^k = \frac{1}{1-q}  \quad \mbox{wenn} \quad |q|&lt;1
 \]</div>
 <p>Für Gleichung
-<a class="reference internal" href="#equation-eq-ztrafo-example1-zloesung">(4.8)</a> ergibt sich also</p>
+<a class="reference internal" href="#equation-eq-ztrafo-example1-zloesung">()</a> ergibt sich also</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-kloesung1">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung1" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung1" title="Permalink to this equation">¶</a></span>\[
 \frac{S}{1-c z^{-1}} = S \sum_{k = 0}^{\infty} (c z^{-1})^k = S \sum_{k = 0}^{\infty} c^k z^{-k}
 \]</div>
 <p>Vergleicht man diese Lösung mit
-<a class="reference internal" href="#equation-eq-def-ztrafo">(4.12)</a> ergibt sich</p>
+<a class="reference internal" href="#equation-eq-def-ztrafo">()</a> ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-kloesung2">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung2" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung2" title="Permalink to this equation">¶</a></span>\[\begin{split}
     y(k) = \bigg\{ \begin{array}{lcc}
       S c^k &amp; &amp; k \geq 0\\
         0  &amp; &amp; k&lt;0
@@ -417,16 +395,16 @@ für eine geometrische Reihe eingeführt.</p>
 <p>Dies entspricht der vorher bekannten Lösung für die Zinseszinsformel.</p>
 </div>
 <div class="section" id="definition">
-<h2><span class="section-number">4.2. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
 <p>Für eine verkürzte Schreibweise wird für die z-Transformation folgendes
 Symbol eingeführt</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-ztrafo">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
 \mathcal{Z}\{ \cdot \}= \sum_{k = -\infty}^{\infty} (\cdot) z^{-k} mit~z \in \mathbb{C}
 \]</div>
 <p>Es gilt also</p>
 <div class="math notranslate nohighlight" id="equation-eq-yexample">
-<span class="eqno">(4.13)<a class="headerlink" href="#equation-eq-yexample" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-yexample" title="Permalink to this equation">¶</a></span>\[
     Y(z) =\mathcal{Z}\{y(k)\}
 \]</div>
 <p>Die Rechenvorschrift führt dazu, dass die diskrete
@@ -439,7 +417,7 @@ häufig der sog. “Transformationsknochen” verwendet.</p>
 <li><p>Rücktransformation: <span class="math notranslate nohighlight">\(Y(z) \bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; y(k)\)</span></p></li>
 </ul>
 <p>Damit eine z-Transformation gültig ist, muss zusätzlich gelten, dass die
-Summe in Gl. <a class="reference internal" href="#equation-eq-def-ztrafo">(4.12)</a> kleiner unendlich ist. Dies ist für alle
+Summe in Gl. <a class="reference internal" href="#equation-eq-def-ztrafo">()</a> kleiner unendlich ist. Dies ist für alle
 endlichen Folgen gegeben, wenn keiner der Folgenwerte unendlich ist. Bei
 unendlichen Folgen ist dies nicht immer gewährleistet.und hängt auch
 direkt von der Wahl des <span class="math notranslate nohighlight">\(z\)</span> ab. Deshalb gehört zu einer vollständigen
@@ -452,7 +430,7 @@ Gebiet inner- oder außerhalb einer Kreisfläche oder das Gebiet hat die
 Form eines Kreisringes in der z-Ebene.</p>
 <div class="figure align-default" id="fig-roc-kausal">
 <a class="reference internal image-reference" href="_images/ROC_Kausal.png"><img alt="_images/ROC_Kausal.png" src="_images/ROC_Kausal.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei der z-Transformation. In
+<p class="caption"><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei der z-Transformation. In
 diesem Beispiel für eine kausale Folge (ROC
 außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink to this image">¶</a></p>
 </div>
@@ -491,11 +469,11 @@ außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink
 </div>
 <div class="hint admonition">
 <p class="admonition-title">Beispiel</p>
-<p>Betrachtet man die kausale Folge (siehe <a class="reference internal" href="#fig-zfolgenpic"><span class="std std-numref">Abbildung 4.2</span></a>
+<p>Betrachtet man die kausale Folge (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>
 a) (Sie entspricht dem Sparbuchbeispiel mit einem Startkapital von 0.5 und
 50% Kontokosten (Also einer ziemlich schlechten Geldanlage).)</p>
 <div class="math notranslate nohighlight" id="equation-eq-bspkausalefolge">
-<span class="eqno">(4.14)<a class="headerlink" href="#equation-eq-bspkausalefolge" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">()<a class="headerlink" href="#equation-eq-bspkausalefolge" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
     x(k) &amp;=&amp; [0.5 \:\: 0.5^2 \:\: 0.5^3 \:\: \cdots \:\: 0.5^k]\\
          &amp; = &amp; 0.5^k \gamma(k) \qquad~für~k \geq 0 ,\end{aligned}
@@ -524,20 +502,20 @@ X(z) = \frac{1}{1-0.5z^{-1}} = \frac{z}{z-0.5},
 <div class="cell_output docutils container">
 <img alt="_images/ztrafo_2_0.png" src="_images/ztrafo_2_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">a) kausale
+<p class="caption"><span class="caption-text">a) kausale
 Folge <span class="math notranslate nohighlight">\(0.5^k \gamma(k)\)</span> für <span class="math notranslate nohighlight">\(k \geq 0\)</span> und b) nicht-kausale Folge
 <span class="math notranslate nohighlight">\(-0.5^k \gamma(-k-1)\)</span> für <span class="math notranslate nohighlight">\(k &lt; 0\)</span>.</span><a class="headerlink" href="#fig-zfolgenpic" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <p>Im folgenden soll nun eine sehr ähnlichen Folge, nämlich dem
 nicht-kausalen, negativen äquivalent zu
-<a class="reference internal" href="#equation-eq-bspkausalefolge">(4.14)</a></p>
+<a class="reference internal" href="#equation-eq-bspkausalefolge">()</a></p>
 <div class="math notranslate nohighlight">
 \[
 \nonumber
     x(k) = -0.5^k \gamma(-k-1) \qquad für k &lt; 0
 \]</div>
-<p>betrachtet werden (siehe <a class="reference internal" href="#fig-zfolgenpic"><span class="std std-numref">Abbildung 4.2</span></a> b). Berechnet man die z-Transformierte ergibt sich mit einer Variablensubstitution <span class="math notranslate nohighlight">\(k = -m\)</span></p>
+<p>betrachtet werden (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> b). Berechnet man die z-Transformierte ergibt sich mit einer Variablensubstitution <span class="math notranslate nohighlight">\(k = -m\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -565,40 +543,40 @@ Folge ein Konverzgebiet</p>
 \[\nonumber
     |z| &lt; 0.5
 \]</div>
-<p>fordert. <a class="reference internal" href="#fig-roc-antikausal"><span class="std std-numref">Abbildung 4.3</span></a>  zeigt das dazugehörige Konvergenzgebiet in der z-Ebene. Man erkennt somit, warum eine Angabe des ROC bei der z-Transformation notwendig ist, um eine eindeutige Berechnung und Zuordnung zu gewährleisten.</p>
+<p>fordert. <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  zeigt das dazugehörige Konvergenzgebiet in der z-Ebene. Man erkennt somit, warum eine Angabe des ROC bei der z-Transformation notwendig ist, um eine eindeutige Berechnung und Zuordnung zu gewährleisten.</p>
 <div class="figure align-default" id="fig-roc-antikausal">
 <a class="reference internal image-reference" href="_images/ROC_AntiKausal.png"><img alt="_images/ROC_AntiKausal.png" src="_images/ROC_AntiKausal.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei
+<p class="caption"><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei
 der z-Transformation. In diesem Beispiel für eine anti-kausale Folge
 (ROC innerhalb) mit
 <span class="math notranslate nohighlight">\(|z| &lt; 0.5\)</span>.</span><a class="headerlink" href="#fig-roc-antikausal" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="rechenregeln">
-<h2><span class="section-number">4.3. </span>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">¶</a></h2>
+<h2>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">¶</a></h2>
 <p>Die z-Transformation erleichtert das Rechnen von Differenzengleichungen.
 Wir werden deshalb im weiteren einige häufig verwendete Rechenregeln und
 Korrespondenzen einführen.</p>
 <div class="section" id="linearitat">
-<h3><span class="section-number">4.3.1. </span>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">¶</a></h3>
+<h3>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">¶</a></h3>
 <p>Die z-Transformation ist eine lineare Transformation. Es gilt:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-linearitaet">
-<span class="eqno">(4.15)<a class="headerlink" href="#equation-eq-ztrafo-linearitaet" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-linearitaet" title="Permalink to this equation">¶</a></span>\[
   a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(z) + a_2 X_2(z)
 \]</div>
 </div>
 <div class="section" id="verschiebung">
-<h3><span class="section-number">4.3.2. </span>Verschiebung<a class="headerlink" href="#verschiebung" title="Permalink to this headline">¶</a></h3>
+<h3>Verschiebung<a class="headerlink" href="#verschiebung" title="Permalink to this headline">¶</a></h3>
 <p>Die zeitliche Verschiebung der diskreten Folge haben wir bereits in den
 Beispielen ausgiebig verwendet. Es gilt:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-verschiebungssatz">
-<span class="eqno">(4.16)<a class="headerlink" href="#equation-eq-ztrafo-verschiebungssatz" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-verschiebungssatz" title="Permalink to this equation">¶</a></span>\[
     \mathcal{Z}\{y(k-k_0)\} = z^{-k_0} Y(z)
 \]</div>
 </div>
 </div>
 <div class="section" id="ruck-transformation">
-<h2><span class="section-number">4.4. </span>Rück-Transformation<a class="headerlink" href="#ruck-transformation" title="Permalink to this headline">¶</a></h2>
+<h2>Rück-Transformation<a class="headerlink" href="#ruck-transformation" title="Permalink to this headline">¶</a></h2>
 <p>Wir haben gesehen, dass die z-Transformation eine diskrete Folge in eine
 kontinuierliche komplexe Ebene transformiert. In den Beispielen hatten
 wir es für die Rücktransformation in den Zeitbereich stets mit einfachen
@@ -606,7 +584,7 @@ gebrochen rationalen Funktionen zu tun, die direkt auf eine bestimmte
 Folge führten. Dies ist nicht immer möglich. Die allgemeinste Version
 der z-Rücktransformation ist durch das Umlaufintegral</p>
 <div class="math notranslate nohighlight" id="equation-eq-zruek-def">
-<span class="eqno">(4.17)<a class="headerlink" href="#equation-eq-zruek-def" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-zruek-def" title="Permalink to this equation">¶</a></span>\[
     x(k) = \oint_C X(z) z^{k-1} dz
 \]</div>
 <p>gegeben. Dies bedeutet wir umlaufen
@@ -622,7 +600,7 @@ Residuensatz.</p>
 Statt dessen sind häufig Lösungen über Partialbruchzerlegung (siehe
 Beispiele) und/oder Korrespondenztabellen möglich</p>
 <div class="section" id="korrespondenztabelle">
-<h3><span class="section-number">4.4.1. </span>Korrespondenztabelle<a class="headerlink" href="#korrespondenztabelle" title="Permalink to this headline">¶</a></h3>
+<h3>Korrespondenztabelle<a class="headerlink" href="#korrespondenztabelle" title="Permalink to this headline">¶</a></h3>
 <p>Viele Systeme und Signale lassen sich auf einfache Grundformen
 zurückführen. Für diese Grundformen kann für die Hin- und
 Rücktransformation folgende Tabelle verwendet werden.</p>
@@ -695,25 +673,25 @@ Y(z) = 0.2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}
 </div>
 </div>
 <div class="section" id="systemfunktion">
-<span id="sec-systemfunktion"></span><h2><span class="section-number">4.5. </span>Systemfunktion<a class="headerlink" href="#systemfunktion" title="Permalink to this headline">¶</a></h2>
+<span id="sec-systemfunktion"></span><h2>Systemfunktion<a class="headerlink" href="#systemfunktion" title="Permalink to this headline">¶</a></h2>
 <p>Bei den zur Einführung verwendeten Beispielen wurden sehr einfache
 Eingangsfolgen für <span class="math notranslate nohighlight">\(x(k)\)</span> verwendet. Man könnte das Sparbuch-Beispiel
 aber auch erweitern und annehmen, dass pro Jahr eine nicht näher
 definierte Summe zusätzlich aufs Konto eingezahlt wird. Die rekursive
 Formulierung für den Ausgang sehe dann wie folgt aus</p>
 <div class="math notranslate nohighlight" id="equation-eq-example3-eingang">
-<span class="eqno">(4.18)<a class="headerlink" href="#equation-eq-example3-eingang" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-example3-eingang" title="Permalink to this equation">¶</a></span>\[
     y(k) = (1+p) y(k-1) + x(k)
 \]</div>
 <p>Wenn wir diese Gleichung mit der
-Definition <a class="reference internal" href="#equation-eq-def-ztrafo">(4.12)</a> in den z-Bereich transformieren erhalten wir</p>
+Definition <a class="reference internal" href="#equation-eq-def-ztrafo">()</a> in den z-Bereich transformieren erhalten wir</p>
 <div class="math notranslate nohighlight" id="equation-eq-eaxample3-zloesung">
-<span class="eqno">(4.19)<a class="headerlink" href="#equation-eq-eaxample3-zloesung" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-eaxample3-zloesung" title="Permalink to this equation">¶</a></span>\[
     Y(z) = (1+p)z^{-1} Y(z) + X(z)
 \]</div>
 <p>Dies ergibt umgeformt</p>
 <div class="math notranslate nohighlight" id="equation-eq-eaxample3-zloesung2">
-<span class="eqno">(4.20)<a class="headerlink" href="#equation-eq-eaxample3-zloesung2" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-eaxample3-zloesung2" title="Permalink to this equation">¶</a></span>\[
     Y(z) = \frac{X(z)}{1-(1+p)z^{-1}}
 \]</div>
 <p>Teilen wir diese Lösung durch <span class="math notranslate nohighlight">\(X(z)\)</span> erhalten wir auf der rechten Seite
@@ -721,14 +699,14 @@ der Gleichung den Anteil, der unabhängig vom Eingangssignal ist und nur
 das System repräsentiert. Wir kürzen zusätzlich den Bruch <span class="math notranslate nohighlight">\(Y(z)/X(z)\)</span>
 mit <span class="math notranslate nohighlight">\(H(z)\)</span> ab.</p>
 <div class="math notranslate nohighlight" id="equation-eq-example3-systemfunktion">
-<span class="eqno">(4.21)<a class="headerlink" href="#equation-eq-example3-systemfunktion" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-example3-systemfunktion" title="Permalink to this equation">¶</a></span>\[
     H(z) = \frac{Y(z)}{X(z)} = \frac{1}{1-(1+p)z^{-1}}
 \]</div>
 <p>Die Funktion <span class="math notranslate nohighlight">\(H(z)\)</span> wird z-Übertragungsfunktion genannt und beschreibt ein LTI-System vollständig. Eine andere vollständige Beschreibung eines LTI-Systems unabhängig vom Eingangssignal war die Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> eines
 Systems. Beide Darstellungsarten sind durch die z-Transformation
 miteinander verbunden. Es gilt:</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-ubertragfunktion">
-<span class="eqno">(4.22)<a class="headerlink" href="#equation-eq-def-ubertragfunktion" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-def-ubertragfunktion" title="Permalink to this equation">¶</a></span>\[
     \mathcal{Z}\{h(k)\} = H(z)
 \]</div>
 <p><strong>Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z)</strong></p>
@@ -755,7 +733,7 @@ Ausgangssignal <span class="math notranslate nohighlight">\(y(k)\)</span> erfolg
 z-Übertragungsfunktion ist die Verknüpfung von Eingang und Ausgang durch
 die Multiplikation gegeben. Es gilt also</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-faltungmulti">
-<span class="eqno">(4.23)<a class="headerlink" href="#equation-eq-ztrafo-faltungmulti" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-faltungmulti" title="Permalink to this equation">¶</a></span>\[
     \mathcal{Z}\{a(k)\ast b(k)\} = A(z) B(z)
 \]</div>
 <p>Damit haben wir eine Möglichkeit
@@ -763,11 +741,11 @@ gefunden die eher aufwendige Faltungsumme mit Hilfe der z-Transformation
 in eine einfache Multiplikation im z-Bereich zu überführen. Das
 Ausgangssignal erhält man abschließend durch die inverse
 z-Transformation des Ausgangssignals <span class="math notranslate nohighlight">\(Y(z)\)</span>. Dieser Lösungsweg ist in
-<a class="reference internal" href="#fig-schematischezloesungfaltung"><span class="std std-numref">Abbildung 4.4</span></a>  zur Verdeutlichung schematisch
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  zur Verdeutlichung schematisch
 gezeigt.</p>
 <div class="figure align-default" id="fig-schematischezloesungfaltung">
 <a class="reference internal image-reference" href="_images/SchematischezLoesungFaltung.png"><img alt="_images/SchematischezLoesungFaltung.png" src="_images/SchematischezLoesungFaltung.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Schematische Darstellung zur
+<p class="caption"><span class="caption-text">Schematische Darstellung zur
 Berechnung der Faltungssumme mit Hilfe der
 z-Transformation.</span><a class="headerlink" href="#fig-schematischezloesungfaltung" title="Permalink to this image">¶</a></p>
 </div>
@@ -813,12 +791,12 @@ y(k) = \delta(k) - 6 \delta(k-5) + 5 \delta(k-6)
 <p><strong>Die Faltung wird in der z-Ebene zu einer Multiplikation</strong></p>
 </div>
 <div class="section" id="pol-nullstellenplan">
-<h2><span class="section-number">4.6. </span>Pol-Nullstellenplan<a class="headerlink" href="#pol-nullstellenplan" title="Permalink to this headline">¶</a></h2>
+<h2>Pol-Nullstellenplan<a class="headerlink" href="#pol-nullstellenplan" title="Permalink to this headline">¶</a></h2>
 <p>Nachdem die Äquivalenz der Impulsantwort mit der z-Übertragungsfunktion
 <span class="math notranslate nohighlight">\(H(z)\)</span> bekannt ist, ist es möglich, Systeme besser zu analysieren. Dazu
 schauen wir uns zunächst die typische Übertragungsfunktion an.</p>
 <div class="math notranslate nohighlight" id="equation-eq-uebertragungsfunktion">
-<span class="eqno">(4.24)<a class="headerlink" href="#equation-eq-uebertragungsfunktion" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-uebertragungsfunktion" title="Permalink to this equation">¶</a></span>\[
  H(z) = \frac{b_0 + b_1z^{-1} + b_2z^{-2}+ \cdots b_M z^{-M}
     }{1 + a_1z^{-1} + a_2z^{-2}+ \cdots a_N z^{-N}}
     = \frac{\displaystyle \sum_{i=0}^M b_iz^{-i}}
@@ -831,7 +809,7 @@ Nennerpolynoms bekannt sind. Wir werden für die Nullstellen des Nenners
 ab jetzt den Begriff Polstellen bzw. Pol verwenden, da an diesen
 Punkten, die Übertragungsfunktion unendlich wird.</p>
 <div class="math notranslate nohighlight" id="equation-eq-uebertragungsfunktion-produktdarstellung">
-<span class="eqno">(4.25)<a class="headerlink" href="#equation-eq-uebertragungsfunktion-produktdarstellung" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">()<a class="headerlink" href="#equation-eq-uebertragungsfunktion-produktdarstellung" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
  H(z)
  &amp; = &amp; b_0 \frac{(z-n_0)(z-n_1)\cdots(z-n_{M-1})}{(z-p_0)(z-p_1)\cdots(z-p_{N-1})}\\
@@ -1013,7 +991,7 @@ LTI-Systems.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-polnullstellenplan" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Pole und Nullstellen in der komplexen
+<p class="caption"><span class="caption-text">Pole und Nullstellen in der komplexen
 Ebene.</span><a class="headerlink" href="#fig-polnullstellenplan" title="Permalink to this image">¶</a></p>
 </div>
 <p>Mehrfachnullstellen (oder auch Pole) werden durch eine zusätzliche Zahl
@@ -1022,12 +1000,12 @@ Weiterhin ist der sog. Einheitskreis zu sehen, der den Radius eins
 markiert und eine besondere Bedeutung hat, auf die wir noch zu sprechen
 kommen.</p>
 <p>Zur Verdeutlichung der Auswirkungen von Polen und Nullstellen in der
-komplexen Ebene ist in <a class="reference internal" href="#fig-polnullstellenhz"><span class="std std-numref">Abbildung 4.6</span></a> der Betrag der Übertragungsfunktion in Abhängigkeit vom Real und Imaginärteil für das eben verwendete Beispiel gezeigt (Die Darstellung erfolgt
+komplexen Ebene ist in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> der Betrag der Übertragungsfunktion in Abhängigkeit vom Real und Imaginärteil für das eben verwendete Beispiel gezeigt (Die Darstellung erfolgt
 logarithmisch.). Zur Orientierung ist zusätzlich der Einheitskreis
 eingezeichnet.</p>
 <div class="figure align-default" id="fig-polnullstellenhz">
 <a class="reference internal image-reference" href="_images/PolNullstellenHz.png"><img alt="_images/PolNullstellenHz.png" src="_images/PolNullstellenHz.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Übertragungsfunktion in der
+<p class="caption"><span class="caption-text">Übertragungsfunktion in der
 komplexenEbene.</span><a class="headerlink" href="#fig-polnullstellenhz" title="Permalink to this image">¶</a></p>
 </div>
 <p>Der Einfluss der beide Extremstellen auf den Betrag der
@@ -1041,22 +1019,22 @@ Phase) angeben.</p>
 <p>Betrachten wir jetzt ein System mit nur einem Pol (komplexwertiges
 System)</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-erklaerungpollage">
-<span class="eqno">(4.26)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollage" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollage" title="Permalink to this equation">¶</a></span>\[
     H(z) = \frac{1}{1-re^{j\varphi}z^{-1}}
 \]</div>
 <p>Zurücktransfomiert in den
 Zeitbereich ergibt sich mit Hilfe der Korrespondenztabelle</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-erklaerungpollagezeitbereich">
-<span class="eqno">(4.27)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich" title="Permalink to this equation">¶</a></span>\[
     h(k) = \gamma(k) r^k e^{j\varphi k}
 \]</div>
-<p>Interpretiert man Gleichung <a class="reference internal" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich">(4.27)</a> so ist zu erkennen, dass die Impulsantwort aus einer komplexen Schwingung (<span class="math notranslate nohighlight">\(e^{j\varphi k}\)</span>) und einem Faktor besteht, der die Amplitude ändert. Dieser Amplitudenfaktor wird als Einhüllende der komplexen Schwingung
+<p>Interpretiert man Gleichung <a class="reference internal" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich">()</a> so ist zu erkennen, dass die Impulsantwort aus einer komplexen Schwingung (<span class="math notranslate nohighlight">\(e^{j\varphi k}\)</span>) und einem Faktor besteht, der die Amplitude ändert. Dieser Amplitudenfaktor wird als Einhüllende der komplexen Schwingung
 bezeichnet. Die Frequenz der Schwingung ist durch den Polwinkel
 <span class="math notranslate nohighlight">\(\varphi\)</span> definiert und die Form der Einhüllenden durch den Radius <span class="math notranslate nohighlight">\(r\)</span>.
 Für <span class="math notranslate nohighlight">\(r&lt;1\)</span> ergibt sich eine gedämpfte Exponentialfunktion. Bei <span class="math notranslate nohighlight">\(r=1\)</span> ist
 die komplexe Schwingung ungedämpft und bei <span class="math notranslate nohighlight">\(r&gt;1\)</span> handelt es sich um eine
 aufklingende, also mit der Zeit stärker werdende Schwingung.</p>
-<p>Dies ist in der <a class="reference internal" href="#fig-pollagen"><span class="std std-numref">Abbildung 4.7</span></a> nochmals verdeutlicht. Die Pollage a) ist
+<p>Dies ist in der <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> nochmals verdeutlicht. Die Pollage a) ist
 ein Pol auf der reellen Ache mit einem Radius von <span class="math notranslate nohighlight">\(r = 0.96\)</span> (Die eingezeichneten Pollagen sind zur Verdeutlichung skaliert). Die
 dazugehörige Schwingung ist eine abklingende Exponentialfunktion ohne
 Schwingungsanteil. Ist der Radius größer eins (b) <span class="math notranslate nohighlight">\(r= 1.01\)</span>) ergibt sich
@@ -1072,7 +1050,7 @@ Drehrichtung wird durch die Pollage in der oberen oder unteren Halbebene
 angegeben.</p>
 <div class="figure align-default" id="fig-pollagen">
 <a class="reference internal image-reference" href="_images/PolLagen.png"><img alt="_images/PolLagen.png" src="_images/PolLagen.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an <span id="id3">[<a class="reference internal" href="zbibliography.html#id190">GRS13</a>]</span>).</span><a class="headerlink" href="#fig-pollagen" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an <span id="id3">[<a class="reference internal" href="zbibliography.html#id190">GRS13</a>]</span>).</span><a class="headerlink" href="#fig-pollagen" title="Permalink to this image">¶</a></p>
 </div>
 <p>Bei konjugiert komplexen Polpaaren heben sich durch die gegensinnigen
 Drehrichtungen die Imaginäranteile auf und die Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> ist
@@ -1172,18 +1150,18 @@ A &amp;=&amp; (z-0.9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0.9e^{j\frac
 \[
 h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\right)\gamma(k)
 \]</div>
-<p>gegeben und wird in <a class="reference internal" href="#fig-bspkonjkomplexpole"><span class="std std-numref">Abbildung 4.8</span></a> bis <span class="math notranslate nohighlight">\(k = 49\)</span> gezeigt.</p>
+<p>gegeben und wird in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> bis <span class="math notranslate nohighlight">\(k = 49\)</span> gezeigt.</p>
 <div class="figure align-default" id="fig-bspkonjkomplexpole" style="width: 75%">
 <div class="cell_output docutils container">
 <img alt="_images/ztrafo_18_0.png" src="_images/ztrafo_18_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="stabilitat">
-<h2><span class="section-number">4.7. </span>Stabilität<a class="headerlink" href="#stabilitat" title="Permalink to this headline">¶</a></h2>
-<p>Mit den Erklärungen für <a class="reference internal" href="#fig-pollagen"><span class="std std-numref">Abbildung 4.7</span></a> ist die Frage nach einem Stabilitätstest für kausale LTI-Systeme recht einfach zu beantworten. Da alle Systeme mit Polradien größer eins aufklingende Schwingungen erzeugen sind die dazugehörigen Impulsantworten nicht endlich. Auf einen endlichen Impuls reagiert das System mit einer unendlichen Ausgangsgröße. Damit ist die BIBO-Bedingung nicht mehr erfüllt.</p>
+<h2>Stabilität<a class="headerlink" href="#stabilitat" title="Permalink to this headline">¶</a></h2>
+<p>Mit den Erklärungen für <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> ist die Frage nach einem Stabilitätstest für kausale LTI-Systeme recht einfach zu beantworten. Da alle Systeme mit Polradien größer eins aufklingende Schwingungen erzeugen sind die dazugehörigen Impulsantworten nicht endlich. Auf einen endlichen Impuls reagiert das System mit einer unendlichen Ausgangsgröße. Damit ist die BIBO-Bedingung nicht mehr erfüllt.</p>
 <p><strong>Stabile, kausale Systeme haben nur Pole innerhalb des
 Einheitkreises.</strong></p>
 <p><strong>Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis</strong></p>
@@ -1196,16 +1174,16 @@ ist. Man kann dies auch daran erkennen, dass die Folge mit wachsendem
 <span class="math notranslate nohighlight">\(k\)</span> größer wird.</p>
 <p>Für LTI-Systeme ergibt sich als Kriterium für die BIBO-Stabilität.</p>
 <div class="math notranslate nohighlight" id="equation-eq-bibo-integral">
-<span class="eqno">(4.28)<a class="headerlink" href="#equation-eq-bibo-integral" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-bibo-integral" title="Permalink to this equation">¶</a></span>\[
     \int_{-\infty}^{\infty} |h(t)|^2 dt &lt; \infty
 \]</div>
 <p>bzw. für diskrete Systeme gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-bibo-diskret">
-<span class="eqno">(4.29)<a class="headerlink" href="#equation-eq-bibo-diskret" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-bibo-diskret" title="Permalink to this equation">¶</a></span>\[
     \sum_{k = -\infty}^{\infty}|h(k)|^2 &lt; \infty
 \]</div>
 <div class="section" id="stabilitat-eines-systems-2-ordnung">
-<h3><span class="section-number">4.7.1. </span>Stabilität eines Systems 2. Ordnung<a class="headerlink" href="#stabilitat-eines-systems-2-ordnung" title="Permalink to this headline">¶</a></h3>
+<h3>Stabilität eines Systems 2. Ordnung<a class="headerlink" href="#stabilitat-eines-systems-2-ordnung" title="Permalink to this headline">¶</a></h3>
 <p>Systeme zweiter Ordnung sind in der digitalen Signalverarbeitung ein
 wichtiger Grundbaustein. Es ist deshalb interessant allgemein die
 Stabilitätsbedingungen zu berechnen. Das System ist durch</p>
@@ -1278,7 +1256,7 @@ $<span class="math notranslate nohighlight">\(
 Für das zweite Ungleichheitszeichen gilt
 entsprechendes. Die zweite Bedingung lautet</p>
 <div class="math notranslate nohighlight" id="equation-eq-sos-ungleichung2">
-<span class="eqno">(4.30)<a class="headerlink" href="#equation-eq-sos-ungleichung2" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-sos-ungleichung2" title="Permalink to this equation">¶</a></span>\[
         a_1 &gt; -a_2 -1
     \]</div>
 </li>
@@ -1286,7 +1264,7 @@ entsprechendes. Die zweite Bedingung lautet</p>
 <p>Fasst man diese Bedingungen zusammen, ergibt sich für <span class="math notranslate nohighlight">\(a_2\)</span> eine untere
 Grenze von <span class="math notranslate nohighlight">\(a_2&gt;-1\)</span>. Alles zusammen beschreibt ein Dreieck, dass als
 Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
-<a class="reference internal" href="#fig-stabildreieck"><span class="std std-numref">Abbildung 4.9</span></a>).</p>
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>).</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This script creates an interactive graphic, where the user can set a1 and a2 coeffitients by clicking a point in left graph. The right graph will show the corresponding impulse response of the defined system</span>
@@ -1354,7 +1332,7 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 <div class="cell_output docutils container">
 <img alt="_images/ztrafo_21_0.png" src="_images/ztrafo_21_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 4.9 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
+<p class="caption"><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
 Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">¶</a></p>
 </div>
 <hr class="footnotes docutils" />
@@ -1401,24 +1379,6 @@ würde.</p>
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="systeme.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">3. </span>Systeme</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="spektren.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Spektren</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
