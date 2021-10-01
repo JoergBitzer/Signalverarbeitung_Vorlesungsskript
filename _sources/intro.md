@@ -1,9 +1,9 @@
+---
 # Signalverarbeitung 1
 
 
 Vorlesungsskript WS 2021 / 2022
 
----
 
 ©Autor: Prof. Dr. Jörg Bitzer  
 01.01.2021  
@@ -15,7 +15,13 @@ Abteilung Technik und Gesundheit für Menschen
 
 ---
 
-Fehler bzw. Änderungs-Log:
+<!-- #region -->
+## Zu diesem Jupyter-Buch
+
+Dieses Jupyter-Book enthält für viele Grafiken auch den Python Source-Code. In einigen Fällen wird darauf hingewiesen, dass es sich um interaktive Grafiken handelt. Hier lohnt es sich den Code in ein eigenständiges Skript (GrafikName.py) zu kopieren und direkt auszuführen (python3 GrafikName.py), um die interaktiven Elemente nutzen zu können.
+
+
+## Fehler bzw. Änderungs-Log:
 - Version 0.9542 vom 29.10.2017: Fehler berichtigt Abschnitt Rekursion N ersetzt durch M und N-1 in Formel durch M
 - Version 0.9543 vom 12.11.2017: zTrafo: nicht-kausale Folge richtig definiert: ACHTUNG: In der Bildüberschrift noch nicht geändert
 - Version 0.9544 vom 20.11.2017: Beim Stabilitätsdreieck die Bedingung auf $a_2^2 <1$ geändert (Quadrat ergänzt).
@@ -29,7 +35,7 @@ Fehler bzw. Änderungs-Log:
 
 ---
 
-Nützliche Literatur für die Module SV I und SV II und kurze Beschreibung:
+## Nützliche Literatur für die Module SV I und SV II und kurze Beschreibung:
 - Girod, Rabenstein, Stenger, *Einführung in die Systemtheorie*,  
   Dieses Buch gibt es in mehreren Ausgaben in der Bibliothek und ist eine anschauliche Einführung in die Systemtheorie. Das Buch geht über den Stoff der Vorlesung hinaus, ist aber sehr anschaulich.
 - Kammeyer, Kroschel, *Digitale Signalverarbeitung*,  
@@ -43,3 +49,4 @@ Nützliche Literatur für die Module SV I und SV II und kurze Beschreibung:
   Geht inhaltlich deutlich über die Vorlesung hinaus. Ist für alle interessant, die in diesem Bereich einmal Arbeiten wollen.
 - Zölzer, *Digitale Audiosignalverarbeitung*,  
   Spezialbuch für alle Interessierten.
+<!-- #endregion -->

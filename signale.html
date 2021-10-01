@@ -86,7 +86,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Signalverarbeitung 1
+   Zu diesem Jupyter-Buch
   </a>
  </li>
 </ul>
@@ -592,16 +592,16 @@ Wertebereich und Definitionsbereich ergeben.</p>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
 
 <span class="n">len_cont</span> <span class="o">=</span> <span class="mi">1100</span> <span class="c1"># number of steps for continuous signal</span>
-<span class="n">len_disc</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1"># number of steps for discrete signal</span>
-<span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">len_cont</span><span class="o">/</span><span class="n">len_disc</span><span class="p">)</span> <span class="c1"># number of &#39;continuous&#39; steps between discrete steps</span>
+<span class="n">len_disc</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># number of steps for discrete signal</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">len_cont</span><span class="o">/</span><span class="p">(</span><span class="n">len_disc</span><span class="p">))</span> <span class="c1"># number of &#39;continuous&#39; steps between discrete steps</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">len_cont</span><span class="p">)</span> <span class="c1"># &#39;continuously&#39; sampled</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">len_disc</span><span class="p">)</span> <span class="c1"># discretely sampled</span>
 <span class="n">v</span> <span class="o">=</span> <span class="mf">0.05</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># example cubic function values</span>
 
 <span class="n">dv</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">v</span><span class="p">[:])</span> <span class="c1"># discrete values of function rounded to integers</span>
-<span class="n">v_dt</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">len_cont</span><span class="o">+</span><span class="n">steps</span><span class="p">)</span> <span class="p">:</span> <span class="n">steps</span><span class="p">]</span> <span class="c1"># discretely sampled, non discrete values </span>
-<span class="n">dv_dt</span> <span class="o">=</span> <span class="n">dv</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">len_cont</span><span class="o">+</span><span class="n">steps</span><span class="p">)</span> <span class="p">:</span> <span class="n">steps</span><span class="p">]</span> <span class="c1"># discretely sampled, discrete values</span>
+<span class="n">v_dt</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">len_cont</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span><span class="p">((</span><span class="n">steps</span><span class="p">)</span><span class="o">*</span><span class="mf">12.</span><span class="o">/</span><span class="mf">11.</span><span class="p">)]</span> <span class="c1"># discretely sampled, non discrete values </span>
+<span class="n">dv_dt</span> <span class="o">=</span> <span class="n">dv</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">len_cont</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span><span class="p">((</span><span class="n">steps</span><span class="p">)</span><span class="o">*</span><span class="mf">12.</span><span class="o">/</span><span class="mf">11.</span><span class="p">)]</span> <span class="c1"># discretely sampled, discrete values</span>
 
 <span class="c1"># plots the four versions, abbreviations: ct/cv = continuous time/values, dt/dv = discrete time/values</span>
 
@@ -769,79 +769,164 @@ und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtast
 <span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">Slider</span>
 <span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">RadioButtons</span>
 
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
 
-<span class="n">fs_cont</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># &#39;continous&#39; sample is sampled as such a high frequency that it seem continuous</span>
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># discrete sampled</span>
-<span class="n">freq</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># sinus frequency in Hz</span>
-<span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fs_cont</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c1"># number of &#39;continuous&#39; steps between discrete steps</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># signal length in s</span>
+<span class="k">def</span> <span class="nf">isnotebook</span><span class="p">():</span> 
+<span class="c1">#from https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">shell</span> <span class="o">=</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">if</span> <span class="n">shell</span> <span class="o">==</span> <span class="s1">&#39;ZMQInteractiveShell&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>   <span class="c1"># Jupyter notebook or qtconsole</span>
+        <span class="k">elif</span> <span class="n">shell</span> <span class="o">==</span> <span class="s1">&#39;TerminalInteractiveShell&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Terminal running IPython</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Other type (?)</span>
+    <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>      <span class="c1"># Probably standard Python interpreter</span>
 
-<span class="c1"># time vectors</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">fs_cont</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># &#39;continuous&#39;</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">):</span><span class="n">steps</span><span class="p">]</span> <span class="c1"># extracts discrete time from continuous time</span>
 
-<span class="c1"># function values</span>
-<span class="n">sin_t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">freq</span><span class="p">)</span> <span class="c1"># continuous</span>
-<span class="n">sin_dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">freq</span><span class="p">)</span> <span class="c1"># discrete</span>
 
-<span class="c1"># plots</span>
-<span class="n">fig_sin</span><span class="p">,</span> <span class="n">ax_sin</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">pyplot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">graph</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sin_t</span><span class="p">)</span>
-<span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1">#stemlines.remove()</span>
+<span class="n">nbflag</span> <span class="o">=</span> <span class="n">isnotebook</span><span class="p">()</span>
 
-<span class="n">ax_sin</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">])</span>
-<span class="n">ax_sin</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Zeit in s&#39;</span><span class="p">)</span>
-<span class="n">ax_sin</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sinus = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz, Abtastfrequenz = 1000 Hz&#39;</span><span class="p">)</span>
 
-<span class="c1"># adds slider for adjustable sinus frequency</span>
-<span class="n">ax_freq</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lightgoldenrodyellow&#39;</span><span class="p">)</span>
-<span class="n">slider_freq</span> <span class="o">=</span> <span class="n">Slider</span><span class="p">(</span><span class="n">ax_freq</span><span class="p">,</span> <span class="s1">&#39;Sinusfrequenz (Hz)&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">valinit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">valstep</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nbflag</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>
 
-<span class="c1"># updates the continuous and sampled values once the frequency has been changed</span>
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">freq</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
-    <span class="n">freq</span> <span class="o">=</span> <span class="n">slider_freq</span><span class="o">.</span><span class="n">val</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
-    <span class="n">sin_dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">dt</span><span class="p">))</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sinusfrequenz = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz, Abtastfrequenz = 1000 Hz&#39;</span><span class="p">)</span>
-    <span class="n">fig_sin</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+    <span class="n">fs_cont</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># &#39;continous&#39; sample is sampled as such a high frequency that it seem continuous</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># discrete sampled</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># sinus frequency in Hz</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fs_cont</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c1"># number of &#39;continuous&#39; steps between discrete steps</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># signal length in s</span>
 
-<span class="n">slider_freq</span><span class="o">.</span><span class="n">on_changed</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+    <span class="c1"># time vectors</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">fs_cont</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># &#39;continuous&#39;</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">):</span><span class="n">steps</span><span class="p">]</span> <span class="c1"># extracts discrete time from continuous time</span>
 
-<span class="n">pyplot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">rax</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lightgoldenrodyellow&#39;</span><span class="p">)</span>
+    <span class="c1"># function values</span>
+    <span class="n">sin_t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">freq</span><span class="p">)</span> <span class="c1"># continuous</span>
+    <span class="n">sin_dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">freq</span><span class="p">)</span> <span class="c1"># discrete</span>
 
-<span class="n">radio</span> <span class="o">=</span> <span class="n">RadioButtons</span><span class="p">(</span><span class="n">rax</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;200 Hz&#39;</span><span class="p">,</span> <span class="s1">&#39;800 Hz&#39;</span><span class="p">,</span> <span class="s1">&#39;1200 Hz&#39;</span><span class="p">,</span> <span class="s1">&#39;1800 Hz&#39;</span><span class="p">))</span>
+    <span class="c1"># plots</span>
+    <span class="n">fig_sin</span><span class="p">,</span> <span class="n">ax_sin</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">graph</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sin_t</span><span class="p">)</span>
+    <span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
+    <span class="c1">#stemlines.remove()</span>
 
-<span class="k">def</span> <span class="nf">update_example</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
-    <span class="n">hzdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;200 Hz&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;800 Hz&#39;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span> <span class="s1">&#39;1200 Hz&#39;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span> <span class="s1">&#39;1800 Hz&#39;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">}</span>
-    <span class="n">freq</span> <span class="o">=</span> <span class="n">hzdict</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
-    <span class="n">sin_dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">dt</span><span class="p">))</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">ax_sin</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sinusfrequenz = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz, Abtastfrequenz = 1000 Hz&#39;</span><span class="p">)</span>
-    <span class="n">fig_sin</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+    <span class="n">ax_sin</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">])</span>
+    <span class="n">ax_sin</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Zeit in s&#39;</span><span class="p">)</span>
+    <span class="n">ax_sin</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sinus = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz, Abtastfrequenz = 1000 Hz&#39;</span><span class="p">)</span>
+
+    <span class="c1"># adds slider for adjustable sinus frequency</span>
+    <span class="n">ax_freq</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lightgoldenrodyellow&#39;</span><span class="p">)</span>
+    <span class="n">slider_freq</span> <span class="o">=</span> <span class="n">Slider</span><span class="p">(</span><span class="n">ax_freq</span><span class="p">,</span> <span class="s1">&#39;Sinusfrequenz (Hz)&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">valinit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">valstep</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># updates the continuous and sampled values once the frequency has been changed</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">freq</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+        <span class="n">freq</span> <span class="o">=</span> <span class="n">slider_freq</span><span class="o">.</span><span class="n">val</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
+        <span class="n">sin_dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">dt</span><span class="p">))</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sinusfrequenz = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz, Abtastfrequenz = 1000 Hz&#39;</span><span class="p">)</span>
+        <span class="n">fig_sin</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+
+    <span class="n">slider_freq</span><span class="o">.</span><span class="n">on_changed</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">rax</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lightgoldenrodyellow&#39;</span><span class="p">)</span>
+
+    <span class="n">radio</span> <span class="o">=</span> <span class="n">RadioButtons</span><span class="p">(</span><span class="n">rax</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;200 Hz&#39;</span><span class="p">,</span> <span class="s1">&#39;500 Hz&#39;</span><span class="p">,</span> <span class="s1">&#39;800 Hz&#39;</span><span class="p">,</span> <span class="s1">&#39;1200 Hz&#39;</span><span class="p">,</span> <span class="s1">&#39;1800 Hz&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">update_example</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+        <span class="n">hzdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;200 Hz&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;500 Hz&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;800 Hz&#39;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span> <span class="s1">&#39;1200 Hz&#39;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span> <span class="s1">&#39;1800 Hz&#39;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">}</span>
+        <span class="n">freq</span> <span class="o">=</span> <span class="n">hzdict</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
+        <span class="n">sin_dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">dt</span><span class="p">))</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
+        <span class="n">ax_sin</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sinusfrequenz = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz, Abtastfrequenz = 1000 Hz&#39;</span><span class="p">)</span>
+        <span class="n">fig_sin</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+        <span class="n">slider_freq</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+        
+    <span class="n">radio</span><span class="o">.</span><span class="n">on_clicked</span><span class="p">(</span><span class="n">update_example</span><span class="p">)</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># matplotlib.style.use(&#39;sv.mplstyle&#39;)</span>
+    <span class="n">fs_cont</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># &#39;continous&#39; sample is sampled as such a high frequency that it seem continuous</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># discrete sampled</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1800</span><span class="p">]</span> <span class="c1"># sinus frequency in Hz</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fs_cont</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c1"># number of &#39;continuous&#39; steps between discrete steps</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># signal length in s</span>
+
+    <span class="c1"># time vectors</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">fs_cont</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># &#39;continuous&#39;</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">):</span><span class="n">steps</span><span class="p">]</span> <span class="c1"># extracts discrete time from continuous time</span>
+    <span class="n">fig_sin</span><span class="p">,</span> <span class="n">ax_sin</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     
-<span class="n">radio</span><span class="o">.</span><span class="n">on_clicked</span><span class="p">(</span><span class="n">update_example</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">count</span><span class="p">,</span><span class="n">ff</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
+    <span class="c1"># function values</span>
+        <span class="n">sin_t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">ff</span><span class="p">)</span> <span class="c1"># continuous</span>
+        <span class="n">sin_dt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">ff</span><span class="p">)</span> <span class="c1"># discrete</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">graph</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sin_t</span><span class="p">)</span>
+        <span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
+    <span class="c1">#stemlines.remove()</span>
 
-<span class="c1">#pyplot.show()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Zeit in s&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sinus = </span><span class="si">{</span><span class="n">ff</span><span class="si">}</span><span class="s1"> Hz, Abtastfrequenz = 1000 Hz&#39;</span><span class="p">)</span>
+
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;Abtast2&quot;</span><span class="p">,</span> <span class="n">fig_sin</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="792b55b9-c6b1-496b-acee-8480c0fda9ed" name="a15ec141-dda6-47fb-ac40-a260455dc3fb" type="radio">
+</input><label class="tabbed-label" for="792b55b9-c6b1-496b-acee-8480c0fda9ed">
+Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="plt-abtastungerklaerung2" style="width: 75%">
 <div class="cell_output docutils container">
-<img alt="_images/signale_11_0.png" src="_images/signale_11_0.png" />
+<img alt="_images/signale_11_1.png" src="_images/signale_11_1.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Sinusabtastung mit unterschiedlichen Abtastfrequenzen.</span><a class="headerlink" href="#plt-abtastungerklaerung2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="7a8aa18d-83f7-4f20-9585-b7022926b4d9" name="a15ec141-dda6-47fb-ac40-a260455dc3fb" type="radio">
+</input><label class="tabbed-label" for="7a8aa18d-83f7-4f20-9585-b7022926b4d9">
+Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Starten des interaktiven Programms</p></li>
+<li><p>Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.</p></li>
+<li><p>Fragen die es zu klären gibt, bzw. Sachen die auffallen.</p>
+<ul class="simple">
+<li><p>Warum entsteht bei 500 Hz eine Nullfolge?</p></li>
+<li><p>Warum ist die Folge bei 200 Hz exakt die gleiche, wie bei 1200 Hz (2200 Hz) (800Hz, 1800Hz, 2800Hz)?</p></li>
+<li><p>Welche Ähnlichkeiten erkennt man bei 200 Hz und 800 Hz</p></li>
+</ul>
+</li>
+<li><p>Abschließend mit dem Slider in der Nähe von 0 Hz, der halben Abtastrate und der Abtastrate experimentieren und sehen, welche Efekkte sich ergeben.</p></li>
+</ol>
+<div class="attention admonition">
+<p class="admonition-title">Erkenntnis</p>
+<p>Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 200 Hz) bis zur halben Abtastfrequenz sind gespiegelt zu finden, wenn die Frequenz von der Abtastfrequenz subtrahiert wird (z.B. 1000Hz-200Hz = 800Hz).</p>
+</div>
+</div>
 </div>
 <p>Man kann das Problem aber auch andersherum darstellen. Die Frequenz des Sinus bleibt
 gleichbleibend, aber die Abtastrate wird verändert.
