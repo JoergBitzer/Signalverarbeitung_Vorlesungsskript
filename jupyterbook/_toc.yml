@@ -1,12 +1,11 @@
-# Table of content
-# Learn more at https://jupyterbook.org/customize/toc.html
-#
-- file: intro
+format: jb-article
+root: intro
+options:
   numbered: true
+sections:
 - file: grundlagen
 - file: signale
 - file: systeme
-# - file: analog
 - file: ztrafo
 - file: spektren
 - file: filter
