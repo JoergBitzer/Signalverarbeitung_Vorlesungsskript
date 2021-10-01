@@ -6,8 +6,8 @@ sections:
 - file: grundlagen
 - file: signale
 - file: systeme
-- file: ztrafo
-- file: spektren
-- file: filter
-- file: mathe
+#- file: ztrafo
+#- file: spektren
+#- file: filter
+#- file: mathe
 - file: zbibliography
