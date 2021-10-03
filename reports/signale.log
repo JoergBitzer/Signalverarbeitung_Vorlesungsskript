@@ -48,7 +48,7 @@ glue("SiFunktionDiskret", fig_delta, display=False)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_179879/3634563322.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_180309/3634563322.py[0m in [0;36m<module>[0;34m[0m
 [1;32m     21[0m [0;34m[0m[0m
 [1;32m     22[0m [0mfig_delta[0m[0;34m,[0m [0max_delta[0m [0;34m=[0m [0mpyplot[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 23[0;31m [0max_delta[0m[0;34m.[0m[0mstem[0m[0;34m([0m[0msamples[0m[0;34m,[0m [0msi[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
