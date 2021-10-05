@@ -7,13 +7,29 @@ from matplotlib.widgets import Slider
 
 matplotlib.style.use('sv1_style.mplstyle')
 
-def getShelvingEQ(f_0, Gain_dB, type, f_s):
+def getShelvingEQ(f_0, Gain_dB, shelf_type, f_s):
+    '''
+    calculates filter coefficients of a shelving equalizer
+    with the given parameters
+    
+    Parameters:
+    -----------
+    f_0 : int
+        peak frequency in Hz
+    gain_dB : int
+        dB gain at peak
+    shelf_type : int
+        1 for high-shelf, 0 (or anything else) for low shelf
+    f_s : int
+        sampling frequency
+    '''
+
     K = numpy.tan(2*numpy.pi*f_0/(f_s*2))
     a = [0]*3
     b = [0]*3
     den = 1
     
-    if (type == 1): # High-Shelf
+    if (shelf_type == 1): # High-Shelf
         if (Gain_dB > 0):
             V0 = 10**(Gain_dB/20)
             den = 1 + numpy.sqrt(2)*K + K*K
@@ -62,18 +78,16 @@ def getShelvingEQ(f_0, Gain_dB, type, f_s):
 
     return b, a
 
-#fig, (ax_gain, ax_f_c) = pyplot.subplots(1, 2)
-
+#parameters
 gain = 12
-Q = 1
 f_s = 48000
 f_c = 2000
-type = 1
+shelf_type = 1
 
 fig, ax_EQ = pyplot.subplots()
 fig.subplots_adjust(left=0.3)
 
-# adds a slider for frequency, amplitude and phase of the sinus each
+# adds a slider for cutoff frequency, gain and buttons for type of the EQ
 axcolor = 'lightgoldenrodyellow'
 ax_f_c = pyplot.axes([0.10, 0.05, 0.03, 0.65], facecolor=axcolor)
 ax_gain = pyplot.axes([0.20, 0.05, 0.03, 0.63], facecolor=axcolor)
@@ -83,38 +97,52 @@ slider_f_c = Slider(ax_f_c, 'Frequency', 100, f_s/2, valinit=f_c, valstep=100, o
 slider_gain = Slider(ax_gain, 'Gain', -12, 12, valinit=gain, valstep=1, orientation='vertical')
 type_buttons = RadioButtons(ax_type, ("High-Shelf", "Low-Shelf"))#, orientation='horizontal')
 
-b, a = getShelvingEQ(f_c, gain, Q, f_s) 
-w, h = signal.freqz(b, a, fs=f_s)
-h_db = 20*numpy.log10(numpy.abs(h))
+b, a = getShelvingEQ(f_c, gain, shelf_type, f_s) # get filter coefficients
+w, h = signal.freqz(b, a, fs=f_s) # calculate impulse response
+h_db = 20*numpy.log10(numpy.abs(h)) # dB
 ax_EQ.plot(w, h_db)
+ax_EQ.set(ylim=[-13, 13], xlabel='Frequenz in Hz', ylabel='Verstärkung in dB', title=f'Shelf-EQ mit Gain = {gain} dB mit Grenzfrequenz f = {f_c} Hz')
+
 
 # updates the graph once a value has been changed
 def update(val):
+    '''
+    Updates Graph when the parameters are changed through the sliders
+    slider values are read in the function not through the input parameter,
+    to since it is not known which slider the input parameter belongs to
+    
+    Parameters:
+    -----------
+    val : float
+        updated slider value (unused)
+    '''
     global gain, f_c
+    # read silder values and save them globally
     gain = slider_gain.val
     f_c = slider_f_c.val
-    b, a = getShelvingEQ(f_c, gain, type, f_s) 
-    w, h = signal.freqz(b, a, fs=f_s)
-    h_db = 20*numpy.log10(numpy.abs(h))
+    b, a = getShelvingEQ(f_c, gain, shelf_type, f_s) # get filter coefficients
+    w, h = signal.freqz(b, a, fs=f_s) # calculate impulse response
+    h_db = 20*numpy.log10(numpy.abs(h)) # dB    
     ax_EQ.lines[0].remove()
     ax_EQ.plot(w, h_db)
+    ax_EQ.set(ylim=[-13, 13], xlabel='Frequenz in Hz', ylabel='Verstärkung in dB', title=f'Shelf-EQ mit Gain = {gain} dB mit Grenzfrequenz f = {f_c} Hz')
     fig.canvas.draw_idle()
 
 slider_f_c.on_changed(update)
 slider_gain.on_changed(update)
 
 def change_type(label):
-    global type
+    global shelf_type
     if (label=="Low-Shelf"):
-        type = 0
+        shelf_type = 0
     else:
-        type = 1
-    b, a = getShelvingEQ(f_c, gain, type, f_s) 
-    w, h = signal.freqz(b, a, fs=f_s)
-    h_db = 20*numpy.log10(numpy.abs(h))
-    ax_EQ.lines[0].remove()
-    ax_EQ.plot(w, h_db)
-    fig.canvas.draw_idle()    
+        shelf_type = 1
+    b, a = getShelvingEQ(f_c, gain, shelf_type, f_s) # get filter coefficients
+    w, h = signal.freqz(b, a, fs=f_s) # calculate impulse response
+    h_db = 20*numpy.log10(numpy.abs(h)) # dB    
+    ax_EQ.lines[0].remove() # deletes the curve
+    ax_EQ.plot(w, h_db) # and plots an updated one
+    fig.canvas.draw_idle() # call to update the figure
 
 type_buttons.on_clicked(change_type)
 

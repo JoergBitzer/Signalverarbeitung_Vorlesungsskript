@@ -5,8 +5,8 @@ import pandas
 
 matplotlib.style.use('sv1_style.mplstyle')
 
-dax = yfinance.Ticker("DAX") # wähle Aktie aus
-data = dax.history(period="1wk") # hole Kursdaten bis 1 Woche zurückliegend
-close = data[["Close"]] # extrahiere den Stand am Ende des Tages
-close.plot(marker='X', color='black') # und plotte ihn
+dax = yfinance.Ticker("DAX") # chooses the DAX stock
+data = dax.history(period="1wk") # gets course data as pandas Dataframe
+close = data[["Close"]] # selects the Close coulumn in the Dataframe
+close.plot(marker='X', color='black')
 pyplot.show()

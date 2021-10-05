@@ -4,21 +4,22 @@ from matplotlib import pyplot
 
 matplotlib.style.use('sv1_style.mplstyle')
 
+spread = 12
+time = numpy.linspace(-spread, spread, 20*spread+1)
+sinc = []
 
-time = numpy.linspace(-12, 12, 241)
-sinc = [0]*len(time)
-
-fs = 1000
-f0 = 5
+fs = 1000 # sampling frequency
+f0 = 5 # Sinc frequency
 
 for idx in range(len(time)):
     if (time[idx]!=0):
-        sinc[idx] = numpy.sin(f0* time[idx])/(f0 * time[idx])
+        sinc.append(numpy.sin(f0* time[idx])/(f0 * time[idx]))
     else:
-        sinc[idx] = 1
+        sinc.append(1)
 
 fig_delta, ax_delta = pyplot.subplots()
 ax_delta.plot(time, sinc)
-ax_delta.set(xlabel='Zeit in s', ylabel='Amplitude', title='si-Funktion', xlim=[-12, 12])
+ax_delta.set(xlabel='Zeit in s', ylabel='Amplitude', 
+        title='si-Funktion', xlim=[-12, 12])
 
 pyplot.show()

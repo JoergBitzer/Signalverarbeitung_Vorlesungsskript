@@ -6,7 +6,8 @@ from matplotlib.widgets import RadioButtons
 
 matplotlib.style.use('sv1_style.mplstyle')
 
-fs_cont = 100000 # 'continous' sample is sampled as such a high frequency that it seem continuous
+#'continous' sample is sampled as such a high frequency that it seem continuous
+fs_cont = 100000 
 fs = 1000 # discrete sampled
 freq = 200 # sinus frequency in Hz
 steps = int(fs_cont/fs) # number of 'continuous' steps between discrete steps
@@ -24,7 +25,8 @@ sin_dt = numpy.sin(2 * numpy.pi * dt * freq) # discrete
 fig_sin, ax_sin = pyplot.subplots()
 pyplot.subplots_adjust(bottom=0.25)
 graph, = ax_sin.plot(t, sin_t)
-markerline, stemlines, baseline = ax_sin.stem(dt, sin_dt, use_line_collection=True)
+markerline, stemlines, baseline = ax_sin.stem(
+        dt, sin_dt, use_line_collection=True)
 #stemlines.remove()
 
 ax_sin.set_xlim([0, 0.02])
@@ -33,7 +35,8 @@ ax_sin.set_title(f'Sinus = {freq} Hz, Abtastfrequenz = 1000 Hz')
 
 # adds slider for adjustable sinus frequency
 ax_freq = pyplot.axes([0.45, 0.1, 0.45, 0.03], facecolor='lightgoldenrodyellow')
-slider_freq = Slider(ax_freq, 'Sinusfrequenz (Hz)', 0, 3000, valinit=200, valstep=10)
+slider_freq = Slider(ax_freq, 
+        'Sinusfrequenz (Hz)', 0, 3000, valinit=200, valstep=10)
 
 # updates the continuous and sampled values once the frequency has been changed
 def update(val):
