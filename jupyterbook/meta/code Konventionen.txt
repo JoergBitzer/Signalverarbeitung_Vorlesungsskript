@@ -60,7 +60,7 @@ ganz unten definiert:
 Admonitions: 
 
 ```{admonition} Beispiel
-:class: hint
+:class: note
 
 ```{admonition} Wichtig
 :class: attention
