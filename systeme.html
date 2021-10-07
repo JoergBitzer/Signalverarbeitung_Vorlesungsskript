@@ -362,7 +362,10 @@ oder um ein digitales (zeit- und wertdiskret) System  handelt. In
 den nächsten Abschnitten werden wir uns zunächst nur mit digitalen
 Systemen beschäftigen.</p>
 <p>Die Klassifikation erfolgt also nach:</p>
-<p><strong>analoges System vs. digitales System</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>analoges System vs. digitales System</p>
+</div>
 </div>
 <div class="section" id="kanalanzahl">
 <h3><span class="section-number">3.1.2. </span>Kanalanzahl<a class="headerlink" href="#kanalanzahl" title="Permalink to this headline">¶</a></h3>
@@ -379,7 +382,10 @@ Eingang und zwei Ausgängen.</span><a class="headerlink" href="#fig-panallgemein
 </div>
 <p>Wir können also Systeme nach der Kanalzahl der Ein- und Ausgänge
 klassifizieren.</p>
-<p><strong>Einkanalig vs. Mehrkanalig</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Einkanalig vs. Mehrkanalig</p>
+</div>
 <p>Der allgemeinste Fall des mehrkanaligen Ein- und Ausgangs wird
 als MIMO <em>Multiple Input Multiple Output</em> System bezeichnet.</p>
 </div>
@@ -389,7 +395,10 @@ als MIMO <em>Multiple Input Multiple Output</em> System bezeichnet.</p>
 in mehreren Dimensionen wirken. Ein einfaches Beispiel wäre ein
 bildveränderndes System, dass natürlich zwei-dimensional arbeiten
 müsste.</p>
-<p><strong>eindimensional vs. mehrdimensional</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>eindimensional vs. mehrdimensional</p>
+</div>
 </div>
 <div class="section" id="rekursivitat">
 <span id="sec-rekursivitaet"></span><h3><span class="section-number">3.1.4. </span>Rekursivität<a class="headerlink" href="#rekursivitat" title="Permalink to this headline">¶</a></h3>
@@ -405,7 +414,10 @@ rekursiven Systems.</span><a class="headerlink" href="#fig-rekursivsystem" title
 </div>
 <p>Da es auch nicht-rekursive Systeme gibt, können wir folgende
 Klassifikation einführen</p>
-<p><strong>rekursive vs. nicht-rekursive (transversal) Systeme</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>rekursive vs. nicht-rekursive (transversal) Systeme</p>
+</div>
 <p>Um die Wichtigkeit von rekursiven Systemen zu verdeutlichen, nehmen wir
 einmal an, wir bräuchten ständig die Summe von mehreren vergangenen
 Messwerten (oder ein Beispiel aus der Praxis ist der 30-Tage
@@ -449,7 +461,10 @@ beinhalten werden gedächtnisbehaftet genannt. Systeme bei denen der
 Ausgang nur von den Eingangssignalen, aber nicht von dem vorherigen
 Zustand abhängig ist, sind gedächtnislos. Ein Beispiel für ein
 gedächtnisloses System ist die Funktion <span class="math notranslate nohighlight">\(y(k) = x^2(k)\)</span>.</p>
-<p><strong>Gedächtnisbehaftet vs. Gedächtnislos</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Gedächtnisbehaftet vs. Gedächtnislos</p>
+</div>
 <p>Die Gedächtnislänge eines Systems ist durch die Möglichkeit der größten
 Signalverzögerung <span class="math notranslate nohighlight">\(k_0\)</span> vorgegeben. Diese kann im transversalen oder im
 rekursiven Zweig des Systems vorkommen. Der Hauptunterschied liegt im
@@ -687,8 +702,11 @@ h(k) = [\beta \,\, \alpha \beta \,\,
 betrachten, wie sich noch signifikante Werte ergeben. Signifikant kann
 dabei zum Beispiel sein zu testen, ob die Werte von <span class="math notranslate nohighlight">\(h(k)\)</span> kleiner als
 der millionste Teil des maximalen Wertes von <span class="math notranslate nohighlight">\(h(k)\)</span> ist.</p>
-<p><strong>Die Impulsantwort eines Systems ist der Ausgang des Systems, wenn die Eingangsfolge die Delta-Impulsfolge ist. Die Impulsantwort beschreibt ein LTI-System vollständig</strong></p>
-<p><strong>Nicht-rekursive Systeme haben eine endliche Impulsantwort. Sie werden als FIR-Systeme bezeichnet.</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Die Impulsantwort eines Systems ist der Ausgang des Systems, wenn die Eingangsfolge die Delta-Impulsfolge ist. Die Impulsantwort beschreibt ein LTI-System vollständig</p>
+<p>Nicht-rekursive Systeme haben eine endliche Impulsantwort. Sie werden als FIR-Systeme bezeichnet.</p>
+</div>
 </div>
 </div>
 <div class="section" id="faltung-als-verknupfung-von-lti-systemen-und-signalen">
@@ -702,7 +720,7 @@ Das Eingangssignal ist durch zwei Werte gegeben, wir nehmen an
 <span class="math notranslate nohighlight">\(x(0)= 0.5\)</span> und <span class="math notranslate nohighlight">\(x(1) = 1.5\)</span>. Das System ist durch <span class="math notranslate nohighlight">\(y(k) = -0.25x(k) + 0.5x(k-1)\)</span> definiert. Wie lautet die Ausgangssfolge? Man könnte jetzt einfach die verschiedenen
 Zeitpunkte <span class="math notranslate nohighlight">\(k\)</span> annehmen und das Ergebnis direkt hinschreiben. In
 Tabellenform wäre das Ergebnis:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
 
@@ -860,10 +878,11 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
 <span class="n">ax_yx2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Systemantwort für x[2]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
-<span class="n">conv_sum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span>
+<span class="n">conv_sum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span>
 <span class="n">ax_sum</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">conv_sum</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_sum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Systemantwort für Inputsignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;FaltungErklaerung&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -871,6 +890,9 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
 </div>
 </div>
 <div class="figure align-default" id="fig-faltungerklaerung" style="width: 90%">
+<div class="cell_output docutils container">
+<img alt="_images/systeme_11_0.png" src="_images/systeme_11_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Einfache grafische Erklärung der Faltung.</span><a class="headerlink" href="#fig-faltungerklaerung" title="Permalink to this image">¶</a></p>
 </div>
 <p>Allgemein und mathematisch wird dies durch</p>
@@ -925,7 +947,7 @@ umklappt und diese Folge über das andere Signal schiebt c). Der Ausgang
 d) ergibt sich immer aus der Summe der sich überlappenden und
 miteinander multiplizierten Einzelimpulse der beiden Folgen.</p>
 <div class="figure align-default" id="fig-faltungserklaerungcorel">
-<a class="reference internal image-reference" href="../images/psSys/FaltungsErklaerungCorel.png"><img alt="../images/psSys/FaltungsErklaerungCorel.png" src="../images/psSys/FaltungsErklaerungCorel.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="_images/FaltungserklaerungCorel.png"><img alt="_images/FaltungserklaerungCorel.png" src="_images/FaltungserklaerungCorel.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Erklärung der grafischen Faltung.</span><a class="headerlink" href="#fig-faltungserklaerungcorel" title="Permalink to this image">¶</a></p>
 </div>
 <hr class="footnotes docutils" />
