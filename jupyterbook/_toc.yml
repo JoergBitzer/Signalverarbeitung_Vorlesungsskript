@@ -6,7 +6,7 @@ sections:
 - file: grundlagen
 - file: signale
 - file: systeme
-#- file: ztrafo
+- file: ztrafo
 #- file: spektren
 #- file: filter
 #- file: mathe
