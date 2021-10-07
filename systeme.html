@@ -53,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Literaturverzeichnis" href="zbibliography.html" />
+    <link rel="next" title="4. z-Transformation" href="ztrafo.html" />
     <link rel="prev" title="2. Signale" href="signale.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -107,8 +107,13 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ztrafo.html">
+   4. z-Transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   4. Literaturverzeichnis
+   5. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -498,7 +503,7 @@ folgendes als notwendige Bedingung gelten:</p>
 \mbox{wenn} \quad |x(k)| &lt; \infty \quad \Rightarrow \quad |f\{x(k)\}| &lt;
 \infty
 \]</div>
-<div class="admonition-beispiel admonition">
+<div class="note admonition">
 <p class="admonition-title">Beispiel</p>
 <p>Sind die folgenden Systeme stabil?</p>
 <ul class="simple">
@@ -541,7 +546,7 @@ verschoben werden.</p>
 <a class="reference internal image-reference" href="_images/LinearitaetErklaerung.png"><img alt="_images/LinearitaetErklaerung.png" src="_images/LinearitaetErklaerung.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Linearität bildlich erklärt</span><a class="headerlink" href="#fig-linearitaeterklaerung" title="Permalink to this image">¶</a></p>
 </div>
-<div class="admonition-beispiel admonition">
+<div class="note admonition">
 <p class="admonition-title">Beispiel</p>
 <p>Als Beispiel betrachten wir das System</p>
 <div class="math notranslate nohighlight">
@@ -616,7 +621,7 @@ Ausgangssignal. Mathematisch ausgedrückt:</p>
 y(k) = f\{x(k) \} \quad \Rightarrow y(k-k_0) = f\{x(k-k_0) \}
 \]</div>
 <p>mit <span class="math notranslate nohighlight">\(k_0\)</span> als Angabe der diskreten Verzögerungszeit.</p>
-<div class="admonition-beispiel admonition">
+<div class="note admonition">
 <p class="admonition-title">Beispiel</p>
 <p>Gegeben sind die beiden Systeme <span class="math notranslate nohighlight">\(y(k) = 2x(k)\)</span> und <span class="math notranslate nohighlight">\(y(k) = x(2k)\)</span>. Sind
 die Systeme zeitinvariant oder nicht?</p>
@@ -676,7 +681,7 @@ werden diese Systeme auch als <em>Finite Impulse Response</em> (FIR)-Systeme
 bezeichnet. Bei rekursiven Systeme gilt dies im allgemeinen nicht. Diese
 Systeme werden im englischsprachigen Raum, deshalb als <em>Infinite Impulse
 Response</em> (IIR)-Systeme bezeichnet.</p>
-<div class="admonition-beispiel admonition">
+<div class="note admonition">
 <p class="admonition-title">Beispiel</p>
 <p>Nehmen wir an, wir suchen die Impulsantwort des LTI-Systems <span class="math notranslate nohighlight">\(y(k)
 = r_0 x(k) + r_1 x(k-1) - r_2 x(k-2)\)</span>. Errechnet man nun den Ausgang für
@@ -950,6 +955,14 @@ miteinander multiplizierten Einzelimpulse der beiden Folgen.</p>
 <a class="reference internal image-reference" href="_images/FaltungserklaerungCorel.png"><img alt="_images/FaltungserklaerungCorel.png" src="_images/FaltungserklaerungCorel.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Erklärung der grafischen Faltung.</span><a class="headerlink" href="#fig-faltungserklaerungcorel" title="Permalink to this image">¶</a></p>
 </div>
+<p>Die Länge der Ausgangsfolge ergibt sich aus der Addition der Länge der
+Eingangsfolge <span class="math notranslate nohighlight">\(M\)</span> und der Länge der Impulsantwort <span class="math notranslate nohighlight">\(K\)</span> zu</p>
+<div class="math notranslate nohighlight">
+\[
+N = M + K - 1.
+\]</div>
+<p>Dies ist auch anhand der beiden grafischen Beispiele
+leicht zu sehen.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -1003,10 +1016,10 @@ miteinander multiplizierten Einzelimpulse der beiden Folgen.</p>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="zbibliography.html" title="next page">
+        <a class="right-next" href="ztrafo.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">4. </span>Literaturverzeichnis</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>z-Transformation</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
