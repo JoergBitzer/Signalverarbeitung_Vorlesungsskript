@@ -42,8 +42,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -111,8 +109,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   5. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   6. Filter
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   5. Literaturverzeichnis
+   7. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -208,11 +216,6 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fehler-bzw-anderungs-log">
-   Fehler bzw. Änderungs-Log:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nutzliche-literatur-fur-die-module-sv-i-und-sv-ii-und-kurze-beschreibung">
    Nützliche Literatur für die Module SV I und SV II und kurze Beschreibung:
   </a>
@@ -231,39 +234,27 @@
   <!-- #region -->
 <div class="section" id="zu-diesem-jupyter-buch">
 <h1>Zu diesem Jupyter-Buch<a class="headerlink" href="#zu-diesem-jupyter-buch" title="Permalink to this headline">¶</a></h1>
-<p>Dieses Jupyter-Book enthält für viele Grafiken auch den Python Source-Code. In einigen Fällen wird darauf hingewiesen, dass es sich um interaktive Grafiken handelt. Hier lohnt es sich den Code in ein eigenständiges Skript (<a class="reference external" href="http://GrafikName.py">GrafikName.py</a>) zu kopieren und direkt auszuführen (python3 <a class="reference external" href="http://GrafikName.py">GrafikName.py</a>), um die interaktiven Elemente nutzen zu können.</p>
-</div>
-<div class="section" id="fehler-bzw-anderungs-log">
-<h1>Fehler bzw. Änderungs-Log:<a class="headerlink" href="#fehler-bzw-anderungs-log" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Version 0.9542 vom 29.10.2017: Fehler berichtigt Abschnitt Rekursion N ersetzt durch M und N-1 in Formel durch M</p></li>
-<li><p>Version 0.9543 vom 12.11.2017: zTrafo: nicht-kausale Folge richtig definiert: ACHTUNG: In der Bildüberschrift noch nicht geändert</p></li>
-<li><p>Version 0.9544 vom 20.11.2017: Beim Stabilitätsdreieck die Bedingung auf <span class="math notranslate nohighlight">\(a_2^2 &lt;1\)</span> geändert (Quadrat ergänzt).</p></li>
-<li><p>Version 0.9545 vom 26.11.2017: Begin Spektren (5.1-5.3) <span class="math notranslate nohighlight">\(\Omega\)</span> durch <span class="math notranslate nohighlight">\(\Omega_0\)</span> ersetzt, da eine spezifische Frequenz gemeint ist .</p></li>
-<li><p>Version 0.9546 vom 14.12.2017: Fensterfunktionen mit <span class="math notranslate nohighlight">\(4\pi\)</span> statt <span class="math notranslate nohighlight">\(2\pi\)</span>.</p></li>
-<li><p>Version 0.9547 vom 13.11.2018: Erzeugung Dreieck cos auf sin geändert. Lösung war fehlerhaft.</p></li>
-<li><p>Version 0.9548 vom 13.11.2018: Abb 2.22 Werte zu Definitionsbereich geändert und Bsp Linearität klarer dargestellt. Es fehlt noch im oberen Teil des Bildes das xmix.</p></li>
-<li><p>Version 0.955 vom 07.12.2018: Phasenberechnung aus PN geändert.</p></li>
-<li><p>Version 0.9551 vom 05.09.2019: Girod, Rabenstein als Ideengeber bei Pol-Nullstellendarstellung</p></li>
-<li><p>Version 0.9551 vom 05.09.2019: Fibonacci Beispiel entfernt und Stil geändert in zTrafo Anfang</p></li>
-</ul>
+<p>Dieses Jupyter-Book enthält für viele Grafiken auch den Python Source-Code. In einigen Fällen wird darauf hingewiesen, dass es sich um interaktive Grafiken handelt. Hier lohnt es sich den Code in ein eigenständiges Skript (<a class="reference external" href="http://GrafikName.py">GrafikName.py</a>) zu kopieren und direkt auszuführen (python3 <a class="reference external" href="http://GrafikName.py">GrafikName.py</a>), um die interaktiven Elemente nutzen zu können, bzw. aus dem Repository die interaktiven Python-Skripte direkt zu verwenden.</p>
+<p>Dieses Buch ist Work-in-progress. Langfristig soll es auch die Inhalte aus den Vorlesungen SV II, Audiotechnik und DAFx beinhalten. Dies wird aber sehr lange dauern. In der Zwischenzeit kann jede_r Leser_in mithelfen den Text und die Source-Codes zu verbessern. Es gibt die Möglichkeit oben in der Titelzeile ein <em>Issue</em> zu öffnen und die Verbesserung zu beschreiben. Oder bei größeren Änderungen oder Source Code, kann es sinnvoll sein, direkt das Repository zu clonen und ein merge-request zu initiieren.</p>
+<p>Das Repository finden Sie hier:</p>
+<p><a class="reference external" href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript">https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="nutzliche-literatur-fur-die-module-sv-i-und-sv-ii-und-kurze-beschreibung">
 <h1>Nützliche Literatur für die Module SV I und SV II und kurze Beschreibung:<a class="headerlink" href="#nutzliche-literatur-fur-die-module-sv-i-und-sv-ii-und-kurze-beschreibung" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Girod, Rabenstein, Stenger, <em>Einführung in die Systemtheorie</em>,<br />
+<li><p>Girod, B., Rabenstein, R., Stenger, A., <em>Einführung in die Systemtheorie</em>,<br />
 Dieses Buch gibt es in mehreren Ausgaben in der Bibliothek und ist eine anschauliche Einführung in die Systemtheorie. Das Buch geht über den Stoff der Vorlesung hinaus, ist aber sehr anschaulich.</p></li>
-<li><p>Kammeyer, Kroschel, <em>Digitale Signalverarbeitung</em>,<br />
+<li><p>Kammeyer, K.-D., Kroschel, K., <em>Digitale Signalverarbeitung</em>,<br />
 Eines der Standardwerke in der deutschen SV Literatur. Gut geschrieben, Matlab Beispiele, beinhaltet theoretische Hintergründe zu einigen wichtigen Punkten der Vorlesung</p></li>
-<li><p>Proakis, Manolakis, <em>Digital Signal Processing</em>,<br />
+<li><p>Proakis, J. G., Manolakis, D., <em>Digital Signal Processing</em>,<br />
 Meine Empfehlung, ein hervorragendes Buch, Sie lernen außerdem gleich die englischen Fachbegriffe</p></li>
-<li><p>Orfanidis, <em>Introduction to digital signal processing</em>,
+<li><p>Orfanidis, S., <em>Introduction to digital signal processing</em>,
 Schönes Einsteigerbuch mit Beispielen aus dem Audiobereich</p></li>
 <li><p>Martin Meyer, <em>Grundlagen der Informationstechnik - Signale, Systeme und Filter</em>, 1. Auflage, Vieweg-Verlag.</p></li>
-<li><p>Vary, Heute, Hess, <em>Digitale Sprachsignalverarbeitung</em>,<br />
-Geht inhaltlich deutlich über die Vorlesung hinaus. Ist für alle interessant, die in diesem Bereich einmal Arbeiten wollen.</p></li>
-<li><p>Zölzer, <em>Digitale Audiosignalverarbeitung</em>,<br />
+<li><p>Vary, P., Heute, U., Hess,W., <em>Digitale Sprachsignalverarbeitung</em>,<br />
+Geht inhaltlich deutlich über die Vorlesung hinaus. Ist für alle interessant, die in diesem Bereich einmal arbeiten wollen.</p></li>
+<li><p>Zölzer, U., <em>Digitale Audiosignalverarbeitung</em>,<br />
 Spezialbuch für alle Interessierten.</p></li>
 </ul>
 <!-- #endregion -->

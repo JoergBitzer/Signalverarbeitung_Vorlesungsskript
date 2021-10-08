@@ -53,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Literaturverzeichnis" href="zbibliography.html" />
+    <link rel="next" title="5. Spektren" href="spektren.html" />
     <link rel="prev" title="3. Systeme" href="systeme.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -112,8 +112,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   5. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   6. Filter
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   5. Literaturverzeichnis
+   7. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -887,8 +897,8 @@ LTI-Systems.</p>
 <span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">]</span>
 <span class="c1">#poles_conj = [0]*2</span>
 <span class="c1">#zeros_conj = [0]*2</span>
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_pz</span><span class="p">,</span> <span class="n">ax_3d</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;polar&quot;</span><span class="p">))</span>
-<span class="c1">#ax_pz = fig.add_subplot(121)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax_pz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
 
 <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
 <span class="n">ax_pz</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Realteil&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Imaginärteil&#39;</span><span class="p">,</span> 
@@ -909,8 +919,7 @@ LTI-Systems.</p>
 
 <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">imag</span>
 
-<span class="c1">#ax_3d = fig.add_subplot(122, projection=&#39;3d&#39;)</span>
-<span class="c1">#ax_3d = fig.gca(projection=&#39;3d&#39;)</span>
+<span class="n">ax_3d</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax_3d</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="n">X_c</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">real</span>
 <span class="n">Y_c</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span>
@@ -931,16 +940,19 @@ LTI-Systems.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="841ecdb4-903c-4067-ab93-80d8a563c779" name="f222e1c0-ef73-4d6d-8c6b-d1f7c04fd811" type="radio">
-</input><label class="tabbed-label" for="841ecdb4-903c-4067-ab93-80d8a563c779">
+<input checked="checked" id="02d62e9b-b82e-4b1e-96d1-b940a581f61e" name="fdaf4f6a-d50f-437e-b5f5-f45a70a7f8a9" type="radio">
+</input><label class="tabbed-label" for="02d62e9b-b82e-4b1e-96d1-b940a581f61e">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-polnullstellenplan" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/ztrafo_10_0.png" src="_images/ztrafo_10_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Pole und Nullstellen in der komplexen
 Ebene.</span><a class="headerlink" href="#fig-polnullstellenplan" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="fbc7dcff-40bd-478c-b101-a5443d1abca4" name="f222e1c0-ef73-4d6d-8c6b-d1f7c04fd811" type="radio">
-</input><label class="tabbed-label" for="fbc7dcff-40bd-478c-b101-a5443d1abca4">
+<input id="3650112c-abc8-4ca8-a658-5fe2516ec20f" name="fdaf4f6a-d50f-437e-b5f5-f45a70a7f8a9" type="radio">
+</input><label class="tabbed-label" for="3650112c-abc8-4ca8-a658-5fe2516ec20f">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_3D.py” in jupyterbook/interactive_programs</p></li>
@@ -1078,7 +1090,7 @@ h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} 
 
 <span class="n">theta</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">circle</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
-<span class="n">pole</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.5</span><span class="n">j</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="mf">0.8560</span> <span class="o">+</span> <span class="mf">0.2781</span><span class="n">j</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_pz</span><span class="p">,</span> <span class="n">ax_imp</span><span class="p">)</span><span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -1104,15 +1116,18 @@ h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} 
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0ba9ce6f-2a2f-4f77-acc2-7872334b9c28" name="8bc58442-3419-4ddd-a77a-8a92475586f0" type="radio">
-</input><label class="tabbed-label" for="0ba9ce6f-2a2f-4f77-acc2-7872334b9c28">
+<input checked="checked" id="beda4fb6-f375-4c41-8087-6d2d9854cbd9" name="036eb94f-6c99-4305-83b6-9db6217e0be8" type="radio">
+</input><label class="tabbed-label" for="beda4fb6-f375-4c41-8087-6d2d9854cbd9">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-bspkonjkomplexpole" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/ztrafo_17_0.png" src="_images/ztrafo_17_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="1eda876d-315a-4430-83ad-1d4a4b27fb01" name="8bc58442-3419-4ddd-a77a-8a92475586f0" type="radio">
-</input><label class="tabbed-label" for="1eda876d-315a-4430-83ad-1d4a4b27fb01">
+<input id="fcb5d7e8-bd48-4943-9d64-0166f316ef86" name="036eb94f-6c99-4305-83b6-9db6217e0be8" type="radio">
+</input><label class="tabbed-label" for="fcb5d7e8-bd48-4943-9d64-0166f316ef86">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_Impulsantwort.py” in jupyterbook/interactive_programs</p></li>
@@ -1292,16 +1307,19 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a561b7ec-a61f-4b29-b38b-fc76709e47b2" name="6dec43dd-7183-4583-97fc-ba34ea8ce53f" type="radio">
-</input><label class="tabbed-label" for="a561b7ec-a61f-4b29-b38b-fc76709e47b2">
+<input checked="checked" id="a7ea0a86-ba13-4f64-b1e4-82ea2211c04a" name="5a89fcb0-304e-46a0-8973-9c516303c303" type="radio">
+</input><label class="tabbed-label" for="a7ea0a86-ba13-4f64-b1e4-82ea2211c04a">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-stabildreieck" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/ztrafo_20_0.png" src="_images/ztrafo_20_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
 Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="635cb746-9bab-4609-8c36-e5af6658fae4" name="6dec43dd-7183-4583-97fc-ba34ea8ce53f" type="radio">
-</input><label class="tabbed-label" for="635cb746-9bab-4609-8c36-e5af6658fae4">
+<input id="4f96da1e-f927-4316-b239-25da7f8fb148" name="5a89fcb0-304e-46a0-8973-9c516303c303" type="radio">
+</input><label class="tabbed-label" for="4f96da1e-f927-4316-b239-25da7f8fb148">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - “Signale_Stabilitätsdreieck.py” in jupyterbook/interactive_programs</p></li>
@@ -1370,10 +1388,10 @@ würde.</p>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="zbibliography.html" title="next page">
+        <a class="right-next" href="spektren.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Literaturverzeichnis</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Spektren</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

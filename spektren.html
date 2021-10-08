@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spektren &#8212; Signalverarbeitung 1</title>
+    <title>5. Spektren &#8212; Signalverarbeitung 1</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,6 +53,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Filter" href="filter.html" />
+    <link rel="prev" title="4. z-Transformation" href="ztrafo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,7 +90,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -109,9 +111,19 @@
    4. z-Transformation
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   6. Filter
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   5. Literaturverzeichnis
+   7. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -220,73 +232,73 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#einfluss-der-pole-und-nullstellen-auf-die-ubertragungsfunktion">
-   Einfluss der Pole und Nullstellen auf die Übertragungsfunktion
+   5.1. Einfluss der Pole und Nullstellen auf die Übertragungsfunktion
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diskrete-fourier-transformation">
-   Diskrete Fourier-Transformation
+   5.2. Diskrete Fourier-Transformation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eigenschaften">
-   Eigenschaften
+   5.3. Eigenschaften
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#zusammenhang-dtft-und-dft">
-     Zusammenhang DTFT und DFT
+     5.3.1. Zusammenhang DTFT und DFT
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#symmetrien-der-dft">
-     Symmetrien der DFT
+     5.3.2. Symmetrien der DFT
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#spektren-reeller-gerader-folgen">
-       Spektren reeller gerader Folgen
+       5.3.2.1. Spektren reeller gerader Folgen
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rechenregeln">
-     Rechenregeln
+     5.3.3. Rechenregeln
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#linearitat">
-       Linearität
+       5.3.3.1. Linearität
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#faltung">
-       Faltung
+       5.3.3.2. Faltung
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#theorem-von-parseval">
-       Theorem von Parseval
+       5.3.3.3. Theorem von Parseval
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#effiziente-implementierung">
-     Effiziente Implementierung
+     5.3.4. Effiziente Implementierung
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spezielle-signale-und-ihre-spektren">
-   Spezielle Signale und ihre Spektren
+   5.4. Spezielle Signale und ihre Spektren
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spektrum-fur-delta-k">
-     Spektrum für
+     5.4.1. Spektrum für
      <span class="math notranslate nohighlight">
       \(\delta(k)\)
      </span>
@@ -294,7 +306,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spektrum-fur-delta-k-k-0">
-     Spektrum für
+     5.4.2. Spektrum für
      <span class="math notranslate nohighlight">
       \(\delta(k-k_0)\)
      </span>
@@ -304,7 +316,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#weitere-fensterfunktionen-und-deren-eigenschaften">
-   Weitere Fensterfunktionen und deren Eigenschaften
+   5.5. Weitere Fensterfunktionen und deren Eigenschaften
   </a>
  </li>
 </ul>
@@ -319,7 +331,7 @@
               <div>
                 
   <div class="section" id="spektren">
-<h1>Spektren<a class="headerlink" href="#spektren" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Spektren<a class="headerlink" href="#spektren" title="Permalink to this headline">¶</a></h1>
 <p>Wir haben bisher zwei Beschreibungsebenen für diskrete Signale und
 Systeme kennen gelernt, den Zeitbereich mit der Differenzengleichung und
 die z-Ebene. Häufig ist aber von Interesse, wie sich die Signale und
@@ -345,7 +357,7 @@ bestehen und dann die Veränderung am Ausgang zu messen. Ein sehr gutes
 Eingangssignal um Betrag und Phase zu bestimmen ist die ungedämpfte
 diskrete Exponentialschwingung</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-euler">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-def-euler" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-def-euler" title="Permalink to this equation">¶</a></span>\[
     e^{j\Omega_0 k} = \cos(\Omega k)+j\sin(\Omega k)
 \]</div>
 <p>mit <span class="math notranslate nohighlight">\(\Omega_0 = 2 \pi f_0/ f_s\)</span>, wobei <span class="math notranslate nohighlight">\(f_0\)</span> die Analysefrequenz und <span class="math notranslate nohighlight">\(f_s\)</span>
@@ -354,10 +366,10 @@ die Samplingfrequenz angibt.</p>
 welcher Form Frequenzen in der digitalen Signalverarbeitung angegeben
 werden. Die am häufigsten verwendeten Systeme und ihre Äquivalenz als
 Achse und ihre Position auf dem Einheitskreis in der z-Ebene zeigt
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> .</p>
+<a class="reference internal" href="#fig-frequenzskalierungenexkurs"><span class="std std-numref">Abbildung 5.1</span></a> .</p>
 <div class="figure align-default" id="fig-frequenzskalierungenexkurs">
 <a class="reference internal image-reference" href="_images/FrequenzskalierungenExkurs.png"><img alt="_images/FrequenzskalierungenExkurs.png" src="_images/FrequenzskalierungenExkurs.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-text">Veranschaulichung der unterschiedlichen
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Veranschaulichung der unterschiedlichen
 Frequenzbezeichnungen in der DSV und ihre Position auf dem Einheitskreis
 in der
 z-Ebene.</span><a class="headerlink" href="#fig-frequenzskalierungenexkurs" title="Permalink to this image">¶</a></p>
@@ -365,7 +377,7 @@ z-Ebene.</span><a class="headerlink" href="#fig-frequenzskalierungenexkurs" titl
 <p>Mit Hilfe der Faltung ergibt sich am Ausgang eines durch die
 Impulsantwort beschriebenen Systems.</p>
 <div class="math notranslate nohighlight" id="equation-eq-ftrafo-bsp">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-ftrafo-bsp" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-ftrafo-bsp" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
     y(k)&amp; = &amp;x(k)\ast h(k) = \sum_{\kappa = -\infty}^{\infty} h(\kappa)
     e^{j\Omega_0(k-\kappa)}\\
     &amp;= &amp; \underbrace{e^{j\Omega_0 k}}_{\mbox{Eingangssignal}} \cdot
@@ -380,12 +392,12 @@ Dies ist eine typische Eigenschaft von LTI-Systemen.</p>
 <p>Bei Systemen wird die frequenzabhängige Veränderung des Betrages und der
 Phase Übertragungsfunktion genannt und kann mit</p>
 <div class="math notranslate nohighlight" id="equation-eq-dtfd-hin">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-dtfd-hin" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-dtfd-hin" title="Permalink to this equation">¶</a></span>\[
     H(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} h(k) e^{-j\Omega k}
 \]</div>
 <p>berechnet werden. Diese Form ist eng verwandt mit der Fourier-Transformation für analoge Signale und wird deshalb Zeitdiskrete Fourier-Transformation (<em>Discrete Time Fourier-Transformation (DTFT)</em>) genannt.</p>
 <p>Vergleichen wir nun Gleichung
-<a class="reference internal" href="#equation-eq-dtfd-hin">()</a> mit der Definition der z-Transformation, so
+<a class="reference internal" href="#equation-eq-dtfd-hin">(5.3)</a> mit der Definition der z-Transformation, so
 erkennen wir, dass die DTFT die z-Transformation für <span class="math notranslate nohighlight">\(z = e^{j\Omega}\)</span>
 darstellt und somit genau den Einheitskreis in der z-Ebene beschreibt.
 Wir können also direkt am Einheitskreis das frequenzabhängige
@@ -396,12 +408,12 @@ sofort die Übertragungsfunktion angeben. Betrachten wir beispielsweise
 das System <span class="math notranslate nohighlight">\(y(k) = x(k) + x(k-1)\)</span>, dann ergibt <span class="math notranslate nohighlight">\(e^{j\Omega}\)</span> in die
 z-Transformierte eingesetzt</p>
 <div class="math notranslate nohighlight" id="equation-eq-ftrafo-bsp-ztrafoftrafo">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-ftrafo-bsp-ztrafoftrafo" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-ftrafo-bsp-ztrafoftrafo" title="Permalink to this equation">¶</a></span>\[
     H(e^(j \Omega)) = 1+z^{-1} \Big|_{z = e^{j\Omega}} = 1+e^{-j\Omega}
 \]</div>
 <p>Durch Umformungen erhalten wir.</p>
 <div class="math notranslate nohighlight" id="equation-eq-ftrafo-bspuebrtragungf">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-ftrafo-bspuebrtragungf" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-ftrafo-bspuebrtragungf" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
    e^{j\Omega / 2} H(e^(j \Omega)) &amp;= &amp; e^{j \Omega / 2}+e^{-j\Omega / 2}\\
    &amp; = &amp; \underbrace{2 \cos(\Omega / 2)}_{\mbox{Betrag, wenn $|\cdot|$}}
@@ -415,9 +427,9 @@ Darstellung des Arguments von <span class="math notranslate nohighlight">\(H(e^(
 oder dem Betragsquadrat auch häufig eine logarithmische Darstellung
 gewählt wird</p>
 <div class="section" id="einfluss-der-pole-und-nullstellen-auf-die-ubertragungsfunktion">
-<h2>Einfluss der Pole und Nullstellen auf die Übertragungsfunktion<a class="headerlink" href="#einfluss-der-pole-und-nullstellen-auf-die-ubertragungsfunktion" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Einfluss der Pole und Nullstellen auf die Übertragungsfunktion<a class="headerlink" href="#einfluss-der-pole-und-nullstellen-auf-die-ubertragungsfunktion" title="Permalink to this headline">¶</a></h2>
 <p>Um den Einfluss der Pole und Nullstellen auf die Übertragungsfunktion
-abzuschätzen, schauen wir uns zunächst noch einmal die <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> an. Bei dieser Abbildung ist
+abzuschätzen, schauen wir uns zunächst noch einmal die <a class="reference internal" href="#fig-uebertragpolnullstellen"><span class="std std-numref">Abbildung 5.2</span></a> an. Bei dieser Abbildung ist
 <span class="math notranslate nohighlight">\(|H(e^(j \Omega))|^2\)</span> logarithmisch dargestellt. Der Betragsfrequenzgang der DTFT
 kann direkt aus dem enstehenden “Gebirge” abgelesen werden, wenn wir den
 Einheitskreis vom Winkel <span class="math notranslate nohighlight">\(0\)</span> bis <span class="math notranslate nohighlight">\(\pi\)</span> umlaufen. Der Pol bei <span class="math notranslate nohighlight">\(\pi/10\)</span>
@@ -433,17 +445,17 @@ an Einfluss. Bei <span class="math notranslate nohighlight">\(\Omega =
 wiederholt sich also periodisch in <span class="math notranslate nohighlight">\(2\pi\)</span> für diskrete Signale. Dies ist
 auch direkt aus der Beziehung</p>
 <div class="math notranslate nohighlight" id="equation-eq-spek-peridozitaetserklaerung">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spek-peridozitaetserklaerung" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-spek-peridozitaetserklaerung" title="Permalink to this equation">¶</a></span>\[
     e^{j\Omega k} = e^{j(\Omega +2\pi n) k} \quad \forall \quad n \in \mathbb{N}
 \]</div>
 <p>zu sehen.</p>
 <p>Eine direkte Berechnung des Betrag- und Phasenganges aus den Polen und
 Nullstellen ist ebenfalls möglich. Um das zu veranschaulichen ist in
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  ein System zweiter Ordnung in der
+<a class="reference internal" href="#fig-uebertragpolnullstellen"><span class="std std-numref">Abbildung 5.2</span></a>  ein System zweiter Ordnung in der
 z-Ebene mit den zwei Polen und den zwei Nullstellen gezeigt.</p>
 <div class="figure align-default" id="fig-uebertragpolnullstellen">
 <a class="reference internal image-reference" href="_images/UebertragPolNullstellen.png"><img alt="_images/UebertragPolNullstellen.png" src="_images/UebertragPolNullstellen.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-text">Skizze zur Veranschaulichung des
+<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Skizze zur Veranschaulichung des
 Einflusses von Polen und Nullstellen auf die Übertragungsfunktion
 <span class="math notranslate nohighlight">\(H(e^(j \Omega))\)</span>.</span><a class="headerlink" href="#fig-uebertragpolnullstellen" title="Permalink to this image">¶</a></p>
 </div>
@@ -451,7 +463,7 @@ Einflusses von Polen und Nullstellen auf die Übertragungsfunktion
 die Abstände der Pole und Nullstellen zu diesem Punkt <span class="math notranslate nohighlight">\(A_1,
 A_2,B_1,B_2\)</span> bekannt sein. Er ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-eq-spec-einfachebetragsrechnung">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spec-einfachebetragsrechnung" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-eq-spec-einfachebetragsrechnung" title="Permalink to this equation">¶</a></span>\[
     \left|H(e^(j \Omega))\right|\Big|_{e^{j\Omega} = P} = |b_0| \frac{B_1 B_2}{A_1
     A_2}.
 \]</div>
@@ -459,7 +471,7 @@ A_2,B_1,B_2\)</span> bekannt sein. Er ergibt sich</p>
 aber aus dem Pol-Nullstellenplan nicht ersichtlich ist.</p>
 <p>Die Phase an diesem Punkt kann durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-spec-eenfachephasenrechnung">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spec-eenfachephasenrechnung" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-eq-spec-eenfachephasenrechnung" title="Permalink to this equation">¶</a></span>\[
     \arg\left\{H(e^(j \Omega)) \right\}\Big|_{e^{j\Omega} = P} = -\arg\{b_0\}  + \beta_1 + \beta_2
     - \alpha_1 - \alpha_2
 \]</div>
@@ -470,13 +482,13 @@ Phasendrehung von <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
 <p>Für allgemeine Systeme mit einem Zählergrad <span class="math notranslate nohighlight">\(M\)</span> und einem Nennergrad <span class="math notranslate nohighlight">\(N\)</span>
 ergibt sich [<span id="id1">[]</span>].</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumbetragallg">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spektrumbetragallg" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-eq-spektrumbetragallg" title="Permalink to this equation">¶</a></span>\[
     \left|H(e^(j \Omega))\right| = |b_0| \frac{\displaystyle \prod_{i = 0}^{M-1} \sqrt{1-2|n_i|\cos(\Omega-\arg\{n_i\})+|n_i|^2}}
     {\displaystyle \prod_{i = 0}^{N-1}\sqrt{1-2|p_i|\cos(\Omega-\arg\{p_i\})+|p_i|^2}}
 \]</div>
 <p>bzw. für die Phase</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumphaseallg">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spektrumphaseallg" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-eq-spektrumphaseallg" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
     \arg\left\{H(e^(j \Omega))\right\} &amp;=&amp; (M-N)\Omega - \arg\{b_0\} \\\nonumber
     &amp;&amp; - \sum_{i = 0}^{M-1}\arctan\left\{\frac{\sin \Omega-|n_i|\sin(\arg\{n_i\})}{\cos \Omega-|n_i|\cos(\arg\{n_i\})}
@@ -510,7 +522,7 @@ resultierende System nicht mehr minimalphasig ist.</p></li>
 <li><p>Systeme bei denen die Nullstellen an den Positionen der am
 Einheitskreis gespiegelten Pole liegen</p>
 <div class="math notranslate nohighlight" id="equation-eq-allpassgrundlagenformel">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-allpassgrundlagenformel" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-eq-allpassgrundlagenformel" title="Permalink to this equation">¶</a></span>\[
         n_{i_0} = \frac{1}{p_{i_{\infty}}}
 \]</div>
 </li>
@@ -521,7 +533,7 @@ verändert und dreht um <span class="math notranslate nohighlight">\(N \pi\)</sp
 angibt.</p>
 </div>
 <div class="section" id="diskrete-fourier-transformation">
-<span id="sec-diskretefourier-transformation"></span><h2>Diskrete Fourier-Transformation<a class="headerlink" href="#diskrete-fourier-transformation" title="Permalink to this headline">¶</a></h2>
+<span id="sec-diskretefourier-transformation"></span><h2><span class="section-number">5.2. </span>Diskrete Fourier-Transformation<a class="headerlink" href="#diskrete-fourier-transformation" title="Permalink to this headline">¶</a></h2>
 <p>Zur Frequenzanalyse ist bisher nur die DTFT bekannt. Aber diese
 Transformation kann nicht auf einem Computer umgesetzt werden, da das
 resultierende Spektrum nicht diskret ist. Außerdem benötigt man
@@ -534,7 +546,7 @@ zu Null werden, können auch die Summengrenzen verändert werden.</p>
 <p>Diese Rechteckfolge werden wir im weiteren mit Fenster oder <em>Window</em>
 bezeichnen, da es aus der Folge nur einen Ausschnitt zeigt, in Anlehnung
 an ein Glasfenster , das uns nur einen Ausschnitt der Wirklichkeit zeigt
-(siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> ). Die Länge <span class="math notranslate nohighlight">\(N\)</span> nennen wir Blockgröße,
+(siehe <a class="reference internal" href="#fig-dft-fenstermultiplikation"><span class="std std-numref">Abbildung 5.3</span></a> ). Die Länge <span class="math notranslate nohighlight">\(N\)</span> nennen wir Blockgröße,
 da nur noch ein Block an Daten verarbeitet wird.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -569,7 +581,7 @@ da nur noch ein Block an Daten verarbeitet wird.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-dft-fenstermultiplikation" style="width: 75%">
-<p class="caption"><span class="caption-text">Veranschaulichung der Wirkung einer
+<p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Veranschaulichung der Wirkung einer
 Rechteck-Fensterfunktion der Länge
 <span class="math notranslate nohighlight">\(N = 16\)</span>.</span><a class="headerlink" href="#fig-dft-fenstermultiplikation" title="Permalink to this image">¶</a></p>
 </div>
@@ -580,7 +592,7 @@ eine diskretes Spektrum zu erhalten, unterteilen wir das Spektrum in <span class
 gleichförmige Abschnitte (man kann auch eine andere Anzahl verwenden, aber N führt zu besonders effizienten Lösungen).</p>
 <p>Die DTFT geht damit in</p>
 <div class="math notranslate nohighlight" id="equation-eq-dfthin-def">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-dfthin-def" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-eq-dfthin-def" title="Permalink to this equation">¶</a></span>\[
     X(n) = X\left(e^{j 2 \pi n / N}\right) = \sum_{k = 0}^{N-1}x(k) e^{-j 2 \pi n k /N}
 \]</div>
 <p>über.</p>
@@ -589,18 +601,18 @@ auf die Folge zurück zuschließen. Die Rücktransformation enthält
 zusätzlich noch einen Normierungsterm <span class="math notranslate nohighlight">\(N\)</span> und unterscheidet sich sonst
 nur in dem Vorzeichen der e-Funktion.</p>
 <div class="math notranslate nohighlight" id="equation-eq-dftrueck-def">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-dftrueck-def" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-eq-dftrueck-def" title="Permalink to this equation">¶</a></span>\[
     x(k) = \frac{1}{N} \sum_{n = 0}^{N-1}X(n) e^{j 2 \pi n k /N}
 \]</div>
 <p>Das Transformationspärchen
-<a class="reference internal" href="#equation-eq-dfthin-def">()</a> und
-<a class="reference internal" href="#equation-eq-dftrueck-def">()</a> werden als diskrete Fourier-Transformation
+<a class="reference internal" href="#equation-eq-dfthin-def">(5.12)</a> und
+<a class="reference internal" href="#equation-eq-dftrueck-def">(5.13)</a> werden als diskrete Fourier-Transformation
 (DFT), bzw. inverse DFT (IDFT) bezeichnet.</p>
 </div>
 <div class="section" id="eigenschaften">
-<h2>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="zusammenhang-dtft-und-dft">
-<h3>Zusammenhang DTFT und DFT<a class="headerlink" href="#zusammenhang-dtft-und-dft" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.3.1. </span>Zusammenhang DTFT und DFT<a class="headerlink" href="#zusammenhang-dtft-und-dft" title="Permalink to this headline">¶</a></h3>
 <p>Wir haben, um von der exakten Darstellung des Spektrums mittels DTFT auf
 die computerlösbare DFT zu kommen, zwei Veränderungen vorgenommen und
 natürlich spiegeln sich diese Veränderungen auch im Ergebnis wieder. Wir
@@ -617,10 +629,10 @@ Wiederholung. Auch hier gibt es eine andere Interpretationsmöglichkeit.
 Bei der Analyse von periodischen Signalen mittels Fourier-Reihen ergeben
 sich diskrete Spektren. Ein diskretes Spektrum führt im Umkehrschluss
 also zu einer periodischen Zeitfunktion, wobei bei der DFT die Periode
-genau <span class="math notranslate nohighlight">\(N\)</span> ist (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>).</p>
+genau <span class="math notranslate nohighlight">\(N\)</span> ist (siehe <a class="reference internal" href="#fig-dft-signalperiodizitaet"><span class="std std-numref">Abbildung 5.4</span></a>).</p>
 <div class="figure align-default" id="fig-dft-signalperiodizitaet">
 <a class="reference internal image-reference" href="_images/DFT_SignalPeriodizitaet.png"><img alt="_images/DFT_SignalPeriodizitaet.png" src="_images/DFT_SignalPeriodizitaet.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-text">Veranschaulichung der erzwungenen
+<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Veranschaulichung der erzwungenen
 Signal-Periodizität durch die
 DFT.</span><a class="headerlink" href="#fig-dft-signalperiodizitaet" title="Permalink to this image">¶</a></p>
 </div>
@@ -633,7 +645,7 @@ Faltung der Spektren, wobei die Faltung hier kontinuierlich als Integral
 zu definieren ist, da wir ja ein kontinuierliches periodisches Spektrum
 haben.</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumbegrenzterfolgen">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spektrumbegrenzterfolgen" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.14)<a class="headerlink" href="#equation-eq-spektrumbegrenzterfolgen" title="Permalink to this equation">¶</a></span>\[
     H(e^(j \Omega)) \Big|_{0 \leq n \leq N} = \int_{\theta = -\pi}^{\pi} H
     (e^{j\theta}) H^{W}(e^{j(\Omega - \theta)})d\theta
 \]</div>
@@ -657,7 +669,7 @@ Spektrum der Rechteckfunktion:</p>
 \right)}{\sin\left(\Omega/2 \right)}\end{aligned}
 \end{split}\]</div>
 <p>Der vordere Teil dieser Funktion entspricht einer linearen Phasenverschiebung. Der zweite Teil mit den Sinustermen stellt eine sogenannte Dirichlet-Funktion dar.
-Der Betrag dieser Funktion ist in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> gezeigt.</p>
+Der Betrag dieser Funktion ist in <a class="reference internal" href="#fig-dirichletfkt"><span class="std std-numref">Abbildung 5.5</span></a> gezeigt.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -690,7 +702,7 @@ Der Betrag dieser Funktion ist in <code class="xref std std-numref docutils lite
 </div>
 </div>
 <div class="figure align-default" id="fig-dirichletfkt" style="width: 75%">
-<p class="caption"><span class="caption-text">Betrag von <span class="math notranslate nohighlight">\(H^{W}(e^(j \Omega))\)</span> für
+<p class="caption"><span class="caption-number">Fig. 5.5 </span><span class="caption-text">Betrag von <span class="math notranslate nohighlight">\(H^{W}(e^(j \Omega))\)</span> für
 <span class="math notranslate nohighlight">\(N = 16\)</span>.</span><a class="headerlink" href="#fig-dirichletfkt" title="Permalink to this image">¶</a></p>
 </div>
 <div class="hint admonition">
@@ -718,7 +730,7 @@ Cosinus hat nur zwei definierte Frequenzwerte, an den Frequenzen
 <p>Um den Einfluss der Annäherung durch die DFT zu veranschaulichen,
 begrenzen wir den betrachteten Signalausschnitt auf <span class="math notranslate nohighlight">\(N\)</span> Datenwerte. Dies
 führt wie in Gleichung
-<a class="reference internal" href="#equation-eq-spektrumbegrenzterfolgen">()</a> gezeigt zu einer Faltung mit
+<a class="reference internal" href="#equation-eq-spektrumbegrenzterfolgen">(5.14)</a> gezeigt zu einer Faltung mit
 dem Spektrum des Rechtecks. Durch die Siebeigenschaft der
 <span class="math notranslate nohighlight">\(\delta\)</span>-Funktion ergibt sich</p>
 <div class="math notranslate nohighlight">
@@ -730,7 +742,7 @@ dem Spektrum des Rechtecks. Durch die Siebeigenschaft der
                  \frac{1}{2} H^{W} \left(e^{j(\Omega + \Omega_0 )}\right).\end{aligned}
 \end{split}\]</div>
 <p>Das Spektrum des Rechtecks wird also, um <span class="math notranslate nohighlight">\(\pm \Omega_0\)</span> verschoben.
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> zeigt das resultierende
+<a class="reference internal" href="#fig-dft-cosinus"><span class="std std-numref">Abbildung 5.6</span></a> zeigt das resultierende
 Spektrum für <span class="math notranslate nohighlight">\(N = 16\)</span> bei einer Grundfrequenz von 155Hz und einer
 Abtastrate von <span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -788,7 +800,7 @@ Abtastrate von <span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz.
 </div>
 </div>
 <div class="figure align-default" id="fig-dft-cosinus" style="width: 75%">
-<p class="caption"><span class="caption-text">Spektrum (Rechts) einer
+<p class="caption"><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Spektrum (Rechts) einer
 abgetasteten Cosinus-Fkt., die auf <span class="math notranslate nohighlight">\(N = 16\)</span> Werte begrenzt wird (Links)
 (<span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz und
 <span class="math notranslate nohighlight">\(f_0 = 155\)</span>Hz).</span><a class="headerlink" href="#fig-dft-cosinus" title="Permalink to this image">¶</a></p>
@@ -797,11 +809,11 @@ abgetasteten Cosinus-Fkt., die auf <span class="math notranslate nohighlight">\(
 Frequenzbereich notwendig. Dies hat implizit zur Folge, dass die
 Cosinusfolge periodisch wiederholt wird. Das abgetastete Spektrum ist
 auf der linken Seite in Abbildung
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> zu sehen und die
+<a class="reference internal" href="#fig-dft-cosinusspektrum"><span class="std std-numref">Abbildung 5.7</span></a> zu sehen und die
 resultierende Folge auf der rechten Seite.</p>
 <div class="figure align-default" id="fig-dft-cosinusspektrum">
 <a class="reference internal image-reference" href="_images/DFT_CosinusSpektrum.png"><img alt="_images/DFT_CosinusSpektrum.png" src="_images/DFT_CosinusSpektrum.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Abgetastetes Spektrum
+<p class="caption"><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Abgetastetes Spektrum
 (Links) und die daraus resultierende periodisch fortgesetzte Cosinus-Fkt
 mit Sprungstellen
 (rechts).</span><a class="headerlink" href="#fig-dft-cosinusspektrum" title="Permalink to this image">¶</a></p>
@@ -818,7 +830,7 @@ Funktion abgetastet wird.</p>
 </div>
 </div>
 <div class="section" id="symmetrien-der-dft">
-<h3>Symmetrien der DFT<a class="headerlink" href="#symmetrien-der-dft" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.3.2. </span>Symmetrien der DFT<a class="headerlink" href="#symmetrien-der-dft" title="Permalink to this headline">¶</a></h3>
 <p>Eine der wichtigsten Symmetrien für die diskrete sowie für die
 zeitdiskrete Fourier-Transformation (DFT und DTFT) ergibt sich für
 reelle Signale. Aus den Eigenschaften der z-Transformation ist deutlich,
@@ -830,10 +842,10 @@ sind. Es ergibt sich also eine Symmetrie der Spektren an der Null Hertz
 und der Imaginärteil punktsymmetrisch (ungerade). Diese Symmetrien
 ergeben sich auch, wenn Betrag und Phase betrachtet werden. Der Betrag
 reeller Funktionen ist immer achsensymmetrisch und die Phase
-punktsymmetrisch (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>)</p>
+punktsymmetrisch (siehe <a class="reference internal" href="#fig-symmetrieplot"><span class="std std-numref">Abbildung 5.8</span></a>)</p>
 <div class="figure align-default" id="fig-symmetrieplot">
 <a class="reference internal image-reference" href="_images/SymmetriePlot.png"><img alt="_images/SymmetriePlot.png" src="_images/SymmetriePlot.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Beispiel eines Frequenz- und Phasenverlaufs
+<p class="caption"><span class="caption-number">Fig. 5.8 </span><span class="caption-text">Beispiel eines Frequenz- und Phasenverlaufs
 eines reellwertigen
 Systems.</span><a class="headerlink" href="#fig-symmetrieplot" title="Permalink to this image">¶</a></p>
 </div>
@@ -848,15 +860,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_s/2\)</
 besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte sind in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="99c0cb58-fea3-4e7b-ae80-9be641ee678e" name="eb86e97c-aa0c-4907-94ab-767c4b056fd6" type="radio">
-</input><label class="tabbed-label" for="99c0cb58-fea3-4e7b-ae80-9be641ee678e">
+<input checked="checked" id="51609e78-69c5-4c4b-a685-75c94b11f55b" name="8799a95b-40d0-4bb9-a3d3-0af5364b5eba" type="radio">
+</input><label class="tabbed-label" for="51609e78-69c5-4c4b-a685-75c94b11f55b">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">H_voll</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">H_halb</span><span class="w"> </span><span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="1663b9c4-854c-4e4b-9714-728f61d7d4cc" name="eb86e97c-aa0c-4907-94ab-767c4b056fd6" type="radio">
-</input><label class="tabbed-label" for="1663b9c4-854c-4e4b-9714-728f61d7d4cc">
+<input id="08020e5a-1901-4f70-84e3-7662797a740f" name="8799a95b-40d0-4bb9-a3d3-0af5364b5eba" type="radio">
+</input><label class="tabbed-label" for="08020e5a-1901-4f70-84e3-7662797a740f">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -890,7 +902,7 @@ X(-n) = \sum_{k = 0}^{N-1} x(k) e^{jkn2\pi/N}
                   &amp;  =  &amp; X(n)\end{aligned}
 \end{split}\]</div>
 <div class="section" id="spektren-reeller-gerader-folgen">
-<h4>Spektren reeller gerader Folgen<a class="headerlink" href="#spektren-reeller-gerader-folgen" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.3.2.1. </span>Spektren reeller gerader Folgen<a class="headerlink" href="#spektren-reeller-gerader-folgen" title="Permalink to this headline">¶</a></h4>
 <p>Die Symmetriebedingung reeller gerader Folgen kann aus den vorherigen
 Überlegungen geschlossen werden. Da gerade Funktionen achsensymmetrisch
 sind, der Imaginärteil aber punktsymmetrisch, können wir schließen, dass
@@ -898,18 +910,18 @@ reelle, gerade Funktionen ein reelles, gerades Spektrum haben.</p>
 </div>
 </div>
 <div class="section" id="rechenregeln">
-<h3>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.3.3. </span>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="linearitat">
-<h4>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.3.3.1. </span>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">¶</a></h4>
 <p>Die DFT ist eine lineare Transformation. Es gilt also das
 Superpositionsprinzip:</p>
 <div class="math notranslate nohighlight" id="equation-eq-dft-linearitaet">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-dft-linearitaet" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.15)<a class="headerlink" href="#equation-eq-dft-linearitaet" title="Permalink to this equation">¶</a></span>\[
   a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(n) + a_2 X_2(n)
 \]</div>
 </div>
 <div class="section" id="faltung">
-<span id="sec-dft-faltung"></span><h4>Faltung<a class="headerlink" href="#faltung" title="Permalink to this headline">¶</a></h4>
+<span id="sec-dft-faltung"></span><h4><span class="section-number">5.3.3.2. </span>Faltung<a class="headerlink" href="#faltung" title="Permalink to this headline">¶</a></h4>
 <p>Bisher haben wir bereits die Faltung bei der z-Transformation kennen
 gelernt und den Übergang der Faltung in die Multiplikation in der
 z-Ebene. Dieser Zusammenhang gilt auch für die DTFT, aber nicht so
@@ -931,7 +943,7 @@ Multiplikation im Frequenzbereich führt deshalb auf eine Faltung dieser
 periodisch fortgesetzten Sequenzen. Dies führt dazu, dass auch das
 Faltungsprodukt periodisch ist. Man spricht deshalb von der zyklischen
 Faltung. Das Ergebnis kann sich vollständig von dem gewünschten Ergebnis
-unterscheiden. Dies wird in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> demonstriert. Die beiden Folgen
+unterscheiden. Dies wird in <a class="reference internal" href="#fig-bspzyklischefaltung"><span class="std std-numref">Abbildung 5.9</span></a> demonstriert. Die beiden Folgen
 (a,b) ergeben bei der Faltung im Zeitbereich die Folge c. Die Lösung mit
 Hilfe der DFT führt auf die Folge d.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -974,7 +986,7 @@ Hilfe der DFT führt auf die Folge d.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-bspzyklischefaltung" style="width: 75%">
-<p class="caption"><span class="caption-text">Beispiel für zyklische Faltung. Die
+<p class="caption"><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Beispiel für zyklische Faltung. Die
 beiden Folgen (Bild a,b) ergeben bei konventioneller Faltung Bild c.
 Bild d zeigt das Resultat für die direkte Faltung im Frequenzbereich mit
 Hilfe der DFT.</span><a class="headerlink" href="#fig-bspzyklischefaltung" title="Permalink to this image">¶</a></p>
@@ -987,7 +999,7 @@ verändern das Spektrum nicht, sondern nur die Frequenzauflösung<a class="footn
 Rücktransformation führt zu der gewünschten Faltungsfolge, wobei durch
 die vorher eingebrachten Nullen keine zyklischen Faltungsprodukte das
 Ergebnis verfälschen. Bei dem obigen Beispiel würde sich das Ergebnis in
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> c ergeben, wenn an die Folgen a und
+<a class="reference internal" href="#fig-bspzyklischefaltung"><span class="std std-numref">Abbildung 5.9</span></a> c ergeben, wenn an die Folgen a und
 b jeweils 8 Nullen angehängt werden und die DFT Länge auf 16 erhöht
 wird.</p>
 <div class="error admonition">
@@ -996,24 +1008,24 @@ wird.</p>
 </div>
 </div>
 <div class="section" id="theorem-von-parseval">
-<h4>Theorem von Parseval<a class="headerlink" href="#theorem-von-parseval" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.3.3.3. </span>Theorem von Parseval<a class="headerlink" href="#theorem-von-parseval" title="Permalink to this headline">¶</a></h4>
 <p>Das Theorem von Parseval sagt aus, dass man die Energie eines Signals im
 Zeit, oder im Frequenzbereich berechnen kann, bzw. dass die Leistung
 eines Signals im Zeit- und Frequenzbereich gleich ist. Es gilt also für
 die DTFT:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parsevaldtft">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-parsevaldtft" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.16)<a class="headerlink" href="#equation-eq-parsevaldtft" title="Permalink to this equation">¶</a></span>\[
     \sum_{k = -\infty}^{\infty} x^2(k) = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left|X(e^(j \Omega)) \right|^2 d\Omega
 \]</div>
 <p>bzw. für die DFT</p>
 <div class="math notranslate nohighlight" id="equation-eq-parsevaldft">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-parsevaldft" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.17)<a class="headerlink" href="#equation-eq-parsevaldft" title="Permalink to this equation">¶</a></span>\[
     \sum_{k = 0}^{N-1} x^2(k) = \frac{1}{N}\sum_{n = 0}^{N-1} |X(n)|^2
 \]</div>
 </div>
 </div>
 <div class="section" id="effiziente-implementierung">
-<h3>Effiziente Implementierung<a class="headerlink" href="#effiziente-implementierung" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.3.4. </span>Effiziente Implementierung<a class="headerlink" href="#effiziente-implementierung" title="Permalink to this headline">¶</a></h3>
 <p>Die DFT lässt sich durch Ausnutzung unterschiedlicher Symmetrien sehr
 effizient berechnen. Um dies zu verdeutlichen, soll das sog. <em>Decimation
 in Time</em>-Verfahren zur drastischen Reduktion der benötigten
@@ -1026,10 +1038,10 @@ Audio und Sprachsignalverarbeitung genutzte FFT-Längen sind 256 , 512,
 1024 und 2048. Durch diese Forderung ist es möglich, die Folge in zwei
 Teilfolgen zu zerlegen, wobei wir immer abwechselnd die Elemente der
 Folge, den jeweiligen neuen Teilfolgen zuordnen. Es ergeben sich die
-Folgen <span class="math notranslate nohighlight">\(x(2k)\)</span> und <span class="math notranslate nohighlight">\(x(2k+1)\)</span> (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>).</p>
+Folgen <span class="math notranslate nohighlight">\(x(2k)\)</span> und <span class="math notranslate nohighlight">\(x(2k+1)\)</span> (siehe <a class="reference internal" href="#fig-decimationintime"><span class="std std-numref">Abbildung 5.10</span></a>).</p>
 <div class="figure align-default" id="fig-decimationintime">
 <a class="reference internal image-reference" href="_images/DecimationInTime.png"><img alt="_images/DecimationInTime.png" src="_images/DecimationInTime.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-text">Aufteilung einer Sequenz in zwei
+<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Aufteilung einer Sequenz in zwei
 Teilsequenzen zur Erklärung der FFT (Decimation in
 Time)</span><a class="headerlink" href="#fig-decimationintime" title="Permalink to this image">¶</a></p>
 </div>
@@ -1071,12 +1083,12 @@ ergibt sich eine in der Rechenleistung stark reduzierte DFT, die als
 </div>
 </div>
 <div class="section" id="spezielle-signale-und-ihre-spektren">
-<h2>Spezielle Signale und ihre Spektren<a class="headerlink" href="#spezielle-signale-und-ihre-spektren" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4. </span>Spezielle Signale und ihre Spektren<a class="headerlink" href="#spezielle-signale-und-ihre-spektren" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="spektrum-fur-delta-k">
-<h3>Spektrum für <span class="math notranslate nohighlight">\(\delta(k)\)</span><a class="headerlink" href="#spektrum-fur-delta-k" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1. </span>Spektrum für <span class="math notranslate nohighlight">\(\delta(k)\)</span><a class="headerlink" href="#spektrum-fur-delta-k" title="Permalink to this headline">¶</a></h3>
 <p>Berechnet man die DTFT für den <span class="math notranslate nohighlight">\(\delta\)</span>-Impuls ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumdeltaimpuls">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spektrumdeltaimpuls" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.19)<a class="headerlink" href="#equation-eq-spektrumdeltaimpuls" title="Permalink to this equation">¶</a></span>\[
     X(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} \delta(k)e^{-jk \Omega} =e^{-j0 \Omega} = 1,
 \]</div>
 <p>da der <span class="math notranslate nohighlight">\(\delta\)</span>-Impuls ausschließlich an der Stelle <span class="math notranslate nohighlight">\(k = 0\)</span> definiert
@@ -1084,11 +1096,11 @@ ist. Das Betrag des Spektrums ist also eins für alle Frequenzen und die
 Phase ist null für alle Frequenzen.</p>
 </div>
 <div class="section" id="spektrum-fur-delta-k-k-0">
-<h3>Spektrum für <span class="math notranslate nohighlight">\(\delta(k-k_0)\)</span><a class="headerlink" href="#spektrum-fur-delta-k-k-0" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.2. </span>Spektrum für <span class="math notranslate nohighlight">\(\delta(k-k_0)\)</span><a class="headerlink" href="#spektrum-fur-delta-k-k-0" title="Permalink to this headline">¶</a></h3>
 <p>Der um <span class="math notranslate nohighlight">\(k_0\)</span> verschobene <span class="math notranslate nohighlight">\(\delta\)</span>-Impuls führt zu einem etwas anderem
 Spektrum</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumdeltaimpuls">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-spektrumdeltaimpuls" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.19)<a class="headerlink" href="#equation-eq-spektrumdeltaimpuls" title="Permalink to this equation">¶</a></span>\[
     X(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} \delta(k-k_0)e^{-jk \Omega} =e^{-jk_0 \Omega}.
 \]</div>
 <p>Das Spektrum ist im Betrag ebenfalls Eins für alle Frequenzen, aber die
@@ -1097,7 +1109,7 @@ ein <span class="math notranslate nohighlight">\(\delta(k)\)</span> ein System d
 </div>
 </div>
 <div class="section" id="weitere-fensterfunktionen-und-deren-eigenschaften">
-<h2>Weitere Fensterfunktionen und deren Eigenschaften<a class="headerlink" href="#weitere-fensterfunktionen-und-deren-eigenschaften" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5. </span>Weitere Fensterfunktionen und deren Eigenschaften<a class="headerlink" href="#weitere-fensterfunktionen-und-deren-eigenschaften" title="Permalink to this headline">¶</a></h2>
 <p>Wir haben gesehen, dass die DFT für eine zeitlich beschränkte Funktion
 auch als Multiplikation mit einer Fensterfunktion interpretiert werden
 kann. Dieses Fenster hatte einen deutlichen Einfluss auf das
@@ -1106,7 +1118,7 @@ im Frequenzbereich wird häufig die spektrale Auflösung des Maximums zu
 den 3dB Punkten verwendet. Weiterhin ist eine interessante Größe, welche
 Höhe die nächsten Maxima haben (Betrag). Für das Rechteckfenster sind
 diese beiden Größen durch <span class="math notranslate nohighlight">\(2pi/N\)</span> und <span class="math notranslate nohighlight">\(\approx 13\)</span>dB gegeben. Etwas
-anders sieht dies bei anderen Fensterfunktionen aus (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>
+anders sieht dies bei anderen Fensterfunktionen aus (siehe <a class="reference internal" href="#fig-rechteckwindow"><span class="std std-numref">Abbildung 5.11</span></a>
 bis {numref}`Abbildung %s <a class="reference external" href="fig:KaiserWindow">fig:KaiserWindow</a></p>
 <div class="hint admonition">
 <p class="admonition-title">Interaktiv arbeiten</p>
@@ -1153,7 +1165,7 @@ bis {numref}`Abbildung %s <a class="reference external" href="fig:KaiserWindow">
 </div>
 </div>
 <div class="figure align-default" id="fig-rechteckwindow" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des Rechteckfensters</span><a class="headerlink" href="#fig-rechteckwindow" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.11 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Rechteckfensters</span><a class="headerlink" href="#fig-rechteckwindow" title="Permalink to this image">¶</a></p>
 </div>
 <p>Als Ursache für das verschmieren im Frequenzbereich wurde die Faltung
 mit der Fensterfunktion genannt. Die Ursache im Zeitbereich hierfür war
@@ -1164,7 +1176,7 @@ Ausblendung zu den Rändern zu ermöglichen. Fenster die diese Eigenschaft
 besitzen können zum Beispiel durch Cosinusfunktionen realisiert werden.</p>
 <p>Eine generalisierte Version ergibt sich dabei zu</p>
 <div class="math notranslate nohighlight" id="equation-eq-windowfunction-general">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-windowfunction-general" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.20)<a class="headerlink" href="#equation-eq-windowfunction-general" title="Permalink to this equation">¶</a></span>\[
    w(k) = \alpha - \beta \cos(2\pi k /N) + \gamma \cos(4\pi k /N) \quad mit \quad 0\leq k
    &lt; N
 \]</div>
@@ -1214,7 +1226,7 @@ stärker bedämpft.</p></li>
 </div>
 </div>
 <div class="figure align-default" id="fig-hannwindow" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#fig-hannwindow" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.12 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#fig-hannwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1267,7 +1279,7 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></
 </div>
 </div>
 <div class="figure align-default" id="fig-hammingwindow" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#fig-hammingwindow" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.13 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#fig-hammingwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1320,7 +1332,7 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 </div>
 </div>
 <div class="figure align-default" id="fig-blackmanwindow" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<p class="caption"><span class="caption-number">Fig. 5.14 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Blackman-Fensters</span><a class="headerlink" href="#fig-blackmanwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
@@ -1370,7 +1382,7 @@ für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\
 </div>
 </div>
 <div class="figure align-default" id="fig-chebwindow" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<p class="caption"><span class="caption-number">Fig. 5.15 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#fig-chebwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
@@ -1378,7 +1390,7 @@ Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#fig-chebwindow" ti
 Parameters <span class="math notranslate nohighlight">\(\alpha\)</span> veränderlich. Es basiert auf der Form</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-eq-kaiser-fenster">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-kaiser-fenster" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(5.22)<a class="headerlink" href="#equation-eq-kaiser-fenster" title="Permalink to this equation">¶</a></span>\[\begin{split}
        w(k,\alpha) = \left\{\begin{array}{c}
          \frac{I_0\left(\alpha \sqrt{1-(k/N)^2}\right)}{I_0 (\alpha)}     \quad mit \quad 0\leq k
        &lt; N\\
@@ -1388,8 +1400,8 @@ Parameters <span class="math notranslate nohighlight">\(\alpha\)</span> verände
 \end{split}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(I_0\)</span> die modifizierte Bessel-Funktion nullter
 Ordnung darstellt.</p>
-<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  und
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
+<p><a class="reference internal" href="#fig-kaiserwindow"><span class="std std-numref">Abbildung 5.20</span></a>  und
+<a class="reference internal" href="#fig-kaiserwindow2"><span class="std std-numref">Abbildung 5.21</span></a>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
 den zeitlichen Verlauf und die dazugehörigen spektralen
 Eigenschaften.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -1452,8 +1464,8 @@ Eigenschaften.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5d055b38-f738-4212-8862-bc05aaebec92" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
-</input><label class="tabbed-label" for="5d055b38-f738-4212-8862-bc05aaebec92">
+<input checked="checked" id="e151462b-0ac6-493a-9b04-6b604658d2b9" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
+</input><label class="tabbed-label" for="e151462b-0ac6-493a-9b04-6b604658d2b9">
 von Hann</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann- Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1463,11 +1475,11 @@ Nebenmaxima sind dafür im Gegensatz zum Rechteck-Fenster sehr viel
 stärker bedämpft.</p></li>
 </ul>
 <div class="figure align-default" id="id7" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="9101a607-5ffb-4368-99cb-7ee213886934" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
-</input><label class="tabbed-label" for="9101a607-5ffb-4368-99cb-7ee213886934">
+<input id="f48f0508-a76d-4e1c-9d9d-b2221f64b510" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
+</input><label class="tabbed-label" for="f48f0508-a76d-4e1c-9d9d-b2221f64b510">
 Hamming</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1478,11 +1490,11 @@ Nebenmaxima einher. Die Verbreiterung entspricht der des
 Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></li>
 </ul>
 <div class="figure align-default" id="id8" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.17 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="8e41065c-55d0-48d1-882b-820d7adea20a" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
-</input><label class="tabbed-label" for="8e41065c-55d0-48d1-882b-820d7adea20a">
+<input id="2ec92ba2-0c65-47ea-85c8-d7b402c003e4" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
+</input><label class="tabbed-label" for="2ec92ba2-0c65-47ea-85c8-d7b402c003e4">
 Blackman</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1491,12 +1503,12 @@ breitere Hauptkeule <span class="math notranslate nohighlight">\(6\pi/N\)</span>
 der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 </ul>
 <div class="figure align-default" id="id9" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<p class="caption"><span class="caption-number">Fig. 5.18 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Blackman-Fensters</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="1cf56b76-5c5c-4495-ba45-040b56efe967" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
-</input><label class="tabbed-label" for="1cf56b76-5c5c-4495-ba45-040b56efe967">
+<input id="310a0bec-b1e6-4fd9-b660-097b13f1709b" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
+</input><label class="tabbed-label" for="310a0bec-b1e6-4fd9-b660-097b13f1709b">
 Dolph-Chebbyscheff</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Chebbyscheff Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -1507,19 +1519,19 @@ erreicht. Die Breite der Hauptkeule wird gleichzeitig optimal klein
 für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\)</span>. Siehe auch in Matlab <code class="docutils literal notranslate"><span class="pre">chebwin</span></code></p></li>
 </ul>
 <div class="figure align-default" id="id10" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<p class="caption"><span class="caption-number">Fig. 5.19 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="5a5f27d4-5c75-4cb2-9b62-95f19f2812bd" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
-</input><label class="tabbed-label" for="5a5f27d4-5c75-4cb2-9b62-95f19f2812bd">
+<input id="1393ca81-76ed-4e82-9604-8f86d5eca817" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
+</input><label class="tabbed-label" for="1393ca81-76ed-4e82-9604-8f86d5eca817">
 Kaiser-Fester</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser Fenster:</strong> Auch das Kaiser Fenster ist mit Hilfe des
 Parameters <span class="math notranslate nohighlight">\(\alpha\)</span> veränderlich. Es basiert auf der Form</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-eq-kaiser-fenster">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-kaiser-fenster" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(5.22)<a class="headerlink" href="#equation-eq-kaiser-fenster" title="Permalink to this equation">¶</a></span>\[\begin{split}
        w(k,\alpha) = \left\{\begin{array}{c}
          \frac{I_0\left(\alpha \sqrt{1-(k/N)^2}\right)}{I_0 (\alpha)}     \quad mit \quad 0\leq k
        &lt; N\\
@@ -1529,12 +1541,12 @@ Parameters <span class="math notranslate nohighlight">\(\alpha\)</span> verände
 \end{split}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(I_0\)</span> die modifizierte Bessel-Funktion nullter
 Ordnung darstellt.</p>
-<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  und
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
+<p><a class="reference internal" href="#fig-kaiserwindow"><span class="std std-numref">Abbildung 5.20</span></a>  und
+<a class="reference internal" href="#fig-kaiserwindow2"><span class="std std-numref">Abbildung 5.21</span></a>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
 den zeitlichen Verlauf und die dazugehörigen spektralen
 Eigenschaften.</p>
 <div class="figure align-default" id="fig-kaiserwindow" style="width: 75%">
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<p class="caption"><span class="caption-number">Fig. 5.20 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Kaiser-Fensters mit
 <span class="math notranslate nohighlight">\(\alpha =\)</span> 2 und 4.</span><a class="headerlink" href="#fig-kaiserwindow" title="Permalink to this image">¶</a></p>
 </div>
@@ -1542,7 +1554,7 @@ Kaiser-Fensters mit
 </div>
 <div class="figure align-default" id="fig-kaiserwindow2">
 <a class="reference internal image-reference" href="_images/KaiserWindow2.png"><img alt="_images/KaiserWindow2.png" src="_images/KaiserWindow2.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<p class="caption"><span class="caption-number">Fig. 5.21 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Kaiser-Fensters mit
 <span class="math notranslate nohighlight">\(\alpha = 2\)</span>.</span><a class="headerlink" href="#fig-kaiserwindow2" title="Permalink to this image">¶</a></p>
 </div>
@@ -1599,6 +1611,24 @@ ergibt.</p>
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="ztrafo.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>z-Transformation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="filter.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Filter</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

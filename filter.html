@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filter &#8212; Signalverarbeitung 1</title>
+    <title>6. Filter &#8212; Signalverarbeitung 1</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,6 +53,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Literaturverzeichnis" href="zbibliography.html" />
+    <link rel="prev" title="5. Spektren" href="spektren.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,7 +90,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -110,8 +112,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   5. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Filter
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   5. Literaturverzeichnis
+   7. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -220,88 +232,88 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#filtertypen">
-   Filtertypen
+   6.1. Filtertypen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#realisierungsformen">
-   Realisierungsformen
+   6.2. Realisierungsformen
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fir-filter">
-     FIR-Filter
+     6.2.1. FIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#beschreibung-als-blockdiagramm">
-       Beschreibung als Blockdiagramm
+       6.2.1.1. Beschreibung als Blockdiagramm
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fir-filter-design">
-     FIR-Filter Design
+     6.2.2. FIR-Filter Design
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#fenster-methode">
-       Fenster-Methode
+       6.2.2.1. Fenster-Methode
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#parks-mcclellan">
-       Parks-McClellan
+       6.2.2.2. Parks-McClellan
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#linearphasige-filter">
-       Linearphasige Filter
+       6.2.2.3. Linearphasige Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#minimalphasige-fir-filter">
-       Minimalphasige FIR-Filter
+       6.2.2.4. Minimalphasige FIR-Filter
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#iir-filter">
-     IIR-Filter
+     6.2.3. IIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id10">
-       Beschreibung als Blockdiagramm
+       6.2.3.1. Beschreibung als Blockdiagramm
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#filterstrukturen-fur-sos">
-       Filterstrukturen für SOS
+       6.2.3.2. Filterstrukturen für SOS
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#vom-blockdiagramm-zur-ubertragungsfunktion">
-       Vom Blockdiagramm zur Übertragungsfunktion
+       6.2.3.3. Vom Blockdiagramm zur Übertragungsfunktion
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#iir-filterdesign">
-     IIR-Filterdesign
+     6.2.4. IIR-Filterdesign
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#notch-filter">
-       Notch-Filter
+       6.2.4.1. Notch-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#allpasse">
-       Allpässe
+       6.2.4.2. Allpässe
       </a>
      </li>
     </ul>
@@ -310,69 +322,69 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implementierungsaspekte">
-   Implementierungsaspekte
+   6.3. Implementierungsaspekte
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id11">
-     FIR-Filter
+     6.3.1. FIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#schnelle-faltung-ola">
-       Schnelle Faltung OLA
+       6.3.1.1. Schnelle Faltung OLA
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#c-c">
-       C/C++
+       6.3.1.2. C/C++
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#vektorielle-schreibweise-und-implementierung-matlab">
-       Vektorielle Schreibweise und Implementierung (Matlab)
+       6.3.1.3. Vektorielle Schreibweise und Implementierung (Matlab)
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id13">
-     IIR-Filter
+     6.3.2. IIR-Filter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#sec-iir-filterdesign">
-       IIR-Filterdesign
+       6.3.2.1. IIR-Filterdesign
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#butterworth-filter">
-       Butterworth-Filter
+       6.3.2.2. Butterworth-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tschebyscheff-i-filter">
-       Tschebyscheff-I-Filter
+       6.3.2.3. Tschebyscheff-I-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tschebyscheff-ii-filter">
-       Tschebyscheff-II-Filter
+       6.3.2.4. Tschebyscheff-II-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#cauer-filter">
-       Cauer-Filter
+       6.3.2.5. Cauer-Filter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren">
-       Vor- und Nachteile der unterschiedlichen Entwurfsverfahren
+       6.3.2.6. Vor- und Nachteile der unterschiedlichen Entwurfsverfahren
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#entwurf-von-hochpass-bandpass-und-bandsperr-filter">
-       Entwurf von Hochpass, Bandpass und Bandsperr-Filter
+       6.3.2.7. Entwurf von Hochpass, Bandpass und Bandsperr-Filter
       </a>
      </li>
     </ul>
@@ -391,7 +403,7 @@
               <div>
                 
   <div class="section" id="filter">
-<h1>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h1>
 <p>Filter sind spezielle Systeme, die in diesem Abschnitt grundsätzlich als
 LTI-Systeme angenommen werden (Filter wie z.B. der Median Filter sind aber nicht-linear). Die Aufgabe von Filtern ist bestimmte
 Anteile aus dem Signal zu entfernen oder abzuschwächen. Dies kann durch
@@ -410,31 +422,209 @@ nicht-rekursive und rekursive Implementierung kennen lernen.
 Abschließend werden in einer sehr kompakten Form einige bekannte
 Entwurfsverfahren für die beiden Realisierungsformen vorgestellt.</p>
 <div class="section" id="filtertypen">
-<h2>Filtertypen<a class="headerlink" href="#filtertypen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Filtertypen<a class="headerlink" href="#filtertypen" title="Permalink to this headline">¶</a></h2>
 <p>Bei der Typisierung von Filtern schauen wir uns zunächst die sogenannten
 Sperrfilter an. Ihr Entwurfsziel ist, möglichst einen bestimmten
 Frequenzbereich vollständig aus dem Spektrum zu entfernen. Dabei wird
 zwischen vier Grundtypen unterschieden:</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># Script to create an ideal and realistic lowpass</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+<span class="n">Fs</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">fg</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># cutoff frequency</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="n">Fs</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="o">=</span><span class="n">fg</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">Fs</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># dB, max amplitude = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freq_vec</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax_spectrum</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># ideal frequency respose of filter</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">Fs</span><span class="o">-</span><span class="n">fg</span><span class="p">,</span> <span class="n">Fs</span><span class="p">],</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimale Entwurfsvorgabe&quot;</span><span class="p">)</span>
+<span class="c1"># actual realization</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_vec</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mögliche Realisierung&quot;</span><span class="p">)</span>
+
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz &#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Dämpfung in dB&#39;</span><span class="p">,</span> 
+        <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Tiefpass </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">.Odnung&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;DesignTP&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># Script to create an ideal and realistic highpass</span>
+
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+<span class="n">Fs</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">fg</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># cutoff frequency</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="n">Fs</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="o">=</span><span class="n">fg</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;high&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">Fs</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># dB, max amplitude = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freq_vec</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax_spectrum</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># ideal frequency respose of filter</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">Fs</span><span class="o">-</span><span class="n">fg</span><span class="p">,</span> <span class="n">Fs</span><span class="p">],</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimale Entwurfsvorgabe&quot;</span><span class="p">)</span>
+<span class="c1"># actual realization</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_vec</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mögliche Realisierung&quot;</span><span class="p">)</span>
+
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz &#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Dämpfung in dB&#39;</span><span class="p">,</span> 
+        <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Hochpass </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">.Odnung&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;DesignHP&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># Script to create an ideal and realistic bandpass</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+
+<span class="n">Fs</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">fg</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">]</span><span class="c1"># cutoff frequency</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="n">Fs</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="o">=</span><span class="n">fg</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">Fs</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1"># dB, max amplitude = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freq_vec</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax_spectrum</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># ideal frequency respose of filter</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> 
+        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">Fs</span><span class="o">-</span><span class="n">fg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Fs</span><span class="o">-</span><span class="n">fg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Fs</span><span class="p">],</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimale Entwurfsvorgabe&quot;</span><span class="p">)</span>
+<span class="c1"># actual realization</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_vec</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mögliche Realisierung&quot;</span><span class="p">)</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz &#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Dämpfung in dB&#39;</span><span class="p">,</span> 
+        <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Bandpass </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">.Odnung&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;DesignBP&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># Script to create an ideal and realistic bandstop</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+<span class="n">Fs</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">fg</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">]</span><span class="c1"># cutoff frequency</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="n">Fs</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="o">=</span><span class="n">fg</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;bandstop&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">Fs</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1"># dB, max amplitude = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freq_vec</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax_spectrum</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># ideal frequency respose of filter</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">Fs</span><span class="o">-</span><span class="n">fg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Fs</span><span class="o">-</span><span class="n">fg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Fs</span><span class="p">],</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimale Entwurfsvorgabe&quot;</span><span class="p">)</span>
+<span class="c1"># actual realization</span>
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_vec</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mögliche Realisierung&quot;</span><span class="p">)</span>
+
+<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz &#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Dämpfung in dB&#39;</span><span class="p">,</span> 
+        <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Bandsperre </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">.Odnung&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;DesignBS&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2ae85405-1ee2-42a2-ac8e-9cddd71a085f" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
-</input><label class="tabbed-label" for="2ae85405-1ee2-42a2-ac8e-9cddd71a085f">
+<input checked="checked" id="a05a4f86-7d24-4a36-851c-983f59373579" name="edbd7fbf-5fd6-4d69-9c33-27c551d7e70c" type="radio">
+</input><label class="tabbed-label" for="a05a4f86-7d24-4a36-851c-983f59373579">
 Tiefpass</label><div class="tabbed-content docutils">
-<p><strong>Tiefpass:</strong> Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
+<ul class="simple">
+<li><p><strong>Tiefpass:</strong> Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
 einer zu definierenden Grenzfrequenz <span class="math notranslate nohighlight">\(f_g\)</span> aus dem Spektrum zu
 entfernen. In der technischen Umsetzung ist es aber nicht möglich,
 einen abrupten Übergang zwischen dem sog. Durchlassbereich (tiefe
 Frequenzen beim Tiefpass) und dem Sperrbereich zu realisieren. Eine
 praktische Realisierung hat deshalb immer bestimmte Grenz- und
-Übergangsbereiche.</p>
-<div class="figure align-default" id="fig-designtp">
-<a class="reference internal image-reference" href="_images/DesignTP.png"><img alt="_images/DesignTP.png" src="_images/DesignTP.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Optimaler
+Übergangsbereiche.</p></li>
+</ul>
+<div class="figure align-default" id="fig-designtp" style="width: 50%">
+<div class="cell_output docutils container">
+<img alt="_images/filter_1_0.png" src="_images/filter_1_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Optimaler
 Entwurf eines Tiefpasses (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz = <span class="math notranslate nohighlight">\(f_g\)</span> =
-1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code></span><a class="headerlink" href="#fig-designtp" title="Permalink to this image">¶</a></p>
+1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a>)</span><a class="headerlink" href="#fig-designtp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="f1188c4c-efdb-4278-8353-398d9593b920" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
-</input><label class="tabbed-label" for="f1188c4c-efdb-4278-8353-398d9593b920">
+<input id="cd2db04a-3368-471f-b669-4e55e1f4c4aa" name="edbd7fbf-5fd6-4d69-9c33-27c551d7e70c" type="radio">
+</input><label class="tabbed-label" for="cd2db04a-3368-471f-b669-4e55e1f4c4aa">
 Hochpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hochpass:</strong> Das inverse Designziel zum Tiefpass liegt dem
@@ -442,15 +632,17 @@ Hochpassentwurf zu Grunde. Es sollen möglichst alle tiefen
 Frequenzen aus dem Spektrum entfernt werden. Auch hier gelten die
 beim Tiefpass erwähnten Einschränkungen.</p></li>
 </ul>
-<div class="figure align-default" id="fig-designhp">
-<a class="reference internal image-reference" href="_images/DesignHP.png"><img alt="_images/DesignHP.png" src="_images/DesignHP.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Optimaler
+<div class="figure align-default" id="fig-designhp" style="width: 50%">
+<div class="cell_output docutils container">
+<img alt="_images/filter_2_0.png" src="_images/filter_2_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Optimaler
 Entwurf eines Hochpasses (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz = <span class="math notranslate nohighlight">\(f_g\)</span> =
-1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code></span><a class="headerlink" href="#fig-designhp" title="Permalink to this image">¶</a></p>
+1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a>)</span><a class="headerlink" href="#fig-designhp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="55b6b7fc-c951-47be-8c46-1c480be1b699" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
-</input><label class="tabbed-label" for="55b6b7fc-c951-47be-8c46-1c480be1b699">
+<input id="063d7702-f56e-4124-bf73-61063b6e8448" name="edbd7fbf-5fd6-4d69-9c33-27c551d7e70c" type="radio">
+</input><label class="tabbed-label" for="063d7702-f56e-4124-bf73-61063b6e8448">
 Bandpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandpass:</strong> Im Gegensatz zu den vorher erwähnten Typen, hat das
@@ -461,28 +653,32 @@ von <span class="math notranslate nohighlight">\(f_2\)</span> zu entfernen. Die 
 Bandbreite genannt <span class="math notranslate nohighlight">\(B = f_2 -
     f_1\)</span>.</p></li>
 </ul>
-<div class="figure align-default" id="fig-designbp">
-<a class="reference internal image-reference" href="_images/DesignBP.png"><img alt="_images/DesignBP.png" src="_images/DesignBP.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Optimaler
+<div class="figure align-default" id="fig-designbp" style="width: 50%">
+<div class="cell_output docutils container">
+<img alt="_images/filter_3_0.png" src="_images/filter_3_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Optimaler
 Entwurf eines Bandpasses (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz <span class="math notranslate nohighlight">\(f_1\)</span> = 1
 kHz und <span class="math notranslate nohighlight">\(f_2 =\)</span> 3 kHz) und Realisierung durch Butterworth-Filter 6.
-Ordnung (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code></span><a class="headerlink" href="#fig-designbp" title="Permalink to this image">¶</a></p>
+Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a>)</span><a class="headerlink" href="#fig-designbp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="98ff8456-561e-4f82-a344-72ec34c08c1b" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
-</input><label class="tabbed-label" for="98ff8456-561e-4f82-a344-72ec34c08c1b">
+<input id="5401b877-91fb-42ee-a048-0b9608b2e605" name="edbd7fbf-5fd6-4d69-9c33-27c551d7e70c" type="radio">
+</input><label class="tabbed-label" for="5401b877-91fb-42ee-a048-0b9608b2e605">
 Bandsperre</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandsperre:</strong> Die Bandsperre stellt die inverse Funktion zum
 Bandpass dar. Bei diesem Entwurf sollen möglichst alle Frequenzen im
 Bereich zwischen <span class="math notranslate nohighlight">\(f_1\)</span> und <span class="math notranslate nohighlight">\(f_2\)</span> aus dem Spektrum entfernt werden.</p></li>
 </ul>
-<div class="figure align-default" id="fig-designbs">
-<a class="reference internal image-reference" href="_images/DesignBS.png"><img alt="_images/DesignBS.png" src="_images/DesignBS.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Optimaler
+<div class="figure align-default" id="fig-designbs" style="width: 50%">
+<div class="cell_output docutils container">
+<img alt="_images/filter_4_0.png" src="_images/filter_4_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Optimaler
 Entwurf einer Bandsperre (<span class="math notranslate nohighlight">\(f_s\)</span> = 8 kHz und Grenzfrequenz <span class="math notranslate nohighlight">\(f_1\)</span> = 1
 kHz und <span class="math notranslate nohighlight">\(f_2 =\)</span> 3 kHz) und Realisierung durch Butterworth-Filter 6.
-Ordnung (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code></span><a class="headerlink" href="#fig-designbs" title="Permalink to this image">¶</a></p>
+Ordnung (siehe <a class="reference internal" href="#sec-butterworth-filter"><span class="std std-numref">Abschnitt 6.3.2.2</span></a>)</span><a class="headerlink" href="#fig-designbs" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -580,7 +776,7 @@ die Güte <span class="math notranslate nohighlight">\(Q\)</span> als Verhältni
 
 <span class="n">ax_gain</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Verstärkung in dB&#39;</span><span class="p">,</span>     
         <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Peak-EQ mit variablem Gain </span><span class="se">\n\</span>
-<span class="s1">        bei Frequenz f = </span><span class="si">{</span><span class="n">f_c</span><span class="si">}</span><span class="s1"> Hz mit Güte Q = </span><span class="si">{</span><span class="n">Q</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="s1">        bei Frequenz f = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz mit Güte Q = </span><span class="si">{</span><span class="n">Q</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">freqs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">gain</span> <span class="o">=</span> <span class="mi">12</span>
@@ -612,16 +808,19 @@ die Güte <span class="math notranslate nohighlight">\(Q\)</span> als Verhältni
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c77509c5-badb-48c7-bd57-b670c768a6b4" name="e6381757-97db-469b-9d52-f446ad059f2e" type="radio">
-</input><label class="tabbed-label" for="c77509c5-badb-48c7-bd57-b670c768a6b4">
+<input checked="checked" id="ab8c42d7-fd34-49be-b209-99c19d89fdba" name="c1ca720d-9616-4e11-9c29-c01aee2c2084" type="radio">
+</input><label class="tabbed-label" for="ab8c42d7-fd34-49be-b209-99c19d89fdba">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-eq-gainparam" style="width: 75%">
-<p class="caption"><span class="caption-text">Equalizerübertragungskurve bei Veränderung der
+<div class="cell_output docutils container">
+<img alt="_images/filter_10_1.png" src="_images/filter_10_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Equalizerübertragungskurve bei Veränderung der
 Güte</span><a class="headerlink" href="#fig-eq-gainparam" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="2419dc4d-cd23-40f1-acb6-fe5647c145ad" name="e6381757-97db-469b-9d52-f446ad059f2e" type="radio">
-</input><label class="tabbed-label" for="2419dc4d-cd23-40f1-acb6-fe5647c145ad">
+<input id="8e47a073-ab40-46ee-be11-fc16bac3068e" name="c1ca720d-9616-4e11-9c29-c01aee2c2084" type="radio">
+</input><label class="tabbed-label" for="8e47a073-ab40-46ee-be11-fc16bac3068e">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - “Filter_Peak_EQ.py” in jupyterbook/interactive_programs</p></li>
@@ -633,7 +832,7 @@ Interaktiv arbeiten</label><div class="tabbed-content docutils">
 die als Kuhschwanzfilter (Shelving-Filter) bezeichnet werden. Hierbei
 stehen nur die zwei Parameter Frequenz und Verstärkung bzw. Abschwächung
 zur Verfügung.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -722,7 +921,7 @@ zur Verfügung.</p>
 <span class="n">f_c</span> <span class="o">=</span> <span class="mi">8000</span>
 <span class="n">shelf_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;low&quot;</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">]</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_gain</span><span class="p">,</span> <span class="n">ax_freq</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_gain</span><span class="p">,</span> <span class="n">ax_freq</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">gain</span> <span class="ow">in</span> <span class="n">gains</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">ftype</span> <span class="ow">in</span> <span class="n">shelf_types</span><span class="p">:</span>
@@ -753,15 +952,18 @@ zur Verfügung.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="be1def32-df13-47b6-acc6-9a00ef5af7af" name="69d77621-4f30-41c2-9ff2-521d96be9a09" type="radio">
-</input><label class="tabbed-label" for="be1def32-df13-47b6-acc6-9a00ef5af7af">
+<input checked="checked" id="819ab708-b257-44af-8ea2-8cfdd42580bc" name="e38c3129-8d1d-45d9-ae29-7b2a37b49dda" type="radio">
+</input><label class="tabbed-label" for="819ab708-b257-44af-8ea2-8cfdd42580bc">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-eq-shelvparam" style="width: 75%">
-<p class="caption"><span class="caption-text">Equalizerübertragungskurven eines Hoch bzw. Tiefpasskuhschwanzfilters bei Veränderung der Verstärkung und Frequenz</span><a class="headerlink" href="#fig-eq-shelvparam" title="Permalink to this image">¶</a></p>
+<div class="cell_output docutils container">
+<img alt="_images/filter_13_1.png" src="_images/filter_13_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Equalizerübertragungskurven eines Hoch bzw. Tiefpasskuhschwanzfilters bei Veränderung der Verstärkung und Frequenz</span><a class="headerlink" href="#fig-eq-shelvparam" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="5ee0d23b-2bdf-4df4-ab70-818bb113dbcc" name="69d77621-4f30-41c2-9ff2-521d96be9a09" type="radio">
-</input><label class="tabbed-label" for="5ee0d23b-2bdf-4df4-ab70-818bb113dbcc">
+<input id="fdc0f166-6db5-493b-bd2a-acd5cf9139c5" name="e38c3129-8d1d-45d9-ae29-7b2a37b49dda" type="radio">
+</input><label class="tabbed-label" for="fdc0f166-6db5-493b-bd2a-acd5cf9139c5">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - “Filter_Shelving_EQ.py” in jupyterbook/interactive_programs</p></li>
@@ -806,6 +1008,76 @@ Filter sind standardisiert. Tabelle … gibt diese Frequenzen wieder.</p>
 </div>
 <div class="card-body docutils">
 <div class="figure align-default" id="tab-df-oktav" style="width: 300px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Frequenz (Hz)</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>-5</th>
+      <td>31.5</td>
+    </tr>
+    <tr>
+      <th>-4</th>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <th>-3</th>
+      <td>125.0</td>
+    </tr>
+    <tr>
+      <th>-2</th>
+      <td>250.0</td>
+    </tr>
+    <tr>
+      <th>-1</th>
+      <td>500.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -817,6 +1089,156 @@ Filter sind standardisiert. Tabelle … gibt diese Frequenzen wieder.</p>
 </div>
 <div class="card-body docutils">
 <div class="figure align-default" id="tab-df-terz" style="width: 300px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Frequenz (Hz))</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>-16</th>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>-15</th>
+      <td>31.5</td>
+    </tr>
+    <tr>
+      <th>-14</th>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>-13</th>
+      <td>50.0</td>
+    </tr>
+    <tr>
+      <th>-12</th>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <th>-11</th>
+      <td>80.0</td>
+    </tr>
+    <tr>
+      <th>-10</th>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <th>-9</th>
+      <td>125.0</td>
+    </tr>
+    <tr>
+      <th>-8</th>
+      <td>160.0</td>
+    </tr>
+    <tr>
+      <th>-7</th>
+      <td>200.0</td>
+    </tr>
+    <tr>
+      <th>-6</th>
+      <td>250.0</td>
+    </tr>
+    <tr>
+      <th>-5</th>
+      <td>315.0</td>
+    </tr>
+    <tr>
+      <th>-4</th>
+      <td>400.0</td>
+    </tr>
+    <tr>
+      <th>-3</th>
+      <td>500.0</td>
+    </tr>
+    <tr>
+      <th>-2</th>
+      <td>630.0</td>
+    </tr>
+    <tr>
+      <th>-1</th>
+      <td>800.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1250.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1600.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2500.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3150.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4000.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>5000.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>6300.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>8000.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10000.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12500.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>16000.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>20000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -832,7 +1254,7 @@ diesem Fall von sog. Resonanzfrequenzen, da bestimmte Signalanteile im
 Filter eine starke Resonanz finden.</p>
 </div>
 <div class="section" id="realisierungsformen">
-<h2>Realisierungsformen<a class="headerlink" href="#realisierungsformen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Realisierungsformen<a class="headerlink" href="#realisierungsformen" title="Permalink to this headline">¶</a></h2>
 <p>Wir haben gesehen, dass es eine Vielzahl von unterschiedlichen
 Filtereinsatzmöglichkeiten gibt. Bisher wurde aber keinerlei Hinweis auf
 die Realsierungsformen gegeben. Aus der Beschreibung von Systemen kennen
@@ -842,7 +1264,7 @@ Impulse Response (IIR) und Finite Impulse Response (FIR) Systeme. Und
 genau diese Bezeichnungen kennzeichnen auch die beiden grundsätzlichen
 Realisierungsformen von Filtern.</p>
 <div class="section" id="fir-filter">
-<h3>FIR-Filter<a class="headerlink" href="#fir-filter" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.1. </span>FIR-Filter<a class="headerlink" href="#fir-filter" title="Permalink to this headline">¶</a></h3>
 <p>Die Anwendung von FIR-Filtern ist ausschließlich durch digitale
 Signalverarbeitung möglich, da eine Realisierung in Analogtechnk mit
 elektrischen Bauelementen nicht möglich ist. FIR-Filter zeichnen sich
@@ -854,7 +1276,7 @@ Verzögerung des Signals bewirken. Die zeitliche Verzögerung macht sich
 in der Übertragungsfunktion durch eine lineare Phase deutlich. Diese
 Filter werden deshalb linearphasig genannt.</p>
 <div class="section" id="beschreibung-als-blockdiagramm">
-<h4>Beschreibung als Blockdiagramm<a class="headerlink" href="#beschreibung-als-blockdiagramm" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.1.1. </span>Beschreibung als Blockdiagramm<a class="headerlink" href="#beschreibung-als-blockdiagramm" title="Permalink to this headline">¶</a></h4>
 <p>Bisher haben wir FIR-Systeme nur als Differenzengleichung oder als
 z-Übertragungsfunktion kennen gelernt. Um die noch folgende
 Implementierung zu ermöglichen ist eine andere Darstellung aber
@@ -866,10 +1288,10 @@ genauer an. So erkennt man, dass man 3 verschiedene Bauteile braucht.</p>
 <li><p>Einen Verzogerungseinheit, die das Signal um genau einen Sample <span class="math notranslate nohighlight">\(T\)</span>
 verzögert. Dies kann durch ein einfaches Speicherelement geschehen.</p></li>
 </ul>
-<p>Diese 3 Elemente werden im folgenden durch die in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> gezeigten Symbole beschrieben.</p>
+<p>Diese 3 Elemente werden im folgenden durch die in <a class="reference internal" href="#fig-blockdiagrammsymbole"><span class="std std-numref">Abbildung 6.7</span></a> gezeigten Symbole beschrieben.</p>
 <div class="figure align-default" id="fig-blockdiagrammsymbole">
 <a class="reference internal image-reference" href="_images/BlockdiagrammSymbole.png"><img alt="_images/BlockdiagrammSymbole.png" src="_images/BlockdiagrammSymbole.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-text">Symbole um Zeichnen von Filter
+<p class="caption"><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Symbole um Zeichnen von Filter
 Strukturen als
 Blockdiagramm</span><a class="headerlink" href="#fig-blockdiagrammsymbole" title="Permalink to this image">¶</a></p>
 </div>
@@ -878,32 +1300,32 @@ Blockdiagramm</span><a class="headerlink" href="#fig-blockdiagrammsymbole" title
 Blockschaltbild.</p>
 <div class="figure align-default" id="fig-firersterordnung">
 <a class="reference internal image-reference" href="_images/FIRErsterOrdnung.png"><img alt="_images/FIRErsterOrdnung.png" src="_images/FIRErsterOrdnung.png" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-text">Blockdiagramm eines FIR-Filters 1.
+<p class="caption"><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Blockdiagramm eines FIR-Filters 1.
 Ordnung</span><a class="headerlink" href="#fig-firersterordnung" title="Permalink to this image">¶</a></p>
 </div>
 <p>Zur Realisierung eines allgemeinen FIR-Filters muss das allgemeine
-Blockschaltbild genauer betrachtet werden (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>).</p>
+Blockschaltbild genauer betrachtet werden (siehe <a class="reference internal" href="#fig-fir-allgemeinblock"><span class="std std-numref">Abbildung 6.9</span></a>).</p>
 <div class="figure align-default" id="fig-fir-allgemeinblock">
 <a class="reference internal image-reference" href="_images/FIR_allgemeinBlock.png"><img alt="_images/FIR_allgemeinBlock.png" src="_images/FIR_allgemeinBlock.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Allgemeine FIR-Filter
+<p class="caption"><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Allgemeine FIR-Filter
 Struktur.</span><a class="headerlink" href="#fig-fir-allgemeinblock" title="Permalink to this image">¶</a></p>
 </div>
 <p>Es wird deutlich, dass wir bei <span class="math notranslate nohighlight">\(N\)</span>-Koeffizienten <span class="math notranslate nohighlight">\(N-1\)</span> Speicherelemente
 benötigen, die die jeweilige Vergangenheit von <span class="math notranslate nohighlight">\(x(k)\)</span> speichern.</p>
 <p>Um einen Ausgangswert <span class="math notranslate nohighlight">\(y(k)\)</span> zu berechnen, muss die Summe</p>
 <div class="math notranslate nohighlight" id="equation-eq-fir-filter">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-fir-filter" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-fir-filter" title="Permalink to this equation">¶</a></span>\[
     y(k) = \sum_{i = 0}^{N-1} b_i x(k-i)
 \]</div>
 <p>berechnet werden.
 Abschließend wird der Speicher um eine Stelle weiter geschoben.
-Gleichung <a class="reference internal" href="#equation-eq-fir-filter">()</a> ist bereits von der Faltung bekannt. Somit
+Gleichung <a class="reference internal" href="#equation-eq-fir-filter">(6.1)</a> ist bereits von der Faltung bekannt. Somit
 ist ein FIR-Filter also eine andere Bezeichnung für ein System zur
 Faltung.</p>
 </div>
 </div>
 <div class="section" id="fir-filter-design">
-<h3>FIR-Filter Design<a class="headerlink" href="#fir-filter-design" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.2. </span>FIR-Filter Design<a class="headerlink" href="#fir-filter-design" title="Permalink to this headline">¶</a></h3>
 <p>Nachdem die Strukturen zur Realisierung von Filtern bekannt sind, fehlt
 noch die Bestimmung der einzelnen Filterkoeffizienten. Es muss also
 überlegt werden, wie aus einem bestimmten Entwurf des Filters im
@@ -912,13 +1334,13 @@ können. Dazu betrachten wir zunächst nur die FIR-Filter. Es sind
 verschiedene Verfahren bekannt. Die beiden am häufigsten Methoden sollen
 im weiteren genauer erläutert werden.</p>
 <div class="section" id="fenster-methode">
-<h4>Fenster-Methode<a class="headerlink" href="#fenster-methode" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.1. </span>Fenster-Methode<a class="headerlink" href="#fenster-methode" title="Permalink to this headline">¶</a></h4>
 <p>Aus dem Abschnitt über Spektren ist uns bekannt, dass wir zu einer
 Zeitfolge mit Hilfe der DTFT ein Spektrum berechnen können, dass in
 <span class="math notranslate nohighlight">\(2\pi\)</span> periodisch ist. Zu dieser Hintransformation gibt es auch die
 korrespondierende Rücktransformation die als</p>
 <div class="math notranslate nohighlight" id="equation-fir-idtft-def">
-<span class="eqno">()<a class="headerlink" href="#equation-fir-idtft-def" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-fir-idtft-def" title="Permalink to this equation">¶</a></span>\[
     x(k) = \frac{1}{2\pi}\int_{-\pi}^{\pi} X(e^(j \Omega)) e^{j\Omega k} d\Omega
 \]</div>
 <p>definiert ist. Somit ist es natürlich auch möglich zu einem bestimmten
@@ -927,7 +1349,7 @@ beispielsweise an, wir suchen die Koeffizienten, um ein ideales
 Tiefpassfilter mit der Grenzfrequenz <span class="math notranslate nohighlight">\(\Omega_g\)</span> zu realisieren. Die
 Definition der Übertragungsfunktion ist somit</p>
 <div class="math notranslate nohighlight" id="equation-fir-bsp-tiefpass">
-<span class="eqno">()<a class="headerlink" href="#equation-fir-bsp-tiefpass" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-fir-bsp-tiefpass" title="Permalink to this equation">¶</a></span>\[\begin{split}
     H(e^(j \Omega)) = \Bigg\{ \begin{array}{lcc}
 1 &amp; für &amp; -\Omega_g \leq \Omega \leq  \Omega_g\\
 0 &amp; &amp; \Omega_g &lt; |\Omega| \leq \pi
@@ -935,7 +1357,7 @@ Definition der Übertragungsfunktion ist somit</p>
 \end{split}\]</div>
 <p>Für die gesuchten Filterkoeffizienten ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-fir-tp-ideal">
-<span class="eqno">()<a class="headerlink" href="#equation-fir-tp-ideal" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-fir-tp-ideal" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
     h(k) &amp; = &amp;\frac{1}{2\pi}\int_{-\pi}^{\pi} H(e^(j \Omega)) e^{j\Omega k} d\Omega\\
          &amp; = &amp;\frac{1}{2\pi}\int_{-\Omega_g}^{\Omega_g}e^{j\Omega k} d\Omega\\
@@ -958,7 +1380,7 @@ enstehen an der Übergangsstelle Überschwinger. Vergrößert man nun die
 Länge des Ausschnitts, so wird der Übergangsbereich schmaller, und die
 Überschwinger konzentrieren sich an der Übergangsstelle, aber die Höhe
 der Überschwinger bleiben gleich (siehe
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> ). Dies wird als Gippsches Phänomen
+<a class="reference internal" href="#fig-gippspheanomen"><span class="std std-numref">Abbildung 6.10</span></a> ). Dies wird als Gippsches Phänomen
 bezeichnet.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1017,7 +1439,10 @@ bezeichnet.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-gippspheanomen" style="width: 75%">
-<p class="caption"><span class="caption-text">Beispiel zur Veranschaulichung des
+<div class="cell_output docutils container">
+<img alt="_images/filter_25_0.png" src="_images/filter_25_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Beispiel zur Veranschaulichung des
 Gipps-Phänomens</span><a class="headerlink" href="#fig-gippspheanomen" title="Permalink to this image">¶</a></p>
 </div>
 <p>Die Ursache hierfür ist in der Übertragungsfunktion des Rechteckfensters
@@ -1127,13 +1552,16 @@ erkennen sind.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-bspfensterentwurf" style="width: 75%">
-<p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
+<div class="cell_output docutils container">
+<img alt="_images/filter_28_0.png" src="_images/filter_28_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
 Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#fig-bspfensterentwurf" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="parks-mcclellan">
-<h4>Parks-McClellan<a class="headerlink" href="#parks-mcclellan" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.2. </span>Parks-McClellan<a class="headerlink" href="#parks-mcclellan" title="Permalink to this headline">¶</a></h4>
 <p>Im letzten Abschnitt wurde eine optimale Lösung vorgestellt, die den
 mittleren Fehler über das Gesamtspektrum minimiert. Dabei hat sich aber
 der Fehler an der Übergangsstelle konzentriert. Eine weitere optimale
@@ -1145,7 +1573,7 @@ Lösung konvergiert. Der Restfehler ist dabei minimal für alle
 Frequenzen. Diese Minimierung des maximalen Fehlers wird auch als
 Tschebyscheff-Lösung bezeichnet.</p>
 <p>Um die Lösung zu verdeutlichen und die Unterschiede zur Fenster-Methode
-heraus zu arbeiten, ist in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  ein Entwurf eines Tiefpass-Filters
+heraus zu arbeiten, ist in <a class="reference internal" href="#fig-bspfensterremez"><span class="std std-numref">Abbildung 6.13</span></a>  ein Entwurf eines Tiefpass-Filters
 mittels Remez-Entwurfsverfahren und mittels Fenster-Entwurfs mit
 Hann-Fenster gegenüber gestellt. Wir erkennen, dass bei gleicher Ordnung
 das Remez-Verfahren eine insgesamt bessere Sperrdämpfung zur Verfügung
@@ -1233,22 +1661,28 @@ bedeutet dies eine deutliche Aufwandsreduktion.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5a19e70b-655c-4eb7-b1ac-f93c79ce7e20" name="86137488-7e28-491d-b1ff-5402aec86c8d" type="radio">
-</input><label class="tabbed-label" for="5a19e70b-655c-4eb7-b1ac-f93c79ce7e20">
+<input checked="checked" id="e33c72f8-0c22-44b2-a067-9994a3a3e2ee" name="db0a7365-1913-4afb-95db-2e7966b019e1" type="radio">
+</input><label class="tabbed-label" for="e33c72f8-0c22-44b2-a067-9994a3a3e2ee">
 Entwurf</label><div class="tabbed-content docutils">
 <p>Fenster Entwurf</p>
 <div class="figure align-default" id="id1" style="width: 75%">
-<p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
+<div class="cell_output docutils container">
+<img alt="_images/filter_28_0.png" src="_images/filter_28_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
 Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="96dff537-9348-4a04-81df-69b81cf37479" name="86137488-7e28-491d-b1ff-5402aec86c8d" type="radio">
-</input><label class="tabbed-label" for="96dff537-9348-4a04-81df-69b81cf37479">
+<input id="1519ee4a-3457-4b26-a179-91cb09d545e3" name="db0a7365-1913-4afb-95db-2e7966b019e1" type="radio">
+</input><label class="tabbed-label" for="1519ee4a-3457-4b26-a179-91cb09d545e3">
 Remez</label><div class="tabbed-content docutils">
 <p>Remez Fenster</p>
 <div class="figure align-default" id="fig-bspfensterremez" style="width: 75%">
-<p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit dem
+<div class="cell_output docutils container">
+<img alt="_images/filter_31_0.png" src="_images/filter_31_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit dem
 Remez-Algorithmus und der Fenster-Methode unterschiedlicher Länge.
 Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#fig-bspfensterremez" title="Permalink to this image">¶</a></p>
@@ -1261,7 +1695,7 @@ Grenzfrequenz =
 </div>
 </div>
 <div class="section" id="linearphasige-filter">
-<h4>Linearphasige Filter<a class="headerlink" href="#linearphasige-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.3. </span>Linearphasige Filter<a class="headerlink" href="#linearphasige-filter" title="Permalink to this headline">¶</a></h4>
 <p>Linearphasigkeit ist eine interessante Eigenschaft in der
 Nachrichtentechnik, da mit Ihrer Hilfe ein Signal gefiltert werden kann,
 ohne weitere Phasenverzerrungen einzuführen. Weiterhin führt die
@@ -1270,7 +1704,7 @@ konstanten Betrag verzögert werden. Diese Verzögerung wird als
 Gruppenlaufzeit bezeichnet und ist als Ableitung der Phase zur Frequenz
 definiert</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-gruppenlaufzeit">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-def-gruppenlaufzeit" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-eq-def-gruppenlaufzeit" title="Permalink to this equation">¶</a></span>\[
     \tau_g(e^(j \Omega)) = - \frac{\delta arg\{H(e^(j \Omega))\}}{\delta \Omega}
 \]</div>
 <p>Wir haben bereits für das einfache Filter mit der Impulsantwort
@@ -1307,6 +1741,8 @@ Abhängigkeiten:</p>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;LinPhaseTypIV&quot;</span><span class="p">,</span> <span class="n">fig4</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
 </div>
 </div>
 <table class="colwidths-auto table">
@@ -1367,7 +1803,7 @@ darauf achten, ob das gewünschte Filterverhalten, auch mit dem
 Entwurfsvorgaben zusammen passen.</p>
 </div>
 <div class="section" id="minimalphasige-fir-filter">
-<h4>Minimalphasige FIR-Filter<a class="headerlink" href="#minimalphasige-fir-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.2.4. </span>Minimalphasige FIR-Filter<a class="headerlink" href="#minimalphasige-fir-filter" title="Permalink to this headline">¶</a></h4>
 <p>Eine weitere besondere Klasse an FIR-Filtern sind sogenannte
 minimalphasige Filter. Das heisst, dieses Filter realisiert eine
 bestimmte Betragsübertragungsfunktion mit der minimalen Phase. Es zeigt
@@ -1399,7 +1835,7 @@ der FFT erneut in den Frequenzbereich transformiert. Um die
 Logarithmierung rückgängig zu machen wird für jeden Frequenzpunkt die
 Exponenten-Funktion angewendet. Eine erneute IFFT der resultierenden
 Funktion führt auf die Filterkoeffizienten, die das minimalphasige
-Filter repräsentieren. <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  zeigt die Ergebnisse für einen
+Filter repräsentieren. <a class="reference internal" href="#fig-minphasenbsp"><span class="std std-numref">Abbildung 6.14</span></a>  zeigt die Ergebnisse für einen
 einfaches Filter achter Ordnung bei vorgegebenem
 Betragsübertragungsverhalten.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -1446,15 +1882,18 @@ Betragsübertragungsverhalten.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-minphasenbsp" style="width: 75%">
-<p class="caption"><span class="caption-text">Entwurf eines Filters mit gegebener
+<div class="cell_output docutils container">
+<img alt="_images/filter_39_1.png" src="_images/filter_39_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Entwurf eines Filters mit gegebener
 Betragsübertragungsfunktion. a) als linearphasiges Filter und b) als
 minimalphasiges
 Filter.</span><a class="headerlink" href="#fig-minphasenbsp" title="Permalink to this image">¶</a></p>
 </div>
 <p>Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="6fbd46df-add0-4ec4-ab78-241727bd1d3f" name="9f22b498-1681-47f5-a206-9095d3f80da0" type="radio">
-</input><label class="tabbed-label" for="6fbd46df-add0-4ec4-ab78-241727bd1d3f">
+<input checked="checked" id="c14906b7-2093-4539-84bb-272c600b670b" name="6f054c55-7212-4f07-b39a-167189027a24" type="radio">
+</input><label class="tabbed-label" for="c14906b7-2093-4539-84bb-272c600b670b">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">%v_H contains the magnitude vector of the desired filter</span><span class="w"></span>
 <span class="w">    </span><span class="n">log_H</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="n">v_H</span><span class="o">+</span><span class="nb">eps</span><span class="p">);</span><span class="w"> </span><span class="c">% eps is the smallest positive number in matlab</span><span class="w"></span>
@@ -1468,8 +1907,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="315174a5-51b9-413e-8cef-12b885ba6ea6" name="9f22b498-1681-47f5-a206-9095d3f80da0" type="radio">
-</input><label class="tabbed-label" for="315174a5-51b9-413e-8cef-12b885ba6ea6">
+<input id="edae7bae-3760-497c-ab7f-fd093788833d" name="6f054c55-7212-4f07-b39a-167189027a24" type="radio">
+</input><label class="tabbed-label" for="edae7bae-3760-497c-ab7f-fd093788833d">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1">#v_H contains the magnitude vector of the desired filter</span>
@@ -1489,17 +1928,17 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="iir-filter">
-<h3>IIR-Filter<a class="headerlink" href="#iir-filter" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.3. </span>IIR-Filter<a class="headerlink" href="#iir-filter" title="Permalink to this headline">¶</a></h3>
 <p>Im Gegensatz zu den FIR-Filtern haben IIR-Filter auch rekursive Anteile.
 Die Implementierung ist durch das Stabilitätsproblem sehr viel
 schwieriger. Gleichzeitig können sehr unterschiedliche Strukturen
 verwendet werden, die alle unterschiedliche Eigenschaften haben.</p>
 <div class="section" id="id10">
-<h4>Beschreibung als Blockdiagramm<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<p>Die Grundform des Blockdiagramms eines IIR-Filters ist in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  gezeigt.</p>
+<h4><span class="section-number">6.2.3.1. </span>Beschreibung als Blockdiagramm<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>Die Grundform des Blockdiagramms eines IIR-Filters ist in <a class="reference internal" href="#fig-iir-allgemeinblock"><span class="std std-numref">Abbildung 6.15</span></a>  gezeigt.</p>
 <div class="figure align-default" id="fig-iir-allgemeinblock">
 <a class="reference internal image-reference" href="_images/IIR_allgemeinBlock.png"><img alt="_images/IIR_allgemeinBlock.png" src="_images/IIR_allgemeinBlock.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">IIR-Filter Struktur in Direkt Form I.</span><a class="headerlink" href="#fig-iir-allgemeinblock" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.15 </span><span class="caption-text">IIR-Filter Struktur in Direkt Form I.</span><a class="headerlink" href="#fig-iir-allgemeinblock" title="Permalink to this image">¶</a></p>
 </div>
 <p>Diese sehr grundlegende Struktur, die die Differenzengleichung
 geradlinig umsetzt wird als Direkt Form I bezeichnet. Sie ist einfach in
@@ -1512,15 +1951,15 @@ Datenformat repräsentiert werden können.</p>
 höherer Ordnung in Filter 2. Ordnung vorgenommen. Diese werden dann
 <em>Second Order Sections</em> oder <em>Biquads</em> genannt. Eine kaskadierte
 Schaltung führt dann abschließend wieder zum Originaldesign, ohne die
-numerischen Schwierigkeiten zu beinhalten (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> ).</p>
+numerischen Schwierigkeiten zu beinhalten (siehe <a class="reference internal" href="#fig-iir-sos-zrlegung"><span class="std std-numref">Abbildung 6.16</span></a> ).</p>
 <div class="figure align-default" id="fig-iir-sos-zrlegung">
 <a class="reference internal image-reference" href="_images/IIR_SOS_Zrlegung.png"><img alt="_images/IIR_SOS_Zrlegung.png" src="_images/IIR_SOS_Zrlegung.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Beispiel einer SOS-Zerlegung eines IIR-Filters
+<p class="caption"><span class="caption-number">Fig. 6.16 </span><span class="caption-text">Beispiel einer SOS-Zerlegung eines IIR-Filters
 6.Ordnung.</span><a class="headerlink" href="#fig-iir-sos-zrlegung" title="Permalink to this image">¶</a></p>
 </div>
 <p>Mathematisch lässt sich die Zerlegung folgendermaßen darstellen.</p>
 <div class="math notranslate nohighlight" id="equation-eq-sos-zerlegung">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-sos-zerlegung" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-eq-sos-zerlegung" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
     H(z) &amp;=&amp; \frac{b_0 + b_1 z^{-1} +  b_2 z^{-2} + \cdots +  b_{N-1} z^{-(N-1)}}
                   {1 + a_1 z^{-1} +  a_2 z^{-2} + \cdots +  a_{N-1} z^{-(N-1)}} \\
@@ -1530,16 +1969,16 @@ numerischen Schwierigkeiten zu beinhalten (siehe <code class="xref std std-numre
 \end{split}\]</div>
 <p>Die Zusammenführung zweier Pole und Nullstellen sollte dabei immer so
 erfolgen, dass die Pole und Nullstellen möglichst dicht beieinander
-liegen (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> ).</p>
+liegen (siehe <a class="reference internal" href="#fig-zp2sos"><span class="std std-numref">Abbildung 6.17</span></a> ).</p>
 <div class="figure align-default" id="fig-zp2sos">
 <a class="reference internal image-reference" href="_images/Zp2sos.png"><img alt="_images/Zp2sos.png" src="_images/Zp2sos.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Pol-Nullstellenzuordnung eines Filters
+<p class="caption"><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Pol-Nullstellenzuordnung eines Filters
 6.Ordnung zu drei Second Order
 Sections.</span><a class="headerlink" href="#fig-zp2sos" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="filterstrukturen-fur-sos">
-<h4>Filterstrukturen für SOS<a class="headerlink" href="#filterstrukturen-fur-sos" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.3.2. </span>Filterstrukturen für SOS<a class="headerlink" href="#filterstrukturen-fur-sos" title="Permalink to this headline">¶</a></h4>
 <p>Die Direkt Form I ist nicht die einzige Möglichkeit ein IIR-Filter zu
 realisieren. Um die anderen Strukturen zu verdeutlichen, konzentrieren
 wir uns auf die wichtigen SOS-Filter. Eine wichtige Anforderung an
@@ -1550,7 +1989,7 @@ letzten Punkt werden wir zunächst nicht behandeln.</p>
 <p>Eine Analyse der DF1 zeigt, dass wir fünf Multiplikationen und vier
 Speicherplätze benötigen. Durch Umstellen des Blockdiagramms lässt sich
 erkennen, dass es möglich ist die Speicher für den Transversal- und für
-den Rückführungszweig zusammen zu legen (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> ). Diese Umstellung ist erlaubt, da wir
+den Rückführungszweig zusammen zu legen (siehe <a class="reference internal" href="#fig-df1-to-df2"><span class="std std-numref">Abbildung 6.18</span></a> ). Diese Umstellung ist erlaubt, da wir
 zum einen den Transversal- und den Rückführungszweig als zwei getrennte
 Systeme auffassen können, zum anderen da beide Einzelsysteme LTI-Systeme
 sind und somit das Vertauschen keinen Einfluss auf das
@@ -1561,14 +2000,14 @@ zwei Speicherelementen. Strukturen mit minimaler Anzahl an
 Speicherelementen werden kanonisch genannt.</p>
 <div class="figure align-default" id="fig-df1-to-df2">
 <a class="reference internal image-reference" href="_images/DF1_to_DF2.png"><img alt="_images/DF1_to_DF2.png" src="_images/DF1_to_DF2.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Umwandlung einer DF1 Struktur in die
+<p class="caption"><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Umwandlung einer DF1 Struktur in die
 kanonische DF2 Struktur. Die grau hinterlegten Verzögerungselemente
 können zu einem Element zusammen gefasst werden, da sie jeweils dasselbe
 Signal als Eingang haben.</span><a class="headerlink" href="#fig-df1-to-df2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="vom-blockdiagramm-zur-ubertragungsfunktion">
-<h4>Vom Blockdiagramm zur Übertragungsfunktion<a class="headerlink" href="#vom-blockdiagramm-zur-ubertragungsfunktion" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.3.3. </span>Vom Blockdiagramm zur Übertragungsfunktion<a class="headerlink" href="#vom-blockdiagramm-zur-ubertragungsfunktion" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-to-do admonition">
 <p class="admonition-title">To Do</p>
 <p>Analyse des Block-Diagramms mit z-Trafo daraus folgend die Übertragungsfunktion , ??Wie geht es anders herum??</p>
@@ -1576,23 +2015,23 @@ Signal als Eingang haben.</span><a class="headerlink" href="#fig-df1-to-df2" tit
 </div>
 </div>
 <div class="section" id="iir-filterdesign">
-<h3>IIR-Filterdesign<a class="headerlink" href="#iir-filterdesign" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.4. </span>IIR-Filterdesign<a class="headerlink" href="#iir-filterdesign" title="Permalink to this headline">¶</a></h3>
 <p>Um die Theorie des Entwurfs traditioneller IIR-Filter genauer zu
 erläutern fehlen an dieser Stelle noch einige theoretische Konzepte. Der
 noch folgende
 <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code> zeigt die notwendigen Entwurfsverfahren. Ein
-erster Einblick, um bereits mit IIR-Filtern arbeiten zu können, wird in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code> auf Basis von Matlab gegeben.</p>
+erster Einblick, um bereits mit IIR-Filtern arbeiten zu können, wird in <a class="reference internal" href="#sec-iir-filterdesign"><span class="std std-numref">Abschnitt 6.3.2.1</span></a> auf Basis von Matlab gegeben.</p>
 <p>Mit den bisherigen Erkenntnissen sind aber schon Lösungen für einige
 spezielle Filter möglich.</p>
 <div class="section" id="notch-filter">
-<h4>Notch-Filter<a class="headerlink" href="#notch-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.4.1. </span>Notch-Filter<a class="headerlink" href="#notch-filter" title="Permalink to this headline">¶</a></h4>
 <div class="error admonition">
 <p class="admonition-title">To Do</p>
 <p>Entwurf in z-Ebene durch Nullstellen auf dem Einheitskreis und Polstellen mit verringertem Radius und gleichem Winkel, Anwendungen bzw. Design Bsp.: DC Filter, Netzbrummﬁlter</p>
 </div>
 </div>
 <div class="section" id="allpasse">
-<h4>Allpässe<a class="headerlink" href="#allpasse" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.4.2. </span>Allpässe<a class="headerlink" href="#allpasse" title="Permalink to this headline">¶</a></h4>
 <div class="error admonition">
 <p class="admonition-title">To Do</p>
 <p>Wiederholung spezielles Pol-Nullstellendiagramm, Überlegungen zum Entwurf im z-Bereich, Anwendungen: Spezielle Filter</p>
@@ -1601,18 +2040,18 @@ spezielle Filter möglich.</p>
 </div>
 </div>
 <div class="section" id="implementierungsaspekte">
-<h2>Implementierungsaspekte<a class="headerlink" href="#implementierungsaspekte" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Implementierungsaspekte<a class="headerlink" href="#implementierungsaspekte" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id11">
-<h3>FIR-Filter<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>FIR-Filter<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="schnelle-faltung-ola">
-<h4>Schnelle Faltung OLA<a class="headerlink" href="#schnelle-faltung-ola" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.1.1. </span>Schnelle Faltung OLA<a class="headerlink" href="#schnelle-faltung-ola" title="Permalink to this headline">¶</a></h4>
 <p>Das Hauptproblem der FIR-Filter ist das beim Entwurf meist sehr hohe
 Filterordnungen mit mehr als 100 Koeffizienten herauskommen. Dies führt
 zu einer sehr hohen Rechenleistung, wenn man versucht solche Filter
 direkt durch die Faltungssumme zu realisieren. Statt dessen kann eine
 FFT basierte schnelle Faltung aufgebaut werden, die eine sehr viel
 recheneffizientere Version ermöglicht.</p>
-<p>Wir hatten im Abschnitt <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code> gesehen, dass bei der Faltung mit Hilfe
+<p>Wir hatten im Abschnitt <a class="reference internal" href="spektren.html#sec-dft-faltung"><span class="std std-numref">Abschnitt 5.3.3.2</span></a> gesehen, dass bei der Faltung mit Hilfe
 der FFT unbedingt genügend Nullen angefügt werden müssen, um die
 zirkulare Faltung zu verhindern. Für den Fall, dass die beiden Folgen
 eine sehr unterschiedliche Länge haben und dies ist der Normalfall
@@ -1641,10 +2080,10 @@ direkten Faltung zu erhalten, muss nun das Ausgangssignal des nächsten
 Blockes zu den <span class="math notranslate nohighlight">\(M\)</span> überhängenden Ausgangswerten hinzu addiert werden. Da
 es sich hierbei um eine Überlappung handelt, wird dieses Verfahren als
 <em>Overlap-Add</em> (OLA) bezeichnet. Zur Verdeutlichung ist der gesamte
-Aufbau auch noch in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> gezeigt.</p>
+Aufbau auch noch in <a class="reference internal" href="#fig-ola-erklaerung"><span class="std std-numref">Abbildung 6.19</span></a> gezeigt.</p>
 <div class="figure align-default" id="fig-ola-erklaerung">
 <a class="reference internal image-reference" href="_images/OLA_Erklaerung.png"><img alt="_images/OLA_Erklaerung.png" src="_images/OLA_Erklaerung.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-text">Overlap-Add Verfahren am Beispiel mit <span class="math notranslate nohighlight">\(M = 3\)</span>
+<p class="caption"><span class="caption-number">Fig. 6.19 </span><span class="caption-text">Overlap-Add Verfahren am Beispiel mit <span class="math notranslate nohighlight">\(M = 3\)</span>
 und <span class="math notranslate nohighlight">\(L = 13\)</span>.</span><a class="headerlink" href="#fig-ola-erklaerung" title="Permalink to this image">¶</a></p>
 </div>
 <p>Dieses Prinzip kann zusätzlich auch für sehr lange Impulsantworten, wie
@@ -1657,7 +2096,7 @@ Block Partitionierte OLA genannt und ist insbesondere zur Realisierung
 von Faltungshallalgorithmen in kommerziellen Produkten erhältlich.</p>
 </div>
 <div class="section" id="c-c">
-<h4>C/C++<a class="headerlink" href="#c-c" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.1.2. </span>C/C++<a class="headerlink" href="#c-c" title="Permalink to this headline">¶</a></h4>
 <p>Um die Umsetzung auf programmierbaren Systemen zu erläutern, werden im
 weiteren Verlauf hauptsächlich Beispiele in C/C++ bzw. Matlab verwendet.</p>
 <p>Eine direkte C-Implementierung der Hauptroutine des FIR-Filters ist
@@ -1697,12 +2136,12 @@ aber möglich eine Simulation dieses Speichers aufzubauen, um so eine
 effizientere Implementierung zu ermöglichen.</p>
 <p>Das Konzept des Ringspeichers geht davon aus, dass Speicher nicht linear
 sondern zirkular aufgebaut ist. Dies wird in DSPs durch eine spezielle
-Modulo-Adressierung erreicht. <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code> zeigt, wie man sich diesem Speicher
+Modulo-Adressierung erreicht. <a class="reference internal" href="#fig-ringspeichermemeory"><span class="std std-numref">Abbildung 6.20</span></a> zeigt, wie man sich diesem Speicher
 vorstellen kann. Ein neuer Datenwert wird immer an die Adresse
 geschrieben, auf die der rotierende Zeiger zeigt.</p>
 <div class="figure align-default" id="fig-ringspeichermemeory">
 <a class="reference internal image-reference" href="_images/RingspeicherMemeory.png"><img alt="_images/RingspeicherMemeory.png" src="_images/RingspeicherMemeory.png" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-text">Schematische Darstellung eines
+<p class="caption"><span class="caption-number">Fig. 6.20 </span><span class="caption-text">Schematische Darstellung eines
 Ringspeichers mit rotierndem
 Adresszeiger</span><a class="headerlink" href="#fig-ringspeichermemeory" title="Permalink to this image">¶</a></p>
 </div>
@@ -1780,7 +2219,7 @@ beim Entwickeln von zeitkritischen Routinen immer nur der wirkliche
 Benchmark-Test unter realistischen Bedingungen.</p>
 </div>
 <div class="section" id="vektorielle-schreibweise-und-implementierung-matlab">
-<h4>Vektorielle Schreibweise und Implementierung (Matlab)<a class="headerlink" href="#vektorielle-schreibweise-und-implementierung-matlab" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.1.3. </span>Vektorielle Schreibweise und Implementierung (Matlab)<a class="headerlink" href="#vektorielle-schreibweise-und-implementierung-matlab" title="Permalink to this headline">¶</a></h4>
 <p>Häufig ist es nützlich, Signale als Vektoren aufzufassen, da durch die
 Vektor und Matrix-Schreibweise bestimmte Rechenregeln und Eigenschaften
 der linearen Algebra direkt für Signale nutzbar sind. Als Schreibweise
@@ -1788,7 +2227,7 @@ werden meist fettgedruckte Buchstaben verwendet. Typischerweise werden
 Zeitsignale als Spaltenvektoren eingeführt.</p>
 <p>Beispiel eines Vektors mit vier vergangenen Zeitwerten</p>
 <div class="math notranslate nohighlight" id="equation-eq-defspaltenvektor">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-defspaltenvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-eq-defspaltenvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
     \mathbf{x}(k) = \left(%
 \begin{array}{c}
   x(k) \\
@@ -1800,7 +2239,7 @@ Zeitsignale als Spaltenvektoren eingeführt.</p>
 \end{split}\]</div>
 <p>Führen wir nun in der selben Art einen Vektor für die Koeffizienten ein</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-koeffvektor">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-def-koeffvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-eq-def-koeffvektor" title="Permalink to this equation">¶</a></span>\[\begin{split}
     \mathbf{b} = \left(%
 \begin{array}{c}
   b_0 \\
@@ -1813,7 +2252,7 @@ Zeitsignale als Spaltenvektoren eingeführt.</p>
 <p>so kann der Ausgang <span class="math notranslate nohighlight">\(y(k)\)</span> durch das Skalarprodukt dieser
 beiden Vektoren ausgedrückt werden.</p>
 <div class="math notranslate nohighlight" id="equation-eq-fir-vek">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-fir-vek" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.9)<a class="headerlink" href="#equation-eq-fir-vek" title="Permalink to this equation">¶</a></span>\[
     y(k) = \mathbf{x}^T(k) \mathbf{(b)},
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(^T\)</span>, die Transponierung
@@ -1824,8 +2263,8 @@ bekannt ist.</p>
 effizient implementieren, wenn man nicht auf die internen
 Filter-Routinen zurückgreifen möchte.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="b0bdd52f-06de-40e1-815d-5ec8dc99de23" name="1fe8960e-776c-40dc-88a5-d96e74e1087c" type="radio">
-</input><label class="tabbed-label" for="b0bdd52f-06de-40e1-815d-5ec8dc99de23">
+<input checked="checked" id="d07ac5d2-9efb-4fc0-8ed4-72a67ed3a311" name="df097d1f-e667-4404-80c5-3f100323d63b" type="radio">
+</input><label class="tabbed-label" for="d07ac5d2-9efb-4fc0-8ed4-72a67ed3a311">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">v_states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">LengthOfFilter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 
@@ -1837,8 +2276,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="726e7cb7-3245-4ff3-b121-146870203177" name="1fe8960e-776c-40dc-88a5-d96e74e1087c" type="radio">
-</input><label class="tabbed-label" for="726e7cb7-3245-4ff3-b121-146870203177">
+<input id="969f6922-16be-4467-a593-6ec2bc177797" name="df097d1f-e667-4404-80c5-3f100323d63b" type="radio">
+</input><label class="tabbed-label" for="969f6922-16be-4467-a593-6ec2bc177797">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1"># Example values</span>
@@ -1860,9 +2299,9 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="id13">
-<h3>IIR-Filter<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>IIR-Filter<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="sec-iir-filterdesign">
-<span id="id14"></span><h4>IIR-Filterdesign<a class="headerlink" href="#sec-iir-filterdesign" title="Permalink to this headline">¶</a></h4>
+<span id="id14"></span><h4><span class="section-number">6.3.2.1. </span>IIR-Filterdesign<a class="headerlink" href="#sec-iir-filterdesign" title="Permalink to this headline">¶</a></h4>
 <p>Der Entwurf von IIR-Filtern erfolgt historisch bedingt etwas anders.
 Rekursive Filter sind sehr viel enger mit analogen Filtern verwandt.
 Eine Möglichkeit des IIR-Filterentwurfs besteht deshalb darin, einen
@@ -1872,7 +2311,7 @@ wurden, soll an dieser Stelle nur Beispielhaft typische Lösungen und
 ihre Stärken und Schwächen gezeigt werden.</p>
 </div>
 <div class="section" id="butterworth-filter">
-<span id="sec-butterworth-filter"></span><h4>Butterworth-Filter<a class="headerlink" href="#butterworth-filter" title="Permalink to this headline">¶</a></h4>
+<span id="sec-butterworth-filter"></span><h4><span class="section-number">6.3.2.2. </span>Butterworth-Filter<a class="headerlink" href="#butterworth-filter" title="Permalink to this headline">¶</a></h4>
 <p>Ziel des Butterworth-Entwurfs ist einen möglichst flachen
 Durchlassbereich zu erhalten. Dies wird im analogen Entwurf durch
 Nutzung einer Potenzfunktion gewährleistet (siehe Abschnitt
@@ -1892,8 +2331,8 @@ Durchlassbereich bis <span class="math notranslate nohighlight">\(0.1\pi\)</span
 Sperrbereich ab <span class="math notranslate nohighlight">\(02\pi\)</span> und minimale Dämpfung von <span class="math notranslate nohighlight">\(30dB\)</span>.<br />
 Der dazugehörige Code sieht dann wie folgt aus:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d62948c1-fb30-4ec3-aada-130c6788140d" name="0c382d77-666f-4d20-9bbc-e436dacc2fc3" type="radio">
-</input><label class="tabbed-label" for="d62948c1-fb30-4ec3-aada-130c6788140d">
+<input checked="checked" id="fe1beebd-53ee-49de-9280-4c48d159d6b0" name="4cb9bdd4-1604-483b-b58a-8f6ae249dc88" type="radio">
+</input><label class="tabbed-label" for="fe1beebd-53ee-49de-9280-4c48d159d6b0">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -1906,8 +2345,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="8b591d58-f945-4401-b82b-144c53f9cecc" name="0c382d77-666f-4d20-9bbc-e436dacc2fc3" type="radio">
-</input><label class="tabbed-label" for="8b591d58-f945-4401-b82b-144c53f9cecc">
+<input id="1fc46f4d-46c1-41bd-8b54-fd3190dc5900" name="4cb9bdd4-1604-483b-b58a-8f6ae249dc88" type="radio">
+</input><label class="tabbed-label" for="1fc46f4d-46c1-41bd-8b54-fd3190dc5900">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -1923,7 +2362,7 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="tschebyscheff-i-filter">
-<h4>Tschebyscheff-I-Filter<a class="headerlink" href="#tschebyscheff-i-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.3. </span>Tschebyscheff-I-Filter<a class="headerlink" href="#tschebyscheff-i-filter" title="Permalink to this headline">¶</a></h4>
 <p>Im Gegensatz zum Butterworth-Filter ist das Ziel des Tschebyscheff-I
 Filters im Durchlassbereich die maximal zulässige Durchlassdämpfung
 nicht zu überschreiten. Gleichzeitig wird aber erlaubt, diesen Bereich
@@ -1933,8 +2372,8 @@ auch als Equiripple-Design bezeichnet. Dies führt zu einem Entwurf mit
 geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten <code class="docutils literal notranslate"><span class="pre">cheb1ord</span></code> und
 <code class="docutils literal notranslate"><span class="pre">cheby1</span></code>. Für das Design-Beispiel ergibt sich der folgende Code.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="3676523f-6d73-49f5-9566-6c08546c91d5" name="4f50291a-415e-4e14-83df-f7275989c95e" type="radio">
-</input><label class="tabbed-label" for="3676523f-6d73-49f5-9566-6c08546c91d5">
+<input checked="checked" id="6781573d-83e0-4f99-bd6d-0369ac3dcfa8" name="c44229d6-f856-4e5d-8dec-23baf9f25055" type="radio">
+</input><label class="tabbed-label" for="6781573d-83e0-4f99-bd6d-0369ac3dcfa8">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -1947,8 +2386,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="fe6dd499-8427-4274-9d2d-9f8c2291b354" name="4f50291a-415e-4e14-83df-f7275989c95e" type="radio">
-</input><label class="tabbed-label" for="fe6dd499-8427-4274-9d2d-9f8c2291b354">
+<input id="b50b1218-2935-4c10-8311-f70cc9ab85b6" name="c44229d6-f856-4e5d-8dec-23baf9f25055" type="radio">
+</input><label class="tabbed-label" for="b50b1218-2935-4c10-8311-f70cc9ab85b6">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -1963,13 +2402,13 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="tschebyscheff-ii-filter">
-<h4>Tschebyscheff-II-Filter<a class="headerlink" href="#tschebyscheff-ii-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.4. </span>Tschebyscheff-II-Filter<a class="headerlink" href="#tschebyscheff-ii-filter" title="Permalink to this headline">¶</a></h4>
 <p>Das Tschebyscheff-II-Filter ist der Inverse Entwurf zum Typ I. Das Ziel
 ist also ein flacher Durchlassbereich und ein oszilierender
 Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5d919843-1c5e-4871-b70d-269f0161cae0" name="73d53b53-933b-4b5a-bf0c-856d8d24c1b3" type="radio">
-</input><label class="tabbed-label" for="5d919843-1c5e-4871-b70d-269f0161cae0">
+<input checked="checked" id="2853f88b-96fe-4bce-99be-3385d1156c82" name="e136bf2d-ca0f-4e84-9cd0-f49bd4bd1fcf" type="radio">
+</input><label class="tabbed-label" for="2853f88b-96fe-4bce-99be-3385d1156c82">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -1982,8 +2421,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="e2abecc8-7338-4cd6-aaa7-6f2ef0b45c72" name="73d53b53-933b-4b5a-bf0c-856d8d24c1b3" type="radio">
-</input><label class="tabbed-label" for="e2abecc8-7338-4cd6-aaa7-6f2ef0b45c72">
+<input id="6e9c8a60-758e-4dcd-bc2f-8e47659a8f02" name="e136bf2d-ca0f-4e84-9cd0-f49bd4bd1fcf" type="radio">
+</input><label class="tabbed-label" for="6e9c8a60-758e-4dcd-bc2f-8e47659a8f02">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -1998,14 +2437,14 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="cauer-filter">
-<h4>Cauer-Filter<a class="headerlink" href="#cauer-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.5. </span>Cauer-Filter<a class="headerlink" href="#cauer-filter" title="Permalink to this headline">¶</a></h4>
 <p>Das Cauer-Filter auch als Ellpitisches-Filter bezeichnet, definiert
 einen Equiripple-Entwurf im Durchlass- und Sperrbereich. Dies führt zu
 einer weiteren Reduzierung der Ordnung. Der Entwurf sieht wie
 folgt aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0b8263c9-7f53-4123-96c8-ab8d4e375dff" name="c016d5d4-55b8-4d79-b791-0c3452a79f49" type="radio">
-</input><label class="tabbed-label" for="0b8263c9-7f53-4123-96c8-ab8d4e375dff">
+<input checked="checked" id="840f5176-905b-4d81-99bd-c2a20e8ec404" name="834af35e-a744-47d4-a471-1e11f2e36f0a" type="radio">
+</input><label class="tabbed-label" for="840f5176-905b-4d81-99bd-c2a20e8ec404">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -2018,8 +2457,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="cb772df8-749a-4475-b715-6cfa3c41902a" name="c016d5d4-55b8-4d79-b791-0c3452a79f49" type="radio">
-</input><label class="tabbed-label" for="cb772df8-749a-4475-b715-6cfa3c41902a">
+<input id="aa632a54-a566-4d13-a386-3de5b8021bf9" name="834af35e-a744-47d4-a471-1e11f2e36f0a" type="radio">
+</input><label class="tabbed-label" for="aa632a54-a566-4d13-a386-3de5b8021bf9">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2034,7 +2473,7 @@ Python</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren">
-<h4>Vor- und Nachteile der unterschiedlichen Entwurfsverfahren<a class="headerlink" href="#vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.6. </span>Vor- und Nachteile der unterschiedlichen Entwurfsverfahren<a class="headerlink" href="#vor-und-nachteile-der-unterschiedlichen-entwurfsverfahren" title="Permalink to this headline">¶</a></h4>
 <p>Die Wahl der Entwurfsmethode beruht im großen Maße auf den gegebenen
 Randparamtern. Um eine geeignete Wahl zu treffen ist es aber notwendig
 die Stärken und Schwächen der einzelnen Verfahren zu beleuchten. Aus den
@@ -2045,7 +2484,7 @@ Ordnung, während das Cauer-Filter immer mit der geringsten Ordnung
 auskommt. Gleichzeitig sind die resultierenden Koeffizienten auch für
 eine SOS-Lösung numerisch am fragilsten und benötigen eine hohe
 Quantisierung.</p>
-<p>Um die weiteren Vor- und Nachteile zu verdeutlichen sind in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>  die verschiedenen Entwurfsverfahren am
+<p>Um die weiteren Vor- und Nachteile zu verdeutlichen sind in <a class="reference internal" href="#fig-iirdesign"><span class="std std-numref">Abbildung 6.21</span></a>  die verschiedenen Entwurfsverfahren am
 oben verwendeten Beispiel gezeigt.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -2152,7 +2591,10 @@ oben verwendeten Beispiel gezeigt.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-iirdesign" style="width: 75%">
-<p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes für verschiedene Entwurfsverfahren.</span><a class="headerlink" href="#fig-iirdesign" title="Permalink to this image">¶</a></p>
+<div class="cell_output docutils container">
+<img alt="_images/filter_54_0.png" src="_images/filter_54_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6.21 </span><span class="caption-text">Beispiel eines Tiefpass-Entwurfes für verschiedene Entwurfsverfahren.</span><a class="headerlink" href="#fig-iirdesign" title="Permalink to this image">¶</a></p>
 </div>
 <p>Das Butterworth-Filter hat im Durchlassbereich den erwarteten positiven
 flachen Verlauf, der im Sperrbereich zu einer monoton fallenden Dämpfung
@@ -2174,7 +2616,7 @@ am ehesten der meistens gewünschten linearen Phase entspricht.</p>
 </div>
 </div>
 <div class="section" id="entwurf-von-hochpass-bandpass-und-bandsperr-filter">
-<h4>Entwurf von Hochpass, Bandpass und Bandsperr-Filter<a class="headerlink" href="#entwurf-von-hochpass-bandpass-und-bandsperr-filter" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.2.7. </span>Entwurf von Hochpass, Bandpass und Bandsperr-Filter<a class="headerlink" href="#entwurf-von-hochpass-bandpass-und-bandsperr-filter" title="Permalink to this headline">¶</a></h4>
 <p>Bisher wurden nur Tiefpass-Entwürfe betrachtet. Alle anderen Filter
 lassen sich ebenfalls errechnen, wobei die dazu verwendeten
 Frequenz-Transformationen (nicht zu verwechseln mit der Fourier-Transformation) erst bei der Betrachtung der analogen
@@ -2188,8 +2630,8 @@ Berechnung der Ordnung reicht es die Grenzfrequenzen zu vertauschen, um
 einen Hochpass anzuzeigen.</p>
 <p>Beispiel:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="87f6cf5a-d4ac-4ca2-ae8d-66160cbb0f7f" name="ee73a7b5-bce5-454b-8c01-ef17a577040d" type="radio">
-</input><label class="tabbed-label" for="87f6cf5a-d4ac-4ca2-ae8d-66160cbb0f7f">
+<input checked="checked" id="448f0673-b4e1-43ea-890c-0f709883bda7" name="04c69428-1a47-4722-86d5-7ab4e68c1dec" type="radio">
+</input><label class="tabbed-label" for="448f0673-b4e1-43ea-890c-0f709883bda7">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">% Highpass-Design</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
@@ -2223,8 +2665,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="5f1b762e-a5a3-458a-8990-5bc41d5c85ad" name="ee73a7b5-bce5-454b-8c01-ef17a577040d" type="radio">
-</input><label class="tabbed-label" for="5f1b762e-a5a3-458a-8990-5bc41d5c85ad">
+<input id="503efa5f-5363-4f4d-add2-8a58592d5c97" name="04c69428-1a47-4722-86d5-7ab4e68c1dec" type="radio">
+</input><label class="tabbed-label" for="503efa5f-5363-4f4d-add2-8a58592d5c97">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Highpass Design</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.2</span>
@@ -2298,6 +2740,24 @@ Faltung ergibt dann <span class="math notranslate nohighlight">\(L+M+1-1\)</span
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="spektren.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Spektren</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="zbibliography.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>Literaturverzeichnis</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
