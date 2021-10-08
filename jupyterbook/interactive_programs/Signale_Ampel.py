@@ -3,7 +3,7 @@ import numpy
 from matplotlib import pyplot
 from matplotlib.widgets import RadioButtons
 
-matplotlib.style.use('sv1_style.mplstyle')
+matplotlib.style.use('../sv.mplstyle')
 
 current_light = "red" 
 t = [0, 0.1, 0.2, 0.3] # initial times

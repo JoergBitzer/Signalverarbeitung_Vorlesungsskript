@@ -3,7 +3,7 @@ import numpy
 from matplotlib import pyplot
 from matplotlib.widgets import Slider
 
-matplotlib.style.use('sv1_style.mplstyle')
+matplotlib.style.use('../sv.mplstyle')
 
 #'continous' sample is sampled as such a high frequency that it seem continuous
 fs_cont = 100000 

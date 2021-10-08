@@ -3,7 +3,7 @@ import numpy
 from matplotlib import pyplot
 from matplotlib.widgets import Slider
 
-matplotlib.style.use('sv1_style.mplstyle')
+matplotlib.style.use('../sv.mplstyle')
 
 # adaptiert aus: https://matplotlib.org/3.1.3/gallery/widgets/slider_demo.html
 
