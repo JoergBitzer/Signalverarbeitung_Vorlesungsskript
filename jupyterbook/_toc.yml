@@ -7,7 +7,7 @@ sections:
 - file: signale
 - file: systeme
 - file: ztrafo
-#- file: spektren
-#- file: filter
+- file: spektren
+- file: filter
 #- file: mathe
 - file: zbibliography

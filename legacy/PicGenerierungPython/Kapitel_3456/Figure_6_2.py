@@ -21,11 +21,14 @@ freq_vec = numpy.linspace(0, Fs, len(spectrum_abs)) # freq bins, for plotting
 fig, ax_spectrum = pyplot.subplots()
 
 # ideal frequency respose of filter
-ax_spectrum.step(y=[-100, -100, 0, 0, -100], x=[0, fg, Fs/2, Fs-fg, Fs], color='b', label="Optimale Entwurfsvorgabe")
+ax_spectrum.step(y=[-100, -100, 0, 0, -100], x=[0, fg, Fs/2, Fs-fg, Fs], 
+        color='b', label="Optimale Entwurfsvorgabe")
 # actual realization
-ax_spectrum.plot(freq_vec, spectrum_abs, color='r', label="Mögliche Realisierung")
+ax_spectrum.plot(freq_vec, spectrum_abs, 
+        color='r', label="Mögliche Realisierung")
 
-ax_spectrum.set(xlabel='Frequenz in Hz ', ylabel='Dämpfung in dB', xlim=[0, Fs/2], ylim=[-105, 5], title=f'Hochpass {order}.Odnung')
+ax_spectrum.set(xlabel='Frequenz in Hz ', ylabel='Dämpfung in dB', 
+        xlim=[0, Fs/2], ylim=[-105, 5], title=f'Hochpass {order}.Odnung')
 pyplot.legend()
 
 
