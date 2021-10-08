@@ -105,8 +105,13 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ztrafo.html">
+   4. z-Transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   4. Literaturverzeichnis
+   5. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -843,15 +848,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_s/2\)</
 besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte sind in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e01faec4-a645-4f4e-b492-573f5b8a32ae" name="ffbd365a-b6c0-459b-8d50-0aff2b1c1b82" type="radio">
-</input><label class="tabbed-label" for="e01faec4-a645-4f4e-b492-573f5b8a32ae">
+<input checked="checked" id="99c0cb58-fea3-4e7b-ae80-9be641ee678e" name="eb86e97c-aa0c-4907-94ab-767c4b056fd6" type="radio">
+</input><label class="tabbed-label" for="99c0cb58-fea3-4e7b-ae80-9be641ee678e">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">H_voll</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">H_halb</span><span class="w"> </span><span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="c09de164-ae61-49fa-b458-8312f4b5b8f2" name="ffbd365a-b6c0-459b-8d50-0aff2b1c1b82" type="radio">
-</input><label class="tabbed-label" for="c09de164-ae61-49fa-b458-8312f4b5b8f2">
+<input id="1663b9c4-854c-4e4b-9714-728f61d7d4cc" name="eb86e97c-aa0c-4907-94ab-767c4b056fd6" type="radio">
+</input><label class="tabbed-label" for="1663b9c4-854c-4e4b-9714-728f61d7d4cc">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -1102,7 +1107,15 @@ den 3dB Punkten verwendet. Weiterhin ist eine interessante Größe, welche
 Höhe die nächsten Maxima haben (Betrag). Für das Rechteckfenster sind
 diese beiden Größen durch <span class="math notranslate nohighlight">\(2pi/N\)</span> und <span class="math notranslate nohighlight">\(\approx 13\)</span>dB gegeben. Etwas
 anders sieht dies bei anderen Fensterfunktionen aus (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code>
-bis <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s</span></code></p>
+bis {numref}`Abbildung %s <a class="reference external" href="fig:KaiserWindow">fig:KaiserWindow</a></p>
+<div class="hint admonition">
+<p class="admonition-title">Interaktiv arbeiten</p>
+<ol class="simple">
+<li><p>Starten des interaktiven Programms - “Spektren_Fenster.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Mit den Buttons den Fenstertyp ändern und</p></li>
+<li><p>Mit Slidern können Fensterparameter gesteuert werden. Hier kann auch eine eigene Fensterfunktion designt werden.</p></li>
+</ol>
+</div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -1439,8 +1452,8 @@ Eigenschaften.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0299eb5d-626f-4d7f-9a03-f58f0bfdaf3f" name="97067473-0dff-4004-9e3f-00638c1bccb4" type="radio">
-</input><label class="tabbed-label" for="0299eb5d-626f-4d7f-9a03-f58f0bfdaf3f">
+<input checked="checked" id="5d055b38-f738-4212-8862-bc05aaebec92" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
+</input><label class="tabbed-label" for="5d055b38-f738-4212-8862-bc05aaebec92">
 von Hann</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann- Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1453,8 +1466,8 @@ stärker bedämpft.</p></li>
 <p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="49628340-7f77-47cc-8ba7-de9bebf02ce1" name="97067473-0dff-4004-9e3f-00638c1bccb4" type="radio">
-</input><label class="tabbed-label" for="49628340-7f77-47cc-8ba7-de9bebf02ce1">
+<input id="9101a607-5ffb-4368-99cb-7ee213886934" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
+</input><label class="tabbed-label" for="9101a607-5ffb-4368-99cb-7ee213886934">
 Hamming</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1468,8 +1481,8 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></
 <p class="caption"><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="6e5fe2b4-3f06-464e-b774-ef91a779b7b1" name="97067473-0dff-4004-9e3f-00638c1bccb4" type="radio">
-</input><label class="tabbed-label" for="6e5fe2b4-3f06-464e-b774-ef91a779b7b1">
+<input id="8e41065c-55d0-48d1-882b-820d7adea20a" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
+</input><label class="tabbed-label" for="8e41065c-55d0-48d1-882b-820d7adea20a">
 Blackman</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1482,8 +1495,8 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 Blackman-Fensters</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="0889a004-faf8-450a-ac29-bd1214834209" name="97067473-0dff-4004-9e3f-00638c1bccb4" type="radio">
-</input><label class="tabbed-label" for="0889a004-faf8-450a-ac29-bd1214834209">
+<input id="1cf56b76-5c5c-4495-ba45-040b56efe967" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
+</input><label class="tabbed-label" for="1cf56b76-5c5c-4495-ba45-040b56efe967">
 Dolph-Chebbyscheff</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Chebbyscheff Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -1498,8 +1511,8 @@ für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="ad32e090-6bb7-4b7b-962b-4bbe3a19adc4" name="97067473-0dff-4004-9e3f-00638c1bccb4" type="radio">
-</input><label class="tabbed-label" for="ad32e090-6bb7-4b7b-962b-4bbe3a19adc4">
+<input id="5a5f27d4-5c75-4cb2-9b62-95f19f2812bd" name="9fc82639-acc7-493a-98c7-df5f77024774" type="radio">
+</input><label class="tabbed-label" for="5a5f27d4-5c75-4cb2-9b62-95f19f2812bd">
 Kaiser-Fester</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser Fenster:</strong> Auch das Kaiser Fenster ist mit Hilfe des

@@ -887,8 +887,8 @@ LTI-Systems.</p>
 <span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">]</span>
 <span class="c1">#poles_conj = [0]*2</span>
 <span class="c1">#zeros_conj = [0]*2</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax_pz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_pz</span><span class="p">,</span> <span class="n">ax_3d</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;polar&quot;</span><span class="p">))</span>
+<span class="c1">#ax_pz = fig.add_subplot(121)</span>
 
 <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
 <span class="n">ax_pz</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Realteil&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Imaginärteil&#39;</span><span class="p">,</span> 
@@ -909,7 +909,7 @@ LTI-Systems.</p>
 
 <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">imag</span>
 
-<span class="n">ax_3d</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="c1">#ax_3d = fig.add_subplot(122, projection=&#39;3d&#39;)</span>
 <span class="c1">#ax_3d = fig.gca(projection=&#39;3d&#39;)</span>
 <span class="n">ax_3d</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="n">X_c</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">real</span>
@@ -930,12 +930,28 @@ LTI-Systems.</p>
 </div>
 </div>
 </div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="841ecdb4-903c-4067-ab93-80d8a563c779" name="f222e1c0-ef73-4d6d-8c6b-d1f7c04fd811" type="radio">
+</input><label class="tabbed-label" for="841ecdb4-903c-4067-ab93-80d8a563c779">
+Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-polnullstellenplan" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/ztrafo_10_0.png" src="_images/ztrafo_10_0.png" />
-</div>
 <p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Pole und Nullstellen in der komplexen
 Ebene.</span><a class="headerlink" href="#fig-polnullstellenplan" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="fbc7dcff-40bd-478c-b101-a5443d1abca4" name="f222e1c0-ef73-4d6d-8c6b-d1f7c04fd811" type="radio">
+</input><label class="tabbed-label" for="fbc7dcff-40bd-478c-b101-a5443d1abca4">
+Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_3D.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Eigene Pole und Nullstellen per Klick definieren bzw. löschen (zusätzlich STRG halten):</p>
+<ul class="simple">
+<li><p>Rechtsklick: Nullstelle</p></li>
+<li><p>Linksklick: Polstelle</p></li>
+</ul>
+</li>
+</ol>
+</div>
 </div>
 <p>Mehrfachnullstellen (oder auch Pole) werden durch eine zusätzliche Zahl
 gekennzeichnet, hier die zwei für die doppelte Nullstelle bei <span class="math notranslate nohighlight">\(z = -1\)</span>.
@@ -998,6 +1014,34 @@ oder aufklingenden Cosinusfunktionen der Frequenz <span class="math notranslate 
 \frac{Az}{z-a} + \frac{A^{\ast}z}{z-a^{\ast}} ;\bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; 2|A||a|^k\cos(arg\{a\}k + arg\{A\})\gamma(k)
 \]</div>
 <p><span class="math notranslate nohighlight">\(arg\{x\}\)</span> ist das Argument (Winkel) von der komplexen Zahl <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Ausgehend von dem System</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = \frac{z^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}
+\]</div>
+<p>ergibt sich für die Aufspaltung</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = \frac{Az}{z-0.9e^{j\frac{\pi}{10}}} + \frac{A^{\ast}z}{z-0.9e^{-j\frac{\pi}{10}}}
+\]</div>
+<p>mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+A &amp;=&amp; (z-0.9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
+    &amp; = &amp; \frac{z}{z-0.9e^{-j\frac{\pi}{10}}}\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
+    &amp; = &amp; \frac{0.9e^{j\frac{\pi}{10}}}{0.9e^{j\frac{\pi}{10}}-0.9e^{-j\frac{\pi}{10}}}\\
+    &amp; = &amp; -j\frac{e^{j\frac{\pi}{10}}}{2\sin \frac{\pi}{10}}\end{aligned}
+\end{split}\]</div>
+<p>Die Impulsantwort ist also durch</p>
+<div class="math notranslate nohighlight">
+\[
+h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\right)\gamma(k)
+\]</div>
+<p>gegeben und wird in <a class="reference internal" href="#fig-bspkonjkomplexpole"><span class="std std-numref">Abbildung 4.7</span></a> bis <span class="math notranslate nohighlight">\(k = 49\)</span> gezeigt.</p>
+</div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -1034,12 +1078,11 @@ oder aufklingenden Cosinusfunktionen der Frequenz <span class="math notranslate 
 
 <span class="n">theta</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">circle</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
-<span class="n">pole</span> <span class="o">=</span> <span class="mf">0.8560</span> <span class="o">+</span> <span class="mf">0.2781</span><span class="n">j</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.5</span><span class="n">j</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_pz</span><span class="p">,</span> <span class="n">ax_imp</span><span class="p">)</span><span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Pole-Zero Plot</span>
-<span class="n">ax_pz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
 <span class="n">ax_pz</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">ax_pz</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Realteil&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Imaginärteil&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Pol-Nullstellen-Plan&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
 <span class="n">ax_pz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
@@ -1050,7 +1093,6 @@ oder aufklingenden Cosinusfunktionen der Frequenz <span class="math notranslate 
 
 
 <span class="c1"># Impulse Plot</span>
-<span class="n">ax_imp</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
 <span class="n">ax_imp</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_imp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Folgenkindex $k \rightarrow$ &#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Impulsantwort des Systems&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
@@ -1061,38 +1103,21 @@ oder aufklingenden Cosinusfunktionen der Frequenz <span class="math notranslate 
 </div>
 </div>
 </div>
-<div class="note admonition">
-<p class="admonition-title">Beispiel</p>
-<p>Ausgehend von dem System</p>
-<div class="math notranslate nohighlight">
-\[
-H(z) = \frac{z^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}
-\]</div>
-<p>ergibt sich für die Aufspaltung</p>
-<div class="math notranslate nohighlight">
-\[
-H(z) = \frac{Az}{z-0.9e^{j\frac{\pi}{10}}} + \frac{A^{\ast}z}{z-0.9e^{-j\frac{\pi}{10}}}
-\]</div>
-<p>mit</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-A &amp;=&amp; (z-0.9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
-    &amp; = &amp; \frac{z}{z-0.9e^{-j\frac{\pi}{10}}}\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
-    &amp; = &amp; \frac{0.9e^{j\frac{\pi}{10}}}{0.9e^{j\frac{\pi}{10}}-0.9e^{-j\frac{\pi}{10}}}\\
-    &amp; = &amp; -j\frac{e^{j\frac{\pi}{10}}}{2\sin \frac{\pi}{10}}\end{aligned}
-\end{split}\]</div>
-<p>Die Impulsantwort ist also durch</p>
-<div class="math notranslate nohighlight">
-\[
-h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\right)\gamma(k)
-\]</div>
-<p>gegeben und wird in <a class="reference internal" href="#fig-bspkonjkomplexpole"><span class="std std-numref">Abbildung 4.7</span></a> bis <span class="math notranslate nohighlight">\(k = 49\)</span> gezeigt.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0ba9ce6f-2a2f-4f77-acc2-7872334b9c28" name="8bc58442-3419-4ddd-a77a-8a92475586f0" type="radio">
+</input><label class="tabbed-label" for="0ba9ce6f-2a2f-4f77-acc2-7872334b9c28">
+Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-bspkonjkomplexpole" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/ztrafo_16_0.png" src="_images/ztrafo_16_0.png" />
-</div>
 <p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="1eda876d-315a-4430-83ad-1d4a4b27fb01" name="8bc58442-3419-4ddd-a77a-8a92475586f0" type="radio">
+</input><label class="tabbed-label" for="1eda876d-315a-4430-83ad-1d4a4b27fb01">
+Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_Impulsantwort.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Per Linksklick neue Polstelle definieren</p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -1266,12 +1291,23 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 </div>
 </div>
 </div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="a561b7ec-a61f-4b29-b38b-fc76709e47b2" name="6dec43dd-7183-4583-97fc-ba34ea8ce53f" type="radio">
+</input><label class="tabbed-label" for="a561b7ec-a61f-4b29-b38b-fc76709e47b2">
+Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-stabildreieck" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/ztrafo_19_0.png" src="_images/ztrafo_19_0.png" />
-</div>
 <p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
 Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="635cb746-9bab-4609-8c36-e5af6658fae4" name="6dec43dd-7183-4583-97fc-ba34ea8ce53f" type="radio">
+</input><label class="tabbed-label" for="635cb746-9bab-4609-8c36-e5af6658fae4">
+Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Starten des interaktiven Programms - “Signale_Stabilitätsdreieck.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Per Linsklick Punkt im Dreieck auswählen</p></li>
+</ol>
+</div>
 </div>
 </div>
 </div>

@@ -47,7 +47,7 @@ glue("DFT_FensterMultiplikation", fig, display=False)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_179507/83686274.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_17344/83686274.py[0m in [0;36m<module>[0;34m[0m
 [1;32m     24[0m         title='gefenstertes Signal', xlim=[0, 35])
 [1;32m     25[0m [0;34m[0m[0m
 [0;32m---> 26[0;31m [0mglue[0m[0;34m([0m[0;34m"DFT_FensterMultiplikation"[0m[0;34m,[0m [0mfig[0m[0;34m,[0m [0mdisplay[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

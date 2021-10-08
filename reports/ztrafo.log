@@ -17,22 +17,102 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Interaktive Visualisierung der z-Transformation
+# based on https://matplotlib.org/3.1.0/gallery/mplot3d/surface3d_radial.html 
 
-Für die Visualisierung der Interaktion von z-Transformation, dem im nächsten Kapitel vorgestellten Pol-/Nullstellenplan 
-und den dazugehörigen Übertragungsfunktionen steht auf  
+"""
+Dem Polnullstellenplan kann per Rechtsklick eine Nullstelle, und per Linksklick eine Pollstelle hinzugefügt werden. Um eine Pol- / Nullstelle zu löschen muss man während man auf sie klickt 'Strg' halten. Es werden automatisch die konjugierten Pol- / Nullstellen hinzugefügt und gelöscht
+"""
 
-https://www.kvraudio.com/product/filterdemystifier-by-jadehochschule
+from mpl_toolkits.mplot3d import Axes3D
+import numpy
+import matplotlib
+from matplotlib import pyplot
+from matplotlib import cm
+from myst_nb import glue
 
-ein Audio-Plugin (VST und AU) zur Verfügung, dass zusätzlich auch die Wirkung 
-auf Audio-Signale zeigt. Der Source-Code ist ebenfalls öffentlich (https://github.com/ArnoSchiller/FilterDeMystifier)
+def H_from_pole_zero(C):
+    zaehler = numpy.ones_like(C)
+    nenner = numpy.ones_like(C)
+
+    for idx in range(len(zeros)):
+        null = numpy.multiply(C - zeros[idx], C - numpy.conjugate(zeros[idx]))
+        zaehler = numpy.multiply(zaehler, null)
+        
+    for idx in range(len(poles)):
+        pole = numpy.multiply(C - poles[idx], C - numpy.conjugate(poles[idx]))
+        nenner = numpy.multiply(nenner, pole)
+
+    H = zaehler/(nenner+0.0000001)
+    Z = 20*numpy.log10(numpy.abs(H))
+    max_val = 60
+    Z[Z>max_val]=max_val
+    Z[Z<-max_val] = -max_val
+    return Z
+
+matplotlib.style.use('sv.mplstyle')
+
+# Create the mesh in polar coordinates and compute corresponding Z.
+theta = numpy.linspace(0, 2*numpy.pi, 100)
+circle = numpy.exp(1j*theta)
+
+x = numpy.linspace(-1.5, 1.5, 100)
+y = numpy.linspace(-1.5j, 1.5j, 100)
+
+poles = [0.8560 + 0.2781j]
+zeros = [-1+0j]
+#poles_conj = [0]*2
+#zeros_conj = [0]*2
+fig, (ax_pz, ax_3d) = pyplot.subplots(1, 2, subplot_kw=dict(None, projection="polar"))
+#ax_pz = fig.add_subplot(121)
+
+ax_pz.plot(circle.real, circle.imag)
+ax_pz.set(xlabel=r'Realteil', ylabel=r'Imaginärteil', 
+          title='Pol-Nullstellen-Plan', xlim=[-1.5, 1.5], ylim=[-1.5, 1.5])
+ax_pz.axis('equal')
+
+for idx in range(len(poles)):
+    ax_pz.plot([poles[idx].real, poles[idx].real], [poles[idx].imag, -poles[idx].imag], marker='X', linestyle='none', color='red')
+    ax_pz.plot([zeros[idx].real, zeros[idx].real], [zeros[idx].imag, -zeros[idx].imag], marker='o', linestyle='none', color='blue')
+
+ax_pz.text(-0.95,-0.1,"2", color = 'blue', fontsize = 7)
+
+
+X, Y = numpy.meshgrid(x, y)
+C = X + Y
+
+Z = H_from_pole_zero(C)
+
+Y = Y.imag
+
+#ax_3d = fig.add_subplot(122, projection='3d')
+#ax_3d = fig.gca(projection='3d')
+ax_3d.plot_surface(X,Y,Z, cmap=cm.coolwarm, alpha=0.8)
+X_c = circle.real
+Y_c = circle.imag
+Z_c = H_from_pole_zero(circle)
+
+ax_3d.plot(X_c, Y_c, Z_c, color='black')
+
+ax_3d.set(xlim=[-1.5, 1.5], ylim=[-1.5, 1.5], zlim=[-60, 60])
+ax_3d.set_xlabel('Realteil')
+ax_3d.set_ylabel('Imaginärteil')
+ax_3d.set_zlabel(r'$H$ in dB')
+
+# pyplot.show()
+
+glue("PolNullstellenplan", fig, display=False)
 
 ------------------
 
-[0;36m  File [0;32m"/tmp/ipykernel_8867/3192747315.py"[0;36m, line [0;32m3[0m
-[0;31m    Für die Visualisierung der Interaktion von z-Transformation, dem im nächsten Kapitel vorgestellten Pol-/Nullstellenplan[0m
-[0m        ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_17369/1677361305.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     44[0m [0;31m#poles_conj = [0]*2[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     45[0m [0;31m#zeros_conj = [0]*2[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 46[0;31m [0mfig[0m[0;34m,[0m [0;34m([0m[0max_pz[0m[0;34m,[0m [0max_3d[0m[0;34m)[0m [0;34m=[0m [0mpyplot[0m[0;34m.[0m[0msubplots[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m2[0m[0;34m,[0m [0msubplot_kw[0m[0;34m=[0m[0mdict[0m[0;34m([0m[0;32mNone[0m[0;34m,[0m [0mprojection[0m[0;34m=[0m[0;34m"polar"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     47[0m [0;31m#ax_pz = fig.add_subplot(121)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     48[0m [0;34m[0m[0m
 
-SyntaxError: invalid syntax (3192747315.py, line 3)
+[0;31mTypeError[0m: 'NoneType' object is not iterable
+TypeError: 'NoneType' object is not iterable
 

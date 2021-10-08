@@ -416,8 +416,8 @@ Sperrfilter an. Ihr Entwurfsziel ist, möglichst einen bestimmten
 Frequenzbereich vollständig aus dem Spektrum zu entfernen. Dabei wird
 zwischen vier Grundtypen unterschieden:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="742f0951-8c84-4f26-97a9-31849c4bf971" name="8564c893-d686-4dcb-a9f9-64703c823964" type="radio">
-</input><label class="tabbed-label" for="742f0951-8c84-4f26-97a9-31849c4bf971">
+<input checked="checked" id="2ae85405-1ee2-42a2-ac8e-9cddd71a085f" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
+</input><label class="tabbed-label" for="2ae85405-1ee2-42a2-ac8e-9cddd71a085f">
 Tiefpass</label><div class="tabbed-content docutils">
 <p><strong>Tiefpass:</strong> Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
 einer zu definierenden Grenzfrequenz <span class="math notranslate nohighlight">\(f_g\)</span> aus dem Spektrum zu
@@ -433,8 +433,8 @@ Entwurf eines Tiefpasses (<span class="math notranslate nohighlight">\(f_s\)</sp
 1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code></span><a class="headerlink" href="#fig-designtp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="c27db22d-e0c0-4a86-be10-932059a5bdf6" name="8564c893-d686-4dcb-a9f9-64703c823964" type="radio">
-</input><label class="tabbed-label" for="c27db22d-e0c0-4a86-be10-932059a5bdf6">
+<input id="f1188c4c-efdb-4278-8353-398d9593b920" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
+</input><label class="tabbed-label" for="f1188c4c-efdb-4278-8353-398d9593b920">
 Hochpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hochpass:</strong> Das inverse Designziel zum Tiefpass liegt dem
@@ -449,8 +449,8 @@ Entwurf eines Hochpasses (<span class="math notranslate nohighlight">\(f_s\)</sp
 1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code></span><a class="headerlink" href="#fig-designhp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="c42edd70-ad57-43f6-be36-5d644e5ce097" name="8564c893-d686-4dcb-a9f9-64703c823964" type="radio">
-</input><label class="tabbed-label" for="c42edd70-ad57-43f6-be36-5d644e5ce097">
+<input id="55b6b7fc-c951-47be-8c46-1c480be1b699" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
+</input><label class="tabbed-label" for="55b6b7fc-c951-47be-8c46-1c480be1b699">
 Bandpass</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandpass:</strong> Im Gegensatz zu den vorher erwähnten Typen, hat das
@@ -469,8 +469,8 @@ kHz und <span class="math notranslate nohighlight">\(f_2 =\)</span> 3 kHz) und R
 Ordnung (siehe <code class="xref std std-numref docutils literal notranslate"><span class="pre">Abschnitt</span> <span class="pre">%s</span></code></span><a class="headerlink" href="#fig-designbp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="43131bd5-104b-41af-a331-89e4076cab77" name="8564c893-d686-4dcb-a9f9-64703c823964" type="radio">
-</input><label class="tabbed-label" for="43131bd5-104b-41af-a331-89e4076cab77">
+<input id="98ff8456-561e-4f82-a344-72ec34c08c1b" name="2e011180-48f9-4b8c-95e1-1ca104a14f48" type="radio">
+</input><label class="tabbed-label" for="98ff8456-561e-4f82-a344-72ec34c08c1b">
 Bandsperre</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Bandsperre:</strong> Die Bandsperre stellt die inverse Funktion zum
@@ -520,8 +520,22 @@ die Güte <span class="math notranslate nohighlight">\(Q\)</span> als Verhältni
 
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
 
-
 <span class="k">def</span> <span class="nf">get_peak_EQ</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="n">gain_dB</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">f_s</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    calculates filter coefficients of a peak equalizer</span>
+<span class="sd">    with the given parameters</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    f_0 : int</span>
+<span class="sd">        peak frequency in Hz</span>
+<span class="sd">    gain_dB : int</span>
+<span class="sd">        dB gain at peak</span>
+<span class="sd">    Q : float</span>
+<span class="sd">        Quality of filter</span>
+<span class="sd">    f_s : int</span>
+<span class="sd">        sampling frequency</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">K</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_0</span><span class="o">/</span><span class="p">(</span><span class="n">f_s</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
     <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
@@ -550,75 +564,210 @@ die Güte <span class="math notranslate nohighlight">\(Q\)</span> als Verhältni
     
     <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
     
-<span class="n">f_s</span> <span class="o">=</span> <span class="mi">48000</span>
-<span class="n">freq</span> <span class="o">=</span> <span class="mi">2000</span>
-<span class="n">gain</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c1">#fig2, ((ax_gain, ax_fm), (ax_q, ax_void))= pyplot.subplots(2, 2)</span>
+<span class="n">gains</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">]</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">48000</span>
+<span class="n">freq</span><span class="o">=</span> <span class="mi">8000</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax_EQ</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.35</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_gain</span><span class="p">,</span> <span class="n">ax_freq</span><span class="p">,</span> <span class="n">ax_Q</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># adds a slider for frequency, amplitude and phase of the sinus each</span>
-<span class="n">axcolor</span> <span class="o">=</span> <span class="s1">&#39;lightgoldenrodyellow&#39;</span>
-<span class="n">ax_freq</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">axcolor</span><span class="p">)</span>
-<span class="n">ax_gain</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">axcolor</span><span class="p">)</span>
-<span class="n">ax_Q</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">axcolor</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">gain</span> <span class="ow">in</span> <span class="n">gains</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">get_peak_EQ</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># get filter coeefficients        </span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># calculate impulse response</span>
+    <span class="n">h_db</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="c1"># dB</span>
+    <span class="n">ax_gain</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h_db</span><span class="p">)</span>
 
-<span class="n">slider_freq</span> <span class="o">=</span> <span class="n">Slider</span><span class="p">(</span><span class="n">ax_freq</span><span class="p">,</span> <span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f_s</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">valinit</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span> <span class="n">valstep</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
-<span class="n">slider_gain</span> <span class="o">=</span> <span class="n">Slider</span><span class="p">(</span><span class="n">ax_gain</span><span class="p">,</span> <span class="s1">&#39;Gain&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">valinit</span><span class="o">=</span><span class="n">gain</span><span class="p">,</span> <span class="n">valstep</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
-<span class="n">slider_Q</span> <span class="o">=</span> <span class="n">Slider</span><span class="p">(</span><span class="n">ax_Q</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">valinit</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">valstep</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">ax_gain</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Verstärkung in dB&#39;</span><span class="p">,</span>     
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Peak-EQ mit variablem Gain </span><span class="se">\n\</span>
+<span class="s1">        bei Frequenz f = </span><span class="si">{</span><span class="n">f_c</span><span class="si">}</span><span class="s1"> Hz mit Güte Q = </span><span class="si">{</span><span class="n">Q</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">get_peak_EQ</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">f_s</span><span class="p">)</span> 
-<span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
-<span class="n">h_db</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
-<span class="n">ax_EQ</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h_db</span><span class="p">)</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">gain</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">for</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">freqs</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">get_peak_EQ</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># get filter coeefficients</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># calculate impulse response</span>
+    <span class="n">h_db</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="c1"># dB</span>
+    <span class="n">ax_freq</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h_db</span><span class="p">)</span>
+<span class="n">ax_freq</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Verstärkung in dB&#39;</span><span class="p">,</span> 
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Peak-EQ mit variabler Frequenz </span><span class="se">\n\</span>
+<span class="s1">        bei Gain = </span><span class="si">{</span><span class="n">gain</span><span class="si">}</span><span class="s1"> dB und Güte Q = </span><span class="si">{</span><span class="n">Q</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">Qs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="mi">8000</span>
 
-<span class="c1"># updates the graph once a value has been changed</span>
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">gain</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">Q</span>
-    <span class="n">gain</span> <span class="o">=</span> <span class="n">slider_gain</span><span class="o">.</span><span class="n">val</span>
-    <span class="n">freq</span> <span class="o">=</span> <span class="n">slider_freq</span><span class="o">.</span><span class="n">val</span>
-    <span class="n">Q</span> <span class="o">=</span> <span class="n">slider_Q</span><span class="o">.</span><span class="n">val</span>
-    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">get_peak_EQ</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">f_s</span><span class="p">)</span> 
-    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
-    <span class="n">h_db</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
-    <span class="n">ax_EQ</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-    <span class="n">ax_EQ</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h_db</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">Q</span> <span class="ow">in</span> <span class="n">Qs</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">get_peak_EQ</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># get filter coeefficients</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># calculate impulse response</span>
+    <span class="n">h_db</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="c1"># dB</span>
+    <span class="n">ax_Q</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h_db</span><span class="p">)</span>
+<span class="n">ax_Q</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Verstärkung in dB&#39;</span><span class="p">,</span> 
+         <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Peak-EQ mit variabler Güte </span><span class="se">\n\</span>
+<span class="s1">         bei Frequenz f = </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s1"> Hz und Gain = </span><span class="si">{</span><span class="n">gain</span><span class="si">}</span><span class="s1"> dB&#39;</span><span class="p">)</span>
 
-<span class="n">slider_freq</span><span class="o">.</span><span class="n">on_changed</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
-<span class="n">slider_gain</span><span class="o">.</span><span class="n">on_changed</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
-<span class="n">slider_Q</span><span class="o">.</span><span class="n">on_changed</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;EQ_GainParam&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c77509c5-badb-48c7-bd57-b670c768a6b4" name="e6381757-97db-469b-9d52-f446ad059f2e" type="radio">
+</input><label class="tabbed-label" for="c77509c5-badb-48c7-bd57-b670c768a6b4">
+Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-eq-gainparam" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/filter_5_0.png" src="_images/filter_5_0.png" />
-</div>
 <p class="caption"><span class="caption-text">Equalizerübertragungskurve bei Veränderung der
 Güte</span><a class="headerlink" href="#fig-eq-gainparam" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="2419dc4d-cd23-40f1-acb6-fe5647c145ad" name="e6381757-97db-469b-9d52-f446ad059f2e" type="radio">
+</input><label class="tabbed-label" for="2419dc4d-cd23-40f1-acb6-fe5647c145ad">
+Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Starten des interaktiven Programms - “Filter_Peak_EQ.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Mit Slidern Parameter einstellen</p></li>
+</ol>
+</div>
 </div>
 <p>Es gibt auch noch spezielle Filter für den Hoch- und Tiefpassbereich,
 die als Kuhschwanzfilter (Shelving-Filter) bezeichnet werden. Hierbei
 stehen nur die zwei Parameter Frequenz und Verstärkung bzw. Abschwächung
 zur Verfügung.</p>
-<div class="figure align-default" id="fig-eq-gainshelvparam">
-<a class="reference internal image-reference" href="_images/EQ_GainShelvParam.png"><img alt="_images/EQ_GainShelvParam.png" src="_images/EQ_GainShelvParam.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-text">Equalizerübertragungskurve für einen
-Hoch- und Tiefpasskuhschwanzfilter bei Veränderung der Verstärkung (a)
-und der Frequenz (b)</span><a class="headerlink" href="#fig-eq-gainshelvparam" title="Permalink to this image">¶</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">RadioButtons</span>
+<span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">Slider</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">getShelvingEQ</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="n">Gain_dB</span><span class="p">,</span> <span class="n">shelf_type</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    calculates filter coefficients of a shelving equalizer</span>
+<span class="sd">    with the given parameters</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    f_0 : int</span>
+<span class="sd">        peak frequency in Hz</span>
+<span class="sd">    gain_dB : int</span>
+<span class="sd">        dB gain at peak</span>
+<span class="sd">    shelf_type : str</span>
+<span class="sd">        &quot;high&quot; for high-shelf, anything else for low shelf</span>
+<span class="sd">    fs : int</span>
+<span class="sd">        sampling frequency</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">K</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_0</span><span class="o">/</span><span class="p">(</span><span class="n">fs</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">shelf_type</span> <span class="o">==</span> <span class="s2">&quot;high&quot;</span><span class="p">):</span> <span class="c1"># High-Shelf</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Gain_dB</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">V0</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">Gain_dB</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+            <span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>
+            <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span><span class="o">*</span><span class="n">K</span><span class="o">+</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> <span class="o">-</span> <span class="n">V0</span><span class="p">)</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>  
+            <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>            
+            <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>  
+            <span class="n">b</span> <span class="o">/=</span> <span class="n">den</span>
+            <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/=</span> <span class="n">den</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">V0</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">Gain_dB</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+            <span class="n">den</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V0</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>
+            <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>  
+            <span class="n">b</span> <span class="o">/=</span> <span class="n">den</span>
+            <span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">V0</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span><span class="o">/</span><span class="n">V0</span>
+            <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">K</span><span class="o">/</span><span class="n">V0</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+            <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">V0</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span><span class="o">/</span><span class="n">V0</span><span class="p">)</span>  
+            <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/=</span> <span class="n">den</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#Low-Shelf 0 or default for != 1</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Gain_dB</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">V0</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">Gain_dB</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+            <span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>
+            <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">V0</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">V0</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">V0</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">K</span>  
+            <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+            <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>  
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">V0</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">Gain_dB</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+            <span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V0</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">V0</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">K</span>
+            <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+            <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">K</span>  
+            <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">V0</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V0</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">V0</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">K</span>
+            
+        <span class="n">b</span> <span class="o">/=</span> <span class="n">den</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/=</span> <span class="n">den</span>
+
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+
+<span class="c1">#parameters</span>
+<span class="n">gains</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">]</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">48000</span>
+<span class="n">f_c</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">shelf_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;low&quot;</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_gain</span><span class="p">,</span> <span class="n">ax_freq</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">gain</span> <span class="ow">in</span> <span class="n">gains</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ftype</span> <span class="ow">in</span> <span class="n">shelf_types</span><span class="p">:</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">getShelvingEQ</span><span class="p">(</span><span class="n">f_c</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># get filter coefficients</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># calculate impulse response</span>
+        <span class="n">h_db</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="c1"># dB</span>
+        <span class="n">ax_gain</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h_db</span><span class="p">)</span>
+
+<span class="n">ax_gain</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Verstärkung in dB&#39;</span><span class="p">,</span> 
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Shelf-EQs variablem Gain </span><span class="se">\n</span><span class="s1"> bei Grenzfrequenz f = </span><span class="si">{</span><span class="n">f_c</span><span class="si">}</span><span class="s1"> Hz&#39;</span><span class="p">)</span>
+
+        
+
+<span class="n">freqs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">gain</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">for</span> <span class="n">f_c</span> <span class="ow">in</span> <span class="n">freqs</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ftype</span> <span class="ow">in</span> <span class="n">shelf_types</span><span class="p">:</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">getShelvingEQ</span><span class="p">(</span><span class="n">f_c</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># get filter coefficients</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span> <span class="c1"># calculate impulse response</span>
+        <span class="n">h_db</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="c1"># dB</span>
+        <span class="n">ax_freq</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h_db</span><span class="p">)</span>
+<span class="n">ax_freq</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in Hz&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Verstärkung in dB&#39;</span><span class="p">,</span> 
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Shelf-EQs mit variabler Grenzfrequenz </span><span class="se">\n</span><span class="s1"> bei Gain = </span><span class="si">{</span><span class="n">gain</span><span class="si">}</span><span class="s1"> dB&#39;</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;EQ_ShelvParam&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="figure align-default" id="fig-eq-freqshelvparam">
-<a class="reference internal image-reference" href="_images/EQ_FreqShelvParam.png"><img alt="_images/EQ_FreqShelvParam.png" src="_images/EQ_FreqShelvParam.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-text">Equalizerübertragungskurve für einen
-Hoch- und Tiefpasskuhschwanzfilter bei Veränderung der Verstärkung (a)
-und der Frequenz (b)</span><a class="headerlink" href="#fig-eq-freqshelvparam" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="be1def32-df13-47b6-acc6-9a00ef5af7af" name="69d77621-4f30-41c2-9ff2-521d96be9a09" type="radio">
+</input><label class="tabbed-label" for="be1def32-df13-47b6-acc6-9a00ef5af7af">
+Buchabbildung</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-eq-shelvparam" style="width: 75%">
+<p class="caption"><span class="caption-text">Equalizerübertragungskurven eines Hoch bzw. Tiefpasskuhschwanzfilters bei Veränderung der Verstärkung und Frequenz</span><a class="headerlink" href="#fig-eq-shelvparam" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="5ee0d23b-2bdf-4df4-ab70-818bb113dbcc" name="69d77621-4f30-41c2-9ff2-521d96be9a09" type="radio">
+</input><label class="tabbed-label" for="5ee0d23b-2bdf-4df4-ab70-818bb113dbcc">
+Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<ol class="simple">
+<li><p>Starten des interaktiven Programms - “Filter_Shelving_EQ.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Mit Slidern Parameter einstellen</p></li>
+</ol>
+</div>
 </div>
 <p>Im Gegensatz zu den vollparametrischen EQs sind bei Terzband-Equalizer
 die Frequenzen und Güten festgelegt. Der Nutzer hat nur einen Einfluss
@@ -657,76 +806,6 @@ Filter sind standardisiert. Tabelle … gibt diese Frequenzen wieder.</p>
 </div>
 <div class="card-body docutils">
 <div class="figure align-default" id="tab-df-oktav" style="width: 300px">
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Frequenz (Hz)</th>
-    </tr>
-    <tr>
-      <th>index</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>-5</th>
-      <td>31.5</td>
-    </tr>
-    <tr>
-      <th>-4</th>
-      <td>63.0</td>
-    </tr>
-    <tr>
-      <th>-3</th>
-      <td>125.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <td>250.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <td>500.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1000.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2000.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4000.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>8000.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>16000.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 </div>
@@ -738,156 +817,6 @@ Filter sind standardisiert. Tabelle … gibt diese Frequenzen wieder.</p>
 </div>
 <div class="card-body docutils">
 <div class="figure align-default" id="tab-df-terz" style="width: 300px">
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Frequenz (Hz))</th>
-    </tr>
-    <tr>
-      <th>index</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>-16</th>
-      <td>25.0</td>
-    </tr>
-    <tr>
-      <th>-15</th>
-      <td>31.5</td>
-    </tr>
-    <tr>
-      <th>-14</th>
-      <td>40.0</td>
-    </tr>
-    <tr>
-      <th>-13</th>
-      <td>50.0</td>
-    </tr>
-    <tr>
-      <th>-12</th>
-      <td>63.0</td>
-    </tr>
-    <tr>
-      <th>-11</th>
-      <td>80.0</td>
-    </tr>
-    <tr>
-      <th>-10</th>
-      <td>100.0</td>
-    </tr>
-    <tr>
-      <th>-9</th>
-      <td>125.0</td>
-    </tr>
-    <tr>
-      <th>-8</th>
-      <td>160.0</td>
-    </tr>
-    <tr>
-      <th>-7</th>
-      <td>200.0</td>
-    </tr>
-    <tr>
-      <th>-6</th>
-      <td>250.0</td>
-    </tr>
-    <tr>
-      <th>-5</th>
-      <td>315.0</td>
-    </tr>
-    <tr>
-      <th>-4</th>
-      <td>400.0</td>
-    </tr>
-    <tr>
-      <th>-3</th>
-      <td>500.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <td>630.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <td>800.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1000.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1250.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1600.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2000.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2500.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>3150.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>4000.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>5000.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>6300.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>8000.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>10000.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>12500.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>16000.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>20000.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 </div>
@@ -1040,9 +969,6 @@ bezeichnet.</p>
 
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
 
-
-<span class="c1">#Hier sieht das Ergebnis grundsätzlich gut aus ist aber noch nicht hoch genug aufgelöst. Ich hätte jetzt einfach Nullen davor und dahinter gepackt, was aber , ist das sinnvoll?</span>
-
 <span class="n">samples</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
 <span class="n">si</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
 <span class="n">mid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
@@ -1054,18 +980,21 @@ bezeichnet.</p>
     <span class="k">if</span> <span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">):</span>
         <span class="n">si</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">samples</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">samples</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">*</span><span class="n">f0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># si(0) = 1 to avoid division by zero</span>
         <span class="n">si</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
+<span class="c1"># cut si-function</span>
 <span class="n">si_short</span> <span class="o">=</span> <span class="n">si</span><span class="p">[(</span><span class="n">mid</span><span class="o">-</span><span class="mi">25</span><span class="p">):(</span><span class="n">mid</span><span class="o">+</span><span class="mi">25</span><span class="p">)]</span>
 <span class="n">samples_short</span> <span class="o">=</span> <span class="n">samples</span><span class="p">[(</span><span class="n">mid</span><span class="o">-</span><span class="mi">25</span><span class="p">):(</span><span class="n">mid</span><span class="o">+</span><span class="mi">25</span><span class="p">)]</span>
 
 <span class="n">ax_si</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax_si</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span><span class="c1">#,  use_line_collection=True)</span>
+<span class="n">ax_si</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span>
 <span class="n">ax_si</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">samples_short</span><span class="p">,</span> <span class="n">si_short</span><span class="p">)</span>
-<span class="n">ax_si</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x(k)&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SI-Funktion&#39;</span><span class="p">)</span>
+<span class="n">ax_si</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x(k)&#39;</span><span class="p">,</span> 
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SI-Funktion&#39;</span><span class="p">)</span>
 <span class="n">ax_si</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
 
-<span class="c1">#Nullen dazu um Auflösung zu erhöhen</span>
+<span class="c1"># zero padding, for display resolution</span>
 <span class="n">si_short</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="n">si_short</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
 <span class="n">si</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="n">si</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
 
@@ -1076,11 +1005,11 @@ bezeichnet.</p>
 <span class="n">w_short</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">si_short</span><span class="p">))</span>
 
 <span class="n">ax_spec</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_short</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">spectrum_short</span><span class="p">)),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)))</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz normalisiert mit w/pi&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude in dB&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Spektrum&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-<span class="c1">#ax_spec.set_xlim([])</span>
-<span class="c1">#ax_spec.margins(0, 0.05)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_short</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">spectrum_short</span><span class="p">)),</span> 
+        <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)))</span> <span class="c1"># dB spectrum</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz normalisiert mit w/pi&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude in dB&#39;</span><span class="p">,</span> 
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Spektrum&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]))</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;GippsPheanomen&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -1088,9 +1017,6 @@ bezeichnet.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-gippspheanomen" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/filter_19_0.png" src="_images/filter_19_0.png" />
-</div>
 <p class="caption"><span class="caption-text">Beispiel zur Veranschaulichung des
 Gipps-Phänomens</span><a class="headerlink" href="#fig-gippspheanomen" title="Permalink to this image">¶</a></p>
 </div>
@@ -1127,59 +1053,73 @@ erkennen sind.</p>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
-
-
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_51</span><span class="p">,</span> <span class="n">ax_201</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
+<span class="n">eps</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span> <span class="c1"># for slight offset to avoid division by 0</span>
 <span class="n">f_s</span> <span class="o">=</span> <span class="mi">48000</span> 
-<span class="n">f_g</span> <span class="o">=</span> <span class="mi">4800</span> <span class="c1"># 0.2*pi</span>
+<span class="n">f_g</span> <span class="o">=</span> <span class="mi">4800</span> <span class="c1"># Hz, cuttoff frequency</span>
 
-<span class="n">trans_width</span> <span class="o">=</span> <span class="mi">1200</span>  <span class="c1"># Width of transition from pass band to stop band, Hz</span>
+<span class="n">trans_width</span> <span class="o">=</span> <span class="mi">1200</span>  <span class="c1"># Hz, Width of transition from pass band to stop band</span>
 
-<span class="c1"># Filterlänge 51</span>
+<span class="c1"># filter length 51</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">51</span>      <span class="c1"># Size of the FIR filter.</span>
+<span class="n">idxs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">N</span><span class="p">)</span>
 
-<span class="c1"># Remez</span>
+<span class="c1"># Remez filter design</span>
 <span class="n">taps</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">remez</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f_g</span><span class="p">,</span> <span class="n">f_g</span> <span class="o">+</span> <span class="n">trans_width</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f_s</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
 <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">taps</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
 
-<span class="c1"># Rechteck </span>
-<span class="n">rect_window_51</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">rect_window_51</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">rect_window_51</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">])</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">rect_window_51</span><span class="p">)</span>
+<span class="c1"># Von Hann filter design</span>
+<span class="n">w_rad</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_g</span><span class="o">/</span><span class="n">f_s</span> <span class="c1"># cutoff freq in rang od 0 -&gt; 2*pi</span>
+<span class="c1"># designing the filter</span>
+<span class="n">rect_window_51</span> <span class="o">=</span> <span class="n">w_rad</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span>
+<span class="n">von_hann_window</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">N</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">von_hann_window</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">idx</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+<span class="n">window_51</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rect_window_51</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">von_hann_window</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">window_51</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)))</span>
 <span class="n">mid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span>
-<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span>
-
+<span class="c1"># shift area from pi -&gt; 2pi to -pi -&gt; 0</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span> 
+<span class="c1"># dB maximum = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
 
 <span class="n">ax_51</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
 <span class="n">ax_51</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs_fft</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax_51</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> 
+        <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 51&#39;</span><span class="p">)</span>
 
-<span class="n">ax_51</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 51&#39;</span><span class="p">)</span>
+<span class="c1"># filter length 201</span>
+<span class="c1"># -----------------</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">201</span>     <span class="c1"># Size of the FIR filter.</span>
+<span class="n">idxs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">N</span><span class="p">)</span>
 
-<span class="c1"># Filterlänge 201</span>
-
-<span class="c1"># Remez</span>
-<span class="n">numtaps</span> <span class="o">=</span> <span class="mi">201</span>     <span class="c1"># Size of the FIR filter.</span>
-<span class="n">taps</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">remez</span><span class="p">(</span><span class="n">numtaps</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f_g</span><span class="p">,</span> <span class="n">f_g</span> <span class="o">+</span> <span class="n">trans_width</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f_s</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
+<span class="n">taps</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">remez</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f_g</span><span class="p">,</span> <span class="n">f_g</span> <span class="o">+</span> <span class="n">trans_width</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f_s</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
 <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">taps</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
-
-<span class="c1"># rechteck</span>
-<span class="n">rect_window_201</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">rect_window_201</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">rect_window_201</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">])</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">rect_window_201</span><span class="p">)</span>
+<span class="c1"># Von Hann</span>
+<span class="n">w_rad</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_g</span><span class="o">/</span><span class="n">f_s</span> <span class="c1"># cutoff freq in rang od 0 -&gt; 2*p</span>
+<span class="c1"># designing the filter</span>
+<span class="n">rect_window_51</span> <span class="o">=</span> <span class="n">w_rad</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span>
+<span class="n">von_hann_window</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">N</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">von_hann_window</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">idx</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+<span class="n">window_201</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rect_window_51</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">von_hann_window</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">window_201</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)))</span>
 <span class="n">mid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span>
-<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span>
+<span class="c1"># shift area from pi -&gt; 2pi to -pi -&gt; 0</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span> 
+<span class="c1"># dB maximum = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
 
 
 <span class="n">ax_201</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
 <span class="n">ax_201</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs_fft</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">ax_201</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 201&#39;</span><span class="p">)</span>
+<span class="n">ax_201</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> 
+        <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 201&#39;</span><span class="p">)</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;BspFensterEntwurf&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -1187,9 +1127,6 @@ erkennen sind.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-bspfensterentwurf" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/filter_22_0.png" src="_images/filter_22_0.png" />
-</div>
 <p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
 Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#fig-bspfensterentwurf" title="Permalink to this image">¶</a></p>
@@ -1228,59 +1165,67 @@ bedeutet dies eine deutliche Aufwandsreduktion.</p>
 
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_51</span><span class="p">,</span> <span class="n">ax_201</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span> <span class="c1"># for slight offset to avoid division by 0</span>
+<span class="n">f_s</span> <span class="o">=</span> <span class="mi">48000</span>
+<span class="n">f_g</span> <span class="o">=</span> <span class="mi">4800</span> <span class="c1"># cutoff frequency</span>
 
-<span class="n">f_s</span> <span class="o">=</span> <span class="mi">48000</span> 
-<span class="n">f_g</span> <span class="o">=</span> <span class="mi">4800</span> <span class="c1"># 0.2*pi</span>
 
-<span class="n">trans_width</span> <span class="o">=</span> <span class="mi">1200</span>  <span class="c1"># Width of transition from pass band to stop band, Hz</span>
+<span class="n">trans_width</span> <span class="o">=</span> <span class="mi">1200</span>  <span class="c1"># Hz, Width of transition from pass band to stop band</span>
 
-<span class="c1"># Filterlänge 51</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">51</span>      <span class="c1"># Size of the FIR filter.</span>
+<span class="c1"># filter length 51</span>
+<span class="c1"># ----------------</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">51</span> <span class="c1"># Size of the FIR filter.</span>
+<span class="n">idxs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">N</span><span class="p">)</span>
 
-<span class="c1"># Remez</span>
+<span class="c1"># Remez filter design</span>
 <span class="n">taps</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">remez</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f_g</span><span class="p">,</span> <span class="n">f_g</span> <span class="o">+</span> <span class="n">trans_width</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f_s</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
 <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">taps</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
 
-<span class="c1"># Von Hann</span>
-<span class="n">von_hann_window</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">N</span>
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">von_hann_window</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">idx</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
-<span class="n">von_hann_window</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">von_hann_window</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">])</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">von_hann_window</span><span class="p">)</span>
+<span class="c1"># boxcar window filter design</span>
+<span class="n">w_rad</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_g</span><span class="o">/</span><span class="n">f_s</span> <span class="c1"># cutoff freq in rang od 0 -&gt; 2*pi</span>
+<span class="c1"># designing the filter</span>
+<span class="n">rect_window_51</span> <span class="o">=</span> <span class="n">w_rad</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">rect_window_51</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">mid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span>
-<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span>
-
+<span class="c1"># shift area from pi -&gt; 2pi to -pi -&gt; 0</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span> 
+<span class="c1"># dB maximum = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
 
 <span class="n">ax_51</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
 <span class="n">ax_51</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs_fft</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax_51</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> 
+        <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 51&#39;</span><span class="p">)</span>
 
-<span class="n">ax_51</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 51&#39;</span><span class="p">)</span>
+<span class="c1"># filter length 201</span>
+<span class="c1"># -----------------</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">201</span> <span class="c1"># Size of the FIR filter</span>
+<span class="n">idxs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">N</span><span class="p">)</span>
 
-<span class="c1"># Filterlänge 201</span>
-
-<span class="c1"># Remez</span>
-<span class="n">numtaps</span> <span class="o">=</span> <span class="mi">201</span>     <span class="c1"># Size of the FIR filter.</span>
-<span class="n">taps</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">remez</span><span class="p">(</span><span class="n">numtaps</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f_g</span><span class="p">,</span> <span class="n">f_g</span> <span class="o">+</span> <span class="n">trans_width</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f_s</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
+<span class="c1"># Remez filter design</span>
+<span class="n">taps</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">remez</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f_g</span><span class="p">,</span> <span class="n">f_g</span> <span class="o">+</span> <span class="n">trans_width</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f_s</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="n">f_s</span><span class="p">)</span>
 <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">taps</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
-<span class="c1"># Von Hann</span>
-<span class="n">von_hann_window</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">N</span>
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">von_hann_window</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">idx</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
-<span class="n">von_hann_window</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">von_hann_window</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">])</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">von_hann_window</span><span class="p">)</span>
+
+<span class="c1"># boxcar window filter design</span>
+<span class="n">w_rad</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_g</span><span class="o">/</span><span class="n">f_s</span> <span class="c1"># cutoff freq in rang od 0 -&gt; 2*pi</span>
+<span class="c1"># designing the filter</span>
+<span class="n">rect_window_201</span> <span class="o">=</span> <span class="n">w_rad</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">w_rad</span><span class="o">*</span><span class="n">idxs</span><span class="o">+</span><span class="n">eps</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rect_window_201</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)))</span>
 <span class="n">mid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span>
-<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span>
+<span class="c1"># shift area from pi -&gt; 2pi to -pi -&gt; 0</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">spectrum</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">):],</span> <span class="n">spectrum</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">mid</span><span class="p">)]])</span> 
+<span class="c1"># dB maximum = 0dB</span>
+<span class="n">spectrum_abs</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> 
+<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> <span class="c1"># freq bins, for plotting</span>
 
 
 <span class="n">ax_201</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
 <span class="n">ax_201</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs_fft</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">ax_201</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 201&#39;</span><span class="p">)</span>
+<span class="n">ax_201</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz in rad/s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Pegel in dB&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> 
+        <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filterlänge 201&#39;</span><span class="p">)</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;BspFensterRemez&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -1288,27 +1233,21 @@ bedeutet dies eine deutliche Aufwandsreduktion.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a840d0ac-ec63-444c-8857-77b3b5ad29ad" name="1ce6d39f-e2a7-4288-8c93-662af3b2a612" type="radio">
-</input><label class="tabbed-label" for="a840d0ac-ec63-444c-8857-77b3b5ad29ad">
+<input checked="checked" id="5a19e70b-655c-4eb7-b1ac-f93c79ce7e20" name="86137488-7e28-491d-b1ff-5402aec86c8d" type="radio">
+</input><label class="tabbed-label" for="5a19e70b-655c-4eb7-b1ac-f93c79ce7e20">
 Entwurf</label><div class="tabbed-content docutils">
 <p>Fenster Entwurf</p>
 <div class="figure align-default" id="id1" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/filter_22_0.png" src="_images/filter_22_0.png" />
-</div>
 <p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit
 Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
 <span class="math notranslate nohighlight">\(\Omega_g = 0.2\pi\)</span></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="fdefddda-5d68-4c43-92f3-f3e244bc9fcb" name="1ce6d39f-e2a7-4288-8c93-662af3b2a612" type="radio">
-</input><label class="tabbed-label" for="fdefddda-5d68-4c43-92f3-f3e244bc9fcb">
+<input id="96dff537-9348-4a04-81df-69b81cf37479" name="86137488-7e28-491d-b1ff-5402aec86c8d" type="radio">
+</input><label class="tabbed-label" for="96dff537-9348-4a04-81df-69b81cf37479">
 Remez</label><div class="tabbed-content docutils">
 <p>Remez Fenster</p>
 <div class="figure align-default" id="fig-bspfensterremez" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/filter_25_0.png" src="_images/filter_25_0.png" />
-</div>
 <p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes mit dem
 Remez-Algorithmus und der Fenster-Methode unterschiedlicher Länge.
 Grenzfrequenz =
@@ -1368,8 +1307,6 @@ Abhängigkeiten:</p>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;LinPhaseTypIV&quot;</span><span class="p">,</span> <span class="n">fig4</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
 </div>
 </div>
 <table class="colwidths-auto table">
@@ -1509,9 +1446,6 @@ Betragsübertragungsverhalten.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-minphasenbsp" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/filter_33_1.png" src="_images/filter_33_1.png" />
-</div>
 <p class="caption"><span class="caption-text">Entwurf eines Filters mit gegebener
 Betragsübertragungsfunktion. a) als linearphasiges Filter und b) als
 minimalphasiges
@@ -1519,8 +1453,8 @@ Filter.</span><a class="headerlink" href="#fig-minphasenbsp" title="Permalink to
 </div>
 <p>Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="daf33d38-6755-4d17-afc6-859ea389a213" name="f739dc02-f699-475a-8cbc-40c1091eefb6" type="radio">
-</input><label class="tabbed-label" for="daf33d38-6755-4d17-afc6-859ea389a213">
+<input checked="checked" id="6fbd46df-add0-4ec4-ab78-241727bd1d3f" name="9f22b498-1681-47f5-a206-9095d3f80da0" type="radio">
+</input><label class="tabbed-label" for="6fbd46df-add0-4ec4-ab78-241727bd1d3f">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">%v_H contains the magnitude vector of the desired filter</span><span class="w"></span>
 <span class="w">    </span><span class="n">log_H</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="n">v_H</span><span class="o">+</span><span class="nb">eps</span><span class="p">);</span><span class="w"> </span><span class="c">% eps is the smallest positive number in matlab</span><span class="w"></span>
@@ -1534,8 +1468,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="1ba8db90-3532-470a-ab23-51545406afce" name="f739dc02-f699-475a-8cbc-40c1091eefb6" type="radio">
-</input><label class="tabbed-label" for="1ba8db90-3532-470a-ab23-51545406afce">
+<input id="315174a5-51b9-413e-8cef-12b885ba6ea6" name="9f22b498-1681-47f5-a206-9095d3f80da0" type="radio">
+</input><label class="tabbed-label" for="315174a5-51b9-413e-8cef-12b885ba6ea6">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1">#v_H contains the magnitude vector of the desired filter</span>
@@ -1890,8 +1824,8 @@ bekannt ist.</p>
 effizient implementieren, wenn man nicht auf die internen
 Filter-Routinen zurückgreifen möchte.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2b7cf183-5d4b-4f14-8aa2-0f5aa7c348a3" name="307e67d0-77c9-4f47-9374-60a9a9b37f51" type="radio">
-</input><label class="tabbed-label" for="2b7cf183-5d4b-4f14-8aa2-0f5aa7c348a3">
+<input checked="checked" id="b0bdd52f-06de-40e1-815d-5ec8dc99de23" name="1fe8960e-776c-40dc-88a5-d96e74e1087c" type="radio">
+</input><label class="tabbed-label" for="b0bdd52f-06de-40e1-815d-5ec8dc99de23">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">v_states</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">LengthOfFilter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 
@@ -1903,8 +1837,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="8718939d-c2b9-40e9-bc1c-b6637c4a338a" name="307e67d0-77c9-4f47-9374-60a9a9b37f51" type="radio">
-</input><label class="tabbed-label" for="8718939d-c2b9-40e9-bc1c-b6637c4a338a">
+<input id="726e7cb7-3245-4ff3-b121-146870203177" name="1fe8960e-776c-40dc-88a5-d96e74e1087c" type="radio">
+</input><label class="tabbed-label" for="726e7cb7-3245-4ff3-b121-146870203177">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span>
     <span class="c1"># Example values</span>
@@ -1958,8 +1892,8 @@ Durchlassbereich bis <span class="math notranslate nohighlight">\(0.1\pi\)</span
 Sperrbereich ab <span class="math notranslate nohighlight">\(02\pi\)</span> und minimale Dämpfung von <span class="math notranslate nohighlight">\(30dB\)</span>.<br />
 Der dazugehörige Code sieht dann wie folgt aus:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="280e609f-0b61-47a2-8296-833c768a6909" name="42bb7d8c-a7f0-46f9-9c48-3d51ab9fd148" type="radio">
-</input><label class="tabbed-label" for="280e609f-0b61-47a2-8296-833c768a6909">
+<input checked="checked" id="d62948c1-fb30-4ec3-aada-130c6788140d" name="0c382d77-666f-4d20-9bbc-e436dacc2fc3" type="radio">
+</input><label class="tabbed-label" for="d62948c1-fb30-4ec3-aada-130c6788140d">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -1972,8 +1906,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="d731b608-50f8-4458-8db2-c764df88c9dd" name="42bb7d8c-a7f0-46f9-9c48-3d51ab9fd148" type="radio">
-</input><label class="tabbed-label" for="d731b608-50f8-4458-8db2-c764df88c9dd">
+<input id="8b591d58-f945-4401-b82b-144c53f9cecc" name="0c382d77-666f-4d20-9bbc-e436dacc2fc3" type="radio">
+</input><label class="tabbed-label" for="8b591d58-f945-4401-b82b-144c53f9cecc">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -1999,8 +1933,8 @@ auch als Equiripple-Design bezeichnet. Dies führt zu einem Entwurf mit
 geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten <code class="docutils literal notranslate"><span class="pre">cheb1ord</span></code> und
 <code class="docutils literal notranslate"><span class="pre">cheby1</span></code>. Für das Design-Beispiel ergibt sich der folgende Code.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="7ee607c4-56f7-4aba-b18f-2af2394a1bcf" name="de3d365a-7fc9-4776-9776-f41b99aa5b1d" type="radio">
-</input><label class="tabbed-label" for="7ee607c4-56f7-4aba-b18f-2af2394a1bcf">
+<input checked="checked" id="3676523f-6d73-49f5-9566-6c08546c91d5" name="4f50291a-415e-4e14-83df-f7275989c95e" type="radio">
+</input><label class="tabbed-label" for="3676523f-6d73-49f5-9566-6c08546c91d5">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -2013,8 +1947,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="9a578463-3fe2-49b1-99f6-755f4daa3273" name="de3d365a-7fc9-4776-9776-f41b99aa5b1d" type="radio">
-</input><label class="tabbed-label" for="9a578463-3fe2-49b1-99f6-755f4daa3273">
+<input id="fe6dd499-8427-4274-9d2d-9f8c2291b354" name="4f50291a-415e-4e14-83df-f7275989c95e" type="radio">
+</input><label class="tabbed-label" for="fe6dd499-8427-4274-9d2d-9f8c2291b354">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2034,8 +1968,8 @@ Python</label><div class="tabbed-content docutils">
 ist also ein flacher Durchlassbereich und ein oszilierender
 Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="bb5012d0-3bf8-4681-b58f-a75c06397f2c" name="62ce8a83-48df-44a5-ac57-ec5466f03a01" type="radio">
-</input><label class="tabbed-label" for="bb5012d0-3bf8-4681-b58f-a75c06397f2c">
+<input checked="checked" id="5d919843-1c5e-4871-b70d-269f0161cae0" name="73d53b53-933b-4b5a-bf0c-856d8d24c1b3" type="radio">
+</input><label class="tabbed-label" for="5d919843-1c5e-4871-b70d-269f0161cae0">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -2048,8 +1982,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="f18ef318-b280-4ecb-a8a4-ffcba646ab62" name="62ce8a83-48df-44a5-ac57-ec5466f03a01" type="radio">
-</input><label class="tabbed-label" for="f18ef318-b280-4ecb-a8a4-ffcba646ab62">
+<input id="e2abecc8-7338-4cd6-aaa7-6f2ef0b45c72" name="73d53b53-933b-4b5a-bf0c-856d8d24c1b3" type="radio">
+</input><label class="tabbed-label" for="e2abecc8-7338-4cd6-aaa7-6f2ef0b45c72">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2070,8 +2004,8 @@ einen Equiripple-Entwurf im Durchlass- und Sperrbereich. Dies führt zu
 einer weiteren Reduzierung der Ordnung. Der Entwurf sieht wie
 folgt aus.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0a83bd32-e499-48f9-99fb-c3fefd04e3ba" name="6d02a1be-83fb-4a54-b894-b169bdef1470" type="radio">
-</input><label class="tabbed-label" for="0a83bd32-e499-48f9-99fb-c3fefd04e3ba">
+<input checked="checked" id="0b8263c9-7f53-4123-96c8-ab8d4e375dff" name="c016d5d4-55b8-4d79-b791-0c3452a79f49" type="radio">
+</input><label class="tabbed-label" for="0b8263c9-7f53-4123-96c8-ab8d4e375dff">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_dB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
@@ -2084,8 +2018,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="bb46d1ea-2adf-4af2-b344-9679a496a52a" name="6d02a1be-83fb-4a54-b894-b169bdef1470" type="radio">
-</input><label class="tabbed-label" for="bb46d1ea-2adf-4af2-b344-9679a496a52a">
+<input id="cb772df8-749a-4475-b715-6cfa3c41902a" name="c016d5d4-55b8-4d79-b791-0c3452a79f49" type="radio">
+</input><label class="tabbed-label" for="cb772df8-749a-4475-b715-6cfa3c41902a">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2122,6 +2056,7 @@ oben verwendeten Beispiel gezeigt.</p>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax_durch_b_c1</span><span class="p">,</span> <span class="n">ax_durch_c2_c</span><span class="p">),</span> <span class="p">(</span><span class="n">ax_sperr_b_c1</span><span class="p">,</span> <span class="n">ax_sperr_c2_c</span><span class="p">),</span> 
         <span class="p">(</span><span class="n">ax_phase_b_c1</span><span class="p">,</span> <span class="n">ax_phase_c2_c</span><span class="p">))</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -2210,15 +2145,13 @@ oben verwendeten Beispiel gezeigt.</p>
 <span class="n">ax_phase_c2_c</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">h</span><span class="p">)),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
 <span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;IIRDesign&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="figure align-default" id="fig-iirdesign" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/filter_48_0.png" src="_images/filter_48_0.png" />
-</div>
 <p class="caption"><span class="caption-text">Beispiel eines Tiefpass-Entwurfes für verschiedene Entwurfsverfahren.</span><a class="headerlink" href="#fig-iirdesign" title="Permalink to this image">¶</a></p>
 </div>
 <p>Das Butterworth-Filter hat im Durchlassbereich den erwarteten positiven
@@ -2255,8 +2188,8 @@ Berechnung der Ordnung reicht es die Grenzfrequenzen zu vertauschen, um
 einen Hochpass anzuzeigen.</p>
 <p>Beispiel:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d818c3cc-7cd3-46fd-8da4-a006d062b61b" name="e2ce7d4c-d5cc-48bc-879c-58f227286cbc" type="radio">
-</input><label class="tabbed-label" for="d818c3cc-7cd3-46fd-8da4-a006d062b61b">
+<input checked="checked" id="87f6cf5a-d4ac-4ca2-ae8d-66160cbb0f7f" name="ee73a7b5-bce5-454b-8c01-ef17a577040d" type="radio">
+</input><label class="tabbed-label" for="87f6cf5a-d4ac-4ca2-ae8d-66160cbb0f7f">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">% Highpass-Design</span><span class="w"></span>
 <span class="w">    </span><span class="n">Pass_freq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"> </span><span class="c">% Matlab uses normalized frequencies from 0..2</span><span class="w"></span>
@@ -2290,8 +2223,8 @@ Matlab</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="aed3088f-76ae-4e06-85c0-244f0ce53e48" name="e2ce7d4c-d5cc-48bc-879c-58f227286cbc" type="radio">
-</input><label class="tabbed-label" for="aed3088f-76ae-4e06-85c0-244f0ce53e48">
+<input id="5f1b762e-a5a3-458a-8990-5bc41d5c85ad" name="ee73a7b5-bce5-454b-8c01-ef17a577040d" type="radio">
+</input><label class="tabbed-label" for="5f1b762e-a5a3-458a-8990-5bc41d5c85ad">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Highpass Design</span>
     <span class="n">Pass_freq</span> <span class="o">=</span> <span class="mf">0.2</span>
