@@ -24,34 +24,71 @@ from myst_nb import glue
 
 matplotlib.style.use('sv.mplstyle')
 
-ax_signal = pyplot.subplot(3, 1, 1)
-signal = numpy.random.random_sample(36)*4 - 2 # random sample scaled -2 to 2
-ax_signal.stem(range(36), signal, use_line_collection=True)
-ax_signal.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x[k]', 
-        title='Eingangssignal', xlim=[0, 35])
+num_samples = 16
+f0 = 155
+fs = 1000
 
-ax_window = pyplot.subplot(3, 1, 2)
-window = numpy.concatenate([[0]*10, [1]*16, [0]*10])
-ax_window.step(range(36), window, where='mid')
-ax_window.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x[k]', 
-        title='Rechteck-Fensterfunktion', xlim=[0, 35])
+sample = [0]*num_samples
 
-ax_filtered = pyplot.subplot(3, 1, 3)
-filtered_signal = signal * window # filtering in time domain
-ax_filtered.stem(range(36), filtered_signal, use_line_collection=True)
-ax_filtered.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x[k]', 
-        title='gefenstertes Signal', xlim=[0, 35])
+kk = numpy.arange(num_samples)
+cos_series = numpy.cos(2*numpy.pi*f0*kk/fs)
 
-glue("DFT_FensterMultiplikation", fig, display=False)
+sample = numpy.concatenate(([0]*4,cos_series,[0]*4))
+
+reconst_sig = numpy.concatenate((cos_series[-4:],cos_series,cos_series[0:4]))
+
+
+# signal reconstruction from fft through ifft
+spectrum = numpy.fft.fft(sample,256)
+spectrumshort = numpy.fft.fft(sample)
+
+spectrumshort = numpy.fft.fftshift(numpy.abs(spectrumshort)/numpy.abs(spectrumshort).max())
+spectrum = numpy.fft.fftshift(spectrum)
+# dB normalized to 0 max amplitude
+spectrum_abs = numpy.abs(spectrum)/numpy.abs(spectrum).max() 
+# frequency bins for plotting
+freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) 
+freqs_fftshort = numpy.linspace(-1, 1, len(spectrumshort)) 
+
+
+fig, ax = pyplot.subplots(2, 2)
+print(ax)
+ax[0][0].stem(range(-4,len(sample)-4),sample)
+ax[0][0].set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
+        title='Eingangssignal Sinus')
+
+ax[0][1].plot(freqs_fft, spectrum_abs)
+ax[0][1].set(xlabel='Frequenz rad/pi ', 
+        ylabel='Frequenzanteil normiert auf 1', 
+        title='Amplitudenspektrum der gefensterten Cosinus-Fkt')
+
+# f2, ax_spec_stem, ax_ifft) = pyplot.subplots(1, 2)
+ax[1][0].stem(freqs_fftshort, spectrumshort, use_line_collection=True)
+ax[1][0].set(xlabel='Frequenz rad/pi ', 
+        ylabel='Frequenzanteil normiert auf 1',
+        title='Abgetastetes Amplitudenspektrum')
+
+ax[1][1].stem(range(-4,len(sample)-4),reconst_sig)
+ax[1][1].set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
+        title='durch Abtastung des Spektrums erzieltes rekonstruiertes Signal')
+ax_ifft.plot([-0.5,-0.5],[-1,1], 'r:' )
+ax_ifft.plot([15.5,15.5],[-1,1], 'r:')
+
+pyplot.tight_layout()
+
+glue("DFT_Cosinus", fig, display=False)
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_20419/83686274.py[0m in [0;36m<module>[0;34m[0m
-[1;32m     24[0m         title='gefenstertes Signal', xlim=[0, 35])
-[1;32m     25[0m [0;34m[0m[0m
-[0;32m---> 26[0;31m [0mglue[0m[0;34m([0m[0;34m"DFT_FensterMultiplikation"[0m[0;34m,[0m [0mfig[0m[0;34m,[0m [0mdisplay[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'fig' is not defined
-NameError: name 'fig' is not defined
+[0;32m/tmp/ipykernel_101961/605318221.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     53[0m ax[1][1].set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
+[1;32m     54[0m         title='durch Abtastung des Spektrums erzieltes rekonstruiertes Signal')
+[0;32m---> 55[0;31m [0max_ifft[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0;34m-[0m[0;36m0.5[0m[0;34m,[0m[0;34m-[0m[0;36m0.5[0m[0;34m][0m[0;34m,[0m[0;34m[[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0;34m'r:'[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     56[0m [0max_ifft[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0;36m15.5[0m[0;34m,[0m[0;36m15.5[0m[0;34m][0m[0;34m,[0m[0;34m[[0m[0;34m-[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0;34m'r:'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     57[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'ax_ifft' is not defined
+NameError: name 'ax_ifft' is not defined
 

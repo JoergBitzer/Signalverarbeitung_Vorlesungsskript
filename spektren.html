@@ -53,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Filter" href="filter.html" />
+    <link rel="next" title="6. Literaturverzeichnis" href="zbibliography.html" />
     <link rel="prev" title="4. z-Transformation" href="ztrafo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -117,13 +117,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="filter.html">
-   6. Filter
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   7. Literaturverzeichnis
+   6. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -332,9 +327,9 @@
                 
   <div class="section" id="spektren">
 <h1><span class="section-number">5. </span>Spektren<a class="headerlink" href="#spektren" title="Permalink to this headline">¶</a></h1>
-<p>Wir haben bisher zwei Beschreibungsebenen für diskrete Signale und
-Systeme kennen gelernt, den Zeitbereich mit der Differenzengleichung und
-die z-Ebene. Häufig ist aber von Interesse, wie sich die Signale und
+<p>Neben den zwei Beschreibungsebenen für diskrete Signale und
+Systeme, den Zeitbereich mit der Differenzengleichung und
+die z-Ebene, gilt einem besonderen Interesse, wie sich die Signale und
 Systeme in Abhängigkeit von der Frequenz verhalten. Diese Darstellung
 wird als Spektrum bezeichnet. Dabei ist das Betragsverhalten
 (Betragsspektrum), also ob und mit welcher Leistung eine Frequenz im
@@ -349,7 +344,7 @@ darstellen.</p>
 </div>
 <div class="error admonition">
 <p class="admonition-title">ToDo</p>
-<p>Aktives Beispiel wäre schön.</p>
+<p>Das Motivationsbeispiel in einer konkreten Realisierung wäre schön.</p>
 </div>
 <p>Eine Möglichkeit das Verhalten bei einer bestimmten Frequenz zu testen,
 ist, das LTI-System mit Signalen anzuregen die nur aus einer Frequenz
@@ -362,7 +357,9 @@ diskrete Exponentialschwingung</p>
 \]</div>
 <p>mit <span class="math notranslate nohighlight">\(\Omega_0 = 2 \pi f_0/ f_s\)</span>, wobei <span class="math notranslate nohighlight">\(f_0\)</span> die Analysefrequenz und <span class="math notranslate nohighlight">\(f_s\)</span>
 die Samplingfrequenz angibt.</p>
-<p><strong>Exkurs: Frequenzachsen in der DSV</strong> Manchmal ist es verwirrend in
+<div class="hint admonition">
+<p class="admonition-title">Exkurs: Frequenzachsen in der DSV</p>
+<p>Manchmal ist es verwirrend in
 welcher Form Frequenzen in der digitalen Signalverarbeitung angegeben
 werden. Die am häufigsten verwendeten Systeme und ihre Äquivalenz als
 Achse und ihre Position auf dem Einheitskreis in der z-Ebene zeigt
@@ -374,6 +371,10 @@ Frequenzbezeichnungen in der DSV und ihre Position auf dem Einheitskreis
 in der
 z-Ebene.</span><a class="headerlink" href="#fig-frequenzskalierungenexkurs" title="Permalink to this image">¶</a></p>
 </div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <p>Mit Hilfe der Faltung ergibt sich am Ausgang eines durch die
 Impulsantwort beschriebenen Systems.</p>
 <div class="math notranslate nohighlight" id="equation-eq-ftrafo-bsp">
@@ -384,55 +385,58 @@ Impulsantwort beschriebenen Systems.</p>
     \underbrace{\sum_{\kappa = -\infty}^{\infty} h(\kappa) e^{-j\Omega_0
     \kappa}}_{\mbox{Komplexer Multiplikator}}\end{aligned}
 \end{split}\]</div>
-<p>Das heißt also, am Ausgang können wir eine Schwingung derselben Frequenz messen, die nur in ihrer Phase und ihrem Betrag geändert wird. Berechnen wir
-dieses Ausgangsverhalten für alle Frequenzen erhalten wir das Spektrum.
+<p>Das heißt also, die am Ausgang gemessene Schwingung besitzt die gleiche Frequenz, die aber in ihrer Phase und ihrem Betrag geändert sein könnte. Die Berechnung
+dieses Ausgangsverhalten für alle Frequenzen führt zum gewünschten Spektrum.
 Auffällig bei LTI-Systemen ist, das keine neuen Frequenzen entstehen.
 Dies ist eine typische Eigenschaft von LTI-Systemen.</p>
-<p><strong>LTI-Systeme erzeugen keine neuen Frequenzen</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>LTI-Systeme erzeugen keine neuen Frequenzen</p>
+</div>
 <p>Bei Systemen wird die frequenzabhängige Veränderung des Betrages und der
-Phase Übertragungsfunktion genannt und kann mit</p>
+Phase Übertragungsfunktion genannt und wird durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-dtfd-hin">
 <span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-dtfd-hin" title="Permalink to this equation">¶</a></span>\[
-    H(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} h(k) e^{-j\Omega k}
+    H(e^{j \Omega}) = \sum_{k = -\infty}^{\infty} h(k) e^{-j\Omega k}
 \]</div>
-<p>berechnet werden. Diese Form ist eng verwandt mit der Fourier-Transformation für analoge Signale und wird deshalb Zeitdiskrete Fourier-Transformation (<em>Discrete Time Fourier-Transformation (DTFT)</em>) genannt.</p>
+<p>berechnet. Dies entspricht einer Fourier-Transformation der nur zu diskreten Punkten definierten Impulsantwort. Allgemein kann jedes beliebige dikrete Signal so in den Frequenzbereich transormiert werden. Die dazugehörige Transformation wird Zeitdiskrete Fourier-Transformation (<em>Discrete Time Fourier-Transformation (DTFT)</em>) genannt.</p>
 <p>Vergleichen wir nun Gleichung
 <a class="reference internal" href="#equation-eq-dtfd-hin">(5.3)</a> mit der Definition der z-Transformation, so
-erkennen wir, dass die DTFT die z-Transformation für <span class="math notranslate nohighlight">\(z = e^{j\Omega}\)</span>
+ist zu erkennen, dass die DTFT die z-Transformation für <span class="math notranslate nohighlight">\(z = e^{j\Omega}\)</span>
 darstellt und somit genau den Einheitskreis in der z-Ebene beschreibt.
-Wir können also direkt am Einheitskreis das frequenzabhängige
-Übertragungsverhalten von Systemen ablesen. Dies gilt analog natürlich
+Es kann also direkt am Einheitskreis das frequenzabhängige
+Übertragungsverhalten von Systemen abgelesen werden. Dies gilt analog natürlich
 auch für Signale.</p>
-<p>Kennen wir also die z-Transformation eines Systems können wir auch
-sofort die Übertragungsfunktion angeben. Betrachten wir beispielsweise
-das System <span class="math notranslate nohighlight">\(y(k) = x(k) + x(k-1)\)</span>, dann ergibt <span class="math notranslate nohighlight">\(e^{j\Omega}\)</span> in die
+<p>Ist also die z-Transformation eines Systems bekannt kannn auch sofort die Übertragungsfunktion
+angeben werden. Beispielsweise ergibt sich
+für das System <span class="math notranslate nohighlight">\(y(k) = x(k) + x(k-1)\)</span> mit <span class="math notranslate nohighlight">\(e^{j\Omega}\)</span> in die
 z-Transformierte eingesetzt</p>
 <div class="math notranslate nohighlight" id="equation-eq-ftrafo-bsp-ztrafoftrafo">
 <span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-ftrafo-bsp-ztrafoftrafo" title="Permalink to this equation">¶</a></span>\[
-    H(e^(j \Omega)) = 1+z^{-1} \Big|_{z = e^{j\Omega}} = 1+e^{-j\Omega}
+    H(e^{j \Omega}) = 1+z^{-1} \Big|_{z = e^{j\Omega}} = 1+e^{-j\Omega}
 \]</div>
-<p>Durch Umformungen erhalten wir.</p>
+<p>Eine Multiplikation beider Seiten mit <span class="math notranslate nohighlight">\(e^{j \Omega / 2}\)</span> führt zu:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ftrafo-bspuebrtragungf">
 <span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-ftrafo-bspuebrtragungf" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
-   e^{j\Omega / 2} H(e^(j \Omega)) &amp;= &amp; e^{j \Omega / 2}+e^{-j\Omega / 2}\\
-   &amp; = &amp; \underbrace{2 \cos(\Omega / 2)}_{\mbox{Betrag, wenn $|\cdot|$}}
-   \underbrace{e^{-j\Omega / 2}}_{\mbox{Phase}}\end{aligned}
+   e^{j\Omega / 2} H(e^{j \Omega}) &amp;= &amp; e^{j \Omega / 2}+e^{-j\Omega / 2}\\
+   H(e^{j \Omega}) &amp; = &amp; 2 \cos(\Omega / 2) e^{-j\Omega / 2}
+\end{aligned}
 \end{split}\]</div>
 <p>Die komplexwertige Darstellung mit Real und Imaginärteil ist dabei zur
 Veranschaulichung und Interpretation nicht geeignet. Statt dessen wird
 das komplexe Signal meist in den Betragsfrequenzgang, d.h, eine
-Darstellung von <span class="math notranslate nohighlight">\(|H(e^(j \Omega))|\)</span> über der Frequenz und den Phasengang, eine
-Darstellung des Arguments von <span class="math notranslate nohighlight">\(H(e^(j \Omega))\)</span>, aufgeteilt, wobei beim Betrag
+Darstellung von <span class="math notranslate nohighlight">\(|H(e^{j \Omega})|\)</span> über der Frequenz und den Phasengang, eine
+Darstellung des Arguments von <span class="math notranslate nohighlight">\(H(e^{j \Omega})\)</span>, aufgeteilt, wobei beim Betrag
 oder dem Betragsquadrat auch häufig eine logarithmische Darstellung
-gewählt wird</p>
+gewählt wird. In der Audiotechnik wird zusätzlich auch die Frequenzachse logarithmisch
+dargestellt, da dies näher an der Wahrnehmung von Tonhöhe liegt-</p>
 <div class="section" id="einfluss-der-pole-und-nullstellen-auf-die-ubertragungsfunktion">
 <h2><span class="section-number">5.1. </span>Einfluss der Pole und Nullstellen auf die Übertragungsfunktion<a class="headerlink" href="#einfluss-der-pole-und-nullstellen-auf-die-ubertragungsfunktion" title="Permalink to this headline">¶</a></h2>
 <p>Um den Einfluss der Pole und Nullstellen auf die Übertragungsfunktion
-abzuschätzen, schauen wir uns zunächst noch einmal die <a class="reference internal" href="#fig-uebertragpolnullstellen"><span class="std std-numref">Abbildung 5.2</span></a> an. Bei dieser Abbildung ist
-<span class="math notranslate nohighlight">\(|H(e^(j \Omega))|^2\)</span> logarithmisch dargestellt. Der Betragsfrequenzgang der DTFT
-kann direkt aus dem enstehenden “Gebirge” abgelesen werden, wenn wir den
-Einheitskreis vom Winkel <span class="math notranslate nohighlight">\(0\)</span> bis <span class="math notranslate nohighlight">\(\pi\)</span> umlaufen. Der Pol bei <span class="math notranslate nohighlight">\(\pi/10\)</span>
+abzuschätzen, hilft zunächst ein Besipiel. Die <a class="reference internal" href="ztrafo.html#fig-polnullstellenplan"><span class="std std-numref">Abbildung 4.5</span></a> zeigt auf der rechten Seite <span class="math notranslate nohighlight">\(|H(z)|^2\)</span> als dreidiemensionalen Höhenplot und <span class="math notranslate nohighlight">\(|H(e^{j \Omega})|^2\)</span> als schwarzen Einheitskreis in einer logarithmischen Darstellung. Der Betragsfrequenzgang der DTFT (schwarze Linie)
+kann direkt aus dem enstehenden “Gebirge” abgelesen werden, wenn der
+Einheitskreis vom Winkel <span class="math notranslate nohighlight">\(0\)</span> bis <span class="math notranslate nohighlight">\(\pi\)</span> umlaufen wird. Der Pol bei <span class="math notranslate nohighlight">\(\pi/10\)</span>
 verursacht eine Verstärkung auf dem Einheitskreis. Ein Pol direkt auf
 dem Einheitskreis würde zu einer unendlichen Verstärkung führen. Sobald
 der Winkel größer wird als <span class="math notranslate nohighlight">\(\pi/10\)</span> nimmt die Verstärkung ab. Ab einem
@@ -441,7 +445,7 @@ dass sich der Betragsfrequenzgang null nähert und die Null bei genau
 <span class="math notranslate nohighlight">\(\pi\)</span> erreicht. Auf dem unteren Halbkreis geht zunächst der Einfluss der
 Nullstelle zurück und der konjugiert komplexe Pol bei <span class="math notranslate nohighlight">\(-\pi/10\)</span> gewinnt
 an Einfluss. Bei <span class="math notranslate nohighlight">\(\Omega =
-2\pi\)</span> sind wir erneut bei <span class="math notranslate nohighlight">\(\Omega = 0\)</span>. Der Betragsfrequenzgang
+2\pi\)</span> entspricht erneut <span class="math notranslate nohighlight">\(\Omega = 0\)</span>. Der Betragsfrequenzgang
 wiederholt sich also periodisch in <span class="math notranslate nohighlight">\(2\pi\)</span> für diskrete Signale. Dies ist
 auch direkt aus der Beziehung</p>
 <div class="math notranslate nohighlight" id="equation-eq-spek-peridozitaetserklaerung">
@@ -452,7 +456,7 @@ auch direkt aus der Beziehung</p>
 <p>Eine direkte Berechnung des Betrag- und Phasenganges aus den Polen und
 Nullstellen ist ebenfalls möglich. Um das zu veranschaulichen ist in
 <a class="reference internal" href="#fig-uebertragpolnullstellen"><span class="std std-numref">Abbildung 5.2</span></a>  ein System zweiter Ordnung in der
-z-Ebene mit den zwei Polen und den zwei Nullstellen gezeigt.</p>
+z-Ebene mit zwei Polen und zwei Nullstellen gezeigt.</p>
 <div class="figure align-default" id="fig-uebertragpolnullstellen">
 <a class="reference internal image-reference" href="_images/UebertragPolNullstellen.png"><img alt="_images/UebertragPolNullstellen.png" src="_images/UebertragPolNullstellen.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Skizze zur Veranschaulichung des
@@ -464,7 +468,7 @@ die Abstände der Pole und Nullstellen zu diesem Punkt <span class="math notrans
 A_2,B_1,B_2\)</span> bekannt sein. Er ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-eq-spec-einfachebetragsrechnung">
 <span class="eqno">(5.7)<a class="headerlink" href="#equation-eq-spec-einfachebetragsrechnung" title="Permalink to this equation">¶</a></span>\[
-    \left|H(e^(j \Omega))\right|\Big|_{e^{j\Omega} = P} = |b_0| \frac{B_1 B_2}{A_1
+    \left|H(e^{j \Omega})\right|\Big|_{e^{j\Omega} = P} = |b_0| \frac{B_1 B_2}{A_1
     A_2}.
 \]</div>
 <p>Zusätzlich hat der Koeffizient <span class="math notranslate nohighlight">\(b_0\)</span> einen Einfluss, der
@@ -472,7 +476,7 @@ aber aus dem Pol-Nullstellenplan nicht ersichtlich ist.</p>
 <p>Die Phase an diesem Punkt kann durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-spec-eenfachephasenrechnung">
 <span class="eqno">(5.8)<a class="headerlink" href="#equation-eq-spec-eenfachephasenrechnung" title="Permalink to this equation">¶</a></span>\[
-    \arg\left\{H(e^(j \Omega)) \right\}\Big|_{e^{j\Omega} = P} = -\arg\{b_0\}  + \beta_1 + \beta_2
+    \arg\left\{H(e^{j \Omega}) \right\}\Big|_{e^{j\Omega} = P} = -\arg\{b_0\}  + \beta_1 + \beta_2
     - \alpha_1 - \alpha_2
 \]</div>
 <p>berechnet werden. Da <span class="math notranslate nohighlight">\(b_0\)</span> für reellwertige
@@ -480,30 +484,129 @@ Systeme ebenfalls reell ist, kann der Term <span class="math notranslate nohighl
 weggelassen werden, bzw. führt bei negativem <span class="math notranslate nohighlight">\(b_0\)</span> zu einer
 Phasendrehung von <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
 <p>Für allgemeine Systeme mit einem Zählergrad <span class="math notranslate nohighlight">\(M\)</span> und einem Nennergrad <span class="math notranslate nohighlight">\(N\)</span>
-ergibt sich [<span id="id1">[]</span>].</p>
+ergibt sich (angelehnt an [<span id="id1">[]</span>]).</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumbetragallg">
 <span class="eqno">(5.9)<a class="headerlink" href="#equation-eq-spektrumbetragallg" title="Permalink to this equation">¶</a></span>\[
-    \left|H(e^(j \Omega))\right| = |b_0| \frac{\displaystyle \prod_{i = 0}^{M-1} \sqrt{1-2|n_i|\cos(\Omega-\arg\{n_i\})+|n_i|^2}}
+    \left|H(e^{j \Omega})\right| = |b_0| \frac{\displaystyle \prod_{i = 0}^{M-1} \sqrt{1-2|n_i|\cos(\Omega-\arg\{n_i\})+|n_i|^2}}
     {\displaystyle \prod_{i = 0}^{N-1}\sqrt{1-2|p_i|\cos(\Omega-\arg\{p_i\})+|p_i|^2}}
 \]</div>
 <p>bzw. für die Phase</p>
+<p><span class="math notranslate nohighlight">\(\renewcommand{\Re}[1]{\mathfrak{R}\left\{ #1 \right\}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\Im}[1]{\mathfrak{I}\left\{ #1 \right\}}\)</span></p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumphaseallg">
 <span class="eqno">(5.10)<a class="headerlink" href="#equation-eq-spektrumphaseallg" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
-    \arg\left\{H(e^(j \Omega))\right\} &amp;=&amp; (M-N)\Omega - \arg\{b_0\} \\\nonumber
-    &amp;&amp; - \sum_{i = 0}^{M-1}\arctan\left\{\frac{\sin \Omega-|n_i|\sin(\arg\{n_i\})}{\cos \Omega-|n_i|\cos(\arg\{n_i\})}
+    \arg\left\{H(e^{j \Omega})\right\} &amp;=&amp; (M-N)\Omega - \arg\{b_0\} \\\nonumber
+        &amp;&amp; + \sum_{i = 0}^{M-1}\arctan\left\{\frac{\sin \Omega-\Im{n_i}}{\cos \Omega- \Re{n_i}}
     \right\}\\\nonumber
-    &amp;&amp; +\sum_{i = 0}^{N-1}\arctan\left\{\frac{\sin \Omega-|p_i|\sin(\arg\{p_i\})}{\cos \Omega-|p_i|\cos(\arg\{p_i\})} \right\}\end{aligned}
+    &amp;&amp; - \sum_{i = 0}^{N-1}\arctan\left\{\frac{\sin \Omega-\Im{p_i}}{\cos \Omega-\Re{p_i}} \right\}\end{aligned}
 \end{split}\]</div>
-<div class="error admonition">
-<p class="admonition-title">To Do</p>
-<p>Hier fehlt ein Beispiel, dass in Matlab erklärt wird</p>
+<p>wobei <span class="math notranslate nohighlight">\(\Re{\cdot}\)</span> und <span class="math notranslate nohighlight">\(\Im{\cdot}\)</span> den Real-, bzw. Imaginäranteil einer komplexen Zahl symbolisieren.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="n">radius_poles</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">omega_poles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">10</span>
+
+<span class="n">pole_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">radius_poles</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">omega_poles</span><span class="p">)]</span>
+<span class="n">pole_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pole_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">conjugate</span><span class="p">())</span>
+
+
+<span class="n">radius_zeros</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">omega_zeros</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">10</span>
+
+<span class="n">zero_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">radius_zeros</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">omega_zeros</span><span class="p">)]</span>
+<span class="n">zero_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zero_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">conjugate</span><span class="p">())</span>
+
+
+<span class="c1"># from poles and zeros, compute system coefficients</span>
+<span class="n">a_coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">pole_list</span><span class="p">)</span>
+<span class="n">b_coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">zero_list</span><span class="p">)</span>
+
+<span class="c1"># draw poles and zeros</span>
+<span class="c1">#plt.figure(1)</span>
+<span class="c1">#plt.scatter(np.real(pole_list), np.imag(pole_list), marker=&#39;x&#39;, c=&#39;r&#39;)</span>
+<span class="c1">#plt.scatter(np.real(zero_list), np.imag(zero_list), marker=&#39;o&#39;, c=&#39;b&#39;)</span>
+
+<span class="c1"># draw unit circle inside the same plot</span>
+<span class="n">angles_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<span class="c1">#plt.plot(np.cos(angles_rad), np.sin(angles_rad), c=&#39;k&#39;)</span>
+
+<span class="c1"># plot formatting stuff</span>
+<span class="c1">#plt.axis(&#39;equal&#39;)</span>
+<span class="c1">#plt.grid()</span>
+<span class="c1">#plt.title(&#39;Pol-Nullstellen-Plan&#39;)</span>
+<span class="c1">#plt.xlabel(&#39;Re(z)&#39;)</span>
+<span class="c1">#plt.ylabel(&#39;Im(z)&#39;)</span>
+<span class="c1">#plt.show()</span>
+<span class="c1"># compute complex-valued transfer function</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">transfer_function</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b_coefficients</span><span class="p">,</span> <span class="n">a_coefficients</span><span class="p">,</span> <span class="n">whole</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="c1"># def pole_zero_influence_plot(spec_idx):</span>
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># first subplot: pole-zero plot</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">pole_list</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">pole_list</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">zero_list</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">zero_list</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles_rad</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles_rad</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># second subplot: magnitude of transfer function</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">)])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+
+<span class="c1"># second subplot: phase of transfer function</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">)])</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
+
+<span class="c1"># draw lines from each pole to the current index</span>
+<span class="c1">#or pole_idx in range(0, len(pole_list)):</span>
+<span class="c1">#   ax[0].plot([np.cos(angles_rad[spec_idx]), np.real(pole_list[pole_idx])],</span>
+<span class="c1">#              [np.sin(angles_rad[spec_idx]), np.imag(pole_list[pole_idx])], &#39;:&#39;)</span>
+
+<span class="c1"># draw lines from each zero to the current index</span>
+<span class="c1">#or zero_idx in range(0, len(zero_list)):</span>
+<span class="c1">#   ax[0].plot([np.cos(angles_rad[spec_idx]), np.real(zero_list[zero_idx])],</span>
+<span class="c1">#              [np.sin(angles_rad[spec_idx]), np.imag(zero_list[zero_idx])], &#39;:&#39;)</span>
+
+<span class="c1"># plot markers into transfer function plots at the same index</span>
+<span class="c1">#x[1].plot([spec_idx, spec_idx], [-40, 20*np.log10(np.abs(transfer_function[spec_idx]))])</span>
+<span class="c1">#x[2].plot([spec_idx, spec_idx], [-np.pi, np.angle(transfer_function[spec_idx])])</span>
+
+        
+
+<span class="c1"># create a slider that uses the slider value inside of the plot function</span>
+<span class="c1"># interactive_plot = widgets.interactive(pole_zero_influence_plot, spec_idx=(1, len(transfer_function)-1, 5))</span>
+
+<span class="c1"># show the slider and the plot</span>
+<span class="c1"># interactive_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-3.141592653589793, 3.141592653589793)
+</pre></div>
+</div>
+<img alt="_images/spektren_4_1.png" src="_images/spektren_4_1.png" />
+</div>
 </div>
 <div class="error admonition">
 <p class="admonition-title">To Do</p>
-<p>Phase muss noch deutlich besser erklärt werden, außerdem scheint die Phasenformel falsch zu sein</p>
+<p>Phase muss noch deutlich besser erklärt werden und die folgenden Interpretationen sollten durch Besipiele (plots mit Python) gezeigt werden. Plot fuer ein PN Plan siehe oben</p>
 </div>
-<p>Eine Interpretation führt zu den Schlüssen:</p>
+<p>Eine Interpretation (Die Nutzung vom FilterDeMystifier hilft hier sehr) führt zu den Schlüssen:</p>
 <ul>
 <li><p>Je näher ein Pol am Einheitkreis liegt umso größer ist sein Einfluss
 auf die Übertragungsfunktion</p></li>
@@ -552,28 +655,31 @@ da nur noch ein Block an Daten verarbeitet wird.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
 
-<span class="n">ax_signal</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax_signal</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">signal</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span> <span class="c1"># random sample scaled -2 to 2</span>
-<span class="n">ax_signal</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">36</span><span class="p">),</span> <span class="n">signal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_signal</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">26</span><span class="p">),</span> <span class="n">signal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_signal</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Eingangssignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Eingangssignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">26</span><span class="p">])</span>
 
-<span class="n">ax_window</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax_window</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">window</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="p">])</span>
-<span class="n">ax_window</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">36</span><span class="p">),</span> <span class="n">window</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;mid&#39;</span><span class="p">)</span>
+<span class="n">ax_window</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">26</span><span class="p">),</span> <span class="n">window</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;mid&#39;</span><span class="p">)</span>
 <span class="n">ax_window</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Rechteck-Fensterfunktion&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Rechteck-Fensterfunktion&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">26</span><span class="p">])</span>
 
-<span class="n">ax_filtered</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax_filtered</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">filtered_signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">*</span> <span class="n">window</span> <span class="c1"># filtering in time domain</span>
-<span class="n">ax_filtered</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">36</span><span class="p">),</span> <span class="n">filtered_signal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_filtered</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">26</span><span class="p">),</span> <span class="n">filtered_signal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_filtered</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;gefenstertes Signal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;gefenstertes Signal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">26</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;DFT_FensterMultiplikation&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -581,6 +687,9 @@ da nur noch ein Block an Daten verarbeitet wird.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-dft-fenstermultiplikation" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/spektren_7_0.png" src="_images/spektren_7_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Veranschaulichung der Wirkung einer
 Rechteck-Fensterfunktion der Länge
 <span class="math notranslate nohighlight">\(N = 16\)</span>.</span><a class="headerlink" href="#fig-dft-fenstermultiplikation" title="Permalink to this image">¶</a></p>
@@ -646,7 +755,7 @@ zu definieren ist, da wir ja ein kontinuierliches periodisches Spektrum
 haben.</p>
 <div class="math notranslate nohighlight" id="equation-eq-spektrumbegrenzterfolgen">
 <span class="eqno">(5.14)<a class="headerlink" href="#equation-eq-spektrumbegrenzterfolgen" title="Permalink to this equation">¶</a></span>\[
-    H(e^(j \Omega)) \Big|_{0 \leq n \leq N} = \int_{\theta = -\pi}^{\pi} H
+    H(e^{j \Omega}) \Big|_{0 \leq n \leq N} = \int_{\theta = -\pi}^{\pi} H
     (e^{j\theta}) H^{W}(e^{j(\Omega - \theta)})d\theta
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(H^{W}\)</span> die Übertragungsfunktion der Fensterfunktion ist.</p>
@@ -662,7 +771,7 @@ Spektrum der Rechteckfunktion:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-    H^{W}(e^(j \Omega)) &amp; = &amp; \frac{1-e^{-j\Omega N}}{1- e^{-j\Omega}}\\
+    H^{W}(e^{j \Omega}) &amp; = &amp; \frac{1-e^{-j\Omega N}}{1- e^{-j\Omega}}\\
     &amp; = &amp; \frac{e^{-j\Omega N/2} \overbrace{(e^{j\Omega N/2}- e^{-j\Omega N/2})}^{2j\sin(\Omega N/2)}}
     {e^{-j \Omega/2}\underbrace{(e^{j \Omega/2}- e^{-j\Omega/2})}_{2j\sin(\Omega/2)}}\\
     &amp; = &amp; e^{-j(N-1)\Omega/2}\frac{\sin\left(N \Omega/2
@@ -690,7 +799,7 @@ Der Betrag dieser Funktion ist in <a class="reference internal" href="#fig-diric
 <span class="c1"># normalizing</span>
 <span class="n">dirichlet_abs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dirichlet</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dirichlet</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-<span class="n">ax_dirichlet</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax_dirichlet</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax_dirichlet</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">dirichlet_abs</span><span class="p">)</span>
 <span class="n">ax_dirichlet</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz rad/pi &#39;</span><span class="p">,</span> 
         <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Frequenzanteil normiert auf 1&#39;</span><span class="p">,</span> 
@@ -702,6 +811,9 @@ Der Betrag dieser Funktion ist in <a class="reference internal" href="#fig-diric
 </div>
 </div>
 <div class="figure align-default" id="fig-dirichletfkt" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/spektren_12_0.png" src="_images/spektren_12_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 5.5 </span><span class="caption-text">Betrag von <span class="math notranslate nohighlight">\(H^{W}(e^(j \Omega))\)</span> für
 <span class="math notranslate nohighlight">\(N = 16\)</span>.</span><a class="headerlink" href="#fig-dirichletfkt" title="Permalink to this image">¶</a></p>
 </div>
@@ -714,13 +826,14 @@ Cosinus-Schwingung berechnen:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-H(e^(j \Omega)) &amp; = &amp; \sum_{-\infty}^{\infty} \cos \left(k \Omega_0  \right) e^{-j\Omega k}\\
+H(e^{j \Omega}) &amp; = &amp; \sum_{-\infty}^{\infty} \cos \left(k \Omega_0  \right) e^{-j\Omega k}\\
        &amp; = &amp; \sum_{-\infty}^{\infty} \frac{1}{2}\left( e^{j k \Omega_0} + e^{-j k \Omega_0}\right) e^{-j\Omega k}\\
        &amp; = &amp; \sum_{-\infty}^{\infty} \frac{1}{2} \left( e^{j k (\Omega_0-\Omega)} + e^{-j k (\Omega_0 + \Omega)}\right)\\
        &amp; = &amp; \sum_{-\infty}^{\infty} \frac{1}{2} e^{-j k (\Omega-\Omega_0)}
        + \sum_{-\infty}^{\infty} \frac{1}{2} e^{-j k (\Omega + \Omega_0)}\\
-       &amp; = &amp; \frac{1}{2} \delta^D{\Omega - \Omega_0}
-       + \frac{1}{2} \delta^D{\Omega + \Omega_0}\end{aligned}
+       &amp; = &amp; \frac{1}{2} \delta^D(\Omega - \Omega_0)
+       + \frac{1}{2} \delta^D(\Omega + \Omega_0)
+\end{aligned}
 \end{split}\]</div>
 <p>mit
 <span class="math notranslate nohighlight">\(\Omega = 2\pi f / f_s\)</span>. Das heißt, das Spektrum des abgetasteten
@@ -736,7 +849,7 @@ dem Spektrum des Rechtecks. Durch die Siebeigenschaft der
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-    H(e^(j \Omega)) &amp; = &amp; \left(\frac{1}{2} \delta \left(\Omega - \Omega_0 \right)
+    H(e^{j \Omega}) &amp; = &amp; \left(\frac{1}{2} \delta \left(\Omega - \Omega_0 \right)
        + \frac{1}{2} \delta \left(\Omega + \Omega_0 \right) \right) \ast H^{W}(e^(j \Omega)) \\
            &amp; = &amp; \frac{1}{2} H^{W} \left(e^{j(\Omega -\Omega_0 )}\right) +
                  \frac{1}{2} H^{W} \left(e^{j(\Omega + \Omega_0 )}\right).\end{aligned}
@@ -745,7 +858,7 @@ dem Spektrum des Rechtecks. Durch die Siebeigenschaft der
 <a class="reference internal" href="#fig-dft-cosinus"><span class="std std-numref">Abbildung 5.6</span></a> zeigt das resultierende
 Spektrum für <span class="math notranslate nohighlight">\(N = 16\)</span> bei einer Grundfrequenz von 155Hz und einer
 Abtastrate von <span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz.</p>
-<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -760,46 +873,62 @@ Abtastrate von <span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz.
 
 <span class="n">sample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">num_samples</span>
 
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_samples</span><span class="p">):</span>
-    <span class="n">sample</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="n">idx</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="n">kk</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+<span class="n">cos_series</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="n">kk</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
 
-<span class="n">sample</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span> <span class="o">+</span> <span class="n">sample</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="n">cos_series</span><span class="p">,[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">reconst_sig</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">cos_series</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:],</span><span class="n">cos_series</span><span class="p">,</span><span class="n">cos_series</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]))</span>
+
 
 <span class="c1"># signal reconstruction from fft through ifft</span>
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
-<span class="n">ifft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">spectrumshort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 
-<span class="c1"># frequency bins for plotting</span>
-<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> 
+<span class="n">spectrumshort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrumshort</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrumshort</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 <span class="c1"># dB normalized to 0 max amplitude</span>
 <span class="n">spectrum_abs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> 
+<span class="c1"># frequency bins for plotting</span>
+<span class="n">freqs_fft</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum_abs</span><span class="p">))</span> 
+<span class="n">freqs_fftshort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrumshort</span><span class="p">))</span> 
 
-<span class="n">f1</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_sample</span><span class="p">,</span> <span class="n">ax_spectrum</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ax_sample</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
-<span class="n">ax_sample</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Eingangssignal Sinus&#39;</span><span class="p">)</span>
 
-<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs_fft</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">)</span>
-<span class="n">ax_spectrum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz rad/pi &#39;</span><span class="p">,</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs_fft</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz rad/pi &#39;</span><span class="p">,</span> 
         <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Frequenzanteil normiert auf 1&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Spektrum eines Rechteckfenster (Dirichlet-Funktion)&#39;</span><span class="p">)</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Amplitudenspektrum der gefensterten Cosinus-Fkt&#39;</span><span class="p">)</span>
 
-<span class="n">f2</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_spec_stem</span><span class="p">,</span> <span class="n">ax_ifft</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ax_spec_stem</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">freqs_fft</span><span class="p">,</span> <span class="n">spectrum_abs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax_spec_stem</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz rad/pi &#39;</span><span class="p">,</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">freqs_fftshort</span><span class="p">,</span> <span class="n">spectrumshort</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequenz rad/pi &#39;</span><span class="p">,</span> 
         <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Frequenzanteil normiert auf 1&#39;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Spektrum eines Rechteckfenster (Dirichlet-Funktion)&#39;</span><span class="p">)</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Abgetastetes Amplitudenspektrum&#39;</span><span class="p">)</span>
 
-<span class="n">ax_ifft</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ifft</span><span class="p">)</span>
-<span class="n">ax_ifft</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;durch inverse FFT rekonstruiertes Signal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span><span class="n">reconst_sig</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;durch Abtastung des Spektrums erzieltes rekonstruiertes Signal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r:&#39;</span> <span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">15.5</span><span class="p">,</span><span class="mf">15.5</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r:&#39;</span><span class="p">)</span>
+
+<span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;DFT_Cosinus&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/spektren_15_1.png" src="_images/spektren_15_1.png" />
+</div>
 </div>
 <div class="figure align-default" id="fig-dft-cosinus" style="width: 75%">
+<div class="cell_output docutils container">
+<img alt="_images/spektren_15_0.png" src="_images/spektren_15_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Spektrum (Rechts) einer
 abgetasteten Cosinus-Fkt., die auf <span class="math notranslate nohighlight">\(N = 16\)</span> Werte begrenzt wird (Links)
 (<span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz und
@@ -808,16 +937,9 @@ abgetasteten Cosinus-Fkt., die auf <span class="math notranslate nohighlight">\(
 <p>Um nun das DFT-Spektrum zu berechnen ist zusätzlich die Abtastung im
 Frequenzbereich notwendig. Dies hat implizit zur Folge, dass die
 Cosinusfolge periodisch wiederholt wird. Das abgetastete Spektrum ist
-auf der linken Seite in Abbildung
-<a class="reference internal" href="#fig-dft-cosinusspektrum"><span class="std std-numref">Abbildung 5.7</span></a> zu sehen und die
+auf der unteren linken Seite in Abbildung
+<a class="reference internal" href="#fig-dft-cosinus"><span class="std std-numref">Abbildung 5.6</span></a> zu sehen und die
 resultierende Folge auf der rechten Seite.</p>
-<div class="figure align-default" id="fig-dft-cosinusspektrum">
-<a class="reference internal image-reference" href="_images/DFT_CosinusSpektrum.png"><img alt="_images/DFT_CosinusSpektrum.png" src="_images/DFT_CosinusSpektrum.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Abgetastetes Spektrum
-(Links) und die daraus resultierende periodisch fortgesetzte Cosinus-Fkt
-mit Sprungstellen
-(rechts).</span><a class="headerlink" href="#fig-dft-cosinusspektrum" title="Permalink to this image">¶</a></p>
-</div>
 <p>Das resultierende Spektrum hat nicht das erwartete Maximum bei <span class="math notranslate nohighlight">\(f_0\)</span>, da
 <span class="math notranslate nohighlight">\(155Hz\)</span> nicht im Abtastraster einer 16 Punkte FFT bei einer Abtastrate
 von 1kHz liegt. Statt dessen ist die Leistung des Cosinus über viele
@@ -842,10 +964,10 @@ sind. Es ergibt sich also eine Symmetrie der Spektren an der Null Hertz
 und der Imaginärteil punktsymmetrisch (ungerade). Diese Symmetrien
 ergeben sich auch, wenn Betrag und Phase betrachtet werden. Der Betrag
 reeller Funktionen ist immer achsensymmetrisch und die Phase
-punktsymmetrisch (siehe <a class="reference internal" href="#fig-symmetrieplot"><span class="std std-numref">Abbildung 5.8</span></a>)</p>
+punktsymmetrisch (siehe <a class="reference internal" href="#fig-symmetrieplot"><span class="std std-numref">Abbildung 5.7</span></a>)</p>
 <div class="figure align-default" id="fig-symmetrieplot">
 <a class="reference internal image-reference" href="_images/SymmetriePlot.png"><img alt="_images/SymmetriePlot.png" src="_images/SymmetriePlot.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.8 </span><span class="caption-text">Beispiel eines Frequenz- und Phasenverlaufs
+<p class="caption"><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Beispiel eines Frequenz- und Phasenverlaufs
 eines reellwertigen
 Systems.</span><a class="headerlink" href="#fig-symmetrieplot" title="Permalink to this image">¶</a></p>
 </div>
@@ -860,15 +982,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_s/2\)</
 besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte sind in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="51609e78-69c5-4c4b-a685-75c94b11f55b" name="8799a95b-40d0-4bb9-a3d3-0af5364b5eba" type="radio">
-</input><label class="tabbed-label" for="51609e78-69c5-4c4b-a685-75c94b11f55b">
+<input checked="checked" id="07686889-5e4b-4708-97e4-c64f7774e123" name="abc5bc4a-b914-4442-a5c0-02f2d574f688" type="radio">
+</input><label class="tabbed-label" for="07686889-5e4b-4708-97e4-c64f7774e123">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">H_voll</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">H_halb</span><span class="w"> </span><span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="08020e5a-1901-4f70-84e3-7662797a740f" name="8799a95b-40d0-4bb9-a3d3-0af5364b5eba" type="radio">
-</input><label class="tabbed-label" for="08020e5a-1901-4f70-84e3-7662797a740f">
+<input id="66305a0d-430b-434f-8636-9099b0828153" name="abc5bc4a-b914-4442-a5c0-02f2d574f688" type="radio">
+</input><label class="tabbed-label" for="66305a0d-430b-434f-8636-9099b0828153">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -943,7 +1065,7 @@ Multiplikation im Frequenzbereich führt deshalb auf eine Faltung dieser
 periodisch fortgesetzten Sequenzen. Dies führt dazu, dass auch das
 Faltungsprodukt periodisch ist. Man spricht deshalb von der zyklischen
 Faltung. Das Ergebnis kann sich vollständig von dem gewünschten Ergebnis
-unterscheiden. Dies wird in <a class="reference internal" href="#fig-bspzyklischefaltung"><span class="std std-numref">Abbildung 5.9</span></a> demonstriert. Die beiden Folgen
+unterscheiden. Dies wird in <a class="reference internal" href="#fig-bspzyklischefaltung"><span class="std std-numref">Abbildung 5.8</span></a> demonstriert. Die beiden Folgen
 (a,b) ergeben bei der Faltung im Zeitbereich die Folge c. Die Lösung mit
 Hilfe der DFT führt auf die Folge d.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -973,12 +1095,14 @@ Hilfe der DFT führt auf die Folge d.</p>
 <span class="n">ax_a</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Signal A&#39;</span><span class="p">)</span>
 <span class="n">ax_b</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_b</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Signal B&#39;</span><span class="p">)</span>
-<span class="n">ax_ab</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">konventionelle_faltung</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_ab</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">usual_convolution</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_ab</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> 
         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Konventionelle Faltung&#39;</span><span class="p">)</span>
 <span class="n">ax_fft</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">zyklische_faltung</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_fft</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenndex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> 
         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Zyklische Faltung&#39;</span><span class="p">)</span>
+
+<span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;BspZyklischeFaltung&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -986,7 +1110,10 @@ Hilfe der DFT führt auf die Folge d.</p>
 </div>
 </div>
 <div class="figure align-default" id="fig-bspzyklischefaltung" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Beispiel für zyklische Faltung. Die
+<div class="cell_output docutils container">
+<img alt="_images/spektren_21_1.png" src="_images/spektren_21_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.8 </span><span class="caption-text">Beispiel für zyklische Faltung. Die
 beiden Folgen (Bild a,b) ergeben bei konventioneller Faltung Bild c.
 Bild d zeigt das Resultat für die direkte Faltung im Frequenzbereich mit
 Hilfe der DFT.</span><a class="headerlink" href="#fig-bspzyklischefaltung" title="Permalink to this image">¶</a></p>
@@ -999,7 +1126,7 @@ verändern das Spektrum nicht, sondern nur die Frequenzauflösung<a class="footn
 Rücktransformation führt zu der gewünschten Faltungsfolge, wobei durch
 die vorher eingebrachten Nullen keine zyklischen Faltungsprodukte das
 Ergebnis verfälschen. Bei dem obigen Beispiel würde sich das Ergebnis in
-<a class="reference internal" href="#fig-bspzyklischefaltung"><span class="std std-numref">Abbildung 5.9</span></a> c ergeben, wenn an die Folgen a und
+<a class="reference internal" href="#fig-bspzyklischefaltung"><span class="std std-numref">Abbildung 5.8</span></a> c ergeben, wenn an die Folgen a und
 b jeweils 8 Nullen angehängt werden und die DFT Länge auf 16 erhöht
 wird.</p>
 <div class="error admonition">
@@ -1038,10 +1165,10 @@ Audio und Sprachsignalverarbeitung genutzte FFT-Längen sind 256 , 512,
 1024 und 2048. Durch diese Forderung ist es möglich, die Folge in zwei
 Teilfolgen zu zerlegen, wobei wir immer abwechselnd die Elemente der
 Folge, den jeweiligen neuen Teilfolgen zuordnen. Es ergeben sich die
-Folgen <span class="math notranslate nohighlight">\(x(2k)\)</span> und <span class="math notranslate nohighlight">\(x(2k+1)\)</span> (siehe <a class="reference internal" href="#fig-decimationintime"><span class="std std-numref">Abbildung 5.10</span></a>).</p>
+Folgen <span class="math notranslate nohighlight">\(x(2k)\)</span> und <span class="math notranslate nohighlight">\(x(2k+1)\)</span> (siehe <a class="reference internal" href="#fig-decimationintime"><span class="std std-numref">Abbildung 5.9</span></a>).</p>
 <div class="figure align-default" id="fig-decimationintime">
 <a class="reference internal image-reference" href="_images/DecimationInTime.png"><img alt="_images/DecimationInTime.png" src="_images/DecimationInTime.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Aufteilung einer Sequenz in zwei
+<p class="caption"><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Aufteilung einer Sequenz in zwei
 Teilsequenzen zur Erklärung der FFT (Decimation in
 Time)</span><a class="headerlink" href="#fig-decimationintime" title="Permalink to this image">¶</a></p>
 </div>
@@ -1118,7 +1245,7 @@ im Frequenzbereich wird häufig die spektrale Auflösung des Maximums zu
 den 3dB Punkten verwendet. Weiterhin ist eine interessante Größe, welche
 Höhe die nächsten Maxima haben (Betrag). Für das Rechteckfenster sind
 diese beiden Größen durch <span class="math notranslate nohighlight">\(2pi/N\)</span> und <span class="math notranslate nohighlight">\(\approx 13\)</span>dB gegeben. Etwas
-anders sieht dies bei anderen Fensterfunktionen aus (siehe <a class="reference internal" href="#fig-rechteckwindow"><span class="std std-numref">Abbildung 5.11</span></a>
+anders sieht dies bei anderen Fensterfunktionen aus (siehe <a class="reference internal" href="#fig-rechteckwindow"><span class="std std-numref">Abbildung 5.10</span></a>
 bis {numref}`Abbildung %s <a class="reference external" href="fig:KaiserWindow">fig:KaiserWindow</a></p>
 <div class="hint admonition">
 <p class="admonition-title">Interaktiv arbeiten</p>
@@ -1165,7 +1292,10 @@ bis {numref}`Abbildung %s <a class="reference external" href="fig:KaiserWindow">
 </div>
 </div>
 <div class="figure align-default" id="fig-rechteckwindow" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.11 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Rechteckfensters</span><a class="headerlink" href="#fig-rechteckwindow" title="Permalink to this image">¶</a></p>
+<div class="cell_output docutils container">
+<img alt="_images/spektren_26_0.png" src="_images/spektren_26_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Rechteckfensters</span><a class="headerlink" href="#fig-rechteckwindow" title="Permalink to this image">¶</a></p>
 </div>
 <p>Als Ursache für das verschmieren im Frequenzbereich wurde die Faltung
 mit der Fensterfunktion genannt. Die Ursache im Zeitbereich hierfür war
@@ -1226,7 +1356,10 @@ stärker bedämpft.</p></li>
 </div>
 </div>
 <div class="figure align-default" id="fig-hannwindow" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.12 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#fig-hannwindow" title="Permalink to this image">¶</a></p>
+<div class="cell_output docutils container">
+<img alt="_images/spektren_29_0.png" src="_images/spektren_29_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.11 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#fig-hannwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1279,7 +1412,10 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></
 </div>
 </div>
 <div class="figure align-default" id="fig-hammingwindow" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.13 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#fig-hammingwindow" title="Permalink to this image">¶</a></p>
+<div class="cell_output docutils container">
+<img alt="_images/spektren_32_0.png" src="_images/spektren_32_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.12 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#fig-hammingwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1332,7 +1468,10 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 </div>
 </div>
 <div class="figure align-default" id="fig-blackmanwindow" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.14 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<div class="cell_output docutils container">
+<img alt="_images/spektren_35_0.png" src="_images/spektren_35_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.13 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Blackman-Fensters</span><a class="headerlink" href="#fig-blackmanwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
@@ -1382,7 +1521,10 @@ für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\
 </div>
 </div>
 <div class="figure align-default" id="fig-chebwindow" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.15 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<div class="cell_output docutils container">
+<img alt="_images/spektren_38_1.png" src="_images/spektren_38_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.14 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#fig-chebwindow" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
@@ -1400,8 +1542,8 @@ Parameters <span class="math notranslate nohighlight">\(\alpha\)</span> verände
 \end{split}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(I_0\)</span> die modifizierte Bessel-Funktion nullter
 Ordnung darstellt.</p>
-<p><a class="reference internal" href="#fig-kaiserwindow"><span class="std std-numref">Abbildung 5.20</span></a>  und
-<a class="reference internal" href="#fig-kaiserwindow2"><span class="std std-numref">Abbildung 5.21</span></a>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
+<p><a class="reference internal" href="#fig-kaiserwindow"><span class="std std-numref">Abbildung 5.19</span></a>  und
+<a class="reference internal" href="#fig-kaiserwindow2"><span class="std std-numref">Abbildung 5.20</span></a>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
 den zeitlichen Verlauf und die dazugehörigen spektralen
 Eigenschaften.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -1464,8 +1606,8 @@ Eigenschaften.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e151462b-0ac6-493a-9b04-6b604658d2b9" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
-</input><label class="tabbed-label" for="e151462b-0ac6-493a-9b04-6b604658d2b9">
+<input checked="checked" id="4fe1a055-9690-4f56-acde-55df75d00ff9" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
+</input><label class="tabbed-label" for="4fe1a055-9690-4f56-acde-55df75d00ff9">
 von Hann</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann- Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1475,11 +1617,14 @@ Nebenmaxima sind dafür im Gegensatz zum Rechteck-Fenster sehr viel
 stärker bedämpft.</p></li>
 </ul>
 <div class="figure align-default" id="id7" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<div class="cell_output docutils container">
+<img alt="_images/spektren_29_0.png" src="_images/spektren_29_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.15 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="f48f0508-a76d-4e1c-9d9d-b2221f64b510" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
-</input><label class="tabbed-label" for="f48f0508-a76d-4e1c-9d9d-b2221f64b510">
+<input id="a9558d5d-04ba-4a37-ae37-2b9d5ab268fc" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
+</input><label class="tabbed-label" for="a9558d5d-04ba-4a37-ae37-2b9d5ab268fc">
 Hamming</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1490,11 +1635,14 @@ Nebenmaxima einher. Die Verbreiterung entspricht der des
 Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></li>
 </ul>
 <div class="figure align-default" id="id8" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.17 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<div class="cell_output docutils container">
+<img alt="_images/spektren_32_0.png" src="_images/spektren_32_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="2ec92ba2-0c65-47ea-85c8-d7b402c003e4" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
-</input><label class="tabbed-label" for="2ec92ba2-0c65-47ea-85c8-d7b402c003e4">
+<input id="7b7efe67-9802-4d75-a297-c163422349d5" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
+</input><label class="tabbed-label" for="7b7efe67-9802-4d75-a297-c163422349d5">
 Blackman</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1503,12 +1651,15 @@ breitere Hauptkeule <span class="math notranslate nohighlight">\(6\pi/N\)</span>
 der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 </ul>
 <div class="figure align-default" id="id9" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.18 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<div class="cell_output docutils container">
+<img alt="_images/spektren_35_0.png" src="_images/spektren_35_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.17 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Blackman-Fensters</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="310a0bec-b1e6-4fd9-b660-097b13f1709b" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
-</input><label class="tabbed-label" for="310a0bec-b1e6-4fd9-b660-097b13f1709b">
+<input id="999a7856-ec0d-49cb-8e73-f6b26c465c6a" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
+</input><label class="tabbed-label" for="999a7856-ec0d-49cb-8e73-f6b26c465c6a">
 Dolph-Chebbyscheff</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Chebbyscheff Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -1519,12 +1670,15 @@ erreicht. Die Breite der Hauptkeule wird gleichzeitig optimal klein
 für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\)</span>. Siehe auch in Matlab <code class="docutils literal notranslate"><span class="pre">chebwin</span></code></p></li>
 </ul>
 <div class="figure align-default" id="id10" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.19 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<div class="cell_output docutils container">
+<img alt="_images/spektren_38_1.png" src="_images/spektren_38_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.18 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="1393ca81-76ed-4e82-9604-8f86d5eca817" name="940026ab-e9a4-4799-9024-32c3a8c3b888" type="radio">
-</input><label class="tabbed-label" for="1393ca81-76ed-4e82-9604-8f86d5eca817">
+<input id="f217659e-5695-4770-9ec6-f2d2db96b0f8" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
+</input><label class="tabbed-label" for="f217659e-5695-4770-9ec6-f2d2db96b0f8">
 Kaiser-Fester</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser Fenster:</strong> Auch das Kaiser Fenster ist mit Hilfe des
@@ -1541,12 +1695,15 @@ Parameters <span class="math notranslate nohighlight">\(\alpha\)</span> verände
 \end{split}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(I_0\)</span> die modifizierte Bessel-Funktion nullter
 Ordnung darstellt.</p>
-<p><a class="reference internal" href="#fig-kaiserwindow"><span class="std std-numref">Abbildung 5.20</span></a>  und
-<a class="reference internal" href="#fig-kaiserwindow2"><span class="std std-numref">Abbildung 5.21</span></a>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
+<p><a class="reference internal" href="#fig-kaiserwindow"><span class="std std-numref">Abbildung 5.19</span></a>  und
+<a class="reference internal" href="#fig-kaiserwindow2"><span class="std std-numref">Abbildung 5.20</span></a>  zeigen für unterschiedliche <span class="math notranslate nohighlight">\(\alpha\)</span>
 den zeitlichen Verlauf und die dazugehörigen spektralen
 Eigenschaften.</p>
 <div class="figure align-default" id="fig-kaiserwindow" style="width: 75%">
-<p class="caption"><span class="caption-number">Fig. 5.20 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<div class="cell_output docutils container">
+<img alt="_images/spektren_41_0.png" src="_images/spektren_41_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5.19 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Kaiser-Fensters mit
 <span class="math notranslate nohighlight">\(\alpha =\)</span> 2 und 4.</span><a class="headerlink" href="#fig-kaiserwindow" title="Permalink to this image">¶</a></p>
 </div>
@@ -1554,7 +1711,7 @@ Kaiser-Fensters mit
 </div>
 <div class="figure align-default" id="fig-kaiserwindow2">
 <a class="reference internal image-reference" href="_images/KaiserWindow2.png"><img alt="_images/KaiserWindow2.png" src="_images/KaiserWindow2.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.21 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
+<p class="caption"><span class="caption-number">Fig. 5.20 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des
 Kaiser-Fensters mit
 <span class="math notranslate nohighlight">\(\alpha = 2\)</span>.</span><a class="headerlink" href="#fig-kaiserwindow2" title="Permalink to this image">¶</a></p>
 </div>
@@ -1621,10 +1778,10 @@ ergibt.</p>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="filter.html" title="next page">
+        <a class="right-next" href="zbibliography.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">6. </span>Filter</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Literaturverzeichnis</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
