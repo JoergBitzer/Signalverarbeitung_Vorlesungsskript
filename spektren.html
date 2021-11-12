@@ -858,7 +858,7 @@ dem Spektrum des Rechtecks. Durch die Siebeigenschaft der
 <a class="reference internal" href="#fig-dft-cosinus"><span class="std std-numref">Abbildung 5.6</span></a> zeigt das resultierende
 Spektrum für <span class="math notranslate nohighlight">\(N = 16\)</span> bei einer Grundfrequenz von 155Hz und einer
 Abtastrate von <span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz.</p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -921,9 +921,6 @@ Abtastrate von <span class="math notranslate nohighlight">\(f_s = 1\)</span>kHz.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/spektren_15_1.png" src="_images/spektren_15_1.png" />
-</div>
 </div>
 <div class="figure align-default" id="fig-dft-cosinus" style="width: 75%">
 <div class="cell_output docutils container">
@@ -982,15 +979,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_s/2\)</
 besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte sind in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="07686889-5e4b-4708-97e4-c64f7774e123" name="abc5bc4a-b914-4442-a5c0-02f2d574f688" type="radio">
-</input><label class="tabbed-label" for="07686889-5e4b-4708-97e4-c64f7774e123">
+<input checked="checked" id="2f7566f2-94a3-4ccd-bd72-cbd3f30c54c2" name="c4fd4093-ad75-4bbe-a098-9294f61b75c3" type="radio">
+</input><label class="tabbed-label" for="2f7566f2-94a3-4ccd-bd72-cbd3f30c54c2">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">H_voll</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">H_halb</span><span class="w"> </span><span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="66305a0d-430b-434f-8636-9099b0828153" name="abc5bc4a-b914-4442-a5c0-02f2d574f688" type="radio">
-</input><label class="tabbed-label" for="66305a0d-430b-434f-8636-9099b0828153">
+<input id="bb5bb342-d2b5-4eab-bc00-acf4c5947582" name="c4fd4093-ad75-4bbe-a098-9294f61b75c3" type="radio">
+</input><label class="tabbed-label" for="bb5bb342-d2b5-4eab-bc00-acf4c5947582">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -1606,8 +1603,8 @@ Eigenschaften.</p>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4fe1a055-9690-4f56-acde-55df75d00ff9" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
-</input><label class="tabbed-label" for="4fe1a055-9690-4f56-acde-55df75d00ff9">
+<input checked="checked" id="f0417dfd-0022-465d-9c8c-718396c195c3" name="2aa07b00-dc6c-499a-9823-5f8f8d16723b" type="radio">
+</input><label class="tabbed-label" for="f0417dfd-0022-465d-9c8c-718396c195c3">
 von Hann</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann- Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1623,8 +1620,8 @@ stärker bedämpft.</p></li>
 <p class="caption"><span class="caption-number">Fig. 5.15 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des von Hann-Fensters</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="a9558d5d-04ba-4a37-ae37-2b9d5ab268fc" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
-</input><label class="tabbed-label" for="a9558d5d-04ba-4a37-ae37-2b9d5ab268fc">
+<input id="e4d6e890-9ded-411c-b57e-a6ff934f65aa" name="2aa07b00-dc6c-499a-9823-5f8f8d16723b" type="radio">
+</input><label class="tabbed-label" for="e4d6e890-9ded-411c-b57e-a6ff934f65aa">
 Hamming</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming- Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.54\)</span>,
@@ -1641,8 +1638,8 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span></p></
 <p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">Zeitliche und spektrale Eigenschaft des Hamming-Fensters</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="7b7efe67-9802-4d75-a297-c163422349d5" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
-</input><label class="tabbed-label" for="7b7efe67-9802-4d75-a297-c163422349d5">
+<input id="cd32b462-f0b9-41f6-ad3f-9b6c60250f5e" name="2aa07b00-dc6c-499a-9823-5f8f8d16723b" type="radio">
+</input><label class="tabbed-label" for="cd32b462-f0b9-41f6-ad3f-9b6c60250f5e">
 Blackman</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman- Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0.42\)</span>,
@@ -1658,8 +1655,8 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 Blackman-Fensters</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="999a7856-ec0d-49cb-8e73-f6b26c465c6a" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
-</input><label class="tabbed-label" for="999a7856-ec0d-49cb-8e73-f6b26c465c6a">
+<input id="286f7bef-0fb1-4bc4-8bdd-dfeafcd6dc4b" name="2aa07b00-dc6c-499a-9823-5f8f8d16723b" type="radio">
+</input><label class="tabbed-label" for="286f7bef-0fb1-4bc4-8bdd-dfeafcd6dc4b">
 Dolph-Chebbyscheff</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Chebbyscheff Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -1677,8 +1674,8 @@ für eine gegebene Fensterlänge <span class="math notranslate nohighlight">\(N\
 Dolph-Chebbycheff-Fensters</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="f217659e-5695-4770-9ec6-f2d2db96b0f8" name="0b4aede2-c18b-4011-9e6d-a4daa7269b8c" type="radio">
-</input><label class="tabbed-label" for="f217659e-5695-4770-9ec6-f2d2db96b0f8">
+<input id="85fa3397-9990-4b41-9269-a7b76c89823c" name="2aa07b00-dc6c-499a-9823-5f8f8d16723b" type="radio">
+</input><label class="tabbed-label" for="85fa3397-9990-4b41-9269-a7b76c89823c">
 Kaiser-Fester</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser Fenster:</strong> Auch das Kaiser Fenster ist mit Hilfe des
