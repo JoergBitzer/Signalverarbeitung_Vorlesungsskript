@@ -8,6 +8,6 @@ sections:
 - file: systeme
 - file: ztrafo
 - file: spektren
-#- file: filter
+- file: filter
 #- file: mathe
 - file: zbibliography
