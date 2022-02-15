@@ -1033,7 +1033,7 @@ den 3dB Punkten verwendet. Weiterhin ist eine interessante Größe, welche
 Höhe die nächsten Maxima haben (Betrag). Für das Rechteckfenster sind
 diese beiden Größen durch $2pi/N$ und $\approx 13$dB gegeben. Etwas
 anders sieht dies bei anderen Fensterfunktionen aus (siehe {numref}`Abbildung %s <fig:RechteckWindow>`
-bis {numref}`Abbildung %s <fig:KaiserWindow-a4>
+bis {numref}`Abbildung %s <fig:KaiserWindow-a4>`)
 
 ```{admonition} Interaktiv arbeiten
 :class: hint
