@@ -185,34 +185,7 @@ außerhalb).
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-index_kausal = numpy.linspace(-10, 10, 21)
-amplitude_kausal = [0]*len(index_kausal)
-mid_kausal = int(numpy.floor(len(index_kausal)/2))
-for idx in range(len(index_kausal)-mid_kausal):
-    amplitude_kausal[idx+mid_kausal] = 0.5**idx
-
-fig, (ax_kausal, ax_nkausal) = pyplot.subplots(1, 2)
-ax_kausal.stem(index_kausal, amplitude_kausal, use_line_collection=True)
-ax_kausal.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x(k)', title='kaulase Folge 0.5**(k)*gamma(k)', xlim=[-10, 10])
-
-index_nkausal = numpy.linspace(-10, 10, 21)
-amplitude_nkausal = [0]*len(index_nkausal)
-mid_nkausal = int(numpy.floor(len(index_nkausal)/2))
-for idx in range(len(index_nkausal)-mid_nkausal):
-    amplitude_nkausal[idx] = -1 * 0.5**(-10+idx)
-
-ax_nkausal.stem(index_nkausal, amplitude_nkausal, use_line_collection=True)
-ax_nkausal.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x(k)', title='nicht kausale Folge -0.5**(-k)*gamma(-k)', xlim=[-10, 10], ylim=[-50, 0])
-
-glue("zFolgenPic", fig, display=False)
+:load: code/ztransformation/sequence.py
 ```
 
 ```{admonition} Beispiel
@@ -617,90 +590,7 @@ LTI-Systems.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-# based on https://matplotlib.org/3.1.0/gallery/mplot3d/surface3d_radial.html 
-
-"""
-Dem Polnullstellenplan kann per Rechtsklick eine Nullstelle, und per Linksklick eine Pollstelle hinzugefügt werden. Um eine Pol- / Nullstelle zu löschen muss man während man auf sie klickt 'Strg' halten. Es werden automatisch die konjugierten Pol- / Nullstellen hinzugefügt und gelöscht
-"""
-
-from mpl_toolkits.mplot3d import Axes3D
-import numpy
-import matplotlib
-from matplotlib import pyplot
-from matplotlib import cm
-from myst_nb import glue
-
-def H_from_pole_zero(C):
-    zaehler = numpy.ones_like(C)
-    nenner = numpy.ones_like(C)
-
-    for idx in range(len(zeros)):
-        null = numpy.multiply(C - zeros[idx], C - numpy.conjugate(zeros[idx]))
-        zaehler = numpy.multiply(zaehler, null)
-        
-    for idx in range(len(poles)):
-        pole = numpy.multiply(C - poles[idx], C - numpy.conjugate(poles[idx]))
-        nenner = numpy.multiply(nenner, pole)
-
-    H = zaehler/(nenner+0.0000001)
-    Z = 20*numpy.log10(numpy.abs(H))
-    max_val = 60
-    Z[Z>max_val]=max_val
-    Z[Z<-max_val] = -max_val
-    return Z
-
-matplotlib.style.use('sv.mplstyle')
-
-# Create the mesh in polar coordinates and compute corresponding Z.
-theta = numpy.linspace(0, 2*numpy.pi, 100)
-circle = numpy.exp(1j*theta)
-
-x = numpy.linspace(-1.5, 1.5, 100)
-y = numpy.linspace(-1.5j, 1.5j, 100)
-
-poles = [0.8560 + 0.2781j]
-zeros = [-1+0j]
-#poles_conj = [0]*2
-#zeros_conj = [0]*2
-fig = pyplot.figure()
-ax_pz = fig.add_subplot(121)
-
-ax_pz.plot(circle.real, circle.imag)
-ax_pz.set(xlabel=r'Realteil', ylabel=r'Imaginärteil', 
-          title='Pol-Nullstellen-Plan', xlim=[-1.5, 1.5], ylim=[-1.5, 1.5])
-ax_pz.axis('equal')
-
-for idx in range(len(poles)):
-    ax_pz.plot([poles[idx].real, poles[idx].real], [poles[idx].imag, -poles[idx].imag], marker='X', linestyle='none', color='red')
-    ax_pz.plot([zeros[idx].real, zeros[idx].real], [zeros[idx].imag, -zeros[idx].imag], marker='o', linestyle='none', color='blue')
-
-ax_pz.text(-0.95,-0.1,"2", color = 'blue', fontsize = 7)
-
-
-X, Y = numpy.meshgrid(x, y)
-C = X + Y
-
-Z = H_from_pole_zero(C)
-
-Y = Y.imag
-
-ax_3d = fig.add_subplot(122, projection='3d')
-ax_3d.plot_surface(X,Y,Z, cmap=cm.coolwarm, alpha=0.8)
-X_c = circle.real
-Y_c = circle.imag
-Z_c = H_from_pole_zero(circle)
-
-ax_3d.plot(X_c, Y_c, Z_c, color='black')
-
-ax_3d.set(xlim=[-1.5, 1.5], ylim=[-1.5, 1.5], zlim=[-60, 60])
-ax_3d.set_xlabel('Realteil')
-ax_3d.set_ylabel('Imaginärteil')
-ax_3d.set_zlabel(r'$H$ in dB')
-
-# pyplot.show()
-
-glue("PolNullstellenplan", fig, display=False)
+:load: code/ztransformation/pole_zero.py
 ```
 
 ````{tabbed} Buchabbildung
@@ -839,62 +729,7 @@ gegeben und wird in {numref}`Abbildung %s <fig:BspKonjKomplexPole>` bis $k = 49$
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-def impulse(num_samples, pole):
-    r_pole = (pole.real**2 + pole.imag**2)**0.5 
-    phi_pole = numpy.angle(pole) # in rad/s
-    A = -1j*(numpy.exp(1j*phi_pole))/(2*numpy.sin(phi_pole))
-    r_A = numpy.abs(A)
-    phi_A = numpy.angle(A)
-    y = numpy.zeros(num_samples)
-    for idx in range(num_samples):
-        y[idx] = 2 * r_A * r_pole**idx * numpy.cos(phi_pole*idx + phi_A)
-    return y
-
-def onclick(event):
-    ax_pz.lines[1].remove()
-    ax_imp.cla()
-
-    pole = event.xdata + 1j*event.ydata
-    y = impulse(50, pole)
-    
-    ax_pz.plot([pole.real, pole.real], [pole.imag, -pole.imag], marker='X', linestyle='none', color='blue')
-    ax_imp.stem(y, use_line_collection=True)
-    ax_imp.set(xlabel='Folgenkindex k ->', ylabel='Amplitude', title=f'Impulsantwort des Systems', xlim=[0, num_samples-1], ylim=[-y.max(), y.max()])
-    fig.canvas.draw_idle()
-
-
-
-theta = numpy.linspace(0, 2*numpy.pi, 100)
-circle = numpy.exp(1j*theta)
-pole = 0.8560 + 0.2781j
-
-fig, (ax_pz, ax_imp)= pyplot.subplots(1, 2)
-
-# Pole-Zero Plot
-ax_pz.axis('equal')
-ax_pz.set(xlabel=r'Realteil', ylabel=r'Imaginärteil', title='Pol-Nullstellen-Plan', xlim=[-1.5, 1.5], ylim=[-1.5, 1.5])
-ax_pz.plot(circle.real, circle.imag)
-ax_pz.plot([pole.real, pole.real], [pole.imag, -pole.imag], marker='X', linestyle='none', color='blue')
-
-num_samples = 50
-y = impulse(num_samples, pole)
-
-
-# Impulse Plot
-ax_imp.stem(y, use_line_collection=True)
-ax_imp.set(xlabel=r'Folgenkindex $k \rightarrow$ ', ylabel='Amplitude', title='Impulsantwort des Systems', xlim=[0, num_samples-1])
-
-cid = fig.canvas.mpl_connect('button_press_event', onclick)
-
-glue("BspKonjKomplexPole", fig, display=False)
+:load: code/ztransformation/pole_complex_conjugate.py
 ```
 
 
@@ -1036,65 +871,7 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-# This script creates an interactive graphic, where the user can set a1 and a2 coeffitients by clicking a point in left graph. The right graph will show the corresponding impulse response of the defined system
-
-import matplotlib
-import numpy 
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-
-def impulse(num_samples, a2, a1):
-    '''calculates the impulse response of length num_samles for the two recursive factors a1, and a2'''
-    x = numpy.zeros(num_samples)
-    x[0] = 1.
-    y = numpy.zeros(num_samples)
-    for idx in range(num_samples):
-        y[idx] = x[idx] - a1*y[idx-1] - a2*y[idx-2]
-    return y
-    
-def onclick(event):
-    '''on click the mark is set in the stability triangle and the resulting impulse response is calculated and displayed'''
-    a1 = event.ydata
-    a2 = event.xdata
-    ax_stab.lines[0].set_data(a2, a1)
-    y = impulse(num_samples, a2, a1)
-    ax_impuls.cla()
-    ax_impuls.stem(y, use_line_collection=True)
-    ax_impuls.set(xlabel='Folgenkindex k ->', ylabel='Amplitude', title=f'Impulsantwort des Systems y[k] = x[k] - {a1:.3f}*y[k-1] - {a2:.3f}*y[k-2]', xlim=[0, num_samples-1], ylim=[-y.max(), y.max()])
-    pyplot.draw()
-    fig.canvas.draw_idle()
-
-# creates triangle
-edges = numpy.array([[-1, 0],[1, -2],[1, 2]])
-triangle = pyplot.Polygon(edges[:], color='grey')
-
-# coefficient values
-a1 = 0.6
-a2 = 0.9
-
-# subplot figure
-fig, (ax_stab, ax_impuls) = pyplot.subplots(1, 2)
-
-# Stability Plot
-ax_stab.add_patch(triangle)
-ax_stab.set(xlabel=r'$a_2$', ylabel=r'$a_1$', title='Stabilitätsdreieck', xlim=[-2, 2], ylim=[-3, 3])
-ax_stab.plot(a2, a1, 'X')
-
-# Impulse Plot
-num_samples = 50
-y = impulse(num_samples, a1, a2)
-ax_impuls.stem(y, use_line_collection=True)
-ax_impuls.set(xlabel=r'Folgenkindex k $\rightarrow$', ylabel='Amplitude', title=f'Impulsantwort des Systems \n y[k] = x[k] - {a1:.3f}*y[k-1] - {a2:.3f}*y[k-2]', xlim=[0, num_samples-1])
-
-# Execute onclick when button is pressed
-cid = fig.canvas.mpl_connect('button_press_event', onclick)
-pyplot.tight_layout()
-
-glue("Stabildreieck", fig, display=False)
+:load: code/ztransformation/stability.py
 ```
 
 ````{tabbed} Buchabbildung
