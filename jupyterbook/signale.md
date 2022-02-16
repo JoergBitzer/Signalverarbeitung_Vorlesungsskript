@@ -25,45 +25,8 @@ Beispiele natürliche Signale hearngezogen werden:
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-%matplotlib inline
-import matplotlib
-import soundfile
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-#reads signal and samplerate of the sound file
-signal, samplerate = soundfile.read('data/Testsatz.wav') 
-# time vector in seconds
-time = numpy.linspace(0, len(signal)/samplerate, len(signal)) 
-
-# setting start and end of the time
-time_start = 1 # in seconds
-time_end = 1.5 # in seconds
-
-# cuts signal and time
-sample_start = int(time_start * samplerate) # calculates the starting sample
-sample_end = int(time_end * samplerate) # and the end sample
-short_signal = signal[sample_start:sample_end] # extracts the chosen timeframe 
-short_time = time[sample_start:sample_end] # cuts the corresponding time vector
-
-# plots
-fig, ax = pyplot.subplots()
-ax.plot(short_time, short_signal, label='Ausschnitt vom Sprachsignal', 
-        linewidth = 0.5)
-ax.grid(axis='y', color='0.8')
-ax.set(xlabel='Zeit in s', ylabel='Auslenkung (normalisiert auf 1)')
-ax.spines['left'].set_visible(False)
-ax.spines['right'].set_visible(False)
-
-
-# glue this figure to paste it later
-from myst_nb import glue
-glue("sprachsignal", fig, display=False)
+:load: code/signale/sprachsignal.py
 ```
-
 
 ```{glue:figure} sprachsignal
 :figwidth: 75%
@@ -83,21 +46,7 @@ Größen als Signale interpretieren:
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import yfinance
-import matplotlib
-from matplotlib import pyplot
-import pandas
-
-matplotlib.style.use('sv.mplstyle')
-
-dax = yfinance.Ticker("DAX") # chooses the DAX stock
-data = dax.history(period="1wk") # gets course data as pandas Dataframe
-close = data[["Close"]] # selects the Close coulumn in the Dataframe
-close.plot(marker='X', color='black')
-
-from myst_nb import glue
-glue("daxkurs", pyplot.gcf(), display=False)
+:load: code/signale/daxkurs.py
 ```
 
 ```{glue:figure} daxkurs
@@ -111,31 +60,7 @@ Verlauf des DAX Abschlusskurses über mehrere Tage.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from matplotlib.widgets import RadioButtons
-
-matplotlib.style.use('sv.mplstyle')
-
-d_t = 5 # timespan of one datapoint
-
-# first 4 datapoints set the order of the colours on the axis
-# and are not valid data points
-lights = ["green", "yellow", "yellow/red", "red", "red", "red", 
-        "red", "yellow/red", "green", "green", "green", "yellow", "red", "red", "red"] 
-t = numpy.linspace(0, d_t*(len(lights)-1), len(lights))
-
-fig, ax = pyplot.subplots()
-line, = ax.step(t, lights, where='post') # defines the steps of a step diagram
-ax.grid(axis='x', color='0.8')
-ax.set(xlabel='Zeit in s', ylabel='Ampelfarbe')
-ax.set_xlim((15, 70))
-
-
-from myst_nb import glue
-glue("verkehrsampel", fig, display=False)
+:load: code/signale/verkehrsampel.py
 ```
 
 ````{tabbed} Buchabbildung
@@ -218,47 +143,7 @@ Wertebereich und Definitionsbereich ergeben.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-len_cont = 1100 # number of steps for continuous signal
-len_disc = 12 # number of steps for discrete signal
-steps = int(len_cont/(len_disc)) # number of 'continuous' steps between discrete steps
-
-t = numpy.linspace(0, 11, len_cont) # 'continuously' sampled
-dt = numpy.linspace(0, 11, len_disc) # discretely sampled
-v = 0.05*(t-1)*(t-4)*(t-9) # example cubic function values
-
-dv = numpy.round(v[:]) # discrete values of function rounded to integers
-v_dt = v[0 : (len_cont) : int((steps)*12./11.)] # discretely sampled, non discrete values 
-dv_dt = dv[0 : (len_cont) : int((steps)*12./11.)] # discretely sampled, discrete values
-
-# abbreviations: ct/cv = continuous time/values, dt/dv = discrete time/values
-fig, ((ax_2x2_ct_cv, ax_2x2_dt_cv), 
-        (ax_2x2_ct_dv, ax_2x2_dt_dv)) = pyplot.subplots(2, 2)
-
-ax_2x2_ct_cv.plot(t, v)
-ax_2x2_ct_dv.plot(t, dv)
-ax_2x2_dt_cv.stem(dt, v_dt, use_line_collection=True)
-ax_2x2_dt_dv.stem(dt, dv_dt, use_line_collection=True)
-
-ax_2x2_ct_cv.set(xlabel='Zeit in s', ylabel='Ausgangswerte', 
-        title='zeit- und wertkontinuierlich (analog)')
-ax_2x2_dt_cv.set(xlabel='Zeit (diskret) in s', ylabel='Ausgangswerte', 
-        title='zeitdiskret und wertkontinuierlich')
-ax_2x2_ct_dv.set(xlabel='Zeit in s', ylabel='Ausgangswerte (diskret)', 
-        title='zeitkontinuerlich und wertdiskret')
-ax_2x2_dt_dv.set(xlabel='Zeit (diskret) in s',ylabel='Ausgangswerte (diskret)', 
-        title='zeit- und wertdikret (digital)')
-pyplot.tight_layout()
-
-
-from myst_nb import glue
-glue("WertZeit", fig, display=False)
+:load: code/signale/wertzeit.py
 ```
 
 ```{glue:figure} WertZeit
@@ -414,143 +299,7 @@ Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebe
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from matplotlib.widgets import Slider
-from matplotlib.widgets import RadioButtons
-
-matplotlib.style.use('sv.mplstyle')
-
-def isnotebook(): 
-#from https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook
-    try:
-        shell = get_ipython().__class__.__name__
-        if shell == 'ZMQInteractiveShell':
-            return True   # Jupyter notebook or qtconsole
-        elif shell == 'TerminalInteractiveShell':
-            return False  # Terminal running IPython
-        else:
-            return False  # Other type (?)
-    except NameError:
-        return False      # Probably standard Python interpreter
-
-
-
-nbflag = isnotebook()
-
-if (nbflag == False):
-
-    fs_cont = 100000 # 'continous' sample is sampled as such a high frequency that it seem continuous
-    fs = 1000 # discrete sampled
-    freq = 200 # sinus frequency in Hz
-    steps = int(fs_cont/fs) # number of 'continuous' steps between discrete steps
-    T = 0.02 # signal length in s
-
-    # time vectors
-    t = numpy.linspace(0, T, int(T*fs_cont+1)) # 'continuous'
-    dt = t[0:len(t):steps] # extracts discrete time from continuous time
-
-    # function values
-    sin_t = numpy.sin(2 * numpy.pi * t * freq) # continuous
-    sin_dt = numpy.sin(2 * numpy.pi * dt * freq) # discrete
-
-    # plots
-    fig_sin, ax_sin = pyplot.subplots()
-    pyplot.subplots_adjust(bottom=0.25)
-    graph, = ax_sin.plot(t, sin_t)
-    markerline, stemlines, baseline = ax_sin.stem(dt, sin_dt, use_line_collection=True, linefmt='r', markerfmt = 'or')
-    #stemlines.remove()
-
-    ax_sin.set_xlim([0, 0.02])
-    ax_sin.set(ylabel='Amplitude', xlabel='Zeit in s')
-    ax_sin.set_title(f'Sinus = {freq} Hz, Abtastfrequenz = 1000 Hz')
-
-    # adds slider for adjustable sinus frequency
-    ax_freq = pyplot.axes([0.45, 0.1, 0.45, 0.03], facecolor='lightgoldenrodyellow')
-    slider_freq = Slider(ax_freq, 'Sinusfrequenz (Hz)', 0, 3000, valinit=200, valstep=10)
-
-    # updates the continuous and sampled values once the frequency has been changed
-    def update(val):
-        global freq
-        ax_sin.cla()
-        freq = slider_freq.val
-        ax_sin.plot(t, numpy.sin( 2 * numpy.pi * (freq * t)))
-        sin_dt = numpy.sin( 2 * numpy.pi * (freq * dt))
-        ax_sin.stem(dt, sin_dt, use_line_collection=True,linefmt='r', markerfmt = 'or')
-        ax_sin.set_title(f'Sinusfrequenz = {freq} Hz, Abtastfrequenz = 1000 Hz')
-        fig_sin.canvas.draw_idle()
-
-    slider_freq.on_changed(update)
-
-    pyplot.subplots_adjust(left=0.3)
-    rax = pyplot.axes([0.05, 0.7, 0.15, 0.15], facecolor='lightgoldenrodyellow')
-
-    radio = RadioButtons(rax, ('200 Hz', '500 Hz', '800 Hz', '1200 Hz', '1800 Hz'))
-
-    def update_example(label):
-        ax_sin.cla()
-        hzdict = {'200 Hz': 200, '500 Hz': 500, '800 Hz': 800, '1200 Hz': 1200, '1800 Hz': 1800}
-        freq = hzdict[label]
-        ax_sin.plot(t, numpy.sin( 2 * numpy.pi * (freq * t)))
-        sin_dt = numpy.sin( 2 * numpy.pi * (freq * dt))
-        ax_sin.stem(dt, sin_dt, use_line_collection=True,linefmt='r', markerfmt = 'or')
-        ax_sin.set_title(f'Sinusfrequenz = {freq} Hz, Abtastfrequenz = 1000 Hz')
-        fig_sin.canvas.draw_idle()
-        slider_freq.set_val(freq)
-        
-    radio.on_clicked(update_example)
-    pyplot.show()
-else:
-    fs_cont = 100000 # 'continous' sample is sampled as such a high frequency that it seem continuous
-    fs = 1000 # discrete sampled
-    freq = [100, 200, 350, 500, 1000, 1350] # sinus frequency in Hz
-    alpha = ['a) ','b) ','c) ','d) ','e) ','f) ']
-    steps = int(fs_cont/fs) # number of 'continuous' steps between discrete steps
-    T = 0.02 # signal length in s
-
-    # time vectors
-    t = numpy.linspace(0, T, int(T*fs_cont+1)) # 'continuous'
-    dt = t[0:len(t):steps] # extracts discrete time from continuous time
-    fig_sin, ax_sin = pyplot.subplots(nrows=3, ncols=2)
-    
-    for count,ff in enumerate(freq):
-    # function values
-        sin_t = numpy.sin(2 * numpy.pi * t * ff) # continuous
-        sin_dt = numpy.sin(2 * numpy.pi * dt * ff) # discrete
-        if (count == 0):
-            ax = ax_sin[0][0]
-        
-        if (count == 1):
-            ax = ax_sin[0][1]
-        
-        if (count == 2):
-            ax = ax_sin[1][0]
-        
-        if (count == 3):
-            ax = ax_sin[1][1]
-
-        if (count == 4):
-            ax = ax_sin[2][0]
-        
-        if (count == 5):
-            ax = ax_sin[2][1]
-        
-        graph, = ax.plot(t*1000, sin_t)
-        markerline, stemlines, baseline = ax.stem(dt*1000, sin_dt, use_line_collection=True, linefmt='r', markerfmt = 'or')
-    #stemlines.remove()
-
-        ax.set_xlim([0, 20])
-        ax.set(ylabel='Amplitude', xlabel='Zeit in ms')
-        fig_name = alpha[count]
-        ax.set_title(f'{fig_name}Sinus = {ff} Hz, Abtastfrequenz = 1000 Hz')
-
-    pyplot.tight_layout()
-    pyplot.show()
-
-from myst_nb import glue
-glue("Abtast2", fig_sin, display=False)
+:load: code/signale/abtastung2.py
 ```
 
 ````{tabbed} Buchabbildung
@@ -582,157 +331,7 @@ Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 2
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from matplotlib.widgets import Slider
-from matplotlib.widgets import RadioButtons
-
-
-def isnotebook(): 
-#from https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook
-    try:
-        shell = get_ipython().__class__.__name__
-        if shell == 'ZMQInteractiveShell':
-            return True   # Jupyter notebook or qtconsole
-        elif shell == 'TerminalInteractiveShell':
-            return False  # Terminal running IPython
-        else:
-            return False  # Other type (?)
-    except NameError:
-        return False      # Probably standard Python interpreter
-
-
-
-nbflag = isnotebook()
-# nbflag = True
-
-if (nbflag == False):
-
-    fs_cont = 100000 # 'continous' sample is sampled as such a high frequency that it seem continuous
-    fs = 1000 # discrete sampled
-    freq = 100 # sinus frequency in Hz
-    steps = int(fs_cont/fs) # number of 'continuous' steps between discrete steps
-    T = 0.04 # signal length in s
-
-    # time vectors
-    t = numpy.linspace(0, T, int(T*fs_cont+1)) # 'continuous'
-    dt = t[0:len(t):steps] # extracts discrete time from continuous time
-
-    # function values
-    sin_t = numpy.sin(2 * numpy.pi * t * freq) # continuous
-    sin_dt = numpy.sin(2 * numpy.pi * dt * freq) # discrete
-
-    # plots
-    fig_sin, ax_sin = pyplot.subplots()
-    pyplot.subplots_adjust(bottom=0.25)
-    graph, = ax_sin.plot(t, sin_t)
-    markerline, stemlines, baseline = ax_sin.stem(dt, sin_dt, use_line_collection=True, linefmt='r', markerfmt = 'or')
-    #stemlines.remove()
-
-    ax_sin.set_xlim([0, 0.03])
-    ax_sin.set(ylabel='Amplitude', xlabel='Zeit in s')
-    ax_sin.set_title(f'Sinus = 100 Hz, Abtastfrequenz = {fs} Hz')
-
-    # adds slider for adjustable sinus frequency
-    ax_freq = pyplot.axes([0.45, 0.1, 0.45, 0.03], facecolor='lightgoldenrodyellow')
-    slider_freq = Slider(ax_freq, 'Sinusfrequenz (Hz)', 0, 2000, valinit=fs, valstep=10)
-
-    # updates the continuous and sampled values once the frequency has been changed
-    def update(val):
-        global freq
-        ax_sin.cla()
-        fs = slider_freq.val
-        steps = int(fs_cont/fs) # number of 'continuous' steps between discrete steps
-
-        # time vectors
-        t = numpy.linspace(0, T, int(T*fs_cont+1)) # 'continuous'
-        dt = t[0:len(t):steps] # extracts discrete time from continuous time
-        
-        ax_sin.plot(t, numpy.sin( 2 * numpy.pi * (freq * t)))
-        sin_dt = numpy.sin( 2 * numpy.pi * (freq * dt))
-        ax_sin.stem(dt, sin_dt, use_line_collection=True,linefmt='r', markerfmt = 'or')
-        ax_sin.set_title(f'Sinusfrequenz = 100 Hz, Abtastfrequenz = {fs} Hz')
-        fig_sin.canvas.draw_idle()
-
-    slider_freq.on_changed(update)
-
-    pyplot.subplots_adjust(left=0.3)
-    rax = pyplot.axes([0.05, 0.7, 0.15, 0.15], facecolor='lightgoldenrodyellow')
-
-    radio = RadioButtons(rax, ('100 Hz', '200 Hz', '300 Hz', '500 Hz', '1000 Hz'))
-
-    def update_example(label):
-        ax_sin.cla()
-        hzdict = {'100 Hz': 100, '200 Hz': 200, '300 Hz': 300, '500 Hz': 500, '1000 Hz': 1000}
-        fs = hzdict[label]
-        steps = int(fs_cont/fs) # number of 'continuous' steps between discrete steps
-        
-        # time vectors
-        t = numpy.linspace(0, T, int(T*fs_cont+1)) # 'continuous'
-        dt = t[0:len(t):steps] # extracts discrete time from continuous time
-
-        ax_sin.plot(t, numpy.sin( 2 * numpy.pi * (freq * t)))
-        sin_dt = numpy.sin( 2 * numpy.pi * (freq * dt))
-        ax_sin.stem(dt, sin_dt, use_line_collection=True, linefmt='r', markerfmt = 'or')
-        ax_sin.set_title(f'Sinusfrequenz = 100 Hz, Abtastfrequenz = {fs} Hz')
-        fig_sin.canvas.draw_idle()
-        slider_freq.set_val(fs)
-        
-    radio.on_clicked(update_example)
-    pyplot.show()
-else:
-    # matplotlib.style.use('sv.mplstyle')
-    fs_cont = 100000 # 'continous' sample is sampled as such a high frequency that it seem continuous
-    fs = [1000, 500, 300, 200, 150, 100] # discrete sampled
-    freq = [100] # sinus frequency in Hz
-    alpha = ['a) ','b) ','c) ','d) ','e) ','f) ']
-    T = 0.04 # signal length in s
-
-    fig_sin, ax_sin = pyplot.subplots(nrows=3, ncols=2)
-    
-    for count,ff in enumerate(fs):
-    # time vectors
-        steps = int(fs_cont/ff) # number of 'continuous' steps between discrete steps
-        t = numpy.linspace(0, T, int(T*fs_cont+1)) # 'continuous'
-        dt = t[0:len(t):steps] # extracts discrete time from continuous time
-    # function values
-        sin_t = numpy.sin(2 * numpy.pi * t * freq) # continuous
-        sin_dt = numpy.sin(2 * numpy.pi * dt * freq) # discrete
-        if (count == 0):
-            ax = ax_sin[0][0]
-        
-        if (count == 1):
-            ax = ax_sin[0][1]
-        
-        if (count == 2):
-            ax = ax_sin[1][0]
-        
-        if (count == 3):
-            ax = ax_sin[1][1]
-
-        if (count == 4):
-            ax = ax_sin[2][0]
-        
-        if (count == 5):
-            ax = ax_sin[2][1]
-        
-        graph, = ax.plot(1000*t, sin_t)
-        markerline, stemlines, baseline = ax.stem(1000*dt, sin_dt, use_line_collection=True, linefmt='r', markerfmt = 'or')
-    #stemlines.remove()
-
-        ax.set_xlim([0, 30])
-        ax.set(ylabel='Amplitude', xlabel='Zeit in ms')
-    
-        fig_name = alpha[count]
-        ax.set_title(f'{fig_name}Sinus = 100 Hz, Abtastfrequenz = {ff} Hz')
-
-    pyplot.tight_layout()
-    pyplot.show()
-
-from myst_nb import glue
-glue("Abtast3", fig_sin, display=False)    
+:load: code/signale/abtastung3.py
 ```
 
 ````{tabbed} Buchabbildung
@@ -853,32 +452,7 @@ Es gibt aber auch andere Kennlinien, die eine hohe Auflösung im Bereich um Null
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-# defining linear and non linear input vectors and linear output
-input_lin = numpy.linspace(-1, 1, 2**4)
-input_nlin = input_lin**3
-output = numpy.linspace(-1+2**-5, 1-2**-5, 2**4)
-
-#plot linear quantizer
-fig, (ax_lin, ax_nlin) = pyplot.subplots(1, 2)
-ax_lin.step(input_lin, output, where='mid', linewidth=2) # defines the steps of a step diagram
-ax_lin.plot([-2, 2], [-2, 2], 'o--', color='blue', alpha=0.5, linewidth=2)
-ax_lin.set(xlabel='input', ylabel='output', title='Linearer Quantisierer', xlim=[-1, 1], ylim=[-1, 1])
-
-#plot non-linear quantizer
-ax_nlin.step(input_nlin, output, where='mid', linewidth=2) # defines the steps of a step diagram
-ax_nlin.plot([-2, 2], [-2, 2], 'o--', color='blue', alpha=0.5, linewidth=2)
-ax_nlin.set(xlabel='input', ylabel='output', title='Nicht-linearer Quantisierer', xlim=[-1, 1], ylim=[-1, 1])
-# pyplot.show()
-
-from myst_nb import glue
-glue("NonLinearQuant", fig, display=False)
+:load: code/signale/quantisation_nonlinear.py
 ```
 
 ```{glue:figure} NonLinearQuant
@@ -902,47 +476,7 @@ kleine Werte alle dem Nullsignal zu (siehe {numref}`Abbildung %s <plt:MidRiseMid
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-bits = 2 # number of bits used to quantize, feel free to change this
-
-# calculating the vectors to plot 
-input_midrise = numpy.linspace(-1 + (1/2**(bits-1)), 1, 2**bits)
-output_midrise = numpy.linspace(-1 + 2**-bits, 1 - (1/2**bits), 2**bits)
-
-input_midtread = numpy.linspace(-1 + (1/2**bits), 1 - (1/2**bits), 2**bits)
-output_midtread = numpy.linspace(-1, 1 - (1/2**(bits-1)), 2**bits)
-
-# appending  limiting values to the edges of the vector,
-# this is purely for displaying purposes, to avoid a misleading
-# end of quantization after the last calculated values
-input_midrise = numpy.concatenate([[-2], input_midrise, [2]])
-input_midtread = numpy.concatenate([[-2], input_midtread, [2]])
-output_midrise = numpy.concatenate(
-        [[-1 + 2**-bits], output_midrise, [1 - (1/2**bits)]])
-output_midtread = numpy.concatenate(
-        [[-1], output_midtread, [1 - (1/2**(bits-1))]])
-
-fig, (ax_rise, ax_tread) = pyplot.subplots(1, 2)
-# plots the quantizer lines as step diagrams
-
-ax_rise.step(input_midrise, output_midrise, where='pre', linewidth=2)
-ax_rise.plot([-2, 2], [-2, 2], 'o--', color='blue', alpha=0.5, linewidth=2)
-ax_rise.set(xlabel='input', ylabel='output', title='Mid-Rise Quantisierer', 
-        xlim=[-2, 2], ylim=[-1, 1])
-
-ax_tread.step(input_midtread, output_midtread, where='pre', linewidth=2)
-ax_tread.plot([-2, 2], [-2, 2], 'o--', color='blue', alpha=0.5, linewidth=2)
-ax_tread.set(xlabel='input', ylabel='output', title='Mid-Tread Quantisierer', 
-        xlim=[-2, 2], ylim=[-1, 1])
-
-from myst_nb import glue
-glue("MidRiseMidTread", fig, display=False)
+:load: code/signale/quantization_midrise_midtread.py
 ```
 
 ```{glue:figure} MidRiseMidTread
@@ -979,52 +513,7 @@ veranschaulicht, die die Quantisierung einer Sinusfunktion mit wenigen Stufen ze
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-    
-def quantize_midtread (x, bits):
-    scale_factor = 2**(bits-1)
-    out = x*scale_factor
-    out = numpy.floor(out + 0.5)
-    out = out/scale_factor
-    index = out > 1. - 1./(2**(bits-1))
-    out[index] = 1. - 1./(2**(bits-1))
-    return out 
-    
-
-bits = 8
-fs_cont = 100000
-fs = 2000
-f0 = 100
-steps = int(fs_cont/fs)
-T = 0.02
-t = numpy.linspace(0, T, round(T*fs_cont)+1)
-dt = t[0:len(t):steps]
-
-sin_t = numpy.sin(2 * numpy.pi * t * f0)
-sin_dt = numpy.sin(2 * numpy.pi * dt * f0)
-
-q_sin_t = quantize_midtread(sin_t, 2)
-q_sin_dt = quantize_midtread(sin_dt, 2)
-
-fig, (ax_sin1, ax_sin2) = pyplot.subplots(2, 1)
-ax_sin1.plot(t, sin_t)
-ax_sin1.plot(t, q_sin_t,'r') 
-ax_sin1.set(xlabel='Zeit in s', ylabel='Amplitude', title='a) Nur Quantisierung (4 Stufen), Sinus = 100 Hz', xlim=[0, 0.02], ylim=[-1, 1])
-
-ax_sin2.plot(t, sin_t)
-markerline, stemlines, baseline = ax_sin2.stem(dt, q_sin_dt, use_line_collection=True, linefmt='r', markerfmt = 'or')
-ax_sin2.set(xlabel='Zeit in s', ylabel='Amplitude', title='b) Abtastung (fs = 2000 Hz) + Quantisierung (4 Stufen), Sinus = 100 Hz', xlim=[0, 0.02], ylim=[-1, 1])
-pyplot.tight_layout()
-#pyplot.show()
-
-from myst_nb import glue
-glue("QuantisierungSinus", fig, display=False)
+:load: code/signale/quantisation_sine.py
 ```
 
 ```{glue:figure} QuantisierungSinus
@@ -1112,47 +601,7 @@ Einige periodische Signale sind:
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from matplotlib.widgets import Slider
-
-matplotlib.style.use('sv.mplstyle')
-
-# adapted from: https://matplotlib.org/3.1.3/gallery/widgets/slider_demo.html
-
-amplitude = 1.5
-freq = 10 # in Hz
-delta_f = 1 # in Hz
-phase = numpy.pi/4 # in rad
-T = 0.02 # Time in s
-t = numpy.linspace(0, 0.3, 300) # 0 to 0.02 s
-
-# calculates sinus with given values
-sin_t = amplitude * numpy.sin(2 * numpy.pi * t * freq + phase)
-
-# plots sinus
-fig_sin, ((ax_ampl, ax_freq), (ax_phase, ax_empty)) = pyplot.subplots(2, 2)
-ax_ampl.plot(t, sin_t, lw=1)
-ax_ampl.plot(t, 0.5*sin_t, lw=1, ls=':')
-ax_freq.plot(t, sin_t, lw=1)
-ax_freq.plot(t, amplitude * numpy.sin(2 * numpy.pi * t * 0.6*freq + phase), ls=':')
-ax_phase.plot(t, sin_t, lw=1)
-ax_phase.plot(t, amplitude * numpy.sin(2 * numpy.pi * t * freq + phase*2), ls=':')
-          
-ax_ampl.set(xlabel='Zeit is s', ylabel='Amplitude', 
-        title=f'{amplitude} -> {0.5*amplitude} Amplitude', 
-        xlim=[0, 0.3], ylim=[-2, 2])
-ax_freq.set(xlabel='Zeit is s', ylabel='Amplitude', 
-        title=f'{freq} -> {0.6*freq} Hz Frequency', 
-        xlim=[0, 0.3], ylim=[-2, 2])
-ax_phase.set(xlabel='Zeit is s', ylabel='Amplitude', 
-        title=f'{phase/numpy.pi}π -> {2*phase/numpy.pi}π Phase', 
-        xlim=[0, 0.3], ylim=[-2, 2])
-pyplot.tight_layout()
-from myst_nb import glue
-glue("Sinewave", fig_sin, display=False)
+:load: code/signale/signal_sine.py
 ```
 
 ````{tabbed} Buchabbildung
@@ -1167,7 +616,6 @@ Sinussignal mit verschiedenen Amplituden sowie unterschiedlicher Frequenz und St
 1) Starten des interaktiven Programms - "Signale_Sinus_einstellen.py" in jupyterbook/interactive_programs
 2) Mit den Slidern die Signalparameter anpassen.
 ````
-
 
 
 * **Dreieck:** Ein periodisches Dreieckssignal zu beschreiben, kann auf zwei Arten erfolgen. Eine sehr einfache Beschreibung erfolgt über eine abschnittsweise Definition. Eine Periode der Dreiecksschwingung ist gegeben durch
@@ -1215,50 +663,7 @@ Sinussignal mit verschiedenen Amplituden sowie unterschiedlicher Frequenz und St
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-f0 = 250 # base frequency
-duration = 0.01 # in s
-fs = 40000 
-num_samples = int(numpy.round(fs*duration))
-
-dt = duration/num_samples
-d_phase = 2*numpy.pi*dt*f0
-
-
-time = numpy.linspace(0, duration, num_samples)
-
-
-cur_phase = 0
-signal = []
-
-
-for idx in range(len(time)):
-    # calculates values depending of phase, with line
-    if (cur_phase<numpy.pi):
-        val = 1 - cur_phase/(0.5*numpy.pi)
-    else:
-        val = -3 + cur_phase/(0.5*numpy.pi)
-    signal.append(val)
-    #update phase with values around 0 -> 2*pi
-    cur_phase += d_phase
-    if (cur_phase >= 2*numpy.pi):
-        cur_phase -= 2*numpy.pi
-    
-
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.plot(time, signal)
-ax_delta.set(xlabel='Zeit in s', ylabel='Amplitude', 
-        title='Dreieck-Signal 250 Hz', xlim=[0, 0.01], ylim=[-1, 1])
-
-
-from myst_nb import glue
-glue("Dreieck", fig_delta, display=False)
+:load: code/signale/signal_triangle.py
 ```
 
 ```{glue:figure} Dreieck
@@ -1318,44 +723,7 @@ Ausschnitt eines Dreiecksignals.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-f0 = 250
-duration = 0.01
-fs = 10000
-num_samples = int(numpy.round(fs*duration))
-time = numpy.linspace(0, duration, num_samples)
-dt = 1/fs
-d_phase = 2*numpy.pi*f0*dt
-
-cur_phase = 0
-signal = []
-
-for idx in range(len(time)):
-    if (cur_phase<numpy.pi):
-        val = 1
-    else:
-        val = -1
-    signal.append(val)
-    #update phase with values around 0 -> 2*pi
-    cur_phase += d_phase
-    if (cur_phase >= 2*numpy.pi):
-        cur_phase -= 2*numpy.pi
-
-    
-
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.plot(time, signal)
-ax_delta.set(xlabel='Zeit in s', ylabel='Amplitude', 
-        title='Rechteck-Signal 250 Hz', xlim=[0, 0.01], ylim=[-1.1, 1.1])
-
-from myst_nb import glue
-glue("Rechteck", fig_delta, display=False)
+:load: code/signale/signal_square.py
 ```
 
 ```{glue:figure} Rechteck
@@ -1390,39 +758,7 @@ Ausschnitt eines Rechtecksignals, erzeugt mit Gleichung {eq}`eq:EasyRechteck`.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-f0 = 250
-duration = 0.01
-fs = 10000
-
-time = numpy.linspace(0, duration, int(numpy.round(fs*duration)))
-dt = 1/fs
-d_phase = 2*numpy.pi*dt*f0
-
-cur_phase = 0
-signal = []
-
-for idx in range(len(time)):
-    val = -1 + cur_phase/numpy.pi
-    signal.append(val)
-    #update phase with values around 0 -> 2*pi
-    cur_phase += d_phase
-    if (cur_phase >= 2*numpy.pi):
-        cur_phase -= 2*numpy.pi
-    
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.plot(time, signal)
-ax_delta.set(xlabel='Zeit in s', ylabel='Amplitude', 
-        title='Sägezahn-Signal 250 Hz', xlim=[0, 0.01], ylim=[-1, 1])
-
-from myst_nb import glue
-glue("Saegezahn", fig_delta, display=False)
+:load: code/signale/signal_sawtooth.py
 ```
 
 ```{glue:figure} Saegezahn
@@ -1465,26 +801,7 @@ was als Siebeigenschaft des Delta-Impulses bekannt ist.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-idx = numpy.linspace(-6, 6, 13)
-amplitude = [0]*len(idx)
-mid = int(numpy.floor(len(idx)/2))
-amplitude[mid] = 1 # at index of mid means at 0 in the plot
-
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.stem(idx, amplitude)
-ax_delta.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x(k)', 
-        title='Delta-Funktion delta(k)')
-ax_delta.set_xlim([-6, 6])
-
-from myst_nb import glue
-glue("DeltaFunktion", fig_delta, display=False)
+:load: code/signale/signal_delta.py
 ```
 
 ```{glue:figure} DeltaFunktion
@@ -1506,27 +823,7 @@ $$ (eq:Def:Sprungfolge)
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-idx = numpy.linspace(-6, 6, 13)
-amplitude = [0]*len(idx)
-mid = int(numpy.floor(len(idx)/2))
-# ones from mid onward means from 0 onward in the plot
-amplitude[mid:] = numpy.ones(len(amplitude)-mid)
-
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.stem(idx, amplitude)
-ax_delta.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x(k)', 
-        title='Sprungfunktion')
-ax_delta.set_xlim([-6, 6])
-
-from myst_nb import glue
-glue("Sprungfolge", fig_delta, display=False)
+:load: code/signale/signal_delta_train.py
 ```
 
 ```{glue:figure} Sprungfolge
@@ -1549,28 +846,7 @@ Diese beschreibt die Zeit, in der die Funktion auf ca. $37$\% von $A$ abgeklunge
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-fs = 10000
-duration = 1 # in s
-time = numpy.linspace(0, duration, round(duration*fs) + 1)
-signal = []
-tau = 0.3 # in 1/s
-for idx in range(len(time)):
-    signal.append(numpy.exp(-1/tau*time[idx]))
-
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.plot(time, signal)
-ax_delta.set(xlabel='Zeit is s', ylabel='Amplitude',
-        title='Exponentialimpuls mit tau=0.3 s', xlim=[0, 1])
-
-from myst_nb import glue
-glue("ExpImpulse", fig_delta, display=False)
+:load: code/signale/signal_exponetial_pulse.py
 ```
 
 ```{glue:figure} ExpImpulse
@@ -1590,30 +866,7 @@ gegeben. {numref}`Abbildung %s <plt:ExpImpulseDiskret>` zeigt einen diskreten Ex
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-fs = 2000 #in Hz
-duration = 0.01 #in s
-time = numpy.linspace(0, duration, round(duration*fs)+1)
-signal = []
-tau = 0.003 #in s
-for idx in range(len(time)):
-    signal.append(numpy.exp(-1/tau*time[idx]))
-
-time_ms = time * 1000 # simple conversion for better plotting
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.stem(time_ms, signal)
-ax_delta.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x(k)', 
-        title='Exponentialimpuls mit tau = 0.3 ms und fs = 2000 Hz', 
-        xlim=[0, 10])
-
-from myst_nb import glue
-glue("ExpImpulseDiskret", fig_delta, display=False)
+:load: code/signale/signal_exponetial_pulse_discrete.py
 ```
 
 ```{glue:figure} ExpImpulseDiskret
@@ -1655,33 +908,7 @@ x-Achsen-Skalierung.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-spread = 12
-time = numpy.linspace(-spread, spread, 20*spread+1)
-sinc = []
-
-fs = 1000 # sampling frequency
-f0 = 5 # Sinc frequency
-
-for idx in range(len(time)):
-    if (time[idx]!=0):
-        sinc.append(numpy.sin(f0* time[idx])/(f0 * time[idx]))
-    else:
-        sinc.append(1)
-
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.plot(time, sinc)
-ax_delta.set(xlabel='Zeit in s', ylabel='Amplitude', 
-        title='si-Funktion', xlim=[-12, 12])
-
-from myst_nb import glue
-glue("SIFunktion", fig_delta, display=False)
+:load: code/signale/signal_sinc.py
 ```
 
 ```{glue:figure} SIFunktion
@@ -1704,33 +931,7 @@ bei einer Abtastrate von $f_\text{s} = 1000$ Hz ist gut an den Nulldurchgängen 
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-samples = numpy.linspace(-15, 15, 31)
-fs = 1000 # sampling frequency
-f0 = 100 # Si-frequency
-
-# Berechnet Werte
-si = []
-for val in samples:
-    if (val!=0):
-        si.append(numpy.sin(2*numpy.pi * f0 * val/fs )/(2*numpy.pi*val*f0/fs))
-    else:
-        # at 0 si is 1 to avoid division by zero
-        si.append(1)
-        
-fig_delta, ax_delta = pyplot.subplots()
-ax_delta.stem(samples, si)
-ax_delta.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x(k)', 
-        title='Diskrete SI-Funktion', xlim=[-15, 15])
-
-glue("SiFunktionDiskret", fig_delta, display=False)
+:load: code/signale/signal_sinc_discrete.py
 ```
 
 ```{glue:figure} SiFunktionDiskret
@@ -1840,44 +1041,7 @@ Befehl \Matlab{randn}.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-
-matplotlib.style.use('sv.mplstyle')
-
-N = 20000 # number of random samples for distribution
-bins = numpy.linspace(-10, 10, 41) # 41 equal spaced bins between -10 and 10
-
-N = 20000
-stufen = numpy.linspace(-10, 10, 41)
-
-fig, (ax_gleichv, ax_standard_normv, ax_normv) = pyplot.subplots(1, 3)
-ax_gleichv.set_xlim([-10, 10])
-
-# generating random data
-uniform = numpy.random.uniform(low=-4, high=4, size=N)
-# standardized normal mu=0, sigma=1
-standard_normal = numpy.random.standard_normal(size=N) 
-# normal mu = 1, sigma = 3
-normal = numpy.random.normal(loc=1.0, scale=3.0, size=N)
-ax_gleichv.hist(uniform, bins)
-ax_gleichv.set(xlim=[-10, 10], ylim=[0, 4000], title='Gleichverteilung \n von -4 bis 4', 
-        ylabel='Anzahl Werte pro Bin')
-
-
-standard_normv = numpy.random.standard_normal(size=N)
-ax_standard_normv.hist(standard_normv, stufen)
-ax_standard_normv.set(title='Standardnormalverteilung \n' +r'$\mu=0$, $\sigma^2=1$', ylim=[0, 4000])
-
-normv = numpy.random.normal(loc=1.0, scale=3.0, size=N)
-ax_normv.hist(normv, stufen)
-ax_normv.set(title='Normalverteilung \n' + r'$\mu=1$, $\sigma^2=3$', ylim=[0, 4000])
-pyplot.tight_layout()
-
-from myst_nb import glue
-glue("Verteilungen", fig, display=False)
+:load: code/signale/amplitude_distribution.py
 ```
 
 ```{glue:figure} Verteilungen
