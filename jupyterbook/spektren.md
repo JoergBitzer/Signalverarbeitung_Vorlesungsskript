@@ -224,96 +224,7 @@ wobei $\Re{\cdot}$ und $\Im{\cdot}$ den Real-, bzw. Imaginäranteil einer komple
 
 ```{code-cell} ipython3
 :tags: [hide-input]
-
-%matplotlib inline
-import time
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy.signal as signal
-import ipywidgets as widgets
-from IPython.display import display
-
-radius_poles = 0.9
-omega_poles = np.pi / 10
-
-pole_list = [radius_poles * np.exp(1j*omega_poles)]
-pole_list.append(pole_list[0].conjugate())
-
-
-radius_zeros = 0.95
-omega_zeros = 7 * np.pi / 10
-
-zero_list = [radius_zeros * np.exp(1j*omega_zeros)]
-zero_list.append(zero_list[0].conjugate())
-
-
-# from poles and zeros, compute system coefficients
-a_coefficients = np.poly(pole_list)
-b_coefficients = np.poly(zero_list)
-
-# draw poles and zeros
-#plt.figure(1)
-#plt.scatter(np.real(pole_list), np.imag(pole_list), marker='x', c='r')
-#plt.scatter(np.real(zero_list), np.imag(zero_list), marker='o', c='b')
-
-# draw unit circle inside the same plot
-angles_rad = np.linspace(0, 2*np.pi, 512)
-#plt.plot(np.cos(angles_rad), np.sin(angles_rad), c='k')
-
-# plot formatting stuff
-#plt.axis('equal')
-#plt.grid()
-#plt.title('Pol-Nullstellen-Plan')
-#plt.xlabel('Re(z)')
-#plt.ylabel('Im(z)')
-#plt.show()
-# compute complex-valued transfer function
-_, transfer_function = signal.freqz(b_coefficients, a_coefficients, whole=True)
-
-
-# def pole_zero_influence_plot(spec_idx):
-    
-fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
-
-# first subplot: pole-zero plot
-ax[0].scatter(np.real(pole_list), np.imag(pole_list), marker='x', c='r')
-ax[0].scatter(np.real(zero_list), np.imag(zero_list), marker='o', c='b')
-ax[0].plot(np.cos(angles_rad), np.sin(angles_rad), c='k')
-ax[0].set(aspect='equal')
-
-# second subplot: magnitude of transfer function
-ax[1].plot(20*np.log10(np.abs(transfer_function)))
-ax[1].set_xlim([0, len(transfer_function)])
-ax[1].set_ylim([-40, 40])
-
-# second subplot: phase of transfer function
-ax[2].plot(np.angle(transfer_function))
-ax[2].set_xlim([0, len(transfer_function)])
-
-ax[2].set_ylim([-np.pi, np.pi])
-
-# draw lines from each pole to the current index
-#or pole_idx in range(0, len(pole_list)):
-#   ax[0].plot([np.cos(angles_rad[spec_idx]), np.real(pole_list[pole_idx])],
-#              [np.sin(angles_rad[spec_idx]), np.imag(pole_list[pole_idx])], ':')
-
-# draw lines from each zero to the current index
-#or zero_idx in range(0, len(zero_list)):
-#   ax[0].plot([np.cos(angles_rad[spec_idx]), np.real(zero_list[zero_idx])],
-#              [np.sin(angles_rad[spec_idx]), np.imag(zero_list[zero_idx])], ':')
-
-# plot markers into transfer function plots at the same index
-#x[1].plot([spec_idx, spec_idx], [-40, 20*np.log10(np.abs(transfer_function[spec_idx]))])
-#x[2].plot([spec_idx, spec_idx], [-np.pi, np.angle(transfer_function[spec_idx])])
-
-        
-
-# create a slider that uses the slider value inside of the plot function
-# interactive_plot = widgets.interactive(pole_zero_influence_plot, spec_idx=(1, len(transfer_function)-1, 5))
-
-# show the slider and the plot
-# interactive_plot
-
+:load: code/spektren/transfer_function.py
 ```
 
 ```{admonition} To Do
@@ -377,36 +288,7 @@ da nur noch ein Block an Daten verarbeitet wird.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-import matplotlib.pyplot as plt
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-fig, ax = plt.subplots(nrows=3, ncols=1)
-ax_signal = ax[0]
-signal = numpy.random.random_sample(36)*4 - 2 # random sample scaled -2 to 2
-ax_signal.stem(range(-10,26), signal, use_line_collection=True)
-ax_signal.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x[k]', 
-        title='Eingangssignal', xlim=[-10, 26])
-
-ax_window = ax[1]
-window = numpy.concatenate([[0]*10, [1]*16, [0]*10])
-ax_window.step(range(-10,26), window, where='mid')
-ax_window.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x[k]', 
-        title='Rechteck-Fensterfunktion', xlim=[-10, 26])
-
-ax_filtered = ax[2]
-filtered_signal = signal * window # filtering in time domain
-ax_filtered.stem(range(-10,26), filtered_signal, use_line_collection=True)
-ax_filtered.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x[k]', 
-        title='gefenstertes Signal', xlim=[-10, 26])
-
-plt.tight_layout()
-
-glue("DFT_FensterMultiplikation", fig, display=False)
+:load: code/spektren/dft_window.py
 ```
 
 ```{glue:figure} DFT_FensterMultiplikation
@@ -526,32 +408,7 @@ Der Betrag dieser Funktion ist in {numref}`Abbildung %s <fig:DirichletFkt>` geze
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-N = 16 # filter length
-freqs = numpy.linspace(-3, 3, 600) # frequency vector
-dirichlet = [0]*len(freqs) 
-for idx in range(len(freqs)):
-    # calculate dirichlet function with sin(N*w/4)/sin(w/4)
-    dirichlet[idx] = numpy.sin(N*freqs[idx]*numpy.pi*0.5)/ \
-            numpy.sin(freqs[idx]*numpy.pi*0.5)
-
-# normalizing
-dirichlet_abs = numpy.abs(dirichlet)/numpy.abs(dirichlet).max()
-
-fig, ax_dirichlet = pyplot.subplots()
-ax_dirichlet.plot(freqs, dirichlet_abs)
-ax_dirichlet.set(xlabel='Frequenz rad/pi ', 
-        ylabel='Frequenzanteil normiert auf 1', 
-        title='Spektrum eines Rechteckfenster (Dirichlet-Funktion)')
-
-glue("DirichletFkt", fig, display=False)
+:load: code/spektren/dirichlet_function.py
 ```
 
 ```{glue:figure} DirichletFkt
@@ -611,65 +468,7 @@ Abtastrate von $f_s = 1$kHz.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-num_samples = 16
-f0 = 155
-fs = 1000
-
-sample = [0]*num_samples
-
-kk = numpy.arange(num_samples)
-cos_series = numpy.cos(2*numpy.pi*f0*kk/fs)
-
-sample = numpy.concatenate(([0]*4,cos_series,[0]*4))
-
-reconst_sig = numpy.concatenate((cos_series[-4:],cos_series,cos_series[0:4]))
-
-
-# signal reconstruction from fft through ifft
-spectrum = numpy.fft.fft(sample,256)
-spectrumshort = numpy.fft.fft(sample)
-
-spectrumshort = numpy.fft.fftshift(numpy.abs(spectrumshort)/numpy.abs(spectrumshort).max())
-spectrum = numpy.fft.fftshift(spectrum)
-# dB normalized to 0 max amplitude
-spectrum_abs = numpy.abs(spectrum)/numpy.abs(spectrum).max() 
-# frequency bins for plotting
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) 
-freqs_fftshort = numpy.linspace(-1, 1, len(spectrumshort)) 
-
-
-fig, ax = pyplot.subplots(2, 2)
-ax[0][0].stem(range(-4,len(sample)-4),sample)
-ax[0][0].set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
-        title='Eingangssignal Sinus')
-
-ax[0][1].plot(freqs_fft, spectrum_abs)
-ax[0][1].set(xlabel='Frequenz rad/pi ', 
-        ylabel='Frequenzanteil normiert auf 1', 
-        title='Amplitudenspektrum der gefensterten Cosinus-Fkt')
-
-ax[1][0].stem(freqs_fftshort, spectrumshort, use_line_collection=True)
-ax[1][0].set(xlabel='Frequenz rad/pi ', 
-        ylabel='Frequenzanteil normiert auf 1',
-        title='Abgetastetes Amplitudenspektrum')
-
-ax[1][1].stem(range(-4,len(sample)-4),reconst_sig)
-ax[1][1].set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
-        title='durch Abtastung des Spektrums erzieltes rekonstruiertes Signal')
-ax[1][1].plot([-0.5,-0.5],[-1,1], 'r:' )
-ax[1][1].plot([15.5,15.5],[-1,1], 'r:')
-
-pyplot.tight_layout()
-
-glue("DFT_Cosinus", fig, display=False)
+:load: code/spektren/dft_cosine.py
 ```
 
 
@@ -839,42 +638,7 @@ Hilfe der DFT führt auf die Folge d.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-# input samples
-a = [1, 2, 3, 4, 5, 6, 7, 8]
-b = [1, 2, 3, 4, -1, -2, -3, -4]
-
-# usual convolution
-usual_convolution = numpy.convolve(a, b)
-
-# cyclical convolution, equal to multiplying spectra
-dft_spektrum = numpy.fft.fft(a) * numpy.fft.fft(b)
-zyklische_faltung = numpy.fft.ifft(dft_spektrum)
-
-
-fig, ((ax_a, ax_b), (ax_ab, ax_fft)) = pyplot.subplots(2, 2)
-
-ax_a.stem(a, use_line_collection=True)
-ax_a.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', title='Signal A')
-ax_b.stem(b, use_line_collection=True)
-ax_b.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', title='Signal B')
-ax_ab.stem(usual_convolution, use_line_collection=True)
-ax_ab.set(xlabel='Folgenndex k ->', ylabel='Amplitude', 
-        title='Konventionelle Faltung')
-ax_fft.stem(zyklische_faltung, use_line_collection=True)
-ax_fft.set(xlabel='Folgenndex k ->', ylabel='Amplitude', 
-        title='Zyklische Faltung')
-
-pyplot.tight_layout()
-
-glue("BspZyklischeFaltung", fig, display=False)
+:load: code/spektren/circular_convolution.py
 ```
 
 
@@ -1043,37 +807,7 @@ bis {numref}`Abbildung %s <fig:KaiserWindow-a4>`)
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-# create a rectengular window
-rect_window = numpy.concatenate([[0]+[1]*30+[0]])
-# and do zero padding
-rect_window = numpy.concatenate([rect_window, [0]*1000])
-
-spectrum = numpy.fft.fft(rect_window)
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-
-fig, (ax_sample, ax_spectrum) = pyplot.subplots(1, 2)
-ax_sample.plot(rect_window)
-ax_sample.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
-        xlim=[0, 31], title='Rechteck-Fenster im Frequenzbereich')
-
-ax_spectrum.plot(freqs_fft, spectrum_abs)
-ax_spectrum.set(xlabel='Frequenz rad/pi ', ylabel='Dämpfung in dB', 
-        title='Rechteck-Fenster im Frequenzbereich')
-
-glue("RechteckWindow", fig, display=False)
+:load: code/spektren/window_rectangular.py
 ```
 
 ```{glue:figure} RechteckWindow
@@ -1103,318 +837,33 @@ $$ (eq:WindowFunction:General)
 Durch Veränderung der drei Parameter $\alpha, \beta, \gamma$ können die
 bekanntesten Fenster-Funktionen angegeben werden[^6].
 
-<!-- 
--   **von Hann- Fenster (oft fälschlich Hanning):** Für das Hann-Fenster ist
-    $\alpha = \beta = 0.5$ und $\gamma = 0$. Daraus ergibt sich im
-    Frequenzbereich ein etwas breiteres Hauptmaxima $4\pi/N$. Die
-    Nebenmaxima sind dafür im Gegensatz zum Rechteck-Fenster sehr viel
-    stärker bedämpft.
- -->
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+:load: code/spektren/window_hann.py
+```
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-N = 32
-von_hann_window = [0]*N
-
-for idx in range(N):
-    von_hann_window[idx] = 0.5 - 0.5*numpy.cos(2*numpy.pi*idx/N)
-von_hann_window = numpy.concatenate([von_hann_window, [0]*1000])
-spectrum = numpy.fft.fft(von_hann_window)
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-fig, (ax_sample, ax_spectrum) = pyplot.subplots(1, 2)
-ax_sample.plot(von_hann_window)
-ax_sample.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', xlim=[0, N-1],
-        title='Von-Hann-Fenster im Zeitbereich')
-
-ax_spectrum.plot(freqs_fft, spectrum_abs)
-ax_spectrum.set(xlabel='Frequenz rad/pi ', ylabel='Dämpfung in dB', 
-        title='Von-Hann-Fenster im Frequenzbereich')
-
-glue("HannWindow", fig, display=False)
+:load: code/spektren/window_hamming.py
 ```
-
-<!-- 
-```{glue:figure} HannWindow
-:figwidth: 75%
-:name: "fig:HannWindow"
-
-Zeitliche und spektrale Eigenschaft des von Hann-Fensters
-```
-
-+++
-
--   **Hamming- Fenster:** Für das Hamming-Fenster ist $\alpha = 0.54$,
-    $\beta = 0.46$ und $\gamma = 0$. Das Design-Ziel des Hamming-Fenster
-    ist das erste Nebenmaxima möglichst optimal zu unterdrücken. Dafür
-    geht aber insgesamt eine schlechtere Dämpfung der anderen
-    Nebenmaxima einher. Die Verbreiterung entspricht der des
-    Hann-Fensters $4\pi/N$
- -->
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-N = 32 # window length
-
-# calculate window samples by sample
-hamming_window = [0]*N 
-for idx in range(N):
-    hamming_window[idx] = 0.54 - 0.46*numpy.cos(2*numpy.pi*idx/N)
-
-hamming_window = numpy.concatenate([hamming_window, [0]*100000]) # zero padding
-
-spectrum = numpy.fft.fft(hamming_window)
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-
-# time plot
-fig, (ax_sample, ax_spectrum) = pyplot.subplots(1, 2)
-ax_sample.plot(hamming_window)
-ax_sample.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', xlim=[0, N-1],
-        title='Hamming-Fenster im Zeitbereich')
-
-# spectral plot
-ax_spectrum.plot(freqs_fft, spectrum_abs)
-ax_spectrum.set(xlabel='Frequenz rad/pi ', ylabel='Dämpfung in dB', 
-        title='Hamming-Fenster im Frequenzbereich')
-
-glue("HammingWindow", fig, display=False)
+:load: code/spektren/window_blackman.py
 ```
-
-<!-- 
-```{glue:figure} HammingWindow
-:figwidth: 75%
-:name: "fig:HammingWindow"
-
-Zeitliche und spektrale Eigenschaft des Hamming-Fensters
-```
-
-+++
-
--   **Blackman- Fenster:** Für das Blackman-Fenster ist $\alpha = 0.42$,
-    $\beta = 0.5$ und $\gamma = 0.08$. Dieses Fenster hat eine deutlich
-    breitere Hauptkeule $6\pi/N$, aber die Dämpfung der Nebenmaxima und
-    der Abfall der weiteren Nebenmaxima ist sehr hoch.
- -->
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-N = 32 # window length
-
-# calculate window samples by sample
-blackman_window = [0]*N
-for idx in range(N):
-    blackman_window[idx] = 0.42 - 0.5*numpy.cos(2*numpy.pi*idx/N) + \
-            0.08*numpy.cos(4*numpy.pi*idx/N)
-blackman_window = numpy.concatenate([blackman_window, [0]*1000])
-
-
-spectrum = numpy.fft.fft(blackman_window)
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-fig, (ax_sample, ax_spectrum) = pyplot.subplots(1, 2)
-
-# time plot
-ax_sample.plot(blackman_window)
-ax_sample.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
-        xlim=[0, N-1], title='Blackman-Fenster im Zeitbereich')
-
-# spectral plot
-ax_spectrum.plot(freqs_fft, spectrum_abs)
-ax_spectrum.set(xlabel='Frequenz rad/pi ', ylabel='Dämpfung in dB', 
-        title='Blackman-Fenster im Frequenzbereich')
-
-
-glue("BlackmanWindow", fig, display=False)
+:load: code/spektren/window_dolph_chebyshev.py
 ```
-
-<!-- 
-```{glue:figure} BlackmanWindow
-:figwidth: 75%
-:name: "fig:BlackmanWindow"
-
-Zeitliche und spektrale Eigenschaft des
-    Blackman-Fensters
-```
-
-+++
-
--   **Dolph-Chebbyscheff Fenster:** Im Gegensatz zu den anderen Fenstern
-    in das Dolph-Chebbycheff Fenster parametrisierbar. Bei einer
-    vorgegebenen Fensterlänge $N$ kann die Absenkung der Nebenzipfel
-    angegeben werden. Dieser Wert wird für alle Nebenzipfel gleichmäßig
-    erreicht. Die Breite der Hauptkeule wird gleichzeitig optimal klein
-    für eine gegebene Fensterlänge $N$. Siehe auch in Matlab `chebwin`
- -->
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-N = 32 # window length
-
-# create window in time domains
-dolph_cheb_win = signal.windows.chebwin(N, at=40)
-dolph_cheb_win = numpy.concatenate([dolph_cheb_win, [0]*1000])
-
-spectrum = numpy.fft.fft(dolph_cheb_win)
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-
-fig, (ax_sample, ax_spectrum) = pyplot.subplots(1, 2)
-ax_sample.plot(dolph_cheb_win)
-ax_sample.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
-        xlim=[0, N-1], title='Dolph-Chebbychev-Fenster im Zeitbereich')
-
-ax_spectrum.plot(freqs_fft, spectrum_abs)
-ax_spectrum.set(xlabel='Frequenz rad/pi ', ylabel='Dämpfung in dB', 
-        title='Dolph-Chebbychev-Fenster im Frequenzbereich')
-
-glue("ChebWindow", fig, display=False)
+:load: code/spektren/window_kaiser.py
 ```
-
-<!-- 
-```{glue:figure} ChebWindow
-:figwidth: 75%
-:name: "fig:ChebWindow"
-
-Zeitliche und spektrale Eigenschaft des
-    Dolph-Chebbycheff-Fensters
-```
-
-+++
-
--   **Kaiser Fenster:** Auch das Kaiser Fenster ist mit Hilfe des
-    Parameters $\alpha$ veränderlich. Es basiert auf der Form
-    
-$$
-       w(k,\alpha) = \left\{\begin{array}{c}
-         \frac{I_0\left(\alpha \sqrt{1-(k/N)^2}\right)}{I_0 (\alpha)}     \quad mit \quad 0\leq k
-       < N\\
-         0 \quad \quad \mbox{sonst} \\
-       \end{array}
-       \right.
-$$ (eq:Kaiser-Fenster)
-
-wobei $I_0$ die modifizierte Bessel-Funktion nullter
-    Ordnung darstellt.
-
-{numref}`Abbildung %s <fig:KaiserWindow-a2>`  und
-    {numref}`Abbildung %s <fig:KaiserWindow-a4>`  zeigen für unterschiedliche $\alpha$
-    den zeitlichen Verlauf und die dazugehörigen spektralen
-    Eigenschaften.
- -->
-
-```{code-cell} ipython3
-:tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-N = 32 # window length
-
-# create windows in time domain
-k4_window = numpy.kaiser(N, 4)
-k2_window = numpy.kaiser(N, 2)
-# zero pad
-k4_window = numpy.concatenate([k4_window, [0]*1000])
-k2_window = numpy.concatenate([k2_window, [0]*1000])
-
-
-spectrum_k4 = numpy.fft.fft(k4_window)
-spectrum_k2 = numpy.fft.fft(k2_window)
-
-mid = numpy.floor(len(spectrum_k4)/2)
-
-# shift pi -> 2*pi to -pi -> 0
-spectrum_k4 = numpy.concatenate([spectrum_k4[int(mid):], spectrum_k4[:int(mid)]])
-spectrum_k2 = numpy.concatenate([spectrum_k2[int(mid):], spectrum_k2[:int(mid)]])
-# dB normalized to maximum amplitude=0dB
-spectrum_k4_abs = 20*numpy.log10(
-        numpy.abs(spectrum_k4)/numpy.abs(spectrum_k4).max())
-spectrum_k2_abs = 20*numpy.log10(
-        numpy.abs(spectrum_k2)/numpy.abs(spectrum_k2).max())
-# frequency bins, for plotting
-freqs_fft_k4 = numpy.linspace(-1, 1, len(spectrum_k4_abs))
-freqs_fft_k2 = numpy.linspace(-1, 1, len(spectrum_k2_abs))
-
-# time and frequency domain plots of beta = 4
-fig1, (ax_sample_k4, ax_spectrum_k4) = pyplot.subplots(1, 2)
-ax_sample_k4.plot(k4_window)
-ax_spectrum_k4.plot(freqs_fft_k4, spectrum_k4_abs)
-ax_sample_k4.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
-        xlim=[0, N-1], title='Kaiser-Fenster (beta = 4) im Zeitbereich')
-ax_spectrum_k4.set(xlabel='Frequenz rad/pi ', ylabel='Dämpfung in dB', 
-        title='Kaiser-Fenster (beta = 4) im Frequenzbereich')
-
-# time and frequency domain plots of beta = 2 
-fig2, (ax_sample_k2, ax_spectrum_k2) = pyplot.subplots(1, 2)
-ax_sample_k2.plot(k2_window)
-ax_spectrum_k2.plot(freqs_fft_k2, spectrum_k2_abs)
-ax_sample_k2.set(xlabel='Folgenndex k ->', ylabel='Amplitude x[k]', 
-        xlim=[0, N-1], title='Kaiser-Fenster (alpha = 2) im Zeitbereich')
-ax_spectrum_k2.set(xlabel='Frequenz rad/pi ', ylabel='Dämpfung in dB', 
-        title='Kaiser-Fenster (alpha = 2) im Frequenzbereich')
-
-glue("KaiserWindow-a4", fig1, display=False)
-glue("KaiserWindow-a2", fig2, display=False)
-```
-
-
 
 ````{tabbed} von Hann
--   **von Hann- Fenster (oft fälschlich Hanning):** Für das Hann-Fenster ist
+-   **von Hann-Fenster (oft fälschlich Hanning):** Für das Hann-Fenster ist
     $\alpha = \beta = 0.5$ und $\gamma = 0$. Daraus ergibt sich im
     Frequenzbereich ein etwas breiteres Hauptmaxima $4\pi/N$. Die
     Nebenmaxima sind dafür im Gegensatz zum Rechteck-Fenster sehr viel
@@ -1428,7 +877,7 @@ Zeitliche und spektrale Eigenschaft des von Hann-Fensters
 ````
 
 ````{tabbed} Hamming
--   **Hamming- Fenster:** Für das Hamming-Fenster ist $\alpha = 0.54$,
+-   **Hamming-Fenster:** Für das Hamming-Fenster ist $\alpha = 0.54$,
     $\beta = 0.46$ und $\gamma = 0$. Das Design-Ziel des Hamming-Fenster
     ist das erste Nebenmaxima möglichst optimal zu unterdrücken. Dafür
     geht aber insgesamt eine schlechtere Dämpfung der anderen
@@ -1443,7 +892,7 @@ Zeitliche und spektrale Eigenschaft des Hamming-Fensters
 ````
 
 ````{tabbed} Blackman
--   **Blackman- Fenster:** Für das Blackman-Fenster ist $\alpha = 0.42$,
+-   **Blackman-Fenster:** Für das Blackman-Fenster ist $\alpha = 0.42$,
     $\beta = 0.5$ und $\gamma = 0.08$. Dieses Fenster hat eine deutlich
     breitere Hauptkeule $6\pi/N$, aber die Dämpfung der Nebenmaxima und
     der Abfall der weiteren Nebenmaxima ist sehr hoch.
@@ -1451,14 +900,13 @@ Zeitliche und spektrale Eigenschaft des Hamming-Fensters
 :figwidth: 75%
 :name: "fig:BlackmanWindow"
 
-Zeitliche und spektrale Eigenschaft des
-    Blackman-Fensters
+Zeitliche und spektrale Eigenschaft des Blackman-Fensters
 ```
 ````
 
-````{tabbed} Dolph-Chebbyscheff
--   **Dolph-Chebbyscheff Fenster:** Im Gegensatz zu den anderen Fenstern
-    in das Dolph-Chebbycheff Fenster parametrisierbar. Bei einer
+````{tabbed} Dolph-Tschebyscheff 
+-   **Dolph-Tschebyscheff-Fenster:** Im Gegensatz zu den anderen Fenstern
+    in dasDolph-Tschebyscheff-Fenster parametrisierbar. Bei einer
     vorgegebenen Fensterlänge $N$ kann die Absenkung der Nebenzipfel
     angegeben werden. Dieser Wert wird für alle Nebenzipfel gleichmäßig
     erreicht. Die Breite der Hauptkeule wird gleichzeitig optimal klein
@@ -1468,12 +916,12 @@ Zeitliche und spektrale Eigenschaft des
 :name: "fig:ChebWindow"
 
 Zeitliche und spektrale Eigenschaft des
-    Dolph-Chebbycheff-Fensters
+    Dolph-Tschebyscheff-Fensters
 ```
 ````
 
 ````{tabbed} Kaiser-Fester
--   **Kaiser Fenster:** Auch das Kaiser Fenster ist mit Hilfe des
+-   **Kaiser-Fenster:** Auch das Kaiser-Fenster ist mit Hilfe des
     Parameters $\alpha$ veränderlich. Es basiert auf der Form
     
 $$
@@ -1509,18 +957,6 @@ Zeitliche und spektrale Eigenschaft des
     $\alpha =$ 4.
 ```
 ````
-
-<!-- 
-```{figure} ../images/psSpek/KaiserWindow2.png
----
-height: 150px
-name: fig:KaiserWindow2
----
-Zeitliche und spektrale Eigenschaft des
-    Kaiser-Fensters mit
-    $\alpha = 2$.
-``` 
--->
 
 +++ {"tags": ["remove-cell"]}
 
