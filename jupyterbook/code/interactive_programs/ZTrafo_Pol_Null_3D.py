@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+#-------------------------------------------------------------------------------
+# Demoscript for "Signalverarbeitung 1"
+#
+# Version: 1.0   17.02.2022
+# 
+# This software is released as public domain under CC0 1.0
+# https://creativecommons.org/publicdomain/zero/1.0/
+#-------------------------------------------------------------------------------
+
 # based on https://matplotlib.org/3.1.0/gallery/mplot3d/surface3d_radial.html 
 
 """

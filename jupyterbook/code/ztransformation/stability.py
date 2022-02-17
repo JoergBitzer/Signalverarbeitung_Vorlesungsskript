@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+#-------------------------------------------------------------------------------
+# Demoscript for "Signalverarbeitung 1"
+#
+# Version: 1.0   17.02.2022
+# 
+# This software is released as public domain under CC0 1.0
+# https://creativecommons.org/publicdomain/zero/1.0/
+#-------------------------------------------------------------------------------
+
 # This script creates an interactive graphic, where the user can set a1 and a2 coeffitients by clicking a point in left graph. The right graph will show the corresponding impulse response of the defined system
 
 import matplotlib

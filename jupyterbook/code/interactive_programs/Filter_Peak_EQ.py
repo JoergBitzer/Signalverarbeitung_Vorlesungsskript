@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+#-------------------------------------------------------------------------------
+# Demoscript for "Signalverarbeitung 1"
+#
+# Version: 1.0   17.02.2022
+# 
+# This software is released as public domain under CC0 1.0
+# https://creativecommons.org/publicdomain/zero/1.0/
+#-------------------------------------------------------------------------------
+
 import matplotlib
 import numpy
 from scipy import signal
