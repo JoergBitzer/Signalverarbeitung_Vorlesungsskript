@@ -1037,7 +1037,7 @@ bis {numref}`Abbildung %s <fig:KaiserWindow-a4>`)
 
 ```{admonition} Interaktiv arbeiten
 :class: hint
-1) Starten des interaktiven Programms - "Spektren_Fenster.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "Spektren_Fenster.py" in jupyterbook/code/interactive_programs
 2) Mit den Buttons den Fenstertyp ändern und 
 3) Mit Slidern können Fensterparameter gesteuert werden. Hier kann auch eine eigene Fensterfunktion designt werden.
 ```

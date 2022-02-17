@@ -603,7 +603,7 @@ Ebene.
 ```
 ````
 ````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_3D.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_3D.py" in jupyterbook/code/interactive_programs
 2) Eigene Pole und Nullstellen per Klick definieren bzw. löschen (zusätzlich STRG halten):
     - Rechtsklick: Nullstelle
     - Linksklick: Polstelle
@@ -742,7 +742,7 @@ Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.
 ```
 ````
 ````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_Impulsantwort.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_Impulsantwort.py" in jupyterbook/code/interactive_programs
 2) Per Linksklick neue Polstelle definieren
 ````
 
@@ -884,7 +884,7 @@ Ordnung mit den Koeffizienten $a_1$ und $a_2$.
 ```
 ````
 ````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Signale_Stabilitätsdreieck.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "Signale_Stabilitätsdreieck.py" in jupyterbook/code/interactive_programs
 2) Per Linsklick Punkt im Dreieck auswählen
 ````
 

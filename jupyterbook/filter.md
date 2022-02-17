@@ -419,7 +419,7 @@ Güte
 ```
 ````
 ````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Filter_Peak_EQ.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "Filter_Peak_EQ.py" in jupyterbook/code/interactive_programs
 2) Mit Slidern Parameter einstellen
 ````
 
@@ -562,7 +562,7 @@ Equalizerübertragungskurven eines Hoch bzw. Tiefpasskuhschwanzfilters bei Verä
 ```
 ````
 ````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Filter_Shelving_EQ.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "Filter_Shelving_EQ.py" in jupyterbook/code/interactive_programs
 2) Mit Slidern Parameter einstellen
 ````
 

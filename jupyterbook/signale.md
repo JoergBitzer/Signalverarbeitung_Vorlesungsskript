@@ -72,7 +72,7 @@ Ampelsignal im normalen Betrieb.
 ```
 ````
 ````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Signale_Ampel.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "Signale_Ampel.py" in jupyterbook/code/interactive_programs
 2) Mit den Radiobuttons das Signal ändern.
 ````
 
@@ -312,7 +312,7 @@ Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
 ````
 ````{tabbed} Interaktiv arbeiten
 
-1) Starten des interaktiven Programms - "Signale_Abtastung_Sinusfrequenz_einstellen.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "Signale_Abtastung_Sinusfrequenz_einstellen.py" in jupyterbook/code/interactive_programs
 2) Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.
 3) Fragen die es zu klären gibt, bzw. Sachen die auffallen.
     
@@ -344,7 +344,7 @@ Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
 ````
 ````{tabbed} Interaktiv arbeiten
 
-1) Starten des interaktiven Programms - - "Signale_Abtastfrequenz_einstellen.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - - "Signale_Abtastfrequenz_einstellen.py" in jupyterbook/code/interactive_programs
 2) Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.
 3) Fragen die es zu klären gibt, bzw. Sachen die auffallen.
 
@@ -613,7 +613,7 @@ Sinussignal mit verschiedenen Amplituden sowie unterschiedlicher Frequenz und St
 ```
 ````
 ````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Signale_Sinus_einstellen.py" in jupyterbook/interactive_programs
+1) Starten des interaktiven Programms - "Signale_Sinus_einstellen.py" in jupyterbook/code/interactive_programs
 2) Mit den Slidern die Signalparameter anpassen.
 ````
 
