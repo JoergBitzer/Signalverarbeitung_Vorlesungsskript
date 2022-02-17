@@ -67,7 +67,6 @@ Frequenzbezeichnungen in der DSV und ihre Position auf dem Einheitskreis
 in der
 z-Ebene.
 ```
-```
 
 +++
 
