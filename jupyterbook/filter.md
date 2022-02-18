@@ -40,172 +40,22 @@ zwischen vier Grundtypen unterschieden:
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-import scipy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-# Script to create an ideal and realistic lowpass
-
-matplotlib.style.use('sv.mplstyle')
-Fs = 8000
-fg = 1000 # cutoff frequency
-order = 6
-x = [0.0]*Fs
-x[0] = 1.0
-b, a = scipy.signal.butter(N=order, Wn=fg, btype='low', output='ba', fs=Fs)
-y = scipy.signal.lfilter(b, a, x)
-spectrum = numpy.fft.fft(y)
-
-# dB, max amplitude = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freq_vec = numpy.linspace(0, Fs, len(spectrum_abs)) # freq bins, for plotting
-
-fig, ax_spectrum = pyplot.subplots()
-
-# ideal frequency respose of filter
-ax_spectrum.step(y=[0, 0, -100, - 100, 0], x=[0, fg, Fs/2, Fs-fg, Fs], 
-        color='r', label="Optimale Entwurfsvorgabe")
-# actual realization
-ax_spectrum.plot(freq_vec, spectrum_abs, color='b', 
-        label="Mögliche Realisierung")
-
-ax_spectrum.set(xlabel='Frequenz in Hz ', ylabel='Dämpfung in dB', 
-        xlim=[0, Fs/2], ylim=[-105, 5], title=f'Tiefpass {order}.Odnung')
-pyplot.legend()
-
-glue("DesignTP", fig, display=False)
+:load: code/filter/filter_lowpass.py
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-import scipy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-# Script to create an ideal and realistic highpass
-
-
-matplotlib.style.use('sv.mplstyle')
-Fs = 8000
-fg = 1000 # cutoff frequency
-order = 6
-x = [0.0]*Fs
-x[0] = 1.0
-b, a = scipy.signal.butter(N=order, Wn=fg, btype='high', output='ba', fs=Fs)
-y = scipy.signal.lfilter(b, a, x)
-spectrum = numpy.fft.fft(y)
-
-# dB, max amplitude = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freq_vec = numpy.linspace(0, Fs, len(spectrum_abs)) # freq bins, for plotting
-
-fig, ax_spectrum = pyplot.subplots()
-
-# ideal frequency respose of filter
-ax_spectrum.step(y=[-100, -100, 0, 0, -100], x=[0, fg, Fs/2, Fs-fg, Fs], 
-        color='r', label="Optimale Entwurfsvorgabe")
-# actual realization
-ax_spectrum.plot(freq_vec, spectrum_abs, 
-        color='b', label="Mögliche Realisierung")
-
-ax_spectrum.set(xlabel='Frequenz in Hz ', ylabel='Dämpfung in dB', 
-        xlim=[0, Fs/2], ylim=[-105, 5], title=f'Hochpass {order}.Odnung')
-pyplot.legend()
-glue("DesignHP", fig, display=False)
+:load: code/filter/filter_highpass.py
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-import scipy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-# Script to create an ideal and realistic bandpass
-
-matplotlib.style.use('sv.mplstyle')
-
-Fs = 8000
-fg = [1000, 3000]# cutoff frequency
-order = 6
-x = [0.0]*Fs
-x[0] = 1.0
-b,a = scipy.signal.butter(N=order, Wn=fg, btype='bandpass', output='ba', fs=Fs)
-y = scipy.signal.lfilter(b, a, x)
-spectrum = numpy.fft.fft(y)
-# dB, max amplitude = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freq_vec = numpy.linspace(0, Fs, len(spectrum_abs)) # freq bins, for plotting
-
-fig, ax_spectrum = pyplot.subplots()
-
-# ideal frequency respose of filter
-ax_spectrum.step(y=[-100, -100, 0, -100, -100, 0, -100], 
-        x=[0, fg[0], fg[1], Fs/2, Fs-fg[1], Fs-fg[0], Fs], 
-        color='r', label="Optimale Entwurfsvorgabe")
-# actual realization
-ax_spectrum.plot(freq_vec, spectrum_abs, 
-        color='b', label="Mögliche Realisierung")
-ax_spectrum.set(xlabel='Frequenz in Hz ', ylabel='Dämpfung in dB', 
-        xlim=[0, Fs/2], ylim=[-105, 5], title=f'Bandpass {order}.Odnung')
-pyplot.legend()
-
-
-glue("DesignBP", fig, display=False)
+:load: code/filter/filter_bandpass.py
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-import scipy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-# Script to create an ideal and realistic bandstop
-
-matplotlib.style.use('sv.mplstyle')
-Fs = 8000
-fg = [1000, 3000]# cutoff frequency
-order = 6
-x = [0.0]*Fs
-x[0] = 1.0
-b,a = scipy.signal.butter(N=order, Wn=fg, btype='bandstop', output='ba', fs=Fs)
-y = scipy.signal.lfilter(b, a, x)
-spectrum = numpy.fft.fft(y)
-# dB, max amplitude = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freq_vec = numpy.linspace(0, Fs, len(spectrum_abs)) # freq bins, for plotting
-
-
-fig, ax_spectrum = pyplot.subplots()
-
-# ideal frequency respose of filter
-ax_spectrum.step(y=[0, 0, -100, 0, 0, -100, 0], 
-        x=[0, fg[0], fg[1], Fs/2, Fs-fg[1], Fs-fg[0], Fs], 
-        color='r', label="Optimale Entwurfsvorgabe")
-# actual realization
-ax_spectrum.plot(freq_vec, spectrum_abs, 
-        color='b', label="Mögliche Realisierung")
-
-ax_spectrum.set(xlabel='Frequenz in Hz ', ylabel='Dämpfung in dB', 
-        xlim=[0, Fs/2], ylim=[-105, 5], title=f'Bandsperre {order}.Odnung')
-pyplot.legend()
-
-glue("DesignBS", fig, display=False)
+:load: code/filter/filter_bandstop.py
 ```
 
 ```{tabbed} Tiefpass
@@ -309,104 +159,7 @@ die Güte $Q = \frac{f_m}{B}$ als Verhältnis von Mittenfrequenz $f_m$ und Bandb
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from scipy import signal
-from matplotlib import pyplot
-from matplotlib.widgets import Slider
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-def get_peak_EQ(f_0, gain_dB, Q, f_s):
-    '''
-    calculates filter coefficients of a peak equalizer
-    with the given parameters
-    
-    Parameters:
-    -----------
-    f_0 : int
-        peak frequency in Hz
-    gain_dB : int
-        dB gain at peak
-    Q : float
-        Quality of filter
-    f_s : int
-        sampling frequency
-    '''
-    K = numpy.tan(2*numpy.pi*f_0/(f_s*2))
-    a = [0]*3
-    b = [0]*3
-    den = 1
-    if (gain_dB > 0):
-        V0 = 10**(gain_dB/20)
-        den = (1 + K/Q + K*K)
-        b[0] = (1 + V0*K/Q + K*K)
-        b[1] = 2 * (K*K - 1)
-        b[2] = (1 - V0*K/Q + K*K)
-        a[0] = 1
-        a[1] = 2 * (K*K - 1)
-        a[2] = (1 - K/Q + K*K)
-    else:
-        V0 = 10**(-gain_dB/20)
-        den = (1 + V0*K/Q + K*K)
-        b[0] = (1 + K/Q + K*K)
-        b[1] = 2 * (K*K - 1)
-        b[2] = (1 - K/Q + K*K)
-        a[0] = 1
-        a[1] = 2 * (K*K - 1)
-        a[2] = (1 - V0*K/Q + K*K)
-    
-    b /= den
-    a[1:] /= den
-    
-    return b, a
-    
-
-gains = [12, 6, 0, -6, -12]
-fs = 48000
-freq= 8000
-Q = 3
-
-fig, (ax_gain, ax_freq, ax_Q) = pyplot.subplots(3, 1)
-
-for gain in gains:
-    b, a = get_peak_EQ(freq, gain, Q, fs) # get filter coeefficients        
-    w, h = signal.freqz(b, a, fs) # calculate impulse response
-    h_db = 20*numpy.log10(numpy.abs(h)) # dB
-    ax_gain.plot(w, h_db)
-
-ax_gain.set(ylim=[-13, 13], xlabel='Frequenz in Hz', ylabel='Verstärkung in dB',     
-        title=f'Peak-EQ mit variablem Gain \n\
-        bei Frequenz f = {freq} Hz mit Güte Q = {Q:.1f}')
-
-freqs = [0, fs/10, fs/5, fs/3]
-gain = 12
-for freq in freqs:
-    b, a = get_peak_EQ(freq, gain, Q, fs) # get filter coeefficients
-    w, h = signal.freqz(b, a, fs) # calculate impulse response
-    h_db = 20*numpy.log10(numpy.abs(h)) # dB
-    ax_freq.plot(w, h_db)
-ax_freq.set(ylim=[-13, 13], xlabel='Frequenz in Hz', ylabel='Verstärkung in dB', 
-        title=f'Peak-EQ mit variabler Frequenz \n\
-        bei Gain = {gain} dB und Güte Q = {Q:.1f}')
-Qs = [0, 1, 3, 10]
-freq = 8000
-
-for Q in Qs:
-    b, a = get_peak_EQ(freq, gain, Q, fs) # get filter coeefficients
-    w, h = signal.freqz(b, a, fs) # calculate impulse response
-    h_db = 20*numpy.log10(numpy.abs(h)) # dB
-    ax_Q.plot(w, h_db)
-ax_Q.set(ylim=[-13, 13], xlabel='Frequenz in Hz', ylabel='Verstärkung in dB', 
-         title=f'Peak-EQ mit variabler Güte \n\
-         bei Frequenz f = {freq} Hz und Gain = {gain} dB')
-
-pyplot.tight_layout()
-
-glue("EQ_GainParam", fig, display=False)
-
+:load: code/filter/filter_peak_eq.py
 ```
 
 ````{tabbed} Buchabbildung
@@ -432,125 +185,7 @@ zur Verfügung.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from scipy import signal
-from matplotlib import pyplot
-from matplotlib.widgets import RadioButtons
-from matplotlib.widgets import Slider
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-def getShelvingEQ(f_0, Gain_dB, shelf_type, fs):
-    '''
-    calculates filter coefficients of a shelving equalizer
-    with the given parameters
-    
-    Parameters:
-    -----------
-    f_0 : int
-        peak frequency in Hz
-    gain_dB : int
-        dB gain at peak
-    shelf_type : str
-        "high" for high-shelf, anything else for low shelf
-    fs : int
-        sampling frequency
-    '''
-
-    K = numpy.tan(2*numpy.pi*f_0/(fs*2))
-    a = [0]*3
-    b = [0]*3
-    den = 1
-    
-    if (shelf_type == "high"): # High-Shelf
-        if (Gain_dB > 0):
-            V0 = 10**(Gain_dB/20)
-            den = 1 + numpy.sqrt(2)*K + K*K
-            b[0] = V0 + numpy.sqrt(2*V0)*K+K*K 
-            b[1] = 2 * (K*K - V0) 
-            b[2] = V0 - numpy.sqrt(2*V0)*K + K*K  
-            a[0] = 1
-            a[1] = 2 * (K*K - 1)            
-            a[2] = 1 - numpy.sqrt(2)*K + K*K  
-            b /= den
-            a[1:] /= den
-        else:
-            V0 = 10**(-Gain_dB/20)
-            den = V0 + numpy.sqrt(V0*2)*K + K*K
-            b[0] = 1 + numpy.sqrt(2)*K + K*K 
-            b[1] = 2 * (K*K - 1) 
-            b[2] = 1 - numpy.sqrt(2)*K + K*K  
-            b /= den
-            den = 1 + numpy.sqrt(2/V0)*K + K*K/V0
-            a[0] = 1
-            a[1] = 2 * (K*K/V0 - 1) 
-            a[2] = (1 - numpy.sqrt(2/V0)*K + K*K/V0)  
-            a[1:] /= den
-    else: #Low-Shelf 0 or default for != 1
-        if (Gain_dB > 0):
-            V0 = 10**(Gain_dB/20)
-            den = 1 + numpy.sqrt(2)*K + K*K
-            b[0] = 1 + numpy.sqrt(2*V0)*K + V0*K*K 
-            b[1] = 2 * (V0*K*K - 1) 
-            b[2] = 1 - numpy.sqrt(2*V0)*K + V0*K*K  
-            a[0] = 1
-            a[1] = 2 * (K*K - 1) 
-            a[2] = 1 - numpy.sqrt(2)*K + K*K  
-        else:
-            V0 = 10**(-Gain_dB/20)
-            den = 1 + numpy.sqrt(V0*2)*K + V0*K*K
-            b[0] = 1 + numpy.sqrt(2)*K + K*K 
-            b[1] = 2 * (K*K - 1) 
-            b[2] = 1 - numpy.sqrt(2)*K + K*K  
-            a[0] = 1
-            a[1] = 2 * (V0*K*K - 1)
-            a[2] = 1 - numpy.sqrt(V0*2)*K + V0*K*K
-            
-        b /= den
-        a[1:] /= den
-
-    return b, a
-
-#parameters
-gains = [12, 6, 0, -6, -12]
-fs = 48000
-f_c = 8000
-shelf_types = ["low", "high"]
-
-fig, (ax_gain, ax_freq) = pyplot.subplots(2, 1)
-
-for gain in gains:
-    for ftype in shelf_types:
-        b, a = getShelvingEQ(f_c, gain, ftype, fs) # get filter coefficients
-        print(b, a)
-        w, h = signal.freqz(b, a, fs=fs) # calculate impulse response
-        #with numpy.errstate(divide='ignore'):
-        h_db = 20*numpy.log10(numpy.abs(h)) # dB
-        ax_gain.plot(w, h_db)
-
-ax_gain.set(ylim=[-13, 13], xlabel='Frequenz in Hz',ylabel='Verstärkung in dB', 
-        title=f'Shelf-EQs variablem Gain \n bei Grenzfrequenz f = {f_c} Hz')
-
-        
-
-freqs = [0, fs/10, fs/5, fs/3]
-gain = 12
-for f_c in freqs:
-    for ftype in shelf_types:
-        b, a = getShelvingEQ(f_c, gain, ftype, fs) # get filter coefficients
-        print(b, a)
-        w, h = signal.freqz(b, a, fs = fs) # calculate impulse response
-        with numpy.errstate(divide='ignore'):
-            h_db = 20*numpy.log10(numpy.abs(h)) # dB
-        ax_freq.plot(w, h_db)
-ax_freq.set(ylim=[-13, 13], xlabel='Frequenz in Hz',ylabel='Verstärkung in dB', 
-        title=f'Shelf-EQs mit variabler Grenzfrequenz \n bei Gain = {gain} dB')
-
-pyplot.tight_layout()
-glue("EQ_ShelvParam", fig, display=False)
+:load: code/filter/filter_shelving_eq.py
 ```
 
 ````{tabbed} Buchabbildung
@@ -568,12 +203,12 @@ Equalizerübertragungskurven eines Hoch bzw. Tiefpasskuhschwanzfilters bei Verä
 
 +++
 
-Im Gegensatz zu den vollparametrischen EQs sind bei Terzband-Equalizer
+Im Gegensatz zu den vollparametrischen EQs sind bei einem Terzband-Equalizer
 die Frequenzen und Güten festgelegt. Der Nutzer hat nur einen Einfluss
 auf de Verstärkung oder Absenkung. Der Vorteil dieser Equalizer ist ihre
 einfache Bedienung und die Möglichkeit sofort zu sehen, welche
 Frequenzveränderungen vorgenommen werden. Die Mittenfrequenzen der
-Filter sind standardisiert. Tabelle ... gibt diese Frequenzen wieder.
+Filter sind standardisiert:
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -586,7 +221,7 @@ df_oktav = pandas.DataFrame(data = {
 df_terz = pandas.DataFrame(data = {
     'index': [-16, -15, -14, -13, -12, -11, -10, -9, -8, -7, -6, 
      -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] ,
-    'Frequenz (Hz))': [25,31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 
+    'Frequenz (Hz)': [25,31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 
      315, 400, 500, 630, 800,1000,1250,1600,2000,2500,
      3150,4000,5000,6300,8000,10000,12500,16000,20000]})
 df_oktav = df_oktav.set_index('index')
@@ -599,22 +234,22 @@ glue("df_terz", df_terz, display=False)
 ````{panels}
 :column: col-4
 :card: border-2
+
 Oktav-EQ
 ^^^
 ```{glue:figure} df_oktav
 :figwidth: 300px
-:name: "tab:df_oktav"
-
+:name: tab:df_oktav
 ```
 ---
 Terz-EQ
 ^^^
 ```{glue:figure} df_terz
 :figwidth: 300px
-:name: "tab:df_terz"
-
+:name: tab:df_terz
 ```
 ````
+
 
 +++
 
@@ -789,70 +424,20 @@ enstehen an der Übergangsstelle Überschwinger. Vergrößert man nun die
 Länge des Ausschnitts, so wird der Übergangsbereich schmaller, und die
 Überschwinger konzentrieren sich an der Übergangsstelle, aber die Höhe
 der Überschwinger bleiben gleich (siehe
-{numref}`Abbildung %s <fig:GippsPheanomen>` ). Dies wird als Gippsches Phänomen
+{numref}`Abbildung %s <fig:GibbsPheanomen>` ). Dies wird als Gibbs'sches Phänomen
 bezeichnet.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-samples = numpy.linspace(-100, 100, 201)
-si = [0]*len(samples)
-mid = int(numpy.floor(len(samples)/2))
-
-fs = 1000
-f0 = 100
-
-for idx in range(len(samples)):
-    if (samples[idx]!=0):
-        si[idx] = numpy.sin(2*numpy.pi * f0 * samples[idx]/fs)/(2*numpy.pi*samples[idx]*f0/fs)
-    else:
-        # si(0) = 1 to avoid division by zero
-        si[idx] = 1
-
-# cut si-function
-si_short = si[(mid-25):(mid+25)]
-samples_short = samples[(mid-25):(mid+25)]
-
-ax_si = pyplot.subplot(1, 2, 1)
-ax_si.plot(samples, si, linestyle='dotted')
-ax_si.plot(samples_short, si_short)
-ax_si.set(xlabel='Folgenkindex k ->', ylabel='Amplitude x(k)', 
-        title='SI-Funktion')
-ax_si.set_xlim([-100, 100])
-
-# zero padding, for display resolution
-si_short = [0]*100 + si_short + [0]*100
-si = [0]*100 + si + [0]*100
-
-spectrum_short = numpy.fft.fft(si_short)
-spectrum = numpy.fft.fft(si)
-
-w = numpy.linspace(0, 2, len(si))
-w_short = numpy.linspace(0, 2, len(si_short))
-
-ax_spec = pyplot.subplot(1, 2, 2)
-ax_spec.plot(w_short, 20 * numpy.log10(abs(spectrum_short)), 
-        linestyle='dotted')
-ax_spec.plot(w, 20 * numpy.log10(abs(spectrum))) # dB spectrum
-ax_spec.set(xlabel='Frequenz normalisiert mit w/pi', ylabel='Amplitude in dB', 
-        title='Spektrum', xlim=([0, 0.4]))
-
-glue("GippsPheanomen", fig, display=False)
+:load: code/filter/gibbs_phenomenon.py 
 ```
 
 ```{glue:figure} GippsPheanomen
 :figwidth: 75%
-:name: "fig:GippsPheanomen"
+:name: "fig:GibbsPheanomen"
 
 Beispiel zur Veranschaulichung des
-Gipps-Phänomens
+Gibbs'schen Phänomens
 ```
 
 +++
@@ -878,99 +463,23 @@ verwendet werden, die auch die Spektralanalyse verbessert haben. Eine
 Nutzung der dort vorgestellten Fensterfunktionen führt auf eine
 geringere Ausprägung der Ripple, wobei gleichzeitig der Übergangsbereich
 zwischen Durchgangs- und Sperrbereich zunimmt. Um das zu
-veranschaulichen, ist in {numref}`Abbildung %s <fig:BspFensterEntwurf>`  der Entwurf eines Filters mit
-unterschiedlichen Fensterfunktionen gezeigt. Man erkennt deutlich, dass
-mit zunehmendem Übergangsbereich die Überschwinger abnehmen, wobei diese
-bei Nutzung der Fensterfunktionen nur noch im Sperrbereich deutlich zu
-erkennen sind.
+veranschaulichen, ist in {numref}`Abbildung %s <fig:BspFensterEntwurf1>` 
+der Entwurf eines Filters mit unterschiedlichen Fensterfunktionen gezeigt. 
+Man erkennt deutlich, dass mit zunehmendem Übergangsbereich die Überschwinger 
+abnehmen, wobei diese bei Nutzung der Fensterfunktionen nur noch im 
+Sperrbereich deutlich zu erkennen sind.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-fig, (ax_51, ax_201) = pyplot.subplots(1, 2)
-
-eps = numpy.finfo(float).eps # for slight offset to avoid division by 0
-f_s = 48000 
-f_g = 4800 # Hz, cuttoff frequency
-
-trans_width = 1200  # Hz, Width of transition from pass band to stop band
-
-# filter length 51
-N = 51      # Size of the FIR filter.
-idxs = numpy.linspace(numpy.ceil(-N/2), numpy.floor(N/2), N)
-
-# Remez filter design
-taps = signal.remez(N, [0, f_g, f_g + trans_width, 0.5*f_s], [1, 0], Hz=f_s)
-w, h = signal.freqz(taps, [1], worN=2000)
-w = w/numpy.pi
-
-# Von Hann filter design
-w_rad = 2*numpy.pi*f_g/f_s # cutoff freq in rang od 0 -> 2*pi
-# designing the filter
-rect_window_51 = w_rad/numpy.pi * numpy.sin(w_rad*idxs+eps)/(w_rad*idxs+eps)
-von_hann_window = [0]*N
-for idx in range(N):
-    von_hann_window[idx] = 0.5 - 0.5*numpy.cos(2*numpy.pi*idx/N)
-window_51 = numpy.array(rect_window_51) * numpy.array(von_hann_window)
-spectrum = numpy.fft.fft(numpy.concatenate((window_51, [0]*1000)))
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-
-ax_51.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_51.plot(freqs_fft, spectrum_abs, linestyle='--')
-ax_51.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', xlim=[0, 0.4], 
-        ylim=[-100, 5], title='Filterlänge 51')
-
-# filter length 201
-# -----------------
-N = 201     # Size of the FIR filter.
-idxs = numpy.linspace(numpy.ceil(-N/2), numpy.floor(N/2), N)
-
-taps = signal.remez(N, [0, f_g, f_g + trans_width, 0.5*f_s], [1, 0], Hz=f_s)
-w, h = signal.freqz(taps, [1], worN=2000)
-w = w/numpy.pi
-# Von Hann
-w_rad = 2*numpy.pi*f_g/f_s # cutoff freq in rang od 0 -> 2*p
-# designing the filter
-rect_window_51 = w_rad/numpy.pi * numpy.sin(w_rad*idxs+eps)/(w_rad*idxs+eps)
-von_hann_window = [0]*N
-for idx in range(N):
-    von_hann_window[idx] = 0.5 - 0.5*numpy.cos(2*numpy.pi*idx/N)
-window_201 = numpy.array(rect_window_51) * numpy.array(von_hann_window)
-spectrum = numpy.fft.fft(numpy.concatenate((window_201, [0]*1000)))
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-
-
-ax_201.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_201.plot(freqs_fft, spectrum_abs, linestyle='--')
-ax_201.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', xlim=[0, 0.4], 
-        ylim=[-100, 5], title='Filterlänge 201')
-
-glue("BspFensterEntwurf", fig, display=False)
+:load: code/filter/filter_lowpass_ripple.py
 ```
 
 ```{glue:figure} BspFensterEntwurf
 :figwidth: 75%
-:name: "fig:BspFensterEntwurf"
+:name: "fig:BspFensterEntwurf1"
 
 Beispiel eines Tiefpass-Entwurfes mit
-Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
+Rechteck und Hann-FesnstFenster unterschiedlicher Länge. Grenzfrequenz =
 $\Omega_g = 0.2\pi$
 ```
 
@@ -1002,90 +511,17 @@ bedeutet dies eine deutliche Aufwandsreduktion.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-
-fig, (ax_51, ax_201) = pyplot.subplots(1, 2)
-eps = numpy.finfo(float).eps # for slight offset to avoid division by 0
-f_s = 48000
-f_g = 4800 # cutoff frequency
-
-
-trans_width = 1200  # Hz, Width of transition from pass band to stop band
-
-# filter length 51
-# ----------------
-N = 51 # Size of the FIR filter.
-idxs = numpy.linspace(numpy.ceil(-N/2), numpy.floor(N/2), N)
-
-# Remez filter design
-taps = signal.remez(N, [0, f_g, f_g + trans_width, 0.5*f_s], [1, 0], Hz=f_s)
-w, h = signal.freqz(taps, [1], worN=2000)
-w = w/numpy.pi
-
-# boxcar window filter design
-w_rad = 2*numpy.pi*f_g/f_s # cutoff freq in rang od 0 -> 2*pi
-# designing the filter
-rect_window_51 = w_rad/numpy.pi * numpy.sin(w_rad*idxs+eps)/(w_rad*idxs+eps)
-spectrum = numpy.fft.fft(rect_window_51, n=2000)
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-
-ax_51.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_51.plot(freqs_fft, spectrum_abs, linestyle='--')
-ax_51.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', xlim=[0, 0.4], 
-        ylim=[-100, 5], title='Filterlänge 51')
-
-# filter length 201
-# -----------------
-N = 201 # Size of the FIR filter
-idxs = numpy.linspace(numpy.ceil(-N/2), numpy.floor(N/2), N)
-
-# Remez filter design
-taps = signal.remez(N, [0, f_g, f_g + trans_width, 0.5*f_s], [1, 0], Hz=f_s)
-w, h = signal.freqz(taps, [1], worN=2000)
-w = w/numpy.pi
-
-# boxcar window filter design
-w_rad = 2*numpy.pi*f_g/f_s # cutoff freq in rang od 0 -> 2*pi
-# designing the filter
-rect_window_201 = w_rad/numpy.pi * numpy.sin(w_rad*idxs+eps)/(w_rad*idxs+eps)
-spectrum = numpy.fft.fft(numpy.concatenate((rect_window_201, [0]*1000)))
-mid = numpy.floor(len(spectrum)/2)
-# shift area from pi -> 2pi to -pi -> 0
-spectrum = numpy.concatenate([spectrum[int(mid):], spectrum[:int(mid)]]) 
-# dB maximum = 0dB
-spectrum_abs = 20*numpy.log10(numpy.abs(spectrum)/numpy.abs(spectrum).max()) 
-freqs_fft = numpy.linspace(-1, 1, len(spectrum_abs)) # freq bins, for plotting
-
-
-ax_201.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_201.plot(freqs_fft, spectrum_abs, linestyle='--')
-ax_201.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', xlim=[0, 0.4], 
-        ylim=[-100, 5], title='Filterlänge 201')
-
-glue("BspFensterRemez", fig, display=False)
+:load: code/filter/filter_lowpass_remez.py
 ```
 
 ```{tabbed} Entwurf
 Fenster Entwurf
 ```{glue:figure} BspFensterEntwurf
 :figwidth: 75%
-:name: "fig:BspFensterEntwurf"
+:name: "fig:BspFensterEntwurf2"
 
 Beispiel eines Tiefpass-Entwurfes mit
-Rechteck und Hann-Fesnster unterschiedlicher Länge. Grenzfrequenz =
+Rechteck und Hann-Fenster unterschiedlicher Länge. Grenzfrequenz =
 $\Omega_g = 0.2\pi$
 ```
 
@@ -1119,7 +555,7 @@ Gruppenlaufzeit bezeichnet und ist als Ableitung der Phase zur Frequenz
 definiert 
 
 $$
-    \tau_g(e^(j \Omega)) = - \frac{\delta arg\{H(e^(j \Omega))\}}{\delta \Omega}
+    \tau_g(e^{(j \Omega)}) = - \frac{\delta \arg\{H(e^{(j \Omega)})\}}{\delta \Omega}
 $$ (eq:Def:Gruppenlaufzeit)
 
 Wir haben bereits für das einfache Filter mit der Impulsantwort
@@ -1146,57 +582,6 @@ Abhängigkeiten:
 width: 80%
 name: fig:LinPhaseTypen
 ```
-
-```{code-cell} ipython3
-import matplotlib.image
-from myst_nb import glue
-
-fig1 = matplotlib.image.imread('../images/psFilt/LinPhaseTypI.png')
-fig2 = matplotlib.image.imread('../images/psFilt/LinPhaseTypII.png')
-fig3 = matplotlib.image.imread('../images/psFilt/LinPhaseTypIII.png')
-fig4 = matplotlib.image.imread('../images/psFilt/LinPhaseTypIV.png')
-
-glue("LinPhaseTypI", fig1, display=False)
-glue("LinPhaseTypII", fig2, display=False)
-glue("LinPhaseTypIII", fig3, display=False)
-glue("LinPhaseTypIV", fig4, display=False)
-```
-
-| Symmetrie | Achsensymmetrisch | Punktsymmetrisch |
- |---: |---: |---: |---:|
-| Gerade  | {glue:figure}`LinPhaseTypI` |  {glue:figure}`LinPhaseTypII` |
-| Ungerade| {glue:figure}`LinPhaseTypI` |  {glue:figure}`LinPhaseTypIV` |
-
-
-+++
-
-
-+----------+----------------------------+----------------------------+
-|          | Achsensymmetrisch          | Punktsymmetrisch           |
-+:========:+:==========================:+:==========================:+
-| Gerade   |                            |                            |
-|          | Typ I\                     | Typ II\                    |
-|          | Es gilt $h(k) = h(M-k)$\   | Es gilt $h(k) = -h(M-k)$   |
-|          | mit $M$ als Filterordnung  | und\                       |
-|          | ![image]                   | $h(M/2) = 0$               |
-|          | (psFilt/LinPhaseTypI.png)  | ![image]                   |
-|          | Alle Filtercharakteristika | (psFilt/LinPhaseTypII.pdf) |
-|          | möglich                    | Nullstellen bei            |
-|          |                            | $\Omega = 0$ und           |
-|          |                            | $\Omega = \pm \pi$         |
-|          |                            |                            |
-+----------+----------------------------+----------------------------+
-| Ungerade |                            |                            |
-|          | Typ III\                   | Typ IV\                    |
-|          | kein Mittenkoeffizient\    | kein Mittenkoeffizient\    |
-|          | Es gilt $h(k) = h(M-k)$    | Es gilt $h(k) = -h(M-k)$   |
-|          | ![image](                  | ![image]                   |
-|          | psFilt/LinPhaseTypIII.pdf) | (psFilt/LinPhaseTypIV.pdf) |
-|          | Nullstelle bei             | Nullstelle bei             |
-|          | $\Omega = \pm \pi$         | $\Omega = 0$               |
-|          |                            |                            |
-+----------+----------------------------+----------------------------+
-
 
 +++
 
@@ -1234,7 +619,7 @@ eingeführt wird. An dieser Stelle soll ein Vorstellen des Design
 Algorithmus genügen, um eine beliebige Betragsübertragungsfunktion
 (meist linearphasig, siehe Entwurfsmethoden) in einen minimalphasigen
 Entwurf zu überführen. Gehen wir davon aus, dass die
-Betragsübertragungsfunktion $|H(e^(j \Omega))|$ bekannt ist. Eine Logarithmierung
+Betragsübertragungsfunktion $|H(e^{(j \Omega)})|$ bekannt ist. Eine Logarithmierung
 dieses Spektrums ist möglich, so lange keine echte Nullstelle vorhanden
 ist, dies kann durch eine untere Schwelle gewährleistet werden. Dieses
 neue logarithmierte Spektrum wird in den Zeitbereich mit Hilfe einer
@@ -1254,44 +639,7 @@ Betragsübertragungsverhalten.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-eps = numpy.finfo(float).eps # for slight offset to avoid division by 0
-
-# create exemplary non-recursive filter coefficients (mirrored at unit circle)
-b1 = [0.98]*4
-b2 = [1.0/0.98]*4
-h = numpy.poly(numpy.concatenate((b1, b2)))
-h = [0.5, 0.7, 0.9, 1.1, 2, 1.1, 0.9, 0.7, 0.5]
-h = numpy.array(h)/numpy.sum(h)
-W, H = signal.freqz(b=h, a=1, worN=4*1024, whole=True)
-fig, ((ax_H, ax_void), (ax_lin_zeit, ax_min_zeit), 
-        (ax_lin_phase, ax_min_phase)) = pyplot.subplots(3, 2)
-
-# create a linear phase filter from the exististing impulse response
-log_H = numpy.log(numpy.abs(H)+eps)
-h_c = numpy.fft.ifft(log_H).real
-h_c[1 : int(len(h_c)/2)] *= 2
-h_c[int(len(h_c)/2)+1 : ] = 0 
-H_min_log = numpy.fft.fft(h_c)
-H_min = numpy.exp(H_min_log)
-h_min = numpy.fft.ifft(H_min)
-h_min = h_min[0:8]
-
-ax_H.plot(W, 20*numpy.log10(numpy.abs(H)+eps))
-ax_lin_zeit.stem(h, use_line_collection=True)
-ax_min_zeit.stem(h_min, use_line_collection=True)
-ax_lin_phase.plot(numpy.unwrap(p=numpy.angle(H)))
-ax_min_phase.plot(numpy.unwrap(p=numpy.angle(H_min)))
-
-glue("MinPhasenBsp", fig, display=False)
+:load: code/filter/filter_phase_linear_vs_minimal.py
 ```
 
 ```{glue:figure} MinPhasenBsp
@@ -1934,105 +1282,7 @@ oben verwendeten Beispiel gezeigt.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
-
-import matplotlib
-import numpy
-from scipy import signal
-from matplotlib import pyplot
-from myst_nb import glue
-
-matplotlib.style.use('sv.mplstyle')
-
-
-fig, ((ax_durch_b_c1, ax_durch_c2_c), (ax_sperr_b_c1, ax_sperr_c2_c), 
-        (ax_phase_b_c1, ax_phase_c2_c)) = pyplot.subplots(3, 2)
-
-f_s = 48000 
-
-# filter design parameters
-order = 4
-Pass_freq = 0.1
-Pass_dB = 0.2
-Stop_freq = 0.2
-Stop_dB = 30
-
-# Filter design process: 
-#   1. find necessary order for the desired parameters
-#   2. use corresponding filter design function, 
-#        giving the necessary parameter (not always all of them)
-#   3. calculate the transfer function using freqz on the filter coefficients
-# displaying:
-#   4. show amplitude of transfer function in Pass stop and transition, 
-#       using fitting zooms
-#   5. show phase. numpy.unwrap for smooth display i.e. no jumps from 2*pi to 0
-
-# Butterworth vs Chebychev-1 filter design
-# ----------------------------------------
-
-# Butterworth:
-order, wn = signal.buttord(wp=Pass_freq, ws=Stop_freq, 
-        gpass=Pass_dB, gstop=Stop_dB)
-[b, a] = signal.butter(N=order, Wn=Pass_freq, output='ba')
-[w, h] = signal.freqz(b, a)
-w = w/numpy.pi
-
-ax_durch_b_c1.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_durch_b_c1.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', 
-        xlim=[0, 0.15], ylim=[-1, 0.2], title='a) Durchlassbereich')
-
-ax_sperr_b_c1.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_sperr_b_c1.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', 
-        xlim=[0.1, 1], ylim=[-80, -20], title='b) Sperrbereich')
-ax_phase_b_c1.plot(w, numpy.unwrap(p=numpy.angle(h)))
-ax_phase_b_c1.set(xlabel='Frequenz in rad/s', ylabel='Phase in rad', 
-        xlim=[0, 1], title='c) Phase')
-
-# Cheby1
-order, wn = signal.cheb1ord(wp=Pass_freq, ws=Stop_freq, 
-        gpass=Pass_dB, gstop=Stop_dB, fs=f_s)
-[b, a] = signal.cheby1(N=order, rp=Pass_dB, Wn=Pass_freq, output='ba')
-[w, h] = signal.freqz(b, a)
-w = w/numpy.pi
-
-ax_durch_b_c1.plot(w, 20*numpy.log10(numpy.abs(h)), linestyle='--')
-ax_sperr_b_c1.plot(w, 20*numpy.log10(numpy.abs(h)), linestyle='--')
-ax_phase_b_c1.plot(w, numpy.unwrap(p=numpy.angle(h)), linestyle='--')
-
-# Chebychev-2 vs Cauer filter design
-# ----------------------------------
-
-# Cheby2
-order, wn = signal.cheb2ord(wp=Pass_freq, ws=Stop_freq, 
-        gpass=Pass_dB, gstop=Stop_dB, fs=f_s)
-[b, a] = signal.cheby2(N=order, rs=Stop_dB, Wn=Stop_freq, output='ba')
-[w, h] = signal.freqz(b, a)
-w = w/numpy.pi
-
-ax_durch_c2_c.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_durch_c2_c.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', 
-        xlim=[0, 0.15], ylim=[-1, 0.2], title='d) Durchlassbereich')
-ax_sperr_c2_c.plot(w, 20*numpy.log10(numpy.abs(h)))
-ax_sperr_c2_c.set(xlabel='Frequenz in rad/s', ylabel='Pegel in dB', 
-        xlim=[0.1, 1], ylim=[-80, -20], title='e) Sperrbereich')
-ax_phase_c2_c.plot(w, numpy.unwrap(p=numpy.angle(h)))
-ax_phase_c2_c.set(xlabel='Frequenz in rad/s', ylabel='Phase in rad', 
-        xlim=[0, 1], title='f) Phase')
-
-# Cauer
-order, wn = signal.ellipord(wp=Pass_freq, ws=Stop_freq, 
-        gpass=Pass_dB, gstop=Stop_dB, fs=f_s)
-[b, a] = signal.ellip(N=order, rp=Pass_dB, rs=Stop_dB, 
-        Wn=Pass_freq, output='ba')
-[w, h] = signal.freqz(b, a)
-w = w/numpy.pi
-
-ax_durch_c2_c.plot(w, 20*numpy.log10(numpy.abs(h)), linestyle='--')
-ax_sperr_c2_c.plot(w, 20*numpy.log10(numpy.abs(h)), linestyle='--')
-ax_phase_c2_c.plot(w, numpy.unwrap(p=numpy.angle(h)),linestyle='--')
-
-pyplot.tight_layout()
-
-glue("IIRDesign", fig, display=False)
+:load: code/filter/filter_iir_design.py
 ```
 
 ```{glue:figure} IIRDesign
