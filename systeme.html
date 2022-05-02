@@ -112,8 +112,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   5. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   6. Filter
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   5. Literaturverzeichnis
+   7. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -155,11 +165,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/systeme.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/systeme.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/systeme.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -198,7 +211,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/systeme.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/systeme.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -825,15 +838,31 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
 (i) ergibt sich schlussendlich aus der Summe dieser Ausgangssignale.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="c1"># Demoscript for &quot;Signalverarbeitung 1&quot;</span>
+<span class="c1">#</span>
+<span class="c1"># Version: 1.0   17.02.2022</span>
+<span class="c1"># </span>
+<span class="c1"># This software is released as public domain under CC0 1.0</span>
+<span class="c1"># https://creativecommons.org/publicdomain/zero/1.0/</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
 <span class="c1"># this script only consist of plotting predifinded vectors</span>
 <span class="c1"># and the convolution of them with the system</span>
 
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+<span class="c1"># determine where we&#39;re running from and set paths accordingly</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;ZMQInteractiveShell&#39;</span><span class="p">:</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../../&#39;</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">sv.mplstyle&#39;</span><span class="p">)</span>
 
 <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -889,6 +918,10 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Systemantwort für Inputsignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># glue this figure to paste it later (no effect outside of MyST NB)</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;FaltungErklaerung&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -896,7 +929,7 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
 </div>
 <div class="figure align-default" id="fig-faltungerklaerung" style="width: 90%">
 <div class="cell_output docutils container">
-<img alt="_images/systeme_11_0.png" src="_images/systeme_11_0.png" />
+<img alt="_images/systeme_11_1.png" src="_images/systeme_11_1.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Einfache grafische Erklärung der Faltung.</span><a class="headerlink" href="#fig-faltungerklaerung" title="Permalink to this image">¶</a></p>
 </div>

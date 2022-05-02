@@ -42,8 +42,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -55,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Literaturverzeichnis" href="zbibliography.html" />
+    <link rel="next" title="5. Spektren" href="spektren.html" />
     <link rel="prev" title="3. Systeme" href="systeme.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -114,8 +112,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   5. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   6. Filter
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="zbibliography.html">
-   5. Literaturverzeichnis
+   7. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -157,11 +165,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ztrafo.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/ztrafo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ztrafo.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -200,7 +211,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/ztrafo.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/ztrafo.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -444,12 +455,28 @@ außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink
 </div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="c1"># Demoscript for &quot;Signalverarbeitung 1&quot;</span>
+<span class="c1">#</span>
+<span class="c1"># Version: 1.0   17.02.2022</span>
+<span class="c1"># </span>
+<span class="c1"># This software is released as public domain under CC0 1.0</span>
+<span class="c1"># https://creativecommons.org/publicdomain/zero/1.0/</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+<span class="c1"># determine where we&#39;re running from and set paths accordingly</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;ZMQInteractiveShell&#39;</span><span class="p">:</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../../&#39;</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">sv.mplstyle&#39;</span><span class="p">)</span>
 
 <span class="n">index_kausal</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
 <span class="n">amplitude_kausal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">index_kausal</span><span class="p">)</span>
@@ -459,7 +486,7 @@ außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_kausal</span><span class="p">,</span> <span class="n">ax_nkausal</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">ax_kausal</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">index_kausal</span><span class="p">,</span> <span class="n">amplitude_kausal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax_kausal</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x(k)&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;kaulase Folge 0.5**(k)*gamma(k)&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">ax_kausal</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x(k)&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;kausale Folge 0.5**(k)*gamma(k)&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 
 <span class="n">index_nkausal</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
 <span class="n">amplitude_nkausal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">index_nkausal</span><span class="p">)</span>
@@ -470,6 +497,10 @@ außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink
 <span class="n">ax_nkausal</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">index_nkausal</span><span class="p">,</span> <span class="n">amplitude_nkausal</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_nkausal</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenkindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x(k)&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;nicht kausale Folge -0.5**(-k)*gamma(-k)&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># glue this figure to paste it later (no effect outside of MyST NB)</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;zFolgenPic&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -508,7 +539,7 @@ X(z) = \frac{1}{1-0.5z^{-1}} = \frac{z}{z-0.5},
 <p>Definition:</p>
 <div class="figure align-default" id="fig-zfolgenpic" style="width: 75%">
 <div class="cell_output docutils container">
-<img alt="_images/ztrafo_2_0.png" src="_images/ztrafo_2_0.png" />
+<img alt="_images/ztrafo_2_1.png" src="_images/ztrafo_2_1.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">a) kausale
 Folge <span class="math notranslate nohighlight">\(0.5^k \gamma(k)\)</span> für <span class="math notranslate nohighlight">\(k \geq 0\)</span> und b) nicht-kausale Folge
@@ -844,7 +875,17 @@ Nullstellenplan ohne die Angabe von <span class="math notranslate nohighlight">\
 LTI-Systems.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># based on https://matplotlib.org/3.1.0/gallery/mplot3d/surface3d_radial.html </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="c1"># Demoscript for &quot;Signalverarbeitung 1&quot;</span>
+<span class="c1">#</span>
+<span class="c1"># Version: 1.0   17.02.2022</span>
+<span class="c1"># </span>
+<span class="c1"># This software is released as public domain under CC0 1.0</span>
+<span class="c1"># https://creativecommons.org/publicdomain/zero/1.0/</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+
+<span class="c1"># based on https://matplotlib.org/3.1.0/gallery/mplot3d/surface3d_radial.html </span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Dem Polnullstellenplan kann per Rechtsklick eine Nullstelle, und per Linksklick eine Pollstelle hinzugefügt werden. Um eine Pol- / Nullstelle zu löschen muss man während man auf sie klickt &#39;Strg&#39; halten. Es werden automatisch die konjugierten Pol- / Nullstellen hinzugefügt und gelöscht</span>
@@ -855,7 +896,15 @@ LTI-Systems.</p>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># determine where we&#39;re running from and set paths accordingly</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;ZMQInteractiveShell&#39;</span><span class="p">:</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../../&#39;</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">sv.mplstyle&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">H_from_pole_zero</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
     <span class="n">zaehler</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
@@ -875,8 +924,6 @@ LTI-Systems.</p>
     <span class="n">Z</span><span class="p">[</span><span class="n">Z</span><span class="o">&gt;</span><span class="n">max_val</span><span class="p">]</span><span class="o">=</span><span class="n">max_val</span>
     <span class="n">Z</span><span class="p">[</span><span class="n">Z</span><span class="o">&lt;-</span><span class="n">max_val</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">max_val</span>
     <span class="k">return</span> <span class="n">Z</span>
-
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create the mesh in polar coordinates and compute corresponding Z.</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -924,30 +971,32 @@ LTI-Systems.</p>
 <span class="n">ax_3d</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Imaginärteil&#39;</span><span class="p">)</span>
 <span class="n">ax_3d</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$H$ in dB&#39;</span><span class="p">)</span>
 
-<span class="c1"># pyplot.show()</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
+<span class="c1"># glue this figure to paste it later (no effect outside of MyST NB)</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;PolNullstellenplan&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="26dfc558-e31f-4e58-b756-1b538d415c4b" name="dc09d596-1920-436c-b2d4-1b4903e2e6fe" type="radio">
-</input><label class="tabbed-label" for="26dfc558-e31f-4e58-b756-1b538d415c4b">
+<input checked="checked" id="f2435f63-4f4e-4d6b-b8bf-7d3225d56cc7" name="c16e886c-201f-4992-a6fa-973032c1da6b" type="radio">
+</input><label class="tabbed-label" for="f2435f63-4f4e-4d6b-b8bf-7d3225d56cc7">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-polnullstellenplan" style="width: 75%">
 <div class="cell_output docutils container">
-<img alt="_images/ztrafo_10_0.png" src="_images/ztrafo_10_0.png" />
+<img alt="_images/ztrafo_10_1.png" src="_images/ztrafo_10_1.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Pole und Nullstellen in der komplexen
 Ebene.</span><a class="headerlink" href="#fig-polnullstellenplan" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="b00590b6-5665-4e32-b17a-d5538ac0c647" name="dc09d596-1920-436c-b2d4-1b4903e2e6fe" type="radio">
-</input><label class="tabbed-label" for="b00590b6-5665-4e32-b17a-d5538ac0c647">
+<input id="81c3ac5e-6010-4f0d-9a7b-0c83c11af59a" name="c16e886c-201f-4992-a6fa-973032c1da6b" type="radio">
+</input><label class="tabbed-label" for="81c3ac5e-6010-4f0d-9a7b-0c83c11af59a">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_3D.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_3D.py” in jupyterbook/code/interactive_programs</p></li>
 <li><p>Eigene Pole und Nullstellen per Klick definieren bzw. löschen (zusätzlich STRG halten):</p>
 <ul class="simple">
 <li><p>Rechtsklick: Nullstelle</p></li>
@@ -1048,12 +1097,28 @@ h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} 
 </div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="c1"># Demoscript for &quot;Signalverarbeitung 1&quot;</span>
+<span class="c1">#</span>
+<span class="c1"># Version: 1.0   17.02.2022</span>
+<span class="c1"># </span>
+<span class="c1"># This software is released as public domain under CC0 1.0</span>
+<span class="c1"># https://creativecommons.org/publicdomain/zero/1.0/</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+<span class="c1"># determine where we&#39;re running from and set paths accordingly</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;ZMQInteractiveShell&#39;</span><span class="p">:</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../../&#39;</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">sv.mplstyle&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">impulse</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">pole</span><span class="p">):</span>
     <span class="n">r_pole</span> <span class="o">=</span> <span class="p">(</span><span class="n">pole</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pole</span><span class="o">.</span><span class="n">imag</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span> 
@@ -1102,27 +1167,31 @@ h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} 
 
 <span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
 
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># glue this figure to paste it later (no effect outside of MyST NB)</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;BspKonjKomplexPole&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4ef520f5-06db-4657-b604-c47adc934629" name="4835c8d7-2209-466b-bb9a-5e017b3d802a" type="radio">
-</input><label class="tabbed-label" for="4ef520f5-06db-4657-b604-c47adc934629">
+<input checked="checked" id="3b5f0b1c-9404-4087-876b-1f5e7b3d5126" name="d8105494-27fb-4847-ab2f-45ba6573c983" type="radio">
+</input><label class="tabbed-label" for="3b5f0b1c-9404-4087-876b-1f5e7b3d5126">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-bspkonjkomplexpole" style="width: 75%">
 <div class="cell_output docutils container">
-<img alt="_images/ztrafo_17_0.png" src="_images/ztrafo_17_0.png" />
+<img alt="_images/ztrafo_17_1.png" src="_images/ztrafo_17_1.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="9411811b-e4e0-403b-b083-49ee565716fa" name="4835c8d7-2209-466b-bb9a-5e017b3d802a" type="radio">
-</input><label class="tabbed-label" for="9411811b-e4e0-403b-b083-49ee565716fa">
+<input id="476f12da-d6fd-49e0-bd0f-46b6b4843730" name="d8105494-27fb-4847-ab2f-45ba6573c983" type="radio">
+</input><label class="tabbed-label" for="476f12da-d6fd-49e0-bd0f-46b6b4843730">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_Impulsantwort.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_Impulsantwort.py” in jupyterbook/code/interactive_programs</p></li>
 <li><p>Per Linksklick neue Polstelle definieren</p></li>
 </ol>
 </div>
@@ -1236,15 +1305,30 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 <a class="reference internal" href="#fig-stabildreieck"><span class="std std-numref">Abbildung 4.8</span></a>).</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This script creates an interactive graphic, where the user can set a1 and a2 coeffitients by clicking a point in left graph. The right graph will show the corresponding impulse response of the defined system</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="c1"># Demoscript for &quot;Signalverarbeitung 1&quot;</span>
+<span class="c1">#</span>
+<span class="c1"># Version: 1.0   17.02.2022</span>
+<span class="c1"># </span>
+<span class="c1"># This software is released as public domain under CC0 1.0</span>
+<span class="c1"># https://creativecommons.org/publicdomain/zero/1.0/</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+
+<span class="c1"># This script creates an interactive graphic, where the user can set a1 and a2 coeffitients by clicking a point in left graph. The right graph will show the corresponding impulse response of the defined system</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span> 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;sv.mplstyle&#39;</span><span class="p">)</span>
+<span class="c1"># determine where we&#39;re running from and set paths accordingly</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;ZMQInteractiveShell&#39;</span><span class="p">:</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../../&#39;</span>
 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">sv.mplstyle&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">impulse</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a1</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;calculates the impulse response of length num_samles for the two recursive factors a1, and a2&#39;&#39;&#39;</span>
@@ -1293,28 +1377,32 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 <span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
 <span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># glue this figure to paste it later (no effect outside of MyST NB)</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;Stabildreieck&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="aa59d770-458d-4a5c-b485-f608e8710033" name="2c2726d3-02f2-4516-9ab0-dbb55aa126bc" type="radio">
-</input><label class="tabbed-label" for="aa59d770-458d-4a5c-b485-f608e8710033">
+<input checked="checked" id="35659cef-4ad9-47c8-88ec-983c79bea54c" name="3f4335a1-4c7b-4217-82a9-6b5842fc1d10" type="radio">
+</input><label class="tabbed-label" for="35659cef-4ad9-47c8-88ec-983c79bea54c">
 Buchabbildung</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-stabildreieck" style="width: 75%">
 <div class="cell_output docutils container">
-<img alt="_images/ztrafo_20_0.png" src="_images/ztrafo_20_0.png" />
+<img alt="_images/ztrafo_20_1.png" src="_images/ztrafo_20_1.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
 Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="bfece926-408d-4bac-9ef2-79fc1a83f303" name="2c2726d3-02f2-4516-9ab0-dbb55aa126bc" type="radio">
-</input><label class="tabbed-label" for="bfece926-408d-4bac-9ef2-79fc1a83f303">
+<input id="aff4d0da-ee9b-4d9d-9990-5ffe5a9c7f05" name="3f4335a1-4c7b-4217-82a9-6b5842fc1d10" type="radio">
+</input><label class="tabbed-label" for="aff4d0da-ee9b-4d9d-9990-5ffe5a9c7f05">
 Interaktiv arbeiten</label><div class="tabbed-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “Signale_Stabilitätsdreieck.py” in jupyterbook/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - “Signale_Stabilitätsdreieck.py” in jupyterbook/code/interactive_programs</p></li>
 <li><p>Per Linsklick Punkt im Dreieck auswählen</p></li>
 </ol>
 </div>
@@ -1380,10 +1468,10 @@ würde.</p>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="zbibliography.html" title="next page">
+        <a class="right-next" href="spektren.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Literaturverzeichnis</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Spektren</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
