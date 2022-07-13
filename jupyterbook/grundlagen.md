@@ -14,7 +14,7 @@ kernelspec:
 ---
 # Einführung
 
-Ziel dieser Vorlesung ist es, die Grundlagen der digitalen Signalverarbeitung (DSV) mit der dazugehörigen Beschreibung durch die Systemtheorie zu erläutern. Um die Zusammenhänge etwas zu verdeutlichen, gehen wir zunächst der Frage nach, was ist Nachrichtentechnik, und warum benötigen wir die DSV.
+Ziel dieses Scripts ist, die Grundlagen der digitalen Signalverarbeitung (DSV) mit der dazugehörigen Beschreibung durch die Systemtheorie zu erläutern. Um den Zugang durch eigenes Ausprobieren zu erleichtern, sind für alle Abbildungen auch die produzierenden python codes eingebunden. Zusätzlich liegen oft interaktive Programme als Alternativen vor.
 
 
 ```{bibliography}
