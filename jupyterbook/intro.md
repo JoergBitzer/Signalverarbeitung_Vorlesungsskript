@@ -1,12 +1,13 @@
+
+<!-- #region -->
 ---
 # Signalverarbeitung 1
 
 
-Vorlesungsskript WS 2021 / 2022
+Vorlesungsskript WS 2022 / 2023
 
-
-©Autor: Prof. Dr. Jörg Bitzer  
-01.10.2021  
+Autor: Prof. Dr. Jörg Bitzer  
+01.10.2022  
 für SV I Version 0.9553  
 
 Jade Hochschule  
@@ -15,7 +16,7 @@ Abteilung Technik und Gesundheit für Menschen
 
 ---
 
-<!-- #region -->
+
 ## Zu diesem Jupyter-Buch
 
 Dieses Jupyter-Book enthält für viele Grafiken auch den Python Source-Code. In einigen Fällen wird darauf hingewiesen, dass es sich um interaktive Grafiken handelt. Hier lohnt es sich den Code in ein eigenständiges Skript (GrafikName.py) zu kopieren und direkt auszuführen (python3 GrafikName.py), um die interaktiven Elemente nutzen zu können, bzw. aus dem Repository die interaktiven Python-Skripte direkt zu verwenden.
