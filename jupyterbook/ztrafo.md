@@ -593,7 +593,8 @@ LTI-Systems.
 :load: code/ztransformation/pole_zero.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} PolNullstellenplan
 :figwidth: 75%
 :name: "fig:PolNullstellenplan"
@@ -602,12 +603,13 @@ Pole und Nullstellen in der komplexen
 Ebene.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_3D.py" in jupyterbook/code/interactive_programs
 2) Eigene Pole und Nullstellen per Klick definieren bzw. löschen (zusätzlich STRG halten):
     - Rechtsklick: Nullstelle
     - Linksklick: Polstelle
 ````
+`````
 
 +++
 
@@ -732,8 +734,8 @@ gegeben und wird in {numref}`Abbildung %s <fig:BspKonjKomplexPole>` bis $k = 49$
 :load: code/ztransformation/pole_complex_conjugate.py
 ```
 
-
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} BspKonjKomplexPole
 :figwidth: 75%
 :name: "fig:BspKonjKomplexPole"
@@ -741,10 +743,11 @@ gegeben und wird in {numref}`Abbildung %s <fig:BspKonjKomplexPole>` bis $k = 49$
 Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_Impulsantwort.py" in jupyterbook/code/interactive_programs
 2) Per Linksklick neue Polstelle definieren
 ````
+`````
 
 
 +++
@@ -874,7 +877,8 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 :load: code/ztransformation/stability.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} Stabildreieck
 :figwidth: 75%
 :name: "fig:Stabildreieck"
@@ -883,10 +887,11 @@ Stabilitätsdreieck für Systeme zweiter
 Ordnung mit den Koeffizienten $a_1$ und $a_2$.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 1) Starten des interaktiven Programms - "Signale_Stabilitätsdreieck.py" in jupyterbook/code/interactive_programs
 2) Per Linsklick Punkt im Dreieck auswählen
 ````
+`````
 
 +++
 

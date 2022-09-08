@@ -63,18 +63,19 @@ Verlauf des DAX Abschlusskurses über mehrere Tage.
 :load: code/signale/verkehrsampel.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} verkehrsampel
 :figwidth: 75%
 :name: "plt:verkehrsampel"
-
 Ampelsignal im normalen Betrieb.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 1) Starten des interaktiven Programms - "Signale_Ampel.py" in jupyterbook/code/interactive_programs
 2) Mit den Radiobuttons das Signal ändern.
 ````
+`````
 
 Mehr technischer Natur sind z.B:
 
@@ -302,7 +303,8 @@ Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebe
 :load: code/signale/abtastung2.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} Abtast2
 :figwidth: 75%
 :name: "plt:AbtastungErklaerung2"
@@ -310,7 +312,7 @@ Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebe
 Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 
 1) Starten des interaktiven Programms - "Signale_Abtastung_Sinusfrequenz_einstellen.py" in jupyterbook/code/interactive_programs
 2) Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.
@@ -328,13 +330,15 @@ Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
 Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 200 Hz) bis zur halben Abtastfrequenz sind gespiegelt zu finden, wenn die Frequenz von der Abtastfrequenz subtrahiert wird (z.B. 1000Hz-200Hz = 800Hz).
 ```
 ````
+`````
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
 :load: code/signale/abtastung3.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} Abtast3
 :figwidth: 75%
 :name: "plt:AbtastungErklaerung3"
@@ -342,7 +346,7 @@ Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 2
 Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 
 1) Starten des interaktiven Programms - - "Signale_Abtastfrequenz_einstellen.py" in jupyterbook/code/interactive_programs
 2) Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.
@@ -360,6 +364,8 @@ Erst oberhalb der doppelten Abtastfrequenz ist eine Repräsenstation möglich.
 
 ```
 ````
+`````
+
 Man kann das Problem aber auch andersherum darstellen. Die Frequenz des Sinus bleibt
 gleichbleibend, aber die Abtastrate wird verändert.
 Dies ist in {numref}`Abbildung %s <plt:AbtastungErklaerung3>` gezeigt. Ist die
@@ -604,7 +610,8 @@ Einige periodische Signale sind:
 :load: code/signale/signal_sine.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} Sinewave
 :figwidth: 75%
 :name: "plt:Sinewave"
@@ -612,10 +619,11 @@ Einige periodische Signale sind:
 Sinussignal mit verschiedenen Amplituden sowie unterschiedlicher Frequenz und Startphase. 
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 1) Starten des interaktiven Programms - "Signale_Sinus_einstellen.py" in jupyterbook/code/interactive_programs
 2) Mit den Slidern die Signalparameter anpassen.
 ````
+`````
 
 
 * **Dreieck:** Ein periodisches Dreieckssignal zu beschreiben, kann auf zwei Arten erfolgen. Eine sehr einfache Beschreibung erfolgt über eine abschnittsweise Definition. Eine Periode der Dreiecksschwingung ist gegeben durch

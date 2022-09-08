@@ -545,17 +545,19 @@ die höchste Frequenz bei $f_s/2$ nur einen reellwertigen Koeffizienten
 besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, die $N/2+1$ Werte sind in `H_halb` gespeichert
 
-````{tabbed} Matlab
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     H_voll = [H_halb conj(H_halb(end-1:-1:2))];
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     H_halb_c = H_halb[:,-1}]
     H_voll = H_halb + H_halb_c
 ```
 ````
+`````
 
 
 
@@ -862,7 +864,8 @@ bekanntesten Fenster-Funktionen angegeben werden[^6].
 :load: code/spektren/window_kaiser.py
 ```
 
-````{tabbed} von Hann
+`````{tab-set}
+````{tab-item} von Hann
 -   **von Hann-Fenster (oft fälschlich Hanning):** Für das Hann-Fenster ist
     $\alpha = \beta = 0.5$ und $\gamma = 0$. Daraus ergibt sich im
     Frequenzbereich ein etwas breiteres Hauptmaxima $4\pi/N$. Die
@@ -876,7 +879,7 @@ Zeitliche und spektrale Eigenschaft des von Hann-Fensters
 ```
 ````
 
-````{tabbed} Hamming
+````{tab-item} Hamming
 -   **Hamming-Fenster:** Für das Hamming-Fenster ist $\alpha = 0.54$,
     $\beta = 0.46$ und $\gamma = 0$. Das Design-Ziel des Hamming-Fenster
     ist das erste Nebenmaxima möglichst optimal zu unterdrücken. Dafür
@@ -891,7 +894,7 @@ Zeitliche und spektrale Eigenschaft des Hamming-Fensters
 ```
 ````
 
-````{tabbed} Blackman
+````{tab-item} Blackman
 -   **Blackman-Fenster:** Für das Blackman-Fenster ist $\alpha = 0.42$,
     $\beta = 0.5$ und $\gamma = 0.08$. Dieses Fenster hat eine deutlich
     breitere Hauptkeule $6\pi/N$, aber die Dämpfung der Nebenmaxima und
@@ -904,7 +907,7 @@ Zeitliche und spektrale Eigenschaft des Blackman-Fensters
 ```
 ````
 
-````{tabbed} Dolph-Tschebyscheff 
+````{tab-item} Dolph-Tschebyscheff 
 -   **Dolph-Tschebyscheff-Fenster:** Im Gegensatz zu den anderen Fenstern
     in dasDolph-Tschebyscheff-Fenster parametrisierbar. Bei einer
     vorgegebenen Fensterlänge $N$ kann die Absenkung der Nebenzipfel
@@ -920,7 +923,7 @@ Zeitliche und spektrale Eigenschaft des
 ```
 ````
 
-````{tabbed} Kaiser-Fester
+````{tab-item} Kaiser-Fester
 -   **Kaiser-Fenster:** Auch das Kaiser-Fenster ist mit Hilfe des
     Parameters $\alpha$ veränderlich. Es basiert auf der Form
     
@@ -957,6 +960,7 @@ Zeitliche und spektrale Eigenschaft des
     $\alpha =$ 4.
 ```
 ````
+`````
 
 +++ {"tags": ["remove-cell"]}
 
