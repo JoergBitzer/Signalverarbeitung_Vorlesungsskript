@@ -58,8 +58,9 @@ zwischen vier Grundtypen unterschieden:
 :load: code/filter/filter_bandstop.py
 ```
 
-```{tabbed} Tiefpass
--   **Tiefpass:** Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
+`````{tab-set}
+````{tab-item} Tiefpass
+   **Tiefpass:** Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
     einer zu definierenden Grenzfrequenz $f_g$ aus dem Spektrum zu
     entfernen. In der technischen Umsetzung ist es aber nicht möglich,
     einen abrupten Übergang zwischen dem sog. Durchlassbereich (tiefe
@@ -70,63 +71,61 @@ zwischen vier Grundtypen unterschieden:
 ```{glue:figure} DesignTP
 :figwidth: 50%
 :name: fig:DesignTP
-
 Optimaler
     Entwurf eines Tiefpasses ($f_s$ = 8 kHz und Grenzfrequenz = $f_g$ =
     1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
 
-+++
-
-```{tabbed} Hochpass
--   **Hochpass:** Das inverse Designziel zum Tiefpass liegt dem
+````{tab-item} Hochpass
+   **Hochpass:** Das inverse Designziel zum Tiefpass liegt dem
     Hochpassentwurf zu Grunde. Es sollen möglichst alle tiefen
     Frequenzen aus dem Spektrum entfernt werden. Auch hier gelten die
     beim Tiefpass erwähnten Einschränkungen.
+
 ```{glue:figure} DesignHP
 :figwidth: 50%
 :name: fig:DesignHP
-
 Optimaler
     Entwurf eines Hochpasses ($f_s$ = 8 kHz und Grenzfrequenz = $f_g$ =
     1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
 
-+++
-
-```{tabbed} Bandpass
--   **Bandpass:** Im Gegensatz zu den vorher erwähnten Typen, hat das
+````{tab-item} Bandpass
+   **Bandpass:** Im Gegensatz zu den vorher erwähnten Typen, hat das
     Bandpassfilter zwei Grenzfrequenzen $f_1$ und $f_2$, da das
     Designziel ist, nur die Frequenzen zwischen $f_1$ und $f_2$
     durchzulassen und ale Frequenzen unterhalb von $f_1$ bzw. oberhalb
     von $f_2$ zu entfernen. Die Differenz zwischen $f1$ und $f_2$ wird
     Bandbreite genannt $B = f_2 -
         f_1$.    
+
 ```{glue:figure} DesignBP
 :figwidth: 50%
 :name: fig:DesignBP
-
 Optimaler
     Entwurf eines Bandpasses ($f_s$ = 8 kHz und Grenzfrequenz $f_1$ = 1
     kHz und $f_2 =$ 3 kHz) und Realisierung durch Butterworth-Filter 6.
     Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
 
-+++
-
-```{tabbed} Bandsperre
--   **Bandsperre:** Die Bandsperre stellt die inverse Funktion zum
+````{tab-item} Bandsperre
+   **Bandsperre:** Die Bandsperre stellt die inverse Funktion zum
     Bandpass dar. Bei diesem Entwurf sollen möglichst alle Frequenzen im
     Bereich zwischen $f_1$ und $f_2$ aus dem Spektrum entfernt werden.
+
 ```{glue:figure} DesignBS
 :figwidth: 50%
 :name: fig:DesignBS
-
 Optimaler
     Entwurf einer Bandsperre ($f_s$ = 8 kHz und Grenzfrequenz $f_1$ = 1
     kHz und $f_2 =$ 3 kHz) und Realisierung durch Butterworth-Filter 6.
     Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
+`````
 
 +++
 
@@ -162,19 +161,20 @@ die Güte $Q = \frac{f_m}{B}$ als Verhältnis von Mittenfrequenz $f_m$ und Bandb
 :load: code/filter/filter_peak_eq.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} EQ_GainParam
 :figwidth: 75%
 :name: "fig:EQ_GainParam"
-
 Equalizerübertragungskurve bei Veränderung der
 Güte
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 1) Starten des interaktiven Programms - "Filter_Peak_EQ.py" in jupyterbook/code/interactive_programs
 2) Mit Slidern Parameter einstellen
 ````
+`````
 
 +++
 
@@ -188,7 +188,8 @@ zur Verfügung.
 :load: code/filter/filter_shelving_eq.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} EQ_ShelvParam
 :figwidth: 75%
 :name: "fig:EQ_ShelvParam"
@@ -196,10 +197,11 @@ zur Verfügung.
 Equalizerübertragungskurven eines Hoch bzw. Tiefpasskuhschwanzfilters bei Veränderung der Verstärkung und Frequenz
 ```
 ````
-````{tabbed} Interaktiv arbeiten
+````{tab-item} Interaktiv arbeiten
 1) Starten des interaktiven Programms - "Filter_Shelving_EQ.py" in jupyterbook/code/interactive_programs
 2) Mit Slidern Parameter einstellen
 ````
+`````
 
 +++
 
@@ -231,24 +233,21 @@ glue("df_oktav", df_oktav, display=False)
 glue("df_terz", df_terz, display=False)
 ```
 
-````{panels}
-:column: col-4
-:card: border-2
+`````{grid}
 
-Oktav-EQ
-^^^
+````{grid-item-card} Oktav-EQ
 ```{glue:figure} df_oktav
 :figwidth: 300px
 :name: tab:df_oktav
 ```
----
-Terz-EQ
-^^^
+````
+````{grid-item-card} Terz-EQ
 ```{glue:figure} df_terz
 :figwidth: 300px
 :name: tab:df_terz
 ```
 ````
+`````
 
 
 +++
@@ -514,28 +513,30 @@ bedeutet dies eine deutliche Aufwandsreduktion.
 :load: code/filter/filter_lowpass_remez.py
 ```
 
-```{tabbed} Entwurf
+`````{tab-set}
+````{tab-item} Entwurf
 Fenster Entwurf
 ```{glue:figure} BspFensterEntwurf
 :figwidth: 75%
 :name: "fig:BspFensterEntwurf2"
-
 Beispiel eines Tiefpass-Entwurfes mit
 Rechteck und Hann-Fenster unterschiedlicher Länge. Grenzfrequenz =
 $\Omega_g = 0.2\pi$
 ```
+````
 
-```{tabbed} Remez
+````{tab-item} Remez
 Remez Fenster
 ```{glue:figure} BspFensterRemez
 :figwidth: 75%
 :name: "fig:BspFensterRemez"
-
 Beispiel eines Tiefpass-Entwurfes mit dem
 Remez-Algorithmus und der Fenster-Methode unterschiedlicher Länge.
 Grenzfrequenz =
 $\Omega_g = 0.2\pi$
 ```
+````
+`````
 
 +++
 
@@ -654,8 +655,10 @@ Filter.
 
 +++
 
-Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.
-````{tabbed} Matlab
+Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus:
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     %v_H contains the magnitude vector of the desired filter
     log_H = log(v_H+eps); % eps is the smallest positive number in matlab
@@ -668,7 +671,7 @@ Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.
     v_h = real(ifft(H_min));
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     import numpy
     #v_H contains the magnitude vector of the desired filter
@@ -683,6 +686,7 @@ Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.
     h_min = numpy.fft.ifft(H_min)
 ```
 ````
+`````
 
 ### IIR-Filter
 
@@ -1085,7 +1089,9 @@ bekannt ist.
 Da Matlab vektoriell orientiert ist, lässt sich ein FIR-Filter besonders
 effizient implementieren, wenn man nicht auf die internen
 Filter-Routinen zurückgreifen möchte.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     v_states = zeros(LengthOfFilter,1);
 
@@ -1096,7 +1102,7 @@ Filter-Routinen zurückgreifen möchte.
     end
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     import numpy
     # Example values
@@ -1113,6 +1119,7 @@ Filter-Routinen zurückgreifen möchte.
         v_states[1:] = v_states[0:len(v_states)-1] # State Vector verschieben
 ```
 ````
+`````
 
 +++
 
@@ -1150,7 +1157,9 @@ Beispiel einer Filterspezifikation für normierte Frequenzen:\
 Durchlassbereich bis $0.1\pi$ und maximale Dämpfung von $0.2$dB.\
 Sperrbereich ab $02\pi$ und minimale Dämpfung von $30dB$.\
 Der dazugehörige Code sieht dann wie folgt aus:
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1162,7 +1171,7 @@ Der dazugehörige Code sieht dann wie folgt aus:
     [b,a] = butter(N,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1174,6 +1183,8 @@ Der dazugehörige Code sieht dann wie folgt aus:
     [b, a] = signal.butter(N=order, Wn=Pass_freq, output='ba')
 ```
 ````
+`````
+
 #### Tschebyscheff-I-Filter
 Im Gegensatz zum Butterworth-Filter ist das Ziel des Tschebyscheff-I
 Filters im Durchlassbereich die maximal zulässige Durchlassdämpfung
@@ -1183,7 +1194,9 @@ also immer zum Ziel den Maximalen Fehler zu minimieren. Der Entwurf wird
 auch als Equiripple-Design bezeichnet. Dies führt zu einem Entwurf mit
 geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten `cheb1ord` und
 `cheby1`. Für das Design-Beispiel ergibt sich der folgende Code.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1195,7 +1208,7 @@ geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten `cheb1ord` und
     [b,a] = cheby1(N,Pass_dB,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1206,13 +1219,16 @@ geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten `cheb1ord` und
     [b, a] = signal.cheby1(N=order, rp=Pass_dB, Wn=Pass_freq, output='ba')
 ```
 ````
+`````
 
 #### Tschebyscheff-II-Filter
 
 Das Tschebyscheff-II-Filter ist der Inverse Entwurf zum Typ I. Das Ziel
 ist also ein flacher Durchlassbereich und ein oszilierender
 Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1224,7 +1240,7 @@ Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.
     [b,a] = cheby2(N,Stop_dB,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1235,13 +1251,17 @@ Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.
     [b, a] = signal.cheby2(N=order, rs=Stop_dB, Wn=Stop_freq, output='ba')
 ```
 ````
+`````
+
 #### Cauer-Filter
 
 Das Cauer-Filter auch als Ellpitisches-Filter bezeichnet, definiert
 einen Equiripple-Entwurf im Durchlass- und Sperrbereich. Dies führt zu
 einer weiteren Reduzierung der Ordnung. Der Entwurf sieht wie
 folgt aus.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1253,7 +1273,7 @@ folgt aus.
     [b,a] = ellip(N,Pass_dB,Stop_dB,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1264,6 +1284,8 @@ folgt aus.
     [b, a] = signal.ellip(N=order, rp=Pass_dB, rs=Stop_dB, Wn=Pass_freq, output='ba')
 ```
 ````
+`````
+
 #### Vor- und Nachteile der unterschiedlichen Entwurfsverfahren
 
 Die Wahl der Entwurfsmethode beruht im großen Maße auf den gegebenen
@@ -1331,7 +1353,9 @@ Berechnung der Ordnung reicht es die Grenzfrequenzen zu vertauschen, um
 einen Hochpass anzuzeigen.
 
 Beispiel:
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     % Highpass-Design
     Pass_freq = 0.2; % Matlab uses normalized frequencies from 0..2
@@ -1364,7 +1388,7 @@ Beispiel:
     [b,a] = butter(N,f_g,'stop');
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     # Highpass Design
     Pass_freq = 0.2
@@ -1395,6 +1419,7 @@ Beispiel:
     [b, a] = signal.butter(N=order, Wn=[Pass_freqLow, Pass_freqHigh], btype='bandstop', output='ba')
 ```
 ````
+`````
 
 +++ {"tags": ["remove-cell"]}
 
