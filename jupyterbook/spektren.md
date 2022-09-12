@@ -43,7 +43,7 @@ diskrete Exponentialschwingung
 
 $$
     e^{j\Omega_0 k} = \cos(\Omega k)+j\sin(\Omega k)
-$$ (eq:Def:Euler)
+$$ (eq:Def:Euler_spektren)
 
 mit $\Omega_0 = 2 \pi f_0/ f_s$, wobei $f_0$ die Analysefrequenz und $f_s$
 die Samplingfrequenz angibt.
