@@ -11,17 +11,17 @@ Autor: Prof. Dr. Jörg Bitzer
 für SV I Version 0.9553  
 
 Jade Hochschule  
-Fachbereich Bauwesen Geoinformation Gesundheitstechnologien
-Abteilung Technik und Gesundheit für Menschen 
+Fachbereich Bauwesen Geoinformation Gesundheitstechnologien  
+Abteilung Technik und Gesundheit für Menschen   
 
 ---
 
 
 ## Zu diesem Dokument 
 
-Dieses Dokument ist ein [Jupyter-Book](https://jupyterbook.org). Viele der Grafiken werden direkt durch den enthaltenen Python Queltext erzeugt. In einigen Fällen wird darauf hingewiesen, dass es sich um interaktive Grafiken handelt. Hier lohnt es sich den Code in ein eigenständiges Skript (`GrafikName.py`) zu kopieren und direkt auszuführen (`python3 GrafikName.py`), um die interaktiven Elemente nutzen zu können, bzw. aus dem Repository die interaktiven Python-Skripte im Ordner `jupyterbook/code/interactive_programs/` direkt zu verwenden.
+Dieses Dokument ist ein [Jupyter-Book](https://jupyterbook.org). Viele der Grafiken werden direkt durch den enthaltenen Python Queltext erzeugt. In einigen Fällen wird darauf hingewiesen, dass es sich um interaktive Grafiken handelt. Hier lohnt es sich den Code in ein eigenständiges Skript (`GrafikName.py`) zu kopieren und direkt auszuführen (`python3 GrafikName.py`), um die interaktiven Elemente nutzen zu können. ALternativ können die interaktiven Python-Skripte im Ordner `jupyterbook/code/interactive_programs/` des Repositories (s.u.) direkt verwendet werden.
 
-Um das Buch selbst zu kompilieren, müssen neben den Modulen für das Juyper Book selbst, auch verschiedene Abhängigkeiten des darin enthaltenen Codes selbst erfüllt sein werden. Diese finden sich in der Datei `meta/requirements.txt` und können mit `pip3 install -r meta/requirements.txt` installiert werden. 
+Um das Buch selbst zu kompilieren, müssen neben den Modulen für das Juyper Book selbst, auch verschiedene Abhängigkeiten des darin enthaltenen Codes selbst vorhanden sein. Diese finden sich in der Datei `meta/requirements.txt` und können mit `pip3 install -r meta/requirements.txt` installiert werden. 
 
 Das Buch selbst lässt sich durch `jupyter-book build jupyterbook` kompilieren. Die erzeugten HTML-Dokumente befinden sich dann im Unterordner `jupyterbook/_build/html`. 
 
