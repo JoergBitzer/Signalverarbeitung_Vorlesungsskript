@@ -814,10 +814,7 @@ Analyse des Block-Diagramms mit z-Trafo daraus folgend die Übertragungsfunktion
 ### IIR-Filterdesign
 
 Um die Theorie des Entwurfs traditioneller IIR-Filter genauer zu
-erläutern fehlen an dieser Stelle noch einige theoretische Konzepte. Der
-noch folgende
-{numref}`Abschnitt %s <sec:Analog>` zeigt die notwendigen Entwurfsverfahren. Ein
-erster Einblick, um bereits mit IIR-Filtern arbeiten zu können, wird in {numref}`Abschnitt %s <sec:IIR-Filterdesign>` auf Basis von Matlab gegeben.
+erläutern fehlen an dieser Stelle noch einige theoretische Konzepte. {numref}`Abschnitt %s <sec:IIR-Filterdesign>` gibt alleridngs einen ersten Einblick in Entwurfsverfahren von IIR-Filtern auf Basis von Matlab.
 
 Mit den bisherigen Erkenntnissen sind aber schon Lösungen für einige
 spezielle Filter möglich.
