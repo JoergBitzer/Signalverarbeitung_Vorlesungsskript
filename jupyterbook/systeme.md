@@ -14,13 +14,12 @@ kernelspec:
 # Systeme
 
 Betrachtet man die typische Nachrichtenübertragungskette, so ist
-das Bindeglied zwischen Quelle und Senke der Kanal. Eine andere
+das Bindeglied zwischen Quelle und Senke der Kanal. Eine andere,
 allgmeinere Bezeichnung für den Kanal ist der Begriff System. Ganz
 allgemein kann davon gesprochen werden, dass ein System
 verschiedene (unterschiedliche) Signale miteinander verknüpft und
 Beziehungen herstellt. {numref}`Abbildung %s <fig:SystembildAllgemein>`
 zeigt eine allgemeine Verknüpfung von Signalen. 
-Just something useless.
 
 ```{figure} ../images/psSys/SystemAllgemein.png
 ---
@@ -30,7 +29,7 @@ name: fig:SystembildAllgemein
 Veranschaulichung eines allgemeinen Systems, dass Signale miteinander verknüpft.
 ```
 
-In den meisten Fällen, kann diese sehr allgemeine Verknüpfung
+In den meisten Fällen kann diese sehr allgemeine Verknüpfung
 spezifiziert werden. Insbesondere haben wir häufig Eingangssignale
 auf die das System reagiert und die daraus resultierenden
 Ausgangssignale (siehe {numref}`Abbildung %s <fig:SystemEinAus>`).
@@ -46,8 +45,7 @@ festliegen.
 
 Durch diese sehr allgemeine Formulierung des Systembegriffs wird
 auch deutlich, warum die Systemtheorie eine zentraler Punkt vieler
-wissenschaftlicher Richtungen ist. Dies wird  auch deutlich, wenn
-man einige Beispiele betrachtet:
+wissenschaftlicher Richtungen ist. Einige weitere Beispiele:
 
 - HiFi-Verstärker: Ein System mit mehreren Eingängen und
 wenigen (meist zwei) Ausgängen
@@ -58,7 +56,7 @@ Eingängen (Sinnesorganen) und vielen Ausgängen (Muskeln)
 
 ## Eigenschaften und Klassifikation von Systemen
 
-Bei der Klassifikation der Systeme, können wir zunächst die
+Bei der Klassifikation der Systeme können wir zunächst die
 meisten Punkte, die wir für Signale erarbeitet haben, ebenfalls
 anwenden.
 
@@ -105,7 +103,7 @@ Einkanalig vs. Mehrkanalig
 ```
 
 Der allgemeinste Fall des mehrkanaligen Ein- und Ausgangs wird
-als MIMO *Multiple Input Multiple Output* System bezeichnet.
+als MIMO-System (*Multiple Input Multiple Output*) bezeichnet.
 
 ### Dimensionalität
 
@@ -154,16 +152,18 @@ Um die Wichtigkeit von rekursiven Systemen zu verdeutlichen, nehmen wir
 einmal an, wir bräuchten ständig die Summe von mehreren vergangenen
 Messwerten (oder ein Beispiel aus der Praxis ist der 30-Tage
 Durchschnitt bei der DAX-Analyse). Wir können diese Summe immer wieder
-durch folgende Formel berechnen. Die Anzahl der Messwerte, die wir
-verwenden ist durch $M$ symbolisiert. 
+durch 
 
 $$
 y(k) = \sum_{m=0}^{M-1}x(k-m)
 $$
 
+berechnen. Die Anzahl der Messwerte, die wir
+verwenden ist durch $M$ symbolisiert. 
+
 Betrachtet man diese Rechenvorschrift, so fällt auf, dass bestimmte
 Anteile immer wieder summiert werden und immer nur ein neuer Wert
-hinzukommt und ein alter Wert herausfällt aus der Summation. Dies ist in
+hinzukommt und ein alter Wert aus der Summation herausfällt. Dies ist in
 {numref}`Abbildung %s <fig:DatenwerteRekursion>` genauer gezeigt.
 
 +++
@@ -184,15 +184,14 @@ berechnen.
 
 +++ {"tags": ["hide-input", "remove-output"]}
 
-Man könnte also das Ausgangssignal des Systems auch durch folgende
-Rechenvorschrift berechnen 
+Man könnte also das Ausgangssignal des Systems auch durch 
 
 $$
 \label{eq:RekursionsBsp}
 y(k) = y(k-1) + x(k) - x(k-(M)).
 $$
 
-Es ist also möglich die Rechenleistung durch rekursive Berechnungen zu
+berechnen. Es ist also möglich die Rechenleistung durch rekursive Berechnungen zu
 verringern.
 
 ### Gedächtnis
@@ -207,7 +206,7 @@ gedächtnisloses System ist die Funktion $y(k) = x^2(k)$.
 
 ```{admonition} Wichtig
 :class: attention
-Gedächtnisbehaftet vs. Gedächtnislos
+gedächtnisbehaftet vs. gedächtnislos
 ```
 
 
@@ -238,7 +237,7 @@ ausgedrückt werden.
 Eine andere sehr wichtige Eigenschaft für Systeme ist ihre Stabilität.
 Stabile Systeme zeichnen sich dadurch aus, dass sie auf ein begrenztes
 Eingangssignal mit einem begrenzten Ausgangssignal reagieren
-(BIBO-Stabilität (Bounded input bounded output)) Mathematisch muss
+(BIBO-Stabilität, *Bounded Input Bounded Output*). Mathematisch muss
 folgendes als notwendige Bedingung gelten:
 
 $$
@@ -263,8 +262,8 @@ Sind die folgenden Systeme stabil?
 ## LTI-Systeme
 
 Eine besondere Klasse an Systemen stellen die linearen, zeitinvarianten
-(LTI: linear and time-invariant) Systeme dar. Die beiden Begriffe
-Linearität und Zeit-invarianz werden im weiteren als Systemeigenschaften
+(LTI, *Linear and Time-Invariant*) Systeme dar. Die beiden Begriffe
+Linearität und Zeitinvarianz werden im weiteren als Systemeigenschaften
 genauer beschrieben
 
 ### Linearität
@@ -274,17 +273,16 @@ Superpositionsprinzip (Überlagerungsprinzip) gilt. Dies bedeutet, dass
 die additive Überlagerung der gewichteten Eingangssignale und die
 Verknüpfung mit dem System genau zu dem gleichen Ergebnis führt, wie die
 gewichtete additive Überlagerung der einzelnen Signale am Ausgang des
-linearen Systems. Mathematisch ausgedrückt: 
+linearen Systems. Mathematisch ausgedrückt durch
 
 $$
 \label{eq:Linearitaet}
 f\{a_1 x_1(k) + a_2 x_2(k) + \cdots + a_N x_N(k)\} = \\
-a_1 f\{x_1(k)\} + a_2 f\{x_2(k)\} + \cdots + a_N f\{x_N(k)\}
+a_1 f\{x_1(k)\} + a_2 f\{x_2(k)\} + \cdots + a_N f\{x_N(k)\}~~~,
 $$
 
 wobei $f\{\cdot\}$ die Systemfunktion darstellt, $a_i$ die linearen
-Gewichte und $x_i(k)$ die Eingangssignale. {numref}`Abbildung %s <fig:LinearitaetErklaerung>` verdeutlicht den mathematischen Zusammenhang
-noch einmal grafisch. Bei LTI-Systemen kann das System $H$ vor den
+Gewichte und $x_i(k)$ die Eingangssignale. {numref}`Abbildung %s <fig:LinearitaetErklaerung>` verdeutlicht den Zusammenhang. Bei LTI-Systemen kann das System $H$ vor den
 Summationspunkt und vor den linearen Gewichten $a_1$ und $a_2$
 verschoben werden.
 
@@ -310,7 +308,7 @@ y(k) = 2x(k) + 3x(k-1)
 $$
 
 Der Ausgang der einzelnen Eingangssignale $x_1(k)$ und $x_2(k)$
-gewichtet ergeben. 
+gewichtet ergeben
 
 $$
 \begin{aligned}
@@ -335,7 +333,7 @@ $$ (eq:Ausgangdirekt)
 Ein gemischtes und gewichtetes Eingangssignal ist gegeben durch
 
 $$
-x_{mix} = a_1 x_1(k) + a_2 x_2(k)
+x_\text{mix} = a_1 x_1(k) + a_2 x_2(k)
 $$ 
 
 und das Ausgangssignal des System
@@ -343,7 +341,7 @@ durch
 
 $$
 \begin{aligned}
-y(k) &=& 2x_{mix}(k) + 3x_{mix}(k-1)\\\nonumber
+y(k) &=& 2x_\text{mix}(k) + 3x_\text{mix}(k-1)\\\nonumber
 & = & 2(a_1 x_1(k) + a_2 x_2(k)) + 3(a_1 x_1(k-1) + a_2 x_2(k-1))\\\nonumber
 & = & 2a_1x_1(k) + 2 a_2 x_2(k) + 3 a_1 x_1(k-1) + 3 a_2 x_2(k-1)\end{aligned}
 $$
@@ -365,21 +363,21 @@ bzw.
 
 $$
 \begin{aligned}
-y(k) &= &  x_{mix}^2 (k)\\
+y(k) &= &  x_\text{mix}^2 (k)\\
 & = & \left( a_1  x_1 (k) + a_2  x_2 (k) \right)^2\\
  & = & a_1^2 x_1^2 (k) + 2a_1 a_2 x_1(k) x_2(k) + a_2^2 x_2^2 (k)\end{aligned}
 $$
 
 Die beiden Ausgangssignale sind nicht identisch. Dieses System ist also
-nicht-linear.
+nichtlinear.
 ```
 
-### Zeit-Invarianz
+### Zeitinvarianz
 
 Von Zeitinvarianz spricht man, wenn das System seine Eigenschaften nicht
 zeitlich ändert. Eine bestimmmte Verzögerung $k_0$ des Eingangssignal
 führt also im Ausgang zu einem um die selbe Zeit $k_0$ verzögerten
-Ausgangssignal. Mathematisch ausgedrückt:
+Ausgangssignal. Mathematisch ausgedrückt durch
 
 $$
 y(k) = f\{x(k) \} \quad \Rightarrow y(k-k_0) = f\{x(k-k_0) \}
@@ -394,7 +392,7 @@ Gegeben sind die beiden Systeme $y(k) = 2x(k)$ und $y(k) = x(2k)$. Sind
 die Systeme zeitinvariant oder nicht?
 
 Der Test erfolgt zum einen über die zeitliche Verschiebung des
-Eingangssignal $x(k)$. Es ergibt sich ein neues Eingangssignal
+Eingangssignals $x(k)$. Es ergibt sich ein neues Eingangssignal
 $x(k-k_0)$. Für dieses neue Eingangssignal ist der Ausgang $y(k) =
 2x(k-k_0)$. Zum anderen muss das Ausgangssignal des
 Originaleingangssignals verschoben werden. Es ergibt sich zunächst für
@@ -411,23 +409,24 @@ $y(k-k_0) = x(2k-2k_0)$. Dieses System ist also zeitvariant.
 ### Beschreibung durch Differenzengleichungen
 
 LTI-Systeme lassen sich stets durch Differenzengleichungen mit festen
-Koeffizienten ausdrücken. Dies ist für nicht-rekursive Systeme mit den
+Koeffizienten ausdrücken. Dies ist für nichtrekursive Systeme mit den
 Beispielen des Abschnittes über Linearität auch leicht nachvollziehbar.
 Gleichzeitig gilt die selbe Linearitätsbeziehung auch für den Ausgang
-des Systems. Betrachtet man nun ein System, dass rekursiv ist, so kommen
+des Systems. Betrachtet man nun ein rekursives System, so kommen
 als neue Terme nur vergangene Systemantworten mit linearen Faktoren
-gewichtet (multipliziert) hinzu. Damit sind auch alle durch folgende
-Gleichung aufgebauten rekursiven Systeme linear.
+gewichtet (multipliziert) hinzu. Damit sind auch alle durch 
 
 $$
 \sum_{i = 0}^{N} a_i y(k-i) = \sum_{j = 0}^{M}b_j x(k-j)
 $$ 
 
+aufgebauten rekursiven Systeme linear.
+
 Um nun nur den Ausgang des Systems zu betrachten, wird vereinbart, dass $a_0 = 1$
 ist [^1]. Für den Ausgang eines kausalen Systems gilt dann
 
 $$
-y(k) = -\sum_{i = 1}^{N}a_i y(k-i) + \sum_{j = 0}^{M}b_j
+y(k) = -\sum_{i = 1}^{N}a_i y(k-i) + \sum_{j = 0}^{M}b_j~~~.
 x(k-j)
 $$
 
@@ -440,7 +439,7 @@ wird vereinfacht angenommen, dass das System in Ruhe war und deshalb
 gilt 
 
 $$
-y(k-i) = 0 \qquad \forall \qquad i>0.
+y(k-i) = 0 \qquad \forall \qquad i>0~~~.
 $$
 
 #### Einführung der Systemantwort auf die Delta-Impulsfolge
@@ -448,34 +447,39 @@ $$
 Die Systemantwort auf die Delta-Impulsfolge $\delta(k)$ wird als
 Impulsantwort $h(k)$ bezeichnet und charakterisiert ein LTI-System
 vollständig. Für nicht-rekursive Systeme mit einer endlichen Anzahl von
-Koeffizienten, also $M< \infty$ ist die Impulsantwort endlich. Deshalb
+Koeffizienten, also $M< \infty$, ist die Impulsantwort endlich. Deshalb
 werden diese Systeme auch als *Finite Impulse Response* (FIR)-Systeme
 bezeichnet. Bei rekursiven Systeme gilt dies im allgemeinen nicht. Diese
-Systeme werden im englischsprachigen Raum, deshalb als *Infinite Impulse
-Response* (IIR)-Systeme bezeichnet.
+Systeme werden deshalb als *Infinite Impulse Response* (IIR)-Systeme bezeichnet.
 
 ```{admonition} Beispiel
 :class: note
 
-Nehmen wir an, wir suchen die Impulsantwort des LTI-Systems $y(k)
-= r_0 x(k) + r_1 x(k-1) - r_2 x(k-2)$. Errechnet man nun den Ausgang für
-alle $k$ und setzt jeweils für x(k) die Impulsfolge ein, so ergibt sich
-die Impulsantwort[^2] $h(k) = [r_0 \,\, r_1 \,\, -r_2]$ für $0 \leq k \leq 2$. Das betrachtete System war ein FIR-System.
-Ganz allgemein ergibt sich für FIR-Systeme immer, dass $h(k) = b_k$ ist.
+Nehmen wir an, wir suchen die Impulsantwort des LTI-Systems 
+
+$$y(k) = r_0 x(k) + r_1 x(k-1) - r_2 x(k-2)~~~.$$ 
+
+Errechnet man nun den Ausgang für
+alle $k$ und setzt jeweils für $x(k)$ die Impulsfolge ein, so ergibt sich
+die Impulsantwort[^2] 
+
+$$h(k) = [r_0 \,\, r_1 \,\, -r_2] \qquad \text{für} \qquad 0 \leq k \leq 2~~~.$$ 
+
+Das betrachtete System war ein FIR-System. Ganz allgemein ergibt sich für FIR-Systeme immer, dass $h(k) = b_k$ ist.
 
 Für IIR-Systeme ist die Berechnung der Impulsantwort nicht so trivial.
 Betrachten wir das System 
 
 $$
-y(k) = \alpha y(k-1) + \beta x(k).
+y(k) = \alpha y(k-1) + \beta x(k)~~~.
 $$ 
 
 Als Eingangssignal nutzen wir erneut $x(k)= \delta(k)$. Die Ausgangsfolge
-für alle $k$ berechnet, ergibt 
+für alle $k$ berechnet ergibt 
 
 $$
 h(k) = [\beta \,\, \alpha \beta \,\,
-\alpha \alpha \beta \,\, \cdots \,\, \alpha^{k}\beta].
+\alpha \alpha \beta \,\, \cdots \,\, \alpha^{k}\beta]~~~.
 $$ 
 
 Die Impulsantwort endet nicht.
@@ -483,14 +487,14 @@ Die Impulsantwort endet nicht.
 
 Für viele Probleme reicht es aber aus, die Impulsantwort nur so weit zu
 betrachten, wie sich noch signifikante Werte ergeben. Signifikant kann
-dabei zum Beispiel sein zu testen, ob die Werte von $h(k)$ kleiner als
-der millionste Teil des maximalen Wertes von $h(k)$ ist.
+dabei zum Beispiel bedeuten, dass die Werte von $h(k)$ größer als
+der millionste Teil des maximalen Wertes von $h(k)$ sind. 
 
 ```{admonition} Wichtig
 :class: attention
 Die Impulsantwort eines Systems ist der Ausgang des Systems, wenn die Eingangsfolge die Delta-Impulsfolge ist. Die Impulsantwort beschreibt ein LTI-System vollständig
 
-Nicht-rekursive Systeme haben eine endliche Impulsantwort. Sie werden als FIR-Systeme bezeichnet.
+Nichtrekursive Systeme haben eine endliche Impulsantwort. Sie werden als FIR-Systeme bezeichnet.
 ```
 
 ### Faltung als Verknüpfung von LTI-Systemen und Signalen
@@ -502,9 +506,12 @@ hängt.
 
 Zur Veranschaulichung wird zunächst ein einfaches Beispiel berechnet.
 Das Eingangssignal ist durch zwei Werte gegeben, wir nehmen an
-$x(0)= 0.5$ und $x(1) = 1.5$. Das System ist durch $y(k) = -0.25x(k) + 0.5x(k-1)$ definiert. Wie lautet die Ausgangssfolge? Man könnte jetzt einfach die verschiedenen
-Zeitpunkte $k$ annehmen und das Ergebnis direkt hinschreiben. In
-Tabellenform wäre das Ergebnis:
+$x(0)= 0,5$ und $x(1) = 1,5$. Das System ist durch 
+
+$$y(k) = -0,25x(k) + 0,5x(k-1)$$ 
+
+definiert. Wie lautet die Ausgangssfolge? Man könnte jetzt einfach die verschiedenen
+Zeitpunkte $k$ annehmen und das Ergebnis direkt hinschreiben. In Tabellenform wäre das Ergebnis:
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -523,12 +530,12 @@ für alle $k$ mit Hilfe der delta-Folge $\delta(k)$ durch
 
 $$
 \label{eq:diracinput}
-    x(k) = 0.5 \delta(k) +  1.5 \delta(k-1)
+    x(k) = 0,5 \delta(k) +  1,5 \delta(k-1)
 $$ 
 vollständig beschreiben.
 
 Mit dem Gesetz der Linearität und dem Wissen der Impulsantwort
-$h(k) = [-0.25 \:\, 0.5]$, ergibt sich die Antwort für $y(k)$ aus der
+$h(k) = [-0,25 \:\, 0,5]$, ergibt sich die Antwort für $y(k)$ aus der
 Summe der gewichteten und verschobenen Impulsantworten, da jede der
 delta-Folgen die Impulsantwort als Systemantwort hervor ruft.
 
