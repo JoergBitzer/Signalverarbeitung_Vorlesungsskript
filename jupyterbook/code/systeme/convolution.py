@@ -37,45 +37,45 @@ fig, ((ax_input, ax_system),(ax_x0, ax_yx0),(ax_x1, ax_yx1),(ax_x2, ax_yx2),
 
 ax_input.stem(x + [0, 0], use_line_collection=True)
 ax_input.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Inputsignal', xlim=[0, 6], ylim=[0, 2])
+        title='a) Inputsignal', xlim=[0, 6], ylim=[0, 2])
 
 ax_system.stem(system + [0, 0], use_line_collection=True)
 ax_system.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='System', xlim=[0, 6], ylim=[0, 2])
+        title='b) System', xlim=[0, 6], ylim=[0, 2])
 
 ax_x0.stem(x0, use_line_collection=True)
 ax_x0.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Input bei x[0]', xlim=[0, 6], ylim=[0, 2])
+        title='c) Input bei x[0]', xlim=[0, 6], ylim=[0, 2])
 
 y_x_0 = numpy.convolve(x0, system)
 ax_yx0.stem(y_x_0, use_line_collection=True)
 ax_yx0.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Systemantwort für x[0]', xlim=[0, 6], ylim=[0, 2])
+        title='d) Systemantwort für x[0]', xlim=[0, 6], ylim=[0, 2])
 
 
 ax_x1.stem(x1, use_line_collection=True)
 ax_x1.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Input bei x[1]', xlim=[0, 6], ylim=[0, 2])
+        title='e) Input bei x[1]', xlim=[0, 6], ylim=[0, 2])
 
 y_x_1 = numpy.convolve(x1, system)
 ax_yx1.stem(y_x_1, use_line_collection=True)
 ax_yx1.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Systemantwort für x[1]', xlim=[0, 6], ylim=[0, 2])
+        title='f) Systemantwort für x[1]', xlim=[0, 6], ylim=[0, 2])
 
 
 ax_x2.stem(x2, use_line_collection=True)
 ax_x2.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Input bei x[2]', xlim=[0, 6], ylim=[0, 2])
+        title='g) Input bei x[2]', xlim=[0, 6], ylim=[0, 2])
 
 y_x_2 = numpy.convolve(x2, system)
 ax_yx2.stem(y_x_2, use_line_collection=True)
 ax_yx2.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Systemantwort für x[2]', xlim=[0, 6], ylim=[0, 2])
+        title='h) Systemantwort für x[2]', xlim=[0, 6], ylim=[0, 2])
 
 conv_sum = numpy.convolve(x, system)
 ax_sum.stem(conv_sum, use_line_collection=True)
 ax_sum.set(xlabel='Folgenindex k ->', ylabel='Amplitude x[k]', 
-        title='Systemantwort für Inputsignal', xlim=[0, 6], ylim=[0, 2])
+        title='i) Systemantwort für Inputsignal', xlim=[0, 6], ylim=[0, 2])
 pyplot.tight_layout()
 
 pyplot.show()
