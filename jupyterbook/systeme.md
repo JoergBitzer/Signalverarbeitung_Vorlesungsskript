@@ -144,7 +144,7 @@ Da es auch nicht-rekursive Systeme gibt, können wir folgende
 Klassifikation einführen
 ```{admonition} Wichtig
 :class: attention
-rekursive vs. nicht-rekursive (transversal) Systeme
+rekursive vs. nicht-rekursive (transversale) Systeme
 ```
 
 
@@ -170,7 +170,7 @@ hinzukommt und ein alter Wert aus der Summation herausfällt. Dies ist in
 
 ```{figure} ../images/psSys/DatenwerteRekursion.png
 ---
-height: 150px
+height: 200px
 name: fig:DatenwerteRekursion
 ---
 Erläuterung zur Anwendung der
@@ -506,9 +506,9 @@ hängt.
 
 Zur Veranschaulichung wird zunächst ein einfaches Beispiel berechnet.
 Das Eingangssignal ist durch zwei Werte gegeben, wir nehmen an
-$x(0)= 0,5$ und $x(1) = 1,5$. Das System ist durch 
+$x(0)= 0{,}5$ und $x(1) = 1{,}5$. Das System ist durch 
 
-$$y(k) = -0,25x(k) + 0,5x(k-1)$$ 
+$$y(k) = -0{,}25x(k) + 0{,}5x(k-1)$$ 
 
 definiert. Wie lautet die Ausgangssfolge? Man könnte jetzt einfach die verschiedenen
 Zeitpunkte $k$ annehmen und das Ergebnis direkt hinschreiben. In Tabellenform wäre das Ergebnis:
@@ -530,12 +530,12 @@ für alle $k$ mit Hilfe der delta-Folge $\delta(k)$ durch
 
 $$
 \label{eq:diracinput}
-    x(k) = 0,5 \delta(k) +  1,5 \delta(k-1)
+    x(k) = 0{,}5 \delta(k) +  1{,}5 \delta(k-1)
 $$ 
 vollständig beschreiben.
 
 Mit dem Gesetz der Linearität und dem Wissen der Impulsantwort
-$h(k) = [-0,25 \:\, 0,5]$, ergibt sich die Antwort für $y(k)$ aus der
+$h(k) = [-0{,}25 \:\, 0{,}5]$, ergibt sich die Antwort für $y(k)$ aus der
 Summe der gewichteten und verschobenen Impulsantworten, da jede der
 delta-Folgen die Impulsantwort als Systemantwort hervor ruft.
 
@@ -549,8 +549,8 @@ durch eine mit linearen Koeffizienten gewichtete Addition der zeitlich
 verschobenen Impulsantwort berechnet werden.
 
 Um dies zu veranschaulichen, ist in {numref}`Abbildung %s <fig:FaltungErklaerung>` diese Zerlegung für ein Beispiel
-durchgeführt. Bild a) zeigt die Eingangssfolge $x(k) = [1\,\, 0.5
-\,\, 1]$ , Bild b) das System $h = [0.5 \,\,\,  0.75 \; 1]$. Zerlegt man
+durchgeführt. Bild a) zeigt die Eingangssfolge $x(k) = [1\,\, 0{,}5
+\,\, 1]$ , Bild b) das System $h = [0{,}5 \,\,\,  0{,}75 \; 1]$. Zerlegt man
 nun die Eingangsfolge in drei Einzelimpulse ergeben sich die drei Bilder
 c,e,g. Jeder dieser Einzelimpulse erzeugt eine verschobene und
 gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
@@ -562,7 +562,7 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
 ```
 
 ```{glue:figure} FaltungErklaerung
-:figwidth: 90%
+:figwidth: 100%
 :name: "fig:FaltungErklaerung"
 
 Einfache grafische Erklärung der Faltung.
@@ -626,7 +626,7 @@ miteinander multiplizierten Einzelimpulse der beiden Folgen.
 
 ```{figure} ../images/psSys/FaltungserklaerungCorel.png
 ---
-width: 50%
+width: 75%
 name: fig:FaltungsErklaerungCorel
 ---
 Erklärung der grafischen Faltung.
