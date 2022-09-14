@@ -452,7 +452,7 @@ $$ (eq:Def:UbertragFunktion)
 
 ```{admonition} Wichtig
 :class: attention
-**Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z).**
+Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z).
 ```
 
 ```{admonition} Beispiel: z-Übertragungsfunktion
@@ -553,7 +553,7 @@ $$
 
 ```{admonition} Wichtig
 :class: attention
-**Die Faltung wird in der z-Ebene zu einer Multiplikation.**
+Die Faltung wird in der z-Ebene zu einer Multiplikation.
 ```
 
 
@@ -775,13 +775,13 @@ Mit den Erklärungen für {numref}`Abbildung %s <fig:PolLagen>` ist die Frage na
 
 ```{admonition} Wichtig
 :class: attention
-**Stabile, kausale Systeme haben nur Pole innerhalb des
-Einheitkreises.**
+Stabile, kausale Systeme haben nur Pole innerhalb des
+Einheitkreises.
 ```
 
 ```{admonition} Wichtig
 :class: attention
-**Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis.**
+Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis.
 ```
 
 Allgemein lässt sich sagen, dass Systeme deren z-Konvergenzgebiet den
