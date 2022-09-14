@@ -919,7 +919,7 @@ Ordnung mit den Koeffizienten $a_1$ und $a_2$.
 `````
 
 +++
-
+(sec:interactive_ztransform)=
 ## Interaktive Visualisierung der z-Transformation
 
 Für die Visualisierung der Interaktion von z-Transformation, dem im nächsten Kapitel vorgestellten Pol-Nullstellenplan und den dazugehörigen Übertragungsfunktionen steht auf  
