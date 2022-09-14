@@ -29,7 +29,7 @@ Beispiele natürliche Signale hearngezogen werden:
 ```
 
 ```{glue:figure} sprachsignal
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:sprachsignal"
 
 Typischer Amplitudenverlauf über der Zeit eines Sprachsignals.
@@ -72,7 +72,7 @@ Ampelsignal im normalen Betrieb.
 ```
 ````
 ````{tab-item} Interaktiv arbeiten
-1) Starten des interaktiven Programms - `Signale_Ampel.py` in `jupyterbook/code/interactive_programs`.
+1) Starten des interaktiven Programms - `Signale_Ampel.py` in `jupyterbook/code/interactive_programs/`.
 2) Steuerung des Signals über die Radiobuttons.
 ````
 `````
@@ -147,7 +147,7 @@ Wertebereich und Definitionsbereich ergeben.
 ```
 
 ```{glue:figure} WertZeit
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:WertZeit"
 
 Die vier Kombinationsmöglichkeiten für wert- oder zeitkontinuierliche bzw.
@@ -313,12 +313,12 @@ Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
 ````
 ````{tab-item} Interaktiv arbeiten
 
-1) Starten des interaktiven Programms - `Signale_Abtastung_Sinusfrequenz_einstellen.py` in `jupyterbook/code/interactive_programs`.
+1) Starten des interaktiven Programms - `Signale_Abtastung_Sinusfrequenz_einstellen.py` in `jupyterbook/code/interactive_programs/`.
 2) Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.
 3) Fragen die es zu klären gibt, bzw. Dinge die auffallen:
     
     * Warum entsteht bei 500 Hz eine Nullfolge?
-    * Warum ist die Folge bei 200 Hz exakt die gleiche, wie bei 1200 Hz (2200 Hz) (800Hz, 1800Hz, 2800Hz)?
+    * Warum ist die Folge bei 200 Hz exakt die gleiche, wie bei 1200 Hz (2200 Hz) (800 Hz, 1800 Hz, 2800 Hz)?
     * Welche Ähnlichkeiten erkennt man bei 200 Hz und 800 Hz?
 
 4) Abschließend mit dem Slider in der Nähe von 0 Hz, der halben Abtastrate und der Abtastrate experimentieren und sehen, welche Effekte sich ergeben.
@@ -326,7 +326,7 @@ Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
 ```{admonition} Erkenntnis
 :class: attention
 
-Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 200 Hz) bis zur halben Abtastfrequenz sind gespiegelt zu finden, wenn die Frequenz von der Abtastfrequenz subtrahiert wird (z.B. 1000Hz-200Hz = 800Hz).
+Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 200 Hz) bis zur halben Abtastfrequenz sind gespiegelt zu finden, wenn die Frequenz von der Abtastfrequenz subtrahiert wird (z.B. 1000 Hz-200 Hz = 800 Hz).
 ```
 ````
 `````
@@ -339,7 +339,7 @@ Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 2
 `````{tab-set}
 ````{tab-item} Buchabbildung
 ```{glue:figure} Abtast3
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:AbtastungErklaerung3"
 
 Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
@@ -456,7 +456,7 @@ Es gibt aber auch andere Kennlinien, die beispielsweise eine hohe Auflösung im 
 ```
 
 ```{glue:figure} NonLinearQuant
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:NonLinearQuant"
 
 Beispiel einer nichtlinearen Quantisierungskennlinie.
@@ -480,7 +480,7 @@ kleine Werte alle dem Nullsignal zu (siehe {numref}`Abbildung %s <plt:MidRiseMid
 ```
 
 ```{glue:figure} MidRiseMidTread
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:MidRiseMidTread"
 
 Quantisierungskennlinie eines Mid-Rise und eines Mid-Tread Quantisierers. Üblich ist Mid-Tread.
@@ -517,7 +517,7 @@ veranschaulicht, die die Quantisierung einer Sinusfunktion mit wenigen Stufen ze
 ```
 
 ```{glue:figure} QuantisierungSinus
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:QuantisierungSinus"
 
 Veranschaulichung der Quantisierung bei einem Sinus als Eingangssignal (Midtread Kennlinie).
@@ -608,14 +608,14 @@ leicht erkennbar.
 `````{tab-set}
 ````{tab-item} Buchabbildung
 ```{glue:figure} Sinewave
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:Sinewave"
 
 Sinussignal mit verschiedenen Amplituden sowie unterschiedlicher Frequenz und Startphase. 
 ```
 ````
 ````{tab-item} Interaktiv arbeiten
-1) Starten des interaktiven Programms - `Signale_Sinus_einstellen.py` in `jupyterbook/code/interactive_programs`
+1) Starten des interaktiven Programms - `Signale_Sinus_einstellen.py` in `jupyterbook/code/interactive_programs/`
 2) Mit den Slidern die Signalparameter anpassen.
 ````
 `````
@@ -1046,7 +1046,7 @@ Befehl ```randn```. {numref}`Abbildung %s <plt:Verteilungen>` zeigt einige Beisp
 ```
 
 ```{glue:figure} Verteilungen
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:Verteilungen"
 
 Beispiele für unterschiedliche Amplitudenverteilungen, wobei für alle drei Bilder 20000 Datenwerte verwendet wurden.
