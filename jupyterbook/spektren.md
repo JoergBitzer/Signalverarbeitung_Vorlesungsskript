@@ -351,7 +351,7 @@ genau $N$ ist (siehe {numref}`Abbildung %s <fig:DFT_SignalPeriodizitaet>`).
 
 ```{figure} ../images/psSpek/DFT_SignalPeriodizitaet.png
 ---
-width: 100%
+width: 75%
 name: fig:DFT_SignalPeriodizitaet
 ---
 Veranschaulichung der erzwungenen
@@ -434,7 +434,7 @@ $$
 mit
 $\Omega = 2\pi f / f_\text{s}$. Das heißt, das Spektrum des abgetasteten
 Cosinus hat nur zwei definierte Frequenzwerte, an den Frequenzen
-$\Omega = \pm \Omega_0$~~~.
+$\Omega = \pm \Omega_0$.
 ```
 
 Um den Einfluss der Annäherung durch die DFT zu veranschaulichen,
@@ -623,7 +623,7 @@ periodisch fortgesetzten Sequenzen. Dies führt dazu, dass auch das
 Faltungsprodukt periodisch ist. Man spricht deshalb von der zyklischen
 Faltung. Das Ergebnis kann sich vollständig von dem gewünschten Ergebnis
 unterscheiden. Dies wird in {numref}`Abbildung %s <fig:BspZyklischeFaltung>` demonstriert. Die beiden Folgen
-(a,b) ergeben bei der Faltung im Zeitbereich die Folge c. Die Lösung mit
+(a, b) ergeben bei der Faltung im Zeitbereich die Folge c. Die Lösung mit
 Hilfe der DFT führt auf die Folge d.
 
 ```{code-cell} ipython3
@@ -633,7 +633,7 @@ Hilfe der DFT führt auf die Folge d.
 
 
 ```{glue:figure} BspZyklischeFaltung
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BspZyklischeFaltung"
 
 Beispiel für zyklische Faltung. Die
@@ -666,41 +666,40 @@ Einfacheres Beispiel mit Rechteck und Dreiecksfunktionen, bei denen die Wiederho
 
 Das Theorem von Parseval sagt aus, dass man die Energie eines Signals im
 Zeit, oder im Frequenzbereich berechnen kann, bzw. dass die Leistung
-eines Signals im Zeit- und Frequenzbereich gleich ist. Es gilt also für
-die DTFT: 
+eines Signals im Zeit- und Frequenzbereich gleich ist. Für
+die DTFT gilt 
 
 $$
-    \sum_{k = -\infty}^{\infty} x^2(k) = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left|X(e^(j \Omega)) \right|^2 d\Omega
+    \sum_{k = -\infty}^{\infty} x^2(k) = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left|X(e^(j \Omega)) \right|^2 \text{d}\Omega~~~, 
 $$ (eq:ParsevalDTFT)
 
 bzw. für die DFT 
 
 $$
-    \sum_{k = 0}^{N-1} x^2(k) = \frac{1}{N}\sum_{n = 0}^{N-1} |X(n)|^2
+    \sum_{k = 0}^{N-1} x^2(k) = \frac{1}{N}\sum_{n = 0}^{N-1} |X(n)|^2~~~.
 $$ (eq:ParsevalDFT)
 
 ### Effiziente Implementierung
 
 Die DFT lässt sich durch Ausnutzung unterschiedlicher Symmetrien sehr
-effizient berechnen. Um dies zu verdeutlichen, soll das sog. *Decimation
+effizient berechnen. Um dies zu verdeutlichen, soll das sogenannten *Decimation
 in Time*-Verfahren zur drastischen Reduktion der benötigten
-Rechenleistung, genauer gezeigt werden. Andere Verfahren können in der
-sehr umfangreichen Literatur zur Entwicklung der sog. Fast Fourier
+Rechenleistung genauer gezeigt werden. Andere Verfahren können in der
+sehr umfangreichen Literatur zur Entwicklung der Fast Fourier
 Transform (FFT) gefunden werden {cite}`coo90, KK98, OS99`.
 
-Um eine effiziente Realisierung zu finden, legen wir die Länge der FFT
-so fest, dass sie eine 2er Potenz darstellt. Besonders häufig in der
-Audio und Sprachsignalverarbeitung genutzte FFT-Längen sind 256 , 512,
+Um eine effiziente Realisierung zu finden, legen wir die Länge der FFT als Zweierpotenz fest. Besonders häufig in der
+Audio und Sprachsignalverarbeitung genutzte FFT-Längen sind 256, 512,
 1024 und 2048. Durch diese Forderung ist es möglich, die Folge in zwei
 Teilfolgen zu zerlegen, wobei wir immer abwechselnd die Elemente der
-Folge, den jeweiligen neuen Teilfolgen zuordnen. Es ergeben sich die
+Folge den jeweiligen neuen Teilfolgen zuordnen. Es ergeben sich die
 Folgen $x(2k)$ und $x(2k+1)$ (siehe {numref}`Abbildung %s <fig:DecimationInTime>`).
 
 +++
 
 ```{figure} ../images/psSpek/DecimationInTime.png
 ---
-width: 50%
+width: 60%
 name: fig:DecimationInTime
 ---
 Aufteilung einer Sequenz in zwei
@@ -732,9 +731,8 @@ dieses Problem ist durch die Periodizität der DFT aber sehr einfach zu
 umgehen, da sich das Spektrum immer wiederholt.
 
 Aber warum stellt es einen Vorteil dar, wenn man die DFT so zerlegen
-kann? Dazu müssen wir überlegen, wie viele Multiplikationen notwendig
-sind um eine diskrete Frequenz zu berechnen. Es sind $N$ komplexe
-Multiplikatinen nötig. Dieser Schritt muss für alle diskreten Frequenzen
+kann? Um eine diskrete Frequenz zu berechnen sind $N$ komplexe
+Multiplikationen nötig. Dieser Schritt muss für alle diskreten Frequenzen
 durchgeführt werden. Die Berechnung des vollständigen Spektrums benötigt
 also $N^2$ Multiplikationen. Teilen wir die Aufgabe in zwei Teilspektren
 benötigt man $2\left(\frac{N}{2}\right)^2$ + $N$ Multiplikationen für
@@ -744,8 +742,8 @@ Multiplikationen. Der Schritt der Aufteilung kann nun solange wiederholt
 werden, bis die Folge nicht weiter aufgeteilt werden kann ($N = 2$).
 Zusätzlich können einige Multiplikationen vernachlässigt werden, da
 $e^{j0} = 1$ ist. Eine Reduktion auf
-$\frac{N}{2}\left( ld \frac{N}{2} \right)$ ist so möglich (ld = Logarithmus zur Basis 2 (logarithmus dualis)). Somit
-ergibt sich eine in der Rechenleistung stark reduzierte DFT, die als
+$\frac{N}{2}\left( \text{ld}\left(\frac{N}{2}\right) \right)$ ist so möglich (ld = Logarithmus zur Basis 2, *logarithmus dualis*). Somit
+ergibt sich eine im rechenaufwand stark reduzierte DFT, die als
 *Fast Fourier Transform* (FFT) bekannt ist[^5].
 
 ## Spezielle Signale und ihre Spektren
@@ -755,11 +753,11 @@ ergibt sich eine in der Rechenleistung stark reduzierte DFT, die als
 Berechnet man die DTFT für den $\delta$-Impuls ergibt sich
 
 $$
-    X(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} \delta(k)e^{-jk \Omega} =e^{-j0 \Omega} = 1,
+    X(e^{j \Omega}) = \sum_{k = -\infty}^{\infty} \delta(k)e^{-jk \Omega} =e^{-j0 \Omega} = 1~~~,
 $$ (eq:SpektrumDeltaImpuls)
 
 da der $\delta$-Impuls ausschließlich an der Stelle $k = 0$ definiert
-ist. Das Betrag des Spektrums ist also eins für alle Frequenzen und die
+ist. Der Betrag des Spektrums ist also eins für alle Frequenzen und die
 Phase ist null für alle Frequenzen.
 
 ### Spektrum für $\delta(k-k_0)$
@@ -768,12 +766,12 @@ Der um $k_0$ verschobene $\delta$-Impuls führt zu einem etwas anderem
 Spektrum 
 
 $$
-    X(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} \delta(k-k_0)e^{-jk \Omega} =e^{-jk_0 \Omega}.
+    X(e^{j \Omega}) = \sum_{k = -\infty}^{\infty} \delta(k-k_0)e^{-jk \Omega} =e^{-jk_0 \Omega}~~~.
 $$ (eq:SpektrumDeltaImpulsVerschoben)
 
 Das Spektrum ist im Betrag ebenfalls Eins für alle Frequenzen, aber die
 Phase des Signals wird linear abhängig von der Frequenz verändert, wenn
-ein $\delta(k)$ ein System darstellt
+ein $\delta(k)$ ein System darstellt.
 
 ## Weitere Fensterfunktionen und deren Eigenschaften
 
@@ -782,17 +780,16 @@ auch als Multiplikation mit einer Fensterfunktion interpretiert werden
 kann. Dieses Fenster hatte einen deutlichen Einfluss auf das
 dargestellte Spektrum. Zur Beschreibung der Eigenschaften des Fensters
 im Frequenzbereich wird häufig die spektrale Auflösung des Maximums zu
-den 3dB Punkten verwendet. Weiterhin ist eine interessante Größe, welche
-Höhe die nächsten Maxima haben (Betrag). Für das Rechteckfenster sind
-diese beiden Größen durch $2pi/N$ und $\approx 13$dB gegeben. Etwas
+den 3 dB Punkten verwendet. Weiterhin ist die Höhe der nächsten Maxima (Betrag) interessant. Für das Rechteckfenster sind
+diese beiden Größen durch $2pi/N$ und $\approx 13$ dB gegeben. Etwas
 anders sieht dies bei anderen Fensterfunktionen aus (siehe {numref}`Abbildung %s <fig:RechteckWindow>`
 bis {numref}`Abbildung %s <fig:KaiserWindow-a4>`)
 
 ```{admonition} Interaktiv arbeiten
 :class: hint
-1) Starten des interaktiven Programms - "Spektren_Fenster.py" in jupyterbook/code/interactive_programs
-2) Mit den Buttons den Fenstertyp ändern und 
-3) Mit Slidern können Fensterparameter gesteuert werden. Hier kann auch eine eigene Fensterfunktion designt werden.
+1) Starten des interaktiven Programms - `Spektren_Fenster.py` in `jupyterbook/code/interactive_programs/`
+2) Mit den Buttons kann der Fenstertyp geändert und 
+3) mit Slidern die Fensterparameter gesteuert werden. Hier kann auch eine eigene Fensterfunktion designt werden.
 ```
 
 ```{code-cell} ipython3
@@ -801,7 +798,7 @@ bis {numref}`Abbildung %s <fig:KaiserWindow-a4>`)
 ```
 
 ```{glue:figure} RechteckWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:RechteckWindow"
 
 Zeitliche und spektrale Eigenschaft des Rechteckfensters
@@ -809,10 +806,10 @@ Zeitliche und spektrale Eigenschaft des Rechteckfensters
 
 +++
 
-Als Ursache für das verschmieren im Frequenzbereich wurde die Faltung
+Als Ursache für das Verschmieren im Frequenzbereich wurde die Faltung
 mit der Fensterfunktion genannt. Die Ursache im Zeitbereich hierfür war
 das abrupte Abschneiden, dass durch die angenommene zirkulare
-WIederholung zu einem nicht-repräsentativen Ausschnitt führte. Deshalb
+Wiederholung zu einem nicht-repräsentativen Ausschnitt führte. Deshalb
 ist eine Design-Idee für andere Fenster eine möglichst weiche
 Ausblendung zu den Rändern zu ermöglichen. Fenster die diese Eigenschaft
 besitzen können zum Beispiel durch Cosinusfunktionen realisiert werden.
@@ -855,12 +852,12 @@ bekanntesten Fenster-Funktionen angegeben werden[^6].
 `````{tab-set}
 ````{tab-item} von Hann
 -   **von Hann-Fenster (oft fälschlich Hanning):** Für das Hann-Fenster ist
-    $\alpha = \beta = 0.5$ und $\gamma = 0$. Daraus ergibt sich im
+    $\alpha = \beta = 0{,}5$ und $\gamma = 0$. Daraus ergibt sich im
     Frequenzbereich ein etwas breiteres Hauptmaxima $4\pi/N$. Die
     Nebenmaxima sind dafür im Gegensatz zum Rechteck-Fenster sehr viel
     stärker bedämpft.
 ```{glue:figure} HannWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:HannWindow"
 
 Zeitliche und spektrale Eigenschaft des von Hann-Fensters
@@ -868,14 +865,14 @@ Zeitliche und spektrale Eigenschaft des von Hann-Fensters
 ````
 
 ````{tab-item} Hamming
--   **Hamming-Fenster:** Für das Hamming-Fenster ist $\alpha = 0.54$,
-    $\beta = 0.46$ und $\gamma = 0$. Das Design-Ziel des Hamming-Fenster
+-   **Hamming-Fenster:** Für das Hamming-Fenster ist $\alpha = 0{,}54$,
+    $\beta = 0{,}46$ und $\gamma = 0$. Das Design-Ziel des Hamming-Fenster
     ist das erste Nebenmaxima möglichst optimal zu unterdrücken. Dafür
     geht aber insgesamt eine schlechtere Dämpfung der anderen
     Nebenmaxima einher. Die Verbreiterung entspricht der des
-    Hann-Fensters $4\pi/N$
+    Hann-Fensters $4\pi/N$.
 ```{glue:figure} HammingWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:HammingWindow"
 
 Zeitliche und spektrale Eigenschaft des Hamming-Fensters
@@ -883,12 +880,12 @@ Zeitliche und spektrale Eigenschaft des Hamming-Fensters
 ````
 
 ````{tab-item} Blackman
--   **Blackman-Fenster:** Für das Blackman-Fenster ist $\alpha = 0.42$,
-    $\beta = 0.5$ und $\gamma = 0.08$. Dieses Fenster hat eine deutlich
+-   **Blackman-Fenster:** Für das Blackman-Fenster ist $\alpha = 0{,}42$,
+    $\beta = 0{,}5$ und $\gamma = 0{,}08$. Dieses Fenster hat eine deutlich
     breitere Hauptkeule $6\pi/N$, aber die Dämpfung der Nebenmaxima und
     der Abfall der weiteren Nebenmaxima ist sehr hoch.
 ```{glue:figure} BlackmanWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BlackmanWindow"
 
 Zeitliche und spektrale Eigenschaft des Blackman-Fensters
@@ -901,9 +898,9 @@ Zeitliche und spektrale Eigenschaft des Blackman-Fensters
     vorgegebenen Fensterlänge $N$ kann die Absenkung der Nebenzipfel
     angegeben werden. Dieser Wert wird für alle Nebenzipfel gleichmäßig
     erreicht. Die Breite der Hauptkeule wird gleichzeitig optimal klein
-    für eine gegebene Fensterlänge $N$. Siehe auch in Matlab `chebwin`
+    für eine gegebene Fensterlänge $N$. Siehe auch `chebwin` in Matlab.
 ```{glue:figure} ChebWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:ChebWindow"
 
 Zeitliche und spektrale Eigenschaft des
@@ -1127,10 +1124,9 @@ Die wichtigen Erkenntnisse aus diesem Kapitel sind:
 
 [^4]: ld bezeichnet den Logarithmus zur Basis 2 (logarithmus dualis).
 
-[^5]: In Matlab wird die DFT durch den Befehl FFT aufgerufen.
+[^5]: In Matlab wird die DFT durch die Funktion `FFT` aufgerufen.
 
 [^6]: Bei der Darstellung wurden die jeweiligen Übertragungsfunktionen
     auf ihr Maximum normiert, so dass sich immer ein Hauptmaxima mit 0dB
     ergibt.
 
-[^7]: Oft auch fälicherweise als Hanning-Fenster bezeichnet
