@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+(sec:spektren)=
 # Spektren
 
 Neben den zwei Beschreibungsebenen für diskrete Signale und

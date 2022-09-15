@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+(sec:signale)=
 # Signale
 
 Zum Verständnis der Signalverarbeitung ist es notwendig eine
@@ -305,7 +306,7 @@ Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte gena
 `````{tab-set}
 ````{tab-item} Buchabbildung
 ```{glue:figure} Abtast2
-:figwidth: 75%
+:figwidth: 100%
 :name: "plt:AbtastungErklaerung2"
 
 Sinusabtastung mit unterschiedlichen Abtastfrequenzen.

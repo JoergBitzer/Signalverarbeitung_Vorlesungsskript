@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+(sec:ztrafo)=
 # z-Transformation
 
 Die z-Transformation stellt ein wichtiges
@@ -140,7 +141,7 @@ Symbol eingeführt
 
 $$
 \mathcal{Z}\{ \cdot \}= \sum_{k = -\infty}^{\infty} (\cdot) z^{-k} \quad \text{mit} \quad z \in \mathbb{C}~~~.
-$$ (eq:Def:Ztrafo)
+$$ (eq:Def:Ztrafo2)
 
 Es gilt also 
 
@@ -159,7 +160,7 @@ häufig der sog. *Transformationsknochen* verwendet:
 -   Rücktransformation: $Y(z) \bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; y(k)$.
 
 Damit eine z-Transformation gültig ist, muss zusätzlich gelten, dass die
-Summe in Gl. {eq}`eq:Def:Ztrafo` kleiner unendlich ist. Dies ist für alle
+Summe in Gl. {eq}`eq:Def:Ztrafo2` kleiner unendlich ist. Dies ist für alle
 endlichen Folgen gegeben, wenn keiner der Folgenwerte unendlich ist. Bei
 unendlichen Folgen ist dies nicht immer gewährleistet und hängt auch
 direkt von $z$ ab. Deshalb gehört zu einer vollständigen
@@ -420,7 +421,7 @@ $$
 $$ (eq:example3:Eingang)
     
 Eine Transformation mit der
-Definition {eq}`eq:Def:Ztrafo` in den z-Bereich führt zu
+Definition {eq}`eq:Def:Ztrafo2` in den z-Bereich führt zu
 
 $$
     Y(z) = (1+p)z^{-1} Y(z) + X(z)~~~.
