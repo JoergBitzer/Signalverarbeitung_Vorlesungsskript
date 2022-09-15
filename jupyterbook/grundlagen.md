@@ -14,7 +14,7 @@ kernelspec:
 ---
 # Einführung
 
-Ziel dieses Scripts ist, die Grundlagen der digitalen Signalverarbeitung (DSV) mit der dazugehörigen Beschreibung durch die Systemtheorie zu erläutern. 
+Ziel dieses Skriptes ist es, die Grundlagen der digitalen Signalverarbeitung (DSV) mit der dazugehörigen Beschreibung durch die Systemtheorie zu erläutern. 
 
 {numref}`Kapitel %s  <sec:signale>` definiert den Begriff des Signals. Neben 
 Eigenschaften und verschiedenen Kategorien zur Klassifikation von Signalen, werden mathematischen Beschreibungen und Methoden zur Erzeugung von Signalen behandelt.  
