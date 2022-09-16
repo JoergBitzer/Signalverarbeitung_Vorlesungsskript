@@ -11,16 +11,17 @@ kernelspec:
   name: python3
 ---
 
+(sec:filter)=
 # Filter
 
 Filter sind spezielle Systeme, die in diesem Abschnitt grundsätzlich als
-LTI-Systeme angenommen werden (es gibt auch nicht LTI-Filter wie z.B. das Median Filter sind aber nicht-linear). Die Aufgabe von Filtern ist typischerweise bestimmte
-Frequenzanteile aus dem Signal verändern. (verstärken, entfernen oder abzuschwächen). 
+LTI-Systeme angenommen werden (es gibt auch nicht LTI-Filter wie z.B. das Median Filter, diese sind aber nicht-linear). Die Aufgabe von Filtern ist typischerweise bestimmte
+Frequenzanteile aus dem Signal verändern, also zu verstärken, abzuschwächen oder ganz zu entfernen. 
 
 Alle nicht-trivialen LTI-Systeme erzeugen eine Filterwirkung, trotzdem
-werden nicht alle LTI-Systeme als Filter bezeichnet, da das Ziel beim
+werden nicht alle LTI-Systeme als Filter bezeichnet, wenn das Ziel beim
 Entwurf nicht die Filterwirkung sondern irgendeine andere Eigenschaft
-ist. Zum Beipiel einen gleitenden Mittelwert zu berechnen. Eine solches
+ist. Ein Beipiel sei die Berechnung des gleitenden Mittelwertes eines Signals. berechnen. Eine solches
 System ist automatisch auch ein Filter, wird aber trotzdem nicht
 unbedingt als solches bezeichnet. In vielen Fällen ist die Filterwirkung
 sogar ein unerwünschter Nebeneffekt.
@@ -58,9 +59,10 @@ zwischen vier Grundtypen unterschieden:
 :load: code/filter/filter_bandstop.py
 ```
 
-```{tabbed} Tiefpass
--   **Tiefpass:** Ziel des Tiefpasses ist es alle hohen Frequenzen, ab
-    einer zu definierenden Grenzfrequenz $f_g$ aus dem Spektrum zu
+`````{tab-set}
+````{tab-item} Tiefpass
+   **Tiefpass:** Ziel des Tiefpasses ist es alle hohen Frequenzen ab
+    einer zu definierenden Grenzfrequenz $f_\text{g}$ aus dem Spektrum zu
     entfernen. In der technischen Umsetzung ist es aber nicht möglich,
     einen abrupten Übergang zwischen dem sog. Durchlassbereich (tiefe
     Frequenzen beim Tiefpass) und dem Sperrbereich zu realisieren. Eine
@@ -68,69 +70,67 @@ zwischen vier Grundtypen unterschieden:
     Übergangsbereiche.
 
 ```{glue:figure} DesignTP
-:figwidth: 50%
+:figwidth: 100%
 :name: fig:DesignTP
-
 Optimaler
-    Entwurf eines Tiefpasses ($f_s$ = 8 kHz und Grenzfrequenz = $f_g$ =
+    Entwurf eines Tiefpasses ($f_\text{s}$ = 8 kHz und Grenzfrequenz = $f_\text{g}$ =
     1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
 
-+++
-
-```{tabbed} Hochpass
--   **Hochpass:** Das inverse Designziel zum Tiefpass liegt dem
+````{tab-item} Hochpass
+   **Hochpass:** Das inverse Designziel zum Tiefpass liegt dem
     Hochpassentwurf zu Grunde. Es sollen möglichst alle tiefen
     Frequenzen aus dem Spektrum entfernt werden. Auch hier gelten die
     beim Tiefpass erwähnten Einschränkungen.
-```{glue:figure} DesignHP
-:figwidth: 50%
-:name: fig:DesignHP
 
+```{glue:figure} DesignHP
+:figwidth: 100%
+:name: fig:DesignHP
 Optimaler
-    Entwurf eines Hochpasses ($f_s$ = 8 kHz und Grenzfrequenz = $f_g$ =
+    Entwurf eines Hochpasses ($f_\text{s}$ = 8 kHz und Grenzfrequenz = $f_\text{g}$ =
     1 kHz) und Realisierung durch Butterworth-Filter 6. Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
 
-+++
-
-```{tabbed} Bandpass
--   **Bandpass:** Im Gegensatz zu den vorher erwähnten Typen, hat das
-    Bandpassfilter zwei Grenzfrequenzen $f_1$ und $f_2$, da das
+````{tab-item} Bandpass
+   **Bandpass:** Im Gegensatz zu den vorher erwähnten Typen hat das
+    Bandpassfilter zwei Grenzfrequenzen $f_1$ und $f_2$. Das
     Designziel ist, nur die Frequenzen zwischen $f_1$ und $f_2$
-    durchzulassen und ale Frequenzen unterhalb von $f_1$ bzw. oberhalb
+    durchzulassen und alle Frequenzen unterhalb von $f_1$ bzw. oberhalb
     von $f_2$ zu entfernen. Die Differenz zwischen $f1$ und $f_2$ wird
-    Bandbreite genannt $B = f_2 -
-        f_1$.    
-```{glue:figure} DesignBP
-:figwidth: 50%
-:name: fig:DesignBP
+    Bandbreite $B = f_2 -
+        f_1$ genannt.    
 
+```{glue:figure} DesignBP
+:figwidth: 100%
+:name: fig:DesignBP
 Optimaler
-    Entwurf eines Bandpasses ($f_s$ = 8 kHz und Grenzfrequenz $f_1$ = 1
+    Entwurf eines Bandpasses ($f_\text{s}$ = 8 kHz und Grenzfrequenz $f_1$ = 1
     kHz und $f_2 =$ 3 kHz) und Realisierung durch Butterworth-Filter 6.
     Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
 
-+++
-
-```{tabbed} Bandsperre
--   **Bandsperre:** Die Bandsperre stellt die inverse Funktion zum
+````{tab-item} Bandsperre
+   **Bandsperre:** Die Bandsperre stellt die inverse Funktion zum
     Bandpass dar. Bei diesem Entwurf sollen möglichst alle Frequenzen im
     Bereich zwischen $f_1$ und $f_2$ aus dem Spektrum entfernt werden.
-```{glue:figure} DesignBS
-:figwidth: 50%
-:name: fig:DesignBS
 
+```{glue:figure} DesignBS
+:figwidth: 100%
+:name: fig:DesignBS
 Optimaler
-    Entwurf einer Bandsperre ($f_s$ = 8 kHz und Grenzfrequenz $f_1$ = 1
+    Entwurf einer Bandsperre ($f_\text{s}$ = 8 kHz und Grenzfrequenz $f_1$ = 1
     kHz und $f_2 =$ 3 kHz) und Realisierung durch Butterworth-Filter 6.
     Ordnung (siehe {numref}`Abschnitt %s <sec:Butterworth-Filter>`)
 ```
+````
+`````
 
 +++
 
-Eine weitere Gruppe von Filtern hat das Ziel Signale die durch eine
+Eine weitere Gruppe von Filtern hat das Ziel, Signale die durch eine
 Übertragung verändert wurden, wieder in ihre ursprüngliche Form zurück
 zu bringen. Das Ziel ist also, ein verändertes Spektrum zu begradigen,
 bzw. auszugleichen. Aus dieser Aufgabe folgt auch die verwendete
@@ -138,15 +138,16 @@ englische Typbezeichnung Equalizer. In der Tonstudiotechnik werden diese
 Filter zwar nicht nur zu diesem Zweck verwendet, aber auch dort werden
 die Klangformungsfilter als Equalizer bezeichnet. Equalizer ist ein sehr
 allgemeiner Begriff und kann Filter beinhalten, die eine vollständige
-Vorgabe der Übertragungsfunktion versuchen zu realisieren, zum Beipeil
+Vorgabe der Übertragungsfunktion versuchen zu realisieren. Zum Beispiel
 bei der Hörgeräteanpassung, die eine vollständige Beschreibung des
-Hörverlustes als Ausgangsbasis verwendet, oder aber es werden nur
+Hörverlustes als Ausgangsbasis verwendet. Oder aber es werden nur
 bestimmte Bereiche verändert. Zu dieser letzten Gruppe gehören die
 Equalizer, wie sie in der Tonstudiotechnik verwendet werden. Hierbei
-wird zwischen den parametrischen Equalizern und den sog.
-Terzband-Equalizer (Eine (große) Terz beschreibt eine drittel Oktave, die wiederum eine Frequenzverdoppelung beschreibt) unterschieden.
+wird zwischen den parametrischen Equalizern und den sogenannten
+Terzband-Equalizern (eine (große) Terz beschreibt eine drittel Oktave, 
+die wiederum eine Frequenzverdoppelung beschreibt) unterschieden.
 
-Bei den parametrischen Equalizer können durch die drei Parameter
+Bei den parametrischen Equalizern können durch die drei Parameter
 
 -   Frequenz,
 
@@ -155,26 +156,27 @@ Bei den parametrischen Equalizer können durch die drei Parameter
 -   Güte ($Q$-Faktor)
 
 sehr genaue Eingriffe in das Klangspektrum vorgenommen werden. Dabei ist
-die Güte $Q = \frac{f_m}{B}$ als Verhältnis von Mittenfrequenz $f_m$ und Bandbreite $B$ definiert.
+die Güte $Q = \frac{f_\text{m}}{B}$ als Verhältnis von Mittenfrequenz $f_\text{m}$ und Bandbreite $B$ definiert.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
 :load: code/filter/filter_peak_eq.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} EQ_GainParam
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:EQ_GainParam"
-
 Equalizerübertragungskurve bei Veränderung der
 Güte
 ```
 ````
-````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Filter_Peak_EQ.py" in jupyterbook/code/interactive_programs
+````{tab-item} Interaktiv arbeiten
+1) Starten des interaktiven Programms - `Filter_Peak_EQ.py` in `jupyterbook/code/interactive_programs/`
 2) Mit Slidern Parameter einstellen
 ````
+`````
 
 +++
 
@@ -188,24 +190,26 @@ zur Verfügung.
 :load: code/filter/filter_shelving_eq.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} EQ_ShelvParam
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:EQ_ShelvParam"
 
 Equalizerübertragungskurven eines Hoch bzw. Tiefpasskuhschwanzfilters bei Veränderung der Verstärkung und Frequenz
 ```
 ````
-````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Filter_Shelving_EQ.py" in jupyterbook/code/interactive_programs
+````{tab-item} Interaktiv arbeiten
+1) Starten des interaktiven Programms - `Filter_Shelving_EQ.py` in `jupyterbook/code/interactive_programs/`
 2) Mit Slidern Parameter einstellen
 ````
+`````
 
 +++
 
 Im Gegensatz zu den vollparametrischen EQs sind bei einem Terzband-Equalizer
 die Frequenzen und Güten festgelegt. Der Nutzer hat nur einen Einfluss
-auf de Verstärkung oder Absenkung. Der Vorteil dieser Equalizer ist ihre
+auf die Verstärkung oder Absenkung. Der Vorteil dieser Equalizer ist ihre
 einfache Bedienung und die Möglichkeit sofort zu sehen, welche
 Frequenzveränderungen vorgenommen werden. Die Mittenfrequenzen der
 Filter sind standardisiert:
@@ -231,24 +235,21 @@ glue("df_oktav", df_oktav, display=False)
 glue("df_terz", df_terz, display=False)
 ```
 
-````{panels}
-:column: col-4
-:card: border-2
+`````{grid}
 
-Oktav-EQ
-^^^
+````{grid-item-card} Oktav-EQ
 ```{glue:figure} df_oktav
 :figwidth: 300px
 :name: tab:df_oktav
 ```
----
-Terz-EQ
-^^^
+````
+````{grid-item-card} Terz-EQ
 ```{glue:figure} df_terz
 :figwidth: 300px
 :name: tab:df_terz
 ```
 ````
+`````
 
 
 +++
@@ -258,7 +259,7 @@ verwendet, die in ihrer Grundcharakteristik den Sperrfiltern
 entsprechen, aber zusätzlich in der Nähe der Grenzfrequenz eine
 Verstärkung einbringen. Diese Verstärkungsfrequenzen kommen bei
 natürlichen Musikinstrumenten ebenfalls häufig vor. Man spricht in
-diesem Fall von sog. Resonanzfrequenzen, da bestimmte Signalanteile im
+diesem Fall von Resonanzfrequenzen, da bestimmte Signalanteile im
 Filter eine starke Resonanz finden.
 
 ## Realisierungsformen
@@ -267,9 +268,10 @@ Wir haben gesehen, dass es eine Vielzahl von unterschiedlichen
 Filtereinsatzmöglichkeiten gibt. Bisher wurde aber keinerlei Hinweis auf
 die Realsierungsformen gegeben. Aus der Beschreibung von Systemen kennen
 wir zwei unterschiedliche Systemarten. Die Systeme mit Rückkopplung
-(rekursiv) und ohne. Als Bezeichnung hatten wir eingeführt, Infinite
-Impulse Response (IIR) und Finite Impulse Response (FIR) Systeme. Und
-genau diese Bezeichnungen kennzeichnen auch die beiden grundsätzlichen
+(rekursiv) und ohne Rückkopplung (transversal). Als Bezeichnung hatten wir 
+Infinite Impulse Response (IIR) bzw. Finite Impulse Response (FIR) Systeme 
+eingeführt. 
+Und genau diese Bezeichnungen kennzeichnen auch die beiden grundsätzlichen 
 Realisierungsformen von Filtern.
 
 ### FIR-Filter
@@ -279,7 +281,7 @@ Signalverarbeitung möglich, da eine Realisierung in Analogtechnk mit
 elektrischen Bauelementen nicht möglich ist. FIR-Filter zeichnen sich
 durch einige positive Eigenschaften aus. In erster Linie kann die
 Stabilität immer garantiert werden. Alle FIR-Filter sind stabil.
-Weiterhin ist es möglich mit FIR-Systeme Filter zu realisieren, die nur
+Weiterhin ist es möglich mit FIR-Systemem Filter zu realisieren, die nur
 den Betragsfrequenzgang verändern und sonst nur eine zeitliche
 Verzögerung des Signals bewirken. Die zeitliche Verzögerung macht sich
 in der Übertragungsfunktion durch eine lineare Phase deutlich. Diese
@@ -291,13 +293,13 @@ Bisher haben wir FIR-Systeme nur als Differenzengleichung oder als
 z-Übertragungsfunktion kennen gelernt. Um die noch folgende
 Implementierung zu ermöglichen ist eine andere Darstellung aber
 hilfreicher. Schaut man sich die Differenzengleichung für ein FIR-Filter
-genauer an. So erkennt man, dass man 3 verschiedene Bauteile braucht.
+genauer an, so erkennt man, dass man 3 verschiedene Bauteile benötigt werden:
 
 -   Addierer
 
 -   Multiplizierer
 
--   Einen Verzogerungseinheit, die das Signal um genau einen Sample $T$
+-   Einen Verzögerungseinheit, die das Signal um genau ein Sample $T$
     verzögert. Dies kann durch ein einfaches Speicherelement geschehen.
 
 Diese 3 Elemente werden im folgenden durch die in {numref}`Abbildung %s <fig:BlockdiagrammSymbole>` gezeigten Symbole beschrieben.
@@ -306,19 +308,18 @@ Diese 3 Elemente werden im folgenden durch die in {numref}`Abbildung %s <fig:Blo
 
 ```{figure} ../images/psFilt/BlockdiagrammSymbole.png
 ---
-width: 50%
+width: 75%
 name: fig:BlockdiagrammSymbole
 ---
-Symbole um Zeichnen von Filter
-Strukturen als
-Blockdiagramm
+Symbole zur Darstellung von Filterstrukturen als
+Blockdiagramm.
 ```
 
 +++
 
-Beispielsweise ergibt sich für ein FIR-System erster Ordnung, dass durch
-$y(k) = b_0 x(k) + b_1 x(k-1)$ beschrieben ist, das folgende
-Blockschaltbild.
+Beispielsweise ergibt sich für ein FIR-System erster Ordnung, das durch
+$y(k) = b_0 x(k) + b_1 x(k-1)$ beschrieben ist, das Blockschaltbild in 
+{numref}`Abbildung %s <fig:FIRErsterOrdnung>`).
 
 +++
 
@@ -349,7 +350,7 @@ Struktur.
 
 +++
 
-Es wird deutlich, dass wir bei $N$-Koeffizienten $N-1$ Speicherelemente
+Es wird deutlich, dass wir bei $N$ Koeffizienten $N-1$ Speicherelemente
 benötigen, die die jeweilige Vergangenheit von $x(k)$ speichern.
 
 Um einen Ausgangswert $y(k)$ zu berechnen, muss die Summe
@@ -382,19 +383,19 @@ $2\pi$ periodisch ist. Zu dieser Hintransformation gibt es auch die
 korrespondierende Rücktransformation die als 
 
 $$
-    x(k) = \frac{1}{2\pi}\int_{-\pi}^{\pi} X(e^(j \Omega)) e^{j\Omega k} d\Omega
+    x(k) = \frac{1}{2\pi}\int_{-\pi}^{\pi} X(e^{j \Omega}) e^{j\Omega k} \text{d}\Omega
 $$ (FIR:IDTFT:Def)
     
 definiert ist. Somit ist es natürlich auch möglich zu einem bestimmten
 Frequenzentwurf eine zugehörige Zeitfolge zu berechnen. Nehmen wir
 beispielsweise an, wir suchen die Koeffizienten, um ein ideales
-Tiefpassfilter mit der Grenzfrequenz $\Omega_g$ zu realisieren. Die
+Tiefpassfilter mit der Grenzfrequenz $\Omega_\text{g}$ zu realisieren. Die
 Definition der Übertragungsfunktion ist somit 
 
 $$
-    H(e^(j \Omega)) = \Bigg\{ \begin{array}{lcc}
-1 & für & -\Omega_g \leq \Omega \leq  \Omega_g\\
-0 & & \Omega_g < |\Omega| \leq \pi
+    H(e^{j \Omega}) = \Bigg\{ \begin{array}{lcc}
+1 & für & -\Omega_\text{g} \leq \Omega \leq  \Omega_\text{g}\\
+0 & & \Omega_\text{g} < |\Omega| \leq \pi
 \end{array}
 $$ (FIR:BSP:Tiefpass)
 
@@ -402,9 +403,9 @@ Für die gesuchten Filterkoeffizienten ergibt sich
 
 $$
 \begin{aligned}
-    h(k) & = &\frac{1}{2\pi}\int_{-\pi}^{\pi} H(e^(j \Omega)) e^{j\Omega k} d\Omega\\
-         & = &\frac{1}{2\pi}\int_{-\Omega_g}^{\Omega_g}e^{j\Omega k} d\Omega\\
-         & = &\frac{\Omega_g}{\pi} \frac{\sin(\Omega_g k)}{\Omega_g k}\end{aligned}
+    h(k) & = &\frac{1}{2\pi}\int_{-\pi}^{\pi} H(e^{j \Omega}) e^{j\Omega k} \text{d}\Omega\\
+         & = &\frac{1}{2\pi}\int_{-\Omega_\text{g}}^{\Omega_\text{g}}e^{j\Omega k} \text{d}\Omega\\
+         & = &\frac{\Omega_\text{g}}{\pi} \frac{\sin(\Omega_\text{g} k)}{\Omega_\text{g} k}\end{aligned}
 $$ (FIR:TP:Ideal)
 
 Problematisch an diesem Ergebnis ist zum einen, dass sich die gefundene
@@ -433,11 +434,11 @@ bezeichnet.
 ```
 
 ```{glue:figure} GippsPheanomen
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:GibbsPheanomen"
 
-Beispiel zur Veranschaulichung des
-Gibbs'schen Phänomens
+Veranschaulichung des
+Gibbs'schen Phänomens am Beispiel eines Tiefpassfilters.
 ```
 
 +++
@@ -448,9 +449,9 @@ Längen, so erkennt man die Konzenzentration der Überschwinger bei der
 Frequenz Null. Die Höhe der Überschwinger bleibt aber identisch. Genau
 dieses Verhalten wird durch die Faltung im Frequenzbereich auf die
 Übertragungsfunktion des idealen Tiefpasses aufgeprägt. Man kann aber
-zeigen \[KK98\], dass die Approximation im Sinne des kleinsten
+zeigen, dass die Approximation im Sinne des kleinsten
 Fehlerquadrates *Minimum Mean Square Error (MMSE)* über alle Frequenzen
-optimal ist.
+optimal ist {cite}`KK98`.
 
 Um die nicht-kausalen Anteile zu beseitigen ist zusätzlich noch eine
 zeitliche Verschiebung der gefundenen Filterkoeffizienten notwendig.
@@ -458,7 +459,7 @@ Diese Verschiebung führt dann, wie man durch den Verschiebungssatz der
 Fourier-Transformation sieht, zu einer linearen Phase des entworfenen
 Tiefpasses.
 
-Zur Vermeidung der Überschwinger *Ripple* können nun dieselben Techniken
+Zur Vermeidung der Überschwinger (*Ripple*) können nun dieselben Techniken
 verwendet werden, die auch die Spektralanalyse verbessert haben. Eine
 Nutzung der dort vorgestellten Fensterfunktionen führt auf eine
 geringere Ausprägung der Ripple, wobei gleichzeitig der Übergangsbereich
@@ -475,12 +476,12 @@ Sperrbereich deutlich zu erkennen sind.
 ```
 
 ```{glue:figure} BspFensterEntwurf
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BspFensterEntwurf1"
 
 Beispiel eines Tiefpass-Entwurfes mit
-Rechteck und Hann-FesnstFenster unterschiedlicher Länge. Grenzfrequenz =
-$\Omega_g = 0.2\pi$
+Rechteck und Hann-Fenster unterschiedlicher 
+Länge. $f_\text{g} = \Omega_\text{g} = 0{,}2\pi$.
 ```
 
 +++
@@ -499,11 +500,12 @@ Frequenzen. Diese Minimierung des maximalen Fehlers wird auch als
 Tschebyscheff-Lösung bezeichnet.
 
 Um die Lösung zu verdeutlichen und die Unterschiede zur Fenster-Methode
-heraus zu arbeiten, ist in {numref}`Abbildung %s <fig:BspFensterRemez>`  ein Entwurf eines Tiefpass-Filters
+heraus zu arbeiten, ist in {numref}`Abbildung %s <fig:BspFensterRemez>`  
+ein Entwurf eines Tiefpass-Filters
 mittels Remez-Entwurfsverfahren und mittels Fenster-Entwurfs mit
 Hann-Fenster gegenüber gestellt. Wir erkennen, dass bei gleicher Ordnung
-das Remez-Verfahren eine insgesamt bessere Sperrdämpfung zur Verfügung
-stellt. Dies bedeutet im Umkehrschluss, dass bei einer im Entwurf
+das Remez-Verfahren eine insgesamt bessere Sperrdämpfung aufweist. 
+Dies bedeutet im Umkehrschluss, dass bei einer im Entwurf
 spezifizierten Sperrdämpfung die Ordnung des resultierenden Filters beim
 Remez-Verfahren deutlich kleiner ist. Für die konkrete Realisierung
 bedeutet dies eine deutliche Aufwandsreduktion.
@@ -514,28 +516,29 @@ bedeutet dies eine deutliche Aufwandsreduktion.
 :load: code/filter/filter_lowpass_remez.py
 ```
 
-```{tabbed} Entwurf
+`````{tab-set}
+````{tab-item} Entwurf
 Fenster Entwurf
 ```{glue:figure} BspFensterEntwurf
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BspFensterEntwurf2"
-
 Beispiel eines Tiefpass-Entwurfes mit
-Rechteck und Hann-Fenster unterschiedlicher Länge. Grenzfrequenz =
-$\Omega_g = 0.2\pi$
+Rechteck und Hann-Fenster unterschiedlicher Länge. 
+$f_\text{g} = \Omega_\text{g} = 0{,}2\pi$.
 ```
+````
 
-```{tabbed} Remez
+````{tab-item} Remez
 Remez Fenster
 ```{glue:figure} BspFensterRemez
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BspFensterRemez"
-
 Beispiel eines Tiefpass-Entwurfes mit dem
 Remez-Algorithmus und der Fenster-Methode unterschiedlicher Länge.
-Grenzfrequenz =
-$\Omega_g = 0.2\pi$
+$f_\text{g} = \Omega_\text{g} = 0{,}2\pi$.
 ```
+````
+`````
 
 +++
 
@@ -551,12 +554,13 @@ Nachrichtentechnik, da mit Ihrer Hilfe ein Signal gefiltert werden kann,
 ohne weitere Phasenverzerrungen einzuführen. Weiterhin führt die
 Linearphasigkeit dazu, dass alle Frequenzanteile des Signals um einen
 konstanten Betrag verzögert werden. Diese Verzögerung wird als
-Gruppenlaufzeit bezeichnet und ist als Ableitung der Phase zur Frequenz
-definiert 
+Gruppenlaufzeit bezeichnet und ist über 
 
 $$
-    \tau_g(e^{(j \Omega)}) = - \frac{\delta \arg\{H(e^{(j \Omega)})\}}{\delta \Omega}
+    \tau_\text{g}(e^{(j \Omega)}) = - \frac{\delta \arg\{H(e^{(j \Omega)})\}}{\delta \Omega}
 $$ (eq:Def:Gruppenlaufzeit)
+
+als Ableitung der Phase zur Frequenz definiert.
 
 Wir haben bereits für das einfache Filter mit der Impulsantwort
 $h(k) = [1\:\: 1]$ festgestellt, dass es sich um einen Tiefpass mit
@@ -564,13 +568,13 @@ linearer Phase handelt. Diese Eigenschaft beruht drauf, dass die
 Nullstellen dieses FIR-Systems nur auf dem Einheitskreis liegen.
 Zusätzlich sind aber auch alle Systeme linearphasig die am Einheitskreis
 gespiegelte Nullstellen aufweisen. Es muss also gelten, dass zu jeder
-Nullstellen die nicht auf dem Einheitskreis liegt $z_i$ eine weitere
+Nullstelle $z_i$ die nicht auf dem Einheitskreis liegt eine weitere
 Nullstelle mit $z_{\ell} = 1/z_i$ existiert.
 
 Diese Symmetrie in der Pol-Nullstellenebene führt zu bestimmten
 Eigenschaften bei den Koeffizienten. Man kann zeigen, dass 4
 verschiedene Möglichkeiten existieren, linearphasige FIR-Filter zu
-realisieren (KK98). Diese unterscheiden sich darin, ob die Ordnung
+realisieren {cite}`KK98`. Diese unterscheiden sich darin, ob die Ordnung
 gerade oder ungerade ist und ob die Koeffizienten zur Mitte des Filters
 achsen- oder punktsymmetrisch sind. Daraus ergeben sich folgende
 Abhängigkeiten:
@@ -579,7 +583,7 @@ Abhängigkeiten:
 
 ```{figure} ../images/psFilt/LinPhaseTypen.png
 ---
-width: 80%
+width: 100%
 name: fig:LinPhaseTypen
 ```
 
@@ -604,31 +608,34 @@ Entwurfsvorgaben zusammen passen.
 
 Eine weitere besondere Klasse an FIR-Filtern sind sogenannte
 minimalphasige Filter. Das heisst, dieses Filter realisiert eine
-bestimmte Betragsübertragungsfunktion mit der minimalen Phase. Es zeigt
-sich dass sich dieser Filtertyp genau dann ergibt, wenn alle Nullstellen
-innerhalb der Einheitskreises sind. Eine Realisierung ist also entweder
-über ein Ausrechnen aller Nullstellen und deren Spiegelung am
+bestimmte Betragsübertragungsfunktion mit der minimalen Phase.  
+Es zeigt sich dass sich dieser Filtertyp genau dann ergibt, wenn alle Nullstellen
+innerhalb der Einheitskreises liegen. Eine Realisierung ist also entweder
+über ein Berechnen aller Nullstellen und deren Spiegelung am
 Einheitskreis möglich, da sich so nur die Phase aber nicht das
-Betragsverhalten ändert. Der Aufwand zur Zerlegung der Filter sehr hoher
-Ordnung ist numerisch aufwändig und nicht immer stabil durch mögliche
-Rundungsfehler. Eine andere Methode nutzt die besondere Eigenschaft
+Betragsverhalten ändert. Die Zerlegung von Filtern sehr hoher
+Ordnung ist numerisch aufwändig und durch mögliche
+Rundungsfehler nicht immer stabil.  
+
+Eine andere Methode nutzt die besondere Eigenschaft
 minimalphasiger Filter, dass es eine direkte Verknüpfung zwischen dem
 Betrag und der Phase gibt. Hierzu wird die sog. Hilbert-Transformation
 verwendet, die aber erst in einem späteren Abschnitt intensiver
-eingeführt wird. An dieser Stelle soll ein Vorstellen des Design
-Algorithmus genügen, um eine beliebige Betragsübertragungsfunktion
+eingeführt wird. An dieser Stelle soll ein Vorstellen des Designalgorithmus 
+genügen, um eine beliebige Betragsübertragungsfunktion
 (meist linearphasig, siehe Entwurfsmethoden) in einen minimalphasigen
-Entwurf zu überführen. Gehen wir davon aus, dass die
-Betragsübertragungsfunktion $|H(e^{(j \Omega)})|$ bekannt ist. Eine Logarithmierung
-dieses Spektrums ist möglich, so lange keine echte Nullstelle vorhanden
+Entwurf zu überführen.  
+
+Gehen wir davon aus, dass die Betragsübertragungsfunktion $|H(e^{(j \Omega)})|$ bekannt ist. 
+Eine Logarithmierung dieses Spektrums ist möglich, so lange keine echte Nullstelle vorhanden
 ist, dies kann durch eine untere Schwelle gewährleistet werden. Dieses
-neue logarithmierte Spektrum wird in den Zeitbereich mit Hilfe einer
-IDFT transformiert. Da es sich um eine reelle gerade Funktion handelt,
+neue logarithmierte Spektrum wird mit Hilfe einer
+IDFT in den Zeitbereich transformiert. Da es sich um eine reelle gerade Funktion handelt,
 ergibt sich auch wieder eine reelle gerade Funktion. Diese
 Zeitbereichslösung wird nun so verändert, dass alle negativen Zeiten
 (oder positive Zeiten oberhalb von N/2, durch die Zirkulareigenschaft
-der DFT ist das gleichwertig) zu Null gesetzt werden und alle anderen
-Werte werden mit zwei multipliziert. Diese neue Funktion wird nun mit
+der DFT ist das gleichwertig) zu Null gesetzt und alle anderen
+Werte mit zwei multipliziert werden. Diese neue Funktion wird nun mit
 der FFT erneut in den Frequenzbereich transformiert. Um die
 Logarithmierung rückgängig zu machen wird für jeden Frequenzpunkt die
 Exponenten-Funktion angewendet. Eine erneute IFFT der resultierenden
@@ -643,7 +650,7 @@ Betragsübertragungsverhalten.
 ```
 
 ```{glue:figure} MinPhasenBsp
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:MinPhasenBsp"
 
 Entwurf eines Filters mit gegebener
@@ -654,8 +661,10 @@ Filter.
 
 +++
 
-Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.
-````{tabbed} Matlab
+Eine mögliche Matlab- bzw. Python-Implementierung sieht folgendermaßen aus:
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     %v_H contains the magnitude vector of the desired filter
     log_H = log(v_H+eps); % eps is the smallest positive number in matlab
@@ -668,7 +677,7 @@ Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.
     v_h = real(ifft(H_min));
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     import numpy
     #v_H contains the magnitude vector of the desired filter
@@ -683,6 +692,7 @@ Eine Matlab- bzw. Python-Implementierung sähe folgendermaßen aus.
     h_min = numpy.fft.ifft(H_min)
 ```
 ````
+`````
 
 ### IIR-Filter
 
@@ -708,8 +718,8 @@ IIR-Filter Struktur in Direkt Form I.
 +++
 
 Diese sehr grundlegende Struktur, die die Differenzengleichung
-geradlinig umsetzt wird als Direkt Form I bezeichnet. Sie ist einfach in
-Matlab oder C++ umzusetzen. Problematisch ist aber, dass bei einer
+geradlinig umsetzt wird als Direkt Form I bezeichnet. Sie ist einfach gängigen Programmiersprachen 
+umzusetzen. Problematisch ist aber, dass bei einer
 höheren Ordnung $N>8$ numerische Probleme auftreten, da bei vielen
 Filterentwürfen Filterkoeffizienten herauskommen, die im Zahlenbereich
 weit auseinander liegen und schlecht gleichzeitig in einem quantisierten
@@ -719,7 +729,7 @@ Um dies zu vermeiden, wird im allgemeinen eine Zerlegung von Filtern
 höherer Ordnung in Filter 2. Ordnung vorgenommen. Diese werden dann
 *Second Order Sections* oder *Biquads* genannt. Eine kaskadierte
 Schaltung führt dann abschließend wieder zum Originaldesign, ohne die
-numerischen Schwierigkeiten zu beinhalten (siehe {numref}`Abbildung %s <fig:IIR_SOS_Zrlegung>` ).
+numerischen Schwierigkeiten zu beinhalten (siehe {numref}`Abbildung %s <fig:IIR_SOS_Zrlegung>`).
 
 +++
 
@@ -734,7 +744,7 @@ Beispiel einer SOS-Zerlegung eines IIR-Filters
 
 +++
 
-Mathematisch lässt sich die Zerlegung folgendermaßen darstellen.
+Mathematisch lässt sich die Zerlegung folgendermaßen darstellen:
 
 $$
 \begin{aligned}
@@ -790,7 +800,7 @@ Speicherelementen werden kanonisch genannt.
 
 ```{figure} ../images/psFilt/DF1_to_DF2.png
 ---
-width: 80%
+width: 100%
 name: fig:DF1_to_DF2
 ---
 Umwandlung einer DF1 Struktur in die
@@ -804,16 +814,14 @@ Signal als Eingang haben.
 #### Vom Blockdiagramm zur Übertragungsfunktion
 
 ```{admonition} To Do
+:class: error
 Analyse des Block-Diagramms mit z-Trafo daraus folgend die Übertragungsfunktion , ??Wie geht es anders herum??
 ```
 
 ### IIR-Filterdesign
 
 Um die Theorie des Entwurfs traditioneller IIR-Filter genauer zu
-erläutern fehlen an dieser Stelle noch einige theoretische Konzepte. Der
-noch folgende
-{numref}`Abschnitt %s <sec:Analog>` zeigt die notwendigen Entwurfsverfahren. Ein
-erster Einblick, um bereits mit IIR-Filtern arbeiten zu können, wird in {numref}`Abschnitt %s <sec:IIR-Filterdesign>` auf Basis von Matlab gegeben.
+erläutern fehlen an dieser Stelle noch einige theoretische Konzepte. {numref}`Abschnitt %s <sec:IIR-Filterdesign>` gibt alleridngs einen ersten Einblick in Entwurfsverfahren von IIR-Filtern auf Basis von Matlab.
 
 Mit den bisherigen Erkenntnissen sind aber schon Lösungen für einige
 spezielle Filter möglich.
@@ -1085,7 +1093,9 @@ bekannt ist.
 Da Matlab vektoriell orientiert ist, lässt sich ein FIR-Filter besonders
 effizient implementieren, wenn man nicht auf die internen
 Filter-Routinen zurückgreifen möchte.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     v_states = zeros(LengthOfFilter,1);
 
@@ -1096,7 +1106,7 @@ Filter-Routinen zurückgreifen möchte.
     end
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     import numpy
     # Example values
@@ -1113,13 +1123,12 @@ Filter-Routinen zurückgreifen möchte.
         v_states[1:] = v_states[0:len(v_states)-1] # State Vector verschieben
 ```
 ````
+`````
 
 +++
 
-### IIR-Filter
-
 (sec:IIR-Filterdesign)=
-#### IIR-Filterdesign
+### IIR-Filterdesign
 
 Der Entwurf von IIR-Filtern erfolgt historisch bedingt etwas anders.
 Rekursive Filter sind sehr viel enger mit analogen Filtern verwandt.
@@ -1150,7 +1159,9 @@ Beispiel einer Filterspezifikation für normierte Frequenzen:\
 Durchlassbereich bis $0.1\pi$ und maximale Dämpfung von $0.2$dB.\
 Sperrbereich ab $02\pi$ und minimale Dämpfung von $30dB$.\
 Der dazugehörige Code sieht dann wie folgt aus:
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1162,7 +1173,7 @@ Der dazugehörige Code sieht dann wie folgt aus:
     [b,a] = butter(N,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1174,6 +1185,8 @@ Der dazugehörige Code sieht dann wie folgt aus:
     [b, a] = signal.butter(N=order, Wn=Pass_freq, output='ba')
 ```
 ````
+`````
+
 #### Tschebyscheff-I-Filter
 Im Gegensatz zum Butterworth-Filter ist das Ziel des Tschebyscheff-I
 Filters im Durchlassbereich die maximal zulässige Durchlassdämpfung
@@ -1183,7 +1196,9 @@ also immer zum Ziel den Maximalen Fehler zu minimieren. Der Entwurf wird
 auch als Equiripple-Design bezeichnet. Dies führt zu einem Entwurf mit
 geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten `cheb1ord` und
 `cheby1`. Für das Design-Beispiel ergibt sich der folgende Code.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1195,7 +1210,7 @@ geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten `cheb1ord` und
     [b,a] = cheby1(N,Pass_dB,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1206,13 +1221,16 @@ geringerer Ordnung. Die zugehörigen Matlab-Befehle lauten `cheb1ord` und
     [b, a] = signal.cheby1(N=order, rp=Pass_dB, Wn=Pass_freq, output='ba')
 ```
 ````
+`````
 
 #### Tschebyscheff-II-Filter
 
 Das Tschebyscheff-II-Filter ist der Inverse Entwurf zum Typ I. Das Ziel
 ist also ein flacher Durchlassbereich und ein oszilierender
 Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1224,7 +1242,7 @@ Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.
     [b,a] = cheby2(N,Stop_dB,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1235,13 +1253,17 @@ Sperrbereich. Der dazugehörige Matlab-Code sieht folgendermaßen aus.
     [b, a] = signal.cheby2(N=order, rs=Stop_dB, Wn=Stop_freq, output='ba')
 ```
 ````
+`````
+
 #### Cauer-Filter
 
 Das Cauer-Filter auch als Ellpitisches-Filter bezeichnet, definiert
 einen Equiripple-Entwurf im Durchlass- und Sperrbereich. Dies führt zu
 einer weiteren Reduzierung der Ordnung. Der Entwurf sieht wie
 folgt aus.
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     Pass_freq = 0.1; % Matlab uses normalized frequencies from 0..2
     Pass_dB = 0.2;
@@ -1253,7 +1275,7 @@ folgt aus.
     [b,a] = ellip(N,Pass_dB,Stop_dB,f_g);
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     from scipy import signal
     Pass_freq = 0.1
@@ -1264,6 +1286,8 @@ folgt aus.
     [b, a] = signal.ellip(N=order, rp=Pass_dB, rs=Stop_dB, Wn=Pass_freq, output='ba')
 ```
 ````
+`````
+
 #### Vor- und Nachteile der unterschiedlichen Entwurfsverfahren
 
 Die Wahl der Entwurfsmethode beruht im großen Maße auf den gegebenen
@@ -1331,7 +1355,9 @@ Berechnung der Ordnung reicht es die Grenzfrequenzen zu vertauschen, um
 einen Hochpass anzuzeigen.
 
 Beispiel:
-````{tabbed} Matlab
+
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     % Highpass-Design
     Pass_freq = 0.2; % Matlab uses normalized frequencies from 0..2
@@ -1364,7 +1390,7 @@ Beispiel:
     [b,a] = butter(N,f_g,'stop');
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     # Highpass Design
     Pass_freq = 0.2
@@ -1395,6 +1421,7 @@ Beispiel:
     [b, a] = signal.butter(N=order, Wn=[Pass_freqLow, Pass_freqHigh], btype='bandstop', output='ba')
 ```
 ````
+`````
 
 +++ {"tags": ["remove-cell"]}
 

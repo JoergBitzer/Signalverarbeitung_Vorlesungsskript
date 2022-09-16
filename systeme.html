@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3. Systeme &#8212; Signalverarbeitung 1</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,48 +20,64 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. z-Transformation" href="ztrafo.html" />
     <link rel="prev" title="2. Signale" href="signale.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -83,14 +102,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Zu diesem Jupyter-Buch
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Signalverarbeitung 1
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -129,110 +149,226 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="_sources/systeme.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/systeme.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fsysteme.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/systeme.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/systeme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fsysteme.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/systeme.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/systeme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eigenschaften-und-klassifikation-von-systemen">
    3.1. Eigenschaften und Klassifikation von Systemen
@@ -286,8 +422,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zeit-invarianz">
-     3.2.2. Zeit-Invarianz
+    <a class="reference internal nav-link" href="#zeitinvarianz">
+     3.2.2. Zeitinvarianz
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -323,42 +459,150 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Systeme</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eigenschaften-und-klassifikation-von-systemen">
+   3.1. Eigenschaften und Klassifikation von Systemen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wert-und-definitionsbereich">
+     3.1.1. Wert- und Definitionsbereich
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kanalanzahl">
+     3.1.2. Kanalanzahl
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dimensionalitat">
+     3.1.3. Dimensionalität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rekursivitat">
+     3.1.4. Rekursivität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gedachtnis">
+     3.1.5. Gedächtnis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kausalitat">
+     3.1.6. Kausalität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stabilitat">
+     3.1.7. Stabilität
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lti-systeme">
+   3.2. LTI-Systeme
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearitat">
+     3.2.1. Linearität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeitinvarianz">
+     3.2.2. Zeitinvarianz
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beschreibung-durch-differenzengleichungen">
+     3.2.3. Beschreibung durch Differenzengleichungen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#einfuhrung-der-systemantwort-auf-die-delta-impulsfolge">
+       3.2.3.1. Einführung der Systemantwort auf die Delta-Impulsfolge
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#faltung-als-verknupfung-von-lti-systemen-und-signalen">
+     3.2.4. Faltung als Verknüpfung von LTI-Systemen und Signalen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eigenschaften-der-faltung">
+       3.2.4.1. Eigenschaften der Faltung
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#grafische-faltung">
+       3.2.4.2. grafische Faltung
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="systeme">
-<h1><span class="section-number">3. </span>Systeme<a class="headerlink" href="#systeme" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="systeme">
+<span id="sec-systeme"></span><h1><span class="section-number">3. </span>Systeme<a class="headerlink" href="#systeme" title="Permalink to this headline">#</a></h1>
 <p>Betrachtet man die typische Nachrichtenübertragungskette, so ist
-das Bindeglied zwischen Quelle und Senke der Kanal. Eine andere
+das Bindeglied zwischen Quelle und Senke der Kanal. Eine andere,
 allgmeinere Bezeichnung für den Kanal ist der Begriff System. Ganz
 allgemein kann davon gesprochen werden, dass ein System
 verschiedene (unterschiedliche) Signale miteinander verknüpft und
 Beziehungen herstellt. <a class="reference internal" href="#fig-systembildallgemein"><span class="std std-numref">Abbildung 3.1</span></a>
-zeigt eine allgemeine Verknüpfung von Signalen.
-Just something useless.</p>
-<div class="figure align-default" id="fig-systembildallgemein">
+zeigt eine allgemeine Verknüpfung von Signalen.</p>
+<figure class="align-default" id="fig-systembildallgemein">
 <a class="reference internal image-reference" href="_images/SystemAllgemein.png"><img alt="_images/SystemAllgemein.png" src="_images/SystemAllgemein.png" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Veranschaulichung eines allgemeinen Systems, dass Signale miteinander verknüpft.</span><a class="headerlink" href="#fig-systembildallgemein" title="Permalink to this image">¶</a></p>
-</div>
-<p>In den meisten Fällen, kann diese sehr allgemeine Verknüpfung
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Veranschaulichung eines allgemeinen Systems, dass Signale miteinander verknüpft.</span><a class="headerlink" href="#fig-systembildallgemein" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In den meisten Fällen kann diese sehr allgemeine Verknüpfung
 spezifiziert werden. Insbesondere haben wir häufig Eingangssignale
 auf die das System reagiert und die daraus resultierenden
 Ausgangssignale (siehe <a class="reference internal" href="#fig-systemeinaus"><span class="std std-numref">Abbildung 3.2</span></a>).</p>
-<div class="figure align-default" id="fig-systemeinaus">
+<figure class="align-default" id="fig-systemeinaus">
 <a class="reference internal image-reference" href="_images/SystemEinAus.png"><img alt="_images/SystemEinAus.png" src="_images/SystemEinAus.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Veranschaulichung eines allgemeinen Systems, mit Signalen die als Ein- und Ausgangssignale
-festliegen.</span><a class="headerlink" href="#fig-systemeinaus" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Veranschaulichung eines allgemeinen Systems, mit Signalen die als Ein- und Ausgangssignale
+festliegen.</span><a class="headerlink" href="#fig-systemeinaus" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Durch diese sehr allgemeine Formulierung des Systembegriffs wird
 auch deutlich, warum die Systemtheorie eine zentraler Punkt vieler
-wissenschaftlicher Richtungen ist. Dies wird  auch deutlich, wenn
-man einige Beispiele betrachtet:</p>
+wissenschaftlicher Richtungen ist. Einige weitere Beispiele:</p>
 <ul class="simple">
 <li><p>HiFi-Verstärker: Ein System mit mehreren Eingängen und
 wenigen (meist zwei) Ausgängen</p></li>
@@ -367,13 +611,13 @@ Eingängen (Sinnesorganen) und vielen Ausgängen (Muskeln)</p></li>
 <li><p>Computer: Viele Eingänge und Ausgänge</p></li>
 <li><p>Ihr Beispiel</p></li>
 </ul>
-<div class="section" id="eigenschaften-und-klassifikation-von-systemen">
-<h2><span class="section-number">3.1. </span>Eigenschaften und Klassifikation von Systemen<a class="headerlink" href="#eigenschaften-und-klassifikation-von-systemen" title="Permalink to this headline">¶</a></h2>
-<p>Bei der Klassifikation der Systeme, können wir zunächst die
+<section id="eigenschaften-und-klassifikation-von-systemen">
+<h2><span class="section-number">3.1. </span>Eigenschaften und Klassifikation von Systemen<a class="headerlink" href="#eigenschaften-und-klassifikation-von-systemen" title="Permalink to this headline">#</a></h2>
+<p>Bei der Klassifikation der Systeme können wir zunächst die
 meisten Punkte, die wir für Signale erarbeitet haben, ebenfalls
 anwenden.</p>
-<div class="section" id="wert-und-definitionsbereich">
-<h3><span class="section-number">3.1.1. </span>Wert- und Definitionsbereich<a class="headerlink" href="#wert-und-definitionsbereich" title="Permalink to this headline">¶</a></h3>
+<section id="wert-und-definitionsbereich">
+<h3><span class="section-number">3.1.1. </span>Wert- und Definitionsbereich<a class="headerlink" href="#wert-und-definitionsbereich" title="Permalink to this headline">#</a></h3>
 <p>Da wären zunächst die Frage, ob es sich bei dem betrachteten
 System um ein analoges (wertkontinuierlich und zeitkontinuierlich)
 oder um ein digitales (zeit- und wertdiskret) System  handelt. In
@@ -384,20 +628,22 @@ Systemen beschäftigen.</p>
 <p class="admonition-title">Wichtig</p>
 <p>analoges System vs. digitales System</p>
 </div>
-</div>
-<div class="section" id="kanalanzahl">
-<h3><span class="section-number">3.1.2. </span>Kanalanzahl<a class="headerlink" href="#kanalanzahl" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="kanalanzahl">
+<h3><span class="section-number">3.1.2. </span>Kanalanzahl<a class="headerlink" href="#kanalanzahl" title="Permalink to this headline">#</a></h3>
 <p>Die Kanalanzahl ist ebenfalls eine Möglichkeit ein System zu
 beschreiben und zu klassifizieren, wobei als Besonderheit zu
 beachten ist, dass Systeme auch die Kanalanzahl verändern können.
 So kann z.B. ein Monosignal (Gesang) auf zwei Kanäle aufgespalten
 werden um so eine Positionierung in einem Stereosignal zu
 ermöglichen.</p>
-<div class="figure align-default" id="fig-panallgemein">
+<figure class="align-default" id="fig-panallgemein">
 <a class="reference internal image-reference" href="_images/PanAllgemein.png"><img alt="_images/PanAllgemein.png" src="_images/PanAllgemein.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Beispiel eines Systems mit einem
-Eingang und zwei Ausgängen.</span><a class="headerlink" href="#fig-panallgemein" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Beispiel eines Systems mit einem
+Eingang und zwei Ausgängen.</span><a class="headerlink" href="#fig-panallgemein" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Wir können also Systeme nach der Kanalzahl der Ein- und Ausgänge
 klassifizieren.</p>
 <div class="attention admonition">
@@ -405,10 +651,10 @@ klassifizieren.</p>
 <p>Einkanalig vs. Mehrkanalig</p>
 </div>
 <p>Der allgemeinste Fall des mehrkanaligen Ein- und Ausgangs wird
-als MIMO <em>Multiple Input Multiple Output</em> System bezeichnet.</p>
-</div>
-<div class="section" id="dimensionalitat">
-<h3><span class="section-number">3.1.3. </span>Dimensionalität<a class="headerlink" href="#dimensionalitat" title="Permalink to this headline">¶</a></h3>
+als MIMO-System (<em>Multiple Input Multiple Output</em>) bezeichnet.</p>
+</section>
+<section id="dimensionalitat">
+<h3><span class="section-number">3.1.3. </span>Dimensionalität<a class="headerlink" href="#dimensionalitat" title="Permalink to this headline">#</a></h3>
 <p>So wie es ein- und mehrdimensionale Signale gibt, so können auch Systeme
 in mehreren Dimensionen wirken. Ein einfaches Beispiel wäre ein
 bildveränderndes System, dass natürlich zwei-dimensional arbeiten
@@ -417,61 +663,65 @@ müsste.</p>
 <p class="admonition-title">Wichtig</p>
 <p>eindimensional vs. mehrdimensional</p>
 </div>
-</div>
-<div class="section" id="rekursivitat">
-<span id="sec-rekursivitaet"></span><h3><span class="section-number">3.1.4. </span>Rekursivität<a class="headerlink" href="#rekursivitat" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rekursivitat">
+<span id="sec-rekursivitaet"></span><h3><span class="section-number">3.1.4. </span>Rekursivität<a class="headerlink" href="#rekursivitat" title="Permalink to this headline">#</a></h3>
 <p>Eine Eigenschaft, die wir bisher nicht mit Signalen erarbeitet haben,
 ist die Frage, ob das System den eigenen Ausgang als weiteren Eingang
 betrachtet. <a class="reference internal" href="#fig-rekursivsystem"><span class="std std-numref">Abbildung 3.4</span></a> zeigt ein System dass sein
 Ausgangssignal auf den Eingang zurückführt. Ein solches System
 bezeichnen wir als rekursives System.</p>
-<div class="figure align-default" id="fig-rekursivsystem">
+<figure class="align-default" id="fig-rekursivsystem">
 <a class="reference internal image-reference" href="_images/RekursivSystem.png"><img alt="_images/RekursivSystem.png" src="_images/RekursivSystem.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Allgemeines Blockdiagramm eines einkanaligen
-rekursiven Systems.</span><a class="headerlink" href="#fig-rekursivsystem" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Allgemeines Blockdiagramm eines einkanaligen
+rekursiven Systems.</span><a class="headerlink" href="#fig-rekursivsystem" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Da es auch nicht-rekursive Systeme gibt, können wir folgende
 Klassifikation einführen</p>
 <div class="attention admonition">
 <p class="admonition-title">Wichtig</p>
-<p>rekursive vs. nicht-rekursive (transversal) Systeme</p>
+<p>rekursive vs. nicht-rekursive (transversale) Systeme</p>
 </div>
 <p>Um die Wichtigkeit von rekursiven Systemen zu verdeutlichen, nehmen wir
 einmal an, wir bräuchten ständig die Summe von mehreren vergangenen
 Messwerten (oder ein Beispiel aus der Praxis ist der 30-Tage
 Durchschnitt bei der DAX-Analyse). Wir können diese Summe immer wieder
-durch folgende Formel berechnen. Die Anzahl der Messwerte, die wir
-verwenden ist durch <span class="math notranslate nohighlight">\(M\)</span> symbolisiert.</p>
+durch</p>
 <div class="math notranslate nohighlight">
 \[
 y(k) = \sum_{m=0}^{M-1}x(k-m)
 \]</div>
+<p>berechnen. Die Anzahl der Messwerte, die wir
+verwenden ist durch <span class="math notranslate nohighlight">\(M\)</span> symbolisiert.</p>
 <p>Betrachtet man diese Rechenvorschrift, so fällt auf, dass bestimmte
 Anteile immer wieder summiert werden und immer nur ein neuer Wert
-hinzukommt und ein alter Wert herausfällt aus der Summation. Dies ist in
+hinzukommt und ein alter Wert aus der Summation herausfällt. Dies ist in
 <a class="reference internal" href="#fig-datenwerterekursion"><span class="std std-numref">Abbildung 3.5</span></a> genauer gezeigt.</p>
-<div class="figure align-default" id="fig-datenwerterekursion">
-<a class="reference internal image-reference" href="_images/DatenwerteRekursion.png"><img alt="_images/DatenwerteRekursion.png" src="_images/DatenwerteRekursion.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Erläuterung zur Anwendung der
+<figure class="align-default" id="fig-datenwerterekursion">
+<a class="reference internal image-reference" href="_images/DatenwerteRekursion.png"><img alt="_images/DatenwerteRekursion.png" src="_images/DatenwerteRekursion.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Erläuterung zur Anwendung der
 Rekursion. Bei einer Summenbildung über die jeweiligen Zeilen (a-d) sind
 die Summen zwischen a und b die achteckig gefüllten Elemente bereits für
 a addiert worden. Man kann deshalb bei b durch Subtraktion des
 gestrichelten ersten Elements und Addition des Elements mit Kreuz direkt
 die neue Summe
-berechnen.</span><a class="headerlink" href="#fig-datenwerterekursion" title="Permalink to this image">¶</a></p>
-</div>
-<p>Man könnte also das Ausgangssignal des Systems auch durch folgende
-Rechenvorschrift berechnen</p>
+berechnen.</span><a class="headerlink" href="#fig-datenwerterekursion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Man könnte also das Ausgangssignal des Systems auch durch</p>
 <div class="math notranslate nohighlight">
 \[
 \label{eq:RekursionsBsp}
 y(k) = y(k-1) + x(k) - x(k-(M)).
 \]</div>
-<p>Es ist also möglich die Rechenleistung durch rekursive Berechnungen zu
+<p>berechnen. Es ist also möglich die Rechenleistung durch rekursive Berechnungen zu
 verringern.</p>
-</div>
-<div class="section" id="gedachtnis">
-<h3><span class="section-number">3.1.5. </span>Gedächtnis<a class="headerlink" href="#gedachtnis" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="gedachtnis">
+<h3><span class="section-number">3.1.5. </span>Gedächtnis<a class="headerlink" href="#gedachtnis" title="Permalink to this headline">#</a></h3>
 <p>Bei der Rekursion haben wir gesehen, dass durch Speicherung der
 Eingangsfolge und Speicherung des letzten Ausgangswertes sehr einfach
 bestimmte Systeme realisiert werden können. Systeme die Speicherelemente
@@ -481,7 +731,7 @@ Zustand abhängig ist, sind gedächtnislos. Ein Beispiel für ein
 gedächtnisloses System ist die Funktion <span class="math notranslate nohighlight">\(y(k) = x^2(k)\)</span>.</p>
 <div class="attention admonition">
 <p class="admonition-title">Wichtig</p>
-<p>Gedächtnisbehaftet vs. Gedächtnislos</p>
+<p>gedächtnisbehaftet vs. gedächtnislos</p>
 </div>
 <p>Die Gedächtnislänge eines Systems ist durch die Möglichkeit der größten
 Signalverzögerung <span class="math notranslate nohighlight">\(k_0\)</span> vorgegeben. Diese kann im transversalen oder im
@@ -490,9 +740,9 @@ Einfluss des Gedächtnisses. Bei ausschließlich transversalen Systemen
 bestimmt die Gedächtnislänge die Einflusslänge. Für rekursive Systeme
 ist die Einflusslänge bis auf sehr wenige Ausnahmen unabhängig von der
 Gedächtnislänge unendlich.</p>
-</div>
-<div class="section" id="kausalitat">
-<h3><span class="section-number">3.1.6. </span>Kausalität<a class="headerlink" href="#kausalitat" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="kausalitat">
+<h3><span class="section-number">3.1.6. </span>Kausalität<a class="headerlink" href="#kausalitat" title="Permalink to this headline">#</a></h3>
 <p>Die Kausalität ist für Systeme eine sehr wichtige Eigenschaft. Nur bei
 kausalen Systemen ist die Ursache (Eingangssignal) zeitlich immer vor
 der Wirkung (Ausgangssignal). Anders ausgedrückt das Ausgangssignal darf
@@ -503,13 +753,13 @@ damit ein kausales System vorliegt. Mathematisch kann dies durch</p>
 y(k_0) = f\{x(k\leq k_0)\}
 \]</div>
 <p>ausgedrückt werden.</p>
-</div>
-<div class="section" id="stabilitat">
-<h3><span class="section-number">3.1.7. </span>Stabilität<a class="headerlink" href="#stabilitat" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="stabilitat">
+<h3><span class="section-number">3.1.7. </span>Stabilität<a class="headerlink" href="#stabilitat" title="Permalink to this headline">#</a></h3>
 <p>Eine andere sehr wichtige Eigenschaft für Systeme ist ihre Stabilität.
 Stabile Systeme zeichnen sich dadurch aus, dass sie auf ein begrenztes
 Eingangssignal mit einem begrenzten Ausgangssignal reagieren
-(BIBO-Stabilität (Bounded input bounded output)) Mathematisch muss
+(BIBO-Stabilität, <em>Bounded Input Bounded Output</em>). Mathematisch muss
 folgendes als notwendige Bedingung gelten:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -528,37 +778,38 @@ kleiner als <span class="math notranslate nohighlight">\(|\infty|\)</span> sind,
 Für <span class="math notranslate nohighlight">\(x(k) = 0\)</span> ist <span class="math notranslate nohighlight">\(y(k) = -\infty\)</span>. Somit ist das System instabil.</p></li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="lti-systeme">
-<h2><span class="section-number">3.2. </span>LTI-Systeme<a class="headerlink" href="#lti-systeme" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="lti-systeme">
+<h2><span class="section-number">3.2. </span>LTI-Systeme<a class="headerlink" href="#lti-systeme" title="Permalink to this headline">#</a></h2>
 <p>Eine besondere Klasse an Systemen stellen die linearen, zeitinvarianten
-(LTI: linear and time-invariant) Systeme dar. Die beiden Begriffe
-Linearität und Zeit-invarianz werden im weiteren als Systemeigenschaften
+(LTI, <em>Linear and Time-Invariant</em>) Systeme dar. Die beiden Begriffe
+Linearität und Zeitinvarianz werden im weiteren als Systemeigenschaften
 genauer beschrieben</p>
-<div class="section" id="linearitat">
-<h3><span class="section-number">3.2.1. </span>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">¶</a></h3>
+<section id="linearitat">
+<h3><span class="section-number">3.2.1. </span>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">#</a></h3>
 <p>Lineare Systeme zeichnen sich dadurch aus, dass das sog.
 Superpositionsprinzip (Überlagerungsprinzip) gilt. Dies bedeutet, dass
 die additive Überlagerung der gewichteten Eingangssignale und die
 Verknüpfung mit dem System genau zu dem gleichen Ergebnis führt, wie die
 gewichtete additive Überlagerung der einzelnen Signale am Ausgang des
-linearen Systems. Mathematisch ausgedrückt:</p>
+linearen Systems. Mathematisch ausgedrückt durch</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \label{eq:Linearitaet}
 f\{a_1 x_1(k) + a_2 x_2(k) + \cdots + a_N x_N(k)\} = \\
-a_1 f\{x_1(k)\} + a_2 f\{x_2(k)\} + \cdots + a_N f\{x_N(k)\}
+a_1 f\{x_1(k)\} + a_2 f\{x_2(k)\} + \cdots + a_N f\{x_N(k)\}~~~,
 \end{split}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(f\{\cdot\}\)</span> die Systemfunktion darstellt, <span class="math notranslate nohighlight">\(a_i\)</span> die linearen
-Gewichte und <span class="math notranslate nohighlight">\(x_i(k)\)</span> die Eingangssignale. <a class="reference internal" href="#fig-linearitaeterklaerung"><span class="std std-numref">Abbildung 3.6</span></a> verdeutlicht den mathematischen Zusammenhang
-noch einmal grafisch. Bei LTI-Systemen kann das System <span class="math notranslate nohighlight">\(H\)</span> vor den
+Gewichte und <span class="math notranslate nohighlight">\(x_i(k)\)</span> die Eingangssignale. <a class="reference internal" href="#fig-linearitaeterklaerung"><span class="std std-numref">Abbildung 3.6</span></a> verdeutlicht den Zusammenhang. Bei LTI-Systemen kann das System <span class="math notranslate nohighlight">\(H\)</span> vor den
 Summationspunkt und vor den linearen Gewichten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>
 verschoben werden.</p>
-<div class="figure align-default" id="fig-linearitaeterklaerung">
+<figure class="align-default" id="fig-linearitaeterklaerung">
 <a class="reference internal image-reference" href="_images/LinearitaetErklaerung.png"><img alt="_images/LinearitaetErklaerung.png" src="_images/LinearitaetErklaerung.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Linearität bildlich erklärt</span><a class="headerlink" href="#fig-linearitaeterklaerung" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Linearität bildlich erklärt</span><a class="headerlink" href="#fig-linearitaeterklaerung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="note admonition">
 <p class="admonition-title">Beispiel</p>
 <p>Als Beispiel betrachten wir das System</p>
@@ -567,7 +818,7 @@ verschoben werden.</p>
 y(k) = 2x(k) + 3x(k-1)
 \]</div>
 <p>Der Ausgang der einzelnen Eingangssignale <span class="math notranslate nohighlight">\(x_1(k)\)</span> und <span class="math notranslate nohighlight">\(x_2(k)\)</span>
-gewichtet ergeben.</p>
+gewichtet ergeben</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -583,20 +834,20 @@ y(k) = a_1 y_1(k)+ a_2 y_2(k).
 \]</div>
 <p>und somit</p>
 <div class="math notranslate nohighlight" id="equation-eq-ausgangdirekt">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-eq-ausgangdirekt" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-eq-ausgangdirekt" title="Permalink to this equation">#</a></span>\[
 y(k) = 2 a_1  x_1(k) + 3 a_1 x_1(k-1)+  2 a_2 x_2(k) + 3 a_2 x_2(k-1).
 \]</div>
 <p>Ein gemischtes und gewichtetes Eingangssignal ist gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[
-x_{mix} = a_1 x_1(k) + a_2 x_2(k)
+x_\text{mix} = a_1 x_1(k) + a_2 x_2(k)
 \]</div>
 <p>und das Ausgangssignal des System
 durch</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-y(k) &amp;=&amp; 2x_{mix}(k) + 3x_{mix}(k-1)\\\nonumber
+y(k) &amp;=&amp; 2x_\text{mix}(k) + 3x_\text{mix}(k-1)\\\nonumber
 &amp; = &amp; 2(a_1 x_1(k) + a_2 x_2(k)) + 3(a_1 x_1(k-1) + a_2 x_2(k-1))\\\nonumber
 &amp; = &amp; 2a_1x_1(k) + 2 a_2 x_2(k) + 3 a_1 x_1(k-1) + 3 a_2 x_2(k-1)\end{aligned}
 \end{split}\]</div>
@@ -615,20 +866,20 @@ y_2(k) &amp; = &amp; x_2^2 (k)\\
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-y(k) &amp;= &amp;  x_{mix}^2 (k)\\
+y(k) &amp;= &amp;  x_\text{mix}^2 (k)\\
 &amp; = &amp; \left( a_1  x_1 (k) + a_2  x_2 (k) \right)^2\\
  &amp; = &amp; a_1^2 x_1^2 (k) + 2a_1 a_2 x_1(k) x_2(k) + a_2^2 x_2^2 (k)\end{aligned}
 \end{split}\]</div>
 <p>Die beiden Ausgangssignale sind nicht identisch. Dieses System ist also
-nicht-linear.</p>
+nichtlinear.</p>
 </div>
-</div>
-<div class="section" id="zeit-invarianz">
-<h3><span class="section-number">3.2.2. </span>Zeit-Invarianz<a class="headerlink" href="#zeit-invarianz" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="zeitinvarianz">
+<h3><span class="section-number">3.2.2. </span>Zeitinvarianz<a class="headerlink" href="#zeitinvarianz" title="Permalink to this headline">#</a></h3>
 <p>Von Zeitinvarianz spricht man, wenn das System seine Eigenschaften nicht
 zeitlich ändert. Eine bestimmmte Verzögerung <span class="math notranslate nohighlight">\(k_0\)</span> des Eingangssignal
 führt also im Ausgang zu einem um die selbe Zeit <span class="math notranslate nohighlight">\(k_0\)</span> verzögerten
-Ausgangssignal. Mathematisch ausgedrückt:</p>
+Ausgangssignal. Mathematisch ausgedrückt durch</p>
 <div class="math notranslate nohighlight">
 \[
 y(k) = f\{x(k) \} \quad \Rightarrow y(k-k_0) = f\{x(k-k_0) \}
@@ -639,7 +890,7 @@ y(k) = f\{x(k) \} \quad \Rightarrow y(k-k_0) = f\{x(k-k_0) \}
 <p>Gegeben sind die beiden Systeme <span class="math notranslate nohighlight">\(y(k) = 2x(k)\)</span> und <span class="math notranslate nohighlight">\(y(k) = x(2k)\)</span>. Sind
 die Systeme zeitinvariant oder nicht?</p>
 <p>Der Test erfolgt zum einen über die zeitliche Verschiebung des
-Eingangssignal <span class="math notranslate nohighlight">\(x(k)\)</span>. Es ergibt sich ein neues Eingangssignal
+Eingangssignals <span class="math notranslate nohighlight">\(x(k)\)</span>. Es ergibt sich ein neues Eingangssignal
 <span class="math notranslate nohighlight">\(x(k-k_0)\)</span>. Für dieses neue Eingangssignal ist der Ausgang <span class="math notranslate nohighlight">\(y(k) =
 2x(k-k_0)\)</span>. Zum anderen muss das Ausgangssignal des
 Originaleingangssignals verschoben werden. Es ergibt sich zunächst für
@@ -651,26 +902,26 @@ Eingangssignals <span class="math notranslate nohighlight">\(y(k) = x(2k-k_0)\)<
 verschobenen Ausgang ergibt sich durch die Variablensubstitution
 <span class="math notranslate nohighlight">\(y(k-k_0) = x(2k-2k_0)\)</span>. Dieses System ist also zeitvariant.</p>
 </div>
-</div>
-<div class="section" id="beschreibung-durch-differenzengleichungen">
-<h3><span class="section-number">3.2.3. </span>Beschreibung durch Differenzengleichungen<a class="headerlink" href="#beschreibung-durch-differenzengleichungen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="beschreibung-durch-differenzengleichungen">
+<h3><span class="section-number">3.2.3. </span>Beschreibung durch Differenzengleichungen<a class="headerlink" href="#beschreibung-durch-differenzengleichungen" title="Permalink to this headline">#</a></h3>
 <p>LTI-Systeme lassen sich stets durch Differenzengleichungen mit festen
-Koeffizienten ausdrücken. Dies ist für nicht-rekursive Systeme mit den
+Koeffizienten ausdrücken. Dies ist für nichtrekursive Systeme mit den
 Beispielen des Abschnittes über Linearität auch leicht nachvollziehbar.
 Gleichzeitig gilt die selbe Linearitätsbeziehung auch für den Ausgang
-des Systems. Betrachtet man nun ein System, dass rekursiv ist, so kommen
+des Systems. Betrachtet man nun ein rekursives System, so kommen
 als neue Terme nur vergangene Systemantworten mit linearen Faktoren
-gewichtet (multipliziert) hinzu. Damit sind auch alle durch folgende
-Gleichung aufgebauten rekursiven Systeme linear.</p>
+gewichtet (multipliziert) hinzu. Damit sind auch alle durch</p>
 <div class="math notranslate nohighlight">
 \[
 \sum_{i = 0}^{N} a_i y(k-i) = \sum_{j = 0}^{M}b_j x(k-j)
 \]</div>
+<p>aufgebauten rekursiven Systeme linear.</p>
 <p>Um nun nur den Ausgang des Systems zu betrachten, wird vereinbart, dass <span class="math notranslate nohighlight">\(a_0 = 1\)</span>
 ist <a class="footnote-reference brackets" href="#id3" id="id1">1</a>. Für den Ausgang eines kausalen Systems gilt dann</p>
 <div class="math notranslate nohighlight">
 \[
-y(k) = -\sum_{i = 1}^{N}a_i y(k-i) + \sum_{j = 0}^{M}b_j
+y(k) = -\sum_{i = 1}^{N}a_i y(k-i) + \sum_{j = 0}^{M}b_j~~~.
 x(k-j)
 \]</div>
 <p>Um zu wissen, welche Folge <span class="math notranslate nohighlight">\(y(k)\)</span> am Ausgang herauskommt, ist es
@@ -682,62 +933,67 @@ wird vereinfacht angenommen, dass das System in Ruhe war und deshalb
 gilt</p>
 <div class="math notranslate nohighlight">
 \[
-y(k-i) = 0 \qquad \forall \qquad i&gt;0.
+y(k-i) = 0 \qquad \forall \qquad i&gt;0~~~.
 \]</div>
-<div class="section" id="einfuhrung-der-systemantwort-auf-die-delta-impulsfolge">
-<h4><span class="section-number">3.2.3.1. </span>Einführung der Systemantwort auf die Delta-Impulsfolge<a class="headerlink" href="#einfuhrung-der-systemantwort-auf-die-delta-impulsfolge" title="Permalink to this headline">¶</a></h4>
+<section id="einfuhrung-der-systemantwort-auf-die-delta-impulsfolge">
+<h4><span class="section-number">3.2.3.1. </span>Einführung der Systemantwort auf die Delta-Impulsfolge<a class="headerlink" href="#einfuhrung-der-systemantwort-auf-die-delta-impulsfolge" title="Permalink to this headline">#</a></h4>
 <p>Die Systemantwort auf die Delta-Impulsfolge <span class="math notranslate nohighlight">\(\delta(k)\)</span> wird als
 Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> bezeichnet und charakterisiert ein LTI-System
 vollständig. Für nicht-rekursive Systeme mit einer endlichen Anzahl von
-Koeffizienten, also <span class="math notranslate nohighlight">\(M&lt; \infty\)</span> ist die Impulsantwort endlich. Deshalb
+Koeffizienten, also <span class="math notranslate nohighlight">\(M&lt; \infty\)</span>, ist die Impulsantwort endlich. Deshalb
 werden diese Systeme auch als <em>Finite Impulse Response</em> (FIR)-Systeme
 bezeichnet. Bei rekursiven Systeme gilt dies im allgemeinen nicht. Diese
-Systeme werden im englischsprachigen Raum, deshalb als <em>Infinite Impulse
-Response</em> (IIR)-Systeme bezeichnet.</p>
+Systeme werden deshalb als <em>Infinite Impulse Response</em> (IIR)-Systeme bezeichnet.</p>
 <div class="note admonition">
 <p class="admonition-title">Beispiel</p>
-<p>Nehmen wir an, wir suchen die Impulsantwort des LTI-Systems <span class="math notranslate nohighlight">\(y(k)
-= r_0 x(k) + r_1 x(k-1) - r_2 x(k-2)\)</span>. Errechnet man nun den Ausgang für
-alle <span class="math notranslate nohighlight">\(k\)</span> und setzt jeweils für x(k) die Impulsfolge ein, so ergibt sich
-die Impulsantwort<a class="footnote-reference brackets" href="#id4" id="id2">2</a> <span class="math notranslate nohighlight">\(h(k) = [r_0 \,\, r_1 \,\, -r_2]\)</span> für <span class="math notranslate nohighlight">\(0 \leq k \leq 2\)</span>. Das betrachtete System war ein FIR-System.
-Ganz allgemein ergibt sich für FIR-Systeme immer, dass <span class="math notranslate nohighlight">\(h(k) = b_k\)</span> ist.</p>
+<p>Nehmen wir an, wir suchen die Impulsantwort des LTI-Systems</p>
+<div class="math notranslate nohighlight">
+\[y(k) = r_0 x(k) + r_1 x(k-1) - r_2 x(k-2)~~~.\]</div>
+<p>Errechnet man nun den Ausgang für
+alle <span class="math notranslate nohighlight">\(k\)</span> und setzt jeweils für <span class="math notranslate nohighlight">\(x(k)\)</span> die Impulsfolge ein, so ergibt sich
+die Impulsantwort<a class="footnote-reference brackets" href="#id4" id="id2">2</a></p>
+<div class="math notranslate nohighlight">
+\[h(k) = [r_0 \,\, r_1 \,\, -r_2] \qquad \text{für} \qquad 0 \leq k \leq 2~~~.\]</div>
+<p>Das betrachtete System war ein FIR-System. Ganz allgemein ergibt sich für FIR-Systeme immer, dass <span class="math notranslate nohighlight">\(h(k) = b_k\)</span> ist.</p>
 <p>Für IIR-Systeme ist die Berechnung der Impulsantwort nicht so trivial.
 Betrachten wir das System</p>
 <div class="math notranslate nohighlight">
 \[
-y(k) = \alpha y(k-1) + \beta x(k).
+y(k) = \alpha y(k-1) + \beta x(k)~~~.
 \]</div>
 <p>Als Eingangssignal nutzen wir erneut <span class="math notranslate nohighlight">\(x(k)= \delta(k)\)</span>. Die Ausgangsfolge
-für alle <span class="math notranslate nohighlight">\(k\)</span> berechnet, ergibt</p>
+für alle <span class="math notranslate nohighlight">\(k\)</span> berechnet ergibt</p>
 <div class="math notranslate nohighlight">
 \[
 h(k) = [\beta \,\, \alpha \beta \,\,
-\alpha \alpha \beta \,\, \cdots \,\, \alpha^{k}\beta].
+\alpha \alpha \beta \,\, \cdots \,\, \alpha^{k}\beta]~~~.
 \]</div>
 <p>Die Impulsantwort endet nicht.</p>
 </div>
 <p>Für viele Probleme reicht es aber aus, die Impulsantwort nur so weit zu
 betrachten, wie sich noch signifikante Werte ergeben. Signifikant kann
-dabei zum Beispiel sein zu testen, ob die Werte von <span class="math notranslate nohighlight">\(h(k)\)</span> kleiner als
-der millionste Teil des maximalen Wertes von <span class="math notranslate nohighlight">\(h(k)\)</span> ist.</p>
+dabei zum Beispiel bedeuten, dass die Werte von <span class="math notranslate nohighlight">\(h(k)\)</span> größer als
+der millionste Teil des maximalen Wertes von <span class="math notranslate nohighlight">\(h(k)\)</span> sind.</p>
 <div class="attention admonition">
 <p class="admonition-title">Wichtig</p>
 <p>Die Impulsantwort eines Systems ist der Ausgang des Systems, wenn die Eingangsfolge die Delta-Impulsfolge ist. Die Impulsantwort beschreibt ein LTI-System vollständig</p>
-<p>Nicht-rekursive Systeme haben eine endliche Impulsantwort. Sie werden als FIR-Systeme bezeichnet.</p>
+<p>Nichtrekursive Systeme haben eine endliche Impulsantwort. Sie werden als FIR-Systeme bezeichnet.</p>
 </div>
-</div>
-</div>
-<div class="section" id="faltung-als-verknupfung-von-lti-systemen-und-signalen">
-<h3><span class="section-number">3.2.4. </span>Faltung als Verknüpfung von LTI-Systemen und Signalen<a class="headerlink" href="#faltung-als-verknupfung-von-lti-systemen-und-signalen" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="faltung-als-verknupfung-von-lti-systemen-und-signalen">
+<h3><span class="section-number">3.2.4. </span>Faltung als Verknüpfung von LTI-Systemen und Signalen<a class="headerlink" href="#faltung-als-verknupfung-von-lti-systemen-und-signalen" title="Permalink to this headline">#</a></h3>
 <p>Bisher haben wir nur gesehen, wie die Eingangssignale durch die
 Differenzengleichung zum Ausgangssignal werden. Es gibt aber eine
 allgemeinere Vorschrift, die direkt mit der Impulsantwort zusammen
 hängt.</p>
 <p>Zur Veranschaulichung wird zunächst ein einfaches Beispiel berechnet.
 Das Eingangssignal ist durch zwei Werte gegeben, wir nehmen an
-<span class="math notranslate nohighlight">\(x(0)= 0.5\)</span> und <span class="math notranslate nohighlight">\(x(1) = 1.5\)</span>. Das System ist durch <span class="math notranslate nohighlight">\(y(k) = -0.25x(k) + 0.5x(k-1)\)</span> definiert. Wie lautet die Ausgangssfolge? Man könnte jetzt einfach die verschiedenen
-Zeitpunkte <span class="math notranslate nohighlight">\(k\)</span> annehmen und das Ergebnis direkt hinschreiben. In
-Tabellenform wäre das Ergebnis:</p>
+<span class="math notranslate nohighlight">\(x(0)= 0{,}5\)</span> und <span class="math notranslate nohighlight">\(x(1) = 1{,}5\)</span>. Das System ist durch</p>
+<div class="math notranslate nohighlight">
+\[y(k) = -0{,}25x(k) + 0{,}5x(k-1)\]</div>
+<p>definiert. Wie lautet die Ausgangssfolge? Man könnte jetzt einfach die verschiedenen
+Zeitpunkte <span class="math notranslate nohighlight">\(k\)</span> annehmen und das Ergebnis direkt hinschreiben. In Tabellenform wäre das Ergebnis:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
@@ -814,11 +1070,11 @@ für alle <span class="math notranslate nohighlight">\(k\)</span> mit Hilfe der 
 <div class="math notranslate nohighlight">
 \[
 \label{eq:diracinput}
-    x(k) = 0.5 \delta(k) +  1.5 \delta(k-1)
+    x(k) = 0{,}5 \delta(k) +  1{,}5 \delta(k-1)
 \]</div>
 <p>vollständig beschreiben.</p>
 <p>Mit dem Gesetz der Linearität und dem Wissen der Impulsantwort
-<span class="math notranslate nohighlight">\(h(k) = [-0.25 \:\, 0.5]\)</span>, ergibt sich die Antwort für <span class="math notranslate nohighlight">\(y(k)\)</span> aus der
+<span class="math notranslate nohighlight">\(h(k) = [-0{,}25 \:\, 0{,}5]\)</span>, ergibt sich die Antwort für <span class="math notranslate nohighlight">\(y(k)\)</span> aus der
 Summe der gewichteten und verschobenen Impulsantworten, da jede der
 delta-Folgen die Impulsantwort als Systemantwort hervor ruft.</p>
 <p>Allgemeiner lässt sich sagen, jedes diskrete Eingangssignal lässt sich
@@ -830,8 +1086,8 @@ Superpositionsprinzip. Das Ausgangssignal eines LTI-Systems kann deshalb
 durch eine mit linearen Koeffizienten gewichtete Addition der zeitlich
 verschobenen Impulsantwort berechnet werden.</p>
 <p>Um dies zu veranschaulichen, ist in <a class="reference internal" href="#fig-faltungerklaerung"><span class="std std-numref">Abbildung 3.7</span></a> diese Zerlegung für ein Beispiel
-durchgeführt. Bild a) zeigt die Eingangssfolge <span class="math notranslate nohighlight">\(x(k) = [1\,\, 0.5
-\,\, 1]\)</span> , Bild b) das System <span class="math notranslate nohighlight">\(h = [0.5 \,\,\,  0.75 \; 1]\)</span>. Zerlegt man
+durchgeführt. Bild a) zeigt die Eingangssfolge <span class="math notranslate nohighlight">\(x(k) = [1\,\, 0{,}5
+\,\, 1]\)</span> , Bild b) das System <span class="math notranslate nohighlight">\(h = [0{,}5 \,\,\,  0{,}75 \; 1]\)</span>. Zerlegt man
 nun die Eingangsfolge in drei Einzelimpulse ergeben sich die drei Bilder
 c,e,g. Jeder dieser Einzelimpulse erzeugt eine verschobene und
 gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
@@ -877,45 +1133,45 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
 
 <span class="n">ax_input</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_input</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Inputsignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;a) Inputsignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="n">ax_system</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">system</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_system</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;System&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;b) System&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="n">ax_x0</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_x0</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Input bei x[0]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;c) Input bei x[0]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="n">y_x_0</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span>
 <span class="n">ax_yx0</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y_x_0</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_yx0</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Systemantwort für x[0]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;d) Systemantwort für x[0]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 
 <span class="n">ax_x1</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_x1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Input bei x[1]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;e) Input bei x[1]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="n">y_x_1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span>
 <span class="n">ax_yx1</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y_x_1</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_yx1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Systemantwort für x[1]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;f) Systemantwort für x[1]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 
 <span class="n">ax_x2</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_x2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Input bei x[2]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;g) Input bei x[2]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="n">y_x_2</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span>
 <span class="n">ax_yx2</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y_x_2</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_yx2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Systemantwort für x[2]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;h) Systemantwort für x[2]&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="n">conv_sum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span>
 <span class="n">ax_sum</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">conv_sum</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax_sum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Folgenindex k -&gt;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude x[k]&#39;</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Systemantwort für Inputsignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;i) Systemantwort für Inputsignal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">pyplot</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -927,12 +1183,14 @@ gewichtete Version der Impulsantwort (Bild d,f,h). Das Ausgangssignal
 </div>
 </div>
 </div>
-<div class="figure align-default" id="fig-faltungerklaerung" style="width: 90%">
+<figure class="align-default" id="fig-faltungerklaerung" style="width: 100%">
 <div class="cell_output docutils container">
 <img alt="_images/systeme_11_1.png" src="_images/systeme_11_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Einfache grafische Erklärung der Faltung.</span><a class="headerlink" href="#fig-faltungerklaerung" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Einfache grafische Erklärung der Faltung.</span><a class="headerlink" href="#fig-faltungerklaerung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Allgemein und mathematisch wird dies durch</p>
 <div class="math notranslate nohighlight">
 \[
@@ -946,8 +1204,8 @@ als Faltungsumme bezeichnet:</p>
     y(k) &amp;=&amp; \sum_{\kappa = -\infty}^{\infty} h(\kappa) x(k-\kappa)\\
         &amp; = &amp; h(k) \ast x(k)\end{aligned}
 \end{split}\]</div>
-<div class="section" id="eigenschaften-der-faltung">
-<h4><span class="section-number">3.2.4.1. </span>Eigenschaften der Faltung<a class="headerlink" href="#eigenschaften-der-faltung" title="Permalink to this headline">¶</a></h4>
+<section id="eigenschaften-der-faltung">
+<h4><span class="section-number">3.2.4.1. </span>Eigenschaften der Faltung<a class="headerlink" href="#eigenschaften-der-faltung" title="Permalink to this headline">#</a></h4>
 <p>Der Faltungsoperator (<span class="math notranslate nohighlight">\(\ast\)</span>) kann wie die Multiplikation aufgefasst
 werden. Es gelten die folgenden mathematische Gesetze:</p>
 <ul class="simple">
@@ -974,9 +1232,9 @@ werden. Es gelten die folgenden mathematische Gesetze:</p>
 \label{eq:FaltungDistrib}
        ( x(k) + y(k)) \ast h(k) =  x(k)\ast h(k) +  y(k) \ast h(k)
 \]</div>
-</div>
-<div class="section" id="grafische-faltung">
-<h4><span class="section-number">3.2.4.2. </span>grafische Faltung<a class="headerlink" href="#grafische-faltung" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="grafische-faltung">
+<h4><span class="section-number">3.2.4.2. </span>grafische Faltung<a class="headerlink" href="#grafische-faltung" title="Permalink to this headline">#</a></h4>
 <p>Die Berechnung des Faltungsproduktes lässt sich auch grafisch gut
 veranschaulichen. Dazu betrachten wir <a class="reference internal" href="#fig-faltungserklaerungcorel"><span class="std std-numref">Abbildung 3.8</span></a>. Die beiden zu faltenden Folgen
 <span class="math notranslate nohighlight">\(x(k)\)</span> und <span class="math notranslate nohighlight">\(h(k)\)</span> sind in a) gezeigt. Das Faltungsergebnis erhält man,
@@ -984,10 +1242,12 @@ wenn man eine der Folgen zeitlich spiegelt b), also an der y-Achse
 umklappt und diese Folge über das andere Signal schiebt c). Der Ausgang
 d) ergibt sich immer aus der Summe der sich überlappenden und
 miteinander multiplizierten Einzelimpulse der beiden Folgen.</p>
-<div class="figure align-default" id="fig-faltungserklaerungcorel">
-<a class="reference internal image-reference" href="_images/FaltungserklaerungCorel.png"><img alt="_images/FaltungserklaerungCorel.png" src="_images/FaltungserklaerungCorel.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Erklärung der grafischen Faltung.</span><a class="headerlink" href="#fig-faltungserklaerungcorel" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="fig-faltungserklaerungcorel">
+<a class="reference internal image-reference" href="_images/FaltungserklaerungCorel.png"><img alt="_images/FaltungserklaerungCorel.png" src="_images/FaltungserklaerungCorel.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Erklärung der grafischen Faltung.</span><a class="headerlink" href="#fig-faltungserklaerungcorel" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Die Länge der Ausgangsfolge ergibt sich aus der Addition der Länge der
 Eingangsfolge <span class="math notranslate nohighlight">\(M\)</span> und der Länge der Impulsantwort <span class="math notranslate nohighlight">\(K\)</span> zu</p>
 <div class="math notranslate nohighlight">
@@ -1005,10 +1265,10 @@ leicht zu sehen.</p>
 <dd><p>Die Impulsantwort wird hier in einer Vektorschreibweise eingeführt.</p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1032,54 +1292,48 @@ leicht zu sehen.</p>
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="signale.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">2. </span>Signale</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="signale.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Signale</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ztrafo.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>z-Transformation</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="ztrafo.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">4. </span>z-Transformation</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Joerg Bitzer<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joerg Bitzer<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

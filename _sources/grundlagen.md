@@ -14,7 +14,21 @@ kernelspec:
 ---
 # Einführung
 
-Ziel dieses Scripts ist, die Grundlagen der digitalen Signalverarbeitung (DSV) mit der dazugehörigen Beschreibung durch die Systemtheorie zu erläutern. Um den Zugang durch eigenes Ausprobieren zu erleichtern, sind für alle Abbildungen auch die produzierenden python codes eingebunden. Zusätzlich liegen oft interaktive Programme als Alternativen vor.
+Ziel dieses Skriptes ist es, die Grundlagen der digitalen Signalverarbeitung (DSV) mit der dazugehörigen Beschreibung durch die Systemtheorie zu erläutern. 
+
+{numref}`Kapitel %s  <sec:signale>` definiert den Begriff des Signals. Neben 
+Eigenschaften und verschiedenen Kategorien zur Klassifikation von Signalen, werden mathematischen Beschreibungen und Methoden zur Erzeugung von Signalen behandelt.  
+
+Die in {numref}`Kapitel %s  <sec:signale>` eingeführten Signale durchlaufen üblicherweise Übertragungsstrecken. Diese Systeme, deren Definition und Beschreibung,sind Gegenstand von {numref}`Kapitel %s  <sec:systeme>`.
+
+
+In {numref}`Kapitel %s  <sec:ztrafo>` werden mit der z-Transformation und dem Pol-Nullstellen-Diagram nützliche Werkzeuge zur Darstellung und Analyse von Systemen beschrieben.   
+
+
+{numref}`Kapitel %s  <sec:spektren>` erweitert die bisherige Darstellung von Signalen im Zeitbereich in den Frequenzbereich hinein. Es werden Verfahren zur Berechung dieser Spektren und die Eigenschaften verschiedener Zeitsignale im Frequenzbereich vorgestellt. 
+
+
+Filter erlauben das gezielte manipulieren von Signalen. Entsprechende Systeme werden in {numref}`Kapitel %s  <sec:filter>` vorgestellt. Neben den Eigenschaften verschiedener Filtertypen wird auch auf das Vorgehen beim Filterdesign eingegangen.
 
 
 ```{bibliography}

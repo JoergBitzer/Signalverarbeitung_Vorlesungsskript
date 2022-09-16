@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2. Signale &#8212; Signalverarbeitung 1</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,48 +20,64 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Systeme" href="systeme.html" />
     <link rel="prev" title="1. Einführung" href="grundlagen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -83,14 +102,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Zu diesem Jupyter-Buch
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Signalverarbeitung 1
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -129,110 +149,226 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="_sources/signale.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/signale.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fsignale.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/signale.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/signale.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fsignale.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/signale.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/signale.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#klassifikation">
    2.1. Klassifikation
@@ -298,8 +434,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#digitale-erzeugung-von-periodischen-grundisgnalen">
-     2.3.2. Digitale Erzeugung von periodischen Grundisgnalen
+    <a class="reference internal nav-link" href="#digitale-erzeugung-von-periodischen-grundsignalen">
+     2.3.2. Digitale Erzeugung von periodischen Grundsignalen
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -343,17 +479,143 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Signale</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#klassifikation">
+   2.1. Klassifikation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wertebereich">
+     2.1.1. Wertebereich
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitionsbereich">
+     2.1.2. Definitionsbereich
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kanalanzahl">
+     2.1.3. Kanalanzahl
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dimensionalitat">
+     2.1.4. Dimensionalität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zufalligkeit">
+     2.1.5. Zufälligkeit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#periodizitat">
+     2.1.6. Periodizität
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#digitalisierung-eine-erste-annaherung">
+   2.2. Digitalisierung: eine erste Annäherung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abtastung">
+     2.2.1. Abtastung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantisierung">
+     2.2.2. Quantisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determinierte-signale">
+   2.3. Determinierte Signale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#periodische-signale">
+     2.3.1. Periodische Signale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#digitale-erzeugung-von-periodischen-grundsignalen">
+     2.3.2. Digitale Erzeugung von periodischen Grundsignalen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#impulssignale">
+     2.3.3. Impulssignale
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stochastische-signale">
+   2.4. Stochastische Signale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weitere-eigenschaften-von-signalen">
+   2.5. Weitere Eigenschaften von Signalen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kausalitat">
+     2.5.1. Kausalität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#energie-und-leistung">
+     2.5.2. Energie und Leistung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeitliche-verschiebung">
+     2.5.3. Zeitliche Verschiebung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darstellung-diskreter-signale-als-delta-impulsfolgen">
+     2.5.4. Darstellung diskreter Signale als Delta-Impulsfolgen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="signale">
-<h1><span class="section-number">2. </span>Signale<a class="headerlink" href="#signale" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="signale">
+<span id="sec-signale"></span><h1><span class="section-number">2. </span>Signale<a class="headerlink" href="#signale" title="Permalink to this headline">#</a></h1>
 <p>Zum Verständnis der Signalverarbeitung ist es notwendig eine
 mathematische Beschreibung von Signalen zu entwickeln.
 Da Signale sehr unterschiedlicher Natur sein können, ist zur Beschreibung eine grobe
@@ -422,19 +684,21 @@ Beispiele natürliche Signale hearngezogen werden:</p>
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-sprachsignal" style="width: 75%">
+<figure class="align-default" id="plt-sprachsignal" style="width: 100%">
 <div class="cell_output docutils container">
 <img alt="_images/signale_1_1.png" src="_images/signale_1_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Typischer Amplitudenverlauf über der Zeit eines Sprachsignals.</span><a class="headerlink" href="#plt-sprachsignal" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Typischer Amplitudenverlauf über der Zeit eines Sprachsignals.</span><a class="headerlink" href="#plt-sprachsignal" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>Musik: Die vergnügliche Schwester der Sprache</p></li>
 <li><p>EKG und EEG- Signale: Vielkanalig und in vielen Forschungsbereichen eingesetzt</p></li>
-<li><p>Vitaldaten (Puls, Blutdruck): Für die persönliche Optimierung oder der medzinischen Diagnose</p></li>
+<li><p>Vitaldaten (Puls, Blutdruck): Für die persönliche Optimierung oder der medizinischen Diagnose</p></li>
 <li><p>Bilder / Videos: Eine andere wichtige Modalität der Kommunikation</p></li>
 </ul>
-<p>Aber auch aus völlig anderen Bereichen, lasen sich bestimmte
+<p>Aber auch aus völlig anderen Bereichen, lassen sich bestimmte
 Größen als Signale interpretieren:</p>
 <ul class="simple">
 <li><p>DAX-Abschlusskurse</p></li>
@@ -477,12 +741,11 @@ Größen als Signale interpretieren:</p>
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-daxkurs" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_3_0.png" src="_images/signale_3_0.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Verlauf des DAX Abschlusskurses über mehrere Tage.</span><a class="headerlink" href="#plt-daxkurs" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-daxkurs" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Verlauf des DAX Abschlusskurses über mehrere Tage.</span><a class="headerlink" href="#plt-daxkurs" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>Verkehrsampelsignale</p></li>
 </ul>
@@ -535,29 +798,28 @@ Größen als Signale interpretieren:</p>
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="411094e9-e56b-4313-a344-995c969cd204" name="699dcf49-c37d-4a72-8732-bceffe5b6552" type="radio">
-</input><label class="tabbed-label" for="411094e9-e56b-4313-a344-995c969cd204">
-Buchabbildung</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="plt-verkehrsampel" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_5_1.png" src="_images/signale_5_1.png" />
+<div class="sd-tab-set docutils">
+<input checked="checked" id="872a0d8a-80fe-45fa-899e-e748bc08aea7" name="48604363-b1ff-4c56-ba14-0da7ef373301" type="radio">
+</input><label class="sd-tab-label" for="872a0d8a-80fe-45fa-899e-e748bc08aea7">
+Buchabbildung</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="plt-verkehrsampel" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Ampelsignal im normalen Betrieb.</span><a class="headerlink" href="#plt-verkehrsampel" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
-<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Ampelsignal im normalen Betrieb.</span><a class="headerlink" href="#plt-verkehrsampel" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input id="14f5c644-7abe-498e-a100-514798415228" name="699dcf49-c37d-4a72-8732-bceffe5b6552" type="radio">
-</input><label class="tabbed-label" for="14f5c644-7abe-498e-a100-514798415228">
-Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<input id="afd6be8c-69bc-4ae8-b8b5-16f07fe309c8" name="48604363-b1ff-4c56-ba14-0da7ef373301" type="radio">
+</input><label class="sd-tab-label" for="afd6be8c-69bc-4ae8-b8b5-16f07fe309c8">
+Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “Signale_Ampel.py” in jupyterbook/code/interactive_programs</p></li>
-<li><p>Mit den Radiobuttons das Signal ändern.</p></li>
+<li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Ampel.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code>.</p></li>
+<li><p>Steuerung des Signals über die Radiobuttons.</p></li>
 </ol>
 </div>
 </div>
 <p>Mehr technischer Natur sind z.B:</p>
 <ul class="simple">
-<li><p>Das optische Signal, dass ein CD-Player von der CD liest</p></li>
+<li><p>Das optische Signal, dass ein CD-Player von der CD liest.</p></li>
 <li><p>Das Signal, dass ein Pulsmessgerät ausgibt.</p></li>
 </ul>
 <p>Als Gemeinsamkeiten fallen auf, dass die jeweiligen Signale meistens eine
@@ -573,26 +835,25 @@ eine bestimmte Information enthalten.</p>
 <p class="admonition-title">Wichtig</p>
 <p>Signale sind Funktionen oder Wertfolgen, die Informationen repräsentieren.</p>
 </div>
-<div class="section" id="klassifikation">
-<h2><span class="section-number">2.1. </span>Klassifikation<a class="headerlink" href="#klassifikation" title="Permalink to this headline">¶</a></h2>
+<section id="klassifikation">
+<h2><span class="section-number">2.1. </span>Klassifikation<a class="headerlink" href="#klassifikation" title="Permalink to this headline">#</a></h2>
 <p>Die Unterschiedlichkeiten der Signale wirft die Frage auf, ob es Gemeinsamkeiten zwischen verschiedenen Signalen gibt und wie diese Gemeinsamkeiten zu bezeichnen sind. Dies kann grob als eine Art Klassifikation der
 Signale betrachtet werden.</p>
-<div class="section" id="wertebereich">
-<h3><span class="section-number">2.1.1. </span>Wertebereich<a class="headerlink" href="#wertebereich" title="Permalink to this headline">¶</a></h3>
+<section id="wertebereich">
+<h3><span class="section-number">2.1.1. </span>Wertebereich<a class="headerlink" href="#wertebereich" title="Permalink to this headline">#</a></h3>
 <p>Eine erste Unterteilung ist möglich, indem der Wertebereich der unterschiedlichen
 Signale untersucht wird. Es fällt auf, dass ein Teil der Signale keinerlei Grenzen
-in der Auflösung haben, so ist bei natürlich gesprochener Sprache, jeder Schalldruck
-innerhalb der physikalischen Grenzen
-möglich. Im Gegensatz dazu nimmt eine Ampel im Normalbetrieb nur vier Zustände an.</p>
+in der Auflösung hat. So ist bei natürlich gesprochener Sprache jeder Schalldruck
+innerhalb der physikalischen Grenzen möglich. Im Gegensatz dazu nimmt eine Ampel im Normalbetrieb nur vier Zustände an.</p>
 <p>Dies führt zu der Kategorie Wertebereich, die in die beiden Klassen</p>
 <div class="attention admonition">
 <p class="admonition-title">Wichtig</p>
 <p>wertkontinuierlich vs. wertdiskret</p>
 </div>
 <p>unterteilt werden kann.</p>
-</div>
-<div class="section" id="definitionsbereich">
-<h3><span class="section-number">2.1.2. </span>Definitionsbereich<a class="headerlink" href="#definitionsbereich" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="definitionsbereich">
+<h3><span class="section-number">2.1.2. </span>Definitionsbereich<a class="headerlink" href="#definitionsbereich" title="Permalink to this headline">#</a></h3>
 <p>Eine weitere sehr wichtige Unterteilung ist der Definitionsbereich. Für Signale
 ist dies die Frage der Gültigkeit eines Signals. Beim natürlichen Sprachsignal ist die Gültigkeit
 immer gegeben. Ein Gegenbeispiel ist der DAX-Abschlusskurs, der immer nur
@@ -676,16 +937,15 @@ Wertebereich und Definitionsbereich ergeben.</p>
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-wertzeit" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_8_1.png" src="_images/signale_8_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Die vier Kombinationsmöglichkeiten für wert- oder zeitkontinuierliche bzw.
-wert- oder zeitdiskrete Signale.</span><a class="headerlink" href="#plt-wertzeit" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="kanalanzahl">
-<h3><span class="section-number">2.1.3. </span>Kanalanzahl<a class="headerlink" href="#kanalanzahl" title="Permalink to this headline">¶</a></h3>
+<figure class="align-default" id="plt-wertzeit" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Die vier Kombinationsmöglichkeiten für wert- oder zeitkontinuierliche bzw.
+wert- oder zeitdiskrete Signale.</span><a class="headerlink" href="#plt-wertzeit" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="kanalanzahl">
+<h3><span class="section-number">2.1.3. </span>Kanalanzahl<a class="headerlink" href="#kanalanzahl" title="Permalink to this headline">#</a></h3>
 <p>Betrachtet man die genannten Beispiele, so fällt zumindest bei Musikaufnahmen auf, dass
 das Ausgabesignal zweikanalig ist, um die Stereophonie zu erhalten. Andere Signale
 sind dagegen einkanalig. Ein weiteres Unterscheidungsmerkmal ist also:</p>
@@ -705,23 +965,23 @@ getrennt betrachtet.</p>
 <p class="admonition-title">Wichtig</p>
 <p>reellwertig vs. komplexwertig</p>
 </div>
-</div>
-<div class="section" id="dimensionalitat">
-<h3><span class="section-number">2.1.4. </span>Dimensionalität<a class="headerlink" href="#dimensionalitat" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="dimensionalitat">
+<h3><span class="section-number">2.1.4. </span>Dimensionalität<a class="headerlink" href="#dimensionalitat" title="Permalink to this headline">#</a></h3>
 <p>Vor der allgemeinen Definition von Signalen wurde von abhängigen und unabhängigen Größen gesprochen.
 Nimmt man ein Bild als spezielles Signal bestehen zwischen der x-Achse und der y-Achse
 keine Abhängigkeiten. Es liegen zwei unabhängige Größen vor, die ein Signal darstellen.
 In diesem Zusammenhang spricht man von Mehrdimensionalität. Die Mehrdimensionalität
 wird mathematisch durch die Anzahl der Größen in den Abhängigkeitsklammern ausgedrückt.
-Für ein zweidimensionales Bild zum Beispiel durch <span class="math notranslate nohighlight">\(B(x,y)\)</span></p>
+Für ein zweidimensionales Bild zum Beispiel durch <span class="math notranslate nohighlight">\(B(x,y)\)</span>.</p>
 <p>Die Klassifikation lautet also:</p>
 <div class="attention admonition">
 <p class="admonition-title">Wichtig</p>
 <p>eindimensional vs. mehrdimensional</p>
 </div>
-</div>
-<div class="section" id="zufalligkeit">
-<h3><span class="section-number">2.1.5. </span>Zufälligkeit<a class="headerlink" href="#zufalligkeit" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="zufalligkeit">
+<h3><span class="section-number">2.1.5. </span>Zufälligkeit<a class="headerlink" href="#zufalligkeit" title="Permalink to this headline">#</a></h3>
 <p>Betrachtet man die oben angenommenen Beispiele, so ist bei den meisten
 Beispielen nicht genau bekannt, wie das Signal aussehen wird. Die
 Signale sind in den meisten Fällen näherungsweise zufällig. Man
@@ -733,9 +993,9 @@ absolut vorhersagbar.</p>
 <p class="admonition-title">Wichtig</p>
 <p>stochastisch vs. determiniert</p>
 </div>
-</div>
-<div class="section" id="periodizitat">
-<h3><span class="section-number">2.1.6. </span>Periodizität<a class="headerlink" href="#periodizitat" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="periodizitat">
+<h3><span class="section-number">2.1.6. </span>Periodizität<a class="headerlink" href="#periodizitat" title="Permalink to this headline">#</a></h3>
 <p>Bei determinierten Signalen kann eine weitere Unterscheidung vorgenommen werden,
 in dem überprüft wird, ob sich das Signal in einem bestimmten Zeitraum <span class="math notranslate nohighlight">\(\tau\)</span>
 regelmäßig wiederholt.</p>
@@ -744,7 +1004,7 @@ regelmäßig wiederholt.</p>
   x(t) = x(t+n\tau) \quad \text{mit} \quad n\in \mathbb{Z}~~~\text{,}
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span> die Menge der ganzen Zahlen darstellt (<span class="math notranslate nohighlight">\(\cdots,-3,-2,-1,0,1,2,3,\cdots\)</span>).
-Ein Beispiel hierfür ist das Ampelsignal, dass periodisch ist.</p>
+Ein Beispiel hierfür ist das periodische Ampelsignal.</p>
 <p>Es ergibt sich die Unterscheidung:</p>
 <div class="attention admonition">
 <p class="admonition-title">Wichtig</p>
@@ -754,14 +1014,12 @@ Ein Beispiel hierfür ist das Ampelsignal, dass periodisch ist.</p>
 <p class="admonition-title">Wichtig</p>
 <p>Alle periodische Signale sind determiniert.</p>
 </div>
-</div>
-</div>
-<div class="section" id="digitalisierung-eine-erste-annaherung">
-<h2><span class="section-number">2.2. </span>Digitalisierung: eine erste Annäherung<a class="headerlink" href="#digitalisierung-eine-erste-annaherung" title="Permalink to this headline">¶</a></h2>
-<p>Die meisten natürlichen Signale, insbesondere die für das Hören wichtigen Signale, Sprache und
-Musik sind analoge Signale und müssen zunächst digitalisiert werden.
-Dazu sind zwei Schritte notwendig. Die Umwandlung zeitkontinuierlicher Signale in zeitdiskrete, sowie
-die Umwandlung des unendlich fein aufgelösten Wertebereichs in einen beschränkten diskreten Wertebereich.</p>
+</section>
+</section>
+<section id="digitalisierung-eine-erste-annaherung">
+<h2><span class="section-number">2.2. </span>Digitalisierung: eine erste Annäherung<a class="headerlink" href="#digitalisierung-eine-erste-annaherung" title="Permalink to this headline">#</a></h2>
+<p>Die meisten natürlichen Signale, insbesondere die für das Hören wichtigen Signale Sprache und Musik, sind analoge Signale und müssen zunächst digitalisiert werden.
+Dazu sind zwei Schritte notwendig. Die Umwandlung zeitkontinuierlicher Signale in zeitdiskrete, sowie die Umwandlung des unendlich fein aufgelösten Wertebereichs in einen beschränkten diskreten Wertebereich.</p>
 <p>Diese beiden Teilaufgaben werden</p>
 <ul class="simple">
 <li><p>Abtastung (<em>Sampling</em>) und</p></li>
@@ -769,18 +1027,20 @@ die Umwandlung des unendlich fein aufgelösten Wertebereichs in einen beschränk
 </ul>
 <p>genannt.</p>
 <p>Es folgt zunächst nur eine pragmatische Betrachtungen. Die theoretischen
-Hintergründe können erst nach der Einführung weiterer Analysekonzeote erläutert werden.</p>
-<div class="section" id="abtastung">
-<span id="sec-abtastung"></span><h3><span class="section-number">2.2.1. </span>Abtastung<a class="headerlink" href="#abtastung" title="Permalink to this headline">¶</a></h3>
+Hintergründe können erst nach der Einführung weiterer Analysekonzepte erläutert werden.</p>
+<section id="abtastung">
+<span id="sec-abtastung"></span><h3><span class="section-number">2.2.1. </span>Abtastung<a class="headerlink" href="#abtastung" title="Permalink to this headline">#</a></h3>
 <p>Bei der Abtastung wird das zeitkontinuierliche Signal in ein zeitdiskretes Signal
 umgewandelt. Dies geschieht dadurch, dass aus dem kontinuierlichen Signal
 zu bestimmten Zeiten Proben (<em>Samples</em>) entnommen werden. Man kann sich dies
 als eine Art Schalter vorstellen, der immer nur für einen kurzen Zeitpunkt das Signal
 durchlässt (siehe <a class="reference internal" href="#fig-signalflussabtastung"><span class="std std-numref">Abbildung 2.5</span></a>)</p>
-<div class="figure align-default" id="fig-signalflussabtastung">
+<figure class="align-default" id="fig-signalflussabtastung">
 <a class="reference internal image-reference" href="_images/Signalfluss.png"><img alt="_images/Signalfluss.png" src="_images/Signalfluss.png" style="height: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Signalfluss zur Digitalisierung eines analogen Signals.</span><a class="headerlink" href="#fig-signalflussabtastung" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Signalfluss zur Digitalisierung eines analogen Signals.</span><a class="headerlink" href="#fig-signalflussabtastung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In der DSV geht man in den meisten Fällen implizit davon aus, dass
 diese Abtastung in einem regelmäßigen Interval
 erfolgt, dass bei Zeitsignalen Abtastinterval <span class="math notranslate nohighlight">\(T\)</span> genannt wird (bei Bildern ist dies die Pixel-Auflösung).</p>
@@ -794,17 +1054,18 @@ ist der Kehrwert zum Abtastinterval</p>
 \[
     f_\text{s} = \frac{1}{T}
 \]</div>
-<p>und wird in Hertz (Hz) also <span class="math notranslate nohighlight">\(1/\text{s}\)</span> angegeben.</p>
-<p>Die Frage lautet nun, mit welcher Frequenz muss ein Signal abgetastet werden, damit
-die digitale Repräsentation dem analogen Original entspricht. Insbesondere,wenn man abschließend
-das digitale Signal wieder in ein analoges Signal zurück wandeln will, ist die Frage: Welche Frequenz
-ist notwendig um eine vollständige Rekonstruktion, also eine verlustlose Diskretisierung,
-zu erreichen.</p>
+<p>und wird in Hertz (Hz), also <span class="math notranslate nohighlight">\(1/\text{s}\)</span> angegeben.</p>
+<p>Die Frage lautet nun, mit welcher Frequenz ein Signal abgetastet werden muss, damit
+die digitale Repräsentation dem analogen Original entspricht. Insbesondere, wenn man abschließend das digitale Signal wieder in ein analoges Signal zurück wandeln will, ist die Frage:</p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Welche Abtastfrequenz ist notwendig um eine vollständige Rekonstruktion, also eine verlustlose Diskretisierung eines Signals, zu erreichen.</p>
+</div>
 <p>Um dies zu veranschaulichen, sind in der <a class="reference internal" href="#plt-abtastungerklaerung2"><span class="std std-numref">Abbildung 2.6</span></a>
 verschiedene Sinustöne gezeigt, die bei gleichbleibender Abtastrate abgetastet werden. Es wird deutlich dass, sehr tiefe Frequenzen besonders gut dargestellt werden (a), je höher die Frequenzen werden, desto weniger Abtastwerte
-repräsentieren die analoge Funktion (b,c). Ist die Frequenz des Sinus genau halb so hoch kann die Funktion gar nicht mehr erkannt werden, da sich eine Konstante ergibt (d).
-Erhöht man die Frequenz des Sinus noch weiter entsprechen die Abtastwerte genau den
-Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (f) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird <strong>Aliasing</strong> genannt.</p>
+repräsentieren die analoge Funktion (b,c).<br />
+Ist die Frequenz des Sinus genau halb so hoch kann die Funktion gar nicht mehr erkannt werden, da sich eine Konstante ergibt (d).<br />
+Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte genau den Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (f) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird <strong>Aliasing</strong> genannt.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -959,35 +1220,34 @@ Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebe
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="5688bb0a-0763-4cf8-8bdd-a6568b6e680f" name="35cdbacc-f86d-46c7-baed-04c9337e2d0a" type="radio">
-</input><label class="tabbed-label" for="5688bb0a-0763-4cf8-8bdd-a6568b6e680f">
-Buchabbildung</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="plt-abtastungerklaerung2" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_11_1.png" src="_images/signale_11_1.png" />
+<div class="sd-tab-set docutils">
+<input checked="checked" id="a823a8ed-3a79-4f4f-8b57-b620b1402dd2" name="5b4a4fdf-f34e-4990-917b-a5826146eed1" type="radio">
+</input><label class="sd-tab-label" for="a823a8ed-3a79-4f4f-8b57-b620b1402dd2">
+Buchabbildung</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="plt-abtastungerklaerung2" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Sinusabtastung mit unterschiedlichen Abtastfrequenzen.</span><a class="headerlink" href="#plt-abtastungerklaerung2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
-<p class="caption"><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Sinusabtastung mit unterschiedlichen Abtastfrequenzen.</span><a class="headerlink" href="#plt-abtastungerklaerung2" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input id="3826cb0a-fec8-49ea-9d67-b2506aa003c1" name="35cdbacc-f86d-46c7-baed-04c9337e2d0a" type="radio">
-</input><label class="tabbed-label" for="3826cb0a-fec8-49ea-9d67-b2506aa003c1">
-Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<input id="70f94839-3895-492d-8587-3ae6e24fc8c0" name="5b4a4fdf-f34e-4990-917b-a5826146eed1" type="radio">
+</input><label class="sd-tab-label" for="70f94839-3895-492d-8587-3ae6e24fc8c0">
+Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “Signale_Abtastung_Sinusfrequenz_einstellen.py” in jupyterbook/code/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Abtastung_Sinusfrequenz_einstellen.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code>.</p></li>
 <li><p>Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.</p></li>
-<li><p>Fragen die es zu klären gibt, bzw. Sachen die auffallen.</p>
+<li><p>Fragen die es zu klären gibt, bzw. Dinge die auffallen:</p>
 <ul class="simple">
 <li><p>Warum entsteht bei 500 Hz eine Nullfolge?</p></li>
-<li><p>Warum ist die Folge bei 200 Hz exakt die gleiche, wie bei 1200 Hz (2200 Hz) (800Hz, 1800Hz, 2800Hz)?</p></li>
-<li><p>Welche Ähnlichkeiten erkennt man bei 200 Hz und 800 Hz</p></li>
+<li><p>Warum ist die Folge bei 200 Hz exakt die gleiche, wie bei 1200 Hz (2200 Hz) (800 Hz, 1800 Hz, 2800 Hz)?</p></li>
+<li><p>Welche Ähnlichkeiten erkennt man bei 200 Hz und 800 Hz?</p></li>
 </ul>
 </li>
-<li><p>Abschließend mit dem Slider in der Nähe von 0 Hz, der halben Abtastrate und der Abtastrate experimentieren und sehen, welche Efekkte sich ergeben.</p></li>
+<li><p>Abschließend mit dem Slider in der Nähe von 0 Hz, der halben Abtastrate und der Abtastrate experimentieren und sehen, welche Effekte sich ergeben.</p></li>
 </ol>
 <div class="attention admonition">
 <p class="admonition-title">Erkenntnis</p>
-<p>Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 200 Hz) bis zur halben Abtastfrequenz sind gespiegelt zu finden, wenn die Frequenz von der Abtastfrequenz subtrahiert wird (z.B. 1000Hz-200Hz = 800Hz).</p>
+<p>Alle Frequenzen wiederholen sich nach der Abtastfrequnz. Alle Frequenzen (z.B. 200 Hz) bis zur halben Abtastfrequenz sind gespiegelt zu finden, wenn die Frequenz von der Abtastfrequenz subtrahiert wird (z.B. 1000 Hz-200 Hz = 800 Hz).</p>
 </div>
 </div>
 </div>
@@ -1158,50 +1418,45 @@ Interaktiv arbeiten</label><div class="tabbed-content docutils">
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="5e78b3f9-ff2a-404b-9e1f-ba65c9c76102" name="e40036b1-df2d-4ba0-92c4-6581188ef2e9" type="radio">
-</input><label class="tabbed-label" for="5e78b3f9-ff2a-404b-9e1f-ba65c9c76102">
-Buchabbildung</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="plt-abtastungerklaerung3" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_13_1.png" src="_images/signale_13_1.png" />
+<div class="sd-tab-set docutils">
+<input checked="checked" id="495c90d5-bd41-4785-8242-ae26f35b3bbe" name="1c9dad18-7531-42c5-80f6-fcfe44d0943a" type="radio">
+</input><label class="sd-tab-label" for="495c90d5-bd41-4785-8242-ae26f35b3bbe">
+Buchabbildung</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="plt-abtastungerklaerung3" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.7 </span><span class="caption-text">Sinusabtastung mit unterschiedlichen Abtastfrequenzen.</span><a class="headerlink" href="#plt-abtastungerklaerung3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
-<p class="caption"><span class="caption-number">Fig. 2.7 </span><span class="caption-text">Sinusabtastung mit unterschiedlichen Abtastfrequenzen.</span><a class="headerlink" href="#plt-abtastungerklaerung3" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input id="6d702f4c-206a-4b57-ac41-c7a27095166a" name="e40036b1-df2d-4ba0-92c4-6581188ef2e9" type="radio">
-</input><label class="tabbed-label" for="6d702f4c-206a-4b57-ac41-c7a27095166a">
-Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<input id="be75c9de-ac4a-412d-bd25-5c1481f35ad8" name="1c9dad18-7531-42c5-80f6-fcfe44d0943a" type="radio">
+</input><label class="sd-tab-label" for="be75c9de-ac4a-412d-bd25-5c1481f35ad8">
+Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - - “Signale_Abtastfrequenz_einstellen.py” in jupyterbook/code/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Abtastfrequenz_einstellen.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs</span></code>.</p></li>
 <li><p>Mit den Radiobuttons die 5 Beispielfrequenzen ansehen.</p></li>
-<li><p>Fragen die es zu klären gibt, bzw. Sachen die auffallen.</p>
+<li><p>Fragen die es zu klären gibt, bzw. Dinge die auffallen:</p>
 <ul class="simple">
 <li><p>Wie viele Abtastwerte repräsentieren eine Sinusschwingung?</p></li>
 <li><p>Ab welcher Frequenz ist keine Repräsentation mehr möglich?</p></li>
 </ul>
 </li>
-<li><p>Abschließend mit dem Slider in der Nähe von 100 Hz, 200 Hz und 1000Hz gehen und sehen, welche Effekte sich ergeben.</p></li>
+<li><p>Abschließend mit dem Slider in der Nähe von 100 Hz, 200 Hz und 1000 Hz gehen und sehen, welche Effekte sich ergeben.</p></li>
 </ol>
 <div class="attention admonition">
 <p class="admonition-title">Erkenntnis</p>
-<p>Erst oberhalb der doppelten Abtastfrequenz ist eine Repräsenstation möglich.</p>
+<p>Erst oberhalb der doppelten Abtastfrequenz ist eine korrekte Repräsenstation möglich.</p>
 </div>
 </div>
 </div>
-<p>Man kann das Problem aber auch andersherum darstellen. Die Frequenz des Sinus bleibt
-gleichbleibend, aber die Abtastrate wird verändert.
+<p>Man kann das Problem aber auch andersherum darstellen. Die Frequenz des Sinus bleibt gleichbleibend, aber die Abtastrate wird verändert.
 Dies ist in <a class="reference internal" href="#plt-abtastungerklaerung3"><span class="std std-numref">Abbildung 2.7</span></a> gezeigt. Ist die
 Abtastrate sehr hoch, kann die Sinusfunktion sehr gut repräsentiert
-werden (a). Reduziert man die Abtastfrequenz wird die Anzahl der Samples
-die den Sinus repräsentieren immer geringer (b,c). Ist die Abtastfrequenz
-genau doppelt so hoch, wie die Frequenz des Sinus, entsteht für diese
-Phasenlage ein Nullsignal (d). Es ist also keine Aussage über das Signal mehr möglich.
-Verringert man die Frequenz weiter, repräsentieren die Abtastpunkten nicht mehr die originale Sinusfunktion.</p>
-<p>Um also eine perfekte und eindeutige
-Rekonstruktion zu ermöglichen, ist es notwendig, mit wenigstens der doppelten
-Frequenz der höchsten im Signal vorkommenden Frequenz abzutasten. Da viele natürliche Signale
-keine obere Frequenz haben oder diese so hoch liegt, dass die Abtastung nicht mehr
+werden (a).<br />
+Reduziert man die Abtastfrequenz wird die Anzahl der Samples
+die den Sinus repräsentieren immer geringer (b,c).<br />
+Ist die Abtastfrequenz genau doppelt so hoch, wie die Frequenz des Sinus, entsteht für diese Phasenlage ein Nullsignal (d). Es ist also keine Aussage über das Signal mehr möglich.<br />
+Verringert man die Frequenz weiter, repräsentieren die Abtastpunkte nicht mehr die originale Sinusfunktion.</p>
+<p>Um also eine perfekte und eindeutige Rekonstruktion zu ermöglichen, ist es notwendig, mit wenigstens der doppelten Frequenz der höchsten im Signal vorkommenden Frequenz abzutasten. Da viele natürliche Signale keine obere Frequenz haben oder diese so hoch liegt, dass die Abtastung nicht mehr
 technisch realisiert werden kann, wird das Eingangssignal einer Abtasteinheit
 nach oben begrenzt. Es werden also alle Frequenzen ab einer bestimmten Frequenz aus dem Signal entnommen.
 Das verwendete Filter wird als Tiefpass-Filter bezeichnet, da es alle tiefen Frequenzen passieren lässt.</p>
@@ -1229,30 +1484,31 @@ nicht verwirren durch andere Bezeichnungen. In der englischsprachigen Literatur 
 <span class="math notranslate nohighlight">\(n\)</span> als Zeitindex verwendet.
 Eine typisches Zeitsignal <span class="math notranslate nohighlight">\(x(t)\)</span> wird also nach der Abtastung zu <span class="math notranslate nohighlight">\(x(k)\)</span>, wobei
 dies eine Abkürzung für <span class="math notranslate nohighlight">\(x(kT)\)</span> ist.</p>
-</div>
-<div class="section" id="quantisierung">
-<span id="sec-quantisierung"></span><h3><span class="section-number">2.2.2. </span>Quantisierung<a class="headerlink" href="#quantisierung" title="Permalink to this headline">¶</a></h3>
-<p>Der zweite wesentliche Schritt ein digitales Signal zu bekommen ist, die zeitdiskreten Werte
+</section>
+<section id="quantisierung">
+<span id="sec-quantisierung"></span><h3><span class="section-number">2.2.2. </span>Quantisierung<a class="headerlink" href="#quantisierung" title="Permalink to this headline">#</a></h3>
+<p>Der zweite notwendige Schritt zu einem digitale Signal, ist die zeitdiskreten Werte
 zusätzlich im Wertebereich zu diskretisieren.
 Dazu ist es notwendig, eine bestimmte Auflösung und einen bestimmten abzudeckenden Wertebereich festzulegen.
-Da wir die Signale digital speichern ist die Auflösung immer in 2er Potenzen angegeben, da
-jedes weitere Bit die möglichen Wertestufen um den Faktor 2 erhöht.
-Übliche Auflösungen sind 8Bit = 1 Byte, 16Bit = 1 Word oder 32Bit = 1 Long Word.
-Damit sind dann 256, 65536 oder <span class="math notranslate nohighlight">\(2^{32}\)</span> verschiedene Werte darstellbar.</p>
+Da wir die Signale digital speichern ist die Auflösung immer in 2er Potenzen angegeben.
+Jedes weitere Bit erhöht die möglichen Wertestufen um den Faktor 2.
+Übliche Auflösungen sind 8 Bit = 1 Byte, 16 Bit = 1 Word oder 32 Bit = 1 Long Word.
+Damit sind dann <span class="math notranslate nohighlight">\(2^{8} =\)</span> 256, <span class="math notranslate nohighlight">\(2^{16} =\)</span> 65536 oder <span class="math notranslate nohighlight">\(2^{32}\)</span> verschiedene Werte darstellbar.</p>
 <p>Zusätzlich muss der Wertebereich nach oben und unten begrenzt sein, da der Wertebereich
-von <span class="math notranslate nohighlight">\(-\infty  \cdots +\infty\)</span> sonst nicht durch eine begrenzte Anzahl an Stufen aufzulösen ist,
+von <span class="math notranslate nohighlight">\(-\infty  \cdots +\infty\)</span> nicht durch eine begrenzte Anzahl an Stufen aufzulösen ist,
 wenn alle Wertestufen den gleichen Abstand haben sollen.</p>
-<p>Die eigentliche Werteumwandlung lässt sich am einfachsten anhand von Abbildung
-<a class="reference internal" href="#pic-quantisierer"><span class="std std-numref">Abbildung 2.8</span></a> zeigen. Auf der x-Achse ist der analoge wertkontinuierliche Eingang
-aufgetragen und auf der y-Achse der Ausgang des Diskretisierers, im weiteren Quantisierer
-genannt.</p>
-<div class="figure align-default" id="pic-quantisierer">
+<p>Die eigentliche Werteumwandlung lässt sich am einfachsten anhand von
+<a class="reference internal" href="#pic-quantisierer"><span class="std std-numref">Abbildung 2.8</span></a> zeigen. Auf der x-Achse ist der analoge, wertkontinuierliche Eingang
+aufgetragen und auf der y-Achse der Ausgang des Diskretisierers, im weiteren Quantisierer genannt.</p>
+<figure class="align-default" id="pic-quantisierer">
 <a class="reference internal image-reference" href="_images/Quantisierer.png"><img alt="_images/Quantisierer.png" src="_images/Quantisierer.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Einfache Quantisierungskennlinie.</span><a class="headerlink" href="#pic-quantisierer" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Einfache Quantisierungskennlinie.</span><a class="headerlink" href="#pic-quantisierer" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Diese stufenförmige Funktion wird Quantisierungskennlinie genannt und kann unterschiedlich
-aufgebaut sein. In den meisten Fällen sind die Wertestufen alle gleich hoch, man spricht in diesem Fall auch von einer linearen Quantisierung (Wir werden auf den Begriff der Linearität noch kommen und diesen Begriff an dieser Stelle hinterfragen).
-Es gibt aber auch andere Kennlinien, die eine hohe Auflösung im Bereich um Null und bei großen Eingangswerten eine geringere Auflösung besitzen (Beispiel siehe <a class="reference internal" href="#plt-nonlinearquant"><span class="std std-numref">Abbildung 2.9</span></a>).</p>
+aufgebaut sein. In den meisten Fällen sind alle Wertestufen gleich hoch. Man spricht in diesem Fall auch von einer linearen Quantisierung. (Wir werden auf den Begriff der Linearität später noch kommen und diesen Begriff hinterfragen.)<br />
+Es gibt aber auch andere Kennlinien, die beispielsweise eine hohe Auflösung im Bereich um Null und bei großen Eingangswerten eine geringere Auflösung besitzen (siehe <a class="reference internal" href="#plt-nonlinearquant"><span class="std std-numref">Abbildung 2.9</span></a>).</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -1303,12 +1559,11 @@ Es gibt aber auch andere Kennlinien, die eine hohe Auflösung im Bereich um Null
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-nonlinearquant" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_20_1.png" src="_images/signale_20_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Beispiel einer nichtlinearen Quantisierungskennlinie.</span><a class="headerlink" href="#plt-nonlinearquant" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-nonlinearquant" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Beispiel einer nichtlinearen Quantisierungskennlinie.</span><a class="headerlink" href="#plt-nonlinearquant" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Ein Beispiel hierfür benutzen Sie fast täglich
 beim Telefonieren, wo das Signal fast logarithmisch quantisiert wird. Der Vorteil
 dieser nicht-gleichförmigen Quantisierung ist die bessere Anpassung an das zu quantisierende
@@ -1384,12 +1639,11 @@ kleine Werte alle dem Nullsignal zu (siehe <a class="reference internal" href="#
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-midrisemidtread" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_22_1.png" src="_images/signale_22_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Quantisierungskennlinie eines Mid-Rise und eines Mid-Tread Quantisierers. Üblich ist Mid-Tread.</span><a class="headerlink" href="#plt-midrisemidtread" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-midrisemidtread" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Quantisierungskennlinie eines Mid-Rise und eines Mid-Tread Quantisierers. Üblich ist Mid-Tread.</span><a class="headerlink" href="#plt-midrisemidtread" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Problematisch ist nun aber, dass die benötigte Auflösung bei einer vollständig symmetrischen
 Lösung ungerade sein müsste, da die Null weder eine positive noch eine negative Zahl darstellt.
 Gleichzeitig muss aber eine 2er Potenz und somit eine gerade Zahl erreicht werden.
@@ -1400,7 +1654,7 @@ für die Verarbeitung meist normiert angewendet.
 Es ergibt sich dann ein Wertebereich von</p>
 <div class="math notranslate nohighlight">
 \[
-    -1 \leq x \leq 1-\frac{1}{2^{\text{Bit}-1}}
+    -1 \leq x \leq 1-\frac{1}{2^{\text{Bit}-1}}~~~.
 \]</div>
 <div class="tip admonition">
 <p class="admonition-title">Hinweis</p>
@@ -1480,75 +1734,72 @@ veranschaulicht, die die Quantisierung einer Sinusfunktion mit wenigen Stufen ze
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-quantisierungsinus" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_24_1.png" src="_images/signale_24_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.11 </span><span class="caption-text">Veranschaulichung der Quantisierung bei einem Sinus als Eingangssignal (Midtread Kennlinie).</span><a class="headerlink" href="#plt-quantisierungsinus" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-quantisierungsinus" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.11 </span><span class="caption-text">Veranschaulichung der Quantisierung bei einem Sinus als Eingangssignal (Midtread Kennlinie).</span><a class="headerlink" href="#plt-quantisierungsinus" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Es wird deutlich, dass viele unterschiedliche Eingangswerte einem einzigen Ausgangswert
-zugewiesen werden (Im Englischen auch als <strong>Many-to-One</strong>-Transformation bezeichnet).
+zugewiesen werden (im Englischen auch als <strong>Many-to-One</strong>-Transformation bezeichnet).
 Dieser Prozess ist aber immer irreversibel, da aus den quantisierten Werten nicht eindeutig auf die Originalwerte geschlossen werden kann.</p>
 <div class="attention admonition">
 <p class="admonition-title">Wichtig</p>
-<p>Bei einer Quantisierung kommt es immer zu einem Informationsverlust. (Es kann auch kein Informationsverlust auftreten, wenn das Eingangssignal des Quantisierers auch schon wertdiskret ist.)</p>
+<p>Bei einer Quantisierung kommt es immer zu einem Informationsverlust.<br />
+(Es kann kein Informationsverlust auftreten, wenn das Eingangssignal des Quantisierers schon wertdiskret ist.)</p>
 </div>
 <p>Die Quantisierung muss also immer so groß gewählt werden, dass sie für den jeweiligen Empfänger angepasst ist. In der Audiologie ist der Empfänger meist das Ohr. Da das Ohr nur einen eingeschränkten Dynamikbereich wahrnimmt, reichen 16 Bit, wie sie bei der CD verwendet werden, meistens aus. Die entstandenen Verzerrungen sind für ungeübte Ohren unhörbar und werden als Rauschen wahrgenommen. Dies gilt zumindest wenn die Auflösung bezogen auf die Amplitude des Signals ausreicht.</p>
-</div>
-</div>
-<div class="section" id="determinierte-signale">
-<h2><span class="section-number">2.3. </span>Determinierte Signale<a class="headerlink" href="#determinierte-signale" title="Permalink to this headline">¶</a></h2>
-<p>In der Einführung wurden einige Beispiele für Signale genannt, die meist aus einer direkten Beobachtung der Natur folgten. Für den weiteren Verlauf ist es aber notwendig auf Signale zurückgreifen zu können, die mathematisch beschreibbar sind, um weitere Berechnungen zu ermöglichen
+</section>
+</section>
+<section id="determinierte-signale">
+<h2><span class="section-number">2.3. </span>Determinierte Signale<a class="headerlink" href="#determinierte-signale" title="Permalink to this headline">#</a></h2>
+<p>In der Einführung wurden einige Beispiele für Signale genannt, die meist aus einer direkten Beobachtung der Natur folgten. Für den weiteren Verlauf und um weitere Berechnungen zu ermöglichen, sind allerdings mathematisch beschreibbare Signale notwendig.
 Vollständig beschreibare Signale werden als deterministisch bezeichnet. Ihr Signalverlauf ist zu jedem Zeitpunkt eindeutig angegeben. Eine wesentliche Eigenschaft, die vorliegen kann aber nicht muss, ist die Periodizität.</p>
-<div class="section" id="periodische-signale">
-<h3><span class="section-number">2.3.1. </span>Periodische Signale<a class="headerlink" href="#periodische-signale" title="Permalink to this headline">¶</a></h3>
+<section id="periodische-signale">
+<h3><span class="section-number">2.3.1. </span>Periodische Signale<a class="headerlink" href="#periodische-signale" title="Permalink to this headline">#</a></h3>
 <p>Periodische Signale zeichnen sich durch eine Wiederholung ihrer Signalform
-innerhalb eines bestimmten Periodendauer <span class="math notranslate nohighlight">\(P\)</span> aus. Es gilt:</p>
+innerhalb einer bestimmten Periodendauer <span class="math notranslate nohighlight">\(P\)</span> aus. Es gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-periodischsignale">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-periodischsignale" title="Permalink to this equation">¶</a></span>\[
-    x(t) = x(t+nP) \quad \text{mit} \quad n\in\mathbb{Z}
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-periodischsignale" title="Permalink to this equation">#</a></span>\[
+    x(t) = x(t+nP) \quad \text{mit} \quad n\in\mathbb{Z}~~~.
 \]</div>
 <p>Einige periodische Signale sind:</p>
-<ul>
-<li><p><strong>Sinus:</strong>
+<p><strong>Sinus:</strong>
 Die vollständige Beschreibung des Sinustones ist durch</p>
 <div class="math notranslate nohighlight">
 \[
-    y(t) = \underbrace{a}_{\mbox{Amplitude}} \sin(\underbrace{\omega}_{\mbox{Kreisfrequenz}} t + \underbrace{\varphi}_{\mbox{Phase}})
-    \]</div>
+y(t) = \underbrace{a}_{\mbox{Amplitude}} \sin(\underbrace{\omega}_{\mbox{Kreisfrequenz}} t + \underbrace{\varphi}_{\mbox{Phase}})
+\]</div>
 <p>bzw. häufiger durch</p>
 <div class="math notranslate nohighlight">
 \[
-    y(t) = \underbrace{a}_{\mbox{Amplitude}} \cos(\underbrace{\omega}_{\mbox{Kreisfrequenz}} t +
-    \underbrace{\varphi}_{\mbox{Phase}})
-    \]</div>
-<p>gegeben</p>
+y(t) = \underbrace{a}_{\mbox{Amplitude}} \cos(\underbrace{\omega}_{\mbox{Kreisfrequenz}} t +
+\underbrace{\varphi}_{\mbox{Phase}})
+\]</div>
+<p>gegeben.</p>
 <div class="tip admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Der Cosinus ist für viele Anwendungen leichter zu berechnen, z.B. bei der Fourier-Transformation, da sich ein rein reelles Spektrum ergibt.</p>
 </div>
 <p>Die Kreisfrequenz <span class="math notranslate nohighlight">\(\omega\)</span> setzt sich dabei aus <span class="math notranslate nohighlight">\(\omega =
-  2 \pi f\)</span> zusammen, wobei <span class="math notranslate nohighlight">\(f\)</span> die eigentliche Frequenz in Hertz
-<span class="math notranslate nohighlight">\(1~\text{Hz}~=~1~\text{s}^{-1}\)</span> darstellt. Sie gibt an, wie viele Perioden einer
+2 \pi f\)</span> zusammen, wobei <span class="math notranslate nohighlight">\(f\)</span> die eigentliche Frequenz in Hertz
+(<span class="math notranslate nohighlight">\(1~\text{Hz}~=~1~\text{s}^{-1}\)</span>) darstellt. Sie gibt an, wie viele Perioden einer
 Schwingung in einer Sekunde Signal vorhanden sind, daher <span class="math notranslate nohighlight">\(\text{s}^{-1}\)</span> = pro Sekunde als Maßeinheit.
 Um die anderen Parameter etwas zu verdeutlichen, sind in <a class="reference internal" href="#plt-sinewave"><span class="std std-numref">Abbildung 2.12</span></a> Sinustöne mit variierenden Parametern gezeigt.</p>
 <p>Die Erzeugung einer diskreten Folge, die einen Cosinus repräsentiert kann durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-discretesinus">
-<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-discretesinus" title="Permalink to this equation">¶</a></span>\[
-        y(k) = a \cos\left(2\pi k \frac{f_0}{f_\text{s}}  + \varphi_0 \right)
-    \]</div>
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-discretesinus" title="Permalink to this equation">#</a></span>\[
+    y(k) = a \cos\left(2\pi k \frac{f_0}{f_\text{s}}  + \varphi_0 \right)
+\]</div>
 <p>erzeugt werden. Bei dieser Darstellung ist die Abkürzung für</p>
 <div class="math notranslate nohighlight">
 \[
-        kT = \frac{k}{f_\text{s}}
-    \]</div>
-<p>leicht erkennbar</p>
+    kT = \frac{k}{f_\text{s}}
+\]</div>
+<p>leicht erkennbar.</p>
 <div class="tip admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Üblicherweise wird die Cosinus-Funktion als Elemetarsignal genutzt und nicht der Sinus, da dieser für spätere Betrachtungen einige positive Eigenschaften aufweist</p>
 </div>
-</li>
-</ul>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -1616,52 +1867,50 @@ Um die anderen Parameter etwas zu verdeutlichen, sind in <a class="reference int
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="de69ce59-3747-47a6-b0f1-5d0da76b34e2" name="3dca3849-8b02-41ea-9f5d-a6c4cfb042ad" type="radio">
-</input><label class="tabbed-label" for="de69ce59-3747-47a6-b0f1-5d0da76b34e2">
-Buchabbildung</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="plt-sinewave" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_27_1.png" src="_images/signale_27_1.png" />
+<div class="sd-tab-set docutils">
+<input checked="checked" id="42622cef-73a3-42b4-aec7-fe8f5b173782" name="7a672d97-93df-4e7a-a4b4-87c389584b6d" type="radio">
+</input><label class="sd-tab-label" for="42622cef-73a3-42b4-aec7-fe8f5b173782">
+Buchabbildung</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="plt-sinewave" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.12 </span><span class="caption-text">Sinussignal mit verschiedenen Amplituden sowie unterschiedlicher Frequenz und Startphase.</span><a class="headerlink" href="#plt-sinewave" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
-<p class="caption"><span class="caption-number">Fig. 2.12 </span><span class="caption-text">Sinussignal mit verschiedenen Amplituden sowie unterschiedlicher Frequenz und Startphase.</span><a class="headerlink" href="#plt-sinewave" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input id="0a831001-6184-402c-9d99-faff022e313c" name="3dca3849-8b02-41ea-9f5d-a6c4cfb042ad" type="radio">
-</input><label class="tabbed-label" for="0a831001-6184-402c-9d99-faff022e313c">
-Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<input id="4b610bb2-8312-4cde-924b-429f8b6d304c" name="7a672d97-93df-4e7a-a4b4-87c389584b6d" type="radio">
+</input><label class="sd-tab-label" for="4b610bb2-8312-4cde-924b-429f8b6d304c">
+Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “Signale_Sinus_einstellen.py” in jupyterbook/code/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Sinus_einstellen.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code></p></li>
 <li><p>Mit den Slidern die Signalparameter anpassen.</p></li>
 </ol>
 </div>
 </div>
-<ul>
-<li><p><strong>Dreieck:</strong> Ein periodisches Dreieckssignal zu beschreiben, kann auf zwei Arten erfolgen. Eine sehr einfache Beschreibung erfolgt über eine abschnittsweise Definition. Eine Periode der Dreiecksschwingung ist gegeben durch</p>
+<p><strong>Dreieck:</strong> Ein periodisches Dreieckssignal zu beschreiben, kann auf zwei Arten erfolgen. Eine sehr einfache Beschreibung erfolgt über eine abschnittsweise Definition. Eine Periode der Dreiecksschwingung ist gegeben durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-dreieckabschnitt">
-<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-dreieckabschnitt" title="Permalink to this equation">¶</a></span>\[\begin{split}
-      x_{\text{1D}}(t) = \bigg\{ \begin{array}{lcc}
-      1-\left|\frac{2t}{L}\right| &amp; &amp; -L \leq t \leq L\\
-      0 &amp; &amp; \mbox{sonst}
-      \end{array}
-    \end{split}\]</div>
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-dreieckabschnitt" title="Permalink to this equation">#</a></span>\[\begin{split}
+    x_{\text{1D}}(t) = \bigg\{ \begin{array}{lcc}
+    1-\left|\frac{2t}{L}\right| &amp; &amp; -L \leq t \leq L\\
+    0 &amp; &amp; \mbox{sonst}
+    \end{array}~~~.
+\end{split}\]</div>
 <p>Die Periodizität wird abschließend durch</p>
 <div class="math notranslate nohighlight">
 \[
-      x(t+n2L) = x(t)
-    \]</div>
+    x(t+n2L) = x(t)
+\]</div>
 <p>für <span class="math notranslate nohighlight">\(n \in\mathbb{Z}\)</span> erzeugt.</p>
 <p>Eine weitere Möglichkeit periodische Signale auszudrücken, ergibt sich aus dem Fourier-Theorem. Es besagt, dass sich alle periodischen Signale auf eine Summe von Sinussignalen zurückführen lassen. Die zerlegten komplexen Signale lassen sich dann durch eine sog. Fourier-Reihe beschreiben.
 Für das Dreieckssignal ist eine mögliche Fourier-Reihe durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-dreieckfourier">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-dreieckfourier" title="Permalink to this equation">¶</a></span>\[
-    y(t) = \frac{8}{\pi^2}\left(\sin(\omega t) - \frac{1}{3^2} \sin(3\omega t) + \frac{1}{5^2} \sin(5 \omega t) - \cdots\right)
-    \]</div>
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-dreieckfourier" title="Permalink to this equation">#</a></span>\[
+y(t) = \frac{8}{\pi^2}\left(\sin(\omega t) - \frac{1}{3^2} \sin(3\omega t) + \frac{1}{5^2} \sin(5 \omega t) - \cdots\right)
+\]</div>
 <p>oder</p>
 <div class="math notranslate nohighlight" id="equation-eq-dreieckfourier2">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-dreieckfourier2" title="Permalink to this equation">¶</a></span>\[
-    y(t) = \frac{8}{\pi^2}\left(\cos(\omega t) + \frac{1}{3^2} \cos(3\omega t) + \frac{1}{5^2} \cos(5 \omega t) + \cdots\right)
-    \]</div>
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-dreieckfourier2" title="Permalink to this equation">#</a></span>\[
+y(t) = \frac{8}{\pi^2}\left(\cos(\omega t) + \frac{1}{3^2} \cos(3\omega t) + \frac{1}{5^2} \cos(5 \omega t) + \cdots\right)
+\]</div>
 <p>gegeben. Hierbei handelt es sich also um eine unendliche Reihe von Sinustönen, die nur ungeradzahlige Vielfache der Grundfrequenz sind, wobei die Amplitude mit dem Quadrat des Vielfachen abnimmt.</p>
 <div class="tip admonition">
 <p class="admonition-title">Hinweis</p>
@@ -1671,8 +1920,6 @@ Für das Dreieckssignal ist eine mögliche Fourier-Reihe durch</p>
 Signal nach Gleichung <a class="reference internal" href="#equation-eq-dreieckfourier">(2.4)</a> auch Frequenzen oberhalb der halben Abtastfrequenz
 aufweisen. Ein so direkt erzeugtes Dreieckssignal besitzt deshalb immer Aliasing-Anteile, die aber
 in einigen Fällen durch die sehr geringe Amplitude vernachlässigbar sind.</p>
-</li>
-</ul>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -1741,54 +1988,50 @@ in einigen Fällen durch die sehr geringe Amplitude vernachlässigbar sind.</p>
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-dreieck" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_29_1.png" src="_images/signale_29_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.13 </span><span class="caption-text">Ausschnitt eines Dreiecksignals.</span><a class="headerlink" href="#plt-dreieck" title="Permalink to this image">¶</a></p>
-</div>
-<ul>
-<li><p><strong>Rechteck:</strong> Für das Rechtecksignal funktionieren ebenfalls die beiden Methoden. Wir können eine abschnittsweise Definition verwenden:</p>
+<figure class="align-default" id="plt-dreieck" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.13 </span><span class="caption-text">Ausschnitt eines Dreiecksignals.</span><a class="headerlink" href="#plt-dreieck" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Rechteck:</strong> Für das Rechtecksignal funktionieren ebenfalls die beiden bereits für das Dreieck eingeführten Methoden. Wir können eine abschnittsweise Definition verwenden:</p>
 <div class="math notranslate nohighlight" id="equation-eq-rechteckabschnitt">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-rechteckabschnitt" title="Permalink to this equation">¶</a></span>\[\begin{split}  
-    x_{1R}(t) = \bigg\{ \begin{array}{lcc}
-    -1 &amp; &amp; -L \leq t &lt; 0\\
-    1 &amp; &amp;0 \leq t &lt; L
-    \end{array}
-    \end{split}\]</div>
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-rechteckabschnitt" title="Permalink to this equation">#</a></span>\[\begin{split}  
+x_{1R}(t) = \bigg\{ \begin{array}{lcc}
+-1 &amp; &amp; -L \leq t &lt; 0\\
+1 &amp; &amp;0 \leq t &lt; L
+\end{array}~~~.
+\end{split}\]</div>
 <p>Die Periodizität wird wieder durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-periodizitaet">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-periodizitaet" title="Permalink to this equation">¶</a></span>\[
-    x(t+n2L) = x_{1R}(t)
-    \]</div>
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-periodizitaet" title="Permalink to this equation">#</a></span>\[
+x(t+n2L) = x_{1R}(t)
+\]</div>
 <p>für <span class="math notranslate nohighlight">\(n \in \mathbb{Z}\)</span> erreicht.</p>
 <p>Die Fourier-Reihe für ein periodisches Rechtecksignal ist</p>
 <div class="math notranslate nohighlight" id="equation-eq-rechteckfourier">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-rechteckfourier" title="Permalink to this equation">¶</a></span>\[
-    y(t) = \frac{4}{\pi}\left(\sin(\omega t) + \frac{1}{3} \sin(3\omega t) + \frac{1}{5} \sin(5 \omega t) + \cdots\right).
-    \]</div>
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-rechteckfourier" title="Permalink to this equation">#</a></span>\[
+y(t) = \frac{4}{\pi}\left(\sin(\omega t) + \frac{1}{3} \sin(3\omega t) + \frac{1}{5} \sin(5 \omega t) + \cdots\right)~~~.
+\]</div>
 <p>Auch hier treten nur ungeradzahlige Harmonische auf, die aber im Vergleich zu der Dreiecksschwingung nur mit dem Vielfachen und nicht mit dem Quadrat abnehmen. Dies bedeutet, dass die Aliasing-Problematik noch ausgeprägter ist.</p>
 <p>Eine dritte Methode, die eine besonders einfache Implementierung ermöglicht, ergibt sich aus
 der vereinfachten signum-Funktion ohne Null, die jeweils das Vorzeichen angibt.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \text{sign}(x) = \left\{ \begin{array}{lcc}
-    -1 &amp; &amp; x&lt;0\\
-    1 &amp; &amp; x&gt;=0
-    \end{array} \right.
-    \end{split}\]</div>
-<p>Eine Rechteckfunktion kann nun sehr einfach durch das Vorzeichen der Sinusfunktion angegeben werden:</p>
+\text{sign}(x) = \left\{ \begin{array}{lcc}
+-1 &amp; &amp; x&lt;0\\
+1 &amp; &amp; x&gt;=0
+\end{array} \right.
+\end{split}\]</div>
+<p>Eine Rechteckfunktion kann nun sehr einfach durch das Vorzeichen der Sinusfunktion angegeben werden</p>
 <div class="math notranslate nohighlight" id="equation-eq-easyrechteck">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-easyrechteck" title="Permalink to this equation">¶</a></span>\[
-    x(t) = \text{sign}(\sin(\omega t));
-    \]</div>
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-easyrechteck" title="Permalink to this equation">#</a></span>\[
+x(t) = \text{sign}(\sin(\omega t)) ~~~,
+\]</div>
 <p>bzw. in diskreter Form durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-easyrechteckdiskret">
-<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-easyrechteckdiskret" title="Permalink to this equation">¶</a></span>\[
-    x(k) = \text{sign}\left(\sin\left(2\pi k \frac{f_0}{f_s}\right)\right);
-    \]</div>
-</li>
-</ul>
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-easyrechteckdiskret" title="Permalink to this equation">#</a></span>\[
+x(k) = \text{sign}\left(\sin\left(2\pi k \frac{f_0}{f_\text{s}}\right)\right)~~~.
+\]</div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -1852,35 +2095,31 @@ der vereinfachten signum-Funktion ohne Null, die jeweils das Vorzeichen angibt.<
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-rechteck" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_31_1.png" src="_images/signale_31_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.14 </span><span class="caption-text">Ausschnitt eines Rechtecksignals, erzeugt mit Gleichung <a class="reference internal" href="#equation-eq-easyrechteck">(2.9)</a>.</span><a class="headerlink" href="#plt-rechteck" title="Permalink to this image">¶</a></p>
-</div>
-<ul>
-<li><p><strong>Sägezahn:</strong> Eine weitere etwas speziellere Schwingung stellt die Sägezahnschwingung dar, die besonders häufig bei Synthesizern als Quellensignal zur Erzeugung von Tönen verwendet wird.
+<figure class="align-default" id="plt-rechteck" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.14 </span><span class="caption-text">Ausschnitt eines Rechtecksignals, erzeugt mit Gleichung <a class="reference internal" href="#equation-eq-easyrechteck">(2.9)</a>.</span><a class="headerlink" href="#plt-rechteck" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Sägezahn:</strong> Eine weitere etwas speziellere Schwingung stellt die Sägezahnschwingung dar, die besonders häufig bei Synthesizern als Quellensignal zur Erzeugung von Tönen verwendet wird.
 Es sind wieder zwei Definitionen möglich.
 Die abschnittsweise Definition ergibt sich zu</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    x(t) =\bigg\{ \begin{array}{lcc}
-    -1+ t/L &amp; &amp;  0 \leq t &lt; 2L\\
-    0 &amp; &amp; \mbox{sonst}
-    \end{array}
-    \end{split}\]</div>
+x(t) =\bigg\{ \begin{array}{lcc}
+-1+ t/L &amp; &amp;  0 \leq t &lt; 2L\\
+0 &amp; &amp; \mbox{sonst}
+\end{array}~~~.
+\end{split}\]</div>
 <p>Die Periode wird erneut durch Gleichung <a class="reference internal" href="#equation-eq-periodizitaet">(2.7)</a> erzeugt.
 Interessant ist die Fourier-Reihenentwicklung:</p>
 <div class="math notranslate nohighlight">
 \[
-    y(t) = \frac{2}{\pi}\left(\sin(\omega t) - \frac{1}{2} \sin(2\omega t) + \frac{1}{3} \sin(3\omega t)
-    - \frac{1}{4} \sin(4\omega t) + \frac{1}{5} \sin(5 \omega t) - \cdots\right).
-    \]</div>
+y(t) = \frac{2}{\pi}\left(\sin(\omega t) - \frac{1}{2} \sin(2\omega t) + \frac{1}{3} \sin(3\omega t)
+- \frac{1}{4} \sin(4\omega t) + \frac{1}{5} \sin(5 \omega t) - \cdots\right)~~~..
+\]</div>
 <p>Bei der Sägezahnschwingung treten alle ganzzahligen Harmonischen auf und der Abfall der Amplitude ist gering.
 Dieser hohe Anteil an Harmonischen ist auch die Begründung
 für den Einsatz bei der elektronischen Klangerzeugung, da sich ein vollerer Klang ergibt, der anschließend manipuliert werden kann.</p>
-</li>
-</ul>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -1939,35 +2178,34 @@ für den Einsatz bei der elektronischen Klangerzeugung, da sich ein vollerer Kla
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-saegezahn" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_33_1.png" src="_images/signale_33_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.15 </span><span class="caption-text">Ausschnitt eines Sägezahnsignals.</span><a class="headerlink" href="#plt-saegezahn" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="digitale-erzeugung-von-periodischen-grundisgnalen">
-<h3><span class="section-number">2.3.2. </span>Digitale Erzeugung von periodischen Grundisgnalen<a class="headerlink" href="#digitale-erzeugung-von-periodischen-grundisgnalen" title="Permalink to this headline">¶</a></h3>
-<p>Für eine digitale Realisierung von nicht-differenzierbaren Funktionen (z.B. alle abschnittsweise definierten Funktionen in diesem Abschnitt (Dreieck, Rechteck, Sägezahn)) stellt sich ein Problem ein. Die abschnittsweise Definitionen führen laut dem Fourier-Theorem, direkt in einem digitalen System implementiert, auch zu Frequenzen oberhalb der halben Abtastfrequenz. Ein so direkt erzeugtes Signal besitzt deshalb immer Aliasing-Anteile, die aber in einigen Fällen durch die sehr geringen Amplituden vernachlässigbar sind.</p>
+<figure class="align-default" id="plt-saegezahn" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.15 </span><span class="caption-text">Ausschnitt eines Sägezahnsignals.</span><a class="headerlink" href="#plt-saegezahn" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="digitale-erzeugung-von-periodischen-grundsignalen">
+<h3><span class="section-number">2.3.2. </span>Digitale Erzeugung von periodischen Grundsignalen<a class="headerlink" href="#digitale-erzeugung-von-periodischen-grundsignalen" title="Permalink to this headline">#</a></h3>
+<p>Für eine digitale Realisierung von nicht-differenzierbaren Funktionen (z.B. alle abschnittsweise definierten Funktionen in diesem Abschnitt: Dreieck, Rechteck, Sägezahn) stellt sich ein Problem ein. Die abschnittsweise Definitionen führen laut dem Fourier-Theorem, direkt in einem digitalen System implementiert, auch zu Frequenzen oberhalb der halben Abtastfrequenz. Ein so direkt erzeugtes Signal besitzt deshalb immer Aliasing-Anteile, die aber in einigen Fällen durch die sehr geringen Amplituden vernachlässigbar sind.</p>
 <p>Die Alternativen sind vielfältig. Eine einfache aber aus Sicht der Rechenleistung kostspielige Lösung ist die direkte Implmentierung der zugehörigen Fourier-Reihe. Wird diese unterhalb der halben Abtastrate abgebrochen ist das realisierte Signal Aliasing-frei. Ein Nachteil dieser direkten Lösung ist dass die resultierende Wellenform Überschwinger erzeugt (das sog. Gipps-Phänomen). Dies kann reduziert werden, indem die höheren Harmonischen vor der Addition etwas in der Amplitude verringert werden. Die Regel hierfür ist als Lanczos <span class="math notranslate nohighlight">\(\sigma\)</span>- Gewichtung bekannt.</p>
 <p>Bei der Realisierung der vorgestellten Grundschwingungen in digitalen Oszillatoren werden vollständig andere Lösungen verfolgt, da hier die Erzeugung in direkter Reaktion auf eine Änderung der Frequenz erfolgen muss.</p>
-</div>
-<div class="section" id="impulssignale">
-<h3><span class="section-number">2.3.3. </span>Impulssignale<a class="headerlink" href="#impulssignale" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="impulssignale">
+<h3><span class="section-number">2.3.3. </span>Impulssignale<a class="headerlink" href="#impulssignale" title="Permalink to this headline">#</a></h3>
 <p>Eine weitere wichtige Klasse der determinierten Signale stellen die Impulssignale dar:</p>
-<p><strong>Delta-Impuls</strong> (auch als zeitdiskreter Dirac-Impuls bekannt):</p>
+<p><strong>Delta-Impuls:</strong> (auch als zeitdiskreter Dirac-Impuls bekannt):</p>
 <p>Der Delta-Impuls ist die wichtigste digitale Impulsfolge, sie wird auch als Kronecker-Delta bezeichnet und ist definiert durch</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \delta(k) = \bigg\{ \begin{array}{lcc}
-   1 &amp; &amp; k = 0\\
+1 &amp; &amp; k = 0\\
     0  &amp; &amp; \mbox{sonst}
-\end{array}
+\end{array}~~~.
 \end{split}\]</div>
 <p>Aus der Definition folgt</p>
 <div class="math notranslate nohighlight">
 \[
-    x(k) \delta(k) = x(0),
+    x(k) \delta(k) = x(0)~~~,
 \]</div>
 <p>was als Siebeigenschaft des Delta-Impulses bekannt ist.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -2015,19 +2253,18 @@ für den Einsatz bei der elektronischen Klangerzeugung, da sich ein vollerer Kla
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-deltafunktion" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_35_1.png" src="_images/signale_35_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.16 </span><span class="caption-text">Delta-Folge.</span><a class="headerlink" href="#plt-deltafunktion" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-deltafunktion" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.16 </span><span class="caption-text">Delta-Folge.</span><a class="headerlink" href="#plt-deltafunktion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>Sprungfolge:</strong> Die Sprungfolge ist neben dem Delta-Impuls eine weitere sehr wichtige Folge zur Beurteilung digitaler Systeme.</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-sprungfolge">
-<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-def-sprungfolge" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-def-sprungfolge" title="Permalink to this equation">#</a></span>\[\begin{split}
     \gamma(k) = \bigg\{ \begin{array}{lcc}
     1 &amp; &amp; k \geq 0\\
     0 &amp; &amp; \mbox{sonst}
-    \end{array}
+    \end{array}~~~.
 \end{split}\]</div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -2075,21 +2312,20 @@ für den Einsatz bei der elektronischen Klangerzeugung, da sich ein vollerer Kla
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-sprungfolge" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_37_1.png" src="_images/signale_37_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Sprungfolge</span><a class="headerlink" href="#plt-sprungfolge" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-sprungfolge" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Sprungfolge</span><a class="headerlink" href="#plt-sprungfolge" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>Exponentialimpuls:</strong> Die Exponentialfolge ist durch</p>
 <div class="math notranslate nohighlight">
 \[
     x(t) = A e^{\alpha t}
 \]</div>
-<p>gegeben, wobei <span class="math notranslate nohighlight">\(\alpha\)</span> die Dämpfungskonstante angibt und nur für <span class="math notranslate nohighlight">\(\alpha &lt; 1\)</span> eine stabile Funktion darstellt.
-Häufig wird aber statt <span class="math notranslate nohighlight">\(\alpha\)</span> direkt anzugeben eine sog. Zeitkonstante <span class="math notranslate nohighlight">\(\tau = -1 / \alpha\)</span> angegeben.
-Diese beschreibt die Zeit, in der die Funktion auf ca. <span class="math notranslate nohighlight">\(37\)</span>% von <span class="math notranslate nohighlight">\(A\)</span> abgeklungen ist (siehe
-<a class="reference internal" href="#plt-expimpulse"><span class="std std-numref">Abbildung 2.18</span></a> und das Integral der Exponentialfunktion dem äquivalenten Rechteck bis <span class="math notranslate nohighlight">\(\tau\)</span> entspricht.</p>
+<p>gegeben, wobei <span class="math notranslate nohighlight">\(\alpha\)</span> die Dämpfungskonstante angibt. Nur für <span class="math notranslate nohighlight">\(\alpha &lt; 1\)</span> resultiert eine stabile Funktion.
+Häufig wird anstatt <span class="math notranslate nohighlight">\(\alpha\)</span> eine sogenannte Zeitkonstante <span class="math notranslate nohighlight">\(\tau = -1 / \alpha\)</span> angegeben.
+Diese beschreibt die Zeit, in der die Funktion auf ca. <span class="math notranslate nohighlight">\(37\)</span> % von <span class="math notranslate nohighlight">\(A\)</span> abgeklungen ist (siehe
+<a class="reference internal" href="#plt-expimpulse"><span class="std std-numref">Abbildung 2.18</span></a>) und das Integral der Exponentialfunktion dem äquivalenten Rechteck bis <span class="math notranslate nohighlight">\(\tau\)</span> entspricht.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -2137,18 +2373,17 @@ Diese beschreibt die Zeit, in der die Funktion auf ca. <span class="math notrans
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-expimpulse" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_39_1.png" src="_images/signale_39_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.18 </span><span class="caption-text">Exponential Impuls für <span class="math notranslate nohighlight">\(\tau = 0.3\)</span>s. Eingezeichnet ist zusätzlich der <span class="math notranslate nohighlight">\(\approx 5\)</span>% Punkt, der sich bei <span class="math notranslate nohighlight">\(3\tau\)</span> ergibt.</span><a class="headerlink" href="#plt-expimpulse" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-expimpulse" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.18 </span><span class="caption-text">Exponential Impuls für <span class="math notranslate nohighlight">\(\tau = 0,3\)</span> s. Eingezeichnet ist zusätzlich der <span class="math notranslate nohighlight">\(\approx 5\)</span> % Punkt, der sich bei <span class="math notranslate nohighlight">\(3 \tau\)</span> ergibt.</span><a class="headerlink" href="#plt-expimpulse" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In der diskreten Form ist die Wertefolge durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-expimpulsediskret">
-<span class="eqno">(2.12)<a class="headerlink" href="#equation-eq-expimpulsediskret" title="Permalink to this equation">¶</a></span>\[
-    x(k) = A e^{\alpha k/f_s}
+<span class="eqno">(2.12)<a class="headerlink" href="#equation-eq-expimpulsediskret" title="Permalink to this equation">#</a></span>\[
+    x(k) = A e^{\alpha k/{f_\text{s}}}
 \]</div>
-<p>gegeben. <a class="reference internal" href="#plt-expimpulsediskret"><span class="std std-numref">Abbildung 2.19</span></a> zeigt einen diskreten Exponentialimpuls mit den Parametern <span class="math notranslate nohighlight">\(A = 1, f_\text{s} = 2\)</span>kHz und <span class="math notranslate nohighlight">\(\tau = 3\)</span>ms.</p>
+<p>gegeben. <a class="reference internal" href="#plt-expimpulsediskret"><span class="std std-numref">Abbildung 2.19</span></a> zeigt einen diskreten Exponentialimpuls mit den Parametern <span class="math notranslate nohighlight">\(A = 1, f_\text{s} = 2\)</span> kHz und <span class="math notranslate nohighlight">\(\tau = 3\)</span> ms.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -2198,12 +2433,11 @@ Diese beschreibt die Zeit, in der die Funktion auf ca. <span class="math notrans
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-expimpulsediskret" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_41_1.png" src="_images/signale_41_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Diskreter Exponentialimpuls für <span class="math notranslate nohighlight">\(\tau = 3\)</span>ms.</span><a class="headerlink" href="#plt-expimpulsediskret" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-expimpulsediskret" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Diskreter Exponentialimpuls für <span class="math notranslate nohighlight">\(\tau = 3\)</span> ms.</span><a class="headerlink" href="#plt-expimpulsediskret" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Eine alternative Beschreibung ist die Definition als Exponentialfolge</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2212,7 +2446,7 @@ Diese beschreibt die Zeit, in der die Funktion auf ca. <span class="math notrans
 <p>mit</p>
 <div class="math notranslate nohighlight">
 \[
-    \alpha_2 = 1-\frac{1}{\tau f_s}
+    \alpha_2 = 1-\frac{1}{\tau {f_\text{s}}}~~~.
 \]</div>
 <p><strong>si-Signal:</strong> Die si-Funktion ist zunächst analog definiert und wird in
 nachfolgenden Abschnitten benötigt, um z.B. die Abtastung genauer zu erläutern.</p>
@@ -2280,17 +2514,16 @@ x-Achsen-Skalierung.</p>
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-sifunktion" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_43_1.png" src="_images/signale_43_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Sinc-Impuls auf den Definitionsbereich <span class="math notranslate nohighlight">\(-12 \leq t \leq 12\)</span> beschränkt.</span><a class="headerlink" href="#plt-sifunktion" title="Permalink to this image">¶</a></p>
-</div>
-<p>Für die diskrete si-Folge, nutzen wir die Definition des diskreten Sinus
+<figure class="align-default" id="plt-sifunktion" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Sinc-Impuls auf den Definitionsbereich <span class="math notranslate nohighlight">\(-12 \leq t \leq 12\)</span> beschränkt.</span><a class="headerlink" href="#plt-sifunktion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Für die diskrete si-Folge nutzen wir die Definition des diskreten Sinus
 aus Gleichung <a class="reference internal" href="#equation-eq-discretesinus">(2.2)</a>, mit der Amplitude 1 und einem Anfangswinkel von <span class="math notranslate nohighlight">\(\pi/2\)</span>.
 Somit wird die Cosinus-Funktion zum Sinus. Es ergibt sich also für die diskrete si-Folge</p>
 <div class="math notranslate nohighlight" id="equation-discretesi">
-<span class="eqno">(2.13)<a class="headerlink" href="#equation-discretesi" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.13)<a class="headerlink" href="#equation-discretesi" title="Permalink to this equation">#</a></span>\[
     \text{si}(k) = \frac{\sin \left(2\pi k\frac{f_0}{f_\text{s}} \right)}{2\pi k\frac{f_0}{f_\text{s}}}
 \]</div>
 <p><a class="reference internal" href="#plt-sifunktiondiskret"><span class="std std-numref">Abbildung 2.21</span></a> zeigt eine diskrete si-Folge. Die 100Hz Schwingung
@@ -2347,21 +2580,20 @@ bei einer Abtastrate von <span class="math notranslate nohighlight">\(f_\text{s}
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-sifunktiondiskret" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_45_1.png" src="_images/signale_45_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Si-Folge im Bereich <span class="math notranslate nohighlight">\(-15 \leq k \leq 15\)</span> für <span class="math notranslate nohighlight">\(f_0 = 100\)</span> Hz und <span class="math notranslate nohighlight">\(f_\text{s} = 1000\)</span> Hz.</span><a class="headerlink" href="#plt-sifunktiondiskret" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-sifunktiondiskret" style="width: 75%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Si-Folge im Bereich <span class="math notranslate nohighlight">\(-15 \leq k \leq 15\)</span> für <span class="math notranslate nohighlight">\(f_0 = 100\)</span> Hz und <span class="math notranslate nohighlight">\(f_\text{s} = 1000\)</span> Hz.</span><a class="headerlink" href="#plt-sifunktiondiskret" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>Dirac-Impuls:</strong> Der analoge Dirac-Impuls <span class="math notranslate nohighlight">\(\delta^\text{D}{t}\)</span>,
 kann nicht direkt als Funktion definiert werden. Statt dessen
 erfolgt die Definition über das Integral</p>
 <div class="math notranslate nohighlight" id="equation-eq-dirac-impulse">
-<span class="eqno">(2.14)<a class="headerlink" href="#equation-eq-dirac-impulse" title="Permalink to this equation">¶</a></span>\[
-   \int\limits_{-\infty}^{\infty}f(t)\delta^\text{D}{t} \text{d}t = f(0),
+<span class="eqno">(2.14)<a class="headerlink" href="#equation-eq-dirac-impulse" title="Permalink to this equation">#</a></span>\[
+   \int\limits_{-\infty}^{\infty}f(t)\delta^\text{D}{t} \text{d}t = f(0)~~~,
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(f(t)\)</span> eine beliebige stetige und differenzierbare Funktion
-ist. Die Aussage der Gleichung <a class="reference internal" href="#equation-eq-dirac-impulse">(2.14)</a> ist, dass der Dirac-Impulse aus
+ist. Die Aussage der Gleichung <a class="reference internal" href="#equation-eq-dirac-impulse">(2.14)</a> ist, dass der Dirac-Impuls aus
 einem Signal nur und ausschließlich den Wert des Signals zum
 Zeitpunkt Null herausfiltert. Dies wird auch als Sieb-Eigenschaft
 bezeichnet und entspricht der besonderen Eigenschaft des
@@ -2372,77 +2604,70 @@ dem Begriff Distributionen bekannt. Durch die Definition als unendlich kurzen
 und unendlichen hohen Impuls wird deutlich, dass dieser Impuls nicht
 realisierbar ist, sondern eine reine theoretische Konstruktion darstellt, die
 sich aber als sehr nützlich Werkzeug zum Berechnen bestimmter Probleme heraus gestellt hat.</p>
-<p>Weitere Eigenschaften des Dirac-Impulses sind:</p>
+<p>Weitere Eigenschaften des Dirac-Impulses sind</p>
 <div class="math notranslate nohighlight" id="equation-eq-eigenschaft1-dirac">
-<span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-eigenschaft1-dirac" title="Permalink to this equation">¶</a></span>\[
-    \delta^\text{D}{t} = 0 \quad \text{für} \quad t \neq 0
+<span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-eigenschaft1-dirac" title="Permalink to this equation">#</a></span>\[
+    \delta^\text{D}{t} = 0 \quad \text{für} \quad t \neq 0~~~,
 \]</div>
-<p>Außerdem gilt</p>
+<p>sowie</p>
 <div class="math notranslate nohighlight" id="equation-eq-eigenschaft2-dirac">
-<span class="eqno">(2.16)<a class="headerlink" href="#equation-eq-eigenschaft2-dirac" title="Permalink to this equation">¶</a></span>\[
-     \int\limits_{-\infty}^{\infty}\delta^\text{D}{t} \text{d}t = 1
+<span class="eqno">(2.16)<a class="headerlink" href="#equation-eq-eigenschaft2-dirac" title="Permalink to this equation">#</a></span>\[
+     \int\limits_{-\infty}^{\infty}\delta^\text{D}{t} \text{d}t = 1~~~.
 \]</div>
 <p>Aus der Definition und den beiden Eigenschaften können weitere
 wichtige Eigenschaften abgeleitet werden. So gilt für den zeitlich
-verschobenen Dirac-Impuls:</p>
+verschobenen Dirac-Impuls</p>
 <div class="math notranslate nohighlight" id="equation-eq-eigenschaft3-dirac">
-<span class="eqno">(2.17)<a class="headerlink" href="#equation-eq-eigenschaft3-dirac" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.17)<a class="headerlink" href="#equation-eq-eigenschaft3-dirac" title="Permalink to this equation">#</a></span>\[
     x(t)\delta^\text{D}{t-t_0} = x(t_0)\delta^\text{D}{t-t_0}
 \]</div>
 <p>und</p>
 <div class="math notranslate nohighlight" id="equation-eq-eigenschaft4-dirac">
-<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-eigenschaft4-dirac" title="Permalink to this equation">¶</a></span>\[
-   \int\limits_{-\infty}^{\infty}x(t)\delta^\text{D}{t-t_0} \text{d}t = x(t_0),
+<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-eigenschaft4-dirac" title="Permalink to this equation">#</a></span>\[
+   \int\limits_{-\infty}^{\infty}x(t)\delta^\text{D}{t-t_0} \text{d}t = x(t_0)~~~,
 \]</div>
-<p>Für einen zeitlich skalierten Dirac-Impuls gilt:</p>
+<p>für einen zeitlich skalierten Dirac-Impuls gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-eigenschaftskalierung-dirac">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-eigenschaftskalierung-dirac" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-eigenschaftskalierung-dirac" title="Permalink to this equation">#</a></span>\[
     \delta^\text{D}{\alpha t} = \frac{1}{|\alpha|}\delta^\text{D}{t} \quad
     \mbox{bzw.}\quad \int\limits_{-\infty}^{\infty}\delta^\text{D}{\alpha t} \text{d}t =
-    \frac{1}{|\alpha|}
+    \frac{1}{|\alpha|}~~~.
 \]</div>
-</div>
-</div>
-<div class="section" id="stochastische-signale">
-<span id="sec-stochasteinfuehrung"></span><h2><span class="section-number">2.4. </span>Stochastische Signale<a class="headerlink" href="#stochastische-signale" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="stochastische-signale">
+<span id="sec-stochasteinfuehrung"></span><h2><span class="section-number">2.4. </span>Stochastische Signale<a class="headerlink" href="#stochastische-signale" title="Permalink to this headline">#</a></h2>
 <p>Eine sehr wichtige Klasse an Signalen sind die stochastischen oder
 auch rauschförmigen Signale. Sie zeichnen sich dadurch aus, dass
 man den Signalverlauf nicht direkt vorhersagen kann. Trotzdem
 ist es möglich bestimmte Eigenschaften rauschförmiger Signale
 zu beschreiben. Einige grundlegende Beschreibungsgrößen sind:</p>
-<ul class="simple">
-<li><p><strong>Mittelwert:</strong><br />
+<p><strong>Mittelwert:</strong><br />
 Die Schätzung (Schätzungen werden häufig durch <span class="math notranslate nohighlight">\(\hat{\cdot}\)</span> markiert)
 des Mittelwert ist definiert als die Summe aller
-Werte geteilt durch die Anzahl <span class="math notranslate nohighlight">\(N\)</span> der gemittelten Werte</p></li>
-</ul>
+Werte geteilt durch die Anzahl <span class="math notranslate nohighlight">\(N\)</span> der gemittelten Werte</p>
 <div class="math notranslate nohighlight">
 \[
-    \hat{\mu} = \bar{x} = \frac{1}{N} \sum_{k = 1}^{N} x(k)
+    \hat{\mu} = \bar{x} = \frac{1}{N} \sum_{k = 1}^{N} x(k)~~~.
 \]</div>
-<ul class="simple">
-<li><p><strong>Varianz:</strong><br />
+<p><strong>Varianz:</strong><br />
 Die Schätzung der Varianz ist die mittlere quadratische Abweichung aller Werte vom Mittelwert.
 Die Wurzel aus der Varianz wird Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> genannt. Deshalb definieren wir die
-Varianz durch <span class="math notranslate nohighlight">\(\sigma^2\)</span></p></li>
-</ul>
+Varianz durch <span class="math notranslate nohighlight">\(\sigma^2\)</span> mit</p>
 <div class="math notranslate nohighlight">
 \[
-    \hat{\sigma}^2 = \frac{1}{N-1} \sum_{k = 1}^{N} (x(k)-\mu)^2
+    \hat{\sigma}^2 = \frac{1}{N-1} \sum_{k = 1}^{N} (x(k)-\mu)^2~~~.
 \]</div>
-<ul class="simple">
-<li><p><strong>Amplitudenverteilung:</strong><br />
-Die Amplitudenverteilung gibt an, wie oft die einzelne Amplitudenwerte im Signal vorkommen. Dies kann häufig mathematisch ausgedrückt werden. Liegt eine bestimmte Datenfolge vor, wird statt dessen das Histogramm berechnet. Das Histogramm unterteilt den Eingangsbereich der Amplituden in gleichbleibende Abschnitte und zählt dann aus, wie oft die Datenfolge Werte in diesem Bereich hat. In Matlab wird dies durch den Befehl <code class="docutils literal notranslate"><span class="pre">hist</span></code> realisiert. Zwei sehr oft vorkommende Amplitudenverteilungen bei Rauschsignalen sind die gleichförmige Verteilung und die gaussförmige Verteilung. Bei der gleichförmigen Verteilung kommen in einem definierten Wertebereich alle Amplitudenwerte gleich oft vor. In Matlab werden Rauschsignale mit dieser Eigenschaft durch den Befehl <code class="docutils literal notranslate"><span class="pre">rand</span></code> erzeugt. Die Verteilung bei der Gauss-Verteilung hat dagegen eine Glockenform. Bestimmte Wertebereiche kommen also häufiger vor als andere. Die Beschreibung ist mathematisch durch</p></li>
-</ul>
+<p><strong>Amplitudenverteilung:</strong><br />
+Die Amplitudenverteilung gibt an, wie oft die einzelnen Amplitudenwerte im Signal vorkommen. Dies kann häufig mathematisch ausgedrückt werden. Liegt eine bestimmte Datenfolge vor, wird stattdessen das Histogramm berechnet. Das Histogramm unterteilt den Eingangsbereich der Amplituden in gleichbleibende Abschnitte und zählt dann aus, wie oft die Datenfolge Werte in diesem Bereich hat. In Matlab wird dies durch den Befehl <code class="docutils literal notranslate"><span class="pre">hist</span></code> realisiert. Zwei sehr oft vorkommende Amplitudenverteilungen bei Rauschsignalen sind die gleichförmige Verteilung und die gaussförmige Verteilung. Bei der gleichförmigen Verteilung kommen in einem definierten Wertebereich alle Amplitudenwerte gleich oft vor. In Matlab werden Rauschsignale mit dieser Eigenschaft durch den Befehl <code class="docutils literal notranslate"><span class="pre">rand</span></code> erzeugt. Die Verteilung bei der Gauss-Verteilung hat dagegen eine Glockenform. Bestimmte Wertebereiche kommen also häufiger vor als andere. Die Beschreibung ist mathematisch durch</p>
 <div class="math notranslate nohighlight">
 \[
     p(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x(k)-\mu)^2}{2\sigma^2}}
 \]</div>
-<p>gegeben. Wir sehen, dass die beiden Größen Mittelwert und Varianz hier als formgebende Größen
-verwendet werden. In Matlab können solche Verteilungen mit dem Befehl \Matlab{normrnd} erzeugt werden.
+<p>gegeben. Wir sehen, dass Mittelwert und Varianz hier als formgebende Größen
+verwendet werden. In Matlab können solche Verteilungen mit dem Befehl <code class="docutils literal notranslate"><span class="pre">normrnd</span></code> erzeugt werden.
 Gaussverteiltes Rauschen mit der Varianz <span class="math notranslate nohighlight">\(\sigma^2= 1\)</span> und dem Mittelvert <span class="math notranslate nohighlight">\(\mu= 0\)</span> erzeugt der
-Befehl \Matlab{randn}.</p>
-<p><a class="reference internal" href="#plt-verteilungen"><span class="std std-numref">Abbildung 2.22</span></a> zeigt einige Beispiele mit unterschiedlichen Parametern.</p>
+Befehl <code class="docutils literal notranslate"><span class="pre">randn</span></code>. <a class="reference internal" href="#plt-verteilungen"><span class="std std-numref">Abbildung 2.22</span></a> zeigt einige Beispiele mit unterschiedlichen Parametern.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -2506,71 +2731,70 @@ Befehl \Matlab{randn}.</p>
 </div>
 </div>
 </div>
-<div class="figure align-default" id="plt-verteilungen" style="width: 75%">
-<div class="cell_output docutils container">
-<img alt="_images/signale_48_1.png" src="_images/signale_48_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Beispiele für unterschiedliche Amplitudenverteilungen, wobei für alle drei Bilder 20000 Datenwerte verwendet wurden.</span><a class="headerlink" href="#plt-verteilungen" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="plt-verteilungen" style="width: 100%">
+<figcaption>
+<p><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Beispiele für unterschiedliche Amplitudenverteilungen, wobei für alle drei Bilder 20000 Datenwerte verwendet wurden.</span><a class="headerlink" href="#plt-verteilungen" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Die Gauss-Verteilung wird auch als Normal-Verteilung bezeichnet. Sie hat eine
 große Bedeutung, da bei einer unendlichen Mittelung vieler unabhängiger, gleichverteilter
 Verteilungen immer eine Normal-Verteilung am Ende herauskommt. Diese Tatsache wird
 zentraler Grenzwertsatz genannt.</p>
-</div>
-<div class="section" id="weitere-eigenschaften-von-signalen">
-<h2><span class="section-number">2.5. </span>Weitere Eigenschaften von Signalen<a class="headerlink" href="#weitere-eigenschaften-von-signalen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="kausalitat">
-<h3><span class="section-number">2.5.1. </span>Kausalität<a class="headerlink" href="#kausalitat" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="weitere-eigenschaften-von-signalen">
+<h2><span class="section-number">2.5. </span>Weitere Eigenschaften von Signalen<a class="headerlink" href="#weitere-eigenschaften-von-signalen" title="Permalink to this headline">#</a></h2>
+<section id="kausalitat">
+<h3><span class="section-number">2.5.1. </span>Kausalität<a class="headerlink" href="#kausalitat" title="Permalink to this headline">#</a></h3>
 <p>Kausalität bedeutet, dass eine Wirkung immer eine zeitlich vorhergehende Ursache haben muss.
 Für Signale heißt diese Eigenschaft, dass keine Signalanteile vor <span class="math notranslate nohighlight">\(t = 0\)</span> existieren dürfen.
 Alle Anteile mit <span class="math notranslate nohighlight">\(t&lt;0\)</span> oder <span class="math notranslate nohighlight">\(k &lt; 0\)</span> sind nicht-kausale Anteile des Signals (siehe <a class="reference internal" href="#pic-kausalerklaerung"><span class="std std-numref">Abbildung 2.23</span></a>).</p>
-<div class="figure align-default" id="pic-kausalerklaerung">
+<figure class="align-default" id="pic-kausalerklaerung">
 <a class="reference internal image-reference" href="_images/KausalErklaerung.png"><img alt="_images/KausalErklaerung.png" src="_images/KausalErklaerung.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Erklärung zum Begriff der Kausalität bei Signalen.</span><a class="headerlink" href="#pic-kausalerklaerung" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="energie-und-leistung">
-<span id="sec-energundleistung"></span><h3><span class="section-number">2.5.2. </span>Energie und Leistung<a class="headerlink" href="#energie-und-leistung" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Erklärung zum Begriff der Kausalität bei Signalen.</span><a class="headerlink" href="#pic-kausalerklaerung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="energie-und-leistung">
+<span id="sec-energundleistung"></span><h3><span class="section-number">2.5.2. </span>Energie und Leistung<a class="headerlink" href="#energie-und-leistung" title="Permalink to this headline">#</a></h3>
 <p>Es muss zwischen Energie- und Leistungssignalen unterschieden werden</p>
-<ul class="simple">
-<li><p>Die Energie eines diskreten Signals ist durch</p></li>
-</ul>
+<ul>
+<li><p>Die Energie eines diskreten Signals ist durch</p>
 <div class="math notranslate nohighlight">
 \[
-    E_x = \sum_{k = -\infty}^{\infty} |x(k)|^2
-\]</div>
-<p>gegeben. Aufgrund dieser Definition ist deutlich, dass alle periodischen Signale
-eine Energie <span class="math notranslate nohighlight">\(E_x=\infty\)</span> haben.</p>
+        E_x = \sum_{k = -\infty}^{\infty} |x(k)|^2
+    \]</div>
+<p>gegeben. Aufgrund dieser Definition ist deutlich, dass alle periodischen Signale eine Energie <span class="math notranslate nohighlight">\(E_x=\infty\)</span> haben.</p>
 <p>Für analoge Signale gilt:</p>
 <div class="math notranslate nohighlight">
 \[
-    E_x = \int_{-\infty}^{\infty} |x(t)|^2 dt
-\]</div>
-<ul class="simple">
-<li><p>Die Definition der mittleren Leistung wird im diskreten Fall durch</p></li>
-</ul>
+        E_x = \int_{-\infty}^{\infty} |x(t)|^2 \text{d}t
+    \]</div>
+</li>
+<li><p>Die Definition der mittleren Leistung wird im diskreten Fall durch</p>
 <div class="math notranslate nohighlight">
 \[
-    P_x =\lim_{n\rightarrow \infty} \frac{1}{2n+1} \sum_{k = -n}^{n} |x(k)|^2
-\]</div>
+        P_x =\lim_{n\rightarrow \infty} \frac{1}{2n+1} \sum_{k = -n}^{n} |x(k)|^2
+    \]</div>
 <p>und für analoge Signale durch</p>
 <div class="math notranslate nohighlight">
 \[
-    P_x =\lim_{T\rightarrow \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} |x(t)|^2 dt
-\]</div>
+        P_x =\lim_{T\rightarrow \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} |x(t)|^2 \text{d}t
+    \]</div>
 <p>angegeben. Von einem Leistungssignal spricht man, wenn <span class="math notranslate nohighlight">\(0 &lt; P_x &lt; \infty\)</span> gilt.
 Periodische Signale sind also Leistungssignale. Weiterhin kann bei periodischen Signalen
-zur Berechnung der Leistung
-nur eine Periode betrachtet werden, was zu einer vereinfachten Berechnung führt.
+zur Berechnung der Leistung nur eine Periode betrachtet werden, was zu einer vereinfachten Berechnung führt.
 Die Leistung aller Energiesignale ist null, da der Nenner im Bruch vor der Summe im Grenzfall <span class="math notranslate nohighlight">\(\infty\)</span> wird.</p>
+</li>
+</ul>
 <div class="note admonition">
 <p class="admonition-title">Beispiel</p>
 <p>Wie groß ist die Leistung eines Sinussignal mit der Amplitude <span class="math notranslate nohighlight">\(A\)</span>?</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray}
-    P_x &amp; = &amp; \lim_{T\rightarrow \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} |A sin(t)|^2 dt\\
-    &amp; = &amp; \frac{1}{2\pi} \int_{-\pi}^{\pi} A^2 sin^2(t) dt\\
+    P_x &amp; = &amp; \lim_{T\rightarrow \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} |A \sin(t)|^2 \text{d}t\\
+    &amp; = &amp; \frac{1}{2\pi} \int_{-\pi}^{\pi} A^2 \sin^2(t) \text{d}t\\
     &amp; = &amp; \frac{A^2}{2\pi} \left( \frac{1}{2}t - \frac{1}{4} \sin (2t) \right)\Bigg]_{-\pi}^{\pi}\\
     &amp; = &amp; \frac{A^2}{2\pi} \left( \frac{1}{2}t - \frac{1}{4} \sin (2t)\right)\Bigg]_{-\pi}^{\pi} \\
     &amp; = &amp; \frac{A^2}{2\pi} \left( \frac{1}{2} \pi + \frac{1}{2} \pi \right) \\
@@ -2578,9 +2802,9 @@ Die Leistung aller Energiesignale ist null, da der Nenner im Bruch vor der Summe
 \end{eqnarray}
 \end{split}\]</div>
 </div>
-</div>
-<div class="section" id="zeitliche-verschiebung">
-<h3><span class="section-number">2.5.3. </span>Zeitliche Verschiebung<a class="headerlink" href="#zeitliche-verschiebung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="zeitliche-verschiebung">
+<h3><span class="section-number">2.5.3. </span>Zeitliche Verschiebung<a class="headerlink" href="#zeitliche-verschiebung" title="Permalink to this headline">#</a></h3>
 <p>Häufig ist es notwendig Signale zeitlich verschoben zu definieren, um bestimmte Aspekte oder
 das Zusammenspiel zweier Signale zu verdeutlichen. Dies wird erreicht, indem die unabhängige Zeitvariable
 <span class="math notranslate nohighlight">\(t\)</span> bzw. <span class="math notranslate nohighlight">\(k\)</span> um einen festen Faktor <span class="math notranslate nohighlight">\(t_0\)</span> bzw. <span class="math notranslate nohighlight">\(k_0\)</span> verschoben wird. Eine Verzögerung erfolgt über ein
@@ -2588,24 +2812,29 @@ negatives Vorzeichen, also <span class="math notranslate nohighlight">\(t-t_0\)<
 <span class="math notranslate nohighlight">\(k+k_0\)</span> (siehe <a class="reference internal" href="#pic-zeitlicheverschiebung"><span class="std std-numref">Abbildung 2.24</span></a>).</p>
 <p>Bei diskreten Signale ist zu beachten, dass immer eine Verschiebung
 um ganzzahlige Vielfache des Abtastintervals vorgenommen werden <span class="math notranslate nohighlight">\(k_0 = nT\)</span> mit
-<span class="math notranslate nohighlight">\(n \in \mathbb{Z}\)</span>
-\footnote{Es ist auch möglich
-nichtganzzahlige Verzögerungen zu realisieren, aber dies wird meist nur in sehr
-speziellen Fällen benötigt. Das Stichwort hierzu lautet {\em Fractional Delay Filter}}.</p>
-<div class="figure align-default" id="pic-zeitlicheverschiebung">
+<span class="math notranslate nohighlight">\(n \in \mathbb{Z}\)</span></p>
+<div class="tip admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Es ist auch möglich, nichtganzzahlige Verzögerungen zu realisieren, aber dies wird meist nur in sehr
+speziellen Fällen benötigt. Das Stichwort hierzu lautet <em>Fractional Delay Filter</em>.</p>
+</div>
+<figure class="align-default" id="pic-zeitlicheverschiebung">
 <a class="reference internal image-reference" href="_images/ZeitlicheVerschiebung.png"><img alt="_images/ZeitlicheVerschiebung.png" src="_images/ZeitlicheVerschiebung.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Veranschaulichung einer zeitlichen Verschiebung (Verzögerung) um <span class="math notranslate nohighlight">\(k_0\)</span>.</span><a class="headerlink" href="#pic-zeitlicheverschiebung" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="darstellung-diskreter-signale-als-delta-impulsfolgen">
-<h3><span class="section-number">2.5.4. </span>Darstellung diskreter Signale als Delta-Impulsfolgen<a class="headerlink" href="#darstellung-diskreter-signale-als-delta-impulsfolgen" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Veranschaulichung einer zeitlichen Verschiebung (Verzögerung) um <span class="math notranslate nohighlight">\(k_0\)</span>.</span><a class="headerlink" href="#pic-zeitlicheverschiebung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="darstellung-diskreter-signale-als-delta-impulsfolgen">
+<h3><span class="section-number">2.5.4. </span>Darstellung diskreter Signale als Delta-Impulsfolgen<a class="headerlink" href="#darstellung-diskreter-signale-als-delta-impulsfolgen" title="Permalink to this headline">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Alle digitalen Signale lassen sich als Summe von gewichteten und verschobenen Delta-Impulsen darstellen <span class="math notranslate nohighlight">\(x(k) = \sum x_{\kappa} \delta(k-\kappa)\)</span></p>
+<p>Alle digitalen Signale lassen sich als Summe von gewichteten und verschobenen Delta-Impulsen darstellen:</p>
+<p><span class="math notranslate nohighlight">\(x(k) = \sum x_{\kappa} \delta(k-\kappa)\)</span></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2629,54 +2858,48 @@ speziellen Fällen benötigt. Das Stichwort hierzu lautet {\em Fractional Delay 
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="grundlagen.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">1. </span>Einführung</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="grundlagen.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Einführung</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="systeme.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Systeme</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="systeme.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">3. </span>Systeme</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Joerg Bitzer<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joerg Bitzer<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

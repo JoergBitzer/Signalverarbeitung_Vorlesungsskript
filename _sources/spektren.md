@@ -11,11 +11,12 @@ kernelspec:
   name: python3
 ---
 
+(sec:spektren)=
 # Spektren
 
 Neben den zwei Beschreibungsebenen für diskrete Signale und
 Systeme, den Zeitbereich mit der Differenzengleichung und
-die z-Ebene, gilt einem besonderen Interesse, wie sich die Signale und
+die z-Ebene, gilt ein besonderes Interesse, wie sich die Signale und
 Systeme in Abhängigkeit von der Frequenz verhalten. Diese Darstellung
 wird als Spektrum bezeichnet. Dabei ist das Betragsverhalten
 (Betragsspektrum), also ob und mit welcher Leistung eine Frequenz im
@@ -27,7 +28,7 @@ darstellen.
 
 ```{admonition} Beispiel
 :class: hint
-Motivationsbeispiel: Feedbackproblematik im Hörgerät oder bei der Bühnenbeschallung. Analyse des Signals (Spektrum) ermöglicht zu erkennen, bei welcher Frequenz die Störung auftritt. Nach der Analyse kann bei dieser Frequenz ein System eingebaut werden, dass die Übertragung dämpft. Durch den frequenzselektiven Eingriﬀ wird das Nutzssignal nur unwesentlich beeinﬂusst.
+Motivationsbeispiel: Feedbackproblematik im Hörgerät oder bei der Bühnenbeschallung. Analyse des Signals (Spektrum) ermöglicht zu erkennen, bei welcher Frequenz die Störung auftritt. Nach der Analyse kann ein System eingebaut werden, dass die Übertragung bei dieser Frequenz dämpft. Durch den frequenzselektiven Eingriﬀ wird das Nutzssignal nur unwesentlich beeinflusst.
 ```
 
 ```{admonition} ToDo
@@ -35,17 +36,16 @@ Motivationsbeispiel: Feedbackproblematik im Hörgerät oder bei der Bühnenbesch
 Das Motivationsbeispiel in einer konkreten Realisierung wäre schön.
 ```
 
-Eine Möglichkeit das Verhalten bei einer bestimmten Frequenz zu testen,
-ist, das LTI-System mit Signalen anzuregen die nur aus einer Frequenz
-bestehen und dann die Veränderung am Ausgang zu messen. Ein sehr gutes
+Das Verhalten bei einer bestimmten Frequenz lässt sich z.B. testen,
+indem das LTI-System mit Signalen angeregt wird, die nur aus einer Frequenz bestehen und dann die Veränderung am Ausgang des Systems zu messen. Ein sehr gutes
 Eingangssignal um Betrag und Phase zu bestimmen ist die ungedämpfte
 diskrete Exponentialschwingung 
 
 $$
-    e^{j\Omega_0 k} = \cos(\Omega k)+j\sin(\Omega k)
-$$ (eq:Def:Euler)
+    e^{j\Omega_0 k} = \cos(\Omega k)+j\sin(\Omega k)~~~,
+$$ (eq:Def:Euler_spektren)
 
-mit $\Omega_0 = 2 \pi f_0/ f_s$, wobei $f_0$ die Analysefrequenz und $f_s$
+mit $\Omega_0 = 2 \pi f_0/ f_\text{s}$, wobei $f_0$ die Analysefrequenz und $f_\text{s}$
 die Samplingfrequenz angibt.
 
 ```{admonition} Exkurs: Frequenzachsen in der DSV
@@ -59,7 +59,7 @@ Achse und ihre Position auf dem Einheitskreis in der z-Ebene zeigt
 
 ```{figure} ../images/psSpek/FrequenzskalierungenExkurs.png
 ---
-height: 150px
+height: 200px
 name: fig:FrequenzskalierungenExkurs
 ---
 Veranschaulichung der unterschiedlichen
@@ -71,32 +71,33 @@ z-Ebene.
 +++
 
 Mit Hilfe der Faltung ergibt sich am Ausgang eines durch die
-Impulsantwort beschriebenen Systems. 
+Impulsantwort beschriebenen Systems
 
 $$\begin{aligned}
     y(k)& = &x(k)\ast h(k) = \sum_{\kappa = -\infty}^{\infty} h(\kappa)
     e^{j\Omega_0(k-\kappa)}\\
     &= & \underbrace{e^{j\Omega_0 k}}_{\mbox{Eingangssignal}} \cdot
     \underbrace{\sum_{\kappa = -\infty}^{\infty} h(\kappa) e^{-j\Omega_0
-    \kappa}}_{\mbox{Komplexer Multiplikator}}\end{aligned}
+    \kappa}}_{\mbox{Komplexer Multiplikator}}\end{aligned}~~~.
 $$ (eq:fTrafo:Bsp)
     
 Das heißt also, die am Ausgang gemessene Schwingung besitzt die gleiche Frequenz, die aber in ihrer Phase und ihrem Betrag geändert sein könnte. Die Berechnung
 dieses Ausgangsverhalten für alle Frequenzen führt zum gewünschten Spektrum.
 Auffällig bei LTI-Systemen ist, das keine neuen Frequenzen entstehen.
 Dies ist eine typische Eigenschaft von LTI-Systemen.
+
 ```{admonition} Wichtig
 :class: attention
-LTI-Systeme erzeugen keine neuen Frequenzen
+LTI-Systeme erzeugen keine neuen Frequenzen.
 ```
-Bei Systemen wird die frequenzabhängige Veränderung des Betrages und der
-Phase Übertragungsfunktion genannt und wird durch
+
+Bei Systemen wird die frequenzabhängige Veränderung des Betrages und der Phase Übertragungsfunktion genannt und durch
 
 $$
     H(e^{j \Omega}) = \sum_{k = -\infty}^{\infty} h(k) e^{-j\Omega k}
 $$ (eq:DTFD:Hin)
     
-berechnet. Dies entspricht einer Fourier-Transformation der nur zu diskreten Punkten definierten Impulsantwort. Allgemein kann jedes beliebige dikrete Signal so in den Frequenzbereich transormiert werden. Die dazugehörige Transformation wird Zeitdiskrete Fourier-Transformation (*Discrete Time Fourier-Transformation (DTFT)*) genannt.
+berechnet. Dies entspricht einer Fourier-Transformation der nur zu diskreten Punkten definierten Impulsantwort. Allgemein kann jedes beliebige diskrete Signal so in den Frequenzbereich transformiert werden. Die dazugehörige Transformation wird Zeitdiskrete Fourier-Transformation (*Discrete Time Fourier-Transformation, DTFT*) genannt.
 
 Vergleichen wir nun Gleichung
 {eq}`eq:DTFD:Hin` mit der Definition der z-Transformation, so
@@ -106,13 +107,13 @@ Es kann also direkt am Einheitskreis das frequenzabhängige
 Übertragungsverhalten von Systemen abgelesen werden. Dies gilt analog natürlich
 auch für Signale.
 
-Ist also die z-Transformation eines Systems bekannt kannn auch sofort die Übertragungsfunktion 
+Ist also die z-Transformation eines Systems bekannt kann auch sofort die Übertragungsfunktion 
 angeben werden. Beispielsweise ergibt sich 
 für das System $y(k) = x(k) + x(k-1)$ mit $e^{j\Omega}$ in die
 z-Transformierte eingesetzt 
 
 $$
-    H(e^{j \Omega}) = 1+z^{-1} \Big|_{z = e^{j\Omega}} = 1+e^{-j\Omega}
+    H(e^{j \Omega}) = 1+z^{-1} \Big|_{z = e^{j\Omega}} = 1+e^{-j\Omega}~~~.
 $$ (eq:fTRafo:Bsp:zTrafoFTrafo) 
     
 Eine Multiplikation beider Seiten mit $e^{j \Omega / 2}$ führt zu:
@@ -124,19 +125,19 @@ $$
 \end{aligned}
 $$ (eq:fTrafo:BspUebrtragungF)
 
-Die komplexwertige Darstellung mit Real und Imaginärteil ist dabei zur
+Die komplexwertige Darstellung mit Real- und Imaginärteil ist dabei zur
 Veranschaulichung und Interpretation nicht geeignet. Statt dessen wird
 das komplexe Signal meist in den Betragsfrequenzgang, d.h, eine
 Darstellung von $|H(e^{j \Omega})|$ über der Frequenz und den Phasengang, eine
-Darstellung des Arguments von $H(e^{j \Omega})$, aufgeteilt, wobei beim Betrag
+Darstellung des Arguments von $H(e^{j \Omega})$, aufgeteilt, wobei bei dem Betrag
 oder dem Betragsquadrat auch häufig eine logarithmische Darstellung
 gewählt wird. In der Audiotechnik wird zusätzlich auch die Frequenzachse logarithmisch 
-dargestellt, da dies näher an der Wahrnehmung von Tonhöhe liegt-
+dargestellt, da dies eher der menschlichen Wahrnehmung von Tonhöhe entspricht.
 
 ## Einfluss der Pole und Nullstellen auf die Übertragungsfunktion
 
 Um den Einfluss der Pole und Nullstellen auf die Übertragungsfunktion
-abzuschätzen, hilft zunächst ein Besipiel. Die {numref}`Abbildung %s <fig:PolNullstellenplan>` zeigt auf der rechten Seite $|H(z)|^2$ als dreidiemensionalen Höhenplot und $|H(e^{j \Omega})|^2$ als schwarzen Einheitskreis in einer logarithmischen Darstellung. Der Betragsfrequenzgang der DTFT (schwarze Linie)
+abzuschätzen, hilft zunächst ein Besipiel. {numref}`Abbildung %s <fig:PolNullstellenplan>` zeigt rechts $|H(z)|^2$ als dreidimensionalen Höhenplot und $|H(e^{j \Omega})|^2$ als schwarzen Einheitskreis in einer logarithmischen Darstellung. Der Betragsfrequenzgang der DTFT (schwarze Linie)
 kann direkt aus dem enstehenden "Gebirge" abgelesen werden, wenn der
 Einheitskreis vom Winkel $0$ bis $\pi$ umlaufen wird. Der Pol bei $\pi/10$
 verursacht eine Verstärkung auf dem Einheitskreis. Ein Pol direkt auf
@@ -146,7 +147,7 @@ Winkel von $\pi/2$ werden die Nullstellen dominant, die dazu führen,
 dass sich der Betragsfrequenzgang null nähert und die Null bei genau
 $\pi$ erreicht. Auf dem unteren Halbkreis geht zunächst der Einfluss der
 Nullstelle zurück und der konjugiert komplexe Pol bei $-\pi/10$ gewinnt
-an Einfluss. Bei $\Omega =
+an Einfluss.$\Omega =
 2\pi$ entspricht erneut $\Omega = 0$. Der Betragsfrequenzgang
 wiederholt sich also periodisch in $2\pi$ für diskrete Signale. Dies ist
 auch direkt aus der Beziehung 
@@ -159,8 +160,8 @@ zu sehen.
 
 Eine direkte Berechnung des Betrag- und Phasenganges aus den Polen und
 Nullstellen ist ebenfalls möglich. Um das zu veranschaulichen ist in
-{numref}`Abbildung %s <fig:UebertragPolNullstellen>`  ein System zweiter Ordnung in der
-z-Ebene mit zwei Polen und zwei Nullstellen gezeigt.
+{numref}`Abbildung %s <fig:UebertragPolNullstellen>`  ein System zweiter Ordnung mit zwei Polen und zwei Nullstellen in der
+z-Ebene  gezeigt.
 
 +++
 
@@ -171,7 +172,7 @@ name: fig:UebertragPolNullstellen
 ---
 Skizze zur Veranschaulichung des
 Einflusses von Polen und Nullstellen auf die Übertragungsfunktion
-$H(e^(j \Omega))$.
+$H(e^{j \Omega})$.
 ```
 
 +++
@@ -200,8 +201,7 @@ Systeme ebenfalls reell ist, kann der Term $\arg\{b_0\}$ auch
 weggelassen werden, bzw. führt bei negativem $b_0$ zu einer
 Phasendrehung von $\pi$.
 
-Für allgemeine Systeme mit einem Zählergrad $M$ und einem Nennergrad $N$
-ergibt sich (angelehnt an [{cite}`KK98`]). 
+Für allgemeine Systeme mit einem Zählergrad $M$ und einem Nennergrad $N$ ergibt sich (angelehnt an {cite}`KK98`)
 
 $$
     \left|H(e^{j \Omega})\right| = |b_0| \frac{\displaystyle \prod_{i = 0}^{M-1} \sqrt{1-2|n_i|\cos(\Omega-\arg\{n_i\})+|n_i|^2}}
@@ -220,7 +220,7 @@ $$
     \right\}\\\nonumber
     && - \sum_{i = 0}^{N-1}\arctan\left\{\frac{\sin \Omega-\Im{p_i}}{\cos \Omega-\Re{p_i}} \right\}\end{aligned}
 $$ (eq:SpektrumPhaseAllg)
-wobei $\Re{\cdot}$ und $\Im{\cdot}$ den Real-, bzw. Imaginäranteil einer komplexen Zahl symbolisieren.
+wobei $\Re{\cdot}$ und $\Im{\cdot}$ den Real- bzw. Imaginäranteil einer komplexen Zahl symbolisieren.
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -232,10 +232,10 @@ wobei $\Re{\cdot}$ und $\Im{\cdot}$ den Real-, bzw. Imaginäranteil einer komple
 Phase muss noch deutlich besser erklärt werden und die folgenden Interpretationen sollten durch Besipiele (plots mit Python) gezeigt werden. Plot fuer ein PN Plan siehe oben
 ```
 
-Eine Interpretation (Die Nutzung vom FilterDeMystifier hilft hier sehr) führt zu den Schlüssen:
+Eine Interpretation (die Nutzung vom FilterDeMystifier hilft hier sehr, siehe {numref}`Abschnitt %s  <sec:interactive_ztransform>`) führt zu den Schlüssen:
 
 -   Je näher ein Pol am Einheitkreis liegt umso größer ist sein Einfluss
-    auf die Übertragungsfunktion
+    auf die Übertragungsfunktion.
 
 -   Eine Nullstelle auf dem Einheitskreis führt zu einem Phasensprung um
     $\pi$.
@@ -247,7 +247,7 @@ Eine Interpretation (Die Nutzung vom FilterDeMystifier hilft hier sehr) führt z
     nicht den Betrag der Übertragungsfunktion.
 
 -   Nullstellen die am Einheitskreis gespiegelt werden
-    $r_{out} = 1/r_{in}$, führen nur zu einer Veränderung der
+    ($r_\text{out} = 1/r_\text{in}$), führen nur zu einer Veränderung der
     Grundverstärkung des Betrages der Übertragungsfunktion aber nicht zu
     einer Veränderung der Form. Gleichzeitig wird aber die Phase so
     verändert, dass sie um über $180^{\circ}$ dreht und das
@@ -258,9 +258,9 @@ Eine Interpretation (Die Nutzung vom FilterDeMystifier hilft hier sehr) führt z
     
     $$
         n_{i_0} = \frac{1}{p_{i_{\infty}}}
-$$ (eq:AllpassGrundlagenFormel)
+    $$ (eq:AllpassGrundlagenFormel)
 
-heißen Allpasssysteme, da
+    heißen Allpasssysteme, da
     der Betrag für alle Frequenzen konstant bleibt. Nur die Phase wird
     verändert und dreht um $N \pi$, wobei $N$ die Ordnung des Systems
     angibt.
@@ -282,9 +282,9 @@ zu Null werden, können auch die Summengrenzen verändert werden.
 
 Diese Rechteckfolge werden wir im weiteren mit Fenster oder *Window*
 bezeichnen, da es aus der Folge nur einen Ausschnitt zeigt, in Anlehnung
-an ein Glasfenster , das uns nur einen Ausschnitt der Wirklichkeit zeigt
-(siehe {numref}`Abbildung %s <fig:DFT_FensterMultiplikation>` ). Die Länge $N$ nennen wir Blockgröße,
-da nur noch ein Block an Daten verarbeitet wird.
+an ein Glasfenster, das uns nur einen Ausschnitt der Wirklichkeit zeigt
+(siehe {numref}`Abbildung %s <fig:DFT_FensterMultiplikation>`s). Die Länge $N$ nennen wir Blockgröße,
+da nur noch ein Block mit Daten verarbeitet wird.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -292,7 +292,7 @@ da nur noch ein Block an Daten verarbeitet wird.
 ```
 
 ```{glue:figure} DFT_FensterMultiplikation
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:DFT_FensterMultiplikation"
 
 Veranschaulichung der Wirkung einer
@@ -304,7 +304,7 @@ $N = 16$.
 
 Das resultierende Spektrum ist aber immer noch kontinuierlich. Durch die
 periodische Wiederholung des Spektrums ist es aber ausreichend nur den
-Bereich von $0 \leq \omega\leq 2\pi$ genauer zu betrachten. Um jetzt
+Bereich von $0 \leq \omega\leq 2\pi$ genauer zu betrachten. Um
 eine diskretes Spektrum zu erhalten, unterteilen wir das Spektrum in $N$
 gleichförmige Abschnitte (man kann auch eine andere Anzahl verwenden, aber N führt zu besonders effizienten Lösungen).
 
@@ -316,29 +316,24 @@ $$ (eq:DFTHin:Def)
 
 über.
 
-Umgekehrt ist es natürlich auch möglich, aus den $N$ Spektralwerten auch
-auf die Folge zurück zuschließen. Die Rücktransformation enthält
-zusätzlich noch einen Normierungsterm $N$ und unterscheidet sich sonst
-nur in dem Vorzeichen der e-Funktion. 
+Umgekehrt ist es natürlich auch möglich, aus den $N$ Spektralwerten 
+auf die Folge $x(k)$ zurückzuschließen. Die Rücktransformation 
 
 $$
     x(k) = \frac{1}{N} \sum_{n = 0}^{N-1}X(n) e^{j 2 \pi n k /N}
 $$ (eq:DFTRueck:Def)
 
+enthält zusätzlich noch einen Normierungsterm $N$ und unterscheidet sich sonst nur in dem Vorzeichen der e-Funktion. 
+
 Das Transformationspärchen
-{eq}`eq:DFTHin:Def` und
-{eq}`eq:DFTRueck:Def` werden als diskrete Fourier-Transformation
-(DFT), bzw. inverse DFT (IDFT) bezeichnet.
+{eq}`eq:DFTHin:Def` und {eq}`eq:DFTRueck:Def` werden als diskrete Fourier-Transformation (DFT), bzw. inverse DFT (IDFT) bezeichnet.
 
 ## Eigenschaften
 
 ### Zusammenhang DTFT und DFT
 
 Wir haben, um von der exakten Darstellung des Spektrums mittels DTFT auf
-die computerlösbare DFT zu kommen, zwei Veränderungen vorgenommen und
-natürlich spiegeln sich diese Veränderungen auch im Ergebnis wieder. Wir
-müssen also versuchen, die Veränderungen zu analysieren, um sicher zu
-sein, dass die DFT zumindest eine Näherung der DTFT ist.
+die computerlösbare DFT zu kommen, zwei Veränderungen vorgenommen. Und natürlich spiegeln sich diese Veränderungen auch im Ergebnis wieder. Wir müssen also versuchen, die Veränderungen zu analysieren, um sicher zu sein, dass die DFT zumindest eine Näherung der DTFT ist.
 
 Zunächst ist es interessant die vorgenommene Diskretisierung im
 Frequezbereich zu untersuchen. Im Grunde genommen haben wir das Spektrum
@@ -357,42 +352,40 @@ genau $N$ ist (siehe {numref}`Abbildung %s <fig:DFT_SignalPeriodizitaet>`).
 
 ```{figure} ../images/psSpek/DFT_SignalPeriodizitaet.png
 ---
-width: 50%
+width: 75%
 name: fig:DFT_SignalPeriodizitaet
 ---
 Veranschaulichung der erzwungenen
-Signal-Periodizität durch die
+Signalperiodizität durch die
 DFT.
 ```
 
 +++
 
-Der Einfluss der Fenster-Funktion lässt sich zunächst nur durch die DTFT
-beschreiben. Es ist bekannt, dass eine Faltung im Zeitbereich zu einer
-Multiplikation im Bildbereich (Frequenzbereich) führt. Das Umgekehrte
-gilt aber auch. Eine Multiplikation im Zeitbereich, und die Nutzung des
-Fensters ist eine Multiplikation, führt im Frequenzbereich zu einer
-Faltung der Spektren, wobei die Faltung hier kontinuierlich als Integral
-zu definieren ist, da wir ja ein kontinuierliches periodisches Spektrum
-haben. 
+Der Einfluss der Fenster-Funktion lässt sich zunächst nur durch die DTFT beschreiben. Es ist bekannt, dass eine Faltung im Zeitbereich zu einer Multiplikation im Bildbereich (Frequenzbereich) führt. Das Umgekehrte
+gilt aber auch. Eine Multiplikation im Zeitbereich, und damit die Nutzung des Fensters, ist eine Multiplikation. Sie führt im Frequenzbereich zu einer Faltung der Spektren, wobei die Faltung hier kontinuierlich als Integral zu definieren ist, da wir ja ein kontinuierliches periodisches Spektrum haben. 
 
 $$
     H(e^{j \Omega}) \Big|_{0 \leq n \leq N} = \int_{\theta = -\pi}^{\pi} H
-    (e^{j\theta}) H^{W}(e^{j(\Omega - \theta)})d\theta
+    (e^{j\theta}) H^{W}(e^{j(\Omega - \theta)})\text{d}\theta
 $$ (eq:SpektrumBegrenzterFolgen)
 
 wobei $H^{W}$ die Übertragungsfunktion der Fensterfunktion ist.
 
-Für das Rechteckfenster ergibt sich das Spektrum, indem wir zunächst die z-Transformation der Fensterfolge $w(k)$ ansetzen Es gilt:
+Für das Rechteckfenster ergibt sich das Spektrum, indem wir zunächst die z-Transformation der Fensterfolge $w(k)$ ansetzen. Es gilt
 
 $$
-H^{W}(z) = \sum_{k = -\infty}^{\infty} w(k) z^{-k} = \sum_{k = 0}^{N-1} z^{-k}$$
+H^{W}(z) = \sum_{k = -\infty}^{\infty} w(k) z^{-k} = \sum_{k = 0}^{N-1} z^{-k}~~~.
+$$
+
 Durch einsetzen von $z = e^{j\Omega}$ ergibt sich das Spektrum
-$$H^{W}(z)\Big|_{z = e^{j\Omega}} = \sum_{k = 0}^{N-1} e^{-j\Omega k}
+
+$$
+H^{W}(z)\Big|_{z = e^{j\Omega}} = \sum_{k = 0}^{N-1} e^{-j\Omega k}~~.
 $$
 
-mit der Formel der endlichen geometrischen Reihe[^2] erhält man das
-Spektrum der Rechteckfunktion: 
+Mit der Formel der endlichen geometrischen Reihe[^2] erhält man das
+Spektrum der Rechteckfunktion 
 
 $$
 \begin{aligned}
@@ -415,18 +408,17 @@ Der Betrag dieser Funktion ist in {numref}`Abbildung %s <fig:DirichletFkt>` geze
 :figwidth: 75%
 :name: "fig:DirichletFkt"
 
-Betrag von $H^{W}(e^(j \Omega))$ für
+Betrag von $H^{W}(e^{j \Omega})$ für
 $N = 16$.
 ```
 
 +++
 
-```{admonition} Beispiel
+```{admonition} Beispiel: DTFT und DFT bei einer Cosinus-Schwingung
 :class: hint
-DTFT und DFT bei einer Cosinus-Schwingung\
-Um die Unterscheide zwischen DTFT und DFT bei der Spektrumsberechnung
-eines Cosinus müssen wir zunächst das Spektrum einer abgetasteten
-Cosinus-Schwingung berechnen: 
+Um die Unterscheide zwischen DTFT und DFT bei der Spektrumsberechnung 
+eines Cosinus aufzuzeigen, müssen wir zunächst das Spektrum einer abgetasteten
+Cosinusschwingung berechnen: 
 
 $$
 \begin{aligned}
@@ -436,12 +428,12 @@ H(e^{j \Omega}) & = & \sum_{-\infty}^{\infty} \cos \left(k \Omega_0  \right) e^{
        & = & \sum_{-\infty}^{\infty} \frac{1}{2} e^{-j k (\Omega-\Omega_0)}
        + \sum_{-\infty}^{\infty} \frac{1}{2} e^{-j k (\Omega + \Omega_0)}\\
        & = & \frac{1}{2} \delta^D(\Omega - \Omega_0)
-       + \frac{1}{2} \delta^D(\Omega + \Omega_0)
+       + \frac{1}{2} \delta^D(\Omega + \Omega_0)~~~,
 \end{aligned}
 $$ 
 
 mit
-$\Omega = 2\pi f / f_s$. Das heißt, das Spektrum des abgetasteten
+$\Omega = 2\pi f / f_\text{s}$. Das heißt, das Spektrum des abgetasteten
 Cosinus hat nur zwei definierte Frequenzwerte, an den Frequenzen
 $\Omega = \pm \Omega_0$.
 ```
@@ -463,8 +455,8 @@ $$
 
 Das Spektrum des Rechtecks wird also, um $\pm \Omega_0$ verschoben.
 {numref}`Abbildung %s <fig:DFT_Cosinus>` zeigt das resultierende
-Spektrum für $N = 16$ bei einer Grundfrequenz von 155Hz und einer
-Abtastrate von $f_s = 1$kHz.
+Spektrum für $N =$ 16 bei einer Grundfrequenz von $f_0 =$ 155 Hz und einer
+Abtastrate von $f_\text{s} =$ 1 kHz.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -473,13 +465,12 @@ Abtastrate von $f_s = 1$kHz.
 
 
 ```{glue:figure} DFT_Cosinus
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:DFT_Cosinus"
 
-Spektrum (Rechts) einer
-abgetasteten Cosinus-Fkt., die auf $N = 16$ Werte begrenzt wird (Links)
-($f_s = 1$kHz und
-$f_0 = 155$Hz).
+Spektrum (rechts) eines
+abgetasteten Cosinus (links), der auf $N = $16 Werte begrenzt wird
+($f_s = $1 kHz und $f_0 = $155 Hz).
 ```
 
 +++
@@ -494,8 +485,8 @@ resultierende Folge auf der rechten Seite.
 +++
 
 Das resultierende Spektrum hat nicht das erwartete Maximum bei $f_0$, da
-$155Hz$ nicht im Abtastraster einer 16 Punkte FFT bei einer Abtastrate
-von 1kHz liegt. Statt dessen ist die Leistung des Cosinus über viele
+155 Hz nicht im Abtastraster einer 16 Punkte FFT bei einer Abtastrate
+von 1 kHz liegt. Statt dessen ist die Leistung des Cosinus über viele
 Abtastpunkte spektral verteilt. Dieser Effekt wird auch als *Leakage*
 bezeichnet.
 
@@ -512,24 +503,22 @@ zeitdiskrete Fourier-Transformation (DFT und DTFT) ergibt sich für
 reelle Signale. Aus den Eigenschaften der z-Transformation ist deutlich,
 dass sich nur dann reelle Koeffizienten bei Signalen und Systemen
 ergeben, wenn die Pole und Nullstellen konjugiert komplex auftreten.
-Daraus ergibt sich, dass die Spektren reeller Signale konjugiert komplex
-sind. Es ergibt sich also eine Symmetrie der Spektren an der Null Hertz
-(Gleichstrom) Linie. Der Realteil ist dabei achsensymmetrisch (gerade)
+Daraus folgt, dass die Spektren reeller Signale konjugiert komplex
+sind. Es ergibt sich also eine Symmetrie der Spektren an der Null-Hertz-Linie (Gleichstrom). Der Realteil ist dabei achsensymmetrisch (gerade)
 und der Imaginärteil punktsymmetrisch (ungerade). Diese Symmetrien
 ergeben sich auch, wenn Betrag und Phase betrachtet werden. Der Betrag
 reeller Funktionen ist immer achsensymmetrisch und die Phase
-punktsymmetrisch (siehe {numref}`Abbildung %s <fig:SymmetriePlot>`)
+punktsymmetrisch (siehe {numref}`Abbildung %s <fig:SymmetriePlot>`).
 
 +++
 
 ```{figure} ../images/psSpek/SymmetriePlot.png
 ---
-width: 80%
+width: 100%
 name: fig:SymmetriePlot
 ---
 Beispiel eines Frequenz- und Phasenverlaufs
-eines reellwertigen
-Systems.
+eines reellwertigen Systems.
 ```
 
 +++
@@ -538,32 +527,29 @@ Die Symmetrien lassen sich bei der Berechnung der DFT und IDFT
 ausnutzen, da immer nur das halbe Spektrum berechnet werden muss,
 während die andere Hälfte durch Spiegelung erzeugt werden kann. Häufig
 kommt es vor, dass man im Spektralbereich etwas berechnet und an der
-dazugehörigen Zeitfolge interessiert ist (zum Beispiel beim
+dazugehörigen Zeitfolge interessiert ist (zum Beispiel bei einen
 Filterentwurf). Es reicht aus, für eine $N$-Punkte DFT, $N/2+1$
 Spektralwerte zu kennen. Man benötigt einen Wert mehr, da die DFT für
-die höchste Frequenz bei $f_s/2$ nur einen reellwertigen Koeffizienten
-besitzt. Die Kopievorschrift in Matlab sieht dann wie folgt aus, wobei
-wir annehmen, die $N/2+1$ Werte sind in `H_halb` gespeichert
+die höchste Frequenz bei $f_\text{s}/2$ nur einen reellwertigen Koeffizienten
+besitzt. Die Kopiervorschrift in Matlab sieht dann wie folgt aus, wobei
+wir annehmen, dass die $N/2+1$ Werte in `H_halb` gespeichert sind.
 
-````{tabbed} Matlab
+`````{tab-set}
+````{tab-item} Matlab
 ```matlab
     H_voll = [H_halb conj(H_halb(end-1:-1:2))];
 ```
 ````
-````{tabbed} Python
+````{tab-item} Python
 ```python
     H_halb_c = H_halb[:,-1}]
     H_voll = H_halb + H_halb_c
 ```
 ````
+`````
 
-
-
-Die Gegenprobe, ob alle Symmetrien richtig aufgebaut wurden, ist das
-Überprüfen, ob nach der Rücktransformation eine rein reellwertige Folge
-entsteht, wobei bei Matlab durch Rundungsfehler immer die resultierende
-Variable komplex ist. Es ist deshalb immer notwendig, den Betrag des
-Imaginäranteils zu überprüfen. Dieser sollte sehr kleine Werte um
+Entsteht nach der Rücktransformation eine rein reellwertige Folge, wurden alle Symmetrien richtig aufgebaut. Dies kann als Gegenprobe verwendet werden, wobei die resultierende Variable durch Rundungsfehler bei der elektronischen Verarbeitung immer komplex ist. Es ist deshalb notwendig, den Betrag des
+Imaginäranteils zu überprüfen. Dieser sollte Werte um
 $10^{-7}$ nicht überschreiten.
 
 Wie lässt sich die Symmetriebedingung mathematisch zeigen?
@@ -577,17 +563,22 @@ $$
 ergibt sich für die an der y-Achse gespiegelte Folge durch Variablensubstitution 
 
 $$
-X(-n) = \sum_{k = 0}^{N-1} x(k) e^{jkn2\pi/N}
+X(-n) = \sum_{k = 0}^{N-1} x(k) e^{jkn2\pi/N}~~~.
 $$
 
 Konjugiert man dieses Signal ergibt sich 
 
 $$
-\begin{aligned}
-    X^{\ast}(-n)  &  =  & \sum_{k = 0}^{N-1} \underbrace{x^{\ast}(k)}_{=x(k)\:\mbox{, da reell}}
-    \underbrace{e^{-jkn2\pi/N}}_{\mbox{Beachte -}}\\
-                  &  =  & X(n)\end{aligned}
+X^{\ast}(-n)   =  \sum_{k = 0}^{N-1} 
+    e^{-jkn2\pi/N}~~~, 
 $$
+
+wobei der negative Exponent zu beachten ist. Für ein reelwertiges Signal gilt $x^{\ast}(k) = x(k)$, woraus folgt, dass
+
+$$
+X^{\ast}(-n)   =  X(n)~~~. 
+$$
+
 
 #### Spektren reeller gerader Folgen
 
@@ -601,10 +592,10 @@ reelle, gerade Funktionen ein reelles, gerades Spektrum haben.
 #### Linearität
 
 Die DFT ist eine lineare Transformation. Es gilt also das
-Superpositionsprinzip: 
+Superpositionsprinzip
 
 $$
-  a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(n) + a_2 X_2(n)
+  a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(n) + a_2 X_2(n)~~~.
 $$ (eq:DFT:Linearitaet)
 
 (sec:DFT:Faltung)=
@@ -633,7 +624,7 @@ periodisch fortgesetzten Sequenzen. Dies führt dazu, dass auch das
 Faltungsprodukt periodisch ist. Man spricht deshalb von der zyklischen
 Faltung. Das Ergebnis kann sich vollständig von dem gewünschten Ergebnis
 unterscheiden. Dies wird in {numref}`Abbildung %s <fig:BspZyklischeFaltung>` demonstriert. Die beiden Folgen
-(a,b) ergeben bei der Faltung im Zeitbereich die Folge c. Die Lösung mit
+(a, b) ergeben bei der Faltung im Zeitbereich die Folge c. Die Lösung mit
 Hilfe der DFT führt auf die Folge d.
 
 ```{code-cell} ipython3
@@ -643,7 +634,7 @@ Hilfe der DFT führt auf die Folge d.
 
 
 ```{glue:figure} BspZyklischeFaltung
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BspZyklischeFaltung"
 
 Beispiel für zyklische Faltung. Die
@@ -676,41 +667,40 @@ Einfacheres Beispiel mit Rechteck und Dreiecksfunktionen, bei denen die Wiederho
 
 Das Theorem von Parseval sagt aus, dass man die Energie eines Signals im
 Zeit, oder im Frequenzbereich berechnen kann, bzw. dass die Leistung
-eines Signals im Zeit- und Frequenzbereich gleich ist. Es gilt also für
-die DTFT: 
+eines Signals im Zeit- und Frequenzbereich gleich ist. Für
+die DTFT gilt 
 
 $$
-    \sum_{k = -\infty}^{\infty} x^2(k) = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left|X(e^(j \Omega)) \right|^2 d\Omega
+    \sum_{k = -\infty}^{\infty} x^2(k) = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left|X(e^(j \Omega)) \right|^2 \text{d}\Omega~~~, 
 $$ (eq:ParsevalDTFT)
 
 bzw. für die DFT 
 
 $$
-    \sum_{k = 0}^{N-1} x^2(k) = \frac{1}{N}\sum_{n = 0}^{N-1} |X(n)|^2
+    \sum_{k = 0}^{N-1} x^2(k) = \frac{1}{N}\sum_{n = 0}^{N-1} |X(n)|^2~~~.
 $$ (eq:ParsevalDFT)
 
 ### Effiziente Implementierung
 
 Die DFT lässt sich durch Ausnutzung unterschiedlicher Symmetrien sehr
-effizient berechnen. Um dies zu verdeutlichen, soll das sog. *Decimation
+effizient berechnen. Um dies zu verdeutlichen, soll das sogenannten *Decimation
 in Time*-Verfahren zur drastischen Reduktion der benötigten
-Rechenleistung, genauer gezeigt werden. Andere Verfahren können in der
-sehr umfangreichen Literatur zur Entwicklung der sog. Fast Fourier
+Rechenleistung genauer gezeigt werden. Andere Verfahren können in der
+sehr umfangreichen Literatur zur Entwicklung der Fast Fourier
 Transform (FFT) gefunden werden {cite}`coo90, KK98, OS99`.
 
-Um eine effiziente Realisierung zu finden, legen wir die Länge der FFT
-so fest, dass sie eine 2er Potenz darstellt. Besonders häufig in der
-Audio und Sprachsignalverarbeitung genutzte FFT-Längen sind 256 , 512,
+Um eine effiziente Realisierung zu finden, legen wir die Länge der FFT als Zweierpotenz fest. Besonders häufig in der
+Audio und Sprachsignalverarbeitung genutzte FFT-Längen sind 256, 512,
 1024 und 2048. Durch diese Forderung ist es möglich, die Folge in zwei
 Teilfolgen zu zerlegen, wobei wir immer abwechselnd die Elemente der
-Folge, den jeweiligen neuen Teilfolgen zuordnen. Es ergeben sich die
+Folge den jeweiligen neuen Teilfolgen zuordnen. Es ergeben sich die
 Folgen $x(2k)$ und $x(2k+1)$ (siehe {numref}`Abbildung %s <fig:DecimationInTime>`).
 
 +++
 
 ```{figure} ../images/psSpek/DecimationInTime.png
 ---
-width: 50%
+width: 60%
 name: fig:DecimationInTime
 ---
 Aufteilung einer Sequenz in zwei
@@ -742,9 +732,8 @@ dieses Problem ist durch die Periodizität der DFT aber sehr einfach zu
 umgehen, da sich das Spektrum immer wiederholt.
 
 Aber warum stellt es einen Vorteil dar, wenn man die DFT so zerlegen
-kann? Dazu müssen wir überlegen, wie viele Multiplikationen notwendig
-sind um eine diskrete Frequenz zu berechnen. Es sind $N$ komplexe
-Multiplikatinen nötig. Dieser Schritt muss für alle diskreten Frequenzen
+kann? Um eine diskrete Frequenz zu berechnen sind $N$ komplexe
+Multiplikationen nötig. Dieser Schritt muss für alle diskreten Frequenzen
 durchgeführt werden. Die Berechnung des vollständigen Spektrums benötigt
 also $N^2$ Multiplikationen. Teilen wir die Aufgabe in zwei Teilspektren
 benötigt man $2\left(\frac{N}{2}\right)^2$ + $N$ Multiplikationen für
@@ -754,8 +743,8 @@ Multiplikationen. Der Schritt der Aufteilung kann nun solange wiederholt
 werden, bis die Folge nicht weiter aufgeteilt werden kann ($N = 2$).
 Zusätzlich können einige Multiplikationen vernachlässigt werden, da
 $e^{j0} = 1$ ist. Eine Reduktion auf
-$\frac{N}{2}\left( ld \frac{N}{2} \right)$ ist so möglich (ld = Logarithmus zur Basis 2 (logarithmus dualis)). Somit
-ergibt sich eine in der Rechenleistung stark reduzierte DFT, die als
+$\frac{N}{2}\left( \text{ld}\left(\frac{N}{2}\right) \right)$ ist so möglich (ld = Logarithmus zur Basis 2, *logarithmus dualis*). Somit
+ergibt sich eine im rechenaufwand stark reduzierte DFT, die als
 *Fast Fourier Transform* (FFT) bekannt ist[^5].
 
 ## Spezielle Signale und ihre Spektren
@@ -765,11 +754,11 @@ ergibt sich eine in der Rechenleistung stark reduzierte DFT, die als
 Berechnet man die DTFT für den $\delta$-Impuls ergibt sich
 
 $$
-    X(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} \delta(k)e^{-jk \Omega} =e^{-j0 \Omega} = 1,
+    X(e^{j \Omega}) = \sum_{k = -\infty}^{\infty} \delta(k)e^{-jk \Omega} =e^{-j0 \Omega} = 1~~~,
 $$ (eq:SpektrumDeltaImpuls)
 
 da der $\delta$-Impuls ausschließlich an der Stelle $k = 0$ definiert
-ist. Das Betrag des Spektrums ist also eins für alle Frequenzen und die
+ist. Der Betrag des Spektrums ist also eins für alle Frequenzen und die
 Phase ist null für alle Frequenzen.
 
 ### Spektrum für $\delta(k-k_0)$
@@ -778,12 +767,12 @@ Der um $k_0$ verschobene $\delta$-Impuls führt zu einem etwas anderem
 Spektrum 
 
 $$
-    X(e^(j \Omega)) = \sum_{k = -\infty}^{\infty} \delta(k-k_0)e^{-jk \Omega} =e^{-jk_0 \Omega}.
+    X(e^{j \Omega}) = \sum_{k = -\infty}^{\infty} \delta(k-k_0)e^{-jk \Omega} =e^{-jk_0 \Omega}~~~.
 $$ (eq:SpektrumDeltaImpulsVerschoben)
 
 Das Spektrum ist im Betrag ebenfalls Eins für alle Frequenzen, aber die
 Phase des Signals wird linear abhängig von der Frequenz verändert, wenn
-ein $\delta(k)$ ein System darstellt
+ein $\delta(k)$ ein System darstellt.
 
 ## Weitere Fensterfunktionen und deren Eigenschaften
 
@@ -792,17 +781,16 @@ auch als Multiplikation mit einer Fensterfunktion interpretiert werden
 kann. Dieses Fenster hatte einen deutlichen Einfluss auf das
 dargestellte Spektrum. Zur Beschreibung der Eigenschaften des Fensters
 im Frequenzbereich wird häufig die spektrale Auflösung des Maximums zu
-den 3dB Punkten verwendet. Weiterhin ist eine interessante Größe, welche
-Höhe die nächsten Maxima haben (Betrag). Für das Rechteckfenster sind
-diese beiden Größen durch $2pi/N$ und $\approx 13$dB gegeben. Etwas
+den 3 dB Punkten verwendet. Weiterhin ist die Höhe der nächsten Maxima (Betrag) interessant. Für das Rechteckfenster sind
+diese beiden Größen durch $2pi/N$ und $\approx 13$ dB gegeben. Etwas
 anders sieht dies bei anderen Fensterfunktionen aus (siehe {numref}`Abbildung %s <fig:RechteckWindow>`
 bis {numref}`Abbildung %s <fig:KaiserWindow-a4>`)
 
 ```{admonition} Interaktiv arbeiten
 :class: hint
-1) Starten des interaktiven Programms - "Spektren_Fenster.py" in jupyterbook/code/interactive_programs
-2) Mit den Buttons den Fenstertyp ändern und 
-3) Mit Slidern können Fensterparameter gesteuert werden. Hier kann auch eine eigene Fensterfunktion designt werden.
+1) Starten des interaktiven Programms - `Spektren_Fenster.py` in `jupyterbook/code/interactive_programs/`
+2) Mit den Buttons kann der Fenstertyp geändert und 
+3) mit Slidern die Fensterparameter gesteuert werden. Hier kann auch eine eigene Fensterfunktion designt werden.
 ```
 
 ```{code-cell} ipython3
@@ -811,7 +799,7 @@ bis {numref}`Abbildung %s <fig:KaiserWindow-a4>`)
 ```
 
 ```{glue:figure} RechteckWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:RechteckWindow"
 
 Zeitliche und spektrale Eigenschaft des Rechteckfensters
@@ -819,10 +807,10 @@ Zeitliche und spektrale Eigenschaft des Rechteckfensters
 
 +++
 
-Als Ursache für das verschmieren im Frequenzbereich wurde die Faltung
+Als Ursache für das Verschmieren im Frequenzbereich wurde die Faltung
 mit der Fensterfunktion genannt. Die Ursache im Zeitbereich hierfür war
 das abrupte Abschneiden, dass durch die angenommene zirkulare
-WIederholung zu einem nicht-repräsentativen Ausschnitt führte. Deshalb
+Wiederholung zu einem nicht-repräsentativen Ausschnitt führte. Deshalb
 ist eine Design-Idee für andere Fenster eine möglichst weiche
 Ausblendung zu den Rändern zu ermöglichen. Fenster die diese Eigenschaft
 besitzen können zum Beispiel durch Cosinusfunktionen realisiert werden.
@@ -862,57 +850,58 @@ bekanntesten Fenster-Funktionen angegeben werden[^6].
 :load: code/spektren/window_kaiser.py
 ```
 
-````{tabbed} von Hann
+`````{tab-set}
+````{tab-item} von Hann
 -   **von Hann-Fenster (oft fälschlich Hanning):** Für das Hann-Fenster ist
-    $\alpha = \beta = 0.5$ und $\gamma = 0$. Daraus ergibt sich im
+    $\alpha = \beta = 0{,}5$ und $\gamma = 0$. Daraus ergibt sich im
     Frequenzbereich ein etwas breiteres Hauptmaxima $4\pi/N$. Die
     Nebenmaxima sind dafür im Gegensatz zum Rechteck-Fenster sehr viel
     stärker bedämpft.
 ```{glue:figure} HannWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:HannWindow"
 
 Zeitliche und spektrale Eigenschaft des von Hann-Fensters
 ```
 ````
 
-````{tabbed} Hamming
--   **Hamming-Fenster:** Für das Hamming-Fenster ist $\alpha = 0.54$,
-    $\beta = 0.46$ und $\gamma = 0$. Das Design-Ziel des Hamming-Fenster
+````{tab-item} Hamming
+-   **Hamming-Fenster:** Für das Hamming-Fenster ist $\alpha = 0{,}54$,
+    $\beta = 0{,}46$ und $\gamma = 0$. Das Design-Ziel des Hamming-Fenster
     ist das erste Nebenmaxima möglichst optimal zu unterdrücken. Dafür
     geht aber insgesamt eine schlechtere Dämpfung der anderen
     Nebenmaxima einher. Die Verbreiterung entspricht der des
-    Hann-Fensters $4\pi/N$
+    Hann-Fensters $4\pi/N$.
 ```{glue:figure} HammingWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:HammingWindow"
 
 Zeitliche und spektrale Eigenschaft des Hamming-Fensters
 ```
 ````
 
-````{tabbed} Blackman
--   **Blackman-Fenster:** Für das Blackman-Fenster ist $\alpha = 0.42$,
-    $\beta = 0.5$ und $\gamma = 0.08$. Dieses Fenster hat eine deutlich
+````{tab-item} Blackman
+-   **Blackman-Fenster:** Für das Blackman-Fenster ist $\alpha = 0{,}42$,
+    $\beta = 0{,}5$ und $\gamma = 0{,}08$. Dieses Fenster hat eine deutlich
     breitere Hauptkeule $6\pi/N$, aber die Dämpfung der Nebenmaxima und
     der Abfall der weiteren Nebenmaxima ist sehr hoch.
 ```{glue:figure} BlackmanWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BlackmanWindow"
 
 Zeitliche und spektrale Eigenschaft des Blackman-Fensters
 ```
 ````
 
-````{tabbed} Dolph-Tschebyscheff 
+````{tab-item} Dolph-Tschebyscheff 
 -   **Dolph-Tschebyscheff-Fenster:** Im Gegensatz zu den anderen Fenstern
     in dasDolph-Tschebyscheff-Fenster parametrisierbar. Bei einer
     vorgegebenen Fensterlänge $N$ kann die Absenkung der Nebenzipfel
     angegeben werden. Dieser Wert wird für alle Nebenzipfel gleichmäßig
     erreicht. Die Breite der Hauptkeule wird gleichzeitig optimal klein
-    für eine gegebene Fensterlänge $N$. Siehe auch in Matlab `chebwin`
+    für eine gegebene Fensterlänge $N$. Siehe auch `chebwin` in Matlab.
 ```{glue:figure} ChebWindow
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:ChebWindow"
 
 Zeitliche und spektrale Eigenschaft des
@@ -920,7 +909,7 @@ Zeitliche und spektrale Eigenschaft des
 ```
 ````
 
-````{tabbed} Kaiser-Fester
+````{tab-item} Kaiser-Fester
 -   **Kaiser-Fenster:** Auch das Kaiser-Fenster ist mit Hilfe des
     Parameters $\alpha$ veränderlich. Es basiert auf der Form
     
@@ -957,6 +946,7 @@ Zeitliche und spektrale Eigenschaft des
     $\alpha =$ 4.
 ```
 ````
+`````
 
 +++ {"tags": ["remove-cell"]}
 
@@ -1135,10 +1125,9 @@ Die wichtigen Erkenntnisse aus diesem Kapitel sind:
 
 [^4]: ld bezeichnet den Logarithmus zur Basis 2 (logarithmus dualis).
 
-[^5]: In Matlab wird die DFT durch den Befehl FFT aufgerufen.
+[^5]: In Matlab wird die DFT durch die Funktion `FFT` aufgerufen.
 
 [^6]: Bei der Darstellung wurden die jeweiligen Übertragungsfunktionen
     auf ihr Maximum normiert, so dass sich immer ein Hauptmaxima mit 0dB
     ergibt.
 
-[^7]: Oft auch fälicherweise als Hanning-Fenster bezeichnet

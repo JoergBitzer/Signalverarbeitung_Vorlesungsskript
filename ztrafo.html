@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>4. z-Transformation &#8212; Signalverarbeitung 1</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,48 +20,64 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. Spektren" href="spektren.html" />
     <link rel="prev" title="3. Systeme" href="systeme.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -83,14 +102,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Zu diesem Jupyter-Buch
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Signalverarbeitung 1
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="grundlagen.html">
    1. Einführung
@@ -129,110 +149,226 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="_sources/ztrafo.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ztrafo.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fztrafo.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/ztrafo.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/ztrafo.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fztrafo.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ztrafo.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/ztrafo.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#einfuhrung">
    4.1. Einführung
@@ -301,39 +437,123 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>z-Transformation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#einfuhrung">
+   4.1. Einführung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-z-transformation">
+   4.2. Definition z-Transformation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rechenregeln">
+   4.3. Rechenregeln
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearitat">
+     4.3.1. Linearität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verschiebung">
+     4.3.2. Verschiebung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ruck-transformation">
+   4.4. Rück-Transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#korrespondenztabelle">
+     4.4.1. Korrespondenztabelle
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systemfunktion">
+   4.5. Systemfunktion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pol-nullstellenplan">
+   4.6. Pol-Nullstellenplan
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stabilitat">
+   4.7. Stabilität
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stabilitat-eines-systems-2-ordnung">
+     4.7.1. Stabilität eines Systems 2. Ordnung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interaktive-visualisierung-der-z-transformation">
+   4.8. Interaktive Visualisierung der z-Transformation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="z-transformation">
-<h1><span class="section-number">4. </span>z-Transformation<a class="headerlink" href="#z-transformation" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="z-transformation">
+<span id="sec-ztrafo"></span><h1><span class="section-number">4. </span>z-Transformation<a class="headerlink" href="#z-transformation" title="Permalink to this headline">#</a></h1>
 <p>Die z-Transformation stellt ein wichtiges
-Werkzeug zur Analyse und zum Verständnis von LTI-Systemen dar.  Es werden durch die z-Systemfunktion und
-dem Pol-Nullstellenplot neue Beschreibungsformen für LTI-Systeme
-aufgezeigt. Insbesondere wird eine Möglichkeit angegeben, um die
-Stabilität rekursiver LTI-Systeme zu testen.</p>
-<div class="section" id="einfuhrung">
-<h2><span class="section-number">4.1. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this headline">¶</a></h2>
-<p>Zunächst ein einfache Beipiel, um die Nützlichlkeit dieses Werkzeuges zu unterstreichen.</p>
+Werkzeug zur Analyse und zum Verständnis von LTI-Systemen dar. Es werden
+durch die z-Systemfunktion und das Pol-Nullstellen-Diagramm neue
+Beschreibungsformen für LTI-Systeme aufgezeigt. Insbesondere wird eine
+Möglichkeit angegeben, um die Stabilität rekursiver LTI-Systeme zu testen.</p>
+<section id="einfuhrung">
+<h2><span class="section-number">4.1. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this headline">#</a></h2>
+<p>Zunächst ein einfaches Beipiel, um die Nützlichlikeit der z-Transformation zu unterstreichen.</p>
 <p>Angenommen auf ein Sparbuch wird ein bestimmter Geldbetrag <span class="math notranslate nohighlight">\(S\)</span>
 eingezahlt und dieser Betrag wird jährlich mit einem Zins <span class="math notranslate nohighlight">\(p\)</span> verzinst.
 Eine mathematische Darstellung dieses Sachverhalts ergibt sich durch
 Nutzung des Delta-Impulses gewichtet mit dem Geldbetrag und einer
 einfachen Rekursion, wobei ein leeres Konto als Startwert vorliegt. Es
-gilt also <span class="math notranslate nohighlight">\(y(k-1) = 0\)</span>.</p>
+gilt also</p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursion">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-eq-zinsrekursion" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-eq-zinsrekursion" title="Permalink to this equation">#</a></span>\[
 y(k) = (1+p) y(k-1) + S \delta(k)
 \]</div>
-<p>Dies ist eine andere Darstellung der Zinseszinsrechenregel. Diese lautet</p>
+<p>mit <span class="math notranslate nohighlight">\(y(k-1) = 0\)</span>. Dies ist eine andere Darstellung der Zinseszinsrechenregel</p>
 <div class="math notranslate nohighlight">
 \[
-\mbox{Geld} = S (1+p)^{\mbox{Jahre}}
+\mbox{Geld} = S (1+p)^{\mbox{Jahre}}~~~.
 \]</div>
 <p>Die Anzahl der Jahre ist in Formel
 <a class="reference internal" href="#equation-eq-zinsrekursion">(4.1)</a> in der Anzahl der Rekursionen versteckt.
@@ -341,23 +561,22 @@ Die zweite Form ist eine direkte Berechnung.</p>
 <p>Nun lassen sich aber nicht für alle Rekursionssysteme solche einfachen
 direkten Rechenvorschriften angeben. Aber wie ist der mathematische
 Zusammenhang zwischen den beiden möglichen Lösungen?</p>
-<p>In der Rekursionsformel:</p>
+<p>In der Rekursionsformel</p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursionwiederholung">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-zinsrekursionwiederholung" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-zinsrekursionwiederholung" title="Permalink to this equation">#</a></span>\[
     y(k) = (1+p) y(k-1) + S \delta(k)
 \]</div>
-<p>ergibt sich durch Variablensubstitution <span class="math notranslate nohighlight">\(c = 1+p\)</span>.</p>
+<p>ergibt sich durch Variablensubstitution <span class="math notranslate nohighlight">\(c = 1+p\)</span></p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursionmitc">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-zinsrekursionmitc" title="Permalink to this equation">¶</a></span>\[
-y(k) = c y(k-1) + S \delta(k)
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-zinsrekursionmitc" title="Permalink to this equation">#</a></span>\[
+y(k) = c y(k-1) + S \delta(k)~~~.
 \]</div>
-<p>Diese Form wird jetzt auf beiden
-Seiten mit der Summe <span class="math notranslate nohighlight">\(\sum_{k =
+<p>Diese Form wird jetzt auf beiden Seiten mit der Summe <span class="math notranslate nohighlight">\(\sum_{k =
 -\infty}^{\infty}z^{-k}\)</span> multipliziert. Ein Schritt der mathematisch
 erlaubt ist, da er auf beiden Seiten des Gleichungssystems durchgeführt
 wird.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zinsrekursionz">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-zinsrekursionz" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-zinsrekursionz" title="Permalink to this equation">#</a></span>\[
 \sum_{k = -\infty}^{\infty} y(k) z^{-k} = \underbrace{c \sum_{k =
 -\infty}^{\infty} y(k-1) z^{-k}}_{\mbox{1. Summand}} +
 \underbrace{S \sum_{k = -\infty}^{\infty} \delta(k)
@@ -365,14 +584,14 @@ z^{-k}}_{\mbox{2. Summand}}
 \]</div>
 <p>Mit Hilfe der abkürzenden Schreibweise</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-ztrafo">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
-Y(z) = \sum_{k = -\infty}^{\infty} y(k) z^{-k} .
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">#</a></span>\[
+Y(z) = \sum_{k = -\infty}^{\infty} y(k) z^{-k}
 \]</div>
-<p>ergibt sich bei dem 2. Summanden nur ein Element der Summe den Wert <span class="math notranslate nohighlight">\(S\)</span>, da die <span class="math notranslate nohighlight">\(\delta\)</span>-Folge nur bei <span class="math notranslate nohighlight">\(k = 0\)</span> einen Wert ungleich Null hat.</p>
+<p>ergibt sich bei dem 2. Summanden für nur ein Element der Summe der Wert <span class="math notranslate nohighlight">\(S\)</span>, da die <span class="math notranslate nohighlight">\(\delta\)</span>-Folge nur bei <span class="math notranslate nohighlight">\(k = 0\)</span> einen Wert ungleich Null hat.</p>
 <p>Zusätzlich kann der 1. Summand durch eine Variablensubstitution
 <span class="math notranslate nohighlight">\(k' = k-1\)</span> umgeformt werden.</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1subst">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-ztrafo-example1subst" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-ztrafo-example1subst" title="Permalink to this equation">#</a></span>\[
     c \sum_{k =
 -\infty}^{\infty} y(k-1) z^{-k} = c \sum_{k' = -\infty}^{\infty}
 y(k') z^{-k'-1} =c z^{-1}\sum_{k' = -\infty}^{\infty} y(k')
@@ -380,65 +599,65 @@ z^{-k'}=c z^{-1} Y(z)
 \]</div>
 <p>Somit ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-eq-ztrafo-example1" title="Permalink to this equation">¶</a></span>\[
-    Y(z) = c z^{-1} Y(z) + S .
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-eq-ztrafo-example1" title="Permalink to this equation">#</a></span>\[
+    Y(z) = c z^{-1} Y(z) + S~~~.
 \]</div>
 <p>Umgestellt folgt</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-zloesung">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-eq-ztrafo-example1-zloesung" title="Permalink to this equation">¶</a></span>\[
-    Y(z) = \frac{S}{1-c z^{-1}} .
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-eq-ztrafo-example1-zloesung" title="Permalink to this equation">#</a></span>\[
+    Y(z) = \frac{S}{1-c z^{-1}}~~~.
 \]</div>
 <p>Um zur Lösung für das Ausgangssignal zu kommen, wird die Summenformel
 für eine geometrische Reihe eingeführt.</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-geometrischereihe">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-eq-def-geometrischereihe" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-eq-def-geometrischereihe" title="Permalink to this equation">#</a></span>\[
 \sum_{k = 0}^{\infty} q^k = \frac{1}{1-q}  \quad \mbox{wenn} \quad |q|&lt;1
 \]</div>
 <p>Für Gleichung
 <a class="reference internal" href="#equation-eq-ztrafo-example1-zloesung">(4.8)</a> ergibt sich also</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-kloesung1">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung1" title="Permalink to this equation">¶</a></span>\[
-\frac{S}{1-c z^{-1}} = S \sum_{k = 0}^{\infty} (c z^{-1})^k = S \sum_{k = 0}^{\infty} c^k z^{-k}
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung1" title="Permalink to this equation">#</a></span>\[
+\frac{S}{1-c z^{-1}} = S \sum_{k = 0}^{\infty} (c z^{-1})^k = S \sum_{k = 0}^{\infty} c^k z^{-k}~~~.
 \]</div>
 <p>Vergleicht man diese Lösung mit
-<a class="reference internal" href="#equation-eq-def-ztrafo">(4.12)</a> ergibt sich</p>
+<a class="reference internal" href="#equation-eq-def-ztrafo">(4.5)</a>, ergibt sich</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-example1-kloesung2">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung2" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-eq-ztrafo-example1-kloesung2" title="Permalink to this equation">#</a></span>\[\begin{split}
     y(k) = \bigg\{ \begin{array}{lcc}
       S c^k &amp; &amp; k \geq 0\\
         0  &amp; &amp; k&lt;0
-    \end{array} = S(1+p)^k \gamma(k)
+    \end{array} = S(1+p)^k \gamma(k)~~~,
 \end{split}\]</div>
 <p>mit <span class="math notranslate nohighlight">\(\gamma(k)\)</span> als Sprungfolge (siehe Gleichung
 <a class="reference internal" href="signale.html#equation-eq-def-sprungfolge">(2.11)</a>).</p>
 <p>Dies entspricht der vorher bekannten Lösung für die Zinseszinsformel.</p>
-</div>
-<div class="section" id="definition-z-transformation">
-<h2><span class="section-number">4.2. </span>Definition z-Transformation<a class="headerlink" href="#definition-z-transformation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="definition-z-transformation">
+<span id="sec-definition-ztransformation"></span><h2><span class="section-number">4.2. </span>Definition z-Transformation<a class="headerlink" href="#definition-z-transformation" title="Permalink to this headline">#</a></h2>
 <p>Für eine verkürzte Schreibweise wird für die z-Transformation folgendes
 Symbol eingeführt</p>
-<div class="math notranslate nohighlight" id="equation-eq-def-ztrafo">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-eq-def-ztrafo" title="Permalink to this equation">¶</a></span>\[
-\mathcal{Z}\{ \cdot \}= \sum_{k = -\infty}^{\infty} (\cdot) z^{-k} mit~z \in \mathbb{C}
+<div class="math notranslate nohighlight" id="equation-eq-def-ztrafo2">
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-eq-def-ztrafo2" title="Permalink to this equation">#</a></span>\[
+\mathcal{Z}\{ \cdot \}= \sum_{k = -\infty}^{\infty} (\cdot) z^{-k} \quad \text{mit} \quad z \in \mathbb{C}~~~.
 \]</div>
 <p>Es gilt also</p>
 <div class="math notranslate nohighlight" id="equation-eq-yexample">
-<span class="eqno">(4.13)<a class="headerlink" href="#equation-eq-yexample" title="Permalink to this equation">¶</a></span>\[
-    Y(z) =\mathcal{Z}\{y(k)\}
+<span class="eqno">(4.13)<a class="headerlink" href="#equation-eq-yexample" title="Permalink to this equation">#</a></span>\[
+    Y(z) =\mathcal{Z}\{y(k)\}~~~.
 \]</div>
 <p>Die Rechenvorschrift führt dazu, dass die diskrete
-Eingangsfolge <span class="math notranslate nohighlight">\(y(k)\)</span> abgebildet wird auf eine komplexe Ebene. Man
+Eingangsfolge <span class="math notranslate nohighlight">\(y(k)\)</span> auf eine komplexe Ebene abgebildet wird. Man
 spricht deshalb auch von Zeitbereichsdarstellung und
 Bildbereichdarstellung. Um die Korrespondenz zu symbolisieren wird
-häufig der sog. “Transformationsknochen” verwendet.</p>
+häufig der sog. <em>Transformationsknochen</em> verwendet:</p>
 <ul class="simple">
-<li><p>Hintransformation: <span class="math notranslate nohighlight">\(y(k) \circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; Y(z)\)</span> oder bei Gleichungsabfolgen vertikal</p></li>
-<li><p>Rücktransformation: <span class="math notranslate nohighlight">\(Y(z) \bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; y(k)\)</span></p></li>
+<li><p>Hintransformation: <span class="math notranslate nohighlight">\(y(k) \circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; Y(z)\)</span> oder bei Gleichungsabfolgen vertikal,</p></li>
+<li><p>Rücktransformation: <span class="math notranslate nohighlight">\(Y(z) \bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; y(k)\)</span>.</p></li>
 </ul>
 <p>Damit eine z-Transformation gültig ist, muss zusätzlich gelten, dass die
-Summe in Gl. <a class="reference internal" href="#equation-eq-def-ztrafo">(4.12)</a> kleiner unendlich ist. Dies ist für alle
+Summe in Gl. <a class="reference internal" href="#equation-eq-def-ztrafo2">(4.12)</a> kleiner unendlich ist. Dies ist für alle
 endlichen Folgen gegeben, wenn keiner der Folgenwerte unendlich ist. Bei
-unendlichen Folgen ist dies nicht immer gewährleistet.und hängt auch
+unendlichen Folgen ist dies nicht immer gewährleistet und hängt auch
 direkt von <span class="math notranslate nohighlight">\(z\)</span> ab. Deshalb gehört zu einer vollständigen
 Beschreibung der z-Transformation auch immer die Bereichsangabe von <span class="math notranslate nohighlight">\(z\)</span>
 in der die Summe konvergiert. Man spricht deshalb vom sogenannten
@@ -447,12 +666,14 @@ Konvergenzgebietes reichen die Angaben der Radien <span class="math notranslate 
 komplexen Zahlen aus. Für das Konvergenzgebiet ergibt sich entweder das
 Gebiet inner- oder außerhalb einer Kreisfläche oder das Gebiet hat die
 Form eines Kreisringes in der z-Ebene.</p>
-<div class="figure align-default" id="fig-roc-kausal">
+<figure class="align-default" id="fig-roc-kausal">
 <a class="reference internal image-reference" href="_images/ROC_Kausal.png"><img alt="_images/ROC_Kausal.png" src="_images/ROC_Kausal.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei der z-Transformation. In
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei der z-Transformation. In
 diesem Beispiel für eine kausale Folge (ROC
-außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink to this image">¶</a></p>
-</div>
+außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -508,43 +729,46 @@ außerhalb).</span><a class="headerlink" href="#fig-roc-kausal" title="Permalink
 </div>
 <div class="note admonition">
 <p class="admonition-title">Beispiel</p>
-<p>Betrachtet man die kausale Folge (siehe <a class="reference internal" href="#fig-zfolgenpic"><span class="std std-numref">Abbildung 4.2</span></a>
-a) (Sie entspricht dem Sparbuchbeispiel mit einem Startkapital von 0.5 und
-50% Kontokosten (Also einer ziemlich schlechten Geldanlage).)</p>
+<p>Betrachtet man die kausale Folge</p>
 <div class="math notranslate nohighlight" id="equation-eq-bspkausalefolge">
-<span class="eqno">(4.14)<a class="headerlink" href="#equation-eq-bspkausalefolge" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(4.14)<a class="headerlink" href="#equation-eq-bspkausalefolge" title="Permalink to this equation">#</a></span>\[\begin{split}
 \begin{aligned}
-    x(k) &amp;=&amp; [0.5 \:\: 0.5^2 \:\: 0.5^3 \:\: \cdots \:\: 0.5^k]\\
-         &amp; = &amp; 0.5^k \gamma(k) \qquad~für~k \geq 0 ,\end{aligned}
+    x(k) &amp;=&amp; [0{,}5 \:\: 0{,}5^2 \:\: 0{,}5^3 \:\: \cdots \:\: 0{,}5^k]\\
+         &amp; = &amp; 0{,}5^k \gamma(k) \qquad~für~k \geq 0 ,\end{aligned}
 \end{split}\]</div>
-<p>soergibt sich die z-Transformierte als</p>
+<p>(siehe <a class="reference internal" href="#fig-zfolgenpic"><span class="std std-numref">Abbildung 4.2</span></a> a), sie entspricht dem
+Sparbuchbeispiel mit einem Startkapital von 0{,}5 und 50 % Kontokosten,
+also einer ziemlich schlechten Geldanlage), so ergibt sich die
+z-Transformierte als</p>
 <div class="math notranslate nohighlight">
 \[
-X(z) = \sum_{k = -\infty}^{\infty} 0.5^k \gamma(k)z^{-k}
-    = \sum_{k = 0}^{\infty} 0.5^k z^{-k} =
-    \sum_{k = 0}^{\infty} (0.5z^{-1})^{k}
+X(z) = \sum_{k = -\infty}^{\infty} 0{,}5^k \gamma(k)z^{-k}
+    = \sum_{k = 0}^{\infty} 0{,}5^k z^{-k} =
+    \sum_{k = 0}^{\infty} (0{,}5z^{-1})^{k}
 \]</div>
-<p>bzw. mit der Umformung durch die geometrische Reihe</p>
+<p>bzw. mit der Umformung durch die geometrische Reihe als</p>
 <div class="math notranslate nohighlight">
 \[
-X(z) = \frac{1}{1-0.5z^{-1}} = \frac{z}{z-0.5},
+X(z) = \frac{1}{1-0{,}5z^{-1}} = \frac{z}{z-0{,}5}~~~,
 \]</div>
 <p>wobei das Konvergenzkriterium der geometrischen Reihe zusätzlich</p>
 <div class="math notranslate nohighlight">
 \[
 \nonumber
-    |0.5z^{-1}| = \frac{0.5}{z} &lt; 1 \qquad \Rightarrow \qquad |z| &gt; 0.5
+    |0{,}5z^{-1}| = \frac{0{,}5}{z} &lt; 1 \qquad \Rightarrow \qquad |z| &gt; 0{,}5
 \]</div>
 <p>fordert.</p>
 <p>Definition:</p>
-<div class="figure align-default" id="fig-zfolgenpic" style="width: 75%">
+<figure class="align-default" id="fig-zfolgenpic" style="width: 100%">
 <div class="cell_output docutils container">
 <img alt="_images/ztrafo_2_1.png" src="_images/ztrafo_2_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">a) kausale
-Folge <span class="math notranslate nohighlight">\(0.5^k \gamma(k)\)</span> für <span class="math notranslate nohighlight">\(k \geq 0\)</span> und b) nicht-kausale Folge
-<span class="math notranslate nohighlight">\(-0.5^k \gamma(-k-1)\)</span> für <span class="math notranslate nohighlight">\(k &lt; 0\)</span>.</span><a class="headerlink" href="#fig-zfolgenpic" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">a) kausale
+Folge <span class="math notranslate nohighlight">\(0{,}5^k \gamma(k)\)</span> für <span class="math notranslate nohighlight">\(k \geq 0\)</span> und b) nicht-kausale Folge
+<span class="math notranslate nohighlight">\(-0{,}5^k \gamma(-k-1)\)</span> für <span class="math notranslate nohighlight">\(k &lt; 0\)</span>.</span><a class="headerlink" href="#fig-zfolgenpic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 <p>Im folgenden soll nun eine sehr ähnlichen Folge, nämlich dem
 nicht-kausalen, negativen äquivalent zu
@@ -552,16 +776,16 @@ nicht-kausalen, negativen äquivalent zu
 <div class="math notranslate nohighlight">
 \[
 \nonumber
-    x(k) = -0.5^k \gamma(-k-1) \qquad für k &lt; 0
+    x(k) = -0{,}5^k \gamma(-k-1) \qquad \text{für} \qquad k &lt; 0
 \]</div>
 <p>betrachtet werden (siehe <a class="reference internal" href="#fig-zfolgenpic"><span class="std std-numref">Abbildung 4.2</span></a> b). Berechnet man die z-Transformierte ergibt sich mit einer Variablensubstitution <span class="math notranslate nohighlight">\(k = -m\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
 \nonumber
-    X(z) &amp;=&amp; - \sum_{k = -\infty}^{-1} 0.5^k z^{-k} \\
-    &amp; = &amp;- \sum_{k = -\infty}^{-1} (0.5^{-1}z)^{-k} \\
-    &amp; = &amp;- \sum_{m = 1}^{\infty} (0.5^{-1}z)^{m}\end{aligned}
+    X(z) &amp;=&amp; - \sum_{k = -\infty}^{-1} 0{,}5^k z^{-k} \\
+    &amp; = &amp;- \sum_{k = -\infty}^{-1} (0{,}5^{-1}z)^{-k} \\
+    &amp; = &amp;- \sum_{m = 1}^{\infty} (0{,}5^{-1}z)^{m}\end{aligned}
 \end{split}\]</div>
 <p>Nutzt man jetzt eine alternative Formulierung der unendlichen geometrischen
 Reihe</p>
@@ -573,73 +797,82 @@ Reihe</p>
 <div class="math notranslate nohighlight">
 \[
 \nonumber
-    X(z) = - \frac{0.5^{-1}z}{1-0.5^{-1}z} = \frac{z}{z-0.5}
+    X(z) = - \frac{0.5^{-1}z}{1-0{,}5^{-1}z} = \frac{z}{z-0{,}5}~~~.
 \]</div>
 <p>Wir erhalten also die gleiche z-Transformation für unterschiedliche Folgen,
 wobei aber die Konvergenz der geometrischen Reihe für die anti-kausale
 Folge ein Konverzgebiet</p>
 <div class="math notranslate nohighlight">
 \[\nonumber
-    |z| &lt; 0.5
+    |z| &lt; 0{,}5
 \]</div>
 <p>fordert. <a class="reference internal" href="#fig-roc-antikausal"><span class="std std-numref">Abbildung 4.3</span></a>  zeigt das dazugehörige Konvergenzgebiet in der z-Ebene. Man erkennt somit, warum eine Angabe des ROC bei der z-Transformation notwendig ist, um eine eindeutige Berechnung und Zuordnung zu gewährleisten.</p>
-<div class="figure align-default" id="fig-roc-antikausal">
+<figure class="align-default" id="fig-roc-antikausal">
 <a class="reference internal image-reference" href="_images/ROC_AntiKausal.png"><img alt="_images/ROC_AntiKausal.png" src="_images/ROC_AntiKausal.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei
+<figcaption>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Veranschaulichung des Konvergenzgebietes bei
 der z-Transformation. In diesem Beispiel für eine anti-kausale Folge
 (ROC innerhalb) mit
-<span class="math notranslate nohighlight">\(|z| &lt; 0.5\)</span>.</span><a class="headerlink" href="#fig-roc-antikausal" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="rechenregeln">
-<h2><span class="section-number">4.3. </span>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">¶</a></h2>
+<span class="math notranslate nohighlight">\(|z| &lt; 0{,}5\)</span>.</span><a class="headerlink" href="#fig-roc-antikausal" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rechenregeln">
+<h2><span class="section-number">4.3. </span>Rechenregeln<a class="headerlink" href="#rechenregeln" title="Permalink to this headline">#</a></h2>
 <p>Die z-Transformation erleichtert das Rechnen von Differenzengleichungen.
 Einige häufig verwendete Rechenregeln und
 Korrespondenzen sind im Folgenden aufgeführt.</p>
-<div class="section" id="linearitat">
-<h3><span class="section-number">4.3.1. </span>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">¶</a></h3>
-<p>Die z-Transformation ist eine lineare Transformation. Es gilt:</p>
+<section id="linearitat">
+<h3><span class="section-number">4.3.1. </span>Linearität<a class="headerlink" href="#linearitat" title="Permalink to this headline">#</a></h3>
+<p>Die z-Transformation ist eine lineare Transformation. Es gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-linearitaet">
-<span class="eqno">(4.15)<a class="headerlink" href="#equation-eq-ztrafo-linearitaet" title="Permalink to this equation">¶</a></span>\[
-  a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(z) + a_2 X_2(z)
+<span class="eqno">(4.15)<a class="headerlink" href="#equation-eq-ztrafo-linearitaet" title="Permalink to this equation">#</a></span>\[
+  a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(z) + a_2 X_2(z)~~~.
 \]</div>
-</div>
-<div class="section" id="verschiebung">
-<h3><span class="section-number">4.3.2. </span>Verschiebung<a class="headerlink" href="#verschiebung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="verschiebung">
+<h3><span class="section-number">4.3.2. </span>Verschiebung<a class="headerlink" href="#verschiebung" title="Permalink to this headline">#</a></h3>
 <p>Die zeitliche Verschiebung der diskreten Folge wurde bereits in den
 Beispielen ausgiebig verwendet. Es gilt:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-verschiebungssatz">
-<span class="eqno">(4.16)<a class="headerlink" href="#equation-eq-ztrafo-verschiebungssatz" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.16)<a class="headerlink" href="#equation-eq-ztrafo-verschiebungssatz" title="Permalink to this equation">#</a></span>\[
     \mathcal{Z}\{y(k-k_0)\} = z^{-k_0} Y(z)
 \]</div>
-</div>
-</div>
-<div class="section" id="ruck-transformation">
-<h2><span class="section-number">4.4. </span>Rück-Transformation<a class="headerlink" href="#ruck-transformation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="ruck-transformation">
+<h2><span class="section-number">4.4. </span>Rück-Transformation<a class="headerlink" href="#ruck-transformation" title="Permalink to this headline">#</a></h2>
 <p>Die z-Transformation transformiert eine diskrete Folge in eine
 kontinuierliche komplexe Ebene. In den Beispielen wurde für die Rücktransformation in den Zeitbereich stets mit einfachen gebrochen rationalen Funktionen gearbeitet, die direkt auf eine bestimmte
 Folge führten. Dies ist nicht immer möglich. Die allgemeinste Version
 der z-Rücktransformation ist durch das Umlaufintegral</p>
 <div class="math notranslate nohighlight" id="equation-eq-zruek-def">
-<span class="eqno">(4.17)<a class="headerlink" href="#equation-eq-zruek-def" title="Permalink to this equation">¶</a></span>\[
-    x(k) = \oint_C X(z) z^{k-1} dz
+<span class="eqno">(4.17)<a class="headerlink" href="#equation-eq-zruek-def" title="Permalink to this equation">#</a></span>\[
+    x(k) = \oint_C X(z) z^{k-1} \text{d}z
 \]</div>
 <p>gegeben. Dies bedeutet wir umlaufen
 die komplexe Ebene auf dem Kreis C im mathematisch positiven Sinn
 (Gegenuhrzeigersinn) und integrieren die eingeschlossene Fläche. Dies
 ist nicht immer möglich. Ob die Möglichkeit besteht hängt direkt davon
 ab, wie das Konvergenzgebiet definiert ist. Auf die explizite Behandlung
-der Thematik wird hier nicht eingegangen, statt dessen wird auf <span id="id1">[<a class="reference internal" href="zbibliography.html#id186">OS99</a>]</span>
+der Thematik wird hier nicht eingegangen, statt dessen wird auf <span id="id1">[<a class="reference internal" href="zbibliography.html#id4" title="A. V. Oppenheim and R. W. Schafer. Zeitdiskrete Signalverarbeitung. Oldenbourg, 1999.">OS99</a>]</span>
 verwiesen.</p>
 <p>In vielen Fällen kann auf die Lösung des Integrals verzichtet werden.
 Statt dessen sind häufig Lösungen über Partialbruchzerlegung (siehe
 Beispiele) und/oder Korrespondenztabellen möglich</p>
-<div class="section" id="korrespondenztabelle">
-<h3><span class="section-number">4.4.1. </span>Korrespondenztabelle<a class="headerlink" href="#korrespondenztabelle" title="Permalink to this headline">¶</a></h3>
+<section id="korrespondenztabelle">
+<h3><span class="section-number">4.4.1. </span>Korrespondenztabelle<a class="headerlink" href="#korrespondenztabelle" title="Permalink to this headline">#</a></h3>
 <p>Viele Systeme und Signale lassen sich auf einfache Grundformen
 zurückführen. Für diese Grundformen kann für die Hin- und
-Rücktransformation folgende Tabelle verwendet werden.</p>
-<table class="colwidths-auto table">
+Rücktransformation <a class="reference internal" href="#tab-korrespondenztabelle"><span class="std std-numref">Tabelle 4.1</span></a>
+verwendet werden.</p>
+<table class="table" id="tab-korrespondenztabelle">
+<caption><span class="caption-number">Table 4.1 </span><span class="caption-text">Korrespondenztabelle</span><a class="headerlink" href="#tab-korrespondenztabelle" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Zeitbereich <span class="math notranslate nohighlight">\(y(k)\)</span></p></th>
 <th class="head"><p>Bildbereich <span class="math notranslate nohighlight">\(Y(z) = \mathcal{Z}\{y(k)\}\)</span></p></th>
@@ -673,120 +906,108 @@ Rücktransformation folgende Tabelle verwendet werden.</p>
 </tr>
 </tbody>
 </table>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Zeitbereich 𝑦(𝑘)&#39;</span><span class="p">:[</span><span class="s2">&quot;δ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;γk&quot;</span><span class="p">,</span> <span class="s2">&quot;kγ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;e−αkγ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;αkγ(k)&quot;</span><span class="p">,</span> <span class="s2">&quot;cos(ω0k)&quot;</span><span class="p">],</span> 
-                              <span class="s1">&#39;x(k)&#39;</span><span class="p">:[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;(z/z-1) = 1/1-z−1 &quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span>
-                              <span class="s1">&#39;x(k-1)&#39;</span><span class="p">:[</span><span class="s2">&quot;∀z)&quot;</span><span class="p">,</span> <span class="s2">&quot; |z| &gt; 1&quot;</span><span class="p">,</span> <span class="s2">&quot; |z| &gt; 1&quot;</span><span class="p">,</span> <span class="s2">&quot; |z| &gt; e−α&quot;</span><span class="p">,</span> <span class="s2">&quot;|z| &gt; α&quot;</span><span class="p">,</span> <span class="s2">&quot;|z| &gt; 1&quot;</span><span class="p">]})</span>
-<span class="c1">#df = df.set_index(&#39;k&#39;)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Eine Beschreibung von LTI-Systemen kann wie im letzten Abschnitt gezeigt
 über Differenzengleichungen erfolgen. Die z-Transformation und
 Rücktransformation solcher Systeme sind besonders gut über die
-Korrespondenztabellen zu lösen:</p>
+Korrespondenztabellen zu lösen.</p>
 <div class="note admonition">
-<p class="admonition-title">Beispiel</p>
-<p>LTI-Systeme<br />
-Wie lautet die z-Transformierte für die folgende Differenzengleichung</p>
+<p class="admonition-title">Beispiel: LTI-System</p>
+<p>Wie lautet die z-Transformierte für die Differenzengleichung</p>
 <div class="math notranslate nohighlight">
 \[
-y(k) = 0.2y(k-1) - y(k-3) + x(k) + 1.2x(k-1) - 3.2 x(k-2)
+y(k) = 0{,}2y(k-1) - y(k-3) + x(k) + 1{,}2x(k-1) - 3{,}2 x(k-2)~~~\text{?}
 \]</div>
 <p>Entscheidend ist, dass nur einfache Verzögerungen <span class="math notranslate nohighlight">\(k_0\)</span> auftreten, die
 in der z-Ebene durch <span class="math notranslate nohighlight">\(z^{-k_0}\)</span> dargestellt werden. Es ergibt sich mit
-der Eigenschaft der Linearität:</p>
+der Eigenschaft der Linearität</p>
 <div class="math notranslate nohighlight">
 \[
-Y(z) = 0.2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}
+Y(z) = 0{,}2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1{,}2X(z) z^{-1} - 3{,}2X(z) z^{-2}~~~.
 \]</div>
 </div>
-</div>
-</div>
-<div class="section" id="systemfunktion">
-<span id="sec-systemfunktion"></span><h2><span class="section-number">4.5. </span>Systemfunktion<a class="headerlink" href="#systemfunktion" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="systemfunktion">
+<span id="sec-systemfunktion"></span><h2><span class="section-number">4.5. </span>Systemfunktion<a class="headerlink" href="#systemfunktion" title="Permalink to this headline">#</a></h2>
 <p>Bei den zur Einführung verwendeten Beispielen wurden sehr einfache
 Eingangsfolgen für <span class="math notranslate nohighlight">\(x(k)\)</span> verwendet. Man könnte das Sparbuch-Beispiel
 aber auch erweitern und annehmen, dass pro Jahr eine nicht näher
-definierte Summe zusätzlich aufs Konto eingezahlt wird. Die rekursive
-Formulierung für den Ausgang sehe dann wie folgt aus</p>
+definierte Summe zusätzlich auf das Konto eingezahlt wird. Die rekursive
+Formulierung für den Ausgang latet dann</p>
 <div class="math notranslate nohighlight" id="equation-eq-example3-eingang">
-<span class="eqno">(4.18)<a class="headerlink" href="#equation-eq-example3-eingang" title="Permalink to this equation">¶</a></span>\[
-    y(k) = (1+p) y(k-1) + x(k)
+<span class="eqno">(4.18)<a class="headerlink" href="#equation-eq-example3-eingang" title="Permalink to this equation">#</a></span>\[
+    y(k) = (1+p) y(k-1) + x(k) ~~~.
 \]</div>
 <p>Eine Transformation mit der
-Definition <a class="reference internal" href="#equation-eq-def-ztrafo">(4.12)</a> in den z-Bereich führt zu</p>
+Definition <a class="reference internal" href="#equation-eq-def-ztrafo2">(4.12)</a> in den z-Bereich führt zu</p>
 <div class="math notranslate nohighlight" id="equation-eq-eaxample3-zloesung">
-<span class="eqno">(4.19)<a class="headerlink" href="#equation-eq-eaxample3-zloesung" title="Permalink to this equation">¶</a></span>\[
-    Y(z) = (1+p)z^{-1} Y(z) + X(z)
+<span class="eqno">(4.19)<a class="headerlink" href="#equation-eq-eaxample3-zloesung" title="Permalink to this equation">#</a></span>\[
+    Y(z) = (1+p)z^{-1} Y(z) + X(z)~~~.
 \]</div>
 <p>Dies ergibt umgeformt</p>
 <div class="math notranslate nohighlight" id="equation-eq-eaxample3-zloesung2">
-<span class="eqno">(4.20)<a class="headerlink" href="#equation-eq-eaxample3-zloesung2" title="Permalink to this equation">¶</a></span>\[
-    Y(z) = \frac{X(z)}{1-(1+p)z^{-1}}
+<span class="eqno">(4.20)<a class="headerlink" href="#equation-eq-eaxample3-zloesung2" title="Permalink to this equation">#</a></span>\[
+    Y(z) = \frac{X(z)}{1-(1+p)z^{-1}}~~~.
 \]</div>
 <p>Teilt man diese Lösung durch <span class="math notranslate nohighlight">\(X(z)\)</span> ergibt sich auf der rechten Seite
-der Gleichung den Anteil, der unabhängig vom Eingangssignal ist und nur
+der Gleichung der Anteil, der unabhängig vom Eingangssignal ist und nur
 das System repräsentiert. Der Bruch <span class="math notranslate nohighlight">\(Y(z)/X(z)\)</span> wird zusätzlich durch
 mit <span class="math notranslate nohighlight">\(H(z)\)</span> abgekürzt.</p>
 <div class="math notranslate nohighlight" id="equation-eq-example3-systemfunktion">
-<span class="eqno">(4.21)<a class="headerlink" href="#equation-eq-example3-systemfunktion" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.21)<a class="headerlink" href="#equation-eq-example3-systemfunktion" title="Permalink to this equation">#</a></span>\[
     H(z) = \frac{Y(z)}{X(z)} = \frac{1}{1-(1+p)z^{-1}}
 \]</div>
 <p>Die Funktion <span class="math notranslate nohighlight">\(H(z)\)</span> wird z-Systemfunktion genannt und beschreibt ein LTI-System vollständig. Eine andere vollständige Beschreibung eines LTI-Systems unabhängig vom Eingangssignal war die Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> eines
 Systems. Beide Darstellungsarten sind durch die z-Transformation
-miteinander verbunden. Es gilt:</p>
+miteinander verbunden. Es gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-ubertragfunktion">
-<span class="eqno">(4.22)<a class="headerlink" href="#equation-eq-def-ubertragfunktion" title="Permalink to this equation">¶</a></span>\[
-    \mathcal{Z}\{h(k)\} = H(z)
+<span class="eqno">(4.22)<a class="headerlink" href="#equation-eq-def-ubertragfunktion" title="Permalink to this equation">#</a></span>\[
+    \mathcal{Z}\{h(k)\} = H(z)~~~.
 \]</div>
-<p><strong>Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z)</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z).</p>
+</div>
 <div class="note admonition">
-<p class="admonition-title">Beispiel</p>
-<p>z-Übertragungsfunktion<br />
-Die z-Transformierte aus dem vorherigen Beispiel war gegeben durch</p>
+<p class="admonition-title">Beispiel: z-Übertragungsfunktion</p>
+<p>Die z-Transformierte aus dem vorherigen Beispiel war gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[
-Y(z) = 0.2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}
+Y(z) = 0{,}2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1{,}2X(z) z^{-1} - 3{,}2X(z) z^{-2}
 \]</div>
 <p>die z-Systemfunktion ergibt sich durch wenige Umformungsschritte</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
 \nonumber
-    Y(z)- 0.2Y(z) z^{-1} + Y(z) z^{-3} &amp; = &amp;  X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}\\\nonumber
-    Y(z) \left(1-0.2z^{-1} + z^{-3} \right) &amp;=&amp; X(z) \left(1 +1.2z^{-1} - 3.2 z^{-2} \right)\\
-    H(z) = \frac{Y(z)}{X(z)} &amp;= &amp; \frac{1 +1.2z^{-1} - 3.2 z^{-2}}{1-0.2z^{-1} + z^{-3}}\end{aligned}
+    Y(z)- 0{,}2Y(z) z^{-1} + Y(z) z^{-3} &amp; = &amp;  X(z) + 1{,}2X(z) z^{-1} - 3{,}2X(z) z^{-2}\\\nonumber
+    Y(z) \left(1-0{,}2z^{-1} + z^{-3} \right) &amp;=&amp; X(z) \left(1 +1{,}2z^{-1} - 3{,}2 z^{-2} \right)\\
+    H(z) = \frac{Y(z)}{X(z)} &amp;= &amp; \frac{1 +1{,}2z^{-1} - 3{,}2 z^{-2}}{1-0{,}2z^{-1} + z^{-3}}\end{aligned}
 \end{split}\]</div>
 </div>
 <p>Die Verknüpfung von <span class="math notranslate nohighlight">\(h(k)\)</span> und dem Eingangssignal <span class="math notranslate nohighlight">\(x(k)\)</span> zum
-Ausgangssignal <span class="math notranslate nohighlight">\(y(k)\)</span> erfolgte im Zeitbereich über die Faltung. Bei der
-z-Systemfunktion ist die Verknüpfung von Eingang und Ausgang durch
-die Multiplikation gegeben. Es gilt also</p>
+Ausgangssignal <span class="math notranslate nohighlight">\(y(k)\)</span> erfolgt im Zeitbereich über die Faltung. Bei der z-Systemfunktion ist die Verknüpfung von Eingang und Ausgang durch die Multiplikation gegeben. Es gilt also</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-faltungmulti">
-<span class="eqno">(4.23)<a class="headerlink" href="#equation-eq-ztrafo-faltungmulti" title="Permalink to this equation">¶</a></span>\[
-    \mathcal{Z}\{a(k)\ast b(k)\} = A(z) B(z)
+<span class="eqno">(4.23)<a class="headerlink" href="#equation-eq-ztrafo-faltungmulti" title="Permalink to this equation">#</a></span>\[
+    \mathcal{Z}\{a(k)\ast b(k)\} = A(z) B(z)~~~.
 \]</div>
 <p>Damit haben wir eine Möglichkeit
 gefunden die eher aufwendige Faltungsumme mit Hilfe der z-Transformation
 in eine einfache Multiplikation im z-Bereich zu überführen. Das
 Ausgangssignal erhält man abschließend durch die inverse
 z-Transformation des Ausgangssignals <span class="math notranslate nohighlight">\(Y(z)\)</span>. Dieser Lösungsweg ist in
-<a class="reference internal" href="#fig-schematischezloesungfaltung"><span class="std std-numref">Abbildung 4.4</span></a>  zur Verdeutlichung schematisch
-gezeigt.</p>
-<div class="figure align-default" id="fig-schematischezloesungfaltung">
-<a class="reference internal image-reference" href="_images/SchematischezLoesungFaltung.png"><img alt="_images/SchematischezLoesungFaltung.png" src="_images/SchematischezLoesungFaltung.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Schematische Darstellung zur
+<a class="reference internal" href="#fig-schematischezloesungfaltung"><span class="std std-numref">Abbildung 4.4</span></a> schematisch dargestellt.</p>
+<figure class="align-default" id="fig-schematischezloesungfaltung">
+<a class="reference internal image-reference" href="_images/SchematischezLoesungFaltung.png"><img alt="_images/SchematischezLoesungFaltung.png" src="_images/SchematischezLoesungFaltung.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Schematische Darstellung zur
 Berechnung der Faltungssumme mit Hilfe der
-z-Transformation.</span><a class="headerlink" href="#fig-schematischezloesungfaltung" title="Permalink to this image">¶</a></p>
-</div>
+z-Transformation.</span><a class="headerlink" href="#fig-schematischezloesungfaltung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="note admonition">
 <p class="admonition-title">Beispiel</p>
-<p>Das System ist durch</p>
+<p>Ein System ist durch</p>
 <div class="math notranslate nohighlight">
 \[
 y(k) = x(k) -2x(k-1) + x(k-2)
@@ -795,7 +1016,7 @@ y(k) = x(k) -2x(k-1) + x(k-2)
 z-Transformation führt auf eine z-Systemfunktion</p>
 <div class="math notranslate nohighlight">
 \[
-H(z) = 1-2z^{-1} + z^{-2}
+H(z) = 1-2z^{-1} + z^{-2}~~~.
 \]</div>
 <p>Für die Eingangsfolge:</p>
 <div class="math notranslate nohighlight">
@@ -805,45 +1026,47 @@ x(k) = \delta(k) + 2\delta(k-1)  + 3\delta(k-2)  + 4\delta(k-3)  + 5\delta(k-4)
 <p>ergibt sich die z-Transformierte zu</p>
 <div class="math notranslate nohighlight">
 \[
-X(z) = 1 + 2z^{-1} + 3z^{-2}+ 4z^{-3}+ 5z^{-4}
+X(z) = 1 + 2z^{-1} + 3z^{-2}+ 4z^{-3}+ 5z^{-4}~~~.
 \]</div>
 <p>Eine Polynommultiplikation führt zu der Ausgangs-z-Funktion</p>
 <div class="math notranslate nohighlight">
 \[
-Y(z) = X(z)H(z) = 1 -6 z^{-5} + 5 z^{-6}
+Y(z) = X(z)H(z) = 1 -6 z^{-5} + 5 z^{-6}~~~.
 \]</div>
-<p>Damit ergibt sich für die
-Ausgangsfolge</p>
+<p>Damit ergibt sich für die Ausgangsfolge</p>
 <div class="math notranslate nohighlight">
 \[
 y(k) = [1 \:\: 0 \:\: 0 \:\: 0 \:\: 0 \:\: -6 \:\: 5]
 \]</div>
-<p>bzw.
-$<span class="math notranslate nohighlight">\(
-y(k) = \delta(k) - 6 \delta(k-5) + 5 \delta(k-6)
-\)</span>$</p>
+<p>bzw.</p>
+<div class="math notranslate nohighlight">
+\[
+y(k) = \delta(k) - 6 \delta(k-5) + 5 \delta(k-6)~~~.
+\]</div>
 </div>
-<p><strong>Die Faltung wird in der z-Ebene zu einer Multiplikation</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Die Faltung wird in der z-Ebene zu einer Multiplikation.</p>
 </div>
-<div class="section" id="pol-nullstellenplan">
-<h2><span class="section-number">4.6. </span>Pol-Nullstellenplan<a class="headerlink" href="#pol-nullstellenplan" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pol-nullstellenplan">
+<h2><span class="section-number">4.6. </span>Pol-Nullstellenplan<a class="headerlink" href="#pol-nullstellenplan" title="Permalink to this headline">#</a></h2>
 <p>Nachdem die Äquivalenz der Impulsantwort mit der z-Systemfunktion
-<span class="math notranslate nohighlight">\(H(z)\)</span> bekannt ist, ist es möglich, Systeme besser zu analysieren. Dazu
-schauen wir uns zunächst die typische Systemfunktion an.</p>
+<span class="math notranslate nohighlight">\(H(z)\)</span> bekannt ist, ist es möglich, Systeme besser zu analysieren. Dazu schauen wir zunächst auf die typische Systemfunktion</p>
 <div class="math notranslate nohighlight" id="equation-eq-uebertragungsfunktion">
-<span class="eqno">(4.24)<a class="headerlink" href="#equation-eq-uebertragungsfunktion" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.24)<a class="headerlink" href="#equation-eq-uebertragungsfunktion" title="Permalink to this equation">#</a></span>\[
  H(z) = \frac{b_0 + b_1z^{-1} + b_2z^{-2}+ \cdots b_M z^{-M}
     }{1 + a_1z^{-1} + a_2z^{-2}+ \cdots a_N z^{-N}}
     = \frac{\displaystyle \sum_{i=0}^M b_iz^{-i}}
-    {\displaystyle \sum_{i=0}^N a_i z^{-i}}~mit~a_0 = 1
+    {\displaystyle \sum_{i=0}^N a_i z^{-i}}\quad\text{mit}\ quad~a_0 = 1 ~~~.
 \]</div>
-<p>Unter der Annahme das der Zählergrad <span class="math notranslate nohighlight">\(M\)</span> kleiner oder gleich dem Nennergrad <span class="math notranslate nohighlight">\(N\)</span> ist, handelt es sich um ein kausales System <a class="footnote-reference brackets" href="#id4" id="id2">1</a>. Die Ordnung des Systems wird unter dieser Annahme durch <span class="math notranslate nohighlight">\(N\)</span> angegeben. Im allgemeinen Fall definiert das Maximum von <span class="math notranslate nohighlight">\(N\)</span> und <span class="math notranslate nohighlight">\(M\)</span> die Ordnung des Systems.</p>
-<p>Die gebrochen rationale Funktion können auch in der äquivalenten
-Produktform geschrieben werden, wenn alle Nullstellen, des Zähler- und
+<p>Unter der Annahme, dass der Zählergrad <span class="math notranslate nohighlight">\(M\)</span> kleiner oder gleich dem Nennergrad <span class="math notranslate nohighlight">\(N\)</span> ist, handelt es sich um ein kausales System <a class="footnote-reference brackets" href="#id4" id="id2">1</a>. Die Ordnung des Systems wird unter dieser Annahme durch <span class="math notranslate nohighlight">\(N\)</span> angegeben. Im allgemeinen Fall definiert das Maximum von <span class="math notranslate nohighlight">\(N\)</span> und <span class="math notranslate nohighlight">\(M\)</span> die Ordnung des Systems.</p>
+<p>Die gebrochen rationale Funktion kann auch in der äquivalenten
+Produktform geschrieben werden, wenn alle Nullstellen des Zähler- und
 Nennerpolynoms bekannt sind. Die Nullstellen des Nenners bezeichnet man als Polstellen bzw. Pol, da an diesen
 Punkten, die Übertragungsfunktion unendlich wird.</p>
 <div class="math notranslate nohighlight" id="equation-eq-uebertragungsfunktion-produktdarstellung">
-<span class="eqno">(4.25)<a class="headerlink" href="#equation-eq-uebertragungsfunktion-produktdarstellung" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(4.25)<a class="headerlink" href="#equation-eq-uebertragungsfunktion-produktdarstellung" title="Permalink to this equation">#</a></span>\[\begin{split}
 \begin{aligned}
  H(z)
  &amp; = &amp; b_0 \frac{(z-n_0)(z-n_1)\cdots(z-n_{M-1})}{(z-p_0)(z-p_1)\cdots(z-p_{N-1})}\\
@@ -859,11 +1082,11 @@ reelle Nullstellen oder konjugiert komplexe Paare.</p>
 \[\begin{split}
 \begin{aligned}
 \nonumber
-    H(z) &amp; = &amp; \frac{3+6z^{-1}+3z^{-2}}{1.0000   -1.7119 z^{-1} +   0.8100
+    H(z) &amp; = &amp; \frac{3+6z^{-1}+3z^{-2}}{1{,}0000   -1{,}7119 z^{-1} +   0{,}8100
     z^{-2}}\\\nonumber
-    &amp;=&amp; 3\frac{(z+1)(z+1)}{(z-0.8560 - 0.2781j)(z-0.8560 +
-    0.2781j)}\\\nonumber
-    &amp;=&amp; 3\frac{(z+1)^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}\end{aligned}
+    &amp;=&amp; 3\frac{(z+1)(z+1)}{(z-0{,}8560 - 0.{,}2781j)(z-0{,}8560 +
+    0{,}2781j)}\\\nonumber
+    &amp;=&amp; 3\frac{(z+1)^2}{(z-0{,}9e^{j\frac{\pi}{10}})(z-0{,}9e^{-j\frac{\pi}{10}})}\end{aligned}
 \end{split}\]</div>
 </div>
 <p>Um bestimmte Eigenschaften zu verdeutlichen ist es oft sinnvoll, die
@@ -980,23 +1203,25 @@ LTI-Systems.</p>
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="3b45ab54-4988-4c77-b8fd-08312a43e4a1" name="7c355026-aa92-416d-af5e-06cd7313bf2b" type="radio">
-</input><label class="tabbed-label" for="3b45ab54-4988-4c77-b8fd-08312a43e4a1">
-Buchabbildung</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-polnullstellenplan" style="width: 75%">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="80c8cf6b-5bf8-49cc-a65e-4330c9deede3" name="d94fa7dc-0a05-4376-a1ec-4aa91d29b849" type="radio">
+</input><label class="sd-tab-label" for="80c8cf6b-5bf8-49cc-a65e-4330c9deede3">
+Buchabbildung</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="fig-polnullstellenplan" style="width: 100%">
 <div class="cell_output docutils container">
 <img alt="_images/ztrafo_10_1.png" src="_images/ztrafo_10_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Pole und Nullstellen in der komplexen
-Ebene.</span><a class="headerlink" href="#fig-polnullstellenplan" title="Permalink to this image">¶</a></p>
+<figcaption>
+<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Pole und Nullstellen in der komplexen
+Ebene.</span><a class="headerlink" href="#fig-polnullstellenplan" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
-</div>
-<input id="e354efa3-ac04-4928-ba1c-cf0d95625257" name="7c355026-aa92-416d-af5e-06cd7313bf2b" type="radio">
-</input><label class="tabbed-label" for="e354efa3-ac04-4928-ba1c-cf0d95625257">
-Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<input id="dc92b241-5f82-4718-9139-ab3e1b4d95e8" name="d94fa7dc-0a05-4376-a1ec-4aa91d29b849" type="radio">
+</input><label class="sd-tab-label" for="dc92b241-5f82-4718-9139-ab3e1b4d95e8">
+Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_3D.py” in jupyterbook/code/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">ZTrafo_Pol_Null_3D.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code></p></li>
 <li><p>Eigene Pole und Nullstellen per Klick definieren bzw. löschen (zusätzlich STRG halten):</p>
 <ul class="simple">
 <li><p>Rechtsklick: Nullstelle</p></li>
@@ -1006,32 +1231,29 @@ Interaktiv arbeiten</label><div class="tabbed-content docutils">
 </ol>
 </div>
 </div>
-<p>Mehrfachnullstellen (oder auch Pole) werden durch eine zusätzliche Zahl
-gekennzeichnet, hier die zwei für die doppelte Nullstelle bei <span class="math notranslate nohighlight">\(z = -1\)</span>.
-Weiterhin ist der sog. Einheitskreis zu sehen, der den Radius eins
-markiert und eine besondere Bedeutung hat.</p>
+<p>Mehrfachnullstellen (oder auch Pole) werden durch eine zusätzliche Zahl gekennzeichnet, hier die zwei für die doppelte Nullstelle bei <span class="math notranslate nohighlight">\(z = -1\)</span>. Weiterhin ist der sog. Einheitskreis zu sehen, der den Radius eins markiert und eine besondere Bedeutung hat.</p>
 <p>Zur Verdeutlichung der Auswirkungen von Polen und Nullstellen in der
-komplexen Ebene ist auf der rechten Seite in <a class="reference internal" href="#fig-polnullstellenplan"><span class="std std-numref">Abbildung 4.5</span></a> der Betrag der Übertragungsfunktion in Abhängigkeit vom Real und Imaginärteil für das eben verwendete Beispiel gezeigt (Die Darstellung erfolgt logarithmisch.). Zur Orientierung ist zusätzlich der Einheitskreis
+komplexen Ebene ist auf der rechten Seite in <a class="reference internal" href="#fig-polnullstellenplan"><span class="std std-numref">Abbildung 4.5</span></a> der Betrag der Übertragungsfunktion in Abhängigkeit vom Real und Imaginärteil für das eben verwendete Beispiel gezeigt (die Darstellung erfolgt logarithmisch). Zur Orientierung ist zusätzlich der Einheitskreis
 eingezeichnet.</p>
-<p>Der Einfluss der beide Extremstellen auf den Betrag der
+<p>Der Einfluss der beiden Extremstellen auf den Betrag der
 Übertragungsfunktion ist auf der ganzen z-Ebene sichtbar. Man erkennt
 sehr deutlich, wie die Pole zu einem unendlichen Betrag führen, während
-die doppelte Nullstelle den Betrag zu Null (<span class="math notranslate nohighlight">\(-\infty in dB\)</span>) werden lässt.</p>
+die doppelte Nullstelle den Betrag zu Null (<span class="math notranslate nohighlight">\(-\infty\)</span> in dB) werden lässt.</p>
 <p>Welche Auswirkungen haben nun Polstellen auf die Systemeigenschaften und
-insbesondere auf das Verhalten im Zeitbereich. Grundsätzlich lassen sich
+insbesondere auf das Verhalten im Zeitbereich? Grundsätzlich lassen sich
 die komplexen Pole immer auch in der Polarschreibweise (Radius und
 Phase) angeben.</p>
 <p>Ausgehend von einem System mit nur einem Pol (komplexwertiges
 System)</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-erklaerungpollage">
-<span class="eqno">(4.26)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollage" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4.26)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollage" title="Permalink to this equation">#</a></span>\[
     H(z) = \frac{1}{1-re^{j\varphi}z^{-1}}
 \]</div>
 <p>ergibt sich bei der Rücktransformation (Nutzung der Korrespondenztabelle) in den
 Zeitbereich</p>
 <div class="math notranslate nohighlight" id="equation-eq-ztrafo-erklaerungpollagezeitbereich">
-<span class="eqno">(4.27)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich" title="Permalink to this equation">¶</a></span>\[
-    h(k) = \gamma(k) r^k e^{j\varphi k}
+<span class="eqno">(4.27)<a class="headerlink" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich" title="Permalink to this equation">#</a></span>\[
+    h(k) = \gamma(k) r^k e^{j\varphi k}~~~.
 \]</div>
 <p>Interpretiert man Gleichung <a class="reference internal" href="#equation-eq-ztrafo-erklaerungpollagezeitbereich">(4.27)</a> so ist zu erkennen, dass die Impulsantwort aus einer komplexen Schwingung (<span class="math notranslate nohighlight">\(e^{j\varphi k}\)</span>) und einem Faktor besteht, der die Amplitude ändert. Dieser Amplitudenfaktor wird als Einhüllende der komplexen Schwingung
 bezeichnet. Die Frequenz der Schwingung ist durch den Polwinkel
@@ -1040,58 +1262,58 @@ Für <span class="math notranslate nohighlight">\(r&lt;1\)</span> ergibt sich ei
 die komplexe Schwingung ungedämpft und bei <span class="math notranslate nohighlight">\(r&gt;1\)</span> handelt es sich um eine
 aufklingende, also mit der Zeit stärker werdende Schwingung.</p>
 <p>Dies ist in der <a class="reference internal" href="#fig-pollagen"><span class="std std-numref">Abbildung 4.6</span></a> nochmals verdeutlicht. Die Pollage a) ist
-ein Pol auf der reellen Ache mit einem Radius von <span class="math notranslate nohighlight">\(r = 0.96\)</span> (Die eingezeichneten Pollagen sind zur Verdeutlichung skaliert). Die
+ein Pol auf der reellen Achse mit einem Radius von <span class="math notranslate nohighlight">\(r = 0{,}96\)</span> (die eingezeichneten Pollagen sind zur Verdeutlichung skaliert). Die
 dazugehörige Schwingung ist eine abklingende Exponentialfunktion ohne
-Schwingungsanteil. Ist der Radius größer eins (b) <span class="math notranslate nohighlight">\(r= 1.01\)</span>) ergibt sich
+Schwingungsanteil. Ist der Radius größer eins (b) <span class="math notranslate nohighlight">\(r= 1{,}01\)</span>) ergibt sich
 eine aufklingende Exponentialfunktion. Verschiebt man den Pol auf dem
-Radius <span class="math notranslate nohighlight">\(r=
-0.96\)</span> auf einen Polwinkel <span class="math notranslate nohighlight">\(\varphi = \pi/10\)</span>, so ergibt sich eine
+Radius <span class="math notranslate nohighlight">\(r=0{,}96\)</span> auf einen Polwinkel <span class="math notranslate nohighlight">\(\varphi = \pi/10\)</span>, so ergibt sich eine
 exponentiell abklingende Schwingung (siehe c)). Bei einem Radius größer
 eins, eine aufklingende Schwingung (d). Die Drehung ist bei
 <span class="math notranslate nohighlight">\(\varphi = 3\pi / 4\)</span> kaum noch zu erkennen (e), während die Frequenz
-<span class="math notranslate nohighlight">\(\varphi = \pi\)</span> erneut zu einer reellen Folge führt mit wechselndem
-Vorzeichen. Der Radius entscheidet über das Abklingverhalten (g,f). Die
-Drehrichtung wird durch die Pollage in der oberen oder unteren Halbebene
-angegeben.</p>
-<div class="figure align-default" id="fig-pollagen">
-<a class="reference internal image-reference" href="_images/PolLagen.png"><img alt="_images/PolLagen.png" src="_images/PolLagen.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an <span id="id3">[<a class="reference internal" href="zbibliography.html#id190">GRS13</a>]</span>).</span><a class="headerlink" href="#fig-pollagen" title="Permalink to this image">¶</a></p>
-</div>
+<span class="math notranslate nohighlight">\(\varphi = \pi\)</span> erneut zu einer reellen Folge mit wechselndem
+Vorzeichen führt. Der Radius entscheidet über das Abklingverhalten (g,f). Die
+Drehrichtung wird durch die Pollage in der oberen oder unteren Halbebene angegeben.</p>
+<figure class="align-default" id="fig-pollagen">
+<a class="reference internal image-reference" href="_images/PolLagen.png"><img alt="_images/PolLagen.png" src="_images/PolLagen.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an <span id="id3">[<a class="reference internal" href="zbibliography.html#id2" title="Bernd Girod, Rudolf Rabenstein, and Alexander KE Stenger. Einführung in die Systemtheorie: Signale und Systeme in der Elektrotechnik und Informationstechnik. Springer-Verlag, 2013.">GRS13</a>]</span>).</span><a class="headerlink" href="#fig-pollagen" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Bei konjugiert komplexen Polpaaren heben sich durch die gegensinnigen
 Drehrichtungen die Imaginäranteile auf und die Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> ist
 rein reellwertig. Die ausgebildeten Schwingungen entsprechen gedämpften
 oder aufklingenden Cosinusfunktionen der Frequenz <span class="math notranslate nohighlight">\(\varphi\)</span>.</p>
-<p>Es gilt für konjugiert (<span class="math notranslate nohighlight">\(^{\ast}\)</span>) komplexe Polpaare:</p>
+<p>Für konjugiert (<span class="math notranslate nohighlight">\(^{\ast}\)</span>) komplexe Polpaare gilt</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{Az}{z-a} + \frac{A^{\ast}z}{z-a^{\ast}} ;\bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; 2|A||a|^k\cos(arg\{a\}k + arg\{A\})\gamma(k)
+\frac{Az}{z-a} + \frac{A^{\ast}z}{z-a^{\ast}} ;\bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; 2|A||a|^k\cos(\arg\{a\}k + \arg\{A\})\gamma(k) ~~~,
 \]</div>
-<p><span class="math notranslate nohighlight">\(arg\{x\}\)</span> ist das Argument (Winkel) von der komplexen Zahl <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>wobei <span class="math notranslate nohighlight">\(\arg\{x\}\)</span> das Argument (der Winkel) der komplexen Zahl <span class="math notranslate nohighlight">\(x\)</span> ist.</p>
 <div class="note admonition">
 <p class="admonition-title">Beispiel</p>
 <p>Ausgehend von dem System</p>
 <div class="math notranslate nohighlight">
 \[
-H(z) = \frac{z^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}
+H(z) = \frac{z^2}{(z-0{,}9e^{j\frac{\pi}{10}})(z-0{,}9e^{-j\frac{\pi}{10}})}
 \]</div>
 <p>ergibt sich für die Aufspaltung</p>
 <div class="math notranslate nohighlight">
 \[
-H(z) = \frac{Az}{z-0.9e^{j\frac{\pi}{10}}} + \frac{A^{\ast}z}{z-0.9e^{-j\frac{\pi}{10}}}
+H(z) = \frac{Az}{z-0{,}9e^{j\frac{\pi}{10}}} + \frac{A^{\ast}z}{z-0{,}9e^{-j\frac{\pi}{10}}}
 \]</div>
 <p>mit</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-A &amp;=&amp; (z-0.9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
-    &amp; = &amp; \frac{z}{z-0.9e^{-j\frac{\pi}{10}}}\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
-    &amp; = &amp; \frac{0.9e^{j\frac{\pi}{10}}}{0.9e^{j\frac{\pi}{10}}-0.9e^{-j\frac{\pi}{10}}}\\
+A &amp;=&amp; (z-0{,}9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0{,}9e^{j\frac{\pi}{10}}}\\
+    &amp; = &amp; \frac{z}{z-0{,}9e^{-j\frac{\pi}{10}}}\Bigg|_{z = 0{,}9e^{j\frac{\pi}{10}}}\\
+    &amp; = &amp; \frac{0{,}9e^{j\frac{\pi}{10}}}{0{,}9e^{j\frac{\pi}{10}}-0{,}9e^{-j\frac{\pi}{10}}}\\
     &amp; = &amp; -j\frac{e^{j\frac{\pi}{10}}}{2\sin \frac{\pi}{10}}\end{aligned}
 \end{split}\]</div>
 <p>Die Impulsantwort ist also durch</p>
 <div class="math notranslate nohighlight">
 \[
-h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\right)\gamma(k)
+h(k) = 2\cdot 1{,}618 \cdot 0{,}9^k \cos\biggl(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\biggr)\gamma(k)
 \]</div>
 <p>gegeben und wird in <a class="reference internal" href="#fig-bspkonjkomplexpole"><span class="std std-numref">Abbildung 4.7</span></a> bis <span class="math notranslate nohighlight">\(k = 49\)</span> gezeigt.</p>
 </div>
@@ -1176,52 +1398,60 @@ h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} 
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="893c7d32-2c20-417f-925a-10a1a978ec93" name="e3c67170-7e2e-4874-8aa4-67d54a979a42" type="radio">
-</input><label class="tabbed-label" for="893c7d32-2c20-417f-925a-10a1a978ec93">
-Buchabbildung</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-bspkonjkomplexpole" style="width: 75%">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="060eeb2e-c8ac-4716-8fab-7e73d46e9f00" name="06f5024c-3143-4361-bbe7-d505b71e6e62" type="radio">
+</input><label class="sd-tab-label" for="060eeb2e-c8ac-4716-8fab-7e73d46e9f00">
+Buchabbildung</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="fig-bspkonjkomplexpole" style="width: 100%">
 <div class="cell_output docutils container">
 <img alt="_images/ztrafo_17_1.png" src="_images/ztrafo_17_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">¶</a></p>
+<figcaption>
+<p><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.</span><a class="headerlink" href="#fig-bspkonjkomplexpole" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
-</div>
-<input id="b89d4ef5-d930-4ea3-823f-d674654e792d" name="e3c67170-7e2e-4874-8aa4-67d54a979a42" type="radio">
-</input><label class="tabbed-label" for="b89d4ef5-d930-4ea3-823f-d674654e792d">
-Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<input id="e5e4c58d-bfe0-4fa7-96b7-7099060c4265" name="06f5024c-3143-4361-bbe7-d505b71e6e62" type="radio">
+</input><label class="sd-tab-label" for="e5e4c58d-bfe0-4fa7-96b7-7099060c4265">
+Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “ZTrafo_Pol_Null_Impulsantwort.py” in jupyterbook/code/interactive_programs</p></li>
+<li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">ZTrafo_Pol_Null_Impulsantwort.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code></p></li>
 <li><p>Per Linksklick neue Polstelle definieren</p></li>
 </ol>
 </div>
 </div>
-</div>
-<div class="section" id="stabilitat">
-<h2><span class="section-number">4.7. </span>Stabilität<a class="headerlink" href="#stabilitat" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="stabilitat">
+<h2><span class="section-number">4.7. </span>Stabilität<a class="headerlink" href="#stabilitat" title="Permalink to this headline">#</a></h2>
 <p>Mit den Erklärungen für <a class="reference internal" href="#fig-pollagen"><span class="std std-numref">Abbildung 4.6</span></a> ist die Frage nach einem Stabilitätstest für kausale LTI-Systeme recht einfach zu beantworten. Da alle Systeme mit Polradien größer eins aufklingende Schwingungen erzeugen sind die dazugehörigen Impulsantworten nicht endlich. Auf einen endlichen Impuls reagiert das System mit einer unendlichen Ausgangsgröße. Damit ist die BIBO-Bedingung nicht mehr erfüllt.</p>
-<p><strong>Stabile, kausale Systeme haben nur Pole innerhalb des
-Einheitkreises.</strong></p>
-<p><strong>Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis</strong></p>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Stabile, kausale Systeme haben nur Pole innerhalb des
+Einheitkreises.</p>
+</div>
+<div class="attention admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis.</p>
+</div>
 <p>Allgemein lässt sich sagen, dass Systeme deren z-Konvergenzgebiet den
-Einheitskreis mit einschließen stabil sind. Betrachtet man noch einmal
+Einheitskreis mit einschließen, stabil sind. Betrachtet man noch einmal
 die Beispiele für z-Transformation und des dazugehörigen
-Konvergenzgebietes auf Seite , so wird deutlich, dass die kausale Folge
+Konvergenzgebietes in <a class="reference internal" href="#sec-definition-ztransformation"><span class="std std-numref">Abschnitt 4.2</span></a>, so wird deutlich, dass die kausale Folge
 ein stabiles System darstellt, während die nicht-kausale Folge instabil
 ist. Man kann dies auch daran erkennen, dass die Folge mit wachsendem
 <span class="math notranslate nohighlight">\(k\)</span> größer wird.</p>
-<p>Für LTI-Systeme ergibt sich als Kriterium für die BIBO-Stabilität.</p>
+<p>Für LTI-Systeme ergibt sich als Kriterium für die BIBO-Stabilität</p>
 <div class="math notranslate nohighlight" id="equation-eq-bibo-integral">
-<span class="eqno">(4.28)<a class="headerlink" href="#equation-eq-bibo-integral" title="Permalink to this equation">¶</a></span>\[
-    \int_{-\infty}^{\infty} |h(t)|^2 dt &lt; \infty
+<span class="eqno">(4.28)<a class="headerlink" href="#equation-eq-bibo-integral" title="Permalink to this equation">#</a></span>\[
+    \int_{-\infty}^{\infty} |h(t)|^2 dt &lt; \infty~~~,
 \]</div>
-<p>bzw. für diskrete Systeme gilt</p>
+<p>für diskrete Systeme gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-bibo-diskret">
-<span class="eqno">(4.29)<a class="headerlink" href="#equation-eq-bibo-diskret" title="Permalink to this equation">¶</a></span>\[
-    \sum_{k = -\infty}^{\infty}|h(k)|^2 &lt; \infty
+<span class="eqno">(4.29)<a class="headerlink" href="#equation-eq-bibo-diskret" title="Permalink to this equation">#</a></span>\[
+    \sum_{k = -\infty}^{\infty}|h(k)|^2 &lt; \infty~~~.
 \]</div>
-<div class="section" id="stabilitat-eines-systems-2-ordnung">
-<h3><span class="section-number">4.7.1. </span>Stabilität eines Systems 2. Ordnung<a class="headerlink" href="#stabilitat-eines-systems-2-ordnung" title="Permalink to this headline">¶</a></h3>
+<section id="stabilitat-eines-systems-2-ordnung">
+<h3><span class="section-number">4.7.1. </span>Stabilität eines Systems 2. Ordnung<a class="headerlink" href="#stabilitat-eines-systems-2-ordnung" title="Permalink to this headline">#</a></h3>
 <p>Systeme zweiter Ordnung sind in der digitalen Signalverarbeitung ein
 wichtiger Grundbaustein. Es ist deshalb interessant allgemein die
 Stabilitätsbedingungen zu berechnen. Das System ist durch</p>
@@ -1252,14 +1482,14 @@ gesichert. Welche Bedingungen müssen für die Koeffizienten <span class="math n
 <li><p>Für die komplexwertige Lösung <span class="math notranslate nohighlight">\(a_{2}&gt;\frac{a_{1}^{2}}{4}\)</span> ergibt
 sich durch die Nebenbedingung, dass man <span class="math notranslate nohighlight">\(\sqrt{-1} = j\)</span> vor die
 Wurzel ziehen kann und sich somit die Vorzeichen umdrehen.
-<span class="math notranslate nohighlight">\(z=-\frac{a_{1}}{2} \pm j \sqrt{a_{2}-\frac{a_{1}^{2}}{4}}\)</span></p></li>
+<span class="math notranslate nohighlight">\(z=-\frac{a_{1}}{2} \pm j \sqrt{a_{2}-\frac{a_{1}^{2}}{4}}\)</span>~~~.</p></li>
 </ol>
-<p>Berechnet man den Betrag ergibt sich</p>
+<p>Berechnet man den Betrag so ergibt sich</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     \begin{aligned}
         \left|z\right| &amp; = &amp; \sqrt{\frac{a_{1}^{2}}{4}+a_{2}-\frac{a_{1}^{2}}{4}}\\
-        &amp; = &amp; \sqrt{a_{2}}
+        &amp; = &amp; \sqrt{a_{2}} ~~~.
         \end{aligned}
 \end{split}\]</div>
 <p>Da für ein stabiles System <span class="math notranslate nohighlight">\(\left|z\right|&lt;1\)</span>
@@ -1267,10 +1497,10 @@ gelten muss, gilt als erste Bedingung, dass auch <span class="math notranslate n
 muss</p>
 <ol>
 <li><p>Für die reelwertige Lösung gilt <span class="math notranslate nohighlight">\(a_{2}&lt;\frac{a_{1}^{2}}{4}\)</span>:<br />
-Es ergibt sich damit die folgende Ungleichung.</p>
+Es ergibt sich damit die Ungleichung</p>
 <div class="math notranslate nohighlight">
 \[
-    -1 &lt; -\frac{a_{1}}{2} \pm \underbrace{\sqrt{\frac{a_{1}^{2}}{4}-a_{2}}}_{&gt;0} &lt; 1
+    -1 &lt; -\frac{a_{1}}{2} \pm \underbrace{\sqrt{\frac{a_{1}^{2}}{4}-a_{2}}}_{&gt;0} &lt; 1~~~.
     \]</div>
 <p>Löst man diese Ungleichung zunächst für das erste
 Ungleichheitszeichen und nutzt die negative Lösung, da diese ja
@@ -1281,27 +1511,28 @@ immer kleiner ist als die positive Lösung</p>
     \]</div>
 <p>ergibt
 sich (zunächst Multiplikation mit -1, danach quadrieren und
-ausrechnen)
-$<span class="math notranslate nohighlight">\(
-\begin{aligned}
-        -1+\frac{a_{1}}{2} &amp; &lt; &amp; - \sqrt{\frac{a_{1}^{2}}{4}-a_{2}}\\
-        \left(1-\frac{a_{1}}{2}\right)^{2}&amp; &gt; &amp; \frac{a_{1}^{2}}{4}-a_{2}\\
-        1-2\frac{a_{1}}{2}+\frac{a_{1}^{2}}{4}&amp; &gt; &amp; \frac{a_{1}^{2}}{4}-a_{2}\\
-        1-a_1 &amp;  &gt;  &amp; -a_2 \\
-        a_{1} &amp; &lt;  &amp; a_{2}+1
-    \end{aligned}
-\)</span>$
-Für das zweite Ungleichheitszeichen gilt
-entsprechendes. Die zweite Bedingung lautet</p>
+ausrechnen)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+            -1+\frac{a_{1}}{2} &amp; &lt; &amp; - \sqrt{\frac{a_{1}^{2}}{4}-a_{2}}\\
+            \left(1-\frac{a_{1}}{2}\right)^{2}&amp; &gt; &amp; \frac{a_{1}^{2}}{4}-a_{2}\\
+            1-2\frac{a_{1}}{2}+\frac{a_{1}^{2}}{4}&amp; &gt; &amp; \frac{a_{1}^{2}}{4}-a_{2}\\
+            1-a_1 &amp;  &gt;  &amp; -a_2 \\
+            a_{1} &amp; &lt;  &amp; a_{2}+1
+        \end{aligned}
+    \end{split}\]</div>
+<p>Für das zweite Ungleichheitszeichen gilt
+Entsprechendes. Die zweite Bedingung lautet</p>
 <div class="math notranslate nohighlight" id="equation-eq-sos-ungleichung2">
-<span class="eqno">(4.30)<a class="headerlink" href="#equation-eq-sos-ungleichung2" title="Permalink to this equation">¶</a></span>\[
-        a_1 &gt; -a_2 -1
+<span class="eqno">(4.30)<a class="headerlink" href="#equation-eq-sos-ungleichung2" title="Permalink to this equation">#</a></span>\[
+        a_1 &gt; -a_2 -1~~~.
     \]</div>
 </li>
 </ol>
 <p>Fasst man diese Bedingungen zusammen, ergibt sich für <span class="math notranslate nohighlight">\(a_2\)</span> eine untere
 Grenze von <span class="math notranslate nohighlight">\(a_2&gt;-1\)</span>. Alles zusammen beschreibt ein Dreieck, dass als
-Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
+Stabilitätsdreieck für kausale Systeme 2. Ordnung bezeichnet wird (siehe
 <a class="reference internal" href="#fig-stabildreieck"><span class="std std-numref">Abbildung 4.8</span></a>).</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1386,39 +1617,40 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="6f928252-87fc-4809-bf85-2f46bbb35203" name="d88b5dbc-b9bc-4ea1-865d-4ba545d41fb3" type="radio">
-</input><label class="tabbed-label" for="6f928252-87fc-4809-bf85-2f46bbb35203">
-Buchabbildung</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-stabildreieck" style="width: 75%">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="bde08c7a-54e6-4d5f-95ae-cd60ee39be02" name="622641c2-1462-4cdc-9116-b834bfbaa565" type="radio">
+</input><label class="sd-tab-label" for="bde08c7a-54e6-4d5f-95ae-cd60ee39be02">
+Buchabbildung</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="fig-stabildreieck" style="width: 100%">
 <div class="cell_output docutils container">
 <img alt="_images/ztrafo_20_1.png" src="_images/ztrafo_20_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
-Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">¶</a></p>
+<figcaption>
+<p><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Stabilitätsdreieck für Systeme zweiter
+Ordnung mit den Koeffizienten <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span>.</span><a class="headerlink" href="#fig-stabildreieck" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
-</div>
-<input id="6d50cbc8-89bf-4f67-bd21-ce9e455d0581" name="d88b5dbc-b9bc-4ea1-865d-4ba545d41fb3" type="radio">
-</input><label class="tabbed-label" for="6d50cbc8-89bf-4f67-bd21-ce9e455d0581">
-Interaktiv arbeiten</label><div class="tabbed-content docutils">
+<input id="6f9c24ec-ec1d-486b-a267-7b0f1ed48f20" name="622641c2-1462-4cdc-9116-b834bfbaa565" type="radio">
+</input><label class="sd-tab-label" for="6f9c24ec-ec1d-486b-a267-7b0f1ed48f20">
+Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
-<li><p>Starten des interaktiven Programms - “Signale_Stabilitätsdreieck.py” in jupyterbook/code/interactive_programs</p></li>
-<li><p>Per Linsklick Punkt im Dreieck auswählen</p></li>
+<li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Stabilitätsdreieck.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code></p></li>
+<li><p>Per Linksklick Punkt im Dreieck auswählen</p></li>
 </ol>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="interaktive-visualisierung-der-z-transformation">
-<h2><span class="section-number">4.8. </span>Interaktive Visualisierung der z-Transformation<a class="headerlink" href="#interaktive-visualisierung-der-z-transformation" title="Permalink to this headline">¶</a></h2>
-<p>Für die Visualisierung der Interaktion von z-Transformation, dem im nächsten Kapitel vorgestellten Pol-\Nullstellenplan und den dazugehörigen Übertragungsfunktionen steht auf</p>
+</section>
+</section>
+<section id="interaktive-visualisierung-der-z-transformation">
+<span id="sec-interactive-ztransform"></span><h2><span class="section-number">4.8. </span>Interaktive Visualisierung der z-Transformation<a class="headerlink" href="#interaktive-visualisierung-der-z-transformation" title="Permalink to this headline">#</a></h2>
+<p>Für die Visualisierung der Interaktion von z-Transformation, dem im nächsten Kapitel vorgestellten Pol-Nullstellenplan und den dazugehörigen Übertragungsfunktionen steht auf</p>
 <p><a class="reference external" href="https://www.kvraudio.com/product/filterdemystifier-by-jadehochschule">https://www.kvraudio.com/product/filterdemystifier-by-jadehochschule</a></p>
-<p>ein Audio-Plugin (VST und AU) zur Verfügung, dass zusätzlich auch die Wirkung
-auf Audio-Signale zeigt. Der Source-Code ist ebenfalls öffentlich (<a class="reference external" href="https://github.com/ArnoSchiller/FilterDeMystifier">https://github.com/ArnoSchiller/FilterDeMystifier</a>)</p>
+<p>ein Audio-Plugin (VST und AU) zur Verfügung, dass zusätzlich auch die Wirkung auf Audio-Signale zeigt. Der Source-Code ist ebenfalls öffentlich verfügbar (<a class="reference external" href="https://github.com/ArnoSchiller/FilterDeMystifier">https://github.com/ArnoSchiller/FilterDeMystifier</a>).</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>Würde gelten <span class="math notranslate nohighlight">\(M&gt;N\)</span> könnte man durch Polynomdivision eine
+<dd><p>Würde gelten <span class="math notranslate nohighlight">\(M&gt;N\)</span>, könnte man durch Polynomdivision eine
 Übertragungsfunktion erhalten, die aus einem simplen Polynom und
 einer gebrochen rationalen Funktion mit <span class="math notranslate nohighlight">\(M\leq N\)</span> besteht, wobei das
 Polynom ein Polynom in <span class="math notranslate nohighlight">\(z\)</span> und nicht in <span class="math notranslate nohighlight">\(z^{-1}\)</span> wäre und somit bei
@@ -1426,8 +1658,8 @@ einer z-Rücktransformation auf einen nicht-kausalen Anteil führen
 würde.</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1451,54 +1683,48 @@ würde.</p>
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="systeme.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">3. </span>Systeme</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="systeme.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Systeme</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="spektren.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Spektren</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="spektren.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Spektren</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Joerg Bitzer<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joerg Bitzer<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
