@@ -1295,15 +1295,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_\text{s
 besitzt. Die Kopiervorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, dass die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert sind.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="fd0a717f-243b-44a4-a64c-2933e4e0d80e" name="e2a80fd4-2621-4454-b668-71bc1b83eec9" type="radio">
-</input><label class="sd-tab-label" for="fd0a717f-243b-44a4-a64c-2933e4e0d80e">
+<input checked="checked" id="8fc60e4b-8071-4959-9832-2f01c37ed718" name="999645cb-7085-4b85-bdd9-16e7787911e5" type="radio">
+</input><label class="sd-tab-label" for="8fc60e4b-8071-4959-9832-2f01c37ed718">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">H_voll</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">H_halb</span><span class="w"> </span><span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="3e7b1310-87fb-4aff-b038-702b1657b9e3" name="e2a80fd4-2621-4454-b668-71bc1b83eec9" type="radio">
-</input><label class="sd-tab-label" for="3e7b1310-87fb-4aff-b038-702b1657b9e3">
+<input id="2d8c831a-e8cd-4c0f-8460-44077f5fd598" name="999645cb-7085-4b85-bdd9-16e7787911e5" type="radio">
+</input><label class="sd-tab-label" for="2d8c831a-e8cd-4c0f-8460-44077f5fd598">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -1978,8 +1978,8 @@ bekanntesten Fenster-Funktionen angegeben werden<a class="footnote-reference bra
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="066d0e70-531e-40c2-82c0-5bb8e67d72ef" name="08439ed4-889e-470b-9b05-2316abe78b3d" type="radio">
-</input><label class="sd-tab-label" for="066d0e70-531e-40c2-82c0-5bb8e67d72ef">
+<input checked="checked" id="b92eda9b-07db-4113-91cd-979dadaeb695" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
+</input><label class="sd-tab-label" for="b92eda9b-07db-4113-91cd-979dadaeb695">
 von Hann</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann-Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1997,8 +1997,8 @@ stärker bedämpft.</p></li>
 </figcaption>
 </figure>
 </div>
-<input id="3a11d586-7343-4c28-a00d-9d8625ac4fbc" name="08439ed4-889e-470b-9b05-2316abe78b3d" type="radio">
-</input><label class="sd-tab-label" for="3a11d586-7343-4c28-a00d-9d8625ac4fbc">
+<input id="730e4152-af58-4340-ac19-100de670c3d0" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
+</input><label class="sd-tab-label" for="730e4152-af58-4340-ac19-100de670c3d0">
 Hamming</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming-Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0{,}54\)</span>,
@@ -2017,8 +2017,8 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span>.</p><
 </figcaption>
 </figure>
 </div>
-<input id="831f6723-054f-4b65-8e0f-d49143d3dfa5" name="08439ed4-889e-470b-9b05-2316abe78b3d" type="radio">
-</input><label class="sd-tab-label" for="831f6723-054f-4b65-8e0f-d49143d3dfa5">
+<input id="048bc9c8-aead-45a1-b0d4-19b5f11b0ee8" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
+</input><label class="sd-tab-label" for="048bc9c8-aead-45a1-b0d4-19b5f11b0ee8">
 Blackman</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman-Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0{,}42\)</span>,
@@ -2035,8 +2035,8 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 </figcaption>
 </figure>
 </div>
-<input id="cf5c9b7d-7319-45fa-b9bb-c8e7bb7187f1" name="08439ed4-889e-470b-9b05-2316abe78b3d" type="radio">
-</input><label class="sd-tab-label" for="cf5c9b7d-7319-45fa-b9bb-c8e7bb7187f1">
+<input id="ee80e5ba-3997-4bd0-989b-d7d70e8f83df" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
+</input><label class="sd-tab-label" for="ee80e5ba-3997-4bd0-989b-d7d70e8f83df">
 Dolph-Tschebyscheff</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Tschebyscheff-Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -2056,8 +2056,8 @@ Dolph-Tschebyscheff-Fensters</span><a class="headerlink" href="#fig-chebwindow" 
 </figcaption>
 </figure>
 </div>
-<input id="75277087-673e-4274-a13a-94a571345ede" name="08439ed4-889e-470b-9b05-2316abe78b3d" type="radio">
-</input><label class="sd-tab-label" for="75277087-673e-4274-a13a-94a571345ede">
+<input id="bd63a680-21e0-4318-be42-73f65c27db5f" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
+</input><label class="sd-tab-label" for="bd63a680-21e0-4318-be42-73f65c27db5f">
 Kaiser-Fester</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser-Fenster:</strong> Auch das Kaiser-Fenster ist mit Hilfe des
