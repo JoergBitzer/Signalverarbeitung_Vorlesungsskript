@@ -1127,8 +1127,8 @@ Filter-Routinen zurückgreifen möchte.
 
 +++
 
-(sec:IIR-Filterdesign)=
-### IIR-Filterdesign
+(sec:IIR-Filterdesignmethoden)=
+### klassische IIR-Filterdesignmethoden
 
 Der Entwurf von IIR-Filtern erfolgt historisch bedingt etwas anders.
 Rekursive Filter sind sehr viel enger mit analogen Filtern verwandt.
