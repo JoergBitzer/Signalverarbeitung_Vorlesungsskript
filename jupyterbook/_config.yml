@@ -16,23 +16,7 @@ latex:
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
-  - ../BibTex/AEC.bib       
-  - ../BibTex/AESPaperForensik.bib  
-  - ../BibTex/BeamGSC.bib  
-  - ../BibTex/DEF.bib       
-  - ../BibTex/FremdLit.bib   
-  - ../BibTex/LIT.BIB                 
-  - ../BibTex/Sonst.bib    
-  - ../BibTex/speech.bib             
-  - ../BibTex/wiener.bib
-  - ../BibTex/AECandNR.bib  
-  - ../BibTex/Audio.bib             
-  - ../BibTex/Bitzer.bib   
-  - ../BibTex/Forensik.bib  
-  - ../BibTex/GSC_Promo.bib  
-  - ../BibTex/publicationsBitzer.bib  
-  - ../BibTex/SpecSub.bib  
-  - ../BibTex/SpeechRecognition.bib
+  - sv.bib
 
 # Information about where the book exists on the web
 repository:

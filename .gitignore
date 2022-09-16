@@ -21,3 +21,10 @@
 *.mtc1
 *.out
 *.synctex.gz
+bin/
+etc/
+include/
+lib/
+lib64/
+share/
+pyvenv.cfg

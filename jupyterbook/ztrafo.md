@@ -11,34 +11,35 @@ kernelspec:
   name: python3
 ---
 
+(sec:ztrafo)=
 # z-Transformation
 
 Die z-Transformation stellt ein wichtiges
-Werkzeug zur Analyse und zum Verständnis von LTI-Systemen dar.  Es werden durch die z-Systemfunktion und
-dem Pol-Nullstellenplot neue Beschreibungsformen für LTI-Systeme
-aufgezeigt. Insbesondere wird eine Möglichkeit angegeben, um die
-Stabilität rekursiver LTI-Systeme zu testen.
+Werkzeug zur Analyse und zum Verständnis von LTI-Systemen dar. Es werden 
+durch die z-Systemfunktion und das Pol-Nullstellen-Diagramm neue 
+Beschreibungsformen für LTI-Systeme aufgezeigt. Insbesondere wird eine 
+Möglichkeit angegeben, um die Stabilität rekursiver LTI-Systeme zu testen.
 
 
 ## Einführung
 
-Zunächst ein einfache Beipiel, um die Nützlichlkeit dieses Werkzeuges zu unterstreichen.
+Zunächst ein einfaches Beipiel, um die Nützlichlikeit der z-Transformation zu unterstreichen.
 
 Angenommen auf ein Sparbuch wird ein bestimmter Geldbetrag $S$
 eingezahlt und dieser Betrag wird jährlich mit einem Zins $p$ verzinst.
 Eine mathematische Darstellung dieses Sachverhalts ergibt sich durch
 Nutzung des Delta-Impulses gewichtet mit dem Geldbetrag und einer
 einfachen Rekursion, wobei ein leeres Konto als Startwert vorliegt. Es
-gilt also $y(k-1) = 0$. 
+gilt also 
 
 $$
 y(k) = (1+p) y(k-1) + S \delta(k)
 $$ (eq:ZinsRekursion)
 
-Dies ist eine andere Darstellung der Zinseszinsrechenregel. Diese lautet
+mit $y(k-1) = 0$. Dies ist eine andere Darstellung der Zinseszinsrechenregel
 
 $$
-\mbox{Geld} = S (1+p)^{\mbox{Jahre}}
+\mbox{Geld} = S (1+p)^{\mbox{Jahre}}~~~.
 $$
 
 Die Anzahl der Jahre ist in Formel
@@ -49,20 +50,19 @@ Nun lassen sich aber nicht für alle Rekursionssysteme solche einfachen
 direkten Rechenvorschriften angeben. Aber wie ist der mathematische
 Zusammenhang zwischen den beiden möglichen Lösungen?
 
-In der Rekursionsformel: 
+In der Rekursionsformel
 
 $$
     y(k) = (1+p) y(k-1) + S \delta(k)
 $$ (eq:ZinsRekursionWiederholung) 
 
-ergibt sich durch Variablensubstitution $c = 1+p$. 
+ergibt sich durch Variablensubstitution $c = 1+p$
 
 $$
-y(k) = c y(k-1) + S \delta(k)
+y(k) = c y(k-1) + S \delta(k)~~~.
 $$ (eq:ZinsRekursionMitc)
 
-Diese Form wird jetzt auf beiden
-Seiten mit der Summe $\sum_{k =
+Diese Form wird jetzt auf beiden Seiten mit der Summe $\sum_{k =
 -\infty}^{\infty}z^{-k}$ multipliziert. Ein Schritt der mathematisch
 erlaubt ist, da er auf beiden Seiten des Gleichungssystems durchgeführt
 wird.
@@ -77,10 +77,10 @@ $$ (eq:ZinsRekursionZ)
 Mit Hilfe der abkürzenden Schreibweise
 
 $$
-Y(z) = \sum_{k = -\infty}^{\infty} y(k) z^{-k} .
+Y(z) = \sum_{k = -\infty}^{\infty} y(k) z^{-k}
 $$ (eq:Def:zTrafo)
 
-ergibt sich bei dem 2. Summanden nur ein Element der Summe den Wert $S$, da die $\delta$-Folge nur bei $k = 0$ einen Wert ungleich Null hat.
+ergibt sich bei dem 2. Summanden für nur ein Element der Summe der Wert $S$, da die $\delta$-Folge nur bei $k = 0$ einen Wert ungleich Null hat.
 
 Zusätzlich kann der 1. Summand durch eine Variablensubstitution
 $k' = k-1$ umgeformt werden. 
@@ -95,13 +95,13 @@ $$ (eq:zTrafo:Example1Subst)
 Somit ergibt sich 
 
 $$
-    Y(z) = c z^{-1} Y(z) + S .
+    Y(z) = c z^{-1} Y(z) + S~~~.
 $$ (eq:zTrafo:Example1)
 
 Umgestellt folgt
 
 $$
-    Y(z) = \frac{S}{1-c z^{-1}} .
+    Y(z) = \frac{S}{1-c z^{-1}}~~~.
 $$ (eq:ztrafo:Example1:zLoesung)
 
 Um zur Lösung für das Ausgangssignal zu kommen, wird die Summenformel
@@ -115,17 +115,17 @@ Für Gleichung
 {eq}`eq:ztrafo:Example1:zLoesung` ergibt sich also
 
 $$
-\frac{S}{1-c z^{-1}} = S \sum_{k = 0}^{\infty} (c z^{-1})^k = S \sum_{k = 0}^{\infty} c^k z^{-k}
+\frac{S}{1-c z^{-1}} = S \sum_{k = 0}^{\infty} (c z^{-1})^k = S \sum_{k = 0}^{\infty} c^k z^{-k}~~~.
 $$ (eq:zTrafo:Example1:kLoesung1)
 
 Vergleicht man diese Lösung mit
-{eq}`eq:Def:zTrafo` ergibt sich
+{eq}`eq:Def:zTrafo`, ergibt sich
 
 $$
     y(k) = \bigg\{ \begin{array}{lcc}
       S c^k & & k \geq 0\\
         0  & & k<0
-    \end{array} = S(1+p)^k \gamma(k)
+    \end{array} = S(1+p)^k \gamma(k)~~~,
 $$ (eq:zTrafo:Example1:kLoesung2)
 
 mit $\gamma(k)$ als Sprungfolge (siehe Gleichung
@@ -133,35 +133,36 @@ mit $\gamma(k)$ als Sprungfolge (siehe Gleichung
 
 Dies entspricht der vorher bekannten Lösung für die Zinseszinsformel.
 
+(sec:definition_ztransformation)=
 ## Definition z-Transformation
 
 Für eine verkürzte Schreibweise wird für die z-Transformation folgendes
 Symbol eingeführt 
 
 $$
-\mathcal{Z}\{ \cdot \}= \sum_{k = -\infty}^{\infty} (\cdot) z^{-k} mit~z \in \mathbb{C}
-$$ (eq:Def:Ztrafo)
+\mathcal{Z}\{ \cdot \}= \sum_{k = -\infty}^{\infty} (\cdot) z^{-k} \quad \text{mit} \quad z \in \mathbb{C}~~~.
+$$ (eq:Def:Ztrafo2)
 
 Es gilt also 
 
 $$
-    Y(z) =\mathcal{Z}\{y(k)\}
+    Y(z) =\mathcal{Z}\{y(k)\}~~~.
 $$ (eq:yExample) 
 
 Die Rechenvorschrift führt dazu, dass die diskrete
-Eingangsfolge $y(k)$ abgebildet wird auf eine komplexe Ebene. Man
+Eingangsfolge $y(k)$ auf eine komplexe Ebene abgebildet wird. Man
 spricht deshalb auch von Zeitbereichsdarstellung und
 Bildbereichdarstellung. Um die Korrespondenz zu symbolisieren wird
-häufig der sog. "Transformationsknochen" verwendet.
+häufig der sog. *Transformationsknochen* verwendet:
 
--   Hintransformation: $y(k) \circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; Y(z)$ oder bei Gleichungsabfolgen vertikal
+-   Hintransformation: $y(k) \circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; Y(z)$ oder bei Gleichungsabfolgen vertikal,
 
--   Rücktransformation: $Y(z) \bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; y(k)$
+-   Rücktransformation: $Y(z) \bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; y(k)$.
 
 Damit eine z-Transformation gültig ist, muss zusätzlich gelten, dass die
-Summe in Gl. {eq}`eq:Def:Ztrafo` kleiner unendlich ist. Dies ist für alle
+Summe in Gl. {eq}`eq:Def:Ztrafo2` kleiner unendlich ist. Dies ist für alle
 endlichen Folgen gegeben, wenn keiner der Folgenwerte unendlich ist. Bei
-unendlichen Folgen ist dies nicht immer gewährleistet.und hängt auch
+unendlichen Folgen ist dies nicht immer gewährleistet und hängt auch
 direkt von $z$ ab. Deshalb gehört zu einer vollständigen
 Beschreibung der z-Transformation auch immer die Bereichsangabe von $z$
 in der die Summe konvergiert. Man spricht deshalb vom sogenannten
@@ -191,47 +192,48 @@ außerhalb).
 ```{admonition} Beispiel
 :class: note
 
-Betrachtet man die kausale Folge (siehe {numref}`Abbildung %s <fig:zFolgenPic>`
-a) (Sie entspricht dem Sparbuchbeispiel mit einem Startkapital von 0.5 und
-50% Kontokosten (Also einer ziemlich schlechten Geldanlage).)
+Betrachtet man die kausale Folge 
 
 $$
 \begin{aligned}
-    x(k) &=& [0.5 \:\: 0.5^2 \:\: 0.5^3 \:\: \cdots \:\: 0.5^k]\\
-         & = & 0.5^k \gamma(k) \qquad~für~k \geq 0 ,\end{aligned}
+    x(k) &=& [0{,}5 \:\: 0{,}5^2 \:\: 0{,}5^3 \:\: \cdots \:\: 0{,}5^k]\\
+         & = & 0{,}5^k \gamma(k) \qquad~für~k \geq 0 ,\end{aligned}
 $$ (eq:BspKausaleFolge)
 
-soergibt sich die z-Transformierte als
+(siehe {numref}`Abbildung %s <fig:zFolgenPic>` a), sie entspricht dem 
+Sparbuchbeispiel mit einem Startkapital von 0{,}5 und 50 % Kontokosten, 
+also einer ziemlich schlechten Geldanlage), so ergibt sich die 
+z-Transformierte als
 
 $$
-X(z) = \sum_{k = -\infty}^{\infty} 0.5^k \gamma(k)z^{-k}
-    = \sum_{k = 0}^{\infty} 0.5^k z^{-k} =
-    \sum_{k = 0}^{\infty} (0.5z^{-1})^{k}
+X(z) = \sum_{k = -\infty}^{\infty} 0{,}5^k \gamma(k)z^{-k}
+    = \sum_{k = 0}^{\infty} 0{,}5^k z^{-k} =
+    \sum_{k = 0}^{\infty} (0{,}5z^{-1})^{k}
 $$ 
     
-bzw. mit der Umformung durch die geometrische Reihe
+bzw. mit der Umformung durch die geometrische Reihe als
 
 $$
-X(z) = \frac{1}{1-0.5z^{-1}} = \frac{z}{z-0.5},
+X(z) = \frac{1}{1-0{,}5z^{-1}} = \frac{z}{z-0{,}5}~~~,
 $$ 
 
 wobei das Konvergenzkriterium der geometrischen Reihe zusätzlich 
 
 $$
 \nonumber
-    |0.5z^{-1}| = \frac{0.5}{z} < 1 \qquad \Rightarrow \qquad |z| > 0.5
+    |0{,}5z^{-1}| = \frac{0{,}5}{z} < 1 \qquad \Rightarrow \qquad |z| > 0{,}5
 $$
 
 fordert.
 
 Definition:
 ```{glue:figure} zFolgenPic
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:zFolgenPic"
 
 a) kausale
-Folge $0.5^k \gamma(k)$ für $k \geq 0$ und b) nicht-kausale Folge
-$-0.5^k \gamma(-k-1)$ für $k < 0$.
+Folge $0{,}5^k \gamma(k)$ für $k \geq 0$ und b) nicht-kausale Folge
+$-0{,}5^k \gamma(-k-1)$ für $k < 0$.
 ```
 
 Im folgenden soll nun eine sehr ähnlichen Folge, nämlich dem
@@ -240,7 +242,7 @@ nicht-kausalen, negativen äquivalent zu
 
 $$
 \nonumber
-    x(k) = -0.5^k \gamma(-k-1) \qquad für k < 0
+    x(k) = -0{,}5^k \gamma(-k-1) \qquad \text{für} \qquad k < 0
 $$ 
 
 betrachtet werden (siehe {numref}`Abbildung %s <fig:zFolgenPic>` b). Berechnet man die z-Transformierte ergibt sich mit einer Variablensubstitution $k = -m$ 
@@ -248,9 +250,9 @@ betrachtet werden (siehe {numref}`Abbildung %s <fig:zFolgenPic>` b). Berechnet m
 $$
 \begin{aligned}
 \nonumber
-    X(z) &=& - \sum_{k = -\infty}^{-1} 0.5^k z^{-k} \\
-    & = &- \sum_{k = -\infty}^{-1} (0.5^{-1}z)^{-k} \\
-    & = &- \sum_{m = 1}^{\infty} (0.5^{-1}z)^{m}\end{aligned}
+    X(z) &=& - \sum_{k = -\infty}^{-1} 0{,}5^k z^{-k} \\
+    & = &- \sum_{k = -\infty}^{-1} (0{,}5^{-1}z)^{-k} \\
+    & = &- \sum_{m = 1}^{\infty} (0{,}5^{-1}z)^{m}\end{aligned}
 $$ 
 
 Nutzt man jetzt eine alternative Formulierung der unendlichen geometrischen
@@ -264,7 +266,7 @@ so ergibt sich
 
 $$
 \nonumber
-    X(z) = - \frac{0.5^{-1}z}{1-0.5^{-1}z} = \frac{z}{z-0.5}
+    X(z) = - \frac{0.5^{-1}z}{1-0{,}5^{-1}z} = \frac{z}{z-0{,}5}~~~.
 $$ 
 
 Wir erhalten also die gleiche z-Transformation für unterschiedliche Folgen,
@@ -272,7 +274,7 @@ wobei aber die Konvergenz der geometrischen Reihe für die anti-kausale
 Folge ein Konverzgebiet 
 
 $$\nonumber
-    |z| < 0.5
+    |z| < 0{,}5
 $$ 
 
 fordert. {numref}`Abbildung %s <fig:ROC_AntiKausal>`  zeigt das dazugehörige Konvergenzgebiet in der z-Ebene. Man erkennt somit, warum eine Angabe des ROC bei der z-Transformation notwendig ist, um eine eindeutige Berechnung und Zuordnung zu gewährleisten.
@@ -285,7 +287,7 @@ name: fig:ROC_AntiKausal
 Veranschaulichung des Konvergenzgebietes bei
 der z-Transformation. In diesem Beispiel für eine anti-kausale Folge
 (ROC innerhalb) mit
-$|z| < 0.5$.
+$|z| < 0{,}5$.
 ```
 
 +++
@@ -298,10 +300,10 @@ Korrespondenzen sind im Folgenden aufgeführt.
 
 ### Linearität
 
-Die z-Transformation ist eine lineare Transformation. Es gilt:
+Die z-Transformation ist eine lineare Transformation. Es gilt
 
 $$
-  a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(z) + a_2 X_2(z)
+  a_1 x_1(k) + a_2 x_2(k) ;\circ \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \bullet\; a_1 X_1(z) + a_2 X_2(z)~~~.
 $$ (eq:zTrafo:Linearitaet)
 
 ### Verschiebung
@@ -321,7 +323,7 @@ Folge führten. Dies ist nicht immer möglich. Die allgemeinste Version
 der z-Rücktransformation ist durch das Umlaufintegral
 
 $$
-    x(k) = \oint_C X(z) z^{k-1} dz
+    x(k) = \oint_C X(z) z^{k-1} \text{d}z
 $$ (eq:zRuek:Def)
     
 gegeben. Dies bedeutet wir umlaufen
@@ -340,21 +342,40 @@ Beispiele) und/oder Korrespondenztabellen möglich
 
 Viele Systeme und Signale lassen sich auf einfache Grundformen
 zurückführen. Für diese Grundformen kann für die Hin- und
-Rücktransformation folgende Tabelle verwendet werden.
+Rücktransformation {numref}`Tabelle %s <tab:korrespondenztabelle>` 
+verwendet werden.
 
 +++
+```{list-table} Korrespondenztabelle
+:header-rows: 1
+:name: tab:korrespondenztabelle
+* - Zeitbereich $y(k)$ 
+  - Bildbereich $Y(z) = \mathcal{Z}\{y(k)\}$
+  - Konvergenzgebiet
+* - $\delta(k)$ 
+  - 1
+  - $\forall z$ 
+* - $\gamma{k}$ 
+  - $\frac{z}{z-1} = \frac{1}{1-z^{-1}}$ 
+  - $\text{abs(z)}>1$ 
+* - $k \gamma(k)$ 
+  - $\frac{z}{(z-1)^2}$  
+  - $\text{abs(z)}>1$
+* - $e^{-\alpha k}\gamma (k)$ 
+  - $\frac{z}{z-e^{-\alpha}}$ 
+  - $\text{abs(z)}>e^{-\alpha}$
+* - $\alpha^k \gamma (k)$  
+  - $\frac{z}{z-\alpha}$ 
+  - $\text{abs(z)} > \alpha$
+* - $\cos(\omega_0 k)$ 
+  - $\frac{1-z^{-1} \cos(\omega_0)}{1-z^{-1} 2\cos(\omega_0)+z^{-2}}$  
+  - $\text{abs(z)}>1$ 
 
-| Zeitbereich $y(k)$   | Bildbereich $Y(z) = \mathcal{Z}\{y(k)\}$ | Konvergenzgebiet|
-|----------------------|------------------------------------------|-----------------|
-|    $\delta(k)$     |             1    |     $\forall z$  |
-|    $\gamma{k}$    |           $\frac{z}{z-1} = \frac{1}{1-z^{-1}}$     |      $\text{abs(z)}>1$ | 
-|   $k \gamma(k)$    |         $\frac{z}{(z-1)^2}$  |      $\text{abs(z)}>1$  | 
-|  $e^{-\alpha k}\gamma (k)$  |     $\frac{z}{z-e^{-\alpha}}$  |   $\text{abs(z)}>e^{-\alpha}$  | 
-|  $\alpha^k \gamma (k)$  |     $\frac{z}{z-\alpha}$    |     $\text{abs(z)} > \alpha$  | 
-|    $\cos(\omega_0 k)$  |  $\frac{1-z^{-1} \cos(\omega_0)}{1-z^{-1} 2\cos(\omega_0)+z^{-2}}$  |  $\text{abs(z)}>1$  | 
+```
+
 
 ```{code-cell} ipython3
-:tags: [hide-input]
+:tags: ["hide-input","remove-cell"]
 
 import pandas
 
@@ -367,23 +388,22 @@ df = pandas.DataFrame(data = {'Zeitbereich 𝑦(𝑘)':["δ(k)", "γk", "kγ(k)"
 Eine Beschreibung von LTI-Systemen kann wie im letzten Abschnitt gezeigt
 über Differenzengleichungen erfolgen. Die z-Transformation und
 Rücktransformation solcher Systeme sind besonders gut über die
-Korrespondenztabellen zu lösen:
+Korrespondenztabellen zu lösen.
 
-```{admonition} Beispiel
+```{admonition} Beispiel: LTI-System
 :class: note
-LTI-Systeme\
-Wie lautet die z-Transformierte für die folgende Differenzengleichung
+Wie lautet die z-Transformierte für die Differenzengleichung
 
 $$
-y(k) = 0.2y(k-1) - y(k-3) + x(k) + 1.2x(k-1) - 3.2 x(k-2)
+y(k) = 0{,}2y(k-1) - y(k-3) + x(k) + 1{,}2x(k-1) - 3{,}2 x(k-2)~~~\text{?}
 $$
 
 Entscheidend ist, dass nur einfache Verzögerungen $k_0$ auftreten, die
 in der z-Ebene durch $z^{-k_0}$ dargestellt werden. Es ergibt sich mit
-der Eigenschaft der Linearität:
+der Eigenschaft der Linearität
 
 $$
-Y(z) = 0.2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}
+Y(z) = 0{,}2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1{,}2X(z) z^{-1} - 3{,}2X(z) z^{-2}~~~.
 $$
 ```
 
@@ -393,29 +413,29 @@ $$
 Bei den zur Einführung verwendeten Beispielen wurden sehr einfache
 Eingangsfolgen für $x(k)$ verwendet. Man könnte das Sparbuch-Beispiel
 aber auch erweitern und annehmen, dass pro Jahr eine nicht näher
-definierte Summe zusätzlich aufs Konto eingezahlt wird. Die rekursive
-Formulierung für den Ausgang sehe dann wie folgt aus
+definierte Summe zusätzlich auf das Konto eingezahlt wird. Die rekursive
+Formulierung für den Ausgang latet dann
 
 $$
-    y(k) = (1+p) y(k-1) + x(k)
+    y(k) = (1+p) y(k-1) + x(k) ~~~.
 $$ (eq:example3:Eingang)
     
 Eine Transformation mit der
-Definition {eq}`eq:Def:Ztrafo` in den z-Bereich führt zu
+Definition {eq}`eq:Def:Ztrafo2` in den z-Bereich führt zu
 
 $$
-    Y(z) = (1+p)z^{-1} Y(z) + X(z)
+    Y(z) = (1+p)z^{-1} Y(z) + X(z)~~~.
 $$ (eq:eaxample3:zLoesung)
 
 Dies ergibt umgeformt
 
 $$
-    Y(z) = \frac{X(z)}{1-(1+p)z^{-1}}
+    Y(z) = \frac{X(z)}{1-(1+p)z^{-1}}~~~.
 $$ (eq:eaxample3:zLoesung2)
 
 
 Teilt man diese Lösung durch $X(z)$ ergibt sich auf der rechten Seite
-der Gleichung den Anteil, der unabhängig vom Eingangssignal ist und nur
+der Gleichung der Anteil, der unabhängig vom Eingangssignal ist und nur
 das System repräsentiert. Der Bruch $Y(z)/X(z)$ wird zusätzlich durch
 mit $H(z)$ abgekürzt. 
 
@@ -425,21 +445,23 @@ $$ (eq:example3:Systemfunktion)
 
 Die Funktion $H(z)$ wird z-Systemfunktion genannt und beschreibt ein LTI-System vollständig. Eine andere vollständige Beschreibung eines LTI-Systems unabhängig vom Eingangssignal war die Impulsantwort $h(k)$ eines
 Systems. Beide Darstellungsarten sind durch die z-Transformation
-miteinander verbunden. Es gilt: 
+miteinander verbunden. Es gilt
 
 $$
-    \mathcal{Z}\{h(k)\} = H(z)
+    \mathcal{Z}\{h(k)\} = H(z)~~~.
 $$ (eq:Def:UbertragFunktion)
 
-**Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z)**
+```{admonition} Wichtig
+:class: attention
+Die z-Transformation der Impulsantwort h(k) ist die Systemfunktion H(z).
+```
 
-```{admonition} Beispiel
+```{admonition} Beispiel: z-Übertragungsfunktion
 :class: note
-z-Übertragungsfunktion\
 Die z-Transformierte aus dem vorherigen Beispiel war gegeben durch
 
 $$
-Y(z) = 0.2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}
+Y(z) = 0{,}2Y(z) z^{-1} - Y(z) z^{-3} + X(z) + 1{,}2X(z) z^{-1} - 3{,}2X(z) z^{-2}
 $$
 
 die z-Systemfunktion ergibt sich durch wenige Umformungsschritte
@@ -447,20 +469,18 @@ die z-Systemfunktion ergibt sich durch wenige Umformungsschritte
 $$
 \begin{aligned}
 \nonumber
-    Y(z)- 0.2Y(z) z^{-1} + Y(z) z^{-3} & = &  X(z) + 1.2X(z) z^{-1} - 3.2X(z) z^{-2}\\\nonumber
-    Y(z) \left(1-0.2z^{-1} + z^{-3} \right) &=& X(z) \left(1 +1.2z^{-1} - 3.2 z^{-2} \right)\\
-    H(z) = \frac{Y(z)}{X(z)} &= & \frac{1 +1.2z^{-1} - 3.2 z^{-2}}{1-0.2z^{-1} + z^{-3}}\end{aligned}
+    Y(z)- 0{,}2Y(z) z^{-1} + Y(z) z^{-3} & = &  X(z) + 1{,}2X(z) z^{-1} - 3{,}2X(z) z^{-2}\\\nonumber
+    Y(z) \left(1-0{,}2z^{-1} + z^{-3} \right) &=& X(z) \left(1 +1{,}2z^{-1} - 3{,}2 z^{-2} \right)\\
+    H(z) = \frac{Y(z)}{X(z)} &= & \frac{1 +1{,}2z^{-1} - 3{,}2 z^{-2}}{1-0{,}2z^{-1} + z^{-3}}\end{aligned}
 $$
 
 ```
 
 Die Verknüpfung von $h(k)$ und dem Eingangssignal $x(k)$ zum
-Ausgangssignal $y(k)$ erfolgte im Zeitbereich über die Faltung. Bei der
-z-Systemfunktion ist die Verknüpfung von Eingang und Ausgang durch
-die Multiplikation gegeben. Es gilt also
+Ausgangssignal $y(k)$ erfolgt im Zeitbereich über die Faltung. Bei der z-Systemfunktion ist die Verknüpfung von Eingang und Ausgang durch die Multiplikation gegeben. Es gilt also
 
 $$
-    \mathcal{Z}\{a(k)\ast b(k)\} = A(z) B(z)
+    \mathcal{Z}\{a(k)\ast b(k)\} = A(z) B(z)~~~.
 $$ (eq:zTrafo:FaltungMulti)
 
 Damit haben wir eine Möglichkeit
@@ -468,14 +488,13 @@ gefunden die eher aufwendige Faltungsumme mit Hilfe der z-Transformation
 in eine einfache Multiplikation im z-Bereich zu überführen. Das
 Ausgangssignal erhält man abschließend durch die inverse
 z-Transformation des Ausgangssignals $Y(z)$. Dieser Lösungsweg ist in
-{numref}`Abbildung %s <fig:SchematischezLoesungFaltung>`  zur Verdeutlichung schematisch
-gezeigt.
+{numref}`Abbildung %s <fig:SchematischezLoesungFaltung>` schematisch dargestellt.
 
 +++
 
 ```{figure} ../images/psZ/SchematischezLoesungFaltung.png
 ---
-width: 50%
+width: 75%
 name: fig:SchematischezLoesungFaltung
 ---
 Schematische Darstellung zur
@@ -487,7 +506,7 @@ z-Transformation.
 
 ```{admonition} Beispiel
 :class: note
-Das System ist durch 
+Ein System ist durch 
 
 $$
 y(k) = x(k) -2x(k-1) + x(k-2)
@@ -497,7 +516,7 @@ gegeben. Die
 z-Transformation führt auf eine z-Systemfunktion
 
 $$
-H(z) = 1-2z^{-1} + z^{-2}
+H(z) = 1-2z^{-1} + z^{-2}~~~.
 $$ 
 
 Für die Eingangsfolge:
@@ -509,48 +528,52 @@ $$
 ergibt sich die z-Transformierte zu
 
 $$
-X(z) = 1 + 2z^{-1} + 3z^{-2}+ 4z^{-3}+ 5z^{-4}
+X(z) = 1 + 2z^{-1} + 3z^{-2}+ 4z^{-3}+ 5z^{-4}~~~.
 $$ 
 
 Eine Polynommultiplikation führt zu der Ausgangs-z-Funktion
 
 $$
-Y(z) = X(z)H(z) = 1 -6 z^{-5} + 5 z^{-6}
+Y(z) = X(z)H(z) = 1 -6 z^{-5} + 5 z^{-6}~~~.
 $$ 
 
-Damit ergibt sich für die
-Ausgangsfolge 
+Damit ergibt sich für die Ausgangsfolge 
 
 $$
 y(k) = [1 \:\: 0 \:\: 0 \:\: 0 \:\: 0 \:\: -6 \:\: 5]
 $$
 
 bzw. 
+
 $$
-y(k) = \delta(k) - 6 \delta(k-5) + 5 \delta(k-6)
+y(k) = \delta(k) - 6 \delta(k-5) + 5 \delta(k-6)~~~.
 $$
 
 ```
 
-**Die Faltung wird in der z-Ebene zu einer Multiplikation**
+
+```{admonition} Wichtig
+:class: attention
+Die Faltung wird in der z-Ebene zu einer Multiplikation.
+```
+
 
 ## Pol-Nullstellenplan
 
 Nachdem die Äquivalenz der Impulsantwort mit der z-Systemfunktion
-$H(z)$ bekannt ist, ist es möglich, Systeme besser zu analysieren. Dazu
-schauen wir uns zunächst die typische Systemfunktion an.
+$H(z)$ bekannt ist, ist es möglich, Systeme besser zu analysieren. Dazu schauen wir zunächst auf die typische Systemfunktion
 
 $$
  H(z) = \frac{b_0 + b_1z^{-1} + b_2z^{-2}+ \cdots b_M z^{-M}
     }{1 + a_1z^{-1} + a_2z^{-2}+ \cdots a_N z^{-N}}
     = \frac{\displaystyle \sum_{i=0}^M b_iz^{-i}}
-    {\displaystyle \sum_{i=0}^N a_i z^{-i}}~mit~a_0 = 1
+    {\displaystyle \sum_{i=0}^N a_i z^{-i}}\quad\text{mit}\ quad~a_0 = 1 ~~~.
 $$ (eq:Uebertragungsfunktion)
 
-Unter der Annahme das der Zählergrad $M$ kleiner oder gleich dem Nennergrad $N$ ist, handelt es sich um ein kausales System [^1]. Die Ordnung des Systems wird unter dieser Annahme durch $N$ angegeben. Im allgemeinen Fall definiert das Maximum von $N$ und $M$ die Ordnung des Systems.
+Unter der Annahme, dass der Zählergrad $M$ kleiner oder gleich dem Nennergrad $N$ ist, handelt es sich um ein kausales System [^1]. Die Ordnung des Systems wird unter dieser Annahme durch $N$ angegeben. Im allgemeinen Fall definiert das Maximum von $N$ und $M$ die Ordnung des Systems.
 
-Die gebrochen rationale Funktion können auch in der äquivalenten
-Produktform geschrieben werden, wenn alle Nullstellen, des Zähler- und
+Die gebrochen rationale Funktion kann auch in der äquivalenten
+Produktform geschrieben werden, wenn alle Nullstellen des Zähler- und
 Nennerpolynoms bekannt sind. Die Nullstellen des Nenners bezeichnet man als Polstellen bzw. Pol, da an diesen
 Punkten, die Übertragungsfunktion unendlich wird.
 
@@ -571,11 +594,11 @@ reelle Nullstellen oder konjugiert komplexe Paare.
 $$
 \begin{aligned}
 \nonumber
-    H(z) & = & \frac{3+6z^{-1}+3z^{-2}}{1.0000   -1.7119 z^{-1} +   0.8100
+    H(z) & = & \frac{3+6z^{-1}+3z^{-2}}{1{,}0000   -1{,}7119 z^{-1} +   0{,}8100
     z^{-2}}\\\nonumber
-    &=& 3\frac{(z+1)(z+1)}{(z-0.8560 - 0.2781j)(z-0.8560 +
-    0.2781j)}\\\nonumber
-    &=& 3\frac{(z+1)^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}\end{aligned}
+    &=& 3\frac{(z+1)(z+1)}{(z-0{,}8560 - 0.{,}2781j)(z-0{,}8560 +
+    0{,}2781j)}\\\nonumber
+    &=& 3\frac{(z+1)^2}{(z-0{,}9e^{j\frac{\pi}{10}})(z-0{,}9e^{-j\frac{\pi}{10}})}\end{aligned}
 $$
 
 ```
@@ -593,42 +616,41 @@ LTI-Systems.
 :load: code/ztransformation/pole_zero.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} PolNullstellenplan
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:PolNullstellenplan"
 
 Pole und Nullstellen in der komplexen
 Ebene.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_3D.py" in jupyterbook/code/interactive_programs
+````{tab-item} Interaktiv arbeiten
+1) Starten des interaktiven Programms - `ZTrafo_Pol_Null_3D.py` in `jupyterbook/code/interactive_programs/`
 2) Eigene Pole und Nullstellen per Klick definieren bzw. löschen (zusätzlich STRG halten):
     - Rechtsklick: Nullstelle
     - Linksklick: Polstelle
 ````
+`````
 
 +++
 
-Mehrfachnullstellen (oder auch Pole) werden durch eine zusätzliche Zahl
-gekennzeichnet, hier die zwei für die doppelte Nullstelle bei $z = -1$.
-Weiterhin ist der sog. Einheitskreis zu sehen, der den Radius eins
-markiert und eine besondere Bedeutung hat.
+Mehrfachnullstellen (oder auch Pole) werden durch eine zusätzliche Zahl gekennzeichnet, hier die zwei für die doppelte Nullstelle bei $z = -1$. Weiterhin ist der sog. Einheitskreis zu sehen, der den Radius eins markiert und eine besondere Bedeutung hat.
 
 Zur Verdeutlichung der Auswirkungen von Polen und Nullstellen in der
-komplexen Ebene ist auf der rechten Seite in {numref}`Abbildung %s <fig:PolNullstellenplan>` der Betrag der Übertragungsfunktion in Abhängigkeit vom Real und Imaginärteil für das eben verwendete Beispiel gezeigt (Die Darstellung erfolgt logarithmisch.). Zur Orientierung ist zusätzlich der Einheitskreis
+komplexen Ebene ist auf der rechten Seite in {numref}`Abbildung %s <fig:PolNullstellenplan>` der Betrag der Übertragungsfunktion in Abhängigkeit vom Real und Imaginärteil für das eben verwendete Beispiel gezeigt (die Darstellung erfolgt logarithmisch). Zur Orientierung ist zusätzlich der Einheitskreis
 eingezeichnet.
 
 +++
 
-Der Einfluss der beide Extremstellen auf den Betrag der
+Der Einfluss der beiden Extremstellen auf den Betrag der
 Übertragungsfunktion ist auf der ganzen z-Ebene sichtbar. Man erkennt
 sehr deutlich, wie die Pole zu einem unendlichen Betrag führen, während
-die doppelte Nullstelle den Betrag zu Null ($-\infty in dB$) werden lässt.
+die doppelte Nullstelle den Betrag zu Null ($-\infty$ in dB) werden lässt.
 
 Welche Auswirkungen haben nun Polstellen auf die Systemeigenschaften und
-insbesondere auf das Verhalten im Zeitbereich. Grundsätzlich lassen sich
+insbesondere auf das Verhalten im Zeitbereich? Grundsätzlich lassen sich
 die komplexen Pole immer auch in der Polarschreibweise (Radius und
 Phase) angeben.
 
@@ -643,7 +665,7 @@ ergibt sich bei der Rücktransformation (Nutzung der Korrespondenztabelle) in de
 Zeitbereich 
 
 $$
-    h(k) = \gamma(k) r^k e^{j\varphi k}
+    h(k) = \gamma(k) r^k e^{j\varphi k}~~~.
 $$ (eq:zTrafo:ErklaerungPollageZeitbereich)
 
 Interpretiert man Gleichung {eq}`eq:zTrafo:ErklaerungPollageZeitbereich` so ist zu erkennen, dass die Impulsantwort aus einer komplexen Schwingung ($e^{j\varphi k}$) und einem Faktor besteht, der die Amplitude ändert. Dieser Amplitudenfaktor wird als Einhüllende der komplexen Schwingung
@@ -654,25 +676,23 @@ die komplexe Schwingung ungedämpft und bei $r>1$ handelt es sich um eine
 aufklingende, also mit der Zeit stärker werdende Schwingung.
 
 Dies ist in der {numref}`Abbildung %s <fig:PolLagen>` nochmals verdeutlicht. Die Pollage a) ist
-ein Pol auf der reellen Ache mit einem Radius von $r = 0.96$ (Die eingezeichneten Pollagen sind zur Verdeutlichung skaliert). Die
+ein Pol auf der reellen Achse mit einem Radius von $r = 0{,}96$ (die eingezeichneten Pollagen sind zur Verdeutlichung skaliert). Die
 dazugehörige Schwingung ist eine abklingende Exponentialfunktion ohne
-Schwingungsanteil. Ist der Radius größer eins (b) $r= 1.01$) ergibt sich
+Schwingungsanteil. Ist der Radius größer eins (b) $r= 1{,}01$) ergibt sich
 eine aufklingende Exponentialfunktion. Verschiebt man den Pol auf dem
-Radius $r=
-0.96$ auf einen Polwinkel $\varphi = \pi/10$, so ergibt sich eine
+Radius $r=0{,}96$ auf einen Polwinkel $\varphi = \pi/10$, so ergibt sich eine
 exponentiell abklingende Schwingung (siehe c)). Bei einem Radius größer
 eins, eine aufklingende Schwingung (d). Die Drehung ist bei
 $\varphi = 3\pi / 4$ kaum noch zu erkennen (e), während die Frequenz
-$\varphi = \pi$ erneut zu einer reellen Folge führt mit wechselndem
-Vorzeichen. Der Radius entscheidet über das Abklingverhalten (g,f). Die
-Drehrichtung wird durch die Pollage in der oberen oder unteren Halbebene
-angegeben.
+$\varphi = \pi$ erneut zu einer reellen Folge mit wechselndem
+Vorzeichen führt. Der Radius entscheidet über das Abklingverhalten (g,f). Die
+Drehrichtung wird durch die Pollage in der oberen oder unteren Halbebene angegeben.
 
 +++
 
 ```{figure} ../images/psZ/PolLagen.png
 ---
-width: 80%
+width: 100%
 name: fig:PolLagen
 ---
 Mögliche Pollagen und die dazugehörigen komplexen Schwingungen im Zeitbereich (angelehnt an {cite}`girod2013einfuhrung`).
@@ -685,13 +705,13 @@ Drehrichtungen die Imaginäranteile auf und die Impulsantwort $h(k)$ ist
 rein reellwertig. Die ausgebildeten Schwingungen entsprechen gedämpften
 oder aufklingenden Cosinusfunktionen der Frequenz $\varphi$.
 
-Es gilt für konjugiert ($^{\ast}$) komplexe Polpaare:
+Für konjugiert ($^{\ast}$) komplexe Polpaare gilt
 
 $$
-\frac{Az}{z-a} + \frac{A^{\ast}z}{z-a^{\ast}} ;\bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; 2|A||a|^k\cos(arg\{a\}k + arg\{A\})\gamma(k)
+\frac{Az}{z-a} + \frac{A^{\ast}z}{z-a^{\ast}} ;\bullet \hskip-1ex -\hskip-1.2ex -\hskip-1.2ex- \hskip-1ex \circ\; 2|A||a|^k\cos(\arg\{a\}k + \arg\{A\})\gamma(k) ~~~,
 $$
 
-$arg\{x\}$ ist das Argument (Winkel) von der komplexen Zahl $x$.
+wobei $\arg\{x\}$ das Argument (der Winkel) der komplexen Zahl $x$ ist.
 
 +++
 
@@ -700,29 +720,29 @@ $arg\{x\}$ ist das Argument (Winkel) von der komplexen Zahl $x$.
 Ausgehend von dem System
 
 $$
-H(z) = \frac{z^2}{(z-0.9e^{j\frac{\pi}{10}})(z-0.9e^{-j\frac{\pi}{10}})}
+H(z) = \frac{z^2}{(z-0{,}9e^{j\frac{\pi}{10}})(z-0{,}9e^{-j\frac{\pi}{10}})}
 $$
 
 ergibt sich für die Aufspaltung
 
 $$
-H(z) = \frac{Az}{z-0.9e^{j\frac{\pi}{10}}} + \frac{A^{\ast}z}{z-0.9e^{-j\frac{\pi}{10}}}
+H(z) = \frac{Az}{z-0{,}9e^{j\frac{\pi}{10}}} + \frac{A^{\ast}z}{z-0{,}9e^{-j\frac{\pi}{10}}}
 $$
 
 mit 
 
 $$
 \begin{aligned}
-A &=& (z-0.9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
-    & = & \frac{z}{z-0.9e^{-j\frac{\pi}{10}}}\Bigg|_{z = 0.9e^{j\frac{\pi}{10}}}\\
-    & = & \frac{0.9e^{j\frac{\pi}{10}}}{0.9e^{j\frac{\pi}{10}}-0.9e^{-j\frac{\pi}{10}}}\\
+A &=& (z-0{,}9e^{j\frac{\pi}{10}})\widetilde{H}(z)\Bigg|_{z = 0{,}9e^{j\frac{\pi}{10}}}\\
+    & = & \frac{z}{z-0{,}9e^{-j\frac{\pi}{10}}}\Bigg|_{z = 0{,}9e^{j\frac{\pi}{10}}}\\
+    & = & \frac{0{,}9e^{j\frac{\pi}{10}}}{0{,}9e^{j\frac{\pi}{10}}-0{,}9e^{-j\frac{\pi}{10}}}\\
     & = & -j\frac{e^{j\frac{\pi}{10}}}{2\sin \frac{\pi}{10}}\end{aligned}
 $$
 
 Die Impulsantwort ist also durch
 
 $$
-h(k) = 2\cdot 1.618 \cdot 0.9^k \cos\left(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\right)\gamma(k)
+h(k) = 2\cdot 1{,}618 \cdot 0{,}9^k \cos\biggl(\frac{\pi}{10}k +\left(-\frac{\pi}{2} + \frac{\pi}{10}\right)\biggr)\gamma(k)
 $$
 gegeben und wird in {numref}`Abbildung %s <fig:BspKonjKomplexPole>` bis $k = 49$ gezeigt.
 ```
@@ -732,19 +752,20 @@ gegeben und wird in {numref}`Abbildung %s <fig:BspKonjKomplexPole>` bis $k = 49$
 :load: code/ztransformation/pole_complex_conjugate.py
 ```
 
-
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} BspKonjKomplexPole
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:BspKonjKomplexPole"
 
 Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "ZTrafo_Pol_Null_Impulsantwort.py" in jupyterbook/code/interactive_programs
+````{tab-item} Interaktiv arbeiten
+1) Starten des interaktiven Programms - `ZTrafo_Pol_Null_Impulsantwort.py` in `jupyterbook/code/interactive_programs/`
 2) Per Linksklick neue Polstelle definieren
 ````
+`````
 
 
 +++
@@ -753,29 +774,35 @@ Beispiel der Impulsantwort eines Systems mit konjugiert komplexen Polpaar.
 
 Mit den Erklärungen für {numref}`Abbildung %s <fig:PolLagen>` ist die Frage nach einem Stabilitätstest für kausale LTI-Systeme recht einfach zu beantworten. Da alle Systeme mit Polradien größer eins aufklingende Schwingungen erzeugen sind die dazugehörigen Impulsantworten nicht endlich. Auf einen endlichen Impuls reagiert das System mit einer unendlichen Ausgangsgröße. Damit ist die BIBO-Bedingung nicht mehr erfüllt.
 
-**Stabile, kausale Systeme haben nur Pole innerhalb des
-Einheitkreises.**
+```{admonition} Wichtig
+:class: attention
+Stabile, kausale Systeme haben nur Pole innerhalb des
+Einheitkreises.
+```
 
-**Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis**
+```{admonition} Wichtig
+:class: attention
+Quasistabil sind Systeme mit einfachen Polen auf dem Einheitskreis.
+```
 
 Allgemein lässt sich sagen, dass Systeme deren z-Konvergenzgebiet den
-Einheitskreis mit einschließen stabil sind. Betrachtet man noch einmal
+Einheitskreis mit einschließen, stabil sind. Betrachtet man noch einmal
 die Beispiele für z-Transformation und des dazugehörigen
-Konvergenzgebietes auf Seite , so wird deutlich, dass die kausale Folge
+Konvergenzgebietes in {numref}`Abschnitt %s  <sec:definition_ztransformation>`, so wird deutlich, dass die kausale Folge
 ein stabiles System darstellt, während die nicht-kausale Folge instabil
 ist. Man kann dies auch daran erkennen, dass die Folge mit wachsendem
 $k$ größer wird.
 
-Für LTI-Systeme ergibt sich als Kriterium für die BIBO-Stabilität.
+Für LTI-Systeme ergibt sich als Kriterium für die BIBO-Stabilität
 
 $$
-    \int_{-\infty}^{\infty} |h(t)|^2 dt < \infty
+    \int_{-\infty}^{\infty} |h(t)|^2 dt < \infty~~~,
 $$ (eq:BIBO_INTEGRAL) 
     
-bzw. für diskrete Systeme gilt 
+für diskrete Systeme gilt 
 
 $$
-    \sum_{k = -\infty}^{\infty}|h(k)|^2 < \infty
+    \sum_{k = -\infty}^{\infty}|h(k)|^2 < \infty~~~.
 $$ (eq:BIBO_Diskret)
 
 ### Stabilität eines Systems 2. Ordnung
@@ -815,14 +842,14 @@ Zur Lösung nehmen wir zunächst eine Fallunterscheidung vor:
 1.   Für die komplexwertige Lösung $a_{2}>\frac{a_{1}^{2}}{4}$ ergibt
     sich durch die Nebenbedingung, dass man $\sqrt{-1} = j$ vor die
     Wurzel ziehen kann und sich somit die Vorzeichen umdrehen.
-    $z=-\frac{a_{1}}{2} \pm j \sqrt{a_{2}-\frac{a_{1}^{2}}{4}}$
+    $z=-\frac{a_{1}}{2} \pm j \sqrt{a_{2}-\frac{a_{1}^{2}}{4}}$~~~.
     
-Berechnet man den Betrag ergibt sich 
+Berechnet man den Betrag so ergibt sich 
     
 $$
     \begin{aligned}
         \left|z\right| & = & \sqrt{\frac{a_{1}^{2}}{4}+a_{2}-\frac{a_{1}^{2}}{4}}\\
-        & = & \sqrt{a_{2}}
+        & = & \sqrt{a_{2}} ~~~.
         \end{aligned}
 $$ 
     
@@ -831,10 +858,10 @@ Da für ein stabiles System $\left|z\right|<1$
     muss
 
 2.  Für die reelwertige Lösung gilt $a_{2}<\frac{a_{1}^{2}}{4}$:\
-    Es ergibt sich damit die folgende Ungleichung.
+    Es ergibt sich damit die Ungleichung
     
     $$
-    -1 < -\frac{a_{1}}{2} \pm \underbrace{\sqrt{\frac{a_{1}^{2}}{4}-a_{2}}}_{>0} < 1
+    -1 < -\frac{a_{1}}{2} \pm \underbrace{\sqrt{\frac{a_{1}^{2}}{4}-a_{2}}}_{>0} < 1~~~.
     $$
     
     Löst man diese Ungleichung zunächst für das erste
@@ -848,6 +875,7 @@ Da für ein stabiles System $\left|z\right|<1$
     ergibt
     sich (zunächst Multiplikation mit -1, danach quadrieren und
     ausrechnen) 
+
     $$
     \begin{aligned}
             -1+\frac{a_{1}}{2} & < & - \sqrt{\frac{a_{1}^{2}}{4}-a_{2}}\\
@@ -857,16 +885,17 @@ Da für ein stabiles System $\left|z\right|<1$
             a_{1} & <  & a_{2}+1
         \end{aligned}
     $$ 
+
     Für das zweite Ungleichheitszeichen gilt
-    entsprechendes. Die zweite Bedingung lautet
+    Entsprechendes. Die zweite Bedingung lautet
     
     $$
-        a_1 > -a_2 -1
+        a_1 > -a_2 -1~~~.
     $$ (eq:SOS:Ungleichung2)
 
 Fasst man diese Bedingungen zusammen, ergibt sich für $a_2$ eine untere
 Grenze von $a_2>-1$. Alles zusammen beschreibt ein Dreieck, dass als
-Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
+Stabilitätsdreieck für kausale Systeme 2. Ordnung bezeichnet wird (siehe
 {numref}`Abbildung %s <fig:Stabildreieck>`).
 
 ```{code-cell} ipython3
@@ -874,30 +903,31 @@ Stabilitätsdreieck für kausales System 2. Ordnung bezeichnet wird (siehe
 :load: code/ztransformation/stability.py
 ```
 
-````{tabbed} Buchabbildung
+`````{tab-set}
+````{tab-item} Buchabbildung
 ```{glue:figure} Stabildreieck
-:figwidth: 75%
+:figwidth: 100%
 :name: "fig:Stabildreieck"
 
 Stabilitätsdreieck für Systeme zweiter
 Ordnung mit den Koeffizienten $a_1$ und $a_2$.
 ```
 ````
-````{tabbed} Interaktiv arbeiten
-1) Starten des interaktiven Programms - "Signale_Stabilitätsdreieck.py" in jupyterbook/code/interactive_programs
-2) Per Linsklick Punkt im Dreieck auswählen
+````{tab-item} Interaktiv arbeiten
+1) Starten des interaktiven Programms - `Signale_Stabilitätsdreieck.py` in `jupyterbook/code/interactive_programs/`
+2) Per Linksklick Punkt im Dreieck auswählen
 ````
+`````
 
 +++
-
+(sec:interactive_ztransform)=
 ## Interaktive Visualisierung der z-Transformation
 
-Für die Visualisierung der Interaktion von z-Transformation, dem im nächsten Kapitel vorgestellten Pol-\Nullstellenplan und den dazugehörigen Übertragungsfunktionen steht auf  
+Für die Visualisierung der Interaktion von z-Transformation, dem im nächsten Kapitel vorgestellten Pol-Nullstellenplan und den dazugehörigen Übertragungsfunktionen steht auf  
 
 https://www.kvraudio.com/product/filterdemystifier-by-jadehochschule
 
-ein Audio-Plugin (VST und AU) zur Verfügung, dass zusätzlich auch die Wirkung 
-auf Audio-Signale zeigt. Der Source-Code ist ebenfalls öffentlich (https://github.com/ArnoSchiller/FilterDeMystifier)
+ein Audio-Plugin (VST und AU) zur Verfügung, dass zusätzlich auch die Wirkung auf Audio-Signale zeigt. Der Source-Code ist ebenfalls öffentlich verfügbar (https://github.com/ArnoSchiller/FilterDeMystifier).
 
 +++ {"tags": ["remove-cell"]}
 
@@ -1037,7 +1067,8 @@ Die wichtigen Erkenntnisse aus diesem Kapitel sind:
 
 +++
 
-[^1]: Würde gelten $M>N$ könnte man durch Polynomdivision eine
+
+[^1]: Würde gelten $M>N$, könnte man durch Polynomdivision eine
     Übertragungsfunktion erhalten, die aus einem simplen Polynom und
     einer gebrochen rationalen Funktion mit $M\leq N$ besteht, wobei das
     Polynom ein Polynom in $z$ und nicht in $z^{-1}$ wäre und somit bei
