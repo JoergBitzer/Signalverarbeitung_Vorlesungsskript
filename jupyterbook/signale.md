@@ -20,7 +20,7 @@ Da Signale sehr unterschiedlicher Natur sein können, ist zur Beschreibung eine 
 Klassifikation nützlich.
 
 Um die einzelnen Signalklassen zu entwickeln, können als
-Beispiele natürliche Signale hearngezogen werden:
+Beispiele natürliche Signale herangezogen werden:
 
 - Sprache: Das wesentliche Signal der menschlichen Kommunikation.
 
