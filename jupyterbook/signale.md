@@ -296,7 +296,7 @@ Um dies zu veranschaulichen, sind in der {numref}`Abbildung %s <plt:AbtastungErk
 verschiedene Sinustöne gezeigt, die bei gleichbleibender Abtastrate abgetastet werden. Es wird deutlich, dass sehr tiefe Frequenzen besonders gut dargestellt werden (a), je höher die Frequenzen werden, desto weniger Abtastwerte
 repräsentieren die analoge Funktion (b,c).  
 Ist die Frequenz des Sinus genau halb so hoch kann die Funktion gar nicht mehr erkannt werden, da sich eine Konstante ergibt (d).  
-Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte genau den Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (f) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird **Aliasing** genannt.
+Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte genau den Abtastwerten einer niedrigeren Frequenz, z.B. führt in (f) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (e) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird **Aliasing** genannt.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -309,7 +309,7 @@ Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte gena
 :figwidth: 100%
 :name: "plt:AbtastungErklaerung2"
 
-Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
+Sinusabtastung mit unterschiedlichen Abtastfrequenzen. Auffällig sind die identischen Abtastwerte trotz unterschiedlicher Signale bei (c) und (e) bzw. (d) und (f).
 ```
 ````
 ````{tab-item} Interaktiv arbeiten
