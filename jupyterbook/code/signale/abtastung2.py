@@ -125,10 +125,10 @@ else:
             ax = ax_sin[1][1]
 
         if (count == 4):
-            ax = ax_sin[2][0]
+            ax = ax_sin[2][1]
         
         if (count == 5):
-            ax = ax_sin[2][1]
+            ax = ax_sin[2][0]
         
         graph, = ax.plot(t*1000, sin_t)
         markerline, stemlines, baseline = ax.stem(dt*1000, sin_dt, use_line_collection=True, linefmt='r', markerfmt = 'or')
