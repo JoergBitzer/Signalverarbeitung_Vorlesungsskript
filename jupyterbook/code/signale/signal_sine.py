@@ -42,6 +42,7 @@ ax_freq.plot(t, sin_t, lw=1)
 ax_freq.plot(t, amplitude * numpy.sin(2 * numpy.pi * t * 0.6*freq + phase), ls=':')
 ax_phase.plot(t, sin_t, lw=1)
 ax_phase.plot(t, amplitude * numpy.sin(2 * numpy.pi * t * freq + phase*2), ls=':')
+ax_empty.axis('off')
           
 ax_ampl.set(xlabel='Zeit is s', ylabel='Amplitude', 
         title=f'{amplitude} -> {0.5*amplitude} Amplitude', 
