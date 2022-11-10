@@ -189,7 +189,7 @@ Man könnte also das Ausgangssignal des Systems auch durch
 
 $$
 \label{eq:RekursionsBsp}
-y(k) = y(k-1) + x(k) - x(k-(M)).
+y(k) = y(k-1) + x(k) - x(k-M).
 $$
 
 berechnen. Es ist also möglich die Rechenleistung durch rekursive Berechnungen zu
