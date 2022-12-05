@@ -22,7 +22,7 @@ Eigenschaften und verschiedenen Kategorien zur Klassifikation von Signalen, werd
 Die in {numref}`Kapitel %s  <sec:signale>` eingeführten Signale durchlaufen üblicherweise Übertragungsstrecken. Diese Systeme, deren Definition und Beschreibung,sind Gegenstand von {numref}`Kapitel %s  <sec:systeme>`.
 
 
-In {numref}`Kapitel %s  <sec:ztrafo>` werden mit der z-Transformation und dem Pol-Nullstellen-Diagram nützliche Werkzeuge zur Darstellung und Analyse von Systemen beschrieben.   
+In {numref}`Kapitel %s  <sec:ztrafo>` werden mit der z-Transformation und dem Pol-Nullstellen-Diagramm nützliche Werkzeuge zur Darstellung und Analyse von Systemen beschrieben.   
 
 
 {numref}`Kapitel %s  <sec:spektren>` erweitert die bisherige Darstellung von Signalen im Zeitbereich in den Frequenzbereich hinein. Es werden Verfahren zur Berechung dieser Spektren und die Eigenschaften verschiedener Zeitsignale im Frequenzbereich vorgestellt. 
