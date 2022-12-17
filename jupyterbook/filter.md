@@ -21,7 +21,7 @@ Frequenzanteile aus dem Signal verändern, also zu verstärken, abzuschwächen o
 Alle nicht-trivialen LTI-Systeme erzeugen eine Filterwirkung, trotzdem
 werden nicht alle LTI-Systeme als Filter bezeichnet, wenn das Ziel beim
 Entwurf nicht die Filterwirkung sondern irgendeine andere Eigenschaft
-ist. Ein Beipiel sei die Berechnung des gleitenden Mittelwertes eines Signals. berechnen. Eine solches
+ist. Ein Beipiel sei die Berechnung des gleitenden Mittelwertes eines Signals. Eine solches
 System ist automatisch auch ein Filter, wird aber trotzdem nicht
 unbedingt als solches bezeichnet. In vielen Fällen ist die Filterwirkung
 sogar ein unerwünschter Nebeneffekt.
