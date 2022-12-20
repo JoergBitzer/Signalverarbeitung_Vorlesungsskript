@@ -192,6 +192,23 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 
     -  $2y(k) - 3.7x(-k-2)k -0.3y(k-3) = 10x(k-10)$. (8 Punkte)
 
+    [//]: # (alte Klausuraufgaben Moodle: LTI Fehlersuchbild)
+
+6.  Kennzeichnen Sie die Teile der folgenden Gleichungen, die darauf hinweisen, dass kein LTI-System vorliegt!
+    (NL - nichtlinear; ZV - zeitvariant)
+
+    -  $ 2 y(2k-k)x(k-1) - e^{3}x(k)k 0 x(k^{2}) = -\frac{y(k-1)}{\beta} + 2x(k)y(k-2) $\
+        Nehmen Sie an $\beta > 0$ ist eine reelle Zahl.
+
+    -  $ 2 x(k-2)x(k-1) \frac{1}{2k} - 2y(k+1) + (3k - (1+3k))x(k) = \sqrt{log(2)}y(k) - x(k+1)$
+
+    -  $ (k - (1+k)) x(k+1) - 2y(k-1) -2  = y(k) - x(2k+1) + sin(0.5)x(k) $
+
+    -  $ |x(k)| + \frac{x(2k-k)}{\beta} + 1 = y(2k-1) -2y(k) - e^{5}x(k)$\
+        Nehmen Sie an $\beta > 0$ ist eine reelle Zahl.
+
+    -  $ e^{2}y(k) -2x(k+2) + 3x(k-1)x(k-1) - \frac{2}{k}y(k+2) = (4k -(1+4k))x(k) + 4$
+
 
 ### Programmieraufgaben
 
@@ -300,6 +317,54 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
     ---
     ``` 
 
+    [//]: # (alte Klausuraufgaben Moodle: Systemausgang)
+
+5.  Berechnen Sie die Verstärkung des folgenden Systems bei 0 Hz:
+    
+    $$
+    H(z) = \frac{-9 + 3z^{-1} + 7 z^{-2}}{1 + 1.9z^{-1} + 0.4 z^{-2}}
+    $$ 
+
+    Geben Sie das Ergebnis bis zwei Stellen hinterm Komma genau an.
+
+6.  Berechnen Sie die Verstärkung des folgenden Systems bei $f_s/2$ Hz:
+    
+    $$
+    H(z) = \frac{-0 + 10z^{-1} + 6 z^{-2}}{1 + 0.0z^{-1} + 0.7 z^{-2}}
+    $$ 
+
+    Geben Sie das Ergebnis bis zwei Stellen hinterm Komma genau an.
+
+    [//]: # (alte Klausuraufgaben Moodle: Allgemeine Linearphsigkeit)
+
+7. Gegeben sind der folgende Betrag und Phase:
+
+    ```{figure} ../images/psUeb/Bet_FIR_ws2020_21_1b.png
+    ---
+    height: 250px
+    ---
+    ``` 
+    ```{figure} ../images/psUeb/Phas_FIR_ws2020_21_1b.png
+    ---
+    height: 250px
+    ---
+    ``` 
+
+    Die Zeichnung des Betrags wurde durch
+
+    $ om = 0:0.01:pi; $\
+    $ Habs = B+2*A.*cos((N+1)*om); $\
+    $ h = plot(om/pi,(abs(Habs)),'b'); $\
+
+    implementiert:
+
+    a) Zeichnen Sie die dazugehörige Impulsantwort $h(k)$ allgemein! 
+    b) Berechnen Sie dazu folgende Zwischenlösungen: Analytische Beschreibung der Impulsantwort $h(k)$ , die Systemfunktion $H(z)$ und die Übertragungsfunktion $H(e^{j\Omega})$.
+    c) Bestimmen Sie $A$, $B$, und $N$ für das gegebene Beispiel (Mini Begründung, wie Sie auf die Lösung kommen)! (Dies ist möglich ohne eine der anderen Aufgaben zu lösen)
+
+    ca. 16 Punkte
+
+
 ### Programmieraufgaben
 
 1.  Bestimmen Sie die Übertragungsfunktion der folgenden Systeme.
@@ -403,7 +468,6 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
     und Phasenverlauf! Um was für eine Art Filter handelt es sich? (Typ
     und Realisierungsform)
 
-
     ```{figure} ../images/psUeb/FIR_zweiterOrdnung.png
     ---
     width: 50%
@@ -433,5 +497,3 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
     während der Datenvektor noch nicht vollständig bearbeitet wurde
     (Zeitvariantes Verhalten). Was glauben Sie ist die Folge? Können Sie
     sich vorstellen, wie man die auftretenden Probleme lösen kann?
-
- 
