@@ -9,5 +9,6 @@ sections:
 - file: ztrafo
 - file: spektren
 - file: filter
+- file: exercises
 #- file: mathe
 - file: zbibliography
