@@ -610,7 +610,7 @@ Eine weitere besondere Klasse an FIR-Filtern sind sogenannte
 minimalphasige Filter. Das heisst, dieses Filter realisiert eine
 bestimmte Betragsübertragungsfunktion mit der minimalen Phase.  
 Es zeigt sich dass sich dieser Filtertyp genau dann ergibt, wenn alle Nullstellen
-innerhalb der Einheitskreises liegen. Eine Realisierung ist also entweder
+innerhalb des Einheitskreises liegen. Eine Realisierung ist also
 über ein Berechnen aller Nullstellen und deren Spiegelung am
 Einheitskreis möglich, da sich so nur die Phase aber nicht das
 Betragsverhalten ändert. Die Zerlegung von Filtern sehr hoher
