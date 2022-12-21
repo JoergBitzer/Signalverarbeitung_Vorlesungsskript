@@ -464,6 +464,39 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
     name: fig:FIR_zweiterOrdnung
     ```
 
+6.  Gegeben ist das folgende Blockschaltbild:
+    ```{figure} ../images/psUeb/SOS_System1.png
+    ---
+    width: 70%
+    ---
+    ```
+    a)  Zeichnen Sie den dazugehörigen Pol-Nullstellenplan.
+
+    b)  Zeichnen Sie Betrag und Phase (Übertragungsfkt bis $f_s/2$).
+
+    c)  Nehmen Sie an $x(k) = 2$ (Gleichstrom). Welchen Wert hat dann der Ausgang $y(k)$?
+
+7.  Sie messen das folgende Betragsspektrum bei einer Samplingrate von 8kHz
+    (Die x-Achse hier ist normiert auf 1 = 4kHz) eines großen Schallkörpers.
+
+    Sie wissen der Körper hat 2 Resonanzen (Spektrale Verstärkung) und zwei Anti-Resonanzen (spektrale Abschwächung). Die Impulsantwort hat Ihren Schwerpunkt nicht zu Beginn. Sie schließen daraus, dass der Körper ein maximalphasiges Verhalten zeigt.
+
+    ```{figure} ../images/psUeb/Spectrum1a.png
+    ---
+    width: 80%
+    ---
+    ```
+
+    a) Zeichnen Sie ein Pol/ Nullstellen-Diagramm. Als Radien stehen Ihnen [1; 9/10; 8/10; 10/9; 10/8;] zur Verfügung (Mehrfachnutzung möglich).
+
+    b) Wie würden Sie das System in Python modellieren und wie würde der Code aussehen, wenn Ihr Anregungssignal eine 1s lange Impulsfolge sein soll mit der Frequenz von 250 Hz.
+
+    c) Zeichnen Sie das Spektrum des Ausgangs des Systems (Hand oder Python-Figure) bei diesem Eingangssignal. Zeichnen Sie groß (bei Handzeichnung) (1000 Hz = 4cm)
+
+    d) Wie sähe das Blockschaltbild in SOS Struktur aus (gezeichnet in Direkt Form 2)?
+
+    (24 Punkte)
+
 
 ### Programmieraufgaben
 
