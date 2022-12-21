@@ -43,6 +43,15 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 ### Aufgaben (Auf Klausurniveau)
 1.  Wie hoch ist die Leistung eines mittelwertfreien Dreieckssignals mit der Amplitude A?
 
+2. Sie wollen eine Rechteck-Schwingung mit Aliasing erzeugen. Die Grundfrequenz ist 2000 Hz bei einer   
+    Abtastrate von 24000 Hz. Amplitude = 2.
+
+    a) Zeichnen Sie den Signalverlauf (als durchgezogene Linie und als Abtastwerte mit Kreuzen als Marker) für 2 Perioden der Schwingung. Beschriften Sie die Achsen (y-Achse mit Zeit in ms).
+
+    b) Zeichnen Sie  das Spektrum bis $f_s/2$. (Nutzen Sie folgende Maßstabsgrößen 1kHz = 1 cm, Amplitude 1 = 4cm)
+
+    c) Was wäre der wesentliche Unterschied im Spektrum bei einer Generierung mit einer Aliasing-freien Methode?
+
 
 ### Programmieraufgaben
 1.  Programmieren Sie eine Funktion, die einen Mid-Tread Quantisierer mit einer Auflösung von 4 Bit     
@@ -499,6 +508,15 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 
 
 ### Programmieraufgaben
+
+1. Sie sehen das folgende gestörte Signal. Schreiben Sie ein kleines Programm in Python, dass die Schwingung möglichst gut extrahiert. Nehmen Sie an, dass die Samplingrate 2 kHz ist.
+
+    Plotten Sie die extrahierte Schwingung.
+
+    Zusatzaufgabe: Generieren Sie das hier gezeigte gestörte Signal.
+
+    ```{figure} ../images/psUeb/Signal25_noisy.png
+    ```
 
 1.  Realisieren Sie eine Funktion, die die Koeffizienten eines mit der
     Fenstermethode entworfenen Tiefpasses zurückgibt. Als
