@@ -567,7 +567,7 @@ $$
  H(z) = \frac{b_0 + b_1z^{-1} + b_2z^{-2}+ \cdots b_M z^{-M}
     }{1 + a_1z^{-1} + a_2z^{-2}+ \cdots a_N z^{-N}}
     = \frac{\displaystyle \sum_{i=0}^M b_iz^{-i}}
-    {\displaystyle \sum_{i=0}^N a_i z^{-i}}\quad\text{mit}\ quad~a_0 = 1 ~~~.
+    {\displaystyle \sum_{i=0}^N a_i z^{-i}} \quad \text{mit} \quad~a_0 = 1 ~~~.
 $$ (eq:Uebertragungsfunktion)
 
 Unter der Annahme, dass der Zählergrad $M$ kleiner oder gleich dem Nennergrad $N$ ist, handelt es sich um ein kausales System [^1]. Die Ordnung des Systems wird unter dieser Annahme durch $N$ angegeben. Im allgemeinen Fall definiert das Maximum von $N$ und $M$ die Ordnung des Systems.
@@ -596,7 +596,7 @@ $$
 \nonumber
     H(z) & = & \frac{3+6z^{-1}+3z^{-2}}{1{,}0000   -1{,}7119 z^{-1} +   0{,}8100
     z^{-2}}\\\nonumber
-    &=& 3\frac{(z+1)(z+1)}{(z-0{,}8560 - 0.{,}2781j)(z-0{,}8560 +
+    &=& 3\frac{(z+1)(z+1)}{(z-0{,}8560 - 0{,}2781j)(z-0{,}8560 +
     0{,}2781j)}\\\nonumber
     &=& 3\frac{(z+1)^2}{(z-0{,}9e^{j\frac{\pi}{10}})(z-0{,}9e^{-j\frac{\pi}{10}})}\end{aligned}
 $$

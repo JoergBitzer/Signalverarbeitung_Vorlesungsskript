@@ -1,0 +1,1136 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>7. Übungen &#8212; Signalverarbeitung 1</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. Literaturverzeichnis" href="zbibliography.html" />
+    <link rel="prev" title="6. Filter" href="filter.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Signalverarbeitung 1</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Signalverarbeitung 1
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="grundlagen.html">
+   1. Einführung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="signale.html">
+   2. Signale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="systeme.html">
+   3. Systeme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ztrafo.html">
+   4. z-Transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="spektren.html">
+   5. Spektren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter.html">
+   6. Filter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Übungen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zbibliography.html">
+   8. Literaturverzeichnis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/JoergBitzer/Signalverarbeitung_Vorlesungsskript/master?urlpath=tree/exercises.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/JoergBitzer/Signalverarbeitung_Vorlesungsskript//issues/new?title=Issue%20on%20page%20%2Fexercises.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/exercises.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/exercises.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signale">
+   7.1. Signale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
+     7.1.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
+     7.1.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programmieraufgaben">
+     7.1.3. Programmieraufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systeme">
+   7.2. Systeme
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     7.2.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgaben-einige-auf-klausurniveau">
+     7.2.2. Aufgaben (Einige auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     7.2.3. Programmieraufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#z-transformation">
+   7.3. z-Transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     7.3.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sec-aufgabenztrafo">
+     7.3.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     7.3.3. Programmieraufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spektren">
+   7.4. Spektren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     7.4.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     7.4.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     7.4.3. Programmieraufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transferleistung">
+     7.4.4. Transferleistung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter">
+   7.5. Filter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     7.5.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     7.5.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     7.5.3. Programmieraufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     7.5.4. Transferleistung
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Übungen</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signale">
+   7.1. Signale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben">
+     7.1.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgaben-auf-klausurniveau">
+     7.1.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programmieraufgaben">
+     7.1.3. Programmieraufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systeme">
+   7.2. Systeme
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     7.2.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgaben-einige-auf-klausurniveau">
+     7.2.2. Aufgaben (Einige auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     7.2.3. Programmieraufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#z-transformation">
+   7.3. z-Transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     7.3.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sec-aufgabenztrafo">
+     7.3.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     7.3.3. Programmieraufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spektren">
+   7.4. Spektren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     7.4.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     7.4.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     7.4.3. Programmieraufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transferleistung">
+     7.4.4. Transferleistung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter">
+   7.5. Filter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     7.5.1. Wiederholung des Stoffes und einfache Rechenaufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     7.5.2. Aufgaben (Auf Klausurniveau)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     7.5.3. Programmieraufgaben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     7.5.4. Transferleistung
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ubungen">
+<span id="sec-exercises"></span><h1><span class="section-number">7. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">#</a></h1>
+<p>Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgaben. Die Übungen sind nach den Buchkapiteln sortiert, zum Teil ergeben sich thematische Überschneidungen. Zu jedem Kapitel gibt es Übungen zur <em>Wiederholung des Stoffes und einfache Rechenaufgaben</em>, gefolgt von Aufgaben (auf Klausurniveau) und Programmieraufgaben. Einige Programmieraufgaben sind noch für Matlab formuliert, eine Anpassung für Python folgt in Zukunft.</p>
+<section id="signale">
+<h2><span class="section-number">7.1. </span>Signale<a class="headerlink" href="#signale" title="Permalink to this headline">#</a></h2>
+<section id="wiederholung-des-stoffes-und-einfache-rechenaufgaben">
+<h3><span class="section-number">7.1.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#wiederholung-des-stoffes-und-einfache-rechenaufgaben" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Klassifizieren Sie folgende Signale anhand der in <a class="reference internal" href="signale.html#sec-signale"><span class="std std-numref">Kapitel 2</span></a> angegeben Merkmale:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(si(t)\)</span></p></li>
+<li><p>Das digitale (SP-DIF) und analoge Signal eines CD-Players</p></li>
+<li><p>Ein DVD-Film</p></li>
+<li><p>Vielleicht ihr Beispiel</p></li>
+</ul>
+</li>
+<li><p>Was ist die Grundvoraussetzung für eine erfolgreiche Digitalisierung?</p></li>
+<li><p>Warum verliert man Informationen bei der Digitalisierung?</p></li>
+<li><p>Warum lassen sich Funktionen mit Knickstellen (Bsp: Dreieck) nicht wirklich digitalisieren?</p></li>
+<li><p>Welches ist die höchste Harmonische einer aliasingfreien Dreieckschwingung mit der Grundfrequenz <span class="math notranslate nohighlight">\(f = 440\)</span><br />
+Hz, bei einer Abtastrate von <span class="math notranslate nohighlight">\(f_s = 48000\)</span> Hz?</p></li>
+<li><p>Zeigen Sie, dass <span class="math notranslate nohighlight">\(si\)</span>(0) = 1 ist!</p></li>
+<li><p>Zeichnen Sie <span class="math notranslate nohighlight">\(x(k) = 2\delta(k + 2) - 0.5\delta(k - 1) + 3\delta(k - 2)\)</span> .</p></li>
+</ol>
+</section>
+<section id="aufgaben-auf-klausurniveau">
+<h3><span class="section-number">7.1.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#aufgaben-auf-klausurniveau" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Wie hoch ist die Leistung eines mittelwertfreien Dreieckssignals mit der Amplitude A?</p></li>
+</ol>
+</section>
+<section id="programmieraufgaben">
+<h3><span class="section-number">7.1.3. </span>Programmieraufgaben<a class="headerlink" href="#programmieraufgaben" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Programmieren Sie eine Funktion, die einen Mid-Tread Quantisierer mit einer Auflösung von 4 Bit<br />
+realisiert. Versuchen Sie so allgemein zu programmieren, dass Sie jederzeit die Auflösung ändern können.</p></li>
+<li><p>Programmieren Sie einen Rechtecksignal-Generator mit und ohne Aliasing.</p></li>
+<li><p>Erzeugen Sie eine Funktion die eine Delta-Impulsfolge mit vordefinierter Länge (Angabe in Sekunden und <span class="math notranslate nohighlight">\(f_s\)</span>)
+zurückgibt.</p></li>
+</ol>
+</section>
+</section>
+<section id="systeme">
+<h2><span class="section-number">7.2. </span>Systeme<a class="headerlink" href="#systeme" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h3><span class="section-number">7.2.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Ist ein Quantisierer ein lineares System, da ja von linearer
+Quantisierung gesprochen wird? Begründen Sie ihre Antwort.</p></li>
+<li><p>Sind die folgenden Systeme zeitinvariant, kausal und linear?
+Begründen Sie ihre Antwort.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) + 2d\)</span> mit <span class="math notranslate nohighlight">\(d\neq 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = a_1 x(k-2) + a_2 x(k-3)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = k x(k-1) + x(k-2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = log_{10}( x(k-2)) + 3 x(k-1)\)</span></p></li>
+</ul>
+</li>
+<li><p>Falten Sie die folgenden vier Signale jeweils grafisch mit sich
+selbst und mit allen anderen Signalen.</p>
+<figure class="align-default" id="fig-graphikfaltung">
+<a class="reference internal image-reference" href="_images/GraphikFaltung.png"><img alt="_images/GraphikFaltung.png" src="_images/GraphikFaltung.png" style="height: 150px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Testsignale zum Üben der grafischen Faltung</span><a class="headerlink" href="#fig-graphikfaltung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Zeigen Sie, dass das Kommutativgesetz der Faltung allgemein gilt.</p></li>
+</ol>
+</section>
+<section id="aufgaben-einige-auf-klausurniveau">
+<span id="sec-aufgabensys"></span><h3><span class="section-number">7.2.2. </span>Aufgaben (Einige auf Klausurniveau)<a class="headerlink" href="#aufgaben-einige-auf-klausurniveau" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Geben sie die Impulsantwort für die
+folgenden Differenzengleichungen an. Brechen Sie bei unendlichen
+Folgen nach <span class="math notranslate nohighlight">\(k=10\)</span> ab. Nehmen sie an, dass sich das System zum
+Zeitpunkt <span class="math notranslate nohighlight">\(k=0\)</span> in Ruhe befand.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = 0.5x(k-1)+ 0.3x(k-2)+ 0.4x(k-3) - 0.4 x(k-4)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = y(k-1)+0.5x(k)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = 0.25 x(k-1)+0.75 y(k-1) - 0.75y(k-3)\)</span></p></li>
+</ul>
+</li>
+<li><p>Gegeben ist das System <span class="math notranslate nohighlight">\(0 = \frac{1}{k} x(k) + 2x(k-2) - 0.5y(k-1)\)</span>.
+Begründen Sie Linearität und Zeit-Invarianz bitte mathematisch
+formal!</p></li>
+</ol>
+</section>
+<section id="id2">
+<h3><span class="section-number">7.2.3. </span>Programmieraufgaben<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Testen Sie folgende Systeme auf Zeitinvarianz und Linearität durch
+Rauschfolgen als Eingangssignale. Haben Sie im Hinterkopf, dass Sie
+mit Zahlentests nichts beweisen können. Eine Aussage ist nur für
+Nicht-Linearität und Zeitvarianz möglich. Dies ergibt sich, wenn der
+Test fehl schlägt, da <em>ein</em> Gegenbeispiel ausreicht um Linearität
+oder Zeitinvarianz auszuschließen.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) + y(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = 3 y(k-1) + 2 x(k-1) + x(k)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = k x(k-1) + x(k-2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = log_{10} x(k-2) + 3 y(k-1)\)</span></p></li>
+</ul>
+</li>
+<li><p>Erzeugen Sie eine Funktion die eine Delta-Impulsfolge mit
+vordefinierter Länge zurück gibt.</p></li>
+<li><p>Nutzen Sie diese Funktion, um ihre Ergebnisse aus <a class="reference internal" href="#sec-aufgabensys"><span class="std std-numref">Abschnitt 7.2.2</span></a> Aufgabe 1 zu überprüfen.</p></li>
+<li><p>Erzeugen Sie kurze Sequenzen mit <span class="math notranslate nohighlight">\(T = 12\)</span> Werten um die oben
+gezeigten Signale zu approximieren. Überprüfen Sie Ihre Ergebnisse
+mit dem <code class="docutils literal notranslate"><span class="pre">conv</span></code>-Befehl.</p></li>
+</ol>
+</section>
+</section>
+<section id="z-transformation">
+<h2><span class="section-number">7.3. </span>z-Transformation<a class="headerlink" href="#z-transformation" title="Permalink to this headline">#</a></h2>
+<section id="id3">
+<h3><span class="section-number">7.3.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Welche Bedingungen müssen gelten, damit ein LTI-System stabil ist?</p></li>
+<li><p>Welche Beschreibungen eines LTI-Systems kennen Sie?</p></li>
+<li><p>Warum ist die Angabe der z-Transformationsfunktion nicht ausreichend?</p></li>
+<li><p>Testen Sie die folgenden LTI-Systeme auf Stabilität:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = -2y(k - 1) + 1.5x(k) - 2x(k - 1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = 2.5x(k - 1) + 1.83y(k - 1) - 0.99y(k - 2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = 0.3x(k) + 0.7x(k - 1) + 1.9812y(k - 1) - 1.0201y(k - 2)\)</span></p></li>
+</ul>
+</li>
+<li><p>Zeigen Sie, dass die Ungleichung <a class="reference internal" href="ztrafo.html#equation-eq-sos-ungleichung2">(4.30)</a> gilt.</p></li>
+</ol>
+</section>
+<section id="sec-aufgabenztrafo">
+<span id="id4"></span><h3><span class="section-number">7.3.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#sec-aufgabenztrafo" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Zeigen Sie, dass die z-Transformation eine lineare Transformation
+ist, indem Sie den Linearitätstest durchführen.</p></li>
+<li><p>Welchen Wert hat das folgende System nach 50 Schritten. Geben Sie die direkte Berechnungsmethode an.
+Ist das System BIBO-stabil?<br />
+<span class="math notranslate nohighlight">\(y(k) = \sqrt(2) y(k-1) -  y(k-2) + 0.5 \delta(k)\)</span></p></li>
+<li><p>Sind die folgenden Systeme kausal, stabil, linear und zeitinvariant?
+Begründen Sie ihre Antwort (auch wenn Sie keine Aussage machen
+können) mathematisch oder textuell (16)!</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = 0.5 y(k-1) - 0.3 y(k-2) k + 0.4 x(k) - 0.5x(k-1)x(k-2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k+1) = 1.1 y(k-1) - 0.5 x(k+1) + 0.3 x(k) - 0.5x(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k+1) = 2x(2k-k) - y(k+1) + 4 x(k-2) + 1.8 y(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) = 0.3 x(k) + 0.6x(k-1) - 0.7 x(k-2)y(k-2) + x(2k-2)\)</span></p></li>
+</ul>
+</li>
+<li><p>Ist das folgende Systeme kausal, stabil, linear und zeitinvariant?
+Begründen Sie ihre Antwort mathematisch oder textuell! Falls Sie
+keine Aussage treffen können, begründen Sie auch dies!<br />
+<span class="math notranslate nohighlight">\(y(k+1) - 2y(k+2) + \alpha x(k+2) + x(k+1) =  1.99 y(k)\)</span><br />
+Nehmen Sie an <span class="math notranslate nohighlight">\(\alpha = 2\)</span> (8 Punkte). Für welche Bereiche von
+<span class="math notranslate nohighlight">\(\alpha\)</span> (rein reell) ist das System stabil (Begründung)? (2 Punkte)</p></li>
+<li><p>Sind die beiden folgenden Systeme kausal, stabil, linear und
+zeitinvariant? Begründen Sie ihre Antwort mathematisch oder
+textuell! Falls Sie keine Aussage treffen können, begründen Sie auch
+dies!</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) + \beta^2 y(k-2) + x(k-2) = 2 x(k) - 2x(k-2) - 1.9y(k-1)\)</span>.<br />
+Zur Beantwortung der Frage nehmen Sie an <span class="math notranslate nohighlight">\(\beta = \sqrt{0.5}\)</span> (8
+Punkte).<br />
+Für welche Bereiche von <span class="math notranslate nohighlight">\(\beta\)</span> ist das System stabil bzw.
+instabil (4 Punkte).</p></li>
+<li><p><span class="math notranslate nohighlight">\(2y(k) - 3.7x(-k-2)k -0.3y(k-3) = 10x(k-10)\)</span>. (8 Punkte)</p></li>
+</ul>
+</li>
+<li><p>Kennzeichnen Sie die Teile der folgenden Gleichungen, die darauf hinweisen, dass kein LTI-System vorliegt!
+(NL - nichtlinear; ZV - zeitvariant)</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( 2 y(2k-k)x(k-1) - e^{3}x(k)k 0 x(k^{2}) = -\frac{y(k-1)}{\beta} + 2x(k)y(k-2) \)</span><br />
+Nehmen Sie an <span class="math notranslate nohighlight">\(\beta &gt; 0\)</span> ist eine reelle Zahl.</p></li>
+<li><p><span class="math notranslate nohighlight">\( 2 x(k-2)x(k-1) \frac{1}{2k} - 2y(k+1) + (3k - (1+3k))x(k) = \sqrt{log(2)}y(k) - x(k+1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( (k - (1+k)) x(k+1) - 2y(k-1) -2  = y(k) - x(2k+1) + sin(0.5)x(k) \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( |x(k)| + \frac{x(2k-k)}{\beta} + 1 = y(2k-1) -2y(k) - e^{5}x(k)\)</span><br />
+Nehmen Sie an <span class="math notranslate nohighlight">\(\beta &gt; 0\)</span> ist eine reelle Zahl.</p></li>
+<li><p><span class="math notranslate nohighlight">\( e^{2}y(k) -2x(k+2) + 3x(k-1)x(k-1) - \frac{2}{k}y(k+2) = (4k -(1+4k))x(k) + 4\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id5">
+<h3><span class="section-number">7.3.3. </span>Programmieraufgaben<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Lösen Sie die Aufgabe 2 aus <a class="reference internal" href="#sec-aufgabenztrafo"><span class="std std-numref">Abschnitt 7.3.2</span></a> durch den Aufbau des Systems und
+Iteration.</p></li>
+<li><p>Programmieren Sie eine Funktion, die einen Pol-Nullstellenplan
+zeichnet und zusätzlich im Titel den <span class="math notranslate nohighlight">\(b_0\)</span>-Koeffizienten ausgibt.
+Nutzen Sie als Anhaltspunkt die <code class="docutils literal notranslate"><span class="pre">zplane</span></code> Funktion von Matlab.
+Hinweis: Sie benötigen den <code class="docutils literal notranslate"><span class="pre">axis</span></code> Befehl um eine quadratische Grafik
+aufzubauen (siehe help). Sie sollten die <code class="docutils literal notranslate"><span class="pre">mpoles</span></code> Funktion nutzen,
+um Mehrfach Null- bzw. Polstellen herauszufinden.</p></li>
+<li><p>Schreiben Sie eine Funktion, die es ermöglicht Systeme durch eine
+grafische Eingabe mit der Maus zu definieren. Zeichnen Sie dazu den
+Einheitskreis in eine figure. Hinweis: Sie benötigen den <code class="docutils literal notranslate"><span class="pre">ginput</span></code>
+Befehl für die Maus-Eingabe und <code class="docutils literal notranslate"><span class="pre">axis</span></code>, um eine quadratische Grafik
+zu erzeugen.</p></li>
+</ol>
+</section>
+</section>
+<section id="spektren">
+<h2><span class="section-number">7.4. </span>Spektren<a class="headerlink" href="#spektren" title="Permalink to this headline">#</a></h2>
+<section id="id6">
+<h3><span class="section-number">7.4.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Bei einer Abtastrate von 44100 Hz und einer DFT Auflösung von <span class="math notranslate nohighlight">\(1024\)</span>
+soll ein Sinus erzeugt werden, der keinerlei Leakage-Effekt zur Folge
+hat. Welche Frequenzen sind mögliche Kandidaten.</p></li>
+<li><p>Wozu werden Fensterfunktionen benötigt?</p></li>
+<li><p>Nach welchem Prinzip kann die Rechenleistung der DFT reduziert werden?</p></li>
+<li><p>Welchen Einfluss haben Pole auf das Übertragungsverhalten und welchen Einfluss Nullstellen?</p></li>
+<li><p>Wodurch entsteht ein Allpass-System?</p></li>
+<li><p>Erklären Sie, die Folgen des Übergangs von der DTFT zur DFT!</p></li>
+<li><p>Um zu zeigen, dass nicht-lineare Systeme neue Frequenzen erzeugen,
+sollten Sie das System <span class="math notranslate nohighlight">\(y(k) = x^2(k)\)</span> mit der Exponentialschwingung
+anregen und sich das Ergebnis anschauen</p></li>
+<li><p>Ein mit 200Hz abgetastetes reelles Signal wird mit einer 8 Punkte
+DFT spektral analysiert. Welche Frequenzbereiche sind in den 8
+Spektralwerten enthalten? Welche dieser Werte (Indize) haben den
+gleichen Betrag?</p></li>
+<li><p>Zeichnen Sie qualitativ die Betragsübertragungsfunktion für die
+folgenden durch einen Pol-Nullstellenplan gegebenen Systeme:</p>
+<figure class="align-default" id="fig-polnullstellenuebung">
+<a class="reference internal image-reference" href="_images/PolNullstellenUebung.png"><img alt="_images/PolNullstellenUebung.png" src="_images/PolNullstellenUebung.png" style="height: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Verschiedene Systeme und ihre Pol-/ Nullstellenverteilung</span><a class="headerlink" href="#fig-polnullstellenuebung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Berechnen Sie das Spektrum einer Cosinus-Schwingung der Frequenz
+2000 Hz bei einer Abtastrate von 6000 Hz, wenn Sie eine 6 Punkte DFT
+verwenden.</p></li>
+</ol>
+</section>
+<section id="id7">
+<h3><span class="section-number">7.4.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Welche Pol-Nullstellenlage würde die folgende
+Betragsübertragungsfunktion mit dazugehöriger Phase bei einem
+reellwertigen, stabilen System zur Folge haben (<span class="math notranslate nohighlight">\(f_s = 8000\)</span> Hz)?
+(Genauere qualitative Skizze (Grosser Kreis bitte!) und kurze
+stichpunktartige Begründung für die relevanten Punkte)(8)</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Betrag_14_20_18.png"><img alt="_images/Betrag_14_20_18.png" src="_images/Betrag_14_20_18.png" style="height: 300px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Phase_14_20_18.png"><img alt="_images/Phase_14_20_18.png" src="_images/Phase_14_20_18.png" style="height: 300px;" /></a>
+</figure>
+</li>
+<li><p>Berechnen Sie die Übertragungsfunktion zur Impulsantwort
+<span class="math notranslate nohighlight">\(h(k) = [1\;\; 0\;\; 1]\)</span></p></li>
+<li><p>Berechnen Sie die Übertragungsfunktion zu dem folgenden Filter:
+<span class="math notranslate nohighlight">\(y(k) = x(k) - \alpha y(k-1)\)</span>.<br />
+Skizzieren Sie die Funktion für <span class="math notranslate nohighlight">\(\alpha = 0.9\)</span> und <span class="math notranslate nohighlight">\(\alpha = -0.9\)</span></p></li>
+<li><p>Ordnen Sie die folgenden Pol-Nullstellenpläne (a-d) den
+verschiedenen Übertragungsfunktionen (1-8) zu (2 Punkte für jede
+richtige Zuordnung, -1 Punkt für jede falsche).</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/PolNullstellenKlausur2.png"><img alt="_images/PolNullstellenKlausur2.png" src="_images/PolNullstellenKlausur2.png" style="height: 200px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/UebertragungKlausur2.png"><img alt="_images/UebertragungKlausur2.png" src="_images/UebertragungKlausur2.png" style="height: 500px;" /></a>
+</figure>
+</li>
+<li><p>Berechnen Sie die Verstärkung des folgenden Systems bei 0 Hz:</p>
+<div class="math notranslate nohighlight">
+\[
+    H(z) = \frac{-9 + 3z^{-1} + 7 z^{-2}}{1 + 1.9z^{-1} + 0.4 z^{-2}}
+    \]</div>
+<p>Geben Sie das Ergebnis bis zwei Stellen hinterm Komma genau an.</p>
+</li>
+<li><p>Berechnen Sie die Verstärkung des folgenden Systems bei <span class="math notranslate nohighlight">\(f_s/2\)</span> Hz:</p>
+<div class="math notranslate nohighlight">
+\[
+    H(z) = \frac{-0 + 10z^{-1} + 6 z^{-2}}{1 + 0.0z^{-1} + 0.7 z^{-2}}
+    \]</div>
+<p>Geben Sie das Ergebnis bis zwei Stellen hinterm Komma genau an.</p>
+</li>
+<li><p>Gegeben sind der folgende Betrag und Phase:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Bet_FIR_ws2020_21_1b.png"><img alt="_images/Bet_FIR_ws2020_21_1b.png" src="_images/Bet_FIR_ws2020_21_1b.png" style="height: 250px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Phas_FIR_ws2020_21_1b.png"><img alt="_images/Phas_FIR_ws2020_21_1b.png" src="_images/Phas_FIR_ws2020_21_1b.png" style="height: 250px;" /></a>
+</figure>
+<p>Die Zeichnung des Betrags wurde durch</p>
+<p>$ om = 0:0.01:pi; <span class="math notranslate nohighlight">\(\
+ \)</span> Habs = B+2*A.*cos((N+1)*om); <span class="math notranslate nohighlight">\(\
+ \)</span> h = plot(om/pi,(abs(Habs)),’b’); $\</p>
+<p>implementiert:</p>
+<p>a) Zeichnen Sie die dazugehörige Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> allgemein!
+b) Berechnen Sie dazu folgende Zwischenlösungen: Analytische Beschreibung der Impulsantwort <span class="math notranslate nohighlight">\(h(k)\)</span> , die Systemfunktion <span class="math notranslate nohighlight">\(H(z)\)</span> und die Übertragungsfunktion <span class="math notranslate nohighlight">\(H(e^{j\Omega})\)</span>.
+c) Bestimmen Sie <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, und <span class="math notranslate nohighlight">\(N\)</span> für das gegebene Beispiel (Mini Begründung, wie Sie auf die Lösung kommen)! (Dies ist möglich ohne eine der anderen Aufgaben zu lösen)</p>
+<p>ca. 16 Punkte</p>
+</li>
+</ol>
+</section>
+<section id="id8">
+<h3><span class="section-number">7.4.3. </span>Programmieraufgaben<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Bestimmen Sie die Übertragungsfunktion der folgenden Systeme.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) - \alpha y(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) =  0.3 x(k) + 07 x(k-1) + 1.9812 y(k-1)   - 1.0201 y(k-2)\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="transferleistung">
+<h3><span class="section-number">7.4.4. </span>Transferleistung<a class="headerlink" href="#transferleistung" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Bei der Berechnung des Faltungsprodukts muss bei der DFT/FFT auf die
+Zirkularität geachtet werden. Welche Probleme können auftreten, wenn
+das Ausgansspektrum nicht durch Multiplikation <span class="math notranslate nohighlight">\(Y(n) = X(n)H(n)\)</span>,
+sondern durch eine Division <span class="math notranslate nohighlight">\(Y(n) = X(n)/H(n)\)</span> entsteht (sog.
+Deconvolutionproblem)</p></li>
+<li><p>Welche Folge hat das Decimation in Time Prinzip der FFT für den
+Zusammenhang der Eingangsfolge zum berechneten Spektrum. Anders
+ausgedrückt, was ist notwendig, damit das Prinzip funktioniert.</p></li>
+</ol>
+</section>
+</section>
+<section id="filter">
+<h2><span class="section-number">7.5. </span>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">#</a></h2>
+<section id="id9">
+<h3><span class="section-number">7.5.1. </span>Wiederholung des Stoffes und einfache Rechenaufgaben<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Nennen Sie jeweils eine mögliche Anwendung (am besten aus dem
+Bereich der Audiotechnik, Hörtechnik, Audiologie) für die
+verschiedenen Grundcharakteristika der Filter und überlegen sich, wie die
+Entwurfsparamter aussehen könnten (Grenzfrequenz, Ordnung)</p></li>
+<li><p>Geben Sie zu folgendem Blockschaltbild die Differenzengleichung an.</p>
+<figure class="align-default" id="fig-iir-2terordnung">
+<a class="reference internal image-reference" href="_images/IIr_2terOrdnung.png"><img alt="_images/IIr_2terOrdnung.png" src="_images/IIr_2terOrdnung.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Blockschaltbild eines Systems</span><a class="headerlink" href="#fig-iir-2terordnung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Welche Vor- und Nachteile ergeben sich durch das Overlap-Add
+Verfahren zur schnellen Faltung?</p></li>
+<li><p>Zeichnen Sie zu den folgenden Systemen eine Realisierung als
+Blockschaltbild</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(k) = x(k) - \alpha y(k-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y(k) =  0.3 x(k) + 0.7 x(k-1) + 1.9812 y(k-1)   - 1.0201 y(k-2)\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id10">
+<h3><span class="section-number">7.5.2. </span>Aufgaben (Auf Klausurniveau)<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Berechnen Sie die Übertragungsfunktion der Impulsantwort
+<span class="math notranslate nohighlight">\(h(k) = [-1 \;\; 1]\)</span>! Skizzieren Sie den Betrags- und Phasengang! Um
+was für einen Filtertyp handelt es sich (Realisierungsform und
+Filtercharakteristik)?</p></li>
+<li><p>Sie sehen die folgende Impulsantwort. Um was für ein Filter handelt
+es sich (Realisierung und Filtercharakteristik)? Berechnen Sie die
+Übertragungsfunktion und skizzieren Sie den Betrags- und
+Phasenverlauf! Was ist besonders an diesem Filter und könnte es
+realisiert werden?</p>
+<figure class="align-default" id="fig-klausurws2003-2ir">
+<a class="reference internal image-reference" href="_images/KlausurWS2003_2IR.png"><img alt="_images/KlausurWS2003_2IR.png" src="_images/KlausurWS2003_2IR.png" style="width: 20%;" /></a>
+</figure>
+</li>
+<li><p>Gegeben ist das folgende System</p>
+<div class="math notranslate nohighlight">
+\[
+    y(k) = 2x(k) + 2x(k-1) - 2x(k-3) - 2x(k-4)
+    \]</div>
+<p>Berechnen Sie die
+Übertragungsfunktion nach Betrag und Phase! Skizzieren Sie den
+Betrags- und Phasenverlauf zwischen 0 und <span class="math notranslate nohighlight">\(\pi\)</span>! Um was für einen
+Typ Filter handelt es sich? Zeichnen Sie eine möglichst effiziente
+Realisierung als Blockschaltbild!</p>
+</li>
+<li><p>Skizzieren Sie den Betragsverlauf zu dem hier vorliegenden
+Pol-Nullstellenplan! Welche besonderen Eigenschaften hat dieses
+System? Geben Sie die Übertragungsfunktion <span class="math notranslate nohighlight">\(H(z)\)</span> als Funktion von
+Biquads an. Nehmen Sie an, die Radien für die Pole und Nullstellen
+betragen <span class="math notranslate nohighlight">\(0.9\)</span> bzw <span class="math notranslate nohighlight">\(1.1\)</span> und <span class="math notranslate nohighlight">\(b_0 = 1\)</span>.</p>
+<figure class="align-default" id="fig-pz-18-25-28">
+<a class="reference internal image-reference" href="_images/PZ_18_25_28.png"><img alt="_images/PZ_18_25_28.png" src="_images/PZ_18_25_28.png" style="width: 50%;" /></a>
+</figure>
+</li>
+<li><p>Wie lautet die Differenzengleichung und die Übertragungsfunktion des
+folgenden Systems nach Betrag und Phase? Zeichnen Sie den Betrags-
+und Phasenverlauf! Um was für eine Art Filter handelt es sich? (Typ
+und Realisierungsform)</p>
+<figure class="align-default" id="fig-fir-zweiterordnung">
+<a class="reference internal image-reference" href="_images/FIR_zweiterOrdnung.png"><img alt="_images/FIR_zweiterOrdnung.png" src="_images/FIR_zweiterOrdnung.png" style="width: 50%;" /></a>
+</figure>
+</li>
+</ol>
+</section>
+<section id="id11">
+<h3><span class="section-number">7.5.3. </span>Programmieraufgaben<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Realisieren Sie eine Funktion, die die Koeffizienten eines mit der
+Fenstermethode entworfenen Tiefpasses zurückgibt. Als
+Übergabeparameter sollten die Grenzfrequenz, die Ordnung und das zu
+verwendende Fenster zur Verfügung stehen. Als Standard-Fenster soll
+das Rechteck-Fenster verwendet werden.</p></li>
+<li><p>Schreiben Sie eine Funktion, die aus einem beliebigen FIR-Filter
+eine minimalphasige Realisierung macht, wobei die
+Betragsübertragungsfunktion exakt erhalten bleiben soll. Die
+Übergabeparameter sind nur die bisher verwendeten FIR-Koeffizienten.</p></li>
+</ol>
+</section>
+<section id="id12">
+<h3><span class="section-number">7.5.4. </span>Transferleistung<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Überlegen Sie eine weitere kanonische Struktur für SOS-Filter.</p></li>
+<li><p>Nehmen wir an beim OLA-Verfahren wechselt die Übertragungsfunktion
+während der Datenvektor noch nicht vollständig bearbeitet wurde
+(Zeitvariantes Verhalten). Was glauben Sie ist die Folge? Können Sie
+sich vorstellen, wie man die auftretenden Probleme lösen kann?</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="filter.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Filter</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="zbibliography.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Literaturverzeichnis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joerg Bitzer<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

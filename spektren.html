@@ -979,7 +979,7 @@ Rechteck-Fensterfunktion der Länge
 periodische Wiederholung des Spektrums ist es aber ausreichend nur den
 Bereich von <span class="math notranslate nohighlight">\(0 \leq \omega\leq 2\pi\)</span> genauer zu betrachten. Um
 eine diskretes Spektrum zu erhalten, unterteilen wir das Spektrum in <span class="math notranslate nohighlight">\(N\)</span>
-gleichförmige Abschnitte (man kann auch eine andere Anzahl verwenden, aber N führt zu besonders effizienten Lösungen).</p>
+gleichförmige Abschnitte (es kann eine beliebige Anzahl verwendet werden, eine Zweierpotenz führt aber zu besonders effizienten Lösungen).</p>
 <p>Die DTFT geht damit in</p>
 <div class="math notranslate nohighlight" id="equation-eq-dfthin-def">
 <span class="eqno">(5.12)<a class="headerlink" href="#equation-eq-dfthin-def" title="Permalink to this equation">#</a></span>\[
@@ -1295,15 +1295,15 @@ die höchste Frequenz bei <span class="math notranslate nohighlight">\(f_\text{s
 besitzt. Die Kopiervorschrift in Matlab sieht dann wie folgt aus, wobei
 wir annehmen, dass die <span class="math notranslate nohighlight">\(N/2+1\)</span> Werte in <code class="docutils literal notranslate"><span class="pre">H_halb</span></code> gespeichert sind.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="8fc60e4b-8071-4959-9832-2f01c37ed718" name="999645cb-7085-4b85-bdd9-16e7787911e5" type="radio">
-</input><label class="sd-tab-label" for="8fc60e4b-8071-4959-9832-2f01c37ed718">
+<input checked="checked" id="d49d3a60-3bbf-4930-8faf-a02a782c2fcc" name="bda2b842-67d0-4d1e-af46-ba5bf350e1dc" type="radio">
+</input><label class="sd-tab-label" for="d49d3a60-3bbf-4930-8faf-a02a782c2fcc">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">H_voll</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">H_halb</span><span class="w"> </span><span class="nb">conj</span><span class="p">(</span><span class="n">H_halb</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="2d8c831a-e8cd-4c0f-8460-44077f5fd598" name="999645cb-7085-4b85-bdd9-16e7787911e5" type="radio">
-</input><label class="sd-tab-label" for="2d8c831a-e8cd-4c0f-8460-44077f5fd598">
+<input id="b11049d2-9f28-4729-83f2-651b6bc02f40" name="bda2b842-67d0-4d1e-af46-ba5bf350e1dc" type="radio">
+</input><label class="sd-tab-label" for="b11049d2-9f28-4729-83f2-651b6bc02f40">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">H_halb_c</span> <span class="o">=</span> <span class="n">H_halb</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">}]</span>
     <span class="n">H_voll</span> <span class="o">=</span> <span class="n">H_halb</span> <span class="o">+</span> <span class="n">H_halb_c</span>
@@ -1978,8 +1978,8 @@ bekanntesten Fenster-Funktionen angegeben werden<a class="footnote-reference bra
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="b92eda9b-07db-4113-91cd-979dadaeb695" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
-</input><label class="sd-tab-label" for="b92eda9b-07db-4113-91cd-979dadaeb695">
+<input checked="checked" id="ed36265e-47fd-4b59-8290-abbf87d228d9" name="ec288382-acef-4e79-8068-aa185d4670a3" type="radio">
+</input><label class="sd-tab-label" for="ed36265e-47fd-4b59-8290-abbf87d228d9">
 von Hann</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>von Hann-Fenster (oft fälschlich Hanning):</strong> Für das Hann-Fenster ist
@@ -1997,8 +1997,8 @@ stärker bedämpft.</p></li>
 </figcaption>
 </figure>
 </div>
-<input id="730e4152-af58-4340-ac19-100de670c3d0" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
-</input><label class="sd-tab-label" for="730e4152-af58-4340-ac19-100de670c3d0">
+<input id="9151a769-d43a-4751-afe6-5328def99a3a" name="ec288382-acef-4e79-8068-aa185d4670a3" type="radio">
+</input><label class="sd-tab-label" for="9151a769-d43a-4751-afe6-5328def99a3a">
 Hamming</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Hamming-Fenster:</strong> Für das Hamming-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0{,}54\)</span>,
@@ -2017,8 +2017,8 @@ Hann-Fensters <span class="math notranslate nohighlight">\(4\pi/N\)</span>.</p><
 </figcaption>
 </figure>
 </div>
-<input id="048bc9c8-aead-45a1-b0d4-19b5f11b0ee8" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
-</input><label class="sd-tab-label" for="048bc9c8-aead-45a1-b0d4-19b5f11b0ee8">
+<input id="b76ed224-a65d-40ba-bdf3-749cf9b1f582" name="ec288382-acef-4e79-8068-aa185d4670a3" type="radio">
+</input><label class="sd-tab-label" for="b76ed224-a65d-40ba-bdf3-749cf9b1f582">
 Blackman</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Blackman-Fenster:</strong> Für das Blackman-Fenster ist <span class="math notranslate nohighlight">\(\alpha = 0{,}42\)</span>,
@@ -2035,8 +2035,8 @@ der Abfall der weiteren Nebenmaxima ist sehr hoch.</p></li>
 </figcaption>
 </figure>
 </div>
-<input id="ee80e5ba-3997-4bd0-989b-d7d70e8f83df" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
-</input><label class="sd-tab-label" for="ee80e5ba-3997-4bd0-989b-d7d70e8f83df">
+<input id="4ddb8422-24ea-4d2b-98fe-6cdfaa4bd478" name="ec288382-acef-4e79-8068-aa185d4670a3" type="radio">
+</input><label class="sd-tab-label" for="4ddb8422-24ea-4d2b-98fe-6cdfaa4bd478">
 Dolph-Tschebyscheff</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Dolph-Tschebyscheff-Fenster:</strong> Im Gegensatz zu den anderen Fenstern
@@ -2056,8 +2056,8 @@ Dolph-Tschebyscheff-Fensters</span><a class="headerlink" href="#fig-chebwindow" 
 </figcaption>
 </figure>
 </div>
-<input id="bd63a680-21e0-4318-be42-73f65c27db5f" name="71844079-6ca5-43c0-b536-1118ac69c522" type="radio">
-</input><label class="sd-tab-label" for="bd63a680-21e0-4318-be42-73f65c27db5f">
+<input id="16685bef-caeb-4796-a5d8-9cf08d9f1b77" name="ec288382-acef-4e79-8068-aa185d4670a3" type="radio">
+</input><label class="sd-tab-label" for="16685bef-caeb-4796-a5d8-9cf08d9f1b77">
 Kaiser-Fester</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Kaiser-Fenster:</strong> Auch das Kaiser-Fenster ist mit Hilfe des

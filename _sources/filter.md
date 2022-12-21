@@ -21,7 +21,7 @@ Frequenzanteile aus dem Signal verändern, also zu verstärken, abzuschwächen o
 Alle nicht-trivialen LTI-Systeme erzeugen eine Filterwirkung, trotzdem
 werden nicht alle LTI-Systeme als Filter bezeichnet, wenn das Ziel beim
 Entwurf nicht die Filterwirkung sondern irgendeine andere Eigenschaft
-ist. Ein Beipiel sei die Berechnung des gleitenden Mittelwertes eines Signals. berechnen. Eine solches
+ist. Ein Beipiel sei die Berechnung des gleitenden Mittelwertes eines Signals. Eine solches
 System ist automatisch auch ein Filter, wird aber trotzdem nicht
 unbedingt als solches bezeichnet. In vielen Fällen ist die Filterwirkung
 sogar ein unerwünschter Nebeneffekt.
@@ -610,7 +610,7 @@ Eine weitere besondere Klasse an FIR-Filtern sind sogenannte
 minimalphasige Filter. Das heisst, dieses Filter realisiert eine
 bestimmte Betragsübertragungsfunktion mit der minimalen Phase.  
 Es zeigt sich dass sich dieser Filtertyp genau dann ergibt, wenn alle Nullstellen
-innerhalb der Einheitskreises liegen. Eine Realisierung ist also entweder
+innerhalb des Einheitskreises liegen. Eine Realisierung ist also
 über ein Berechnen aller Nullstellen und deren Spiegelung am
 Einheitskreis möglich, da sich so nur die Phase aber nicht das
 Betragsverhalten ändert. Die Zerlegung von Filtern sehr hoher
@@ -1127,8 +1127,8 @@ Filter-Routinen zurückgreifen möchte.
 
 +++
 
-(sec:IIR-Filterdesign)=
-### IIR-Filterdesign
+(sec:IIR-Filterdesignmethoden)=
+### klassische IIR-Filterdesignmethoden
 
 Der Entwurf von IIR-Filtern erfolgt historisch bedingt etwas anders.
 Rekursive Filter sind sehr viel enger mit analogen Filtern verwandt.

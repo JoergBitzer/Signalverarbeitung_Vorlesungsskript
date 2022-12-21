@@ -20,7 +20,7 @@ Da Signale sehr unterschiedlicher Natur sein können, ist zur Beschreibung eine 
 Klassifikation nützlich.
 
 Um die einzelnen Signalklassen zu entwickeln, können als
-Beispiele natürliche Signale hearngezogen werden:
+Beispiele natürliche Signale herangezogen werden:
 
 - Sprache: Das wesentliche Signal der menschlichen Kommunikation.
 
@@ -247,7 +247,7 @@ Diese beiden Teilaufgaben werden
 
 genannt.
 
-Es folgt zunächst nur eine pragmatische Betrachtungen. Die theoretischen
+Es folgt zunächst nur eine pragmatische Betrachtung. Die theoretischen
 Hintergründe können erst nach der Einführung weiterer Analysekonzepte erläutert werden.
 
 (sec:Abtastung)=
@@ -293,10 +293,10 @@ Welche Abtastfrequenz ist notwendig um eine vollständige Rekonstruktion, also e
 ```
 
 Um dies zu veranschaulichen, sind in der {numref}`Abbildung %s <plt:AbtastungErklaerung2>`
-verschiedene Sinustöne gezeigt, die bei gleichbleibender Abtastrate abgetastet werden. Es wird deutlich dass, sehr tiefe Frequenzen besonders gut dargestellt werden (a), je höher die Frequenzen werden, desto weniger Abtastwerte
+verschiedene Sinustöne gezeigt, die bei gleichbleibender Abtastrate abgetastet werden. Es wird deutlich, dass sehr tiefe Frequenzen besonders gut dargestellt werden (a), je höher die Frequenzen werden, desto weniger Abtastwerte
 repräsentieren die analoge Funktion (b,c).  
 Ist die Frequenz des Sinus genau halb so hoch kann die Funktion gar nicht mehr erkannt werden, da sich eine Konstante ergibt (d).  
-Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte genau den Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (f) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird **Aliasing** genannt.
+Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte genau den Abtastwerten einer niedrigeren Frequenz, z.B. führt in (f) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (e) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird **Aliasing** genannt.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -309,7 +309,7 @@ Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte gena
 :figwidth: 100%
 :name: "plt:AbtastungErklaerung2"
 
-Sinusabtastung mit unterschiedlichen Abtastfrequenzen.
+Sinusabtastung mit unterschiedlichen Abtastfrequenzen. Auffällig sind die identischen Abtastwerte trotz unterschiedlicher Signale bei (c) und (e) bzw. (d) und (f).
 ```
 ````
 ````{tab-item} Interaktiv arbeiten
@@ -421,7 +421,7 @@ dies eine Abkürzung für $x(kT)$ ist.
 (sec:quantisierung)=
 ### Quantisierung
 
-Der zweite notwendige Schritt zu einem digitale Signal, ist die zeitdiskreten Werte
+Der zweite notwendige Schritt zu einem digitalen Signal, ist die zeitdiskreten Werte
 zusätzlich im Wertebereich zu diskretisieren.
 Dazu ist es notwendig, eine bestimmte Auflösung und einen bestimmten abzudeckenden Wertebereich festzulegen.
 Da wir die Signale digital speichern ist die Auflösung immer in 2er Potenzen angegeben.
@@ -1122,7 +1122,6 @@ $$
     P_x & = & \lim_{T\rightarrow \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} |A \sin(t)|^2 \text{d}t\\
     & = & \frac{1}{2\pi} \int_{-\pi}^{\pi} A^2 \sin^2(t) \text{d}t\\
     & = & \frac{A^2}{2\pi} \left( \frac{1}{2}t - \frac{1}{4} \sin (2t) \right)\Bigg]_{-\pi}^{\pi}\\
-    & = & \frac{A^2}{2\pi} \left( \frac{1}{2}t - \frac{1}{4} \sin (2t)\right)\Bigg]_{-\pi}^{\pi} \\
     & = & \frac{A^2}{2\pi} \left( \frac{1}{2} \pi + \frac{1}{2} \pi \right) \\
     & = & \frac{A^2}{2}
 \end{eqnarray}

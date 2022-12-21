@@ -621,7 +621,7 @@ mathematische Beschreibung von Signalen zu entwickeln.
 Da Signale sehr unterschiedlicher Natur sein können, ist zur Beschreibung eine grobe
 Klassifikation nützlich.</p>
 <p>Um die einzelnen Signalklassen zu entwickeln, können als
-Beispiele natürliche Signale hearngezogen werden:</p>
+Beispiele natürliche Signale herangezogen werden:</p>
 <ul class="simple">
 <li><p>Sprache: Das wesentliche Signal der menschlichen Kommunikation.</p></li>
 </ul>
@@ -802,8 +802,8 @@ Größen als Signale interpretieren:</p>
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="5d91c859-41df-48e5-bc77-8b8db46008c3" name="2702da09-ce97-4412-97c7-827ee80673a0" type="radio">
-</input><label class="sd-tab-label" for="5d91c859-41df-48e5-bc77-8b8db46008c3">
+<input checked="checked" id="fef20fae-d82c-4c9b-8a2e-b3968e323f97" name="3417a22d-a79c-4747-bdb9-820dd1503564" type="radio">
+</input><label class="sd-tab-label" for="fef20fae-d82c-4c9b-8a2e-b3968e323f97">
 Buchabbildung</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="plt-verkehrsampel" style="width: 75%">
 <div class="cell_output docutils container">
@@ -814,8 +814,8 @@ Buchabbildung</label><div class="sd-tab-content docutils">
 </figcaption>
 </figure>
 </div>
-<input id="fa1c3534-b9d7-4ba1-9cbc-f0d18ad181ed" name="2702da09-ce97-4412-97c7-827ee80673a0" type="radio">
-</input><label class="sd-tab-label" for="fa1c3534-b9d7-4ba1-9cbc-f0d18ad181ed">
+<input id="69de2c25-7c25-41b8-a29e-bc690c527d15" name="3417a22d-a79c-4747-bdb9-820dd1503564" type="radio">
+</input><label class="sd-tab-label" for="69de2c25-7c25-41b8-a29e-bc690c527d15">
 Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Ampel.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code>.</p></li>
@@ -1035,7 +1035,7 @@ Dazu sind zwei Schritte notwendig. Die Umwandlung zeitkontinuierlicher Signale i
 <li><p>Quantisierung (<em>Quantization</em>)</p></li>
 </ul>
 <p>genannt.</p>
-<p>Es folgt zunächst nur eine pragmatische Betrachtungen. Die theoretischen
+<p>Es folgt zunächst nur eine pragmatische Betrachtung. Die theoretischen
 Hintergründe können erst nach der Einführung weiterer Analysekonzepte erläutert werden.</p>
 <section id="abtastung">
 <span id="sec-abtastung"></span><h3><span class="section-number">2.2.1. </span>Abtastung<a class="headerlink" href="#abtastung" title="Permalink to this headline">#</a></h3>
@@ -1071,10 +1071,10 @@ die digitale Repräsentation dem analogen Original entspricht. Insbesondere, wen
 <p>Welche Abtastfrequenz ist notwendig um eine vollständige Rekonstruktion, also eine verlustlose Diskretisierung eines Signals, zu erreichen.</p>
 </div>
 <p>Um dies zu veranschaulichen, sind in der <a class="reference internal" href="#plt-abtastungerklaerung2"><span class="std std-numref">Abbildung 2.6</span></a>
-verschiedene Sinustöne gezeigt, die bei gleichbleibender Abtastrate abgetastet werden. Es wird deutlich dass, sehr tiefe Frequenzen besonders gut dargestellt werden (a), je höher die Frequenzen werden, desto weniger Abtastwerte
+verschiedene Sinustöne gezeigt, die bei gleichbleibender Abtastrate abgetastet werden. Es wird deutlich, dass sehr tiefe Frequenzen besonders gut dargestellt werden (a), je höher die Frequenzen werden, desto weniger Abtastwerte
 repräsentieren die analoge Funktion (b,c).<br />
 Ist die Frequenz des Sinus genau halb so hoch kann die Funktion gar nicht mehr erkannt werden, da sich eine Konstante ergibt (d).<br />
-Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte genau den Abtastwerten einer niedrigeren Frequenz, z.B. führt in (e) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (f) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird <strong>Aliasing</strong> genannt.</p>
+Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte genau den Abtastwerten einer niedrigeren Frequenz, z.B. führt in (f) die Verdoppelung ebenfalls auf eine Nullfolge. Betrachtet man nur die Folge der Abtastwerte (gut in (e) zu sehen) und nicht die Zeitpunkte des Auftretens (diese Information ist nach einer Abtastung nicht mehr vorhanden), so kommt es zu Doppeldeutigkeiten. Dieser Effekt wird <strong>Aliasing</strong> genannt.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -1204,10 +1204,10 @@ Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte gena
             <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">4</span><span class="p">):</span>
-            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
         
         <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">5</span><span class="p">):</span>
-            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">ax_sin</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         
         <span class="n">graph</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">sin_t</span><span class="p">)</span>
         <span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dt</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">sin_dt</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
@@ -1230,20 +1230,20 @@ Erhöht man die Frequenz des Sinus noch weiter, entsprechen die Abtastwerte gena
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="af163958-09e5-4231-8a05-ee7d4dcf034c" name="67a4c4c8-7ff7-42b7-99bb-368cd8396504" type="radio">
-</input><label class="sd-tab-label" for="af163958-09e5-4231-8a05-ee7d4dcf034c">
+<input checked="checked" id="2d99de87-9a75-4ead-8679-eeaa1185369f" name="573c6682-4948-4030-9ca9-49e8c28eed3d" type="radio">
+</input><label class="sd-tab-label" for="2d99de87-9a75-4ead-8679-eeaa1185369f">
 Buchabbildung</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="plt-abtastungerklaerung2" style="width: 100%">
 <div class="cell_output docutils container">
 <img alt="_images/signale_11_1.png" src="_images/signale_11_1.png" />
 </div>
 <figcaption>
-<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Sinusabtastung mit unterschiedlichen Abtastfrequenzen.</span><a class="headerlink" href="#plt-abtastungerklaerung2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Sinusabtastung mit unterschiedlichen Abtastfrequenzen. Auffällig sind die identischen Abtastwerte trotz unterschiedlicher Signale bei (c) und (e) bzw. (d) und (f).</span><a class="headerlink" href="#plt-abtastungerklaerung2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
-<input id="41546f01-48d8-443f-9546-1b48a9c0750b" name="67a4c4c8-7ff7-42b7-99bb-368cd8396504" type="radio">
-</input><label class="sd-tab-label" for="41546f01-48d8-443f-9546-1b48a9c0750b">
+<input id="cf0982db-77e1-46d7-a083-bec07d67bb41" name="573c6682-4948-4030-9ca9-49e8c28eed3d" type="radio">
+</input><label class="sd-tab-label" for="cf0982db-77e1-46d7-a083-bec07d67bb41">
 Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Abtastung_Sinusfrequenz_einstellen.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code>.</p></li>
@@ -1431,8 +1431,8 @@ Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="98f4e4c8-ae97-418e-a1bd-e337a63a1baf" name="592b4bb1-55b8-4536-9872-4d2bb4295f4e" type="radio">
-</input><label class="sd-tab-label" for="98f4e4c8-ae97-418e-a1bd-e337a63a1baf">
+<input checked="checked" id="66872579-e25c-447a-9820-830b9819092c" name="20cdfeb1-6b81-465f-b542-e43986f012e2" type="radio">
+</input><label class="sd-tab-label" for="66872579-e25c-447a-9820-830b9819092c">
 Buchabbildung</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="plt-abtastungerklaerung3" style="width: 100%">
 <div class="cell_output docutils container">
@@ -1443,8 +1443,8 @@ Buchabbildung</label><div class="sd-tab-content docutils">
 </figcaption>
 </figure>
 </div>
-<input id="7e3a9173-949a-4c1a-ab4f-33320998441d" name="592b4bb1-55b8-4536-9872-4d2bb4295f4e" type="radio">
-</input><label class="sd-tab-label" for="7e3a9173-949a-4c1a-ab4f-33320998441d">
+<input id="777574ee-9a37-4bd5-b39f-b80803072f8b" name="20cdfeb1-6b81-465f-b542-e43986f012e2" type="radio">
+</input><label class="sd-tab-label" for="777574ee-9a37-4bd5-b39f-b80803072f8b">
 Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Abtastfrequenz_einstellen.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs</span></code>.</p></li>
@@ -1502,7 +1502,7 @@ dies eine Abkürzung für <span class="math notranslate nohighlight">\(x(kT)\)</
 </section>
 <section id="quantisierung">
 <span id="sec-quantisierung"></span><h3><span class="section-number">2.2.2. </span>Quantisierung<a class="headerlink" href="#quantisierung" title="Permalink to this headline">#</a></h3>
-<p>Der zweite notwendige Schritt zu einem digitale Signal, ist die zeitdiskreten Werte
+<p>Der zweite notwendige Schritt zu einem digitalen Signal, ist die zeitdiskreten Werte
 zusätzlich im Wertebereich zu diskretisieren.
 Dazu ist es notwendig, eine bestimmte Auflösung und einen bestimmten abzudeckenden Wertebereich festzulegen.
 Da wir die Signale digital speichern ist die Auflösung immer in 2er Potenzen angegeben.
@@ -1870,6 +1870,7 @@ Um die anderen Parameter etwas zu verdeutlichen, sind in <a class="reference int
 <span class="n">ax_freq</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">freq</span> <span class="o">+</span> <span class="n">phase</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
 <span class="n">ax_phase</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sin_t</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax_phase</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">+</span> <span class="n">phase</span><span class="o">*</span><span class="mi">2</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">ax_empty</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
           
 <span class="n">ax_ampl</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Zeit is s&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> 
         <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amplitude</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="mf">0.5</span><span class="o">*</span><span class="n">amplitude</span><span class="si">}</span><span class="s1"> Amplitude&#39;</span><span class="p">,</span> 
@@ -1892,8 +1893,8 @@ Um die anderen Parameter etwas zu verdeutlichen, sind in <a class="reference int
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="dcc2a54d-a1c1-4de6-b8a1-fc9b54de1b8b" name="f6c4470d-b9e6-44db-8099-60d275a7c9c6" type="radio">
-</input><label class="sd-tab-label" for="dcc2a54d-a1c1-4de6-b8a1-fc9b54de1b8b">
+<input checked="checked" id="7702eaea-aa50-4e84-aa8a-8939056ad6f6" name="679e000d-9917-4a17-8f30-88db7da895b4" type="radio">
+</input><label class="sd-tab-label" for="7702eaea-aa50-4e84-aa8a-8939056ad6f6">
 Buchabbildung</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="plt-sinewave" style="width: 100%">
 <div class="cell_output docutils container">
@@ -1904,8 +1905,8 @@ Buchabbildung</label><div class="sd-tab-content docutils">
 </figcaption>
 </figure>
 </div>
-<input id="5d40cea4-f2aa-491a-97d4-46c7c069aab2" name="f6c4470d-b9e6-44db-8099-60d275a7c9c6" type="radio">
-</input><label class="sd-tab-label" for="5d40cea4-f2aa-491a-97d4-46c7c069aab2">
+<input id="ee24c126-22b5-4673-b6b1-87ba1f5be4fd" name="679e000d-9917-4a17-8f30-88db7da895b4" type="radio">
+</input><label class="sd-tab-label" for="ee24c126-22b5-4673-b6b1-87ba1f5be4fd">
 Interaktiv arbeiten</label><div class="sd-tab-content docutils">
 <ol class="simple">
 <li><p>Starten des interaktiven Programms - <code class="docutils literal notranslate"><span class="pre">Signale_Sinus_einstellen.py</span></code> in <code class="docutils literal notranslate"><span class="pre">jupyterbook/code/interactive_programs/</span></code></p></li>
@@ -2853,7 +2854,6 @@ Die Leistung aller Energiesignale ist null, da der Nenner im Bruch vor der Summe
     P_x &amp; = &amp; \lim_{T\rightarrow \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} |A \sin(t)|^2 \text{d}t\\
     &amp; = &amp; \frac{1}{2\pi} \int_{-\pi}^{\pi} A^2 \sin^2(t) \text{d}t\\
     &amp; = &amp; \frac{A^2}{2\pi} \left( \frac{1}{2}t - \frac{1}{4} \sin (2t) \right)\Bigg]_{-\pi}^{\pi}\\
-    &amp; = &amp; \frac{A^2}{2\pi} \left( \frac{1}{2}t - \frac{1}{4} \sin (2t)\right)\Bigg]_{-\pi}^{\pi} \\
     &amp; = &amp; \frac{A^2}{2\pi} \left( \frac{1}{2} \pi + \frac{1}{2} \pi \right) \\
     &amp; = &amp; \frac{A^2}{2}
 \end{eqnarray}
