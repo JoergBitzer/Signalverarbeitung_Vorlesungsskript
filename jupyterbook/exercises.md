@@ -351,9 +351,11 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 
     Die Zeichnung des Betrags wurde durch
 
-    $ om = 0:0.01:pi; $\
-    $ Habs = B+2*A.*cos((N+1)*om); $\
-    $ h = plot(om/pi,(abs(Habs)),'b'); $\
+    ` om = np.arange(0,np.pi,0.01) `
+
+    ` Habs = B + 2*A*np.cos((N+1)*om) `
+
+    ` plt.plot(om/np.pi,abs(Habs)) `
 
     implementiert:
 
