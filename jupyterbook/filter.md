@@ -718,7 +718,7 @@ IIR-Filter Struktur in Direkt Form I.
 +++
 
 Diese sehr grundlegende Struktur, die die Differenzengleichung
-geradlinig umsetzt wird als Direkt Form I bezeichnet. Sie ist einfach gängigen Programmiersprachen 
+geradlinig umsetzt, wird als Direkt Form I bezeichnet. Sie ist einfach gängigen Programmiersprachen 
 umzusetzen. Problematisch ist aber, dass bei einer
 höheren Ordnung $N>8$ numerische Probleme auftreten, da bei vielen
 Filterentwürfen Filterkoeffizienten herauskommen, die im Zahlenbereich
