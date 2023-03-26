@@ -14,7 +14,7 @@ kernelspec:
 (sec:exercises)=
 # Übungen
 
-Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgaben. Die Übungen sind nach den Buchkapiteln sortiert, zum Teil ergeben sich thematische Überschneidungen. Zu jedem Kapitel gibt es Übungen zur *Wiederholung des Stoffes und einfache Rechenaufgaben*, gefolgt von Aufgaben (auf Klausurniveau) und Programmieraufgaben. Einige Programmieraufgaben sind noch für Matlab formuliert, eine Anpassung für Python folgt in Zukunft.
+Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgaben. Die Übungen sind nach den Buchkapiteln sortiert, zum Teil ergeben sich thematische Überschneidungen. Zu jedem Kapitel gibt es Übungen zur *Wiederholung des Stoffes und einfache Rechenaufgaben*, gefolgt von Aufgaben (auf Klausurniveau) und Programmieraufgaben. Noch mehr Programmieraufgaben mit Lösungen finden Sie auf GitLab: [Pythonübungen](https://gitlab.gwdg.de/joerg.bitzer/sv_pythonuebungen).
 
 
 ## Signale
@@ -42,6 +42,15 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 
 ### Aufgaben (Auf Klausurniveau)
 1.  Wie hoch ist die Leistung eines mittelwertfreien Dreieckssignals mit der Amplitude A?
+
+2. Sie wollen eine Rechteck-Schwingung mit Aliasing erzeugen. Die Grundfrequenz ist 2000 Hz bei einer   
+    Abtastrate von 24000 Hz. Amplitude = 2.
+
+    a) Zeichnen Sie den Signalverlauf (als durchgezogene Linie und als Abtastwerte mit Kreuzen als Marker) für 2 Perioden der Schwingung. Beschriften Sie die Achsen (y-Achse mit Zeit in ms).
+
+    b) Zeichnen Sie  das Spektrum bis $f_s/2$. (Nutzen Sie folgende Maßstabsgrößen 1kHz = 1 cm, Amplitude 1 = 4cm)
+
+    c) Was wäre der wesentliche Unterschied im Spektrum bei einer Generierung mit einer Aliasing-freien Methode?
 
 
 ### Programmieraufgaben
@@ -129,7 +138,7 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 
 4.  Erzeugen Sie kurze Sequenzen mit $T = 12$ Werten um die oben
     gezeigten Signale zu approximieren. Überprüfen Sie Ihre Ergebnisse
-    mit dem `conv`-Befehl.
+    mit dem `numpy.convolve`-Befehl.
 
 
 
@@ -217,17 +226,7 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 
 2.  Programmieren Sie eine Funktion, die einen Pol-Nullstellenplan
     zeichnet und zusätzlich im Titel den $b_0$-Koeffizienten ausgibt.
-    Nutzen Sie als Anhaltspunkt die `zplane` Funktion von Matlab.
-    Hinweis: Sie benötigen den `axis` Befehl um eine quadratische Grafik
-    aufzubauen (siehe help). Sie sollten die `mpoles` Funktion nutzen,
-    um Mehrfach Null- bzw. Polstellen herauszufinden.
-
-3.  Schreiben Sie eine Funktion, die es ermöglicht Systeme durch eine
-    grafische Eingabe mit der Maus zu definieren. Zeichnen Sie dazu den
-    Einheitskreis in eine figure. Hinweis: Sie benötigen den `ginput`
-    Befehl für die Maus-Eingabe und `axis`, um eine quadratische Grafik
-    zu erzeugen.
-
+    Achten Sie auf mehrfach Null- bzw. Polstellen und kennzeichnen Sie diese mit einer Zahl im PN-Plan.
 
 
 
@@ -352,9 +351,11 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
 
     Die Zeichnung des Betrags wurde durch
 
-    $ om = 0:0.01:pi; $\
-    $ Habs = B+2*A.*cos((N+1)*om); $\
-    $ h = plot(om/pi,(abs(Habs)),'b'); $\
+    ` om = np.arange(0,np.pi,0.01) `
+
+    ` Habs = B + 2*A*np.cos((N+1)*om) `
+
+    ` plt.plot(om/np.pi,abs(Habs)) `
 
     implementiert:
 
@@ -474,8 +475,50 @@ Dieser Abschnitt enthält eine Sammlung an Wiederholungsfragen und Übungsaufgab
     name: fig:FIR_zweiterOrdnung
     ```
 
+6.  Gegeben ist das folgende Blockschaltbild:
+    ```{figure} ../images/psUeb/SOS_System1.png
+    ---
+    width: 70%
+    ---
+    ```
+    a)  Zeichnen Sie den dazugehörigen Pol-Nullstellenplan.
+
+    b)  Zeichnen Sie Betrag und Phase (Übertragungsfkt bis $f_s/2$).
+
+    c)  Nehmen Sie an $x(k) = 2$ (Gleichstrom). Welchen Wert hat dann der Ausgang $y(k)$?
+
+7.  Sie messen das folgende Betragsspektrum bei einer Samplingrate von 8kHz
+    (Die x-Achse hier ist normiert auf 1 = 4kHz) eines großen Schallkörpers.
+
+    Sie wissen der Körper hat 2 Resonanzen (Spektrale Verstärkung) und zwei Anti-Resonanzen (spektrale Abschwächung). Die Impulsantwort hat Ihren Schwerpunkt nicht zu Beginn. Sie schließen daraus, dass der Körper ein maximalphasiges Verhalten zeigt.
+
+    ```{figure} ../images/psUeb/Spectrum1a.png
+    ---
+    width: 80%
+    ---
+    ```
+
+    a) Zeichnen Sie ein Pol/ Nullstellen-Diagramm. Als Radien stehen Ihnen [1; 9/10; 8/10; 10/9; 10/8;] zur Verfügung (Mehrfachnutzung möglich).
+
+    b) Wie würden Sie das System in Python modellieren und wie würde der Code aussehen, wenn Ihr Anregungssignal eine 1s lange Impulsfolge sein soll mit der Frequenz von 250 Hz.
+
+    c) Zeichnen Sie das Spektrum des Ausgangs des Systems (Hand oder Python-Figure) bei diesem Eingangssignal. Zeichnen Sie groß (bei Handzeichnung) (1000 Hz = 4cm)
+
+    d) Wie sähe das Blockschaltbild in SOS Struktur aus (gezeichnet in Direkt Form 2)?
+
+    (24 Punkte)
+
 
 ### Programmieraufgaben
+
+1. Sie sehen das folgende gestörte Signal. Schreiben Sie ein kleines Programm in Python, dass die Schwingung möglichst gut extrahiert. Nehmen Sie an, dass die Samplingrate 2 kHz ist.
+
+    Plotten Sie die extrahierte Schwingung.
+
+    Zusatzaufgabe: Generieren Sie das hier gezeigte gestörte Signal.
+
+    ```{figure} ../images/psUeb/Signal25_noisy.png
+    ```
 
 1.  Realisieren Sie eine Funktion, die die Koeffizienten eines mit der
     Fenstermethode entworfenen Tiefpasses zurückgibt. Als
