@@ -4,7 +4,7 @@
 # Signalverarbeitung 1
 
 
-Vorlesungsskript WS 2022 / 2023
+Vorlesungsskript WS 2023 / 2024
 
 Autor: Prof. Dr. Jörg Bitzer  
 01.10.2022  
